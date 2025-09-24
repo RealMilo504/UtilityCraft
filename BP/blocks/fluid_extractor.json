@@ -101,7 +101,8 @@
 			"minecraft:destructible_by_explosion": false,
 			"tag:dorios:fluid": {},
 			"tag:dorios:isTube": {},
-			"tag:dorios:isExporter": {}
+			"tag:dorios:isExporter": {},
+            "tag:minecraft_is_pickaxe_item_destructible": {}
 		},
 		"permutations": [
 			{

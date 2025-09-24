@@ -59,7 +59,8 @@
 				"seconds_to_destroy": 1
 			},
 			"minecraft:destructible_by_explosion": false,
-			"tag:dorios:fluid": {}
+			"tag:dorios:fluid": {},
+            "tag:minecraft_is_pickaxe_item_destructible": {}
 		},
 		"permutations": [
 			{

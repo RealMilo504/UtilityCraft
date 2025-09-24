@@ -91,7 +91,8 @@
 						"*": {
 							"texture": "utilitycraft_bonsai_grass",
 							"render_method": "opaque"
-						}
+						},
+            "tag:minecraft_is_pickaxe_item_destructible": {}
 					},
 					"minecraft:tick": {
 						"interval_range": [

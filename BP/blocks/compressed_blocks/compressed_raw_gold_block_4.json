@@ -1,5 +1,5 @@
 	{
-	"format_version": "1.19.50",
+	"format_version": "1.21.100",
 	"minecraft:block": {
 		"description": {
 			"identifier": "utilitycraft:compressed_raw_gold_block_4",
@@ -17,7 +17,8 @@
 			},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 1.4
-			}
+			},
+            "tag:minecraft_is_pickaxe_item_destructible": {}
 		}
 	}
 }

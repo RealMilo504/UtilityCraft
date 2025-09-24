@@ -50,7 +50,8 @@
 			},
 			"minecraft:destructible_by_explosion": false,
 			"tag:dorios:energy": {},
-			"tag:dorios:item": {}
+			"tag:dorios:item": {},
+            "tag:minecraft_is_pickaxe_item_destructible": {}
 		},
 		"permutations": [
 			{

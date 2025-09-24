@@ -1,5 +1,5 @@
 	{
-	"format_version": "1.19.50",
+	"format_version": "1.21.100",
 	"minecraft:block": {
 		"description": {
 			"identifier": "utilitycraft:compressed_sand_3",
