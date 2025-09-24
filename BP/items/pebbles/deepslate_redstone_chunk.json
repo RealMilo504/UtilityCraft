@@ -1,0 +1,11 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "twm:deepslate_redstone_chunk"
+		},
+		"components": {
+			"minecraft:icon": "twm_deepslate_redstone_chunk"
+		}
+	}
+}

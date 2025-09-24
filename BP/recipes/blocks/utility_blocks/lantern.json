@@ -1,0 +1,47 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:lantern"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"T": {
+				"item": "twm:big_torch"
+			},
+			"G": {
+				"item": "glowstone"
+			},
+			"I": {
+				"item": "iron_ingot"
+			},
+			"M": {
+				"item": "iron_bars"
+			}
+		},
+		"pattern": [
+			"MIM",
+			"TGT",
+			"MIM"
+		],
+		"result": {
+			"item": "twm:lantern"
+		},
+		"unlock": [
+			{
+				"item": "twm:big_torch"
+			},
+			{
+				"item": "minecraft:glowstone"
+			},
+			{
+				"item": "minecraft:iron_ingot"
+			},
+			{
+				"item": "minecraft:iron_bars"
+			}
+		]
+	}
+}

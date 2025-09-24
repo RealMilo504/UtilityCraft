@@ -1,0 +1,11 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "twm:dirt_handful"
+		},
+		"components": {
+			"minecraft:icon": "twm_dirt_handful"
+		}
+	}
+}

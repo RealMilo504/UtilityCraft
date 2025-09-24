@@ -1,0 +1,30 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:dchunk_to_diamond"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"P": {
+				"item": "twm:deepslate_diamond_chunk"
+			}
+		},
+		"pattern": [
+			"PP"
+		],
+		"result": {
+			"item": "minecraft:diamond"
+		},
+		"unlock": [
+			{
+				"item": "twm:deepslate_diamond_chunk"
+			},
+			{
+				"item": "minecraft:diamond"
+			}
+		]
+	}
+}

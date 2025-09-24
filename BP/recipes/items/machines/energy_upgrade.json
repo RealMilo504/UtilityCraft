@@ -1,0 +1,38 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "twm:energy_upgrade"
+        },
+        "tags": [
+            "twm_workbench"
+        ],
+        "pattern": [
+            "SDS",
+            "DBD",
+            "SRS"
+        ],
+        "key": {
+            "B": {
+                "item": "twm:base_upgrade"
+            },
+            "D": {
+                "item": "twm:diamond_dust"
+            },
+            "R": {
+                "item": "minecraft:redstone_block"
+            },
+            "S": {
+                "item": "twm:steel_plate"
+            }
+        },
+        "result": {
+            "item": "twm:energy_upgrade"
+        },
+        "unlock": [
+            {
+                "item": "twm:base_upgrade"
+            }
+        ]
+    }
+}

@@ -1,0 +1,20 @@
+{
+	"format_version": "1.20.0",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:spawner_core",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.twm_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_spawner_core",
+					"render_method": "alpha_test"
+				}
+			}
+		}
+	}
+}

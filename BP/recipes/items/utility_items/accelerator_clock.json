@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:accelerator_clock"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"C": {
+				"item": "clock"
+			},
+			"D": {
+				"item": "diamond_block"
+			},
+			"G": {
+				"item": "gold_block"
+			}
+		},
+		"pattern": [
+			"DGD",
+			"GCG",
+			"DGD"
+		],
+		"result": {
+			"item": "twm:accelerator_clock"
+		},
+		"unlock": [
+			{
+				"item": "clock"
+			},
+			{
+				"item": "diamond_block"
+			},
+			{
+				"item": "gold_block"
+			}
+		]
+	}
+}

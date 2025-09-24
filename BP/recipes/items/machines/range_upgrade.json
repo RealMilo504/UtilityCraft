@@ -1,0 +1,41 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "twm:range_upgrade"
+        },
+        "tags": [
+            "twm_workbench"
+        ],
+        "pattern": [
+            "SES",
+            "RBR",
+            "SGS"
+        ],
+        "key": {
+            "B": {
+                "item": "twm:base_upgrade"
+            },
+            "E": {
+                "item": "minecraft:blue_dye"
+            },
+            "G": {
+                "item": "minecraft:gold_ingot"
+            },
+            "R": {
+                "item": "minecraft:redstone"
+            },
+            "S": {
+                "item": "twm:steel_plate"
+            }
+        },
+        "result": {
+            "item": "twm:range_upgrade"
+        },
+        "unlock": [
+            {
+                "item": "twm:base_upgrade"
+            }
+        ]
+    }
+}

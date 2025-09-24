@@ -1,0 +1,144 @@
+{
+    "pools": [
+        {
+            "rolls": 2,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:prismarine_shard",
+                    "weight": 40
+                },
+                {
+                    "type": "empty",
+                    "weight": 960
+                }
+            ]
+        },
+        {
+            "rolls": 2,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:prismarine_crystals",
+                    "weight": 40
+                },
+                {
+                    "type": "empty",
+                    "weight": 960
+                }
+            ]
+        },
+        {
+            "rolls": 2,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:raw_copper",
+                    "weight": 25
+                },
+                {
+                    "type": "empty",
+                    "weight": 975
+                }
+            ]
+        },
+        {
+            "rolls": 2,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:bone_meal",
+                    "weight": 20
+                },
+                {
+                    "type": "empty",
+                    "weight": 980
+                }
+            ]
+        },
+        {
+            "rolls": 2,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:redstone",
+                    "weight": 13
+                },
+                {
+                    "type": "empty",
+                    "weight": 987
+                }
+            ]
+        },
+        {
+            "rolls": 2,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:gunpowder",
+                    "weight": 7
+                },
+                {
+                    "type": "empty",
+                    "weight": 993
+                }
+            ]
+        },
+        {
+            "rolls": 2,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:glowstone",
+                    "weight": 6
+                },
+                {
+                    "type": "empty",
+                    "weight": 994
+                }
+            ]
+        },
+        {
+            "rolls": 2,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:blaze_powder",
+                    "weight": 5
+                },
+                {
+                    "type": "empty",
+                    "weight": 995
+                }
+            ]
+        },
+        {
+            "rolls": 2,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:cactus",
+                    "weight": 3
+                },
+                {
+                    "type": "empty",
+                    "weight": 997
+                }
+            ]
+        },
+        {
+            "rolls": 2,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:cocoa_beans",
+                    "weight": 3
+                },
+                {
+                    "type": "empty",
+                    "weight": 997
+                }
+            ]
+        }
+    ]
+}

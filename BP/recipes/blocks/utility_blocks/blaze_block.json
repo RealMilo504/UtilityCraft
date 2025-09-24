@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:blaze_block"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"B": {
+				"item": "blaze_rod"
+			},
+			"G": {
+				"item": "gold_block"
+			},
+			"M": {
+				"item": "magma"
+			}
+		},
+		"pattern": [
+			"BMB",
+			"MGM",
+			"BMB"
+		],
+		"result": {
+			"item": "twm:blaze_block"
+		},
+		"unlock": [
+			{
+				"item": "blaze_rod"
+			}
+		]
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.twm_spawner_type",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "spawner_type",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 5, -8],
+							"size": [16, 5, 16],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [32, 10]},
+								"east": {"uv": [0, 0], "uv_size": [32, 10]},
+								"south": {"uv": [0, 0], "uv_size": [32, 10]},
+								"west": {"uv": [0, 0], "uv_size": [32, 10]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

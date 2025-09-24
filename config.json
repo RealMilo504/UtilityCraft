@@ -1,0 +1,44 @@
+{
+	"type": "minecraftBedrock",
+	"name": "UtilityCraft Ultimate",
+	"namespace": "twm",
+	"authors": [
+		"Dorios Studios"
+	],
+	"targetVersion": "1.21.0",
+	"description": "Version 3.0.0  §6Dorios Craft",
+	"experimentalGameplay": {
+		"holidayCreatorFeatures": false,
+		"creationOfCustomBiomes": false,
+		"upcomingCreatorFeatures": false,
+		"enableGameTestFramework": false,
+		"educationEdition": false
+	},
+	"bdsProject": true,
+	"packs": {
+		"behaviorPack": "./BP",
+		"resourcePack": "./RP"
+	},
+	"worlds": [
+		"./worlds/*"
+	],
+	"compiler": {
+		"plugins": [
+			"generatorScripts",
+			"typeScript",
+			"entityIdentifierAlias",
+			"customEntityComponents",
+			"customItemComponents",
+			"customBlockComponents",
+			"customCommands",
+			"moLang",
+			"formatVersionCorrection",
+			[
+				"simpleRewrite",
+				{
+					"packName": "UtilityCraft Ultimate"
+				}
+			]
+		]
+	}
+}

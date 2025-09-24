@@ -1,0 +1,153 @@
+{
+    "pools": [
+        {
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:carrot",
+                    "weight": 7
+                },
+                {
+                    "type": "empty",
+                    "weight": 93
+                }
+            ]
+        },
+        {
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:potato",
+                    "weight": 7
+                },
+                {
+                    "type": "empty",
+                    "weight": 93
+                }
+            ]
+        },
+        {
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:wheat_seeds",
+                    "weight": 7
+                },
+                {
+                    "type": "empty",
+                    "weight": 93
+                }
+            ]
+        },
+        {
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:pumpkin_seeds",
+                    "weight": 7
+                },
+                {
+                    "type": "empty",
+                    "weight": 93
+                }
+            ]
+        },
+        {
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:beetroot_seeds",
+                    "weight": 7
+                },
+                {
+                    "type": "empty",
+                    "weight": 93
+                }
+            ]
+        },
+        {
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:melon_seeds",
+                    "weight": 7
+                },
+                {
+                    "type": "empty",
+                    "weight": 93
+                }
+            ]
+        },
+        {
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:sugar_cane",
+                    "weight": 7
+                },
+                {
+                    "type": "empty",
+                    "weight": 93
+                }
+            ]
+        },
+        {
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:bamboo",
+                    "weight": 7
+                },
+                {
+                    "type": "empty",
+                    "weight": 93
+                }
+            ]
+        },
+        {
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:sapling",
+                    "functions": [
+                        {
+                            "function": "set_data",
+                            "data": {
+                                "min": 0,
+                                "max": 5
+                            }
+                        }
+                    ],
+                    "weight": 10
+                },
+                {
+                    "type": "empty",
+                    "weight": 90
+                }
+            ]
+        },
+        {
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:cherry_sapling",
+                    "weight": 10
+                },
+                {
+                    "type": "empty",
+                    "weight": 90
+                }
+            ]
+        }
+    ]
+}

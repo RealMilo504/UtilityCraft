@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:amethyst_seeds"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"A": {
+				"item": "minecraft:amethyst_shard"
+			},
+			"S": {
+				"item": "twm:base_seeds"
+			}
+		},
+		"pattern": [
+			"AAA",
+			"ASA",
+			"AAA"
+		],
+		"result": {
+			"item": "twm:amethyst_seeds"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:amethyst_shard"
+			},
+			{
+				"item": "twm:base_seeds"
+			}
+		]
+	}
+}

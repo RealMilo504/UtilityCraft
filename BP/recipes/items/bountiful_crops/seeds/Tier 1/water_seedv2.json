@@ -1,0 +1,38 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:water_seedsv2"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"W": {
+				"item": "twm:water_ball"
+			},
+			"S": {
+				"item": "twm:base_seeds"
+			}
+		},
+		"pattern": [
+			" W ",
+			"WSW",
+			" W "
+		],
+		"result": [
+			{
+				"item": "twm:water_seeds"
+			}
+		],
+		"unlock": [
+			{
+				"item": "minecraft:water_bucket"
+			},
+			{
+				"item": "twm:base_seeds"
+			}
+		],
+		"priority": 10
+	}
+}

@@ -1,0 +1,49 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:lantern",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.twm_lantern",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_lantern",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-5,
+					0,
+					-5
+				],
+				"size": [
+					10,
+					16,
+					10
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-5,
+					0,
+					-5
+				],
+				"size": [
+					10,
+					16,
+					10
+				]
+			},
+			"minecraft:light_emission": 15,
+			"minecraft:custom_components": [
+				"twm:lantern"
+			],
+			"minecraft:destructible_by_explosion": false
+		}
+	}
+}

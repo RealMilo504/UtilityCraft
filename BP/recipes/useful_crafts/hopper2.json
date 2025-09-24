@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:hopper2"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"I": {
+				"item": "minecraft:iron_ingot"
+			},
+			"L": {
+				"item": "minecraft:log"
+			}
+		},
+		"pattern": [
+			"ILI",
+			"ILI",
+			" I "
+		],
+		"result": {
+			"item": "minecraft:hopper"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:iron_ingot"
+			},
+			{
+				"item": "minecraft:log"
+			}
+		]
+	}
+}

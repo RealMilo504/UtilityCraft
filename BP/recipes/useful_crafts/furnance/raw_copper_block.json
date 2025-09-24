@@ -1,0 +1,14 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "twm:raw_copper_block"
+		},
+		"input": "raw_copper_block",
+		"tags": [
+			"blast_furnace",
+			"furnace"
+		],
+		"output": "copper_block"
+	}
+}

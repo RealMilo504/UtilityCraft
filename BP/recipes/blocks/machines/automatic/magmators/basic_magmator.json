@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:basic_magmator"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"G": {
+				"item": "twm:gold_plate"
+			},
+			"B": {
+				"item": "furnace"
+			},
+			"S": {
+				"item": "twm:steel_plate"
+			},
+			"D": {
+				"item": "twm:basic_fluid_tank"
+			},
+			"E": {
+				"item": "twm:basic_chip"
+			}
+		},
+		"pattern": [
+			"GDG",
+			"EBE",
+			"SES"
+		],
+		"result": {
+			"item": "twm:basic_magmator"
+		},
+		"unlock": [
+			{
+				"item": "twm:basic_chip"
+			}
+		]
+	}
+}

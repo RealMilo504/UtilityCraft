@@ -1,0 +1,15 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.item_sprite.rotate": {
+			"loop": true,
+			"animation_length": 7.0417,
+			"bones": {
+				"body": {
+					"rotation": ["query.rotation_to_camera(0)", "query.rotation_to_camera(1) - query.body_y_rotation", 0],
+					"position": [0, "math.sin(query.anim_time * 90) * 1", 0]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "cactus",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "max": 4,
+                                "min": 2
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

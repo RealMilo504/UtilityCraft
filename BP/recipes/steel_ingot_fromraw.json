@@ -1,0 +1,14 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "twm:steel_ingot_fromraw"
+		},
+		"tags": [
+			"furnace",
+			"blast_furnace"
+		],
+		"input": "twm:raw_steel",
+		"output": "twm:steel_ingot"
+	}
+}

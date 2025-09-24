@@ -1,0 +1,189 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.twm_solar_panel",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [
+					0,
+					0.75,
+					0
+				]
+			},
+			"bones": [
+				{
+					"name": "SolarGenerator",
+					"pivot": [
+						0,
+						0,
+						0
+					]
+				},
+				{
+					"name": "Computer",
+					"parent": "SolarGenerator",
+					"pivot": [
+						0,
+						0,
+						0
+					],
+					"cubes": [
+						{
+							"origin": [
+								-7,
+								0,
+								-7
+							],
+							"size": [
+								14,
+								3,
+								14
+							],
+							"uv": {
+								"north": {
+									"uv": [
+										30,
+										9
+									],
+									"uv_size": [
+										14,
+										3
+									]
+								},
+								"east": {
+									"uv": [
+										30,
+										6
+									],
+									"uv_size": [
+										14,
+										3
+									]
+								},
+								"south": {
+									"uv": [
+										30,
+										9
+									],
+									"uv_size": [
+										14,
+										3
+									]
+								},
+								"west": {
+									"uv": [
+										30,
+										9
+									],
+									"uv_size": [
+										14,
+										3
+									]
+								},
+								"down": {
+									"uv": [
+										16,
+										30
+									],
+									"uv_size": [
+										14,
+										-14
+									]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Generator",
+					"parent": "SolarGenerator",
+					"pivot": [
+						0,
+						3,
+						0
+					],
+					"cubes": [
+						{
+							"origin": [
+								-8,
+								3,
+								-8
+							],
+							"size": [
+								16,
+								2,
+								16
+							],
+							"uv": {
+								"north": {
+									"uv": [
+										30,
+										18
+									],
+									"uv_size": [
+										16,
+										2
+									]
+								},
+								"east": {
+									"uv": [
+										30,
+										26
+									],
+									"uv_size": [
+										14,
+										2
+									]
+								},
+								"south": {
+									"uv": [
+										30,
+										20
+									],
+									"uv_size": [
+										16,
+										2
+									]
+								},
+								"west": {
+									"uv": [
+										30,
+										28
+									],
+									"uv_size": [
+										14,
+										2
+									]
+								},
+								"up": {
+									"uv": [
+										0,
+										0
+									],
+									"uv_size": [
+										16,
+										16
+									]
+								},
+								"down": {
+									"uv": [
+										0,
+										30
+									],
+									"uv_size": [
+										16,
+										-14
+									]
+								}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

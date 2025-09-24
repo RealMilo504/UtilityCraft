@@ -1,0 +1,23 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:xp_condenser",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.twm_block_2",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_xp_condenser",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:custom_components": [
+				"twm:xp_condenser"
+			]
+		}
+	}
+}

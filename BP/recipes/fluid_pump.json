@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:fluid_pump"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"G": {
+				"item": "gold_ingot"
+			},
+			"C": {
+				"item": "glass"
+			},
+			"D": {
+				"item": "dispenser"
+			},
+			"H": {
+				"item": "hopper"
+			},
+			"S": {
+				"item": "twm:steel_ingot"
+			}
+		},
+		"pattern": [
+			"GHG",
+			"CDC",
+			"SGS"
+		],
+		"result": {
+			"item": "twm:fluid_pump"
+		},
+		"unlock": [
+			{
+				"item": "twm:steel_ingot"
+			}
+		]
+	}
+}

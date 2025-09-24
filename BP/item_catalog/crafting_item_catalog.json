@@ -1,0 +1,557 @@
+{
+    "format_version": "1.21.60",
+    "minecraft:crafting_items_catalog": {
+        "categories": [
+            {
+                "category_name": "construction",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "twm:ultimate_furnator",
+                            "name": "dorios:itemGroup.name.generators"
+                        },
+                        "items": [
+                            "twm:basic_furnator",
+                            "twm:advanced_furnator",
+                            "twm:expert_furnator",
+                            "twm:ultimate_furnator",
+                            "twm:basic_magmator",
+                            "twm:advanced_magmator",
+                            "twm:expert_magmator",
+                            "twm:ultimate_magmator",
+                            "twm:basic_thermo_generator",
+                            "twm:advanced_thermo_generator",
+                            "twm:expert_thermo_generator",
+                            "twm:ultimate_thermo_generator",
+                            "twm:basic_solar_panel",
+                            "twm:advanced_solar_panel",
+                            "twm:expert_solar_panel",
+                            "twm:ultimate_solar_panel"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "twm:assembler",
+                            "name": "dorios:itemGroup.name.machines"
+                        },
+                        "items": [
+                            "twm:digitizer",
+                            "twm:assembler",
+                            "twm:crusher",
+                            "twm:autosieve",
+                            "twm:electro_press",
+                            "twm:harvester",
+                            "twm:incinerator",
+                            "twm:infuser",
+                            "twm:block_breaker",
+                            "twm:block_placer",
+                            "twm:seed_synthesizer",
+                            "twm:induction_anvil",
+                            "twm:magmatic_chamber",
+                            "twm:waycenter",
+                            "twm:xp_condenser"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "twm:ultimate_battery",
+                            "name": "dorios:itemGroup.name.batteries"
+                        },
+                        "items": [
+                            "twm:basic_battery",
+                            "twm:advanced_battery",
+                            "twm:expert_battery",
+                            "twm:ultimate_battery"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "twm:energy_cable",
+                            "name": "dorios:itemGroup.name.pipes"
+                        },
+                        "items": [
+                            "twm:energy_cable",
+                            "twm:item_conduit",
+                            "twm:item_exporter",
+                            "twm:fluid_pipe",
+                            "twm:fluid_extractor"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "twm:mechanic_hopper",
+                            "name": "dorios:itemGroup.name.transportation"
+                        },
+                        "items": [
+                            "twm:mechanic_hopper",
+                            "twm:mechanic_upper",
+                            "twm:mechanic_dropper",
+                            "twm:ender_hopper",
+                            "twm:conveyor_declined",
+                            "twm:conveyor_horizontal",
+                            "twm:conveyor_inclined"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "twm:sieve",
+                            "name": "dorios:itemGroup.name.basics"
+                        },
+                        "items": [
+                            "twm:sieve",
+                            "twm:bonsai",
+                            "twm:crucible",
+                            "twm:sink",
+                            "twm:big_torch",
+                            "twm:lantern",
+                            "twm:asphalt"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "twm:ultimate_fluid_tank",
+                            "name": "dorios:itemGroup.name.tanks"
+                        },
+                        "items": [
+                            "twm:basic_fluid_tank",
+                            "twm:advanced_fluid_tank",
+                            "twm:expert_fluid_tank",
+                            "twm:ultimate_fluid_tank",
+                            "twm:fluid_pump",
+                            "twm:xp_drain",
+                            "twm:xp_spout"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "twm:mechanical_spawner",
+                            "name": "dorios:itemGroup.name.mob_grinding"
+                        },
+                        "items": [
+                            "twm:mechanical_spawner",
+                            "twm:mob_grinder",
+                            "twm:xp_magnet"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "twm:compressed_cobblestone",
+                            "name": "dorios:itemGroup.name.compressed"
+                        },
+                        "items": [
+                            "twm:compressed_amethyst_block",
+                            "twm:compressed_amethyst_block_2",
+                            "twm:compressed_amethyst_block_3",
+                            "twm:compressed_amethyst_block_4",
+                            "twm:compressed_blackstone",
+                            "twm:compressed_blackstone_2",
+                            "twm:compressed_blackstone_3",
+                            "twm:compressed_blackstone_4",
+                            "twm:compressed_brute_steel_block",
+                            "twm:compressed_brute_steel_block_2",
+                            "twm:compressed_brute_steel_block_3",
+                            "twm:compressed_brute_steel_block_4",
+                            "twm:compressed_coal_block",
+                            "twm:compressed_coal_block_2",
+                            "twm:compressed_coal_block_3",
+                            "twm:compressed_coal_block_4",
+                            "twm:compressed_cobbled_deepslate",
+                            "twm:compressed_cobbled_deepslate_2",
+                            "twm:compressed_cobbled_deepslate_3",
+                            "twm:compressed_cobbled_deepslate_4",
+                            "twm:compressed_cobblestone",
+                            "twm:double_compressed_cobblestone",
+                            "twm:triple_compressed_cobblestone",
+                            "twm:quadruple_compressed_cobblestone",
+                            "twm:quintuple_compressed_cobblestone",
+                            "twm:sextuple_compressed_cobblestone",
+                            "twm:septuple_compressed_cobblestone",
+                            "twm:octuple_compressed_cobblestone",
+                            "twm:nonuple_compressed_cobblestone",
+                            "twm:compressed_copper_block",
+                            "twm:compressed_copper_block_2",
+                            "twm:compressed_copper_block_3",
+                            "twm:compressed_copper_block_4",
+                            "twm:compressed_crushed_cobbled_deepslate",
+                            "twm:compressed_crushed_cobbled_deepslate_2",
+                            "twm:compressed_crushed_cobbled_deepslate_3",
+                            "twm:compressed_crushed_cobbled_deepslate_4",
+                            "twm:compressed_crushed_endstone",
+                            "twm:compressed_crushed_endstone_2",
+                            "twm:compressed_crushed_endstone_3",
+                            "twm:compressed_crushed_endstone_4",
+                            "twm:compressed_crushed_netherrack",
+                            "twm:compressed_crushed_netherrack_2",
+                            "twm:compressed_crushed_netherrack_3",
+                            "twm:compressed_crushed_netherrack_4",
+                            "twm:compressed_cry_obsidian",
+                            "twm:compressed_cry_obsidian_2",
+                            "twm:compressed_cry_obsidian_3",
+                            "twm:compressed_cry_obsidian_4",
+                            "twm:compressed_deepslate",
+                            "twm:compressed_deepslate_2",
+                            "twm:compressed_deepslate_3",
+                            "twm:compressed_deepslate_4",
+                            "twm:compressed_diamond_block",
+                            "twm:compressed_diamond_block_2",
+                            "twm:compressed_diamond_block_3",
+                            "twm:compressed_diamond_block_4",
+                            "twm:compressed_dirt",
+                            "twm:compressed_dirt_2",
+                            "twm:compressed_dirt_3",
+                            "twm:compressed_dirt_4",
+                            "twm:compressed_emerald_block",
+                            "twm:compressed_emerald_block_2",
+                            "twm:compressed_emerald_block_3",
+                            "twm:compressed_emerald_block_4",
+                            "twm:compressed_endstone",
+                            "twm:compressed_endstone_2",
+                            "twm:compressed_endstone_3",
+                            "twm:compressed_endstone_4",
+                            "twm:compressed_energized_iron_block",
+                            "twm:compressed_energized_iron_block_2",
+                            "twm:compressed_energized_iron_block_3",
+                            "twm:compressed_energized_iron_block_4",
+                            "twm:compressed_exposed_copper_block",
+                            "twm:compressed_exposed_copper_block_2",
+                            "twm:compressed_exposed_copper_block_3",
+                            "twm:compressed_exposed_copper_block_4",
+                            "twm:compressed_flint_block",
+                            "twm:compressed_flint_block_2",
+                            "twm:compressed_flint_block_3",
+                            "twm:compressed_flint_block_4",
+                            "twm:compressed_glass",
+                            "twm:compressed_glass_2",
+                            "twm:compressed_glass_3",
+                            "twm:compressed_glass_4",
+                            "twm:compressed_gold_block",
+                            "twm:compressed_gold_block_2",
+                            "twm:compressed_gold_block_3",
+                            "twm:compressed_gold_block_4",
+                            "twm:compressed_gravel",
+                            "twm:compressed_gravel_2",
+                            "twm:compressed_gravel_3",
+                            "twm:compressed_gravel_4",
+                            "twm:compressed_iron_block",
+                            "twm:compressed_iron_block_2",
+                            "twm:compressed_iron_block_3",
+                            "twm:compressed_iron_block_4",
+                            "twm:compressed_lapislazuli_block",
+                            "twm:compressed_lapislazuli_block_2",
+                            "twm:compressed_lapislazuli_block_3",
+                            "twm:compressed_lapislazuli_block_4",
+                            "twm:compressed_netherite_block",
+                            "twm:compressed_netherite_block_2",
+                            "twm:compressed_netherite_block_3",
+                            "twm:compressed_netherite_block_4",
+                            "twm:compressed_netherrack",
+                            "twm:compressed_netherrack_2",
+                            "twm:compressed_netherrack_3",
+                            "twm:compressed_netherrack_4",
+                            "twm:compressed_obsidian",
+                            "twm:compressed_obsidian_2",
+                            "twm:compressed_obsidian_3",
+                            "twm:compressed_obsidian_4",
+                            "twm:compressed_oxidized_copper_block",
+                            "twm:compressed_oxidized_copper_block_2",
+                            "twm:compressed_oxidized_copper_block_3",
+                            "twm:compressed_oxidized_copper_block_4",
+                            "twm:compressed_quartz_block",
+                            "twm:compressed_quartz_block_2",
+                            "twm:compressed_quartz_block_3",
+                            "twm:compressed_quartz_block_4",
+                            "twm:compressed_raw_copper_block",
+                            "twm:compressed_raw_copper_block_2",
+                            "twm:compressed_raw_copper_block_3",
+                            "twm:compressed_raw_copper_block_4",
+                            "twm:compressed_raw_gold_block",
+                            "twm:compressed_raw_gold_block_2",
+                            "twm:compressed_raw_gold_block_3",
+                            "twm:compressed_raw_gold_block_4",
+                            "twm:compressed_raw_iron_block",
+                            "twm:compressed_raw_iron_block_2",
+                            "twm:compressed_raw_iron_block_3",
+                            "twm:compressed_raw_iron_block_4",
+                            "twm:compressed_redstone_block",
+                            "twm:compressed_redstone_block_2",
+                            "twm:compressed_redstone_block_3",
+                            "twm:compressed_redstone_block_4",
+                            "twm:compressed_sand",
+                            "twm:compressed_sand_2",
+                            "twm:compressed_sand_3",
+                            "twm:compressed_sand_4",
+                            "twm:compressed_steel_block",
+                            "twm:compressed_steel_block_2",
+                            "twm:compressed_steel_block_3",
+                            "twm:compressed_steel_block_4",
+                            "twm:compressed_stone",
+                            "twm:compressed_stone_2",
+                            "twm:compressed_stone_3",
+                            "twm:compressed_stone_4",
+                            "twm:compressed_weathered_copper_block",
+                            "twm:compressed_weathered_copper_block_2",
+                            "twm:compressed_weathered_copper_block_3",
+                            "twm:compressed_weathered_copper_block_4",
+                            "twm:compressed_block"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "twm:black_soil",
+                            "name": "dorios:itemGroup.name.soils"
+                        },
+                        "items": [
+                            "twm:yellow_soil",
+                            "twm:red_soil",
+                            "twm:blue_soil",
+                            "twm:black_soil"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "twm:cobble_gen_5",
+                            "name": "dorios:itemGroup.name.cobble_gens"
+                        },
+                        "items": [
+                            "twm:cobble_gen_1",
+                            "twm:cobble_gen_2",
+                            "twm:cobble_gen_3",
+                            "twm:cobble_gen_4",
+                            "twm:cobble_gen_5"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "items",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "twm:arrow_indicator",
+                            "name": "dorios:itemGroup.name.indicators"
+                        },
+                        "items": [
+                            "twm:energy_bar_0",
+                            "twm:energy_bar_1",
+                            "twm:energy_bar_2",
+                            "twm:energy_bar_3",
+                            "twm:energy_bar_4",
+                            "twm:energy_bar_5",
+                            "twm:energy_bar_6",
+                            "twm:energy_bar_7",
+                            "twm:energy_bar_8",
+                            "twm:energy_bar_9",
+                            "twm:energy_bar_10",
+                            "twm:energy_bar_11",
+                            "twm:energy_bar_12",
+                            "twm:energy_bar_13",
+                            "twm:energy_bar_14",
+                            "twm:energy_bar_15",
+                            "twm:energy_bar_16",
+                            "twm:water_bar_0",
+                            "twm:water_bar_1",
+                            "twm:water_bar_2",
+                            "twm:water_bar_3",
+                            "twm:water_bar_4",
+                            "twm:water_bar_5",
+                            "twm:water_bar_6",
+                            "twm:water_bar_7",
+                            "twm:water_bar_8",
+                            "twm:water_bar_9",
+                            "twm:water_bar_10",
+                            "twm:water_bar_11",
+                            "twm:water_bar_12",
+                            "twm:water_bar_13",
+                            "twm:water_bar_14",
+                            "twm:water_bar_15",
+                            "twm:water_bar_16",
+                            "twm:lava_bar_0",
+                            "twm:lava_bar_1",
+                            "twm:lava_bar_2",
+                            "twm:lava_bar_3",
+                            "twm:lava_bar_4",
+                            "twm:lava_bar_5",
+                            "twm:lava_bar_6",
+                            "twm:lava_bar_7",
+                            "twm:lava_bar_8",
+                            "twm:lava_bar_9",
+                            "twm:lava_bar_10",
+                            "twm:lava_bar_11",
+                            "twm:lava_bar_12",
+                            "twm:lava_bar_13",
+                            "twm:lava_bar_14",
+                            "twm:lava_bar_15",
+                            "twm:lava_bar_16"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "twm:diamond_seeds",
+                            "name": "dorios:itemGroup.name.seeds"
+                        },
+                        "items": [
+                            "twm:base_seeds",
+                            "twm:coal_seeds",
+                            "twm:copper_seeds",
+                            "twm:dyes_seeds",
+                            "twm:glass_seeds",
+                            "twm:gunpowder_seeds",
+                            "twm:iron_seeds",
+                            "twm:leather_seeds",
+                            "twm:prismarine_crystals_seeds",
+                            "twm:prismarine_shards_seeds",
+                            "twm:water_seeds",
+                            "twm:wool_seeds",
+                            "twm:ghast_seeds",
+                            "twm:glowstone_seeds",
+                            "twm:gold_seeds",
+                            "twm:honey_seeds",
+                            "twm:lapis_seeds",
+                            "twm:lava_seeds",
+                            "twm:quartz_seeds",
+                            "twm:redstone_seeds",
+                            "twm:slime_seeds",
+                            "twm:amethyst_seeds",
+                            "twm:blaze_seeds",
+                            "twm:diamond_seeds",
+                            "twm:emerald_seeds",
+                            "twm:enderpearl_seeds",
+                            "twm:obsidian_seeds",
+                            "twm:nether_star_seeds",
+                            "twm:netherite_seeds",
+                            "twm:shulker_seeds",
+                            "twm:totem_seeds",
+                            "twm:wither_seeds"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "twm:diamond_dust",
+                            "name": "dorios:itemGroup.name.dusts"
+                        },
+                        "items": [
+                            "twm:amethyst_dust",
+                            "twm:charcoal_dust",
+                            "twm:coal_dust",
+                            "twm:copper_dust",
+                            "twm:crying_obsidian_dust",
+                            "twm:diamond_dust",
+                            "twm:emerald_dust",
+                            "twm:ender_pearl_dust",
+                            "twm:energized_iron_dust",
+                            "twm:gold_dust",
+                            "twm:iron_dust",
+                            "twm:netherite_dust",
+                            "twm:netherite_scrap_dust",
+                            "twm:obsidian_dust",
+                            "twm:quartz_dust",
+                            "twm:refined_obsidian_dust",
+                            "twm:steel_dust"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "twm:deepslate_diamond_chunk",
+                            "name": "dorios:itemGroup.name.pebbles"
+                        },
+                        "items": [
+                            "twm:ancient_debris_chunk",
+                            "twm:andesite_pebble",
+                            "twm:basalt_pebble",
+                            "twm:blackstone_pebble",
+                            "twm:calcite_pebble",
+                            "twm:coal_chunk",
+                            "twm:copper_chunk",
+                            "twm:crushed_deepslate_handful",
+                            "twm:crushed_endstone_handful",
+                            "twm:crushed_netherrack_handful",
+                            "twm:deepslate_coal_chunk",
+                            "twm:deepslate_diamond_chunk",
+                            "twm:deepslate_emerald_chunk",
+                            "twm:deepslate_gold_chunk",
+                            "twm:deepslate_iron_chunk",
+                            "twm:deepslate_lapislazuli_chunk",
+                            "twm:deepslate_pebble",
+                            "twm:deepslate_redstone_chunk",
+                            "twm:diamond_chunk",
+                            "twm:diamond_shard",
+                            "twm:diorite_pebble",
+                            "twm:dirt_handful",
+                            "twm:dripstone_pebble",
+                            "twm:emerald_chunk",
+                            "twm:emerald_shard",
+                            "twm:endstone_pebble",
+                            "twm:geode",
+                            "twm:gilded_blackstone_pebble",
+                            "twm:gold_chunk",
+                            "twm:granite_pebble",
+                            "twm:gravel_fragments",
+                            "twm:iron_chunk",
+                            "twm:lapislazuli_chunk",
+                            "twm:mud_ball",
+                            "twm:nether_gold_chunk",
+                            "twm:nether_quartz_chunk",
+                            "twm:nether_star_fragment",
+                            "twm:netherrack_pebble",
+                            "twm:red_sand_handful",
+                            "twm:redstone_chunk",
+                            "twm:sand_handful",
+                            "twm:shulker_shell_shard",
+                            "twm:souls_handful",
+                            "twm:stone_pebble",
+                            "twm:totem_shard",
+                            "twm:tuff_pebble",
+                            "twm:wither_skull_shard"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "twm:diamond_aiot",
+                            "name": "dorios:itemGroup.name.aiots"
+                        },
+                        "items": [
+                            "twm:netherite_aiot",
+                            "twm:diamond_aiot",
+                            "twm:iron_aiot",
+                            "twm:golden_aiot",
+                            "twm:stone_aiot",
+                            "twm:wooden_aiot"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "twm:diamond_paxel",
+                            "name": "dorios:itemGroup.name.paxels"
+                        },
+                        "items": [
+                            "twm:netherite_paxel",
+                            "twm:diamond_paxel",
+                            "twm:iron_paxel",
+                            "twm:golden_paxel",
+                            "twm:stone_paxel",
+                            "twm:wooden_paxel"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "twm:diamond_hammer",
+                            "name": "dorios:itemGroup.name.hammers"
+                        },
+                        "items": [
+                            "twm:netherite_hammer",
+                            "twm:diamond_hammer",
+                            "twm:iron_hammer",
+                            "twm:stone_hammer",
+                            "twm:wooden_hammer"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

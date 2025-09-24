@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:gunpowder_seeds"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"O": {
+				"item": "gunpowder"
+			},
+			"S": {
+				"item": "twm:base_seeds"
+			}
+		},
+		"pattern": [
+			"OOO",
+			"OSO",
+			"OOO"
+		],
+		"result": {
+			"item": "twm:gunpowder_seeds"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:gunpowder"
+			},
+			{
+				"item": "twm:base_seeds"
+			}
+		]
+	}
+}

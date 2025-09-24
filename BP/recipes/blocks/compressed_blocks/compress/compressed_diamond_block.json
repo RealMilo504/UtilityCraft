@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:compressed_diamond_block"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"B": {
+				"item": "minecraft:diamond_block"
+			}
+		},
+		"pattern": [
+			"BBB",
+			"BBB",
+			"BBB"
+		],
+		"result": {
+			"item": "twm:compressed_diamond_block"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:diamond_block"
+			}
+		]
+	}
+}

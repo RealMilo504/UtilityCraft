@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:shard_to_wither_skull"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"P": {
+				"item": "twm:wither_skull_shard"
+			}
+		},
+		"pattern": [
+			"PPP",
+			"PPP",
+			"PPP"
+		],
+		"result": {
+			"item": "minecraft:wither_skeleton_skull"
+		},
+		"unlock": [
+			{
+				"item": "twm:wither_skull_shard"
+			},
+			{
+				"item": "minecraft:wither_skeleton_skull"
+			}
+		]
+	}
+}

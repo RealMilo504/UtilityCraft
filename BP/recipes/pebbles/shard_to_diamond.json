@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:shard_to_diamond"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"P": {
+				"item": "twm:diamond_shard"
+			}
+		},
+		"pattern": [
+			"PPP",
+			"PPP",
+			"PPP"
+		],
+		"result": {
+			"item": "minecraft:diamond"
+		},
+		"unlock": [
+			{
+				"item": "twm:diamond_shard"
+			},
+			{
+				"item": "minecraft:diamond"
+			}
+		]
+	}
+}

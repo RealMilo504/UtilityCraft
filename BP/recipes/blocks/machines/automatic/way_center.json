@@ -1,0 +1,59 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:way_center"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"A": {
+				"item": "minecraft:echo_shard"
+			},
+			"B": {
+				"item": "twm:machine_case"
+			},
+			"C": {
+				"item": "minecraft:ender_eye"
+			},
+			"D": {
+				"item": "twm:diamond_dust"
+			},
+			"E": {
+				"item": "twm:expert_chip"
+			},
+			"F": {
+				"item": "minecraft:lapis_block"
+			}
+		},
+		"pattern": [
+			"CAC",
+			"EBE",
+			"FDF"
+		],
+		"result": {
+			"item": "twm:waycenter"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:echo_shard"
+			},
+			{
+				"item": "twm:machine_case"
+			},
+			{
+				"item": "minecraft:ender_eye"
+			},
+			{
+				"item": "twm:diamond_dust"
+			},
+			{
+				"item": "twm:expert_chip"
+			},
+			{
+				"item": "minecraft:lapis_block"
+			}
+		]
+	}
+}

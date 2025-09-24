@@ -1,0 +1,38 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:ultimate_magmator"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"G": {
+				"item": "twm:netherite_plate"
+			},
+			"B": {
+				"item": "twm:expert_magmator"
+			},
+			"D": {
+				"item": "twm:ultimate_fluid_tank"
+			},
+			"E": {
+				"item": "twm:ultimate_chip"
+			}
+		},
+		"pattern": [
+			"GDG",
+			"EBE",
+			"GEG"
+		],
+		"result": {
+			"item": "twm:ultimate_magmator"
+		},
+		"unlock": [
+			{
+				"item": "twm:ultimate_chip"
+			}
+		]
+	}
+}

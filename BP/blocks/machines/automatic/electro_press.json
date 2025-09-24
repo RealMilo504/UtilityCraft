@@ -1,0 +1,218 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:electro_press",
+			"menu_category": {
+				"category": "construction"
+			},
+			"states": {
+				"twm:speed": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8
+				],
+				"twm:energy": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8
+				],
+				"twm:refreshSpeed": [
+					1,
+					5,
+					10,
+					20,
+					40
+				],
+				"twm:on": [
+					false,
+					true
+				]
+			},
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": [
+						"minecraft:facing_direction"
+					]
+				}
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.twm_block_2",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_electro_press_off",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:custom_components": [
+				"twm:machine_upgrades",
+				"twm:electro_press"
+			],
+			"minecraft:tick": {
+				"interval_range": [
+					20,
+					20
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:destructible_by_explosion": false,
+			"tag:dorios:energy": {},
+			"tag:dorios:item": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('twm:refreshSpeed') == 1 ",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [
+							5,
+							5
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:refreshSpeed') == 5 ",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [
+							25,
+							25
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:refreshSpeed') == 10 ",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [
+							50,
+							50
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:refreshSpeed') == 20 ",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [
+							100,
+							100
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:refreshSpeed') == 40 ",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [
+							200,
+							200
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'up'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							-90,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'down' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							90,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'north' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'south' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'east' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'west' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:on') == true ",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_electro_press_on",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			}
+		]
+	}
+}

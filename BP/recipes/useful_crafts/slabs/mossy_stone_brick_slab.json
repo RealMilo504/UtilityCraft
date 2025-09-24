@@ -1,0 +1,22 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "twm:mossy_stone_brick_slab"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "stone_block_slab4",
+				"count": 2,
+				"data": 0
+			}
+		],
+		"result": {
+			"item": "stonebrick",
+			"data": 1
+		}
+	}
+}

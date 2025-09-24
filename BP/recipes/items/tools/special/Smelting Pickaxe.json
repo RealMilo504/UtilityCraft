@@ -1,0 +1,49 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:smelting_pickaxe"
+		},
+		"tags": [
+			"utility_table"
+		],
+		"result": [
+			{
+				"item": "twm:smelting_pickaxe"
+			}
+		],
+		"pattern": [
+			"ASA",
+			" Z ",
+			" X "
+		],
+		"unlock": [
+			{
+				"item": "minecraft:magma"
+			},
+			{
+				"item": "minecraft:lava_bucket"
+			},
+			{
+				"item": "minecraft:iron_pickaxe"
+			},
+			{
+				"item": "minecraft:blaze_rod"
+			}
+		],
+		"key": {
+			"A": {
+				"item": "minecraft:magma"
+			},
+			"S": {
+				"item": "minecraft:lava_bucket"
+			},
+			"Z": {
+				"item": "minecraft:iron_pickaxe"
+			},
+			"X": {
+				"item": "minecraft:blaze_rod"
+			}
+		}
+	}
+}

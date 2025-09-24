@@ -1,0 +1,38 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:crucible"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"B": {
+				"item": "brick"
+			},
+			"M": {
+				"item": "mud_bricks"
+			}
+		},
+		"pattern": [
+			"B B",
+			"BMB",
+			"M M"
+		],
+		"result": [
+			{
+				"item": "twm:crucible"
+			}
+		],
+		"unlock": [
+			{
+				"item": "minecraft:brick"
+			},
+			{
+				"item": "minecraft:mud_bricks"
+			}
+		],
+		"priority": 0
+	}
+}

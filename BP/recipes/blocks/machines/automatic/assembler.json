@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:assembler"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"I": {
+				"item": "twm:expert_chip"
+			},
+			"M": {
+				"item": "twm:machine_case"
+			},
+			"R": {
+				"item": "crafter"
+			},
+			"S": {
+				"item": "twm:steel_plate"
+			},
+			"P": {
+				"item": "twm:iron_plate"
+			}
+		},
+		"pattern": [
+			"PIP",
+			"IMI",
+			"SRS"
+		],
+		"result": {
+			"item": "twm:assembler"
+		},
+		"unlock": [
+			{
+				"item": "twm:machine_case"
+			}
+		]
+	}
+}

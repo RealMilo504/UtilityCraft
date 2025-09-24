@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:item_exporter"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"H": {
+				"item": "hopper"
+			},
+			"S": {
+				"item": "twm:item_conduit"
+			}
+		},
+		"pattern": [
+			" S",
+			"SHS",
+			" S"
+		],
+		"result": {
+			"item": "twm:item_exporter"
+		},
+		"unlock": [
+			{
+				"item": "twm:steel_ingot"
+			}
+		]
+	}
+}

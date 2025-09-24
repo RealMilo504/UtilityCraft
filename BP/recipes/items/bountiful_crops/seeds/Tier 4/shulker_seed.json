@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:shulker_seeds"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"S": {
+				"item": "twm:base_seeds"
+			},
+			"H": {
+				"item": "minecraft:shulker_shell"
+			}
+		},
+		"pattern": [
+			"HHH",
+			"HSH",
+			"HHH"
+		],
+		"result": {
+			"item": "twm:shulker_seeds"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:shulker_shell"
+			},
+			{
+				"item": "twm:base_seeds"
+			}
+		]
+	}
+}

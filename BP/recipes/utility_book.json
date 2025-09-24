@@ -1,0 +1,20 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "twm:utility_book"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "paper",
+				"count": 4
+			}
+		],
+		"result": {
+			"item": "twm:utility_book_0"
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "bamboo",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "max": 12,
+                                "min": 6
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

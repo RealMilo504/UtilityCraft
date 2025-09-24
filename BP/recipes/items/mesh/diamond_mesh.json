@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:diamond_mesh"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"S": {
+				"item": "diamond"
+			},
+			"M": {
+				"item": "twm:emerald_mesh"
+			}
+		},
+		"pattern": [
+			"SSS",
+			"SMS",
+			"SSS"
+		],
+		"result": {
+			"item": "twm:diamond_mesh"
+		},
+		"unlock": [
+			{
+				"item": "twm:emerald_mesh"
+			},
+			{
+				"item": "minecraft:diamond"
+			}
+		]
+	}
+}

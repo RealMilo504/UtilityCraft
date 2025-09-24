@@ -1,0 +1,23 @@
+{
+	"format_version": "1.14.0",
+	"sound_definitions": {
+		"tile.elevator.up": {
+			"__use_legacy_max_distance": true,
+			"sounds": [
+				{
+					"load_on_low_memory": true,
+					"name": "sounds/mob/endermen/portal"
+				}
+			]
+		},
+		"tile.elevator.down": {
+			"__use_legacy_max_distance": true,
+			"sounds": [
+				{
+					"load_on_low_memory": true,
+					"name": "sounds/mob/endermen/portal2"
+				}
+			]
+		}
+	}
+}

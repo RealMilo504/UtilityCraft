@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:diamond_seeds"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"O": {
+				"item": "diamond"
+			},
+			"S": {
+				"item": "twm:base_seeds"
+			}
+		},
+		"pattern": [
+			"OOO",
+			"OSO",
+			"OOO"
+		],
+		"result": {
+			"item": "twm:diamond_seeds"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:diamond"
+			},
+			{
+				"item": "twm:base_seeds"
+			}
+		]
+	}
+}

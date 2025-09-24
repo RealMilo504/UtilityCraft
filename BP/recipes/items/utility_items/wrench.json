@@ -1,0 +1,35 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "twm:wrench"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "key": {
+            "I": {
+                "item": "iron_ingot"
+            },
+            "R": {
+                "item": "redstone"
+            }
+        },
+        "pattern": [
+            " R",
+            " IR",
+            "I"
+        ],
+        "result": {
+            "item": "twm:wrench"
+        },
+        "unlock": [
+            {
+                "item": "redstone"
+            },
+            {
+                "item": "iron_ingot"
+            }
+        ]
+    }
+}

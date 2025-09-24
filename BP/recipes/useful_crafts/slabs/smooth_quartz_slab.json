@@ -1,0 +1,22 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "twm:smooth_quartz_slab"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "stone_block_slab4",
+				"count": 2,
+				"data": 1
+			}
+		],
+		"result": {
+			"item": "quartz_block",
+			"data": 3
+		}
+	}
+}

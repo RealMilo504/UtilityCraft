@@ -1,0 +1,31 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:pebble_to_diorite"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"P": {
+				"item": "twm:diorite_pebble"
+			}
+		},
+		"pattern": [
+			"PP",
+			"PP"
+		],
+		"result": {
+			"item": "minecraft:diorite"
+		},
+		"unlock": [
+			{
+				"item": "twm:diorite_pebble"
+			},
+			{
+				"item": "minecraft:diorite"
+			}
+		]
+	}
+}

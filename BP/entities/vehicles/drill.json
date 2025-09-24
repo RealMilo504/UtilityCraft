@@ -1,0 +1,213 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "twm:drill",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"despawn": {
+				"minecraft:instant_despawn": {}
+			},
+			"twm:hopper": {
+				"minecraft:item_hopper": {}
+			},
+			"twm:get_items": {
+				"minecraft:timer": {
+					"time": 0.05,
+					"looping": false,
+					"time_down_event": {
+						"event": "despawn"
+					}
+				}
+			}
+		},
+		"components": {
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"on_interact": {
+							"filters": [
+								{
+									"all_of": [
+										{
+											"subject": "player",
+											"test": "has_equipment",
+											"domain": "hand",
+											"operator": "==",
+											"value": "twm:wrench"
+										}
+									]
+								}
+							],
+							"event": "set_timer"
+						}
+					}
+				]
+			},
+			"minecraft:environment_sensor": {
+				"triggers": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "rider_count",
+									"subject": "self",
+									"operator": "==",
+									"value": 1
+								}
+							]
+						},
+						"event": "hopp"
+					}
+				]
+			},
+			"minecraft:physics": {},
+			"minecraft:rideable": {
+				"seat_count": 2,
+				"crouching_skip_interact": true,
+				"pull_in_entities": true,
+				"family_types": [
+					"player"
+				],
+				"interact_text": "Ride",
+				"seats": [
+					{
+						"min_rider_count": 0,
+						"max_rider_count": 2,
+						"position": [
+							-0.4,
+							1,
+							-1
+						]
+					},
+					{
+						"min_rider_count": 1,
+						"max_rider_count": 2,
+						"position": [
+							0.4,
+							1,
+							-1
+						]
+					}
+				]
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:inventory": {
+				"inventory_size": 27,
+				"container_type": "container",
+				"can_be_siphoned_from": false,
+				"restrict_to_owner": false
+			},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:movement": {
+				"value": 0.1
+			},
+			"minecraft:nameable": {
+				"allow_name_tag_renaming": false
+			},
+			"minecraft:type_family": {
+				"family": [
+					"storage",
+					"drill"
+				]
+			},
+			"minecraft:fire_immune": true,
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage": false
+				}
+			},
+			"minecraft:health": {
+				"max": 0,
+				"min": 1,
+				"value": 1
+			},
+			"minecraft:input_ground_controlled": {},
+			"minecraft:break_blocks": {
+				"breakable_blocks": [
+					"cobblestone",
+					"dirt",
+					"deepslate",
+					"deepslate_coal_ore",
+					"deepslate_diamond_ore",
+					"deepslate_emerald_ore",
+					"deepslate_lapis_ore",
+					"deepslate_iron_ore",
+					"deepslate_redstone_ore",
+					"deepslate_copper_ore",
+					"deepslate_gold_ore",
+					"stone",
+					"diamond_ore",
+					"iron_ore",
+					"coal_ore",
+					"gold_ore",
+					"emerald_ore",
+					"copper_ore",
+					"redstone_ore",
+					"lapis_ore",
+					"tuff",
+					"sand",
+					"gravel",
+					"dirt_with_roots",
+					"dripstone_block",
+					"lit_redstone_ore",
+					"lit_deepslate_redstone_ore",
+					"netherrack"
+				]
+			},
+			"minecraft:collision_box": {
+				"height": 3,
+				"width": 3
+			}
+		},
+		"events": {
+			"despawn": {
+				"add": {
+					"component_groups": [
+						"despawn"
+					]
+				}
+			},
+			"set_timer": {
+				"sequence": [
+					{
+						"remove": {
+							"component_groups": [
+								"twm:hopper"
+							]
+						}
+					},
+					{
+						"add": {
+							"component_groups": [
+								"twm:get_items"
+							]
+						}
+					},
+					{
+						"queue_command": {
+							"command": "kill @e[type=twm:drill, r= 0.1] "
+						}
+					},
+					{
+						"queue_command": {
+							"command": "execute positioned ~~~ run function drill_remove"
+						}
+					}
+				]
+			},
+			"hopp": {
+				"add": {
+					"component_groups": [
+						"twm:hopper"
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "twm:copper_to_nugget"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "minecraft:copper_ingot",
+				"count": 1
+			}
+		],
+		"result": {
+			"item": "twm:copper_nugget",
+			"count": 9
+		},
+		"unlock": [
+			{
+				"item": "minecraft:copper_ingot"
+			}
+		]
+	}
+}

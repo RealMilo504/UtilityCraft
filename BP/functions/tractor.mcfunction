@@ -1,0 +1,9 @@
+execute positioned ~~~ run function harvester
+execute positioned ~~~1 run function harvester
+execute positioned ~1~~ run function harvester
+execute positioned ~1~~1 run function harvester
+execute positioned ~-1~~ run function harvester
+execute positioned ~~~-1 run function harvester
+execute positioned ~-1~~-1 run function harvester
+execute positioned ~1~~-1 run function harvester
+execute positioned ~-1~~1 run function harvester

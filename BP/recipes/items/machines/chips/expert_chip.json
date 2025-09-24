@@ -1,0 +1,38 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "twm:expert_chip"
+        },
+        "tags": [
+            "twm_workbench"
+        ],
+        "pattern": [
+            "RDR",
+            "DCD",
+            "RDR"
+        ],
+        "key": {
+            "D": {
+                "item": "diamond"
+            },
+            "C": {
+                "item": "twm:advanced_chip"
+            },
+            "R": {
+                "item": "minecraft:redstone"
+            }
+        },
+        "result": {
+            "item": "twm:expert_chip"
+        },
+        "unlock": [
+            {
+                "item": "diamond"
+            },
+            {
+                "item": "minecraft:redstone"
+            }
+        ]
+    }
+}

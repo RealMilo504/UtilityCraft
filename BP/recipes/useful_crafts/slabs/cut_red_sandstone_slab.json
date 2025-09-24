@@ -1,0 +1,22 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "twm:cut_red_sandstone_slab"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "stone_block_slab4",
+				"count": 2,
+				"data": 4
+			}
+		],
+		"result": {
+			"item": "red_sandstone",
+			"data": 2
+		}
+	}
+}

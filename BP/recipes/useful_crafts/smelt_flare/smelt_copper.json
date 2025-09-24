@@ -1,0 +1,27 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "twm:smelt_copper"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "twm:smeltflare"
+			},
+			{
+				"item": "minecraft:raw_copper"
+			}
+		],
+		"result": {
+			"item": "minecraft:copper_ingot"
+		},
+		"unlock": [
+			{
+				"item": "twm:smeltflare"
+			}
+		]
+	}
+}

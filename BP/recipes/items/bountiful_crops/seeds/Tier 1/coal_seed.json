@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:coal_seeds"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"O": {
+				"item": "coal"
+			},
+			"S": {
+				"item": "twm:base_seeds"
+			}
+		},
+		"pattern": [
+			"OOO",
+			"OSO",
+			"OOO"
+		],
+		"result": {
+			"item": "twm:coal_seeds"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:coal"
+			},
+			{
+				"item": "twm:base_seeds"
+			}
+		]
+	}
+}

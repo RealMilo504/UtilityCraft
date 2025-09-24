@@ -1,0 +1,429 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:bonsai",
+			"menu_category": {
+				"category": "construction"
+			},
+			//Here is where you add the new soils, if you add one here make sure to add in on the script
+			"states": {
+				"twm:soil": [
+					"empty",
+					"minecraft:dirt",
+					"minecraft:grass_block",
+					"minecraft:sand",
+					"minecraft:red_sand",
+					"minecraft:warped_nylium",
+					"minecraft:crimson_nylium",
+					"minecraft:soul_sand",
+					"minecraft:end_stone",
+					"twm:yellow_soil",
+					"twm:red_soil",
+					"twm:blue_soil",
+					"twm:black_soil"
+				],
+				"twm:hasBonsai": [
+					false,
+					true
+				],
+				"twm:isFarm": [
+					false,
+					true
+				],
+				"twm:isSlimed": [
+					false,
+					true
+				]
+			}
+		},
+		"components": {
+			"minecraft:custom_components": [
+				"twm:newBonsais"
+			],
+			"minecraft:geometry": "geometry.twm_bonsai",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_bonsai",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-7,
+					0,
+					-7
+				],
+				"size": [
+					14,
+					6,
+					14
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-7,
+					0,
+					-7
+				],
+				"size": [
+					14,
+					4,
+					14
+				]
+			},
+			"minecraft:tick": {
+				"interval_range": [
+					1000000,
+					1000000
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:destructible_by_explosion": false
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('twm:soil') == 'minecraft:grass_block' && !q.block_state('twm:isFarm')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_grass",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							1000,
+							1000
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'minecraft:dirt' && !q.block_state('twm:isFarm')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_dirt",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							1200,
+							1200
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'minecraft:sand' && !q.block_state('twm:isFarm')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_sand",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							1200,
+							1200
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'minecraft:red_sand' && !q.block_state('twm:isFarm')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_redsand",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							1000,
+							1000
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'minecraft:warped_nylium' && !q.block_state('twm:isFarm')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_warped",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							1200,
+							1200
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'minecraft:crimson_nylium' && !q.block_state('twm:isFarm')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_crimson",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							1200,
+							1200
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'minecraft:soul_sand' && !q.block_state('twm:isFarm')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_soulsand",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							1200,
+							1200
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'minecraft:end_stone' && !q.block_state('twm:isFarm')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_endstone",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							1200,
+							1200
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'minecraft:grass_block' && q.block_state('twm:isFarm')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_grass_farm",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							800,
+							800
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'minecraft:dirt' && q.block_state('twm:isFarm')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_dirt_farm",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							1000,
+							1000
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'minecraft:sand' && q.block_state('twm:isFarm')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_sand_farm",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							1000,
+							1000
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'minecraft:red_sand' && q.block_state('twm:isFarm')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_redsand_farm",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							800,
+							800
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'minecraft:warped_nylium' && q.block_state('twm:isFarm')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_warped_farm",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							1000,
+							1000
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'minecraft:crimson_nylium' && q.block_state('twm:isFarm')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_crimson_farm",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							1000,
+							1000
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'minecraft:soul_sand' && q.block_state('twm:isFarm')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_soulsand_farm",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							1000,
+							1000
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'minecraft:end_stone' && q.block_state('twm:isFarm')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_endstone_farm",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							1000,
+							1000
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'twm:yellow_soil'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_soil_1",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							900,
+							900
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'twm:red_soil'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_soil_2",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							600,
+							600
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'twm:blue_soil'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_soil_3",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							600,
+							600
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:soil') == 'twm:black_soil'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_bonsai_soil_4",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							200,
+							200
+						]
+					}
+				}
+			}
+		]
+	}
+}

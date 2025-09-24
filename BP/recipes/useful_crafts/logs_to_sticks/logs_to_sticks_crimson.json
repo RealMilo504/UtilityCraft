@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:logs_to_sticks_crimson"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"pattern": [
+			"L",
+			"L"
+		],
+		"key": {
+			"L": {
+				"item": "crimson_stem"
+			}
+		},
+		"result": {
+			"item": "stick",
+			"count": 16
+		},
+		"unlock": [
+			{
+				"item": "minecraft:crimson_stem"
+			}
+		]
+	}
+}

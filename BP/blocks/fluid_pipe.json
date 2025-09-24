@@ -1,0 +1,79 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:fluid_pipe",
+			"states": {
+				"twm:up": [
+					false,
+					true
+				],
+				"twm:down": [
+					false,
+					true
+				],
+				"twm:north": [
+					false,
+					true
+				],
+				"twm:south": [
+					false,
+					true
+				],
+				"twm:east": [
+					false,
+					true
+				],
+				"twm:west": [
+					false,
+					true
+				]
+			}
+		},
+		"components": {
+			"minecraft:geometry": {
+				"identifier": "geometry.twm_general_tube",
+				"bone_visibility": {
+					"up": "q.block_state('twm:up')",
+					"down": "q.block_state('twm:down')",
+					"north": "q.block_state('twm:north')",
+					"south": "q.block_state('twm:south')",
+					"east": "q.block_state('twm:east')",
+					"west": "q.block_state('twm:west')"
+				}
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_fluid_pipe",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					0,
+					0,
+					0
+				],
+				"size": [
+					0,
+					0,
+					0
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-4,
+					4,
+					-4
+				],
+				"size": [
+					8,
+					8,
+					8
+				]
+			},
+			"tag:dorios:fluid": {},
+			"tag:dorios:isTube": {}
+		}
+	}
+}

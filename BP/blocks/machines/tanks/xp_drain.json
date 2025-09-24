@@ -1,0 +1,68 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:xp_drain",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.twm_xp_drain",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_xp_drain",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-5,
+					0,
+					-5
+				],
+				"size": [
+					10,
+					1,
+					10
+				]
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-5,
+					0,
+					-5
+				],
+				"size": [
+					10,
+					1,
+					10
+				]
+			},
+			"minecraft:custom_components": [
+				"twm:xp"
+			],
+			"minecraft:tick": {
+				"interval_range": [
+					1,
+					1
+				]
+			},
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"block_filter": [
+							"twm:basic_fluid_tank",
+							"twm:expert_fluid_tank",
+							"twm:advanced_fluid_tank",
+							"twm:ultimate_fluid_tank"
+						],
+						"allowed_faces": [
+							"up"
+						]
+					}
+				]
+			}
+		}
+	}
+}

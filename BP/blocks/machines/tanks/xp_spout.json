@@ -1,0 +1,137 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:xp_spout",
+			"menu_category": {
+				"category": "construction"
+			},
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": [
+						"minecraft:block_face"
+					]
+				}
+			},
+			"states": {
+				"twm:isOpen": [
+					false,
+					true
+				]
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.twm_xp_spout",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_xp_spout",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-1,
+					10,
+					4
+				],
+				"size": [
+					2,
+					4,
+					4
+				]
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-1,
+					10,
+					4
+				],
+				"size": [
+					2,
+					4,
+					4
+				]
+			},
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"block_filter": [
+							"twm:basic_fluid_tank",
+							"twm:expert_fluid_tank",
+							"twm:advanced_fluid_tank",
+							"twm:ultimate_fluid_tank"
+						],
+						"allowed_faces": [
+							"side"
+						]
+					}
+				]
+			},
+			"minecraft:custom_components": [
+				"twm:xp"
+			],
+			"minecraft:tick": {
+				"interval_range": [
+					1,
+					1
+				]
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'south' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'north' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'west' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'east' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('twm:isOpen') == true",
+				"components": {
+					"minecraft:geometry": "geometry.twm_xp_spout_open"
+				}
+			}
+		]
+	}
+}

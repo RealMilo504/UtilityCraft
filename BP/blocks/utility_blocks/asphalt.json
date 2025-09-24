@@ -1,0 +1,107 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:asphalt",
+			"states": {
+				"twm:texture": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6
+				]
+			},
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.twm_block",
+			"minecraft:custom_components": [
+				"twm:asphalt"
+			]
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state('twm:texture') == 0",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_asphalt",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('twm:texture') == 1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "grass_path_top",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('twm:texture') == 2",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "grass_carried_top",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('twm:texture') == 3",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "dirt",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('twm:texture') == 4",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cobblestone",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('twm:texture') == 5",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "stone",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('twm:texture') == 6",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "gravel",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			}
+		]
+	}
+}

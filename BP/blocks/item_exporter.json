@@ -1,0 +1,185 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:item_exporter",
+			"states": {
+				"twm:up": [
+					false,
+					true
+				],
+				"twm:down": [
+					false,
+					true
+				],
+				"twm:south": [
+					false,
+					true
+				],
+				"twm:east": [
+					false,
+					true
+				],
+				"twm:west": [
+					false,
+					true
+				],
+				"twm:north": [
+					false,
+					true
+				],
+				"twm:speed": [
+					0,
+					1,
+					2,
+					3,
+					4
+				],
+				"twm:filter": [
+					0,
+					1
+				]
+			},
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": [
+						"minecraft:block_face"
+					]
+				}
+			}
+		},
+		"components": {
+			"minecraft:geometry": {
+				"identifier": "geometry.item_exporter",
+				"bone_visibility": {
+					"up": "q.block_state('twm:up')",
+					"down": "q.block_state('twm:down')",
+					"south": "q.block_state('twm:south')",
+					"east": "q.block_state('twm:east')",
+					"west": "q.block_state('twm:west')"
+				}
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_item_exporter",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					0,
+					0,
+					0
+				],
+				"size": [
+					0,
+					0,
+					0
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-4,
+					4,
+					-4
+				],
+				"size": [
+					8,
+					8,
+					8
+				]
+			},
+			"minecraft:custom_components": [
+				"twm:exporter",
+				"twm:machine_upgrades"
+			],
+			"minecraft:tick": {
+				"interval_range": [
+					5,
+					5
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:destructible_by_explosion": false,
+			"tag:dorios:item": {},
+			"tag:dorios:isTube": {},
+			"tag:dorios:isExporter": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'up'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							-90,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'down' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							90,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'north' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'south' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'east' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'west' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-90,
+							0
+						]
+					}
+				}
+			}
+		]
+	}
+}

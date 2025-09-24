@@ -1,0 +1,23 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.dorios_wiki_book.first": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"book": {
+					"rotation": [82.88126, 61.28552, -49.35196],
+					"position": [-7.25, -7, -12.5]
+				}
+			}
+		},
+		"animation.dorios_wiki_book.third": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"book": {
+					"rotation": [12.5, 0, 0],
+					"position": [3, -4, -14]
+				}
+			}
+		}
+	}
+}

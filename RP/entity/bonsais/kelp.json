@@ -1,0 +1,27 @@
+{
+	"format_version": "1.8.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "twm:kelp",
+			"materials": {
+				"default": "slime",
+				"outer": "slime_outer"
+			},
+			"textures": {
+				"default": "textures/entity/kelp"
+			},
+			"geometry": {
+				"default": "geometry.twm_kelp",
+				"armor": "geometry.twm_kelp_armor"
+			},
+			"render_controllers": [
+				"controller.render.slime",
+				"controller.render.slime_armor"
+			],
+			"spawn_egg": {
+				"texture": "spawn_egg",
+				"texture_index": 10
+			}
+		}
+	}
+}

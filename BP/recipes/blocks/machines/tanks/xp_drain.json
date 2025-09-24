@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:xp_drain"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"S": {
+				"item": "twm:steel_ingot"
+			},
+			"M": {
+				"item": "iron_bars"
+			},
+			"H": {
+				"item": "minecraft:hopper"
+			}
+		},
+		"pattern": [
+			"SMS",
+			"MHM",
+			"SMS"
+		],
+		"result": {
+			"item": "twm:xp_drain"
+		},
+		"unlock": [
+			{
+				"item": "twm:steel_ingot"
+			}
+		]
+	}
+}

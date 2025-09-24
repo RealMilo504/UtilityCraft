@@ -1,0 +1,20 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "twm:cherry_slab"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "cherry_slab",
+				"count": 2
+			}
+		],
+		"result": {
+			"item": "cherry_planks"
+		}
+	}
+}

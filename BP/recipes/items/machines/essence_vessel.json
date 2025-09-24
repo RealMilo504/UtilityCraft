@@ -1,0 +1,47 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:essence_vessel"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"L": {
+				"item": "minecraft:lapis_lazuli"
+			},
+			"s": {
+				"item": "minecraft:soul_sand"
+			},
+			"S": {
+				"item": "minecraft:soul_soil"
+			},
+			"B": {
+				"item": "minecraft:glass_bottle"
+			}
+		},
+		"pattern": [
+			"LSL",
+			"sBs",
+			"LSL"
+		],
+		"result": {
+			"item": "twm:essence_vessel"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:lapis_lazuli"
+			},
+			{
+				"item": "minecraft:soul_sand"
+			},
+			{
+				"item": "minecraft:soul_soil"
+			},
+			{
+				"item": "minecraft:glass_bottle"
+			}
+		]
+	}
+}

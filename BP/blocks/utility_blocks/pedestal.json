@@ -1,0 +1,37 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:pedestal",
+			"states": {
+				"twm:hasItem": [
+					0,
+					1
+				]
+			},
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.twm_pedestal",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_pedestal",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:custom_components": [
+				"twm:onInteract",
+				"twm:pedestal"
+			],
+			"minecraft:tick": {
+				"looping": true,
+				"interval_range": [
+					20,
+					20
+				]
+			}
+		}
+	}
+}

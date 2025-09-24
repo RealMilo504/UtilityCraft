@@ -1,0 +1,24 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "twm:mechanic_upper"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"ingredients": [
+			{
+				"item": "twm:mechanic_hopper"
+			}
+		],
+		"result": {
+			"item": "twm:mechanic_upper"
+		},
+		"unlock": [
+			{
+				"item": "twm:mechanic_hopper"
+			}
+		]
+	}
+}

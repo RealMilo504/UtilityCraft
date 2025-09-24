@@ -1,0 +1,140 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:ultimate_solar_panel",
+			"states": {
+				"twm:on": [
+					false,
+					true
+				],
+				"twm:refreshSpeed": [
+					1,
+					5,
+					10,
+					20,
+					40
+				]
+			},
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.twm_solar_panel",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_ultimate_solar_panel_off",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:custom_components": [
+				"twm:solar_panel"
+			],
+			"minecraft:tick": {
+				"interval_range": [
+					20,
+					20
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					5,
+					16
+				]
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					5,
+					16
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:destructible_by_explosion": false,
+			"tag:dorios:energy": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('twm:refreshSpeed') == 1 ",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [
+							5,
+							5
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:refreshSpeed') == 5 ",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [
+							25,
+							25
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:refreshSpeed') == 10 ",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [
+							50,
+							50
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:refreshSpeed') == 20 ",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [
+							100,
+							100
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:refreshSpeed') == 40 ",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [
+							200,
+							200
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:on') == true ",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_ultimate_solar_panel_on",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:light_emission": 4
+				}
+			}
+		]
+	}
+}

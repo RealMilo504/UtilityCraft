@@ -1,0 +1,31 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:pebble_to_endstone"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"P": {
+				"item": "twm:endstone_pebble"
+			}
+		},
+		"pattern": [
+			"PP",
+			"PP"
+		],
+		"result": {
+			"item": "minecraft:end_stone"
+		},
+		"unlock": [
+			{
+				"item": "twm:endstone_pebble"
+			},
+			{
+				"item": "minecraft:end_stone"
+			}
+		]
+	}
+}

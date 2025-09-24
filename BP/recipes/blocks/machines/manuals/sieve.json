@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:sieve"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"A": {
+				"item": "stick"
+			},
+			"P": {
+				"item": "planks"
+			},
+			"S": {
+				"item": "wooden_slab"
+			}
+		},
+		"pattern": [
+			"P P",
+			"PSP",
+			"A A"
+		],
+		"result": {
+			"item": "twm:sieve"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:stick"
+			},
+			{
+				"item": "minecraft:planks"
+			},
+			{
+				"item": "minecraft:wooden_slab"
+			}
+		]
+	}
+}

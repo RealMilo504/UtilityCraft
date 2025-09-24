@@ -1,0 +1,38 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:basic_solar_panel"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"A": {
+				"item": "twm:steel_ingot"
+			},
+			"C": {
+				"item": "gold_ingot"
+			},
+			"D": {
+				"item": "minecraft:redstone_block"
+			},
+			"E": {
+				"item": "twm:basic_chip"
+			}
+		},
+		"pattern": [
+			"AEA",
+			"ECE",
+			"CDC"
+		],
+		"result": {
+			"item": "twm:basic_solar_panel"
+		},
+		"unlock": [
+			{
+				"item": "twm:steel_ingot"
+			}
+		]
+	}
+}

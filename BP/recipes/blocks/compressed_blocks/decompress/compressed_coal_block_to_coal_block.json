@@ -1,0 +1,25 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "twm:compressed_coal_block_to_coal_block"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "twm:compressed_coal_block"
+			}
+		],
+		"result": {
+			"item": "minecraft:coal_block",
+			"count": 9
+		},
+		"unlock": [
+			{
+				"item": "twm:compressed_coal_block"
+			}
+		]
+	}
+}

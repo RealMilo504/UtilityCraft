@@ -1,0 +1,47 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:spawner"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"D": {
+				"item": "diamond"
+			},
+			"I": {
+				"item": "iron_bars"
+			},
+			"C": {
+				"item": "twm:spawner_core"
+			},
+			"O": {
+				"item": "crying_obsidian"
+			}
+		},
+		"pattern": [
+			"ODO",
+			"ICI",
+			"OIO"
+		],
+		"result": {
+			"item": "twm:mechanical_spawner"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:diamond"
+			},
+			{
+				"item": "minecraft:iron_bars"
+			},
+			{
+				"item": "twm:spawner_core"
+			},
+			{
+				"item": "minecraft:crying_obsidian"
+			}
+		]
+	}
+}

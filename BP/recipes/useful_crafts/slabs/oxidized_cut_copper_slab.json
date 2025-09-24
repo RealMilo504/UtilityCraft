@@ -1,0 +1,20 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "twm:oxidized_cut_copper_slab"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "oxidized_cut_copper_slab",
+				"count": 2
+			}
+		],
+		"result": {
+			"item": "oxidized_cut_copper"
+		}
+	}
+}

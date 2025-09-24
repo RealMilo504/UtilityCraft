@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:shard_to_emerald"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"P": {
+				"item": "twm:emerald_shard"
+			}
+		},
+		"pattern": [
+			"PPP",
+			"PPP",
+			"PPP"
+		],
+		"result": {
+			"item": "minecraft:emerald"
+		},
+		"unlock": [
+			{
+				"item": "twm:emerald_shard"
+			},
+			{
+				"item": "minecraft:emerald"
+			}
+		]
+	}
+}

@@ -1,0 +1,354 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:sieve",
+			"menu_category": {
+				"category": "construction"
+			},
+			"states": {
+				"twm:mesh": [
+					"empty",
+					"string_mesh",
+					"flint_mesh",
+					"iron_mesh",
+					"golden_mesh",
+					"emerald_mesh",
+					"diamond_mesh",
+					"netherite_mesh"
+				],
+				"twm:state": [
+					0,
+					1,
+					2,
+					3,
+					4
+				],
+				"twm:block": [
+					"empty",
+					"minecraft:gravel",
+					"minecraft:dirt",
+					"minecraft:sand",
+					"minecraft:soul_sand",
+					"twm:compressed_gravel",
+					"twm:compressed_dirt",
+					"twm:compressed_sand",
+					"twm:crushed_netherrack",
+					"twm:crushed_endstone",
+					"twm:crushed_cobbled_deepslate",
+					"twm:compressed_crushed_netherrack",
+					"twm:compressed_crushed_endstone",
+					"twm:compressed_crushed_cobbled_deepslate"
+				]
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('twm:block') == 'minecraft:gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"mesh": {
+							"texture": "twm_wood_sieve_meshes",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "twm_wood_sieve",
+							"render_method": "alpha_test"
+						},
+						"block": {
+							"texture": "gravel",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:block') == 'minecraft:sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"mesh": {
+							"texture": "twm_wood_sieve_meshes",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "twm_wood_sieve",
+							"render_method": "alpha_test"
+						},
+						"block": {
+							"texture": "sand",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:block') == 'minecraft:dirt'",
+				"components": {
+					"minecraft:material_instances": {
+						"mesh": {
+							"texture": "twm_wood_sieve_meshes",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "twm_wood_sieve",
+							"render_method": "alpha_test"
+						},
+						"block": {
+							"texture": "dirt",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:block') == 'minecraft:soul_sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"mesh": {
+							"texture": "twm_wood_sieve_meshes",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "twm_wood_sieve",
+							"render_method": "alpha_test"
+						},
+						"block": {
+							"texture": "soul_sand",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:block') == 'twm:compressed_gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"mesh": {
+							"texture": "twm_wood_sieve_meshes",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "twm_wood_sieve",
+							"render_method": "alpha_test"
+						},
+						"block": {
+							"texture": "twm_compressed_gravel",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:block') == 'twm:compressed_dirt'",
+				"components": {
+					"minecraft:material_instances": {
+						"mesh": {
+							"texture": "twm_wood_sieve_meshes",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "twm_wood_sieve",
+							"render_method": "alpha_test"
+						},
+						"block": {
+							"texture": "twm_compressed_dirt",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:block') == 'twm:compressed_sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"mesh": {
+							"texture": "twm_wood_sieve_meshes",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "twm_wood_sieve",
+							"render_method": "alpha_test"
+						},
+						"block": {
+							"texture": "twm_compressed_sand",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:block') == 'twm:crushed_netherrack'",
+				"components": {
+					"minecraft:material_instances": {
+						"mesh": {
+							"texture": "twm_wood_sieve_meshes",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "twm_wood_sieve",
+							"render_method": "alpha_test"
+						},
+						"block": {
+							"texture": "twm_crushed_netherrack",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:block') == 'twm:crushed_endstone'",
+				"components": {
+					"minecraft:material_instances": {
+						"mesh": {
+							"texture": "twm_wood_sieve_meshes",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "twm_wood_sieve",
+							"render_method": "alpha_test"
+						},
+						"block": {
+							"texture": "twm_crushed_endstone",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:block') == 'twm:crushed_cobbled_deepslate'",
+				"components": {
+					"minecraft:material_instances": {
+						"mesh": {
+							"texture": "twm_wood_sieve_meshes",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "twm_wood_sieve",
+							"render_method": "alpha_test"
+						},
+						"block": {
+							"texture": "twm_crushed_cobbled_deepslate",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:block') == 'twm:compressed_crushed_netherrack'",
+				"components": {
+					"minecraft:material_instances": {
+						"mesh": {
+							"texture": "twm_wood_sieve_meshes",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "twm_wood_sieve",
+							"render_method": "alpha_test"
+						},
+						"block": {
+							"texture": "twm_compressed_crushed_netherrack",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:block') == 'twm:compressed_crushed_endstone'",
+				"components": {
+					"minecraft:material_instances": {
+						"mesh": {
+							"texture": "twm_wood_sieve_meshes",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "twm_wood_sieve",
+							"render_method": "alpha_test"
+						},
+						"block": {
+							"texture": "twm_compressed_crushed_endstone",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:block') == 'twm:compressed_crushed_cobbled_deepslate'",
+				"components": {
+					"minecraft:material_instances": {
+						"mesh": {
+							"texture": "twm_wood_sieve_meshes",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "twm_wood_sieve",
+							"render_method": "alpha_test"
+						},
+						"block": {
+							"texture": "twm_compressed_crushed_cobbled_deepslate",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			}
+		],
+		"components": {
+			"minecraft:geometry": {
+				"identifier": "geometry.twm_wood_sieve",
+				"bone_visibility": {
+					"block4": "q.block_state('twm:state') == 4",
+					"block3": "q.block_state('twm:state') == 3",
+					"block2": "q.block_state('twm:state') == 2",
+					"block1": "q.block_state('twm:state') == 1",
+					"string_mesh": "q.block_state('twm:mesh') == 'string_mesh'",
+					"flint_mesh": "q.block_state('twm:mesh') == 'flint_mesh'",
+					"iron_mesh": "q.block_state('twm:mesh') == 'iron_mesh'",
+					"golden_mesh": "q.block_state('twm:mesh') == 'golden_mesh'",
+					"emerald_mesh": "q.block_state('twm:mesh') == 'emerald_mesh'",
+					"diamond_mesh": "q.block_state('twm:mesh') == 'diamond_mesh'",
+					"netherite_mesh": "q.block_state('twm:mesh') == 'netherite_mesh'"
+				}
+			},
+			"minecraft:material_instances": {
+				"mesh": {
+					"texture": "twm_wood_sieve_meshes",
+					"render_method": "alpha_test"
+				},
+				"*": {
+					"texture": "twm_wood_sieve",
+					"render_method": "alpha_test"
+				},
+				"block": {
+					"texture": "twm_empty",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"size": [
+					14,
+					15,
+					14
+				],
+				"origin": [
+					-7,
+					0,
+					-7
+				]
+			},
+			"minecraft:selection_box": {
+				"size": [
+					14,
+					15,
+					14
+				],
+				"origin": [
+					-7,
+					0,
+					-7
+				]
+			},
+			"minecraft:custom_components": [
+				"twm:mesh"
+			]
+		}
+	}
+}

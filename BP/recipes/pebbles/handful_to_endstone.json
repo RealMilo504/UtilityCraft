@@ -1,0 +1,31 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:handful_to_endstone"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"P": {
+				"item": "twm:crushed_endstone_handful"
+			}
+		},
+		"pattern": [
+			"PP",
+			"PP"
+		],
+		"result": {
+			"item": "twm:crushed_endstone"
+		},
+		"unlock": [
+			{
+				"item": "twm:crushed_endstone_handful"
+			},
+			{
+				"item": "twm:crushed_endstone"
+			}
+		]
+	}
+}

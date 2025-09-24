@@ -1,0 +1,22 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "twm:smooth_sandstone_slab"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "stone_block_slab2",
+				"count": 2,
+				"data": 6
+			}
+		],
+		"result": {
+			"item": "sandstone",
+			"data": 3
+		}
+	}
+}

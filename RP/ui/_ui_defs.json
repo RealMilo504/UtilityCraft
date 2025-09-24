@@ -1,0 +1,17 @@
+{
+    "ui_defs": [
+        "ui/furnator.json",
+        "ui/magmator.json",
+        "ui/battery.json",
+        "ui/common_machinery.json",
+        "ui/bar_only.json",
+        "ui/machine1x1.json",
+        "ui/infuser.json",
+        "ui/magmatic_chamber.json",
+        "ui/simple_machine.json",
+        "ui/autosieve.json",
+        "ui/assembler.json",
+        "ui/power_condenser.json",
+        "ui/machineryCommon.json"
+    ]
+}

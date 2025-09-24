@@ -1,0 +1,772 @@
+## Traducido por Milo - Complementado por LaMegaBestia99
+
+- Bloques = ##Bloques
+
+- Tables = #Mesas
+tile.twm:workbench.name=Mesa de Máquinas
+tile.twm:utility_table.name=Mesa Utility 
+
+- Machines = #Máquinas
+tile.twm:autosieve.name=Tamiz Automatico
+tile.twm:block_breaker.name=Rompe Bloques
+tile.twm:ender_hopper.name=Tolva del Ender
+tile.twm:crusher.name=Triturador
+tile.twm:harvester.name=Cosechador
+tile.twm:machine_case.name=Carcasa de Maquina
+tile.twm:sieve.name=Tamiz
+## +
+tile.twm:fan.name=Ventilador
+tile.twm:mob_grinder.name=Triturador de Mobs
+tile.twm:mob_trap.name=Trampa de Mobs
+tile.twm:xp_magnet.name=Iman de Experiencia
+tile.twm:xp_drain.name=Drenaje de Experiencia
+tile.twm:xp_spout.name=Chorro de Experiencia
+## +
+tile.twm:cobble_gen_1.name=Generador de Adoquín (Nivel I) \n§7- Produce 0.5 por segundo
+tile.twm:cobble_gen_2.name=Generador de Adoquín (§eNivel II§r) \n§7- Produce 1 por segundo
+tile.twm:cobble_gen_3.name=Generador de Adoquín (§eNivel III§r) \n§7- Produce 2 por segundo
+tile.twm:cobble_gen_4.name=Generador de Adoquín (§eNivel IV§r) \n§7- Produce 4 por segundo
+tile.twm:cobble_gen_5.name=Generador de Adoquín (§eNivel V§r) \n§7- Produce 20 por segundo
+## +
+tile.twm:conveyor_horizontal.name=Cinta Transportadora Horizontal
+tile.twm:conveyor_inclined.name=Cinta Transportadora Inclinada
+tile.twm:conveyor_declined.name=Cinta Transportadora Declinada
+tile.twm:mechanic_hopper.name=Tolva Mecánica
+tile.twm:mechanic_upper.name=Elevador Mecánico
+## +
+tile.twm:basic_fluid_tank.name=§eTanque de Fluidos Básico
+tile.twm:advanced_fluid_tank.name=§cTanque de Fluidos Avanzado
+tile.twm:expert_fluid_tank.name=§bTanque de Fluidos Maestro
+tile.twm:ultimate_fluid_tank.name=§8Tanque de Fluidos Definitivo
+
+- Bountiful Bonsais = ## Bonsais Abundantes
+tile.twm:bonsai.name=Bonsai
+
+- Bountiful Crops = ## Cosechas Abundantes
+## >>>>>>>> Grupo Abierto -------- ##
+
+-- Tier 1 = ## Nivel (Cultivo) 1
+tile.twm:coal_crop.name=Cultivo de Carbón
+tile.twm:copper_crop.name=Cultivo de Cobre
+tile.twm:dyes_crop.name=Cultivo de Tintes
+tile.twm:glass_crop.name=Cultivo de Cristal
+tile.twm:gunpowder_crop.name=Cultivo de Polvora
+tile.twm:iron_crop.name=Cultivo de Hierro
+tile.twm:leather_crop.name=Cultivo de Cuero
+tile.twm:prismarine_crystal_crop.name=Cultivo de Cristales de Prismarina
+tile.twm:prismarine_shards_crop.name=Cultivo de Fragmentos de Prismarina
+tile.twm:water_crop.name=Cultivo de Agua
+tile.twm:wool_crop.name=Cultivo de Lana
+
+-- Tier 2 = ## Nivel (Cultivo) 2
+tile.twm:ghast_crop.name=Cultivo de Lagrima de Ghast
+tile.twm:glowstone_crop.name=Cultivo de Piedra Luminosa
+tile.twm:gold_crop.name=Cultivo de Oro
+tile.twm:honey_crop.name=Cultivo de Miel
+tile.twm:lapis_crop.name=Cultivo de Lapislázuli
+tile.twm:lava_crop.name=Cultivo de Lava
+tile.twm:quartz_crop.name=Cultivo de Cuarzo
+tile.twm:redstone_crop.name=Cultivo de Redstone
+tile.twm:slime_crop.name=Cultivo de Slime
+
+-- Tier 3 = ## Nivel (Cultivo) 3
+tile.twm:amethyst_crop.name=Cultivo de Amatista
+tile.twm:blaze_crop.name=Cultivo de Blaze
+tile.twm:diamond_crop.name=Cultivo de Diamante
+tile.twm:emerald_crop.name=Cultivo de Esmeralda
+tile.twm:enderpearl_crop.name=Cultivo de Perla de Ender
+tile.twm:obsidian_crop.name=Cultivo de Obsidiana
+
+-- Tier 4 = ## Nivel (Cultivo) 4
+tile.twm:netherite_crop.name=Cultivo de Netherita
+tile.twm:netherstar_crop.name=Cultivo de Estrella del Nether
+tile.twm:shulker_crop.name=Cultivo de Shulker
+tile.twm:totem_crop.name=Cultivo de Tótem
+tile.twm:wither_crop.name=Cultivo de Calaveras de Wither
+## -------- Grupo Cerrado <<<<<<<< ##
+
+- Soils = ## Suelos
+tile.twm:blue_soil.name=Suelo §9Azul
+tile.twm:black_soil.name=Suelo §0Negro
+tile.twm:red_soil.name=Suelo §4Rojo
+tile.twm:yellow_soil.name=Suelo §eAmarillo
+
+- Mechanical Spawners = ## Generadores Mecánicos
+tile.twm:mechanical_spawner.name=Generador de Mobs Mecánico
+tile.twm:spawner_core.name=Núcleo Generador de Mobs
+
+- Compressed Blocks = ## Bloques Comprimidos
+tile.twm:compressed_cobblestone.name=Adoquín Comprimido
+tile.twm:double_compressed_cobblestone.name=Adoquín Doblemente Comprimido
+tile.twm:triple_compressed_cobblestone.name=Adoquín Triplemente Comprimido
+tile.twm:quadruple_compressed_cobblestone.name=Adoquín Cuádruplemente Comprimido
+tile.twm:quintuple_compressed_cobblestone.name=Adoquín Quíntuplemente Comprimido
+tile.twm:sextuple_compressed_cobblestone.name=Adoquín Séxtuplemente Comprimido
+tile.twm:septuple_compressed_cobblestone.name=Adoquín Séptuplemente Comprimido
+tile.twm:octuple_compressed_cobblestone.name=Adoquín Óctuplemente Comprimido
+tile.twm:nonuple_compressed_cobblestone.name=Adoquín Nónuplemente Comprimido
+## +
+tile.twm:compressed_amethyst_block.name=Bloque de Amatista Comprimido
+tile.twm:compressed_amethyst_block_2.name=Bloque de Amatista Doblemente Comprimido
+tile.twm:compressed_amethyst_block_3.name=Bloque de Amatista Triplemente Comprimido
+tile.twm:compressed_amethyst_block_4.name=Bloque de Amatista Cuádruplemente Comprimido
+tile.twm:compressed_blackstone.name=Piedra Negra Comprimida
+tile.twm:compressed_blackstone_2.name=Piedra Negra Doblemente Comprimida
+tile.twm:compressed_blackstone_3.name=Piedra Negra Triplemente Comprimida
+tile.twm:compressed_blackstone_4.name=Piedra Negra Cuádruplemente Comprimida
+tile.twm:compressed_block.name=Todo Púrpura\n§8- No hay razón para que este bloque exista, solo me gusta la textura\n- Inobtenible
+tile.twm:compressed_brute_energized_iron_block.name=Bloque de Hierro Comprimido Bruto Energizado
+tile.twm:compressed_brute_energized_iron_block_2.name=Bloque de Hierro Comprimido Bruto Energizado Doble
+tile.twm:compressed_brute_energized_iron_block_3.name=Bloque de Hierro Comprimido Bruto Energizado Triple
+tile.twm:compressed_brute_energized_iron_block_4.name=Bloque de Hierro Comprimido Bruto Energizado Cuádruple
+tile.twm:compressed_brute_steel_block.name=Bloque de Acero Bruto Comprimido
+tile.twm:compressed_brute_steel_block_2.name=Bloque de Acero Bruto Doblemente Comprimido
+tile.twm:compressed_brute_steel_block_3.name=Bloque de Acero Bruto Triplemente Comprimido
+tile.twm:compressed_brute_steel_block_4.name=Bloque de Acero Bruto Cuádruplemente Comprimido
+tile.twm:compressed_coal_block.name=Bloque de Carbón Comprimido
+tile.twm:compressed_coal_block_2.name=Bloque de Carbón Doblemente Comprimido
+tile.twm:compressed_coal_block_3.name=Bloque de Carbón Triplemente Comprimido
+tile.twm:compressed_coal_block_4.name=Bloque de Carbón Cuádruplemente Comprimido
+tile.twm:compressed_cobbled_deepslate.name=Pizarra Profunda Rocosa Comprimida
+tile.twm:compressed_cobbled_deepslate_2.name=Pizarra Profunda Rocosa Doblemente Comprimida
+tile.twm:compressed_cobbled_deepslate_3.name=Pizarra Profunda Rocosa Triplemente Comprimida
+tile.twm:compressed_cobbled_deepslate_4.name=Pizarra Profunda Rocosa Cuádruplemente Comprimida
+tile.twm:compressed_copper_block.name=Bloque de Cobre Comprimido
+tile.twm:compressed_copper_block_2.name=Bloque de Cobre Doblemente Comprimido
+tile.twm:compressed_copper_block_3.name=Bloque de Cobre Triplemente Comprimido
+tile.twm:compressed_copper_block_4.name=Bloque de Cobre Cuádruplemente Comprimido
+tile.twm:compressed_crushed_cobbled_deepslate.name=Pizarra Profunda Rocosa Triturada Comprimida
+tile.twm:compressed_crushed_cobbled_deepslate_2.name=Pizarra Profunda Rocosa Triturada Doblemente Comprimida
+tile.twm:compressed_crushed_cobbled_deepslate_3.name=Pizarra Profunda Rocosa Triturada Triplemente Comprimida
+tile.twm:compressed_crushed_cobbled_deepslate_4.name=Pizarra Profunda Rocosa Triturada Cuádruplemente Comprimida
+tile.twm:compressed_crushed_endstone.name=Piedra de End Triturada Comprimida
+tile.twm:compressed_crushed_endstone_2.name=Piedra de End Triturada Doblemente Comprimida
+tile.twm:compressed_crushed_endstone_3.name=Piedra de End Triturada Triplemente Comprimida
+tile.twm:compressed_crushed_endstone_4.name=Piedra de End Triturada Cuádruplemente Comprimida
+tile.twm:compressed_crushed_netherrack.name=Infiedra Triturada Comprimida
+tile.twm:compressed_crushed_netherrack_2.name=Infiedra Triturada Doblemente Comprimida
+tile.twm:compressed_crushed_netherrack_3.name=Infiedra Triturada Triplemente Comprimida
+tile.twm:compressed_crushed_netherrack_4.name=Infiedra Triturada Cuádruplemente Comprimida
+tile.twm:compressed_cry_obsidian.name=Obsidiana Llorosa Comprimida
+tile.twm:compressed_cry_obsidian_2.name=Obsidiana Llorosa Doblemente Comprimida
+tile.twm:compressed_cry_obsidian_3.name=Obsidiana Llorosa Triplemente Comprimida
+tile.twm:compressed_cry_obsidian_4.name=Obsidiana Llorosa Cuádruplemente Comprimida
+tile.twm:compressed_deepslate.name=Pizarra Profunda Comprimida
+tile.twm:compressed_deepslate_2.name=Pizarra Profunda Doblemente Comprimida
+tile.twm:compressed_deepslate_3.name=Pizarra Profunda Triplemente Comprimida
+tile.twm:compressed_deepslate_4.name=Pizarra Profunda Cuádruplemente Comprimida
+tile.twm:compressed_diamond_block.name=Bloque de Diamante Comprimido
+tile.twm:compressed_diamond_block_2.name=Bloque de Diamante Doblemente Comprimido
+tile.twm:compressed_diamond_block_3.name=Bloque de Diamante Triplemente Comprimido
+tile.twm:compressed_diamond_block_4.name=Bloque de Diamante Cuádruplemente Comprimido
+tile.twm:compressed_dirt.name=Tierra Comprimida
+tile.twm:compressed_dirt_2.name=Tierra Doblemente Comprimida
+tile.twm:compressed_dirt_3.name=Tierra Triplemente Comprimida
+tile.twm:compressed_dirt_4.name=Tierra Cuádruplemente Comprimida
+tile.twm:compressed_emerald_block.name=Bloque de Esmeralda Comprimido
+tile.twm:compressed_emerald_block_2.name=Bloque de Esmeralda Doblemente Comprimido
+tile.twm:compressed_emerald_block_3.name=Bloque de Esmeralda Triplemente Comprimido
+tile.twm:compressed_emerald_block_4.name=Bloque de Esmeralda Cuádruplemente Comprimido
+tile.twm:compressed_endstone.name=Bloque de Piedra de End Comprimido
+tile.twm:compressed_endstone_2.name=Bloque de Piedra de End Doblemente Comprimido
+tile.twm:compressed_endstone_3.name=Bloque de Piedra de End Triplemente Comprimido
+tile.twm:compressed_endstone_4.name=Bloque de Piedra de End Comprimido Cuadruple
+tile.twm:compressed_energized_iron_block.name=Bloque de Hierro Energizado Comprimido
+tile.twm:compressed_energized_iron_block_2.name=Bloque de Hierro Energizado Doblemente Comprimido
+tile.twm:compressed_energized_iron_block_3.name=Bloque de Hierro Energizado Triplemente Comprimido
+tile.twm:compressed_energized_iron_block_4.name=Bloque de Hierro Energizado Cuádruplemente Comprimido
+tile.twm:compressed_exposed_copper_block.name=Bloque de Cobre Expuesto Comprimido
+tile.twm:compressed_exposed_copper_block_2.name=Bloque de Cobre Expuesto Doblemente Comprimido
+tile.twm:compressed_exposed_copper_block_3.name=Bloque de Cobre Expuesto Triplemente Comprimido
+tile.twm:compressed_exposed_copper_block_4.name=Bloque de Cobre Expuesto Cuádruplemente Comprimido
+tile.twm:compressed_flint_block.name=Bloque de Pedernal Comprimido
+tile.twm:compressed_flint_block_2.name=Bloque de Pedernal Doblemente Comprimido
+tile.twm:compressed_flint_block_3.name=Bloque de Pedernal Triplemente Comprimido
+tile.twm:compressed_flint_block_4.name=Bloque de Pedernal Cuádruplemente Comprimido
+tile.twm:compressed_glass.name=Bloque de Vidrio Comprimido
+tile.twm:compressed_glass_2.name=Bloque de Vidrio Doblemente Comprimido
+tile.twm:compressed_glass_3.name=Bloque de Vidrio Triplemente Comprimido
+tile.twm:compressed_glass_4.name=Bloque de Vidrio Cuádruplemente Comprimido
+tile.twm:compressed_gold_block.name=Bloque de Oro Comprimido
+tile.twm:compressed_gold_block_2.name=Bloque de Oro Doblemente Comprimido
+tile.twm:compressed_gold_block_3.name=Bloque de Oro Triplemente Comprimido
+tile.twm:compressed_gold_block_4.name=Bloque de Oro Cuádruplemente Comprimido
+tile.twm:compressed_gravel.name=Grava Comprimida
+tile.twm:compressed_gravel_2.name=Grava Doblemente Comprimida
+tile.twm:compressed_gravel_3.name=Grava Triplemente Comprimida
+tile.twm:compressed_gravel_4.name=Grava Cuádruplemente Comprimida
+tile.twm:compressed_iron_block.name=Bloque de Hierro Comprimido
+tile.twm:compressed_iron_block_2.name=Bloque de Hierro Doblemente Comprimido
+tile.twm:compressed_iron_block_3.name=Bloque de Hierro Triplemente Comprimido
+tile.twm:compressed_iron_block_4.name=Bloque de Hierro Cuádruplemente Comprimido
+tile.twm:compressed_lapislazuli_block.name=Bloque de Lapislázuli Comprimido
+tile.twm:compressed_lapislazuli_block_2.name=Bloque de Lapislázuli Doblemente Comprimido
+tile.twm:compressed_lapislazuli_block_3.name=Bloque de Lapislázuli Triplemente Comprimido
+tile.twm:compressed_lapislazuli_block_4.name=Bloque de Lapislázuli Cuádruplemente Comprimido
+tile.twm:compressed_netherite_block.name=Bloque de Netherite Comprimido
+tile.twm:compressed_netherite_block_2.name=Bloque de Netherite Doblemente Comprimido
+tile.twm:compressed_netherite_block_3.name=Bloque de Netherite Triplemente Comprimido
+tile.twm:compressed_netherite_block_4.name=Bloque de Netherite Cuádruplemente Comprimido
+tile.twm:compressed_netherrack.name=Infiedra Comprimida
+tile.twm:compressed_netherrack_2.name=Infiedra Doblemente Comprimida
+tile.twm:compressed_netherrack_3.name=Infiedra Triplemente Comprimida
+tile.twm:compressed_netherrack_4.name=Infiedra Cuádruplemente Comprimida
+tile.twm:compressed_obsidian.name=Obsidiana Comprimida
+tile.twm:compressed_obsidian_2.name=Obsidiana Doblemente Comprimida
+tile.twm:compressed_obsidian_3.name=Obsidiana Triplemente Comprimida
+tile.twm:compressed_obsidian_4.name=Obsidiana Cuádruplemente Comprimida
+tile.twm:compressed_oxidized_copper_block.name=Bloque de Cobre Oxidado Comprimido
+tile.twm:compressed_oxidized_copper_block_2.name=Bloque de Cobre Oxidado Doblemente Comprimido
+tile.twm:compressed_oxidized_copper_block_3.name=Bloque de Cobre Oxidado Triplemente Comprimido
+tile.twm:compressed_oxidized_copper_block_4.name=Bloque de Cobre Oxidado Cuádruplemente Comprimido
+tile.twm:compressed_quartz_block.name=Bloque de Cuarzo Comprimido
+tile.twm:compressed_quartz_block_2.name=Bloque de Cuarzo Doblemente Comprimido
+tile.twm:compressed_quartz_block_3.name=Bloque de Cuarzo Triplemente Comprimido
+tile.twm:compressed_quartz_block_4.name=Bloque de Cuarzo Cuádruplemente Comprimido
+tile.twm:compressed_raw_copper_block.name=Bloque de Cobre Crudo Comprimido
+tile.twm:compressed_raw_copper_block_2.name=Bloque de Cobre Crudo Doblemente Comprimido
+tile.twm:compressed_raw_copper_block_3.name=Bloque de Cobre Crudo Triplemente Comprimido
+tile.twm:compressed_raw_copper_block_4.name=Bloque de Cobre Crudo Cuádruplemente Comprimido
+tile.twm:compressed_raw_gold_block.name=Bloque de Oro Crudo Comprimido
+tile.twm:compressed_raw_gold_block_2.name=Bloque de Oro Crudo Doblemente Comprimido
+tile.twm:compressed_raw_gold_block_3.name=Bloque de Oro Crudo Triplemente Comprimido
+tile.twm:compressed_raw_gold_block_4.name=Bloque de Oro Crudo Cuádruplemente Comprimido
+tile.twm:compressed_raw_iron_block.name=Bloque de Hierro Crudo Comprimido
+tile.twm:compressed_raw_iron_block_2.name=Bloque de Hierro Crudo Doblemente Comprimido
+tile.twm:compressed_raw_iron_block_3.name=Bloque de Hierro Crudo Triplemente Comprimido
+tile.twm:compressed_raw_iron_block_4.name=Bloque de Hierro Crudo Cuádruplemente Comprimido
+tile.twm:compressed_redstone_block.name=Bloque de Redstone Comprimido
+tile.twm:compressed_redstone_block_2.name=Bloque de Redstone Doblemente Comprimido
+tile.twm:compressed_redstone_block_3.name=Bloque de Redstone Triplemente Comprimido
+tile.twm:compressed_redstone_block_4.name=Bloque de Redstone Cuádruplemente Comprimido
+tile.twm:compressed_sand.name=Arena Comprimida
+tile.twm:compressed_sand_2.name=Arena Doblemente Comprimida
+tile.twm:compressed_sand_3.name=Arena Triplemente Comprimida
+tile.twm:compressed_sand_4.name=Arena Cuádruplemente Comprimida
+tile.twm:compressed_steel_block.name=Bloque de Acero Comprimido
+tile.twm:compressed_steel_block_2.name=Bloque de Acero Doblemente Comprimido
+tile.twm:compressed_steel_block_3.name=Bloque de Acero Triplemente Comprimido
+tile.twm:compressed_steel_block_4.name=Bloque de Acero Cuádruplemente Comprimido
+tile.twm:compressed_stone.name=Piedra Comprimida
+tile.twm:compressed_stone_2.name=Piedra Doblemente Comprimida
+tile.twm:compressed_stone_3.name=Piedra Triplemente Comprimida
+tile.twm:compressed_stone_4.name=Piedra Cuádruplemente Comprimida
+tile.twm:compressed_weathered_copper_block.name=Bloque de Cobre Degradado Comprimido
+tile.twm:compressed_weathered_copper_block_2.name=Bloque de Cobre Degradado Doblemente Comprimido
+tile.twm:compressed_weathered_copper_block_3.name=Bloque de Cobre Degradado Triplemente Comprimido
+tile.twm:compressed_weathered_copper_block_4.name=Bloque de Cobre Degradado Cuádruplemente Comprimido
+
+
+## +
+tile.twm:compressed_sand.name=Arena Comprimida
+tile.twm:compressed_dirt.name=Tierra Comprimida
+tile.twm:compressed_gravel.name=Arena Comprimida
+tile.twm:compressed_netherrack.name=Infiedra Comprimida
+tile.twm:compressed_diamond_block.name=Bloque de Diamante Comprimido
+tile.twm:compressed_coal_block.name=Bloque de Carbón Comprimido
+tile.twm:compressed_iron_block.name=Bloque de Hierro Comprimido
+
+- Utility Blocks = ##Bloques
+tile.twm:asphalt.name=Asfalto
+tile.twm:big_torch.name=Antorcha Grande
+tile.twm:elevator.name=Elevador
+tile.twm:flint_block.name=Bloque de Pedernal
+tile.twm:lantern.name=Lampara
+tile.twm:sink.name=Barril de Agua
+
+## + Vehicles
+tile.twm:drill_placer.name=Taladro
+tile.twm:tractor_placer.name=Tractor
+
+## + Crushed Blocks
+tile.twm:crushed_netherrack.name=Infiedra Triturada
+tile.twm:crushed_endstone.name=Piedra de End Triturada
+tile.twm:crushed_cobbled_deepslate.name=Pizarra Profunda Rocosa Triturada
+
+
+- Actions = ## Acciones
+action.hint.exit.twm:tractor=Bajarse del Tractor
+action.hint.exit.twm:drill=Bajarse del Taladro
+
+## - Items
+
+## para ser actualizado.
+
+- Tools = ## Herramientas
+## >>>>>>>> Grupo Abierto -------- ##
+
+-- AIOTs = ## AIOTs
+item.twm:netherite_aiot=AIOT de Netherita
+item.twm:diamond_aiot=AIOT de Diamante
+item.twm:golden_aiot=AIOT de Oro
+item.twm:iron_aiot=AIOT de Hierro
+item.twm:stone_aiot=AIOT de Piedra
+item.twm:wooden_aiot=AIOT de Madera
+
+-- Paxels = ## Paxels
+item.twm:netherite_paxel=Paxel de Netherita
+item.twm:diamond_paxel=Paxel de Diamante
+item.twm:iron_paxel=Paxel de Hierro
+item.twm:golden_paxel=Paxel de Oro
+item.twm:stone_paxel=Paxel de Piedra
+item.twm:wooden_paxel=Paxel de Madera
+
+-- Hammers = ## Martillos
+item.twm:netherite_hammer=Martillo de Netherita
+item.twm:diamond_hammer=Martillo de Diamante
+item.twm:iron_hammer=Martillo de Hierro
+item.twm:stone_hammer=Martillo de Piedra
+item.twm:wooden_hammer=Martillo de Madera
+
+-- Special Tools = ##Herramientas Especiales
+item.twm:lucky_pickaxe=Pico de la Suerte\n§7Fortuna V
+item.twm:lucky_sword=Espada de la Suerte\n§7Saqueo V
+item.twm:smelting_pickaxe=Pico Fundidor\n§7Los minerales soltarán lingotes
+item.twm:lucky_fishing_rod=Caña de Pescar de la Suerte\n§7Suerte Marina V\n§7Atracción V
+
+-- Drills = ## Taladros
+item.twm:drill=Taladro de Mano\n§7Mina en un área de 3x3 enfrente de ti
+item.twm:heavy_drill=Taladro de Mano Pesado\n§7Mina en un área de 5x5 enfrente de ti
+## -------- Close Group <<<<<<<< ##
+
+- Seeds = ## Semillas
+## >>>>>>>> Open Group -------- ##
+
+item.twm:base_seeds=Semilla Base
+
+-- Tier 1 = ## Nivel (Semillas) 1
+item.twm:coal_seeds=Semillas de Carbón §eNivel I
+item.twm:copper_seeds=Semillas de Cobre §eNivel I
+item.twm:dyes_seeds=Semillas de Tintes §eNivel I
+item.twm:glass_seeds=Semillas de Cristal §eNivel I
+item.twm:gunpowder_seeds=Semillas de Polvora §eNivel I
+item.twm:iron_seeds=Semillas de Hierro §eNivel I
+item.twm:leather_seeds=Semillas de Cuero §eNivel I
+item.twm:prismarine_crystals_seeds=Semillas de Cristales de Prismarina §eNivel I
+item.twm:prismarine_shards_seeds=Semillas de Fragmentos de Prismarina §eNivel I
+item.twm:water_seeds=Semillas de Agua §eNivel I
+item.twm:wool_seeds=Semillas de Lana §eNivel I
+
+-- Tier 2 = ## Nivel (Semillas) 2
+item.twm:ghast_seeds=Semillas de Lagrimas de Ghast §4Nivel II
+item.twm:glowstone_seeds=Semillas de Piedra Luminosa §4Nivel II
+item.twm:gold_seeds=Semillas de Oro §4Nivel II
+item.twm:honey_seeds=Semillas de Miel §4Nivel II
+item.twm:lapis_seeds=Semillas de Lapislázuli §4Nivel II
+item.twm:lava_seeds=Semillas de Lava §4Nivel II
+item.twm:quartz_seeds=Semillas de Cuarzo §4Nivel II
+item.twm:redstone_seeds=Semillas de Redstone §4Nivel II
+item.twm:slime_seeds=Semillas de Slime §4Nivel II
+
+-- Tier 3 = ## Nivel (Semillas) 3
+item.twm:amethyst_seeds=Semillas de Amatista §9Nivel III
+item.twm:blaze_seeds=Semillas de Blaze §9Nivel III
+item.twm:diamond_seeds=Semillas de Diamante §9Nivel III
+item.twm:emerald_seeds=Semillas de Esmeralda §9Nivel III
+item.twm:enderpearl_seeds=Semillas de Perla de Ender §9Nivel III
+item.twm:obsidian_seeds=Semillas de Obsidiana §9Nivel III
+
+-- Tier 4 = ## Nivel (Semillas) 4
+item.twm:nether_star_seeds=Semillas de Estrella del Inframundo §0Nivel IV
+item.twm:netherite_seeds=Semillas de Netherita §0Nivel IV
+item.twm:shulker_seeds=Semillas de Shulker §0Nivel IV
+item.twm:totem_seeds=Semillas de Tótem §0Nivel IV
+item.twm:wither_seeds=Semillas de Calaveras de Wither §0Nivel IV
+## -------- Grupo Cerrado <<<<<<<< ##
+
+
+## -------------------------------------------------------------=
+## Has ido demasiado lejos, descansa un poco antes de continuar.=
+## -------------------------------------------------------------=
+
+
+- Mesh = ## Mallas
+item.twm:string_mesh=Malla de Hilo
+item.twm:flint_mesh=Malla de Pedernal
+item.twm:iron_mesh=Malla de Hierro
+item.twm:golden_mesh=Malla de Oro
+item.twm:emerald_mesh=Malla de Esmeralda
+item.twm:diamond_mesh=Malla de Diamante
+item.twm:netherite_mesh=Malla de Netherita
+
+- Essences = ## Esencias
+item.twm:essence_vessel=Recipiente de Essencia \n§7- Haz clic derecho o interactúa con una entidad\n- Mata mobs de ese tipo para llenar la esencia
+item.twm:pig_essence=Esencia de Cerdo
+item.twm:cow_essence=Esencia de Vaca
+item.twm:zombie_essence=Esencia de Zombie
+item.twm:skeleton_essence=Esencia de Esqueleto
+item.twm:slime_essence=Esencia de Slime
+item.twm:sheep_essence=Esencia de Oveja
+item.twm:spider_essence=Esencia de Araña
+item.twm:creeper_essence=Esencia de Creeper
+item.twm:blaze_essence=Esencia de Blaze
+item.twm:chicken_essence=Esencia de Gallina
+item.twm:enderman_essence=Esencia de Enderman
+item.twm:hoglin_essence=Esencia de Hoglin
+item.twm:magma_cube_essence=Esencia de Cubo de Mamga
+item.twm:mooshroom_essence=Esencia de Champiñaca
+item.twm:wither_skeleton_essence=Esencia de Esqueleto Wither
+
+- Machines Upgrades = ## Mejoras de Máquinas
+## +
+item.twm:energy_upgrade=§bMejora de Energía§r\n§7- Incrementa la eficiencia de energia en las Máquinas
+item.twm:speed_upgrade=§aMejora de Velocidad§r\n§7- Incrementa la velocidad en las Máquinas, pero consume más energía
+item.twm:range_upgrade=§9Mejora de Rango§r\n§7- Incrementa el rango para las Máquinas
+item.twm:quantity_upgrade=§3Mejora de Cantidad§r\n§7- Incrementa la capacidad de generación para los Generadores Mecánicos
+item.twm:ultimate_upgrade=§8Mejora Definitiva
+## +
+item.twm:base_upgrade=Mejora Bae\n§7- Usada para craftear las mejoras de las Máquinas
+
+- Utility Items = ## Items Utilitarios
+item.twm:honey_ball=Bola de Miel
+item.twm:lava_ball=Bola de Lava
+item.twm:water_ball=Bola de Agua
+item.twm:grenade=Granada
+item.twm:bomb=Bomba
+item.twm:dynamite=Dinamita
+## +
+item.twm:smeltflare=Llamarada
+item.twm:infinite_enderpearl=Perla de Ender Infinita
+item.twm:raw_leather=Cuero Crudo
+item.twm:antidote_potion=Pocion de Antidoto
+item.twm:antidote_potion_splash=Pocion de Salpicadura de Antidoto
+item.twm:wrench=Llave Inglesa §r\n§7- Rota la máquina cuando se está agachado §r\n§7- Remueve las mejoras de las máquinas §r\n§7- Elimina los vehículos
+
+- Saplings = ## Retoños
+item.twm:apple_sapling=Retoño de Manzano
+
+- Entities = ## Entidades
+## -------- Grupo Abierto -------- ##
+entity.twm:tractor.name=Tractor
+entity.twm:oak_tree.name=Arbol de Roble
+entity.twm:birch_tree.name=Arbol de Abedul
+entity.twm:darkoak_tree.name=Arbol de Roble Oscuro
+entity.twm:acacia_tree.name=Arbol de Acacia
+entity.twm:jungle_tree.name=Arbol de la Jungla
+entity.twm:spruce_tree.name=Arbol de Abeto
+entity.twm:drill.name=Taladro
+entity.twm:grenade.name=Granada
+entity.twm:bomb.name=Bomba
+entity.twm:dynamite.name=Dinamita
+entity.twm:crusher.name=Triturador
+entity.twm:autosieve.name=Tamiz Automatico
+entity.twm:cherry_tree.name=Arbol de Cerezo
+entity.twm:mangrove_tree.name=Arbol de Manglar
+entity.twm:crimson_tree.name=Arbol de Escarlata
+entity.twm:warped_tree.name=Arbol Defornado
+entity.twm:kelp.name=Alga Marina
+entity.twm:sugarcane.name=Caña de azucar
+entity.twm:bamboo.name=Bambu
+entity.twm:mushroom.name=Champiñon 
+entity.twm:cactus.name=Cactus
+entity.twm:apple_tree.name=Arbol de Manzano
+
+## -------- Grupo Cerrado <<<<<<<< ##
+
+############################################################=
+## Voy a hacer lo mío YAAAAAAAAAA (me estoy volviendo loco).=
+############################################################=
+
+- Items 2 = ##| Para el formato
+
+tile.twm:pedestal.name=Pedestal
+entity.twm:accelerator_clock.name=Reloj Acelerador
+item.twm:accelerator_clock=Reloj Acelerador
+
+- Progress Bars = Barras de Progresión ##///////////////////////////////////////////////////////////////
+item.twm:energy_bar_0=Energía:
+item.twm:energy_bar_1=Energía:
+item.twm:energy_bar_2=Energía:
+item.twm:energy_bar_3=Energía:
+item.twm:energy_bar_4=Energía:
+item.twm:energy_bar_5=Energía:
+item.twm:energy_bar_6=Energía:
+item.twm:energy_bar_7=Energía:
+item.twm:energy_bar_8=Energía:
+item.twm:energy_bar_9=Energía:
+item.twm:energy_bar_10=Energía:
+item.twm:energy_bar_11=Energía:
+item.twm:energy_bar_12=Energía:
+item.twm:energy_bar_13=Energía:
+item.twm:energy_bar_14=Energía:
+item.twm:energy_bar_15=Energía:
+item.twm:energy_bar_16=Energía:
+item.twm:fuel_bar_0=Combustible:
+item.twm:fuel_bar_1=Combustible:
+item.twm:fuel_bar_2=Combustible:
+item.twm:fuel_bar_3=Combustible:
+item.twm:fuel_bar_4=Combustible:
+item.twm:fuel_bar_5=Combustible:
+item.twm:fuel_bar_6=Combustible:
+item.twm:fuel_bar_7=Combustible:
+item.twm:fuel_bar_8=Combustible:
+item.twm:fuel_bar_9=Combustible:
+item.twm:fuel_bar_10=Combustible:
+item.twm:fuel_bar_11=Combustible:
+item.twm:fuel_bar_12=Combustible:
+item.twm:fuel_bar_13=Combustible:
+item.twm:fuel_bar_14=Combustible:
+item.twm:fuel_bar_15=Combustible:
+item.twm:fuel_bar_16=Combustible:
+item.twm:lava_bar_0=Lava:
+item.twm:lava_bar_1=Lava:
+item.twm:lava_bar_2=Lava:
+item.twm:lava_bar_3=Lava:
+item.twm:lava_bar_4=Lava:
+item.twm:lava_bar_5=Lava:
+item.twm:lava_bar_6=Lava:
+item.twm:lava_bar_7=Lava:
+item.twm:lava_bar_8=Lava:
+item.twm:lava_bar_9=Lava:
+item.twm:lava_bar_10=Lava:
+item.twm:lava_bar_11=Lava:
+item.twm:lava_bar_12=Lava:
+item.twm:lava_bar_13=Lava:
+item.twm:lava_bar_14=Lava:
+item.twm:lava_bar_15=Lava:
+item.twm:lava_bar_16=Lava:
+item.twm:water_bar_0=Agua:
+item.twm:water_bar_1=Agua:
+item.twm:water_bar_2=Agua:
+item.twm:water_bar_3=Agua:
+item.twm:water_bar_4=Agua:
+item.twm:water_bar_5=Agua:
+item.twm:water_bar_6=Agua:
+item.twm:water_bar_7=Agua:
+item.twm:water_bar_8=Agua:
+item.twm:water_bar_9=Agua:
+item.twm:water_bar_10=Agua:
+item.twm:water_bar_11=Agua:
+item.twm:water_bar_12=Agua:
+item.twm:water_bar_13=Agua:
+item.twm:water_bar_14=Agua:
+item.twm:water_bar_15=Agua:
+item.twm:water_bar_16=Agua:
+item.twm:arrow_indicator=Indicador de Flechas
+item.twm:info=Informaciones:
+< Progress Bars = Barras de Progresión ##///////////////////////////////////////////////////////////////
+
+- Energy Generators = Geradores de Energía ##///////////////////////////////////////////////////////////////
+tile.twm:basic_furnator.name=§eHorno Generador Básico \n §7 Ratio: 40 DE/t
+tile.twm:basic_magmator.name=§eMagmador Básico \n §7 Ratio: 50 DE/t
+tile.twm:basic_thermo_generator.name=§eTermogenerador Básico \n §7 Ratio: 20 DE/t
+tile.twm:basic_battery.name=§eBatería Básica \n §7 Ratio: 100 DE/t
+tile.twm:basic_solar_panel.name=§ePanel Solar Básico \n §7 Ratio: 8 DE/t
+
+tile.twm:advanced_furnator.name=§Horno Generador Avanzado \n §7 Ratio: 160 DE/t
+tile.twm:advanced_magmator.name=§cMagmador Avanzado \n §7 Ratio: 200 DE/t
+tile.twm:advanced_thermo_generator.name=§cTermogenerador Avanzado \n §7 Ratio: 80 DE/t
+tile.twm:advanced_battery.name=§cBateria Avanzada \n §7 Ratio: 400 DE/t
+tile.twm:advanced_solar_panel.name=§cPanel Solar Avanzado \n §7 Ratio: 32 DE/t
+
+tile.twm:expert_furnator.name=§bHorno Generador Experto \n §7 Ratio: 640 DE/t
+tile.twm:expert_magmator.name=§bMagmador Experto \n §7 Ratio: 800 DE/t
+tile.twm:expert_thermo_generator.name=§bTermogenerador Experto \n §7 Ratio: 320 DE/t
+tile.twm:expert_battery.name=§bBatería Experta \n §7 Ratio: 1.6 kDE/t
+tile.twm:expert_solar_panel.name=§bPanel Solar Experto \n §7 Ratio: 128 DE/t
+
+tile.twm:ultimate_furnator.name=§8Horno Generador Definitivo \n §7 Ratio: 4 kDE/t
+tile.twm:ultimate_magmator.name=§8Magmador Definitivo \n §7 Ratio: 5 kDE/t
+tile.twm:ultimate_thermo_generator.name=§8Termogenerador Definitivo \n §7 Ratio: 2 kDE/t
+tile.twm:ultimate_battery.name=§8Batería Definitiva \n §7 Ratio: 10 kDE/t
+tile.twm:ultimate_solar_panel.name=§8Panel Solar Definitivo \n §7 Ratio: 800 DE/t
+
+< Energy Generators = Geradores de Energía ##///////////////////////////////////////////////////////////////
+
+- Stuff = ## Cosas No Categorizadas
+tile.twm:waycenter.name=Centro de Camino
+tile.twm:waycarpet.name=Alfombra de Camino
+item.twm:way_chip=Chip de Camino
+
+item.twm:amethyst_dust=Polvo de Amatista
+item.twm:diamond_dust=Polvo de Diamante
+item.twm:emerald_dust=Polvo de Esmeralda
+item.twm:obsidian_dust=Polvo de Obsidiana
+item.twm:quartz_dust=Polvo de Cuarzo
+item.twm:netherite_dust=Polvo de Netherita
+item.twm:netherite_scrap_dust=Polvo de Fragmento de Netherita
+item.twm:charcoal_dust=Polvo de Carbón Vegetal
+item.twm:coal_dust=Polvo de Carbón
+item.twm:crying_obsidian_dust=Polvo de Obsidiana Llorosa
+item.twm:refined_obsidian_dust=Polvo de Obsidiana Refinada
+item.twm:copper_dust=Polvo de Cobre
+item.twm:gold_dust=Polvo de Oro
+item.twm:iron_dust=Polvo de Hierro
+item.twm:ender_pearl_dust=Polvo de Perla de Ender
+
+item.twm:filter_upgrade=Mejora de Filtro\n§7- Ofrece a las Tolvas Mecánicas una manera de filtrar objetos
+
+item.twm:chip=Chip
+item.twm:basic_chip=§eChip Básico
+item.twm:advanced_chip=§cChip Avanzado
+item.twm:expert_chip=§bChip Experto
+item.twm:ultimate_chip=§8Chip Definitivo
+
+item.twm:energized_iron_ingot=Lingote de Hierro Energizado
+item.twm:energized_iron_nugget=Pepita de Hierro Energizado
+item.twm:energized_iron_dust=Polvo de Hierro Energizado
+item.twm:energized_iron_plate=Placa de Hierro Energizado
+item.twm:raw_energized_iron=Hierro Energizado Bruto
+item.twm:energized_iron_block=Bloque de Hierro Energizado
+tile.twm:energized_iron_block.name=Bloque de Hierro Energizado
+tile.twm:raw_energized_iron_block.name=Bloque de Hierro Energizado Bruto
+
+item.twm:steel_ingot=Lingote de Acero
+tile.twm:raw_steel_block.name=Bloque de Acero Bruto
+item.twm:raw_steel=Acero Bruto
+tile.twm:steel_block.name=Bloque de Acero
+item.twm:steel_dust=Polvo de Acero
+item.twm:steel_nugget=Pepita de Acero
+item.twm:steel_plate=Placa de Acero
+
+item.twm:copper_plate=Placa de Cobre
+item.twm:gold_plate=Placa de Oro
+item.twm:iron_plate=Placa de Hierro
+item.twm:netherite_plate=Placa de Netherita
+
+item.twm:copper_nugget=Pepita de Cobre
+item.twm:netherite_nugget=Pepita de Netherita
+
+tile.twm:electro_press.name=Prensa Electro
+tile.twm:block_placer.name=Colocador de Bloques
+tile.twm:xp_condenser.name=Condensador de Experiencia
+tile.twm:seed_synthesizer.name=Sintetizador de Semillas
+tile.twm:incinerator.name=Incinerador
+tile.twm:infuser.name=Infusor
+
+item.twm:arrow_indicator_90=Indicador de Flechas
+< Stuff = ## Cosas No Categorizadas
+
+## - Categorias
+dorios:itemGroup.name.generators=Generadores
+dorios:itemGroup.name.machines=Máquinas
+dorios:itemGroup.name.batteries=Baterías
+dorios:itemGroup.name.basics=Basicos
+dorios:itemGroup.name.seeds=Semillas
+dorios:itemGroup.name.mob_grinding=Triturador de Mobs
+dorios:itemGroup.name.transportation=Transporte de Objetos
+dorios:itemGroup.name.compressed=Bloques Comprimidos
+dorios:itemGroup.name.tanks=Tanques
+dorios:itemGroup.name.cobble_gens=Generadores de Adoqín
+dorios:itemGroup.name.soils=Suelos
+dorios:itemGroup.name.dusts=Polvos
+dorios:itemGroup.name.indicators=Indicadores
+dorios:itemGroup.name.aiots=AIOTs
+dorios:itemGroup.name.paxels=Paxels
+dorios:itemGroup.name.hammers=Martillos
+
+## < Categorias
+
+tile.twm:induction_anvil.name=Yunque de Inducción
+tile.twm:crucible.name=Crisol
+tile.twm:magmatic_chamber.name=Cámara Magmática
+tile.twm:mechanic_dropper.name=Dispensador Mecánico
+
+tile.twm:fluid_pump.name=Bomba de Fluidos
+
+
+
+dorios:itemGroup.name.pebbles=Guijarros
+item.twm:ancient_debris_chunk=Trozo de Ancient Debris
+item.twm:blackstone_pebble=Guijarro de Piedra Negra
+item.twm:basalt_pebble=Guijarro de Basalto
+item.twm:crushed_netherrack_handful=Puñado de Infiedra Triturada
+item.twm:calcite_pebble=Guijarro de Calcita
+item.twm:coal_chunk=Trozo de Carbón
+item.twm:copper_chunk=Trozo de Cobre
+item.twm:crushed_deepslate_handful=Puñado de Pizarra Profunda Triturada
+item.twm:crushed_endstone_handful=Puñado de Piedra de End Triturada
+item.twm:deepslate_coal_chunk=Trozo de Carbón de Pizarra Profunda
+item.twm:deepslate_diamond_chunk=Trozo de Diamante de Pizarra Profunda
+item.twm:deepslate_emerald_chunk=Trozo de Esmeralda de Pizarra Profunda
+item.twm:deepslate_gold_chunk=Trozo de Oro de Pizarra Profunda
+item.twm:deepslate_iron_chunk=Trozo de Hierro de Pizarra Profunda
+item.twm:deepslate_lapislazuli_chunk=Trozo de Lapislázuli de Pizarra Profunda
+item.twm:deepslate_pebble=Guijarro de Pizarra Profunda
+item.twm:deepslate_redstone_chunk=Trozo de Redstone de Pizarra Profunda
+item.twm:diamond_chunk=Trozo de Diamante
+item.twm:diamond_shard=Fragmento de Diamante
+item.twm:diorite_pebble=Guijarro de Diorita
+item.twm:andesite_pebble=Guijarro de Andesita
+item.twm:dirt_handful=Puñado de Tierra
+item.twm:dripstone_pebble=Guijarro de Estalactita
+item.twm:emerald_chunk=Trozo de Esmeralda
+item.twm:emerald_shard=Fragmento de Esmeralda
+item.twm:endstone_pebble=Guijarro de Piedra de End
+item.twm:geode=Geoda
+item.twm:gilded_blackstone_pebble=Guijarro de Piedra Negra Áurea
+item.twm:gold_chunk=Trozo de Oro
+item.twm:granite_pebble=Guijarro de Granito
+item.twm:gravel_fragments=Fragmentos de Grava
+item.twm:iron_chunk=Trozo de Hierro
+item.twm:lapislazuli_chunk=Trozo de Lapislázuli
+item.twm:mud_ball=Bola de Lodo
+item.twm:nether_gold_chunk=Trozo de Oro del Nether
+item.twm:nether_quartz_chunk=Trozo de Cuarzo del Nether
+item.twm:nether_star_fragment=Fragmento de Estrella del Nether
+item.twm:netherrack_pebble=Guijarro de Infiedra
+item.twm:red_sand_handful=Puñado de Arena Roja
+item.twm:redstone_chunk=Trozo de Redstone
+item.twm:sand_handful=Puñado de Arena
+item.twm:shulker_shell_shard=Fragmento de Caparazón de Shulker
+item.twm:souls_handful=Puñado de Almas
+item.twm:stone_pebble=Guijarro de Piedra
+item.twm:totem_shard=Fragmento de Tótem
+item.twm:tuff_pebble=Guijarro de Toba
+item.twm:wither_skull_shard=Fragmento de Calavera de Wither
+
+tile.twm:energy_cable.name=Cable de Energía
+tile.twm:item_conduit.name=Conducto de Items
+tile.twm:fluid_pipe.name=Tubería de Fluidos
+dorios:itemGroup.name.pipes=Tuberías
+item.twm:flint_knife=Cuchillo de Pedernal
+item.twm:fiber=Fibra Vegetal
+tile.twm:item_exporter.name=Exportador de Objetos \n§7- Acepta mejoras de velocidad y filtro
+item.twm:mortar=Mortero
+tile.twm:fluid_extractor.name=Extractor de Fluidos \n§7- Acepta mejoras de velocidad
+
+item.twm:utility_book_0=Libro de UtilityCraft
+item.twm:utility_book_1=Libro de UtilityCraft
+item.twm:utility_book_2=Libro de UtilityCraft
+item.twm:utility_book_3=Libro de UtilityCraft
+item.twm:utility_book_4=Libro de UtilityCraft
+item.twm:utility_book_5=Libro de UtilityCraft
+item.twm:utility_book_6=Libro de UtilityCraft
+item.twm:utility_book_7=Libro de UtilityCraft
+item.twm:utility_book_8=Libro de UtilityCraft
+item.twm:utility_book_9=Libro de UtilityCraft
+item.twm:utility_book_10=Libro de UtilityCraft
+item.twm:utility_book_11=Libro de UtilityCraft
+item.twm:utility_book_12=Libro de UtilityCraft
+item.twm:utility_book_13=Libro de UtilityCraft
+item.twm:utility_book_14=Libro de UtilityCraft
+item.twm:utility_book_15=Libro de UtilityCraft
+item.twm:utility_book_16=Libro de UtilityCraft
+item.twm:utility_book_17=Libro de UtilityCraft
+item.twm:utility_book_18=Libro de UtilityCraft
+
+item.twm:blueprint_paper=Plano Vacío
+item.twm:blueprint=Plano
+
+## Máquinas
+entity.twm:assembler.name=Ensamblador  
+entity.twm:autosieve.name=Tamizador Automático  
+entity.twm:block_breaker.name=Rompedor de Bloques  
+entity.twm:block_placer.name=Colocador de Bloques  
+entity.twm:crusher.name=Triturdora  
+entity.twm:digitizer.name=Digitalizador  
+entity.twm:electro_press.name=Prensa Electrica  
+entity.twm:harvester.name=Cosechadora  
+entity.twm:incinerator.name=Incinerador  
+entity.twm:induction_anvil.name=Yunque de Inducción  
+entity.twm:infuser.name=Infusor  
+entity.twm:magmatic_chamber.name=Cámara Magmática  
+entity.twm:seed_synthesizer.name=Sintetizador de Semillas  
+
+## Generadores
+entity.twm:battery.name=Batería  
+entity.twm:furnator.name=Furnator  
+entity.twm:magmator.name=Magmator  
+entity.twm:solar_panel.name=Panel Solar  
+entity.twm:thermo_generator.name=Generador Térmico  
+entity.twm:wind_turbine.name=Generador Eolico

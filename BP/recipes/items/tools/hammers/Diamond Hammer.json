@@ -1,0 +1,43 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:diamond_hammer"
+		},
+		"tags": [
+			"utility_table"
+		],
+		"result": [
+			{
+				"item": "twm:diamond_hammer"
+			}
+		],
+		"pattern": [
+			"ASA",
+			"ADA",
+			" D "
+		],
+		"unlock": [
+			{
+				"item": "minecraft:diamond"
+			},
+			{
+				"item": "minecraft:diamond_block"
+			},
+			{
+				"item": "minecraft:stick"
+			}
+		],
+		"key": {
+			"A": {
+				"item": "minecraft:diamond"
+			},
+			"S": {
+				"item": "minecraft:diamond_block"
+			},
+			"D": {
+				"item": "minecraft:stick"
+			}
+		}
+	}
+}

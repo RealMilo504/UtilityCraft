@@ -1,0 +1,20 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:item": {
+		"description": {
+			"identifier": "twm:lucky_fishing_rod_item",
+			"menu_category": {
+				"category": "equipment"
+			}
+		},
+		"components": {
+			"minecraft:icon": "twm_lucky_fishing_rod",
+			"minecraft:display_name": {
+				"value": "§bLucky Fishing Rod\n§7Luck of the Sea V\nLure V"
+			},
+			"minecraft:max_stack_size": 1,
+			"minecraft:hand_equipped": true,
+			"minecraft:glint": true
+		}
+	}
+}

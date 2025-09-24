@@ -1,0 +1,38 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "twm:base_upgrade"
+        },
+        "tags": [
+            "twm_workbench"
+        ],
+        "pattern": [
+            "SLS",
+            "RGR",
+            "SRS"
+        ],
+        "key": {
+            "S": {
+                "item": "twm:steel_ingot"
+            },
+            "G": {
+                "item": "gold_ingot"
+            },
+            "R": {
+                "item": "redstone"
+            },
+            "L": {
+                "item": "iron_ingot"
+            }
+        },
+        "result": {
+            "item": "twm:base_upgrade"
+        },
+        "unlock": [
+            {
+                "item": "twm:steel_ingot"
+            }
+        ]
+    }
+}

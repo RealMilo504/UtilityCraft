@@ -1,0 +1,38 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "twm:advanced_chip"
+        },
+        "tags": [
+            "twm_workbench"
+        ],
+        "pattern": [
+            "RER",
+            "ECE",
+            "RER"
+        ],
+        "key": {
+            "E": {
+                "item": "twm:energized_iron_ingot"
+            },
+            "C": {
+                "item": "twm:basic_chip"
+            },
+            "R": {
+                "item": "minecraft:redstone"
+            }
+        },
+        "result": {
+            "item": "twm:advanced_chip"
+        },
+        "unlock": [
+            {
+                "item": "twm:energized_iron_ingot"
+            },
+            {
+                "item": "minecraft:redstone"
+            }
+        ]
+    }
+}

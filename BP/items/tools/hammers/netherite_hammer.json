@@ -1,0 +1,53 @@
+{
+	"format_version": "1.21.70",
+	"minecraft:item": {
+		"description": {
+			"identifier": "twm:netherite_hammer"
+		},
+		"components": {
+			"minecraft:max_stack_size": 1,
+			"minecraft:hand_equipped": true,
+			"minecraft:durability": {
+				"max_durability": 2031
+			},
+			"minecraft:custom_components": [
+				"twm:hammer",
+				"twm:break",
+				"twm:dig_pebble"
+			],
+			"minecraft:damage": 6,
+			"minecraft:icon": "twm_netherite_hammer",
+			"minecraft:enchantable": {
+				"value": 15,
+				"slot": "pickaxe"
+			},
+			"minecraft:repairable": {
+				"repair_items": [
+					{
+						"items": [
+							"minecraft:netherite_ingot"
+						],
+						"repair_amount": 800
+					},
+					{
+						"items": [
+							"twm:netherite_hammer"
+						],
+						"repair_amount": 2031
+					}
+				]
+			},
+			"minecraft:digger": {
+				"use_efficiency": true,
+				"destroy_speeds": [
+					{
+						"speed": 20,
+						"block": {
+							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible')"
+						}
+					}
+				]
+			}
+		}
+	}
+}

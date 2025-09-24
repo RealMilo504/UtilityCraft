@@ -1,0 +1,14 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "twm:prismarine_crystals_seeds"
+		},
+		"components": {
+			"minecraft:icon": "twm_prismarine_crystals_seeds",
+			"minecraft:block_placer": {
+				"block": "twm:prismarine_crystal_crop"
+			}
+		}
+	}
+}

@@ -1,0 +1,1547 @@
+{
+	"num_mip_levels": 4,
+	"padding": 8,
+	"resource_pack_name": "UtilityCraft 3.0",
+	"texture_name": "atlas.terrain",
+	"texture_data": {
+		"twm_wood_sieve": {
+			"textures": "textures/blocks/sieve/wood_sieve"
+		},
+		"twm_wood_sieve_meshes": {
+			"textures": "textures/blocks/sieve/sieve_meshes"
+		},
+		"twm_empty": {
+			"textures": "textures/blocks/sieve/empty"
+		},
+		"twm_lucky_pickaxe_item": {
+			"textures": "textures/blocks/Lucky Pickaxe"
+		},
+		"twm_cobble_gen_1": {
+			"textures": "textures/blocks/cobble_gen"
+		},
+		"twm_cobble_gen_2": {
+			"textures": "textures/blocks/cobble_gen_gold"
+		},
+		"twm_cobble_gen_3": {
+			"textures": "textures/blocks/cobble_gen_emerald"
+		},
+		"twm_cobble_gen_4": {
+			"textures": "textures/blocks/cobble_gen_diamond"
+		},
+		"twm_cobble_gen_5": {
+			"textures": "textures/blocks/cobble_gen_netherite"
+		},
+		"twm_elevator": {
+			"textures": "textures/blocks/elevator"
+		},
+		"twm_blank_bonsai": {
+			"textures": "textures/blocks/bonsai"
+		},
+		"twm_asphalt": {
+			"textures": "textures/blocks/asphalt"
+		},
+		"twm_drill_place": {
+			"textures": "textures/blocks/Drill"
+		},
+		"twm_chunk_loader": {
+			"textures": "textures/blocks/chunk_loader"
+		},
+		"twm_block_breaker": {
+			"textures": "textures/blocks/block_breaker/block_breaker"
+		},
+		"twm_block_breaker_speed1": {
+			"textures": "textures/blocks/block_breaker/block_breaker_speed1"
+		},
+		"twm_block_breaker_speed2": {
+			"textures": "textures/blocks/block_breaker/block_breaker_speed2"
+		},
+		"twm_block_breaker_speed3": {
+			"textures": "textures/blocks/block_breaker/block_breaker_speed3"
+		},
+		"twm_block_breaker_speed4": {
+			"textures": "textures/blocks/block_breaker/block_breaker_speed4"
+		},
+		"twm_sieve": {
+			"textures": "textures/blocks/sieve"
+		},
+		"twm_sieve_string": {
+			"textures": "textures/blocks/sieve_string"
+		},
+		"twm_sieve_iron": {
+			"textures": "textures/blocks/sieve_iron"
+		},
+		"twm_sieve_diamond": {
+			"textures": "textures/blocks/sieve_diamond"
+		},
+		"twm_sieve_netherite": {
+			"textures": "textures/blocks/sieve_netherite"
+		},
+		"twm_crushed_netherrack": {
+			"textures": "textures/blocks/crushed_netherrack"
+		},
+		"twm_utility_table": {
+			"textures": "textures/blocks/utility_table"
+		},
+		"twm_conveyor_1": {
+			"textures": "textures/blocks/conveyor_1"
+		},
+		"twm_conveyor_inclined": {
+			"textures": "textures/blocks/conveyor_inclined"
+		},
+		"twm_conveyor_inclined_2": {
+			"textures": "textures/blocks/conveyor_inclined"
+		},
+		"twm_xp_magnet": {
+			"textures": "textures/blocks/xp_magnet"
+		},
+		"twm_xp_magnet_off": {
+			"textures": "textures/blocks/xp_magnet_off"
+		},
+		"twm_fan_front_still": {
+			"textures": "textures/blocks/fan/fan_front_still"
+		},
+		"twm_fan": {
+			"textures": "textures/blocks/fan/fan"
+		},
+		"twm_fan_range1": {
+			"textures": "textures/blocks/fan/fan_range1"
+		},
+		"twm_fan_range2": {
+			"textures": "textures/blocks/fan/fan_range2"
+		},
+		"twm_fan_range3": {
+			"textures": "textures/blocks/fan/fan_range3"
+		},
+		"twm_fan_range4": {
+			"textures": "textures/blocks/fan/fan_range4"
+		},
+		"twm_mob_grinder": {
+			"textures": "textures/blocks/mob_grinder"
+		},
+		"twm_mob_trap": {
+			"textures": "textures/blocks/mob_trap_1"
+		},
+		"twm_mob_trap_2": {
+			"textures": "textures/blocks/mob_trap_2"
+		},
+		"twm_mechanical_spawner_zombie": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_zombie"
+		},
+		"twm_mechanical_spawner_skeleton": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_skeleton"
+		},
+		"twm_mechanical_spawner_creeper": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_creeper"
+		},
+		"twm_mechanical_spawner_spider": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_spider"
+		},
+		"twm_mechanical_spawner_pig": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_pig"
+		},
+		"twm_mechanical_spawner_cow": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_cow"
+		},
+		"twm_mechanical_spawner_slime": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_slime"
+		},
+		"twm_mechanical_spawner_sheep": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_sheep"
+		},
+		"twm_mechanical_spawner_blaze": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_blaze"
+		},
+		"twm_mechanical_spawner_chicken": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_chicken"
+		},
+		"twm_mechanical_spawner_cmoosh": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_cow_mooshroom"
+		},
+		"twm_mechanical_spawner_enderman": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_enderman"
+		},
+		"twm_mechanical_spawner_hoglin": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_hoglin"
+		},
+		"twm_mechanical_spawner_magma_cube": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_magma_cube"
+		},
+		"twm_mechanical_spawner_wither_skeleton": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_wither_skeleton"
+		},
+		"twm_spawner_core": {
+			"textures": "textures/blocks/mech-spawners/spawner_core"
+		},
+		"twm_mechanical_spawner": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner"
+		},
+		"twm_mechanical_spawner_speed1": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed1"
+		},
+		"twm_mechanical_spawner_speed2": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed2"
+		},
+		"twm_mechanical_spawner_speed3": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed3"
+		},
+		"twm_mechanical_spawner_speed4": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed4"
+		},
+		"twm_mechanical_spawner_quantity1": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_quantity1"
+		},
+		"twm_mechanical_spawner_quantity2": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_quantity2"
+		},
+		"twm_mechanical_spawner_quantity3": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_quantity3"
+		},
+		"twm_mechanical_spawner_quantity4": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_quantity4"
+		},
+		"twm_mechanical_spawner_speed1_quantity1": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed1_quantity1"
+		},
+		"twm_mechanical_spawner_speed1_quantity2": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed1_quantity2"
+		},
+		"twm_mechanical_spawner_speed1_quantity3": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed1_quantity3"
+		},
+		"twm_mechanical_spawner_speed1_quantity4": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed1_quantity4"
+		},
+		"twm_mechanical_spawner_speed2_quantity1": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed2_quantity1"
+		},
+		"twm_mechanical_spawner_speed2_quantity2": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed2_quantity2"
+		},
+		"twm_mechanical_spawner_speed2_quantity3": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed2_quantity3"
+		},
+		"twm_mechanical_spawner_speed2_quantity4": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed2_quantity4"
+		},
+		"twm_mechanical_spawner_speed3_quantity1": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed3_quantity1"
+		},
+		"twm_mechanical_spawner_speed3_quantity2": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed3_quantity2"
+		},
+		"twm_mechanical_spawner_speed3_quantity3": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed3_quantity3"
+		},
+		"twm_mechanical_spawner_speed3_quantity4": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed3_quantity4"
+		},
+		"twm_mechanical_spawner_speed4_quantity1": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed4_quantity1"
+		},
+		"twm_mechanical_spawner_speed4_quantity2": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed4_quantity2"
+		},
+		"twm_mechanical_spawner_speed4_quantity3": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed4_quantity3"
+		},
+		"twm_mechanical_spawner_speed4_quantity4": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_speed4_quantity4"
+		},
+		"twm_mechanical_spawner_empty": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_empty"
+		},
+		"twm_infinite_block_water": {
+			"textures": "textures/blocks/infinite_water_block"
+		},
+		"twm_crusher": {
+			"textures": "textures/blocks/crusher/crusher"
+		},
+		"twm_crusher_speed1": {
+			"textures": "textures/blocks/crusher/crusher_speed1"
+		},
+		"twm_crusher_speed2": {
+			"textures": "textures/blocks/crusher/crusher_speed2"
+		},
+		"twm_crusher_speed3": {
+			"textures": "textures/blocks/crusher/crusher_speed3"
+		},
+		"twm_crusher_speed4": {
+			"textures": "textures/blocks/crusher/crusher_speed4"
+		},
+		"twm_harvester": {
+			"textures": "textures/blocks/harvester/harvester"
+		},
+		"twm_harvester_range1": {
+			"textures": "textures/blocks/harvester/harvester_range1"
+		},
+		"twm_harvester_range2": {
+			"textures": "textures/blocks/harvester/harvester_range2"
+		},
+		"twm_harvester_range3": {
+			"textures": "textures/blocks/harvester/harvester_range3"
+		},
+		"twm_harvester_range4": {
+			"textures": "textures/blocks/harvester/harvester_range4"
+		},
+		"twm_harvester_speed1_range1": {
+			"textures": "textures/blocks/harvester/harvester_speed1_range1"
+		},
+		"twm_harvester_speed1_range2": {
+			"textures": "textures/blocks/harvester/harvester_speed1_range2"
+		},
+		"twm_harvester_speed1_range3": {
+			"textures": "textures/blocks/harvester/harvester_speed1_range3"
+		},
+		"twm_harvester_speed1_range4": {
+			"textures": "textures/blocks/harvester/harvester_speed1_range4"
+		},
+		"twm_harvester_speed1": {
+			"textures": "textures/blocks/harvester/harvester_speed1"
+		},
+		"twm_harvester_speed2_range1": {
+			"textures": "textures/blocks/harvester/harvester_speed2_range1"
+		},
+		"twm_harvester_speed2_range2": {
+			"textures": "textures/blocks/harvester/harvester_speed2_range2"
+		},
+		"twm_harvester_speed2_range3": {
+			"textures": "textures/blocks/harvester/harvester_speed2_range3"
+		},
+		"twm_harvester_speed2_range4": {
+			"textures": "textures/blocks/harvester/harvester_speed2_range4"
+		},
+		"twm_harvester_speed2": {
+			"textures": "textures/blocks/harvester/harvester_speed2"
+		},
+		"twm_harvester_speed3_range1": {
+			"textures": "textures/blocks/harvester/harvester_speed3_range1"
+		},
+		"twm_harvester_speed3_range2": {
+			"textures": "textures/blocks/harvester/harvester_speed3_range2"
+		},
+		"twm_harvester_speed3_range3": {
+			"textures": "textures/blocks/harvester/harvester_speed3_range3"
+		},
+		"twm_harvester_speed3_range4": {
+			"textures": "textures/blocks/harvester/harvester_speed3_range4"
+		},
+		"twm_harvester_speed3": {
+			"textures": "textures/blocks/harvester/harvester_speed3"
+		},
+		"twm_harvester_speed4_range1": {
+			"textures": "textures/blocks/harvester/harvester_speed4_range1"
+		},
+		"twm_harvester_speed4_range2": {
+			"textures": "textures/blocks/harvester/harvester_speed4_range2"
+		},
+		"twm_harvester_speed4_range3": {
+			"textures": "textures/blocks/harvester/harvester_speed4_range3"
+		},
+		"twm_harvester_speed4_range4": {
+			"textures": "textures/blocks/harvester/harvester_speed4_range4"
+		},
+		"twm_harvester_speed4": {
+			"textures": "textures/blocks/harvester/harvester_speed4"
+		},
+		"twm_autosieve": {
+			"textures": "textures/blocks/autosieve/autosieve"
+		},
+		"twm_autosieve_speed1": {
+			"textures": "textures/blocks/autosieve/autosieve_speed1"
+		},
+		"twm_autosieve_speed2": {
+			"textures": "textures/blocks/autosieve/autosieve_speed2"
+		},
+		"twm_autosieve_speed3": {
+			"textures": "textures/blocks/autosieve/autosieve_speed3"
+		},
+		"twm_autosieve_speed4": {
+			"textures": "textures/blocks/autosieve/autosieve_speed4"
+		},
+		"twm_big_torch": {
+			"textures": "textures/blocks/big_torch"
+		},
+		"twm_flint_block": {
+			"textures": "textures/blocks/flint_block"
+		},
+		"twm_lantern": {
+			"textures": "textures/blocks/twm_lantern"
+		},
+		"twm_workbench": {
+			"textures": "textures/blocks/workbench"
+		},
+		"twm_base0": {
+			"textures": "textures/blocks/bountiful_crops/crops/crop_0"
+		},
+		"twm_base1": {
+			"textures": "textures/blocks/bountiful_crops/crops/crop_1"
+		},
+		"twm_base2": {
+			"textures": "textures/blocks/bountiful_crops/crops/crop_2"
+		},
+		"twm_base3": {
+			"textures": "textures/blocks/bountiful_crops/crops/crop_3"
+		},
+		"twm_amethyst_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/amethystCrop/amethyst_crop_0"
+		},
+		"twm_amethyst_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/amethystCrop/amethyst_crop_1"
+		},
+		"twm_blaze_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/blazeCrop/blaze_crop_0"
+		},
+		"twm_blaze_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/blazeCrop/blaze_crop_1"
+		},
+		"twm_coal_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/coalCrop/coal_crop_0"
+		},
+		"twm_coal_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/coalCrop/coal_crop_1"
+		},
+		"twm_copper_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/copperCrop/copper_crop_0"
+		},
+		"twm_copper_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/copperCrop/copper_crop_1"
+		},
+		"twm_diamond_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/diamondCrop/diamond_crop_0"
+		},
+		"twm_diamond_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/diamondCrop/diamond_crop_1"
+		},
+		"twm_dye_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/dyeCrop/dye_crop_0"
+		},
+		"twm_dye_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/dyeCrop/dye_crop_1"
+		},
+		"twm_emerald_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/emeraldCrop/emerald_crop_0"
+		},
+		"twm_emerald_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/emeraldCrop/emerald_crop_1"
+		},
+		"twm_ender_pearl_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/ender_pearlCrop/ender_pearl_crop_0"
+		},
+		"twm_ender_pearl_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/ender_pearlCrop/ender_pearl_crop_1"
+		},
+		"twm_ghast_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/ghastCrop/ghast_crop_0"
+		},
+		"twm_ghast_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/ghastCrop/ghast_crop_1"
+		},
+		"twm_glass_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/glassCrop/glass_crop_0"
+		},
+		"twm_glass_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/glassCrop/glass_crop_1"
+		},
+		"twm_glowstone_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/glowstoneCrop/glowstone_crop_0"
+		},
+		"twm_glowstone_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/glowstoneCrop/glowstone_crop_1"
+		},
+		"twm_gold_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/goldCrop/gold_crop_0"
+		},
+		"twm_gold_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/goldCrop/gold_crop_1"
+		},
+		"twm_gunpowder_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/gunpowderCrop/gunpowder_crop_0"
+		},
+		"twm_gunpowder_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/gunpowderCrop/gunpowder_crop_1"
+		},
+		"twm_honey_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/honeyCrop/honey_crop_0"
+		},
+		"twm_honey_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/honeyCrop/honey_crop_1"
+		},
+		"twm_iron_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/ironCrop/iron_crop_0"
+		},
+		"twm_iron_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/ironCrop/iron_crop_1"
+		},
+		"twm_lapis_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/lapisCrop/lapis_crop_0"
+		},
+		"twm_lapis_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/lapisCrop/lapis_crop_1"
+		},
+		"twm_lava_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/lavaCrop/lava_crop_0"
+		},
+		"twm_lava_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/lavaCrop/lava_crop_1"
+		},
+		"twm_leather_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/leatherCrop/leather_crop_0"
+		},
+		"twm_leather_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/leatherCrop/leather_crop_1"
+		},
+		"twm_nether_star_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/nether_starCrop/nether_star_crop_0"
+		},
+		"twm_nether_star_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/nether_starCrop/nether_star_crop_1"
+		},
+		"twm_netherite_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/netheriteCrop/netherite_crop_0"
+		},
+		"twm_netherite_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/netheriteCrop/netherite_crop_1"
+		},
+		"twm_obsidian_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/obsidianCrop/obsidian_crop_0"
+		},
+		"twm_obsidian_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/obsidianCrop/obsidian_crop_1"
+		},
+		"twm_prismarine_crystal_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/prismarineCRCrop/prismarine_crystals_crop_0"
+		},
+		"twm_prismarine_crystal_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/prismarineCRCrop/prismarine_crystals_crop_1"
+		},
+		"twm_prismarine_shards_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/prismarineSHCrop/prismarine_shards_crop_0"
+		},
+		"twm_prismarine_shards_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/prismarineSHCrop/prismarine_shards_crop_1"
+		},
+		"twm_quartz_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/quartzCrop/quartz_crop_0"
+		},
+		"twm_quartz_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/quartzCrop/quartz_crop_1"
+		},
+		"twm_redstone_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/redstoneCrop/redstone_crop_0"
+		},
+		"twm_redstone_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/redstoneCrop/redstone_crop_1"
+		},
+		"twm_shulker_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/shulkerCrop/shulker_crop_0"
+		},
+		"twm_shulker_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/shulkerCrop/shulker_crop_1"
+		},
+		"twm_slime_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/slimeCrop/slime_crop_0"
+		},
+		"twm_slime_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/slimeCrop/slime_crop_1"
+		},
+		"twm_totem_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/totemCrop/totem_crop_0"
+		},
+		"twm_totem_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/totemCrop/totem_crop_1"
+		},
+		"twm_water_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/waterCrop/water_crop_0"
+		},
+		"twm_water_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/waterCrop/water_crop_1"
+		},
+		"twm_wither_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/witherCrop/wither_crop_0"
+		},
+		"twm_wither_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/witherCrop/wither_crop_1"
+		},
+		"twm_wither_crop2": {
+			"textures": "textures/blocks/bountiful_crops/crops/witherCrop/wither_crop_2"
+		},
+		"twm_wither_crop3": {
+			"textures": "textures/blocks/bountiful_crops/crops/witherCrop/wither_crop_3"
+		},
+		"twm_wither_crop4": {
+			"textures": "textures/blocks/bountiful_crops/crops/witherCrop/wither_crop_4"
+		},
+		"twm_wither_crop5": {
+			"textures": "textures/blocks/bountiful_crops/crops/witherCrop/wither_crop_5"
+		},
+		"twm_wool_crop0": {
+			"textures": "textures/blocks/bountiful_crops/crops/woolCrop/wool_crop_0"
+		},
+		"twm_wool_crop1": {
+			"textures": "textures/blocks/bountiful_crops/crops/woolCrop/wool_crop_1"
+		},
+		"twm_yellow_soil": {
+			"textures": "textures/blocks/bountiful_crops/soils/soil_1"
+		},
+		"twm_yellow_soil_side": {
+			"textures": "textures/blocks/bountiful_crops/soils/soil_side_1"
+		},
+		"twm_red_soil": {
+			"textures": "textures/blocks/bountiful_crops/soils/soil_2"
+		},
+		"twm_red_soil_side": {
+			"textures": "textures/blocks/bountiful_crops/soils/soil_side_2"
+		},
+		"twm_blue_soil": {
+			"textures": "textures/blocks/bountiful_crops/soils/soil_3"
+		},
+		"twm_blue_soil_side": {
+			"textures": "textures/blocks/bountiful_crops/soils/soil_side_3"
+		},
+		"twm_black_soil": {
+			"textures": "textures/blocks/bountiful_crops/soils/soil_4"
+		},
+		"twm_black_soil_side": {
+			"textures": "textures/blocks/bountiful_crops/soils/soil_side_4"
+		},
+		"twm_tractor_placer": {
+			"textures": "textures/blocks/tractor"
+		},
+		"twm_ender_hopper": {
+			"textures": "textures/blocks/ender_hopper/ender_hopper"
+		},
+		"twm_ender_hopper_range1": {
+			"textures": "textures/blocks/ender_hopper/ender_hopper_range1"
+		},
+		"twm_ender_hopper_range2": {
+			"textures": "textures/blocks/ender_hopper/ender_hopper_range2"
+		},
+		"twm_ender_hopper_range3": {
+			"textures": "textures/blocks/ender_hopper/ender_hopper_range3"
+		},
+		"twm_ender_hopper_range4": {
+			"textures": "textures/blocks/ender_hopper/ender_hopper_range4"
+		},
+		"twm_ender_hopper_animated": {
+			"textures": "textures/blocks/ender_hopper/ender_hopper_still"
+		},
+		"twm_mechanic_hopper": {
+			"textures": "textures/blocks/hoppers/mechanic_hopper"
+		},
+		"twm_mechanic_hopper_speed1": {
+			"textures": "textures/blocks/hoppers/mechanic_hopper_speed1"
+		},
+		"twm_mechanic_hopper_speed2": {
+			"textures": "textures/blocks/hoppers/mechanic_hopper_speed2"
+		},
+		"twm_mechanic_hopper_speed3": {
+			"textures": "textures/blocks/hoppers/mechanic_hopper_speed3"
+		},
+		"twm_mechanic_hopper_speed4": {
+			"textures": "textures/blocks/hoppers/mechanic_hopper_speed4"
+		},
+		"twm_basic_fluid_tank": {
+			"textures": "textures/blocks/tanks/fluid_tank_basic"
+		},
+		"twm_advanced_fluid_tank": {
+			"textures": "textures/blocks/tanks/fluid_tank_advanced"
+		},
+		"twm_expert_fluid_tank": {
+			"textures": "textures/blocks/tanks/fluid_tank_expert"
+		},
+		"twm_ultimate_fluid_tank": {
+			"textures": "textures/blocks/tanks/fluid_tank_ultimate"
+		},
+		"twm_xp_drain": {
+			"textures": "textures/blocks/xp_drain"
+		},
+		"twm_xp_spout": {
+			"textures": "textures/blocks/xp_spout"
+		},
+		"twm_pedestal": {
+			"textures": "textures/blocks/pedestal"
+		},
+		"twm_steel_block": {
+			"textures": "textures/blocks/Steel_block"
+		},
+		"twm_bonsai": {
+			"textures": "textures/blocks/bonsai"
+		},
+		"twm_bonsai_sand": {
+			"textures": "textures/blocks/bonsai_sand"
+		},
+		"twm_bonsai_grass": {
+			"textures": "textures/blocks/bonsai_grass"
+		},
+		"twm_bonsai_crimson": {
+			"textures": "textures/blocks/bonsai_crimson"
+		},
+		"twm_bonsai_warped": {
+			"textures": "textures/blocks/bonsai_warped"
+		},
+		"twm_bonsai_soulsand": {
+			"textures": "textures/blocks/bonsai_soulsand"
+		},
+		"twm_bonsai_endstone": {
+			"textures": "textures/blocks/bonsai_endstone"
+		},
+		"twm_bonsai_redsand": {
+			"textures": "textures/blocks/bonsai_redsand"
+		},
+		"twm_bonsai_dirt": {
+			"textures": "textures/blocks/bonsai_dirt"
+		},
+		"twm_bonsai_sand_farm": {
+			"textures": "textures/blocks/bonsai_sand_farm"
+		},
+		"twm_bonsai_grass_farm": {
+			"textures": "textures/blocks/bonsai_grass_farm"
+		},
+		"twm_bonsai_crimson_farm": {
+			"textures": "textures/blocks/bonsai_crimson_farm"
+		},
+		"twm_bonsai_warped_farm": {
+			"textures": "textures/blocks/bonsai_warped_farm"
+		},
+		"twm_bonsai_soulsand_farm": {
+			"textures": "textures/blocks/bonsai_soulsand_farm"
+		},
+		"twm_bonsai_endstone_farm": {
+			"textures": "textures/blocks/bonsai_endstone_farm"
+		},
+		"twm_bonsai_redsand_farm": {
+			"textures": "textures/blocks/bonsai_redsand_farm"
+		},
+		"twm_bonsai_dirt_farm": {
+			"textures": "textures/blocks/bonsai_dirt_farm"
+		},
+		"twm_bonsai_soil_1": {
+			"textures": "textures/blocks/bonsai_soil_1"
+		},
+		"twm_bonsai_soil_2": {
+			"textures": "textures/blocks/bonsai_soil_2"
+		},
+		"twm_bonsai_soil_3": {
+			"textures": "textures/blocks/bonsai_soil_3"
+		},
+		"twm_bonsai_soil_4": {
+			"textures": "textures/blocks/bonsai_soil_4"
+		},
+		"twm_battery_basic_0": {
+			"textures": "textures/blocks/generators/battery_basic_0"
+		},
+		"twm_battery_basic_1": {
+			"textures": "textures/blocks/generators/battery_basic_1"
+		},
+		"twm_battery_basic_2": {
+			"textures": "textures/blocks/generators/battery_basic_2"
+		},
+		"twm_battery_basic_3": {
+			"textures": "textures/blocks/generators/battery_basic_3"
+		},
+		"twm_battery_basic_4": {
+			"textures": "textures/blocks/generators/battery_basic_4"
+		},
+		"twm_battery_basic_5": {
+			"textures": "textures/blocks/generators/battery_basic_5"
+		},
+		"twm_battery_basic_6": {
+			"textures": "textures/blocks/generators/battery_basic_6"
+		},
+		"twm_battery_advanced_0": {
+			"textures": "textures/blocks/generators/battery_advanced_0"
+		},
+		"twm_battery_advanced_1": {
+			"textures": "textures/blocks/generators/battery_advanced_1"
+		},
+		"twm_battery_advanced_2": {
+			"textures": "textures/blocks/generators/battery_advanced_2"
+		},
+		"twm_battery_advanced_3": {
+			"textures": "textures/blocks/generators/battery_advanced_3"
+		},
+		"twm_battery_advanced_4": {
+			"textures": "textures/blocks/generators/battery_advanced_4"
+		},
+		"twm_battery_advanced_5": {
+			"textures": "textures/blocks/generators/battery_advanced_5"
+		},
+		"twm_battery_advanced_6": {
+			"textures": "textures/blocks/generators/battery_advanced_6"
+		},
+		"twm_battery_expert_0": {
+			"textures": "textures/blocks/generators/battery_expert_0"
+		},
+		"twm_battery_expert_1": {
+			"textures": "textures/blocks/generators/battery_expert_1"
+		},
+		"twm_battery_expert_2": {
+			"textures": "textures/blocks/generators/battery_expert_2"
+		},
+		"twm_battery_expert_3": {
+			"textures": "textures/blocks/generators/battery_expert_3"
+		},
+		"twm_battery_expert_4": {
+			"textures": "textures/blocks/generators/battery_expert_4"
+		},
+		"twm_battery_expert_5": {
+			"textures": "textures/blocks/generators/battery_expert_5"
+		},
+		"twm_battery_expert_6": {
+			"textures": "textures/blocks/generators/battery_expert_6"
+		},
+		"twm_battery_ultimate_0": {
+			"textures": "textures/blocks/generators/battery_ultimate_0"
+		},
+		"twm_battery_ultimate_1": {
+			"textures": "textures/blocks/generators/battery_ultimate_1"
+		},
+		"twm_battery_ultimate_2": {
+			"textures": "textures/blocks/generators/battery_ultimate_2"
+		},
+		"twm_battery_ultimate_3": {
+			"textures": "textures/blocks/generators/battery_ultimate_3"
+		},
+		"twm_battery_ultimate_4": {
+			"textures": "textures/blocks/generators/battery_ultimate_4"
+		},
+		"twm_battery_ultimate_5": {
+			"textures": "textures/blocks/generators/battery_ultimate_5"
+		},
+		"twm_battery_ultimate_6": {
+			"textures": "textures/blocks/generators/battery_ultimate_6"
+		},
+		"twm_basic_magmator_on": {
+			"textures": "textures/blocks/generators/basic_magmator_on"
+		},
+		"twm_basic_magmator_off": {
+			"textures": "textures/blocks/generators/basic_magmator_off"
+		},
+		"twm_advanced_magmator_on": {
+			"textures": "textures/blocks/generators/advanced_magmator_on"
+		},
+		"twm_advanced_magmator_off": {
+			"textures": "textures/blocks/generators/advanced_magmator_off"
+		},
+		"twm_expert_magmator_on": {
+			"textures": "textures/blocks/generators/expert_magmator_on"
+		},
+		"twm_expert_magmator_off": {
+			"textures": "textures/blocks/generators/expert_magmator_off"
+		},
+		"twm_ultimate_magmator_on": {
+			"textures": "textures/blocks/generators/ultimate_magmator_on"
+		},
+		"twm_ultimate_magmator_off": {
+			"textures": "textures/blocks/generators/ultimate_magmator_off"
+		},
+		"twm_basic_furnator_on": {
+			"textures": "textures/blocks/generators/basic_furnator_on"
+		},
+		"twm_basic_furnator_off": {
+			"textures": "textures/blocks/generators/basic_furnator_off"
+		},
+		"twm_advanced_furnator_on": {
+			"textures": "textures/blocks/generators/advanced_furnator_on"
+		},
+		"twm_advanced_furnator_off": {
+			"textures": "textures/blocks/generators/advanced_furnator_off"
+		},
+		"twm_expert_furnator_on": {
+			"textures": "textures/blocks/generators/expert_furnator_on"
+		},
+		"twm_expert_furnator_off": {
+			"textures": "textures/blocks/generators/expert_furnator_off"
+		},
+		"twm_ultimate_furnator_on": {
+			"textures": "textures/blocks/generators/ultimate_furnator_on"
+		},
+		"twm_ultimate_furnator_off": {
+			"textures": "textures/blocks/generators/ultimate_furnator_off"
+		},
+		"twm_basic_thermo_generator_on": {
+			"textures": "textures/blocks/generators/basic_thermo_generator_on"
+		},
+		"twm_basic_thermo_generator_off": {
+			"textures": "textures/blocks/generators/basic_thermo_generator_off"
+		},
+		"twm_advanced_thermo_generator_on": {
+			"textures": "textures/blocks/generators/advanced_thermo_generator_on"
+		},
+		"twm_advanced_thermo_generator_off": {
+			"textures": "textures/blocks/generators/advanced_thermo_generator_off"
+		},
+		"twm_expert_thermo_generator_on": {
+			"textures": "textures/blocks/generators/expert_thermo_generator_on"
+		},
+		"twm_expert_thermo_generator_off": {
+			"textures": "textures/blocks/generators/expert_thermo_generator_off"
+		},
+		"twm_ultimate_thermo_generator_on": {
+			"textures": "textures/blocks/generators/ultimate_thermo_generator_on"
+		},
+		"twm_ultimate_thermo_generator_off": {
+			"textures": "textures/blocks/generators/ultimate_thermo_generator_off"
+		},
+		"twm_basic_solar_panel_off": {
+			"textures": "textures/blocks/generators/basic_solarpanel_off"
+		},
+		"twm_basic_solar_panel_on": {
+			"textures": "textures/blocks/generators/basic_solarpanel_on"
+		},
+		"twm_advanced_solar_panel_off": {
+			"textures": "textures/blocks/generators/advanced_solarpanel_off"
+		},
+		"twm_advanced_solar_panel_on": {
+			"textures": "textures/blocks/generators/advanced_solarpanel_on"
+		},
+		"twm_expert_solar_panel_off": {
+			"textures": "textures/blocks/generators/expert_solarpanel_off"
+		},
+		"twm_expert_solar_panel_on": {
+			"textures": "textures/blocks/generators/expert_solarpanel_on"
+		},
+		"twm_ultimate_solar_panel_off": {
+			"textures": "textures/blocks/generators/ultimate_solarpanel_off"
+		},
+		"twm_ultimate_solar_panel_on": {
+			"textures": "textures/blocks/generators/ultimate_solarpanel_on"
+		},
+		"twm_waycenter": {
+			"textures": "textures/blocks/Way_computer_on_3D"
+		},
+		"twm_waycarpet": {
+			"textures": "textures/blocks/Way_carpet_3D"
+		},
+		"twm_energized_iron_block": {
+			"textures": "textures/blocks/Block_of_energized_iron"
+		},
+		"twm_raw_energized_iron_block": {
+			"textures": "textures/blocks/Block_of_brute_energized_iron"
+		},
+		"twm_raw_steel_block": {
+			"textures": "textures/blocks/Block_of_raw_steel"
+		},
+		"twm_electro_press": {
+			"textures": "textures/blocks/Autocompacter_on"
+		},
+		"twm_block_placer": {
+			"textures": "textures/blocks/Block_placer_on"
+		},
+		"twm_xp_condenser": {
+			"textures": "textures/blocks/XP_computer_full"
+		},
+		"twm_seed_synthesizer": {
+			"textures": "textures/blocks/Crop_synthesizer_on"
+		},
+		"twm_incinerator": {
+			"textures": "textures/blocks/Incinerator_on"
+		},
+		"twm_crusher_on": {
+			"textures": "textures/blocks/Machines/Crusher_on"
+		},
+		"twm_crusher_off": {
+			"textures": "textures/blocks/Machines/Crusher_off"
+		},
+		"twm_autosieve_on": {
+			"textures": "textures/blocks/Machines/Autosieve_on"
+		},
+		"twm_autosieve_off": {
+			"textures": "textures/blocks/Machines/Autosieve_off"
+		},
+		"twm_block_breaker_on": {
+			"textures": "textures/blocks/Machines/Block_breaker_on"
+		},
+		"twm_block_breaker_off": {
+			"textures": "textures/blocks/Machines/Block_breaker_off"
+		},
+		"twm_block_placer_on": {
+			"textures": "textures/blocks/Machines/Block_placer_on"
+		},
+		"twm_block_placer_off": {
+			"textures": "textures/blocks/Machines/Block_placer_off"
+		},
+		"twm_incinerator_on": {
+			"textures": "textures/blocks/Machines/Incinerator_on"
+		},
+		"twm_incinerator_off": {
+			"textures": "textures/blocks/Machines/Incinerator_off"
+		},
+		"twm_electro_press_on": {
+			"textures": "textures/blocks/Machines/Autocompacter_on"
+		},
+		"twm_electro_press_off": {
+			"textures": "textures/blocks/Machines/Autocompacter_off"
+		},
+		"twm_seed_synthesizer_on": {
+			"textures": "textures/blocks/Machines/Crop_synthesizer_on"
+		},
+		"twm_seed_synthesizer_off": {
+			"textures": "textures/blocks/Machines/Crop_synthesizer_off"
+		},
+		"twm_infuser_on": {
+			"textures": "textures/blocks/Machines/Infuser_on"
+		},
+		"twm_infuser_off": {
+			"textures": "textures/blocks/Machines/Infuser_off"
+		},
+		"twm_harvester_on": {
+			"textures": "textures/blocks/Machines/Harvester_on"
+		},
+		"twm_harvester_off": {
+			"textures": "textures/blocks/Machines/Harvester_off"
+		},
+		"twm_machine_case": {
+			"textures": "textures/blocks/Machines/Machine_case"
+		},
+		"twm_induction_anvil": {
+			"textures": "textures/blocks/Induction_anvil_off"
+		},
+		"twm_magmatic_chamber": {
+			"textures": "textures/blocks/magmatic_chamber"
+		},
+		"twm_crucible": {
+			"textures": "textures/blocks/crucible/twm_crucible"
+		},
+		"twm_crucible_lava_1": {
+			"textures": "textures/blocks/crucible/twm_crucible_lava_1"
+		},
+		"twm_crucible_lava_2": {
+			"textures": "textures/blocks/crucible/twm_crucible_lava_2"
+		},
+		"twm_crucible_lava_3": {
+			"textures": "textures/blocks/crucible/twm_crucible_lava_3"
+		},
+		"twm_crucible_lava_4": {
+			"textures": "textures/blocks/crucible/twm_crucible_lava_4"
+		},
+		"twm_crucible_cobble_1": {
+			"textures": "textures/blocks/crucible/twm_crucible_cobble_1"
+		},
+		"twm_crucible_cobble_2": {
+			"textures": "textures/blocks/crucible/twm_crucible_cobble_2"
+		},
+		"twm_crucible_cobble_3": {
+			"textures": "textures/blocks/crucible/twm_crucible_cobble_3"
+		},
+		"twm_crucible_cobble_4": {
+			"textures": "textures/blocks/crucible/twm_crucible_cobble_4"
+		},
+		"twm_mechanic_dropper": {
+			"textures": "textures/blocks/Mechanical_dropper"
+		},
+		"twm_crushed_endstone": {
+			"textures": "textures/blocks/Crushed_endstone"
+		},
+		"twm_crushed_cobbled_deepslate": {
+			"textures": "textures/blocks/crushed_cobbled_deepslate"
+		},
+		"twm_fluid_pump": {
+			"textures": "textures/blocks/Pump_txr"
+		},
+		"twm_energy_cable": {
+			"textures": "textures/blocks/energy_cable"
+		},
+		"twm_fluid_pipe": {
+			"textures": "textures/blocks/fluid_pipe"
+		},
+		"twm_item_conduit": {
+			"textures": "textures/blocks/item_conduit"
+		},
+		"twm_item_exporter": {
+			"textures": "textures/blocks/item_exporter"
+		},
+		"twm_compressed_amethyst_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_amethyst_block"
+		},
+		"twm_compressed_amethyst_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_amethyst_block_2"
+		},
+		"twm_compressed_amethyst_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_amethyst_block_3"
+		},
+		"twm_compressed_amethyst_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_amethyst_block_4"
+		},
+		"twm_compressed_blackstone": {
+			"textures": "textures/blocks/compressed_blocks/compressed_blackstone"
+		},
+		"twm_compressed_blackstone_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_blackstone_2"
+		},
+		"twm_compressed_blackstone_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_blackstone_3"
+		},
+		"twm_compressed_blackstone_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_blackstone_4"
+		},
+		"twm_compressed_brute_energized_iron_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_brute_energized_iron_block"
+		},
+		"twm_compressed_brute_energized_iron_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_brute_energized_iron_block_2"
+		},
+		"twm_compressed_brute_energized_iron_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_brute_energized_iron_block_3"
+		},
+		"twm_compressed_brute_energized_iron_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_brute_energized_iron_block_4"
+		},
+		"twm_compressed_brute_steel_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_brute_steel_block"
+		},
+		"twm_compressed_brute_steel_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_brute_steel_block_2"
+		},
+		"twm_compressed_brute_steel_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_brute_steel_block_3"
+		},
+		"twm_compressed_brute_steel_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_brute_steel_block_4"
+		},
+		"twm_compressed_coal_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_coal_block"
+		},
+		"twm_compressed_coal_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_coal_block_2"
+		},
+		"twm_compressed_coal_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_coal_block_3"
+		},
+		"twm_compressed_coal_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_coal_block_4"
+		},
+		"twm_compressed_cobbled_deepslate": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cobbled_deepslate"
+		},
+		"twm_compressed_cobbled_deepslate_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cobbled_deepslate_2"
+		},
+		"twm_compressed_cobbled_deepslate_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cobbled_deepslate_3"
+		},
+		"twm_compressed_cobbled_deepslate_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cobbled_deepslate_4"
+		},
+		"twm_compressed_cobblestone": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cobblestone"
+		},
+		"twm_compressed_cobblestone_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cobblestone_2"
+		},
+		"twm_compressed_cobblestone_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cobblestone_3"
+		},
+		"twm_compressed_cobblestone_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cobblestone_4"
+		},
+		"twm_compressed_cobblestone_5": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cobblestone_5"
+		},
+		"twm_compressed_cobblestone_6": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cobblestone_6"
+		},
+		"twm_compressed_cobblestone_7": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cobblestone_7"
+		},
+		"twm_compressed_cobblestone_8": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cobblestone_8"
+		},
+		"twm_compressed_cobblestone_9": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cobblestone_9"
+		},
+		"twm_compressed_copper_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_copper_block"
+		},
+		"twm_compressed_copper_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_copper_block_2"
+		},
+		"twm_compressed_copper_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_copper_block_3"
+		},
+		"twm_compressed_copper_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_copper_block_4"
+		},
+		"twm_compressed_crushed_cobbled_deepslate": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crushed_cobbled_deepslate"
+		},
+		"twm_compressed_crushed_cobbled_deepslate_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crushed_cobbled_deepslate_2"
+		},
+		"twm_compressed_crushed_cobbled_deepslate_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crushed_cobbled_deepslate_3"
+		},
+		"twm_compressed_crushed_cobbled_deepslate_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crushed_cobbled_deepslate_4"
+		},
+		"twm_compressed_crushed_endstone": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crushed_endstone"
+		},
+		"twm_compressed_crushed_endstone_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crushed_endstone_2"
+		},
+		"twm_compressed_crushed_endstone_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crushed_endstone_3"
+		},
+		"twm_compressed_crushed_endstone_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crushed_endstone_4"
+		},
+		"twm_compressed_crushed_netherrack": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crushed_netherrack"
+		},
+		"twm_compressed_crushed_netherrack_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crushed_netherrack_2"
+		},
+		"twm_compressed_crushed_netherrack_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crushed_netherrack_3"
+		},
+		"twm_compressed_crushed_netherrack_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crushed_netherrack_4"
+		},
+		"twm_compressed_cry_obsidian": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cry_obsidian"
+		},
+		"twm_compressed_cry_obsidian_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cry_obsidian_2"
+		},
+		"twm_compressed_cry_obsidian_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cry_obsidian_3"
+		},
+		"twm_compressed_cry_obsidian_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cry_obsidian_4"
+		},
+		"twm_compressed_deepslate": {
+			"textures": "textures/blocks/compressed_blocks/compressed_deepslate"
+		},
+		"twm_compressed_deepslate_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_deepslate_2"
+		},
+		"twm_compressed_deepslate_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_deepslate_3"
+		},
+		"twm_compressed_deepslate_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_deepslate_4"
+		},
+		"twm_compressed_diamond_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_diamond_block"
+		},
+		"twm_compressed_diamond_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_diamond_block_2"
+		},
+		"twm_compressed_diamond_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_diamond_block_3"
+		},
+		"twm_compressed_diamond_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_diamond_block_4"
+		},
+		"twm_compressed_dirt": {
+			"textures": "textures/blocks/compressed_blocks/compressed_dirt"
+		},
+		"twm_compressed_dirt_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_dirt_2"
+		},
+		"twm_compressed_dirt_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_dirt_3"
+		},
+		"twm_compressed_dirt_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_dirt_4"
+		},
+		"twm_compressed_emerald_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_emerald_block"
+		},
+		"twm_compressed_emerald_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_emerald_block_2"
+		},
+		"twm_compressed_emerald_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_emerald_block_3"
+		},
+		"twm_compressed_emerald_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_emerald_block_4"
+		},
+		"twm_compressed_endstone": {
+			"textures": "textures/blocks/compressed_blocks/compressed_endstone"
+		},
+		"twm_compressed_endstone_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_endstone_2"
+		},
+		"twm_compressed_endstone_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_endstone_3"
+		},
+		"twm_compressed_endstone_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_endstone_4"
+		},
+		"twm_compressed_energized_iron_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_energized_iron_block"
+		},
+		"twm_compressed_energized_iron_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_energized_iron_block_2"
+		},
+		"twm_compressed_energized_iron_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_energized_iron_block_3"
+		},
+		"twm_compressed_energized_iron_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_energized_iron_block_4"
+		},
+		"twm_compressed_exposed_copper_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_exposed_copper_block"
+		},
+		"twm_compressed_exposed_copper_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_exposed_copper_block_2"
+		},
+		"twm_compressed_exposed_copper_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_exposed_copper_block_3"
+		},
+		"twm_compressed_exposed_copper_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_exposed_copper_block_4"
+		},
+		"twm_compressed_flint_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_flint_block"
+		},
+		"twm_compressed_flint_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_flint_block_2"
+		},
+		"twm_compressed_flint_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_flint_block_3"
+		},
+		"twm_compressed_flint_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_flint_block_4"
+		},
+		"twm_compressed_glass": {
+			"textures": "textures/blocks/compressed_blocks/compressed_glass"
+		},
+		"twm_compressed_glass_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_glass_2"
+		},
+		"twm_compressed_glass_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_glass_3"
+		},
+		"twm_compressed_glass_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_glass_4"
+		},
+		"twm_compressed_gold_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_gold_block"
+		},
+		"twm_compressed_gold_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_gold_block_2"
+		},
+		"twm_compressed_gold_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_gold_block_3"
+		},
+		"twm_compressed_gold_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_gold_block_4"
+		},
+		"twm_compressed_gravel": {
+			"textures": "textures/blocks/compressed_blocks/compressed_gravel"
+		},
+		"twm_compressed_gravel_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_gravel_2"
+		},
+		"twm_compressed_gravel_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_gravel_3"
+		},
+		"twm_compressed_gravel_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_gravel_4"
+		},
+		"twm_compressed_iron_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_iron_block"
+		},
+		"twm_compressed_iron_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_iron_block_2"
+		},
+		"twm_compressed_iron_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_iron_block_3"
+		},
+		"twm_compressed_iron_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_iron_block_4"
+		},
+		"twm_compressed_lapislazuli_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_lapislazuli_block"
+		},
+		"twm_compressed_lapislazuli_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_lapislazuli_block_2"
+		},
+		"twm_compressed_lapislazuli_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_lapislazuli_block_3"
+		},
+		"twm_compressed_lapislazuli_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_lapislazuli_block_4"
+		},
+		"twm_compressed_netherite_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_netherite_block"
+		},
+		"twm_compressed_netherite_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_netherite_block_2"
+		},
+		"twm_compressed_netherite_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_netherite_block_3"
+		},
+		"twm_compressed_netherite_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_netherite_block_4"
+		},
+		"twm_compressed_netherrack": {
+			"textures": "textures/blocks/compressed_blocks/compressed_netherrack"
+		},
+		"twm_compressed_netherrack_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_netherrack_2"
+		},
+		"twm_compressed_netherrack_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_netherrack_3"
+		},
+		"twm_compressed_netherrack_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_netherrack_4"
+		},
+		"twm_compressed_obsidian": {
+			"textures": "textures/blocks/compressed_blocks/compressed_obsidian"
+		},
+		"twm_compressed_obsidian_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_obsidian_2"
+		},
+		"twm_compressed_obsidian_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_obsidian_3"
+		},
+		"twm_compressed_obsidian_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_obsidian_4"
+		},
+		"twm_compressed_oxidized_copper_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_oxidized_copper_block"
+		},
+		"twm_compressed_oxidized_copper_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_oxidized_copper_block_2"
+		},
+		"twm_compressed_oxidized_copper_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_oxidized_copper_block_3"
+		},
+		"twm_compressed_oxidized_copper_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_oxidized_copper_block_4"
+		},
+		"twm_compressed_quartz_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_quartz_block"
+		},
+		"twm_compressed_quartz_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_quartz_block_2"
+		},
+		"twm_compressed_quartz_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_quartz_block_3"
+		},
+		"twm_compressed_quartz_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_quartz_block_4"
+		},
+		"twm_compressed_raw_copper_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_raw_copper_block"
+		},
+		"twm_compressed_raw_copper_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_raw_copper_block_2"
+		},
+		"twm_compressed_raw_copper_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_raw_copper_block_3"
+		},
+		"twm_compressed_raw_copper_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_raw_copper_block_4"
+		},
+		"twm_compressed_raw_gold_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_raw_gold_block"
+		},
+		"twm_compressed_raw_gold_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_raw_gold_block_2"
+		},
+		"twm_compressed_raw_gold_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_raw_gold_block_3"
+		},
+		"twm_compressed_raw_gold_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_raw_gold_block_4"
+		},
+		"twm_compressed_raw_iron_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_raw_iron_block"
+		},
+		"twm_compressed_raw_iron_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_raw_iron_block_2"
+		},
+		"twm_compressed_raw_iron_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_raw_iron_block_3"
+		},
+		"twm_compressed_raw_iron_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_raw_iron_block_4"
+		},
+		"twm_compressed_redstone_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_redstone_block"
+		},
+		"twm_compressed_redstone_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_redstone_block_2"
+		},
+		"twm_compressed_redstone_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_redstone_block_3"
+		},
+		"twm_compressed_redstone_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_redstone_block_4"
+		},
+		"twm_compressed_sand": {
+			"textures": "textures/blocks/compressed_blocks/compressed_sand"
+		},
+		"twm_compressed_sand_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_sand_2"
+		},
+		"twm_compressed_sand_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_sand_3"
+		},
+		"twm_compressed_sand_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_sand_4"
+		},
+		"twm_compressed_steel_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_steel_block"
+		},
+		"twm_compressed_steel_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_steel_block_2"
+		},
+		"twm_compressed_steel_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_steel_block_3"
+		},
+		"twm_compressed_steel_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_steel_block_4"
+		},
+		"twm_compressed_stone": {
+			"textures": "textures/blocks/compressed_blocks/compressed_stone"
+		},
+		"twm_compressed_stone_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_stone_2"
+		},
+		"twm_compressed_stone_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_stone_3"
+		},
+		"twm_compressed_stone_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_stone_4"
+		},
+		"twm_compressed_weathered_copper_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_weathered_copper_block"
+		},
+		"twm_compressed_weathered_copper_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_weathered_copper_block_2"
+		},
+		"twm_compressed_weathered_copper_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_weathered_copper_block_3"
+		},
+		"twm_compressed_weathered_copper_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_weathered_copper_block_4"
+		},
+		"twm_compressed_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_block"
+		},
+		"twm_fluid_extractor": {
+			"textures": "textures/blocks/fluid_extractor"
+		},
+		"twm_assembler_on": {
+			"textures": "textures/blocks/assembler/assembler_on"
+		},
+		"twm_assembler_off": {
+			"textures": "textures/blocks/assembler/assembler_off"
+		},
+		"twm_digitizer_on": {
+			"textures": "textures/blocks/assembler/digitizer_on"
+		},
+		"twm_digitizer_off": {
+			"textures": "textures/blocks/assembler/digitizer_off"
+		},
+		"twm_blaze_block": {
+			"textures": "textures/blocks/blaze_block"
+		}		
+	}
+}

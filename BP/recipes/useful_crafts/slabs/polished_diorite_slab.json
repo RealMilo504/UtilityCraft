@@ -1,0 +1,22 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "twm:polished_diorite_slab"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "stone_block_slab3",
+				"count": 2,
+				"data": 5
+			}
+		],
+		"result": {
+			"item": "stone",
+			"data": 4
+		}
+	}
+}

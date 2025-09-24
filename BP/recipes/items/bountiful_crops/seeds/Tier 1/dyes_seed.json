@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:dyes_seeds"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"O": {
+				"item": "minecraft:dye"
+			},
+			"S": {
+				"item": "twm:base_seeds"
+			}
+		},
+		"pattern": [
+			"OOO",
+			"OSO",
+			"OOO"
+		],
+		"result": {
+			"item": "twm:dyes_seeds"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:dye"
+			},
+			{
+				"item": "twm:base_seeds"
+			}
+		]
+	}
+}

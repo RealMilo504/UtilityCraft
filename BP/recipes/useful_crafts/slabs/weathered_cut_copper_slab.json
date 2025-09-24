@@ -1,0 +1,21 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "twm:weathered_cut_copper_slab"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "weathered_cut_copper_slab",
+				"count": 2
+			}
+		],
+		"result": {
+			"item": "weathered_cut_copper",
+			"data": 2
+		}
+	}
+}

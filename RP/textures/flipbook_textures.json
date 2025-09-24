@@ -1,0 +1,12 @@
+[
+    {
+        "flipbook_texture": "textures/blocks/fan/fan_front_animated",
+        "atlas_tile": "twm_fan_front_still",
+        "ticks_per_frame": 1
+    },
+    {
+        "flipbook_texture": "textures/blocks/ender_hopper/ender_hopper_animated",
+        "atlas_tile": "twm_ender_hopper_animated",
+        "ticks_per_frame": 5
+    }
+]

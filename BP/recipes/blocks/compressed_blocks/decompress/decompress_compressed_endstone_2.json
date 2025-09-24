@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:decompress_compressed_endstone_2"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "twm:compressed_endstone_2"
+      }
+    ],
+    "result": {
+      "item": "twm:compressed_endstone",
+      "count": 9
+    },
+    "unlock": [
+      {
+        "item": "twm:compressed_endstone_2"
+      }
+    ]
+  }
+}

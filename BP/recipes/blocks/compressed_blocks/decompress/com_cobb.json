@@ -1,0 +1,25 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "twm:com_cobb"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "twm:double_compressed_cobblestone"
+			}
+		],
+		"result": {
+			"item": "twm:compressed_cobblestone",
+			"count": 9
+		},
+		"unlock": [
+			{
+				"item": "twm:double_compressed_cobblestone"
+			}
+		]
+	}
+}

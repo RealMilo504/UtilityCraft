@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:pedestal"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"S": {
+				"item": "nether_star"
+			},
+			"B": {
+				"item": "end_bricks"
+			}
+		},
+		"pattern": [
+			" S",
+			" B",
+			"BBB"
+		],
+		"result": {
+			"item": "twm:pedestal"
+		},
+		"unlock": [
+			{
+				"item": "end_bricks"
+			},
+			{
+				"item": "nether_star"
+			}
+		]
+	}
+}

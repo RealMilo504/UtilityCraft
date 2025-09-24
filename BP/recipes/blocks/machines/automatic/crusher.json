@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:crusher"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"H": {
+				"item": "twm:iron_hammer"
+			},
+			"I": {
+				"item": "twm:chip"
+			},
+			"M": {
+				"item": "twm:machine_case"
+			},
+			"R": {
+				"item": "gold_ingot"
+			},
+			"S": {
+				"item": "minecraft:redstone"
+			}
+		},
+		"pattern": [
+			"SHS",
+			"IMI",
+			"SRS"
+		],
+		"result": {
+			"item": "twm:crusher"
+		},
+		"unlock": [
+			{
+				"item": "twm:machine_case"
+			}
+		]
+	}
+}

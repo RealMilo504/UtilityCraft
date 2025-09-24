@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:expert_thermo_generator"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"A": {
+				"item": "minecraft:copper_block"
+			},
+			"B": {
+				"item": "twm:advanced_thermo_generator"
+			},
+			"C": {
+				"item": "twm:diamond_dust"
+			},
+			"D": {
+				"item": "twm:expert_fluid_tank"
+			},
+			"E": {
+				"item": "twm:expert_chip"
+			}
+		},
+		"pattern": [
+			"ADA",
+			"EBE",
+			"CAC"
+		],
+		"result": {
+			"item": "twm:expert_thermo_generator"
+		},
+		"unlock": [
+			{
+				"item": "twm:expert_chip"
+			}
+		]
+	}
+}

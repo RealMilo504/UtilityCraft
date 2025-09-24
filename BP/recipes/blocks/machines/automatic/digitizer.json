@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:digitizer"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"I": {
+				"item": "twm:expert_chip"
+			},
+			"M": {
+				"item": "twm:machine_case"
+			},
+			"R": {
+				"item": "twm:blueprint_paper"
+			},
+			"S": {
+				"item": "twm:steel_plate"
+			},
+			"P": {
+				"item": "twm:iron_plate"
+			}
+		},
+		"pattern": [
+			"PIP",
+			"IMI",
+			"SRS"
+		],
+		"result": {
+			"item": "twm:digitizer"
+		},
+		"unlock": [
+			{
+				"item": "twm:machine_case"
+			}
+		]
+	}
+}

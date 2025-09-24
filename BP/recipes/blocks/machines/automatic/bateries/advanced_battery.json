@@ -1,0 +1,38 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:advanced_battery"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"A": {
+				"item": "twm:basic_battery"
+			},
+			"B": {
+				"item": "redstone_block"
+			},
+			"C": {
+				"item": "twm:advanced_chip"
+			},
+			"D": {
+				"item": "twm:energized_iron_dust"
+			}
+		},
+		"pattern": [
+			"CAC",
+			"ABA",
+			"CDC"
+		],
+		"result": {
+			"item": "twm:advanced_battery"
+		},
+		"unlock": [
+			{
+				"item": "twm:advanced_chip"
+			}
+		]
+	}
+}

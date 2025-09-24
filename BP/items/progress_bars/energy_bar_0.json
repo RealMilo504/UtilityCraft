@@ -1,0 +1,12 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "twm:energy_bar_0",
+			"menu_category": {}
+		},
+		"components": {
+			"minecraft:icon": "twm_energy_bar_0"
+		}
+	}
+}

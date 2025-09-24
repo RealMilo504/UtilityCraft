@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:infuser"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"S": {
+				"item": "lapis_lazuli"
+			},
+			"R": {
+				"item": "minecraft:redstone"
+			},
+			"C": {
+				"item": "twm:basic_chip"
+			},
+			"D": {
+				"item": "redstone_block"
+			},
+			"M": {
+				"item": "twm:machine_case"
+			}
+		},
+		"pattern": [
+			"RSR",
+			"CMC",
+			"RDR"
+		],
+		"result": {
+			"item": "twm:infuser"
+		},
+		"unlock": [
+			{
+				"item": "twm:machine_case"
+			}
+		]
+	}
+}

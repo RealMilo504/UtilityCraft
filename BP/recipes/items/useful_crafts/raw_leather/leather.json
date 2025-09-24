@@ -1,0 +1,13 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "twm:leather"
+		},
+		"tags": [
+			"furnace"
+		],
+		"input": "twm:raw_leather",
+		"output": "minecraft:leather"
+	}
+}

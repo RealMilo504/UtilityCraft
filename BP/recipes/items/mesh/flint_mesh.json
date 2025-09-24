@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:flint_mesh"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"S": {
+				"item": "flint"
+			},
+			"M": {
+				"item": "twm:string_mesh"
+			}
+		},
+		"pattern": [
+			"SSS",
+			"SMS",
+			"SSS"
+		],
+		"result": {
+			"item": "twm:flint_mesh"
+		},
+		"unlock": [
+			{
+				"item": "flint"
+			},
+			{
+				"item": "twm:string_mesh"
+			}
+		]
+	}
+}

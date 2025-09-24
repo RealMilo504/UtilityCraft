@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:elevator"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"E": {
+				"item": "minecraft:ender_pearl"
+			},
+			"W": {
+				"item": "minecraft:wool"
+			}
+		},
+		"pattern": [
+			"WWW",
+			"WEW",
+			"WWW"
+		],
+		"result": {
+			"item": "twm:elevator"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:ender_pearl"
+			},
+			{
+				"item": "minecraft:wool"
+			}
+		]
+	}
+}

@@ -1,0 +1,102 @@
+{
+    "pools": [
+        {
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:flint",
+                    "weight": 25
+                },
+                {
+                    "type": "empty",
+                    "weight": 975
+                }
+            ]
+        },
+        {
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:raw_iron",
+                    "weight": 20
+                },
+                {
+                    "type": "empty",
+                    "weight": 980
+                }
+            ]
+        },
+        {
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:coal",
+                    "weight": 13
+                },
+                {
+                    "type": "empty",
+                    "weight": 987
+                }
+            ]
+        },
+        {
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:raw_gold",
+                    "weight": 9
+                },
+                {
+                    "type": "empty",
+                    "weight": 991
+                }
+            ]
+        },
+        {
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:lapis_lazuli",
+                    "weight": 5
+                },
+                {
+                    "type": "empty",
+                    "weight": 995
+                }
+            ]
+        },
+        {
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:diamond",
+                    "weight": 1
+                },
+                {
+                    "type": "empty",
+                    "weight": 999
+                }
+            ]
+        },
+        {
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:emerald",
+                    "weight": 1
+                },
+                {
+                    "type": "empty",
+                    "weight": 999
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:elevator",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:custom_components": [
+				"twm:elevator"
+			]
+		}
+	}
+}

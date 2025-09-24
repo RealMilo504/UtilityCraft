@@ -1,0 +1,54 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:cobble_gen_1v2"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"C": {
+				"item": "glass"
+			},
+			"L": {
+				"item": "twm:lava_ball"
+			},
+			"M": {
+				"item": "iron_ingot"
+			},
+			"O": {
+				"item": "obsidian"
+			},
+			"W": {
+				"item": "twm:water_ball"
+			}
+		},
+		"pattern": [
+			"MOM",
+			"WCL",
+			"MOM"
+		],
+		"result": {
+			"item": "twm:cobble_gen_1"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:glass"
+			},
+			{
+				"item": "minecraft:lava_bucket"
+			},
+			{
+				"item": "minecraft:iron_ingot"
+			},
+			{
+				"item": "minecraft:obsidian"
+			},
+			{
+				"item": "minecraft:water_bucket"
+			}
+		],
+		"priority": 10
+	}
+}

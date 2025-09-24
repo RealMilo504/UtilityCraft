@@ -1,0 +1,32 @@
+{
+	"format_version": "1.8.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "twm:fluid_tank_water",
+			"materials": {
+				"default": "entity_alphablend"
+			},
+			"textures": {
+				"default": "textures/entity/water_fluid"
+			},
+			"geometry": {
+				"default": "geometry.twm_fluid_tank_entity"
+			},
+			"render_controllers": [
+				"controller.render.oak_tree"
+			],
+			"spawn_egg": {
+				"base_color": "#000000",
+				"overlay_color": "#FFFFFF"
+			},
+			"animations": {
+				"fill": "animation.twm_fluid_tank_entity.fill"
+			},
+			"animation_controllers": [
+				{
+					"fluid_fill": "controller.animation.fluid_fill"
+				}
+			]
+		}
+	}
+}

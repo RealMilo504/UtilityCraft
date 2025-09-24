@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:autosieve"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"S": {
+				"item": "twm:sieve"
+			},
+			"R": {
+				"item": "minecraft:redstone"
+			},
+			"C": {
+				"item": "twm:chip"
+			},
+			"D": {
+				"item": "gold_block"
+			},
+			"M": {
+				"item": "twm:machine_case"
+			}
+		},
+		"pattern": [
+			"RSR",
+			"CMC",
+			"RDR"
+		],
+		"result": {
+			"item": "twm:autosieve"
+		},
+		"unlock": [
+			{
+				"item": "twm:machine_case"
+			}
+		]
+	}
+}

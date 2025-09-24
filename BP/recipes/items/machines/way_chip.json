@@ -1,0 +1,35 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "twm:way_chip"
+        },
+        "tags": [
+            "twm_workbench"
+        ],
+        "pattern": [
+            "SDS",
+            "DBD",
+            "SDS"
+        ],
+        "key": {
+            "B": {
+                "item": "twm:base_upgrade"
+            },
+            "D": {
+                "item": "twm:ender_pearl_dust"
+            },
+            "S": {
+                "item": "lapis_lazuli"
+            }
+        },
+        "result": {
+            "item": "twm:way_chip"
+        },
+        "unlock": [
+            {
+                "item": "twm:ender_pearl_dust"
+            }
+        ]
+    }
+}

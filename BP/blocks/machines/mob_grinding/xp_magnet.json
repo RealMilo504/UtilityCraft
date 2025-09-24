@@ -1,0 +1,131 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:xp_magnet",
+			"menu_category": {
+				"category": "construction"
+			},
+			"states": {
+				"twm:isOn": [
+					true,
+					false
+				],
+				"twm:rangeSelected": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11
+				]
+			},
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": [
+						"minecraft:block_face"
+					]
+				}
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.twm_xp_magnet",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_xp_magnet",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:tick": {
+				"interval_range": [
+					5,
+					5
+				]
+			},
+			"minecraft:custom_components": [
+				"twm:xp_magnet"
+			],
+			"minecraft:collision_box": {
+				"size": [
+					16,
+					1,
+					16
+				]
+			},
+			"minecraft:selection_box": {
+				"size": [
+					16,
+					1,
+					16
+				]
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('twm:isOn') == false",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_xp_magnet_off",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'south' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							90,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'north' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							-90,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'west' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							90
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'east' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							-90
+						]
+					}
+				}
+			}
+		]
+	}
+}

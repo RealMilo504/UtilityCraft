@@ -1,0 +1,47 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:lucky_fishing_rod"
+		},
+		"tags": [
+			"utility_table"
+		],
+		"key": {
+			"E": {
+				"item": "minecraft:emerald"
+			},
+			"G": {
+				"item": "minecraft:gold_block"
+			},
+			"S": {
+				"item": "minecraft:string"
+			},
+			"B": {
+				"item": "minecraft:emerald_block"
+			}
+		},
+		"pattern": [
+			"  E",
+			" BS",
+			"E G"
+		],
+		"unlock": [
+			{
+				"item": "minecraft:emerald"
+			},
+			{
+				"item": "minecraft:gold_block"
+			},
+			{
+				"item": "minecraft:string"
+			},
+			{
+				"item": "minecraft:emerald_block"
+			}
+		],
+		"result": {
+			"item": "twm:lucky_fishing_rod_item"
+		}
+	}
+}

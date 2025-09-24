@@ -1,0 +1,49 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:big_torch",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.twm_big_torch",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_big_torch",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					0,
+					0,
+					0
+				],
+				"size": [
+					0,
+					0,
+					0
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-2,
+					0,
+					-2
+				],
+				"size": [
+					4,
+					16,
+					4
+				]
+			},
+			"minecraft:light_emission": 15,
+			"minecraft:custom_components": [
+				"twm:big_torch"
+			],
+			"minecraft:destructible_by_explosion": false
+		}
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:double_compressed_cobblestone"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"C": {
+				"item": "twm:compressed_cobblestone"
+			}
+		},
+		"pattern": [
+			"CCC",
+			"CCC",
+			"CCC"
+		],
+		"result": {
+			"item": "twm:double_compressed_cobblestone"
+		},
+		"unlock": [
+			{
+				"item": "twm:compressed_cobblestone"
+			}
+		]
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "twm:diamond_seeds"
+		},
+		"components": {
+			"minecraft:icon": "twm_diamond_seeds",
+			"minecraft:block_placer": {
+				"block": "twm:diamond_crop"
+			}
+		}
+	}
+}

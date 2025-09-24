@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:blueprint"
+		},
+		"tags": [
+			"twm_workbench",
+			"crafting_table"
+		],
+		"key": {
+			"P": {
+				"item": "paper"
+			},
+			"B": {
+				"item": "blue_dye"
+			}
+		},
+		"pattern": [
+			"PP",
+			"B"
+		],
+		"result": {
+			"item": "twm:blueprint_paper"
+		},
+		"unlock": [
+			{
+				"item": "paper"
+			}
+		]
+	}
+}

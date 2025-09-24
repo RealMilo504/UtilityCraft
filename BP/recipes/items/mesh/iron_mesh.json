@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:iron_mesh"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"S": {
+				"item": "iron_ingot"
+			},
+			"M": {
+				"item": "twm:flint_mesh"
+			}
+		},
+		"pattern": [
+			"SSS",
+			"SMS",
+			"SSS"
+		],
+		"result": {
+			"item": "twm:iron_mesh"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:iron_ingot"
+			},
+			{
+				"item": "twm:flint_mesh"
+			}
+		]
+	}
+}

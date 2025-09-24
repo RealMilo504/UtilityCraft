@@ -1,0 +1,55 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:heavy_drill"
+		},
+		"pattern": [
+			" ZX",
+			"ASZ",
+			"DA"
+		],
+		"tags": [
+			"utility_table"
+		],
+		"result": [
+			{
+				"item": "twm:heavy_drill"
+			}
+		],
+		"unlock": [
+			{
+				"item": "minecraft:diamond"
+			},
+			{
+				"item": "minecraft:diamond_block"
+			},
+			{
+				"item": "minecraft:repeater"
+			},
+			{
+				"item": "twm:drill"
+			},
+			{
+				"item": "minecraft:redstone_block"
+			}
+		],
+		"key": {
+			"Z": {
+				"item": "minecraft:diamond"
+			},
+			"X": {
+				"item": "minecraft:diamond_block"
+			},
+			"A": {
+				"item": "minecraft:repeater"
+			},
+			"S": {
+				"item": "twm:drill"
+			},
+			"D": {
+				"item": "minecraft:redstone_block"
+			}
+		}
+	}
+}

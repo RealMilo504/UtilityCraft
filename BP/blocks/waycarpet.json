@@ -1,0 +1,50 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:waycarpet",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.waycarpet",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_waycarpet",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					2,
+					16
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					2,
+					16
+				]
+			},
+			"minecraft:custom_components": [
+				"twm:carpet"
+			]
+		}
+	}
+}
+//Ranges: 1000 2500 5000 10000 25000 inf
+//Dimensions: Overworld, Nether, End
+//Discount: 0 5 15 25 50 100

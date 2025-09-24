@@ -1,0 +1,31 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:pebble_to_gilded_blackstone"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"P": {
+				"item": "twm:gilded_blackstone_pebble"
+			}
+		},
+		"pattern": [
+			"PP",
+			"PP"
+		],
+		"result": {
+			"item": "minecraft:gilded_blackstone"
+		},
+		"unlock": [
+			{
+				"item": "twm:gilded_blackstone_pebble"
+			},
+			{
+				"item": "minecraft:gilded_blackstone"
+			}
+		]
+	}
+}

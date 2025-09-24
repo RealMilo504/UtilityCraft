@@ -1,0 +1,53 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:drill_placer"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"A": {
+				"item": "minecraft:iron_pickaxe"
+			},
+			"B": {
+				"item": "coal_block"
+			},
+			"C": {
+				"item": "chest"
+			},
+			"I": {
+				"item": "iron_block"
+			},
+			"R": {
+				"item": "redstone_block"
+			}
+		},
+		"pattern": [
+			"CIC",
+			"IRI",
+			"BAB"
+		],
+		"result": {
+			"item": "twm:drill_placer"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:iron_pickaxe"
+			},
+			{
+				"item": "minecraft:coal_block"
+			},
+			{
+				"item": "minecraft:chest"
+			},
+			{
+				"item": "minecraft:iron_block"
+			},
+			{
+				"item": "minecraft:redstone_block"
+			}
+		]
+	}
+}

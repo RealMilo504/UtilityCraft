@@ -1,0 +1,24 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "twm:mechanical_spawner_pig",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/blocks/mech-spawners/mechanical_spawner_pig"
+			},
+			"geometry": {
+				"default": "geometry.twm_spawner_type"
+			},
+			"render_controllers": [
+				"controller.render.oak_tree"
+			],
+			"spawn_egg": {
+				"base_color": "#000000",
+				"overlay_color": "#FFFFFF"
+			}
+		}
+	}
+}

@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:basic_fluid_tank"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"S": {
+				"item": "twm:basic_chip"
+			},
+			"R": {
+				"item": "twm:gold_plate"
+			},
+			"G": {
+				"item": "minecraft:glass"
+			}
+		},
+		"pattern": [
+			"RGR",
+			"GSG",
+			"RGR"
+		],
+		"result": {
+			"item": "twm:basic_fluid_tank"
+		},
+		"unlock": [
+			{
+				"item": "twm:gold_plate"
+			},
+			{
+				"item": "minecraft:glass"
+			},
+			{
+				"item": "twm:basic_chip"
+			}
+		]
+	}
+}

@@ -1,0 +1,61 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:wooden_aiot"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"pattern": [
+			"DSD",
+			"HPA",
+			"ZHD"
+		],
+		"result": [
+			{
+				"item": "twm:wooden_aiot"
+			}
+		],
+		"unlock": [
+			{
+				"item": "minecraft:planks"
+			},
+			{
+				"item": "minecraft:wooden_sword"
+			},
+			{
+				"item": "minecraft:string"
+			},
+			{
+				"item": "twm:wooden_paxel"
+			},
+			{
+				"item": "minecraft:wooden_hoe"
+			},
+			{
+				"item": "minecraft:stick"
+			}
+		],
+		"key": {
+			"D": {
+				"item": "minecraft:planks"
+			},
+			"S": {
+				"item": "minecraft:wooden_sword"
+			},
+			"H": {
+				"item": "minecraft:string"
+			},
+			"P": {
+				"item": "twm:wooden_paxel"
+			},
+			"A": {
+				"item": "minecraft:wooden_hoe"
+			},
+			"Z": {
+				"item": "minecraft:stick"
+			}
+		}
+	}
+}

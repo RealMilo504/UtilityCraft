@@ -1,0 +1,61 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:diamond_aiot"
+		},
+		"tags": [
+			"utility_table"
+		],
+		"pattern": [
+			"DSD",
+			"HPA",
+			"ZHD"
+		],
+		"result": [
+			{
+				"item": "twm:diamond_aiot"
+			}
+		],
+		"unlock": [
+			{
+				"item": "minecraft:diamond"
+			},
+			{
+				"item": "minecraft:diamond_sword"
+			},
+			{
+				"item": "minecraft:string"
+			},
+			{
+				"item": "twm:diamond_paxel"
+			},
+			{
+				"item": "minecraft:diamond_hoe"
+			},
+			{
+				"item": "minecraft:stick"
+			}
+		],
+		"key": {
+			"D": {
+				"item": "minecraft:diamond"
+			},
+			"S": {
+				"item": "minecraft:diamond_sword"
+			},
+			"H": {
+				"item": "minecraft:string"
+			},
+			"P": {
+				"item": "twm:diamond_paxel"
+			},
+			"A": {
+				"item": "minecraft:diamond_hoe"
+			},
+			"Z": {
+				"item": "minecraft:stick"
+			}
+		}
+	}
+}

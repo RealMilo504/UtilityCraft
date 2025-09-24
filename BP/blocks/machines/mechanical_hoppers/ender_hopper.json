@@ -1,0 +1,152 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:ender_hopper",
+			"menu_category": {
+				"category": "construction"
+			},
+			"states": {
+				"twm:range": [
+					0,
+					1,
+					2,
+					3,
+					4
+				],
+				"twm:rangeSelected": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11
+				],
+				"twm:state": [
+					false,
+					true
+				]
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.twm_ender_hopper",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_ender_hopper",
+					"render_method": "opaque"
+				},
+				"up": {
+					"texture": "twm_ender_hopper_animated",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					5,
+					16
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					5,
+					16
+				]
+			},
+			"minecraft:custom_components": [
+				"twm:ender_hopper",
+				"twm:machine_upgrades"
+			],
+			"minecraft:tick": {
+				"interval_range": [
+					8,
+					8
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:destructible_by_explosion":false,
+			"tag:dorios:item": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('twm:range') == 1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_ender_hopper_range1",
+							"render_method": "opaque"
+						},
+						"up": {
+							"texture": "twm_ender_hopper_animated",
+							"render_method": "opaque"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:range') == 2",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_ender_hopper_range2",
+							"render_method": "opaque"
+						},
+						"up": {
+							"texture": "twm_ender_hopper_animated",
+							"render_method": "opaque"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:range') == 3",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_ender_hopper_range3",
+							"render_method": "opaque"
+						},
+						"up": {
+							"texture": "twm_ender_hopper_animated",
+							"render_method": "opaque"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:range') == 4",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_ender_hopper_range4",
+							"render_method": "opaque"
+						},
+						"up": {
+							"texture": "twm_ender_hopper_animated",
+							"render_method": "opaque"
+						}
+					}
+				}
+			}
+		]
+	}
+}

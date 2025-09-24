@@ -1,0 +1,53 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:tractor_placer"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"A": {
+				"item": "minecraft:diamond_hoe"
+			},
+			"B": {
+				"item": "coal_block"
+			},
+			"C": {
+				"item": "chest"
+			},
+			"I": {
+				"item": "iron_block"
+			},
+			"R": {
+				"item": "redstone_block"
+			}
+		},
+		"pattern": [
+			"CIC",
+			"IRI",
+			"BAB"
+		],
+		"result": {
+			"item": "twm:tractor_placer"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:diamond_hoe"
+			},
+			{
+				"item": "minecraft:coal_block"
+			},
+			{
+				"item": "minecraft:chest"
+			},
+			{
+				"item": "minecraft:iron_block"
+			},
+			{
+				"item": "minecraft:redstone_block"
+			}
+		]
+	}
+}

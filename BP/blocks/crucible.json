@@ -1,0 +1,159 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:crucible",
+			"states": {
+				"twm:lava": [
+					0,
+					1,
+					2,
+					3,
+					4
+				],
+				"twm:cobble": [
+					0,
+					1,
+					2,
+					3,
+					4
+				],
+				"twm:smelting": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11,
+					12,
+					13,
+					14,
+					15
+				]
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.twm_crucible",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_crucible",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:custom_components": [
+				"twm:crucible"
+			],
+			"minecraft:tick": {
+				"interval_range": [
+					40,
+					40
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:destructible_by_explosion": false,
+			"tag:dorios:fluid": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('twm:lava') == 1 && q.block_state('twm:cobble') <= 1 ",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_crucible_lava_1",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:light_emission": 3
+				}
+			},
+			{
+				"condition": "q.block_state('twm:lava') == 2 && q.block_state('twm:cobble') <= 2 ",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_crucible_lava_2",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:light_emission": 7
+				}
+			},
+			{
+				"condition": "q.block_state('twm:lava') == 3 && q.block_state('twm:cobble') <= 3 ",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_crucible_lava_3",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:light_emission": 11
+				}
+			},
+			{
+				"condition": "q.block_state('twm:lava') == 4 && q.block_state('twm:cobble') <= 4 ",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_crucible_lava_4",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:light_emission": 15
+				}
+			},
+			{
+				"condition": "q.block_state('twm:cobble') == 1 && q.block_state('twm:lava') < 1 ",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_crucible_cobble_1",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:cobble') == 2 && q.block_state('twm:lava') < 2 ",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_crucible_cobble_2",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:cobble') == 3 && q.block_state('twm:lava') < 3 ",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_crucible_cobble_3",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:cobble') == 4 && q.block_state('twm:lava') < 4 ",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_crucible_cobble_4",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			}
+		]
+	}
+}

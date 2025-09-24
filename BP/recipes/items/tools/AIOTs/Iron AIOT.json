@@ -1,0 +1,61 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:iron_aiot"
+		},
+		"tags": [
+			"utility_table"
+		],
+		"pattern": [
+			"DSD",
+			"HPA",
+			"ZHD"
+		],
+		"result": [
+			{
+				"item": "twm:iron_aiot"
+			}
+		],
+		"unlock": [
+			{
+				"item": "minecraft:iron_ingot"
+			},
+			{
+				"item": "minecraft:iron_sword"
+			},
+			{
+				"item": "minecraft:string"
+			},
+			{
+				"item": "twm:iron_paxel"
+			},
+			{
+				"item": "minecraft:iron_hoe"
+			},
+			{
+				"item": "minecraft:stick"
+			}
+		],
+		"key": {
+			"D": {
+				"item": "minecraft:iron_ingot"
+			},
+			"S": {
+				"item": "minecraft:iron_sword"
+			},
+			"H": {
+				"item": "minecraft:string"
+			},
+			"P": {
+				"item": "twm:iron_paxel"
+			},
+			"A": {
+				"item": "minecraft:iron_hoe"
+			},
+			"Z": {
+				"item": "minecraft:stick"
+			}
+		}
+	}
+}

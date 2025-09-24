@@ -1,0 +1,36 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "twm:raw_steel"
+		},
+		"ingredients": [
+			{
+				"item": "coal"
+			},
+			{
+				"item": "raw_iron"
+			},
+			{
+				"item": "twm:smeltflare"
+			}
+		],
+		"result": {
+			"item": "twm:raw_steel"
+		},
+		"unlock": [
+			{
+				"item": "twm:smeltflare"
+			},
+			{
+				"item": "raw_iron"
+			},
+			{
+				"item": "coal"
+			}
+		],
+		"tags": [
+			"crafting_table"
+		]
+	}
+}

@@ -1,0 +1,23 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:compressed_quartz_block",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.twm_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_compressed_quartz_block",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1.45
+			}
+		}
+	}
+}

@@ -1,0 +1,42 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:bomb"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"G": {
+				"item": "minecraft:gunpowder"
+			},
+			"W": {
+				"item": "minecraft:wool"
+			},
+			"C": {
+				"item": "minecraft:cobblestone"
+			}
+		},
+		"pattern": [
+			"CGC",
+			"W W",
+			"CGC"
+		],
+		"result": {
+			"item": "twm:bomb",
+			"count": 8
+		},
+		"unlock": [
+			{
+				"item": "minecraft:gunpowder"
+			},
+			{
+				"item": "minecraft:wool"
+			},
+			{
+				"item": "minecraft:cobblestone"
+			}
+		]
+	}
+}

@@ -1,0 +1,58 @@
+{
+	"format_version": "1.21.70",
+	"minecraft:item": {
+		"description": {
+			"identifier": "twm:drill",
+			"menu_category": {
+				"category": "equipment"
+			}
+		},
+		"components": {
+			"minecraft:max_stack_size": 1,
+			"minecraft:hand_equipped": true,
+			"minecraft:durability": {
+				"max_durability": 2031
+			},
+			"minecraft:display_name": {
+				"value": "Drill\n§7Mines a 3x3 area in front of you"
+			},
+			"minecraft:damage": 5,
+			"minecraft:icon": "twm_drill",
+			"minecraft:enchantable": {
+				"value": 15,
+				"slot": "pickaxe"
+			},
+			"minecraft:custom_components": [
+				"twm:break",
+				"twm:drill"
+			],
+			"minecraft:repairable": {
+				"repair_items": [
+					{
+						"items": [
+							"minecraft:iron_block"
+						],
+						"repair_amount": 800
+					},
+					{
+						"items": [
+							"twm:drill"
+						],
+						"repair_amount": 2031
+					}
+				]
+			},
+			"minecraft:digger": {
+				"use_efficiency": true,
+				"destroy_speeds": [
+					{
+						"speed": 14,
+						"block": {
+							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'minecraft:is_shovel_item_destructible', 'minecraft:is_axe_item_destructible')"
+						}
+					}
+				]
+			}
+		}
+	}
+}

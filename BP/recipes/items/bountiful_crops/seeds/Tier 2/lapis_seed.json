@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:lapis_seeds"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"O": {
+				"item": "lapis_block"
+			},
+			"S": {
+				"item": "twm:base_seeds"
+			}
+		},
+		"pattern": [
+			"OOO",
+			"OSO",
+			"OOO"
+		],
+		"result": {
+			"item": "twm:lapis_seeds"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:lapis_block"
+			},
+			{
+				"item": "twm:base_seeds"
+			}
+		]
+	}
+}

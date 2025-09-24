@@ -1,0 +1,64 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:golden_aiot"
+		},
+		"tags": [
+			"utility_table"
+		],
+		"pattern": [
+			"DSD",
+			"HPA",
+			"ZHD"
+		],
+		"result": [
+			{
+				"item": "twm:golden_aiot"
+			}
+		],
+		"unlock": [
+			{
+				"item": "minecraft:gold_ingot"
+			},
+			{
+				"item": "minecraft:golden_sword"
+			},
+			{
+				"item": "minecraft:string"
+			},
+			{
+				"item": "minecraft:string"
+			},
+			{
+				"item": "twm:golden_paxel"
+			},
+			{
+				"item": "minecraft:golden_hoe"
+			},
+			{
+				"item": "minecraft:stick"
+			}
+		],
+		"key": {
+			"D": {
+				"item": "minecraft:gold_ingot"
+			},
+			"S": {
+				"item": "minecraft:golden_sword"
+			},
+			"H": {
+				"item": "minecraft:string"
+			},
+			"P": {
+				"item": "twm:golden_paxel"
+			},
+			"A": {
+				"item": "minecraft:golden_hoe"
+			},
+			"Z": {
+				"item": "minecraft:stick"
+			}
+		}
+	}
+}

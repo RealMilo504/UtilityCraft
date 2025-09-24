@@ -1,0 +1,31 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:pebble_to_cobblestone"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"P": {
+				"item": "twm:stone_pebble"
+			}
+		},
+		"pattern": [
+			"PP",
+			"PP"
+		],
+		"result": {
+			"item": "minecraft:cobblestone"
+		},
+		"unlock": [
+			{
+				"item": "twm:stone_pebble"
+			},
+			{
+				"item": "minecraft:cobblestone"
+			}
+		]
+	}
+}

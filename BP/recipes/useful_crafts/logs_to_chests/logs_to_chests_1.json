@@ -1,0 +1,30 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:logs_to_chests_1"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"pattern": [
+			"LLL",
+			"L L",
+			"LLL"
+		],
+		"key": {
+			"L": {
+				"item": "log"
+			}
+		},
+		"result": {
+			"item": "chest",
+			"count": 4
+		},
+		"unlock": [
+			{
+				"item": "minecraft:log"
+			}
+		]
+	}
+}

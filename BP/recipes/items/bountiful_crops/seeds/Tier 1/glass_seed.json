@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:glass_seeds"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"G": {
+				"item": "minecraft:glass"
+			},
+			"S": {
+				"item": "twm:base_seeds"
+			}
+		},
+		"pattern": [
+			"GGG",
+			"GSG",
+			"GGG"
+		],
+		"result": {
+			"item": "twm:glass_seeds"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:glass"
+			},
+			{
+				"item": "twm:base_seeds"
+			}
+		]
+	}
+}

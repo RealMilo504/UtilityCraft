@@ -1,0 +1,38 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:lava_seedsv2"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"L": {
+				"item": "twm:lava_ball"
+			},
+			"S": {
+				"item": "twm:base_seeds"
+			}
+		},
+		"pattern": [
+			" L ",
+			"LSL",
+			" L "
+		],
+		"result": [
+			{
+				"item": "twm:lava_seeds"
+			}
+		],
+		"unlock": [
+			{
+				"item": "minecraft:lava_bucket"
+			},
+			{
+				"item": "twm:base_seeds"
+			}
+		],
+		"priority": 10
+	}
+}

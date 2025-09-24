@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:expert_magmator"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"G": {
+				"item": "twm:diamond_dust"
+			},
+			"B": {
+				"item": "twm:advanced_magmator"
+			},
+			"S": {
+				"item": "twm:steel_plate"
+			},
+			"D": {
+				"item": "twm:expert_fluid_tank"
+			},
+			"E": {
+				"item": "twm:expert_chip"
+			}
+		},
+		"pattern": [
+			"GDG",
+			"EBE",
+			"SES"
+		],
+		"result": {
+			"item": "twm:expert_magmator"
+		},
+		"unlock": [
+			{
+				"item": "twm:expert_chip"
+			}
+		]
+	}
+}

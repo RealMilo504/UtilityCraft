@@ -1,0 +1,2 @@
+execute at @a[hasitem=[{item=twm:lucky_sword_item , location=slot.weapon.mainhand}]] run structure load mystructure:lucky_sword ~ ~+1 ~
+clear @a[hasitem=[{item=twm:lucky_sword_item , location=slot.weapon.mainhand}]] twm:lucky_sword_item 0 1

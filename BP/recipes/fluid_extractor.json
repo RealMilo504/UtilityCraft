@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:fluid_extractor"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"H": {
+				"item": "hopper"
+			},
+			"S": {
+				"item": "twm:fluid_pipe"
+			}
+		},
+		"pattern": [
+			" S",
+			"SHS",
+			" S"
+		],
+		"result": {
+			"item": "twm:fluid_extractor"
+		},
+		"unlock": [
+			{
+				"item": "twm:steel_ingot"
+			}
+		]
+	}
+}

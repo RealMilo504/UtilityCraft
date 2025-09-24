@@ -1,0 +1,31 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:pebble_to_deepslate"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"P": {
+				"item": "twm:deepslate_pebble"
+			}
+		},
+		"pattern": [
+			"PP",
+			"PP"
+		],
+		"result": {
+			"item": "minecraft:cobbled_deepslate"
+		},
+		"unlock": [
+			{
+				"item": "twm:deepslate_pebble"
+			},
+			{
+				"item": "minecraft:cobbled_deepslate"
+			}
+		]
+	}
+}

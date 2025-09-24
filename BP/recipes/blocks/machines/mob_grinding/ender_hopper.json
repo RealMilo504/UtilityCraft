@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:ender_hopper"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"C": {
+				"item": "minecraft:chest"
+			},
+			"E": {
+				"item": "minecraft:ender_eye"
+			},
+			"O": {
+				"item": "minecraft:obsidian"
+			}
+		},
+		"pattern": [
+			"OEO",
+			"OCO",
+			" O "
+		],
+		"result": {
+			"item": "twm:ender_hopper"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:chest"
+			},
+			{
+				"item": "minecraft:ender_eye"
+			},
+			{
+				"item": "minecraft:obsidian"
+			}
+		]
+	}
+}

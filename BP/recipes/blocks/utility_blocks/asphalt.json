@@ -1,0 +1,42 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:asphalt"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"C": {
+				"item": "minecraft:cobblestone"
+			},
+			"G": {
+				"item": "minecraft:gravel"
+			},
+			"S": {
+				"item": "minecraft:sand"
+			}
+		},
+		"pattern": [
+			"GSG",
+			"SCS",
+			"GSG"
+		],
+		"result": {
+			"item": "twm:asphalt",
+			"count": 8
+		},
+		"unlock": [
+			{
+				"item": "minecraft:cobblestone"
+			},
+			{
+				"item": "minecraft:gravel"
+			},
+			{
+				"item": "minecraft:sand"
+			}
+		]
+	}
+}

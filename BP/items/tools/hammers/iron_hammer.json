@@ -1,0 +1,53 @@
+{
+	"format_version": "1.21.70",
+	"minecraft:item": {
+		"description": {
+			"identifier": "twm:iron_hammer"
+		},
+		"components": {
+			"minecraft:max_stack_size": 1,
+			"minecraft:hand_equipped": true,
+			"minecraft:durability": {
+				"max_durability": 251
+			},
+			"minecraft:damage": 6,
+			"minecraft:icon": "twm_iron_hammer",
+			"minecraft:enchantable": {
+				"value": 15,
+				"slot": "pickaxe"
+			},
+			"minecraft:custom_components": [
+				"twm:hammer",
+				"twm:break",
+				"twm:dig_pebble"
+			],
+			"minecraft:repairable": {
+				"repair_items": [
+					{
+						"items": [
+							"minecraft:iron_ingot"
+						],
+						"repair_amount": 83
+					},
+					{
+						"items": [
+							"twm:iron_hammer"
+						],
+						"repair_amount": 251
+					}
+				]
+			},
+			"minecraft:digger": {
+				"use_efficiency": true,
+				"destroy_speeds": [
+					{
+						"speed": 14,
+						"block": {
+							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible') && !q.any_tag('minecraft:diamond_tier_destructible')"
+						}
+					}
+				]
+			}
+		}
+	}
+}

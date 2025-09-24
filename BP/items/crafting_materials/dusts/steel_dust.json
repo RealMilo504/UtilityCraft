@@ -1,0 +1,11 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "twm:steel_dust"
+		},
+		"components": {
+			"minecraft:icon": "twm_steel_dust"
+		}
+	}
+}

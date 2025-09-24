@@ -1,0 +1,14 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "twm:energized_iron_ingot_fromraw"
+		},
+		"tags": [
+			"furnace",
+			"blast_furnace"
+		],
+		"input": "twm:raw_energized_iron",
+		"output": "twm:energized_iron_ingot"
+	}
+}

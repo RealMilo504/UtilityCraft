@@ -1,0 +1,53 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:electro_press"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"A": {
+				"item": "minecraft:piston"
+			},
+			"B": {
+				"item": "twm:machine_case"
+			},
+			"P": {
+				"item": "redstone"
+			},
+			"R": {
+				"item": "twm:compressed_cobblestone"
+			},
+			"C": {
+				"item": "twm:chip"
+			}
+		},
+		"pattern": [
+			"PAP",
+			"CBC",
+			"PRP"
+		],
+		"result": {
+			"item": "twm:electro_press"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:piston"
+			},
+			{
+				"item": "twm:machine_case"
+			},
+			{
+				"item": "redstone"
+			},
+			{
+				"item": "twm:compressed_cobblestone"
+			},
+			{
+				"item": "twm:chip"
+			}
+		]
+	}
+}

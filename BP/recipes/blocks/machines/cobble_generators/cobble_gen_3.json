@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:cobble_gen_3"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"M": {
+				"item": "emerald"
+			},
+			"G": {
+				"item": "twm:cobble_gen_2"
+			}
+		},
+		"pattern": [
+			"MMM",
+			"MGM",
+			"MMM"
+		],
+		"result": {
+			"item": "twm:cobble_gen_3"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:emerald"
+			},
+			{
+				"item": "twm:cobble_gen_2"
+			}
+		]
+	}
+}

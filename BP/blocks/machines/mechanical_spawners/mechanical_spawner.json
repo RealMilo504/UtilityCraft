@@ -1,0 +1,468 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "twm:mechanical_spawner",
+			"menu_category": {
+				"category": "construction"
+			},
+			"states": {
+				"twm:spawnerTypes": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11,
+					12,
+					13,
+					14,
+					15
+				],
+				"twm:isOn": [
+					true,
+					false
+				],
+				"twm:speed": [
+					0,
+					1,
+					2,
+					3,
+					4
+				],
+				"twm:quantity": [
+					0,
+					1,
+					2,
+					3,
+					4
+				]
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.twm_mechanical_spawner",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "twm_mechanical_spawner_empty",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:custom_components": [
+				"twm:mech_spawners_select"
+			],
+			"minecraft:tick": {
+				"interval_range": [
+					500,
+					700
+				]
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('twm:spawnerTypes') != 0",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:custom_components": [
+						"twm:mech_spawners",
+						"twm:machine_upgrades"
+					]
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 0 && q.block_state('twm:quantity') == 1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_quantity1",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 0 && q.block_state('twm:quantity') == 2",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 0 && q.block_state('twm:quantity') == 3",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_quantity3",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 0 && q.block_state('twm:quantity') == 4",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 1 && q.block_state('twm:quantity') == 0",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed1",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							400,
+							600
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 1 && q.block_state('twm:quantity') == 1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							400,
+							600
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 1 && q.block_state('twm:quantity') == 2",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed1_quantity2",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							400,
+							600
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 1 && q.block_state('twm:quantity') == 3",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							400,
+							600
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 1 && q.block_state('twm:quantity') == 4",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed1_quantity4",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							400,
+							600
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 2 && q.block_state('twm:quantity') == 0",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							300,
+							500
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 2 && q.block_state('twm:quantity') == 1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed2_quantity1",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							300,
+							500
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 2 && q.block_state('twm:quantity') == 2",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							300,
+							500
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 2 && q.block_state('twm:quantity') == 3",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed2_quantity3",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							300,
+							500
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 2 && q.block_state('twm:quantity') == 4",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							300,
+							500
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 3 && q.block_state('twm:quantity') == 0",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed3",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							200,
+							400
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 3 && q.block_state('twm:quantity') == 1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							200,
+							400
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 3 && q.block_state('twm:quantity') == 2",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed3_quantity2",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							200,
+							400
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 3 && q.block_state('twm:quantity') == 3",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							200,
+							400
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 3 && q.block_state('twm:quantity') == 4",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed3_quantity4",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							200,
+							400
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 4 && q.block_state('twm:quantity') == 0",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							100,
+							300
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 4 && q.block_state('twm:quantity') == 1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed4_quantity1",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							100,
+							300
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 4 && q.block_state('twm:quantity') == 2",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							100,
+							300
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 4 && q.block_state('twm:quantity') == 3",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed4_quantity3",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							100,
+							300
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('twm:speed') == 4 && q.block_state('twm:quantity') == 4",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "twm_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							100,
+							300
+						]
+					}
+				}
+			}
+		]
+	}
+}

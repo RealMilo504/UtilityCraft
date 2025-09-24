@@ -1,0 +1,22 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:item": {
+		"description": {
+			"identifier": "twm:diamond_mesh",
+			"menu_category": {
+				"category": "equipment"
+			}
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+					"minecraft:transformable_items"
+				]
+			},
+			"minecraft:icon": "twm_diamond_mesh",
+			"minecraft:durability": {
+				"max_durability": 1561
+			}
+		}
+	}
+}

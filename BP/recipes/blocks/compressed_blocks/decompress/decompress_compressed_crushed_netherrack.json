@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:decompress_compressed_crushed_netherrack"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "twm:compressed_crushed_netherrack"
+      }
+    ],
+    "result": {
+      "item": "twm:crushed_netherrack",
+      "count": 9
+    },
+    "unlock": [
+      {
+        "item": "twm:compressed_crushed_netherrack"
+      }
+    ]
+  }
+}

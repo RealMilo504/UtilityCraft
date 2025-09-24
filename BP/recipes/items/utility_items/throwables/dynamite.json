@@ -1,0 +1,42 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:dynamite"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"G": {
+				"item": "minecraft:gunpowder"
+			},
+			"W": {
+				"item": "minecraft:wool"
+			},
+			"C": {
+				"item": "minecraft:cobbled_deepslate"
+			}
+		},
+		"pattern": [
+			"CGC",
+			"GWG",
+			"CGC"
+		],
+		"result": {
+			"item": "twm:dynamite",
+			"count": 8
+		},
+		"unlock": [
+			{
+				"item": "minecraft:gunpowder"
+			},
+			{
+				"item": "minecraft:wool"
+			},
+			{
+				"item": "minecraft:cobbled_deepslate"
+			}
+		]
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:chunk_to_coal"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"P": {
+				"item": "twm:coal_chunk"
+			}
+		},
+		"pattern": [
+			"PP"
+		],
+		"result": {
+			"item": "minecraft:coal"
+		},
+		"unlock": [
+			{
+				"item": "twm:coal_chunk"
+			},
+			{
+				"item": "minecraft:coal"
+			}
+		]
+	}
+}

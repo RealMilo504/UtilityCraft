@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:blaze_seeds"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"O": {
+				"item": "blaze_rod"
+			},
+			"S": {
+				"item": "twm:base_seeds"
+			}
+		},
+		"pattern": [
+			"OOO",
+			"OSO",
+			"OOO"
+		],
+		"result": {
+			"item": "twm:blaze_seeds"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:blaze_rod"
+			},
+			{
+				"item": "twm:base_seeds"
+			}
+		]
+	}
+}

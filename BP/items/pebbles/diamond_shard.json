@@ -1,0 +1,11 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "twm:diamond_shard"
+		},
+		"components": {
+			"minecraft:icon": "twm_diamond_shard"
+		}
+	}
+}

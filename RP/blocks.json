@@ -1,0 +1,325 @@
+{
+	"format_version": "1.1.0",
+	"twm:diamond_crop": {
+		"sound": "grass"
+	},
+	"twm:iron_crop": {
+		"sound": "grass"
+	},
+	"twm:gold_crop": {
+		"sound": "grass"
+	},
+	"twm:redstone_crop": {
+		"sound": "grass"
+	},
+	"twm:lapis_crop": {
+		"sound": "grass"
+	},
+	"twm:yellow_soil": {
+		"textures": {
+			"up": "twm_yellow_soil",
+			"down": "twm_yellow_soil_side",
+			"east": "twm_yellow_soil_side",
+			"north": "twm_yellow_soil_side",
+			"south": "twm_yellow_soil_side",
+			"west": "twm_yellow_soil_side"
+		},
+		"sound": "grass"
+	},
+	"twm:red_soil": {
+		"textures": {
+			"up": "twm_red_soil",
+			"down": "twm_red_soil_side",
+			"east": "twm_red_soil_side",
+			"north": "twm_red_soil_side",
+			"south": "twm_red_soil_side",
+			"west": "twm_red_soil_side"
+		},
+		"sound": "grass"
+	},
+	"twm:blue_soil": {
+		"textures": {
+			"up": "twm_blue_soil",
+			"down": "twm_blue_soil_side",
+			"east": "twm_blue_soil_side",
+			"north": "twm_blue_soil_side",
+			"south": "twm_blue_soil_side",
+			"west": "twm_blue_soil_side"
+		},
+		"sound": "grass"
+	},
+	"twm:black_soil": {
+		"textures": {
+			"up": "twm_black_soil",
+			"down": "twm_black_soil_side",
+			"east": "twm_black_soil_side",
+			"north": "twm_black_soil_side",
+			"south": "twm_black_soil_side",
+			"west": "twm_black_soil_side"
+		},
+		"sound": "grass"
+	},
+	"twm:wither_crop": {
+		"sound": "grass"
+	},
+	"twm:emerald_crop": {
+		"sound": "grass"
+	},
+	"twm:coal_crop": {
+		"sound": "grass"
+	},
+	"twm:netherite_crop": {
+		"sound": "grass"
+	},
+	"twm:blaze_crop": {
+		"sound": "grass"
+	},
+	"twm:tractor_placer": {
+		"sound": "metal"
+	},
+	"twm:enderpearl_crop": {
+		"sound": "grass"
+	},
+	"twm:obsidian_crop": {
+		"sound": "grass"
+	},
+	"twm:netherstar_crop": {
+		"sound": "grass"
+	},
+	"twm:shulker_crop": {
+		"sound": "grass"
+	},
+	"twm:totem_crop": {
+		"sound": "grass"
+	},
+	"twm:quartz_crop": {
+		"sound": "grass"
+	},
+	"twm:amethyst_crop": {
+		"sound": "grass"
+	},
+	"twm:glowstone_crop": {
+		"sound": "grass"
+	},
+	"twm:slime_crop": {
+		"sound": "grass"
+	},
+	"twm:honey_crop": {
+		"sound": "grass"
+	},
+	"twm:cobble_gen_1": {
+		"sound": "stone"
+	},
+	"twm:cobble_gen_2": {
+		"sound": "stone"
+	},
+	"twm:cobble_gen_3": {
+		"sound": "stone"
+	},
+	"twm:cobble_gen_4": {
+		"sound": "stone"
+	},
+	"twm:cobble_gen_5": {
+		"sound": "stone"
+	},
+	"twm:elevator": {
+		"sound": "cloth",
+		"textures": "twm_elevator"
+	},
+	"twm:bonsai": {
+		"sound": "stone"
+	},
+	"twm:ender_hopper": {
+		"sound": "stone"
+	},
+	"twm:asphalt": {
+		"sound": "stone"
+	},
+	"twm:drill_placer": {
+		"sound": "stone"
+	},
+	"twm:harvester": {
+		"sound": "metal"
+	},
+	"twm:glass_crop": {
+		"sound": "grass"
+	},
+	"twm:water_crop": {
+		"sound": "grass"
+	},
+	"twm:lava_crop": {
+		"sound": "grass"
+	},
+	"twm:prismarine_shards_crop": {
+		"sound": "grass"
+	},
+	"twm:prismarine_crystal_crop": {
+		"sound": "grass"
+	},
+	"twm:block_breaker": {
+		"sound": "stone"
+	},
+	"twm:autosieve": {
+		"sound": "stone"
+	},
+	"twm:sieve": {
+		"sound": "stone"
+	},
+	"twm:copper_crop": {
+		"sound": "grass"
+	},
+	"twm:ghast_crop": {
+		"sound": "grass"
+	},
+	"twm:gunpowder_crop": {
+		"sound": "grass"
+	},
+	"twm:leather_crop": {
+		"sound": "grass"
+	},
+	"twm:wool_crop": {
+		"sound": "grass"
+	},
+	"twm:compressed_sand": {
+		"sound": "sand"
+	},
+	"twm:compressed_dirt": {
+		"sound": "gravel"
+	},
+	"twm:compressed_gravel": {
+		"sound": "gravel"
+	},
+	"twm:crushed_netherrack": {
+		"sound": "stone",
+		"textures": "twm_crushed_netherrack"
+	},
+	"twm:compressed_netherrack": {
+		"sound": "netherrack"
+	},
+	"twm:compressed_diamond_block": {
+		"sound": "metal"
+	},
+	"twm:compressed_coal_block": {
+		"sound": "stone"
+	},
+	"twm:compressed_iron_block": {
+		"sound": "metal"
+	},
+	"twm:dyes_crop": {
+		"sound": "grass"
+	},
+	"twm:machine_case": {
+		"sound": "stone",
+		"textures": "twm_machine_case"
+	},
+	"twm:big_torch": {
+		"sound": "stone"
+	},
+	"twm:flint_block": {
+		"sound": "stone",
+		"textures": "twm_flint_block"
+	},
+	"twm:lantern": {
+		"sound": "stone"
+	},
+	"twm:workbench": {
+		"sound": "stone"
+	},
+	"twm:xp_magnet": {
+		"sound": "stone"
+	},
+	"twm:mechanic_hopper": {
+		"sound": "stone"
+	},
+	"twm:basic_fluid_tank": {
+		"sound": "metal"
+	},
+	"twm:xp_drain": {
+		"sound": "stone"
+	},
+	"twm:xp_spout": {
+		"sound": "stone"
+	},
+	"twm:pedestal": {
+		"sound": "stone"
+	},
+	"twm:steel_block": {
+		"sound": "stone",
+		"textures": "twm_steel_block"
+	},
+	"twm:waycenter": {
+		"sound": "stone",
+		"textures": "twm_waycenter"
+	},
+	"twm:waycarpet": {
+		"sound": "stone"
+	},
+	"twm:energized_iron_block": {
+		"sound": "stone",
+		"textures": "twm_energized_iron_block"
+	},
+	"twm:raw_energized_iron_block": {
+		"sound": "stone",
+		"textures": "twm_raw_energized_iron_block"
+	},
+	"twm:raw_steel_block": {
+		"sound": "stone",
+		"textures": "twm_raw_steel_block"
+	},
+	"twm:electro_press": {
+		"sound": "stone"
+	},
+	"twm:block_placer": {
+		"sound": "stone"
+	},
+	"twm:xp_condenser": {
+		"sound": "stone"
+	},
+	"twm:seed_synthesizer": {
+		"sound": "stone"
+	},
+	"twm:incinerator": {
+		"sound": "stone"
+	},
+	"twm:induction_anvil": {
+		"sound": "stone"
+	},
+	"twm:crucible": {
+		"sound": "stone"
+	},
+	"twm:magmatic_chamber": {
+		"sound": "stone"
+	},
+	"twm:mechanic_dropper": {
+		"sound": "stone"
+	},
+	"twm:crushed_endstone": {
+		"sound": "stone",
+		"textures": "twm_crushed_endstone"
+	},
+	"twm:crushed_cobbled_deepslate": {
+		"sound": "stone",
+		"textures": "twm_crushed_cobbled_deepslate"
+	},
+	"twm:fluid_pump": {
+		"sound": "stone"
+	},
+	"twm:energy_cable": {
+		"sound": "stone"
+	},
+	"twm:item_conduit": {
+		"sound": "stone"
+	},
+	"twm:fluid_pipe": {
+		"sound": "stone"
+	},
+	"twm:item_exporter": {
+		"sound": "stone"
+	},
+	"twm:fluid_extractor": {
+		"sound": "stone"
+	},
+	"twm:blaze_block": {
+		"sound": "stone"
+	}
+}

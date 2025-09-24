@@ -1,0 +1,22 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "twm:oak_wood_slab"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "wooden_slab",
+				"data": 0,
+				"count": 2
+			}
+		],
+		"result": {
+			"item": "planks",
+			"data": 0
+		}
+	}
+}

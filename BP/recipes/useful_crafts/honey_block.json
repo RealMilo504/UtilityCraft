@@ -1,0 +1,28 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:honey_block"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"H": {
+				"item": "twm:honey_ball"
+			}
+		},
+		"pattern": [
+			"HH",
+			"HH"
+		],
+		"result": {
+			"item": "minecraft:honey_block"
+		},
+		"unlock": [
+			{
+				"item": "twm:honey_ball"
+			}
+		]
+	}
+}

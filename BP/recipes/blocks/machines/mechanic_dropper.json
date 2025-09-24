@@ -1,0 +1,36 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:mechanic_dropper"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"S": {
+				"item": "twm:steel_ingot"
+			},
+			"H": {
+				"item": "dropper"
+			}
+		},
+		"pattern": [
+			"S S",
+			"SHS",
+			" S"
+		],
+		"result": {
+			"item": "twm:mechanic_dropper"
+		},
+		"unlock": [
+			{
+				"item": "dropper"
+			},
+			{
+				"item": "twm:steel_ingot"
+			}
+		],
+		"priority": 0
+	}
+}

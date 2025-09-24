@@ -1,0 +1,37 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:wooden_hammer"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"result": [
+			{
+				"item": "twm:wooden_hammer"
+			}
+		],
+		"unlock": [
+			{
+				"item": "minecraft:stick"
+			}
+		],
+		"pattern": [
+			"ASA",
+			"ADA",
+			" D "
+		],
+		"key": {
+			"D": {
+				"item": "minecraft:stick"
+			},
+			"A": {
+				"item": "planks"
+			},
+			"S": {
+				"item": "log"
+			}
+		}
+	}
+}

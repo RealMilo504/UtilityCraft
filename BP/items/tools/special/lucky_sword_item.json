@@ -1,0 +1,22 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:item": {
+		"description": {
+			"identifier": "twm:lucky_sword_item",
+			"menu_category": {
+				"category": "equipment",
+				"group": "itemGroup.name.sword"
+			}
+		},
+		"components": {
+			"minecraft:icon": "twm_lucky_sword_item",
+			"minecraft:glint": true,
+			"minecraft:display_name": {
+				"value": "§bLucky Sword\n§7Looting V"
+			},
+			"minecraft:max_stack_size": 1,
+			"minecraft:hand_equipped": true,
+			"minecraft:damage": 8
+		}
+	}
+}

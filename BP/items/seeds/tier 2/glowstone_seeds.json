@@ -1,0 +1,14 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "twm:glowstone_seeds"
+		},
+		"components": {
+			"minecraft:icon": "twm_glowstone_seeds",
+			"minecraft:block_placer": {
+				"block": "twm:glowstone_crop"
+			}
+		}
+	}
+}

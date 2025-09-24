@@ -1,0 +1,38 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:workbench"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"I": {
+				"item": "iron_ingot"
+			},
+			"C": {
+				"item": "copper_ingot"
+			},
+			"B": {
+				"item": "twm:steel_block"
+			},
+			"S": {
+				"item": "twm:steel_ingot"
+			}
+		},
+		"pattern": [
+			"ICI",
+			" S ",
+			"IBI"
+		],
+		"result": {
+			"item": "twm:workbench"
+		},
+		"unlock": [
+			{
+				"item": "twm:steel_ingot"
+			}
+		]
+	}
+}

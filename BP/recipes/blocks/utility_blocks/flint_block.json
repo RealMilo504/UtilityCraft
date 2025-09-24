@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:flint_block"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"F": {
+				"item": "flint"
+			}
+		},
+		"pattern": [
+			"FFF",
+			"FFF",
+			"FFF"
+		],
+		"result": {
+			"item": "twm:flint_block"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:flint"
+			}
+		]
+	}
+}

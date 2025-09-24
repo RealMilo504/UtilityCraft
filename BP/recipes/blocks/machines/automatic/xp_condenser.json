@@ -1,0 +1,50 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "twm:xp_condenser"
+		},
+		"tags": [
+			"twm_workbench"
+		],
+		"key": {
+			"A": {
+				"item": "twm:emerald_dust"
+			},
+			"B": {
+				"item": "twm:machine_case"
+			},
+			"C": {
+				"item": "twm:steel_plate"
+			},
+			"D": {
+				"item": "minecraft:lapis_block"
+			},
+			"E": {
+				"item": "twm:expert_chip"
+			}
+		},
+		"pattern": [
+			"CAC",
+			"EBE",
+			"ADA"
+		],
+		"result": {
+			"item": "twm:xp_condenser"
+		},
+		"unlock": [
+			{
+				"item": "twm:machine_case"
+			},
+			{
+				"item": "twm:gold_plate"
+			},
+			{
+				"item": "minecraft:lapis_block"
+			},
+			{
+				"item": "twm:expert_chip"
+			}
+		]
+	}
+}

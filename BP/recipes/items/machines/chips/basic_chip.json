@@ -1,0 +1,38 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "twm:basic_chip"
+        },
+        "tags": [
+            "twm_workbench"
+        ],
+        "pattern": [
+            "RGR",
+            "GCG",
+            "RGR"
+        ],
+        "key": {
+            "G": {
+                "item": "gold_ingot"
+            },
+            "C": {
+                "item": "twm:chip"
+            },
+            "R": {
+                "item": "minecraft:redstone"
+            }
+        },
+        "result": {
+            "item": "twm:basic_chip"
+        },
+        "unlock": [
+            {
+                "item": "gold_ingot"
+            },
+            {
+                "item": "minecraft:redstone"
+            }
+        ]
+    }
+}
