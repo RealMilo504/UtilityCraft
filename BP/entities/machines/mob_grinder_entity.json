@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "twm:mob_grinder_entity",
+			"identifier": "utilitycraft:mob_grinder_entity",
 			"is_spawnable": false,
 			"is_summonable": true,
 			"is_experimental": false
@@ -32,7 +32,7 @@
 							"event": "despawn"
 						},
 						"block": {
-							"name": "twm:mob_grinder"
+							"name": "utilitycraft:mob_grinder"
 						}
 					}
 				]

@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shapeless": {
 		"description": {
-			"identifier": "twm:compressed_coal_block_to_coal_block"
+			"identifier": "utilitycraft:compressed_coal_block_to_coal_block"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"ingredients": [
 			{
-				"item": "twm:compressed_coal_block"
+				"item": "utilitycraft:compressed_coal_block"
 			}
 		],
 		"result": {
@@ -18,7 +18,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:compressed_coal_block"
+				"item": "utilitycraft:compressed_coal_block"
 			}
 		]
 	}

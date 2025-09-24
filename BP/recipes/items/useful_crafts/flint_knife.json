@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:flint_knife"
+			"identifier": "utilitycraft:flint_knife"
 		},
 		"tags": [
 			"crafting_table"
@@ -20,7 +20,7 @@
 			"S "
 		],
 		"result": {
-			"item": "twm:flint_knife"
+			"item": "utilitycraft:flint_knife"
 		},
 		"unlock": [
 			{

@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:diamond_hammer"
+			"identifier": "utilitycraft:diamond_hammer"
 		},
 		"tags": [
 			"utility_table"
 		],
 		"result": [
 			{
-				"item": "twm:diamond_hammer"
+				"item": "utilitycraft:diamond_hammer"
 			}
 		],
 		"pattern": [

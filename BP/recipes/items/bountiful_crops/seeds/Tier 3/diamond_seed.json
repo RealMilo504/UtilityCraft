@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:diamond_seeds"
+			"identifier": "utilitycraft:diamond_seeds"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "diamond"
 			},
 			"S": {
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		},
 		"pattern": [
@@ -21,14 +21,14 @@
 			"OOO"
 		],
 		"result": {
-			"item": "twm:diamond_seeds"
+			"item": "utilitycraft:diamond_seeds"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:diamond"
 			},
 			{
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		]
 	}

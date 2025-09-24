@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:spawner_core"
+			"identifier": "utilitycraft:spawner_core"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"R": {
@@ -24,7 +24,7 @@
 			"RSR"
 		],
 		"result": {
-			"item": "twm:spawner_core"
+			"item": "utilitycraft:spawner_core"
 		},
 		"unlock": [
 			{

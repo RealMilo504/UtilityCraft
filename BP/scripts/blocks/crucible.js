@@ -10,7 +10,7 @@ const acceptedItems = {
 }
 
 const heatSources = {
-    'twm:blaze_block': 6,
+    'utilitycraft:blaze_block': 6,
     'minecraft:lava': 4,
     'minecraft:flowing_lava': 4,
     'minecraft:soul_fire': 3,
@@ -36,7 +36,7 @@ function giveItem(player, block, itemId) {
 
 //Here inicializes the custom components
 world.beforeEvents.worldInitialize.subscribe(e => {
-    e.blockComponentRegistry.registerCustomComponent('twm:crucible', {
+    e.blockComponentRegistry.registerCustomComponent('utilitycraft:crucible', {
         onPlayerInteract(e) {
             const { player, block } = e
             //Gets the item on the main hand of the player
@@ -45,8 +45,8 @@ world.beforeEvents.worldInitialize.subscribe(e => {
 
             let mainhand = player.getComponent('equippable').getEquipment('Mainhand')
 
-            let cobble = block.permutation.getState('twm:cobble')
-            let lava = block.permutation.getState('twm:lava')
+            let cobble = block.permutation.getState('utilitycraft:cobble')
+            let lava = block.permutation.getState('utilitycraft:lava')
 
             let item = acceptedItems[mainhand?.typeId]
 
@@ -79,8 +79,8 @@ world.beforeEvents.worldInitialize.subscribe(e => {
 
             player.onScreenDisplay.setActionBar(`   Cobble: ${cobble * 1000}mB   Lava: ${lava * 250}mB   `)
 
-            block.setPermutation(block.permutation.withState('twm:cobble', cobble))
-            block.setPermutation(block.permutation.withState('twm:lava', lava))
+            block.setPermutation(block.permutation.withState('utilitycraft:cobble', cobble))
+            block.setPermutation(block.permutation.withState('utilitycraft:lava', lava))
 
         },
         //Every time the function tick on the block executes it executes this
@@ -88,24 +88,24 @@ world.beforeEvents.worldInitialize.subscribe(e => {
             const { block } = e
 
             const heatSource = heatSources[block.below(1)?.typeId]
-            let smelt = block.permutation.getState('twm:smelting')
-            let cobble = block.permutation.getState('twm:cobble')
-            let lava = block.permutation.getState('twm:lava')
+            let smelt = block.permutation.getState('utilitycraft:smelting')
+            let cobble = block.permutation.getState('utilitycraft:cobble')
+            let lava = block.permutation.getState('utilitycraft:lava')
 
             if (!heatSource || cobble == 0 || lava == 4) {
-                block.setPermutation(block.permutation.withState('twm:smelting', 0))
+                block.setPermutation(block.permutation.withState('utilitycraft:smelting', 0))
                 return
             }
 
             smelt += heatSource
 
             if (smelt > 15) {
-                block.setPermutation(block.permutation.withState('twm:cobble', cobble - 1))
-                block.setPermutation(block.permutation.withState('twm:lava', lava + 1))
+                block.setPermutation(block.permutation.withState('utilitycraft:cobble', cobble - 1))
+                block.setPermutation(block.permutation.withState('utilitycraft:lava', lava + 1))
                 smelt = 0
             }
 
-            block.setPermutation(block.permutation.withState('twm:smelting', smelt))
+            block.setPermutation(block.permutation.withState('utilitycraft:smelting', smelt))
         }
     })
 })

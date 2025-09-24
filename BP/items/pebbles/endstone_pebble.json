@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:endstone_pebble"
+			"identifier": "utilitycraft:endstone_pebble"
 		},
 		"components": {
-			"minecraft:icon": "twm_endstone_pebble"
+			"minecraft:icon": "utilitycraft_endstone_pebble"
 		}
 	}
 }

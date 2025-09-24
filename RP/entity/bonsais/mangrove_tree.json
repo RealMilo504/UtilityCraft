@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:mangrove_tree",
+			"identifier": "utilitycraft:mangrove_tree",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/mangrove_tree"
 			},
 			"geometry": {
-				"default": "geometry.twm_mangrove_tree"
+				"default": "geometry.utilitycraft_mangrove_tree"
 			},
 			"render_controllers": [
 				"controller.render.mangrove_tree"

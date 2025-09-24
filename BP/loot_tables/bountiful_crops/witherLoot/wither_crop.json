@@ -20,7 +20,7 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "twm:wither_seeds",
+					"name": "utilitycraft:wither_seeds",
 					"weight": 1
 				},
 				{

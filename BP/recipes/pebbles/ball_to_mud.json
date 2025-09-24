@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:ball_to_mud"
+			"identifier": "utilitycraft:ball_to_mud"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:mud_ball"
+				"item": "utilitycraft:mud_ball"
 			}
 		},
 		"pattern": [
@@ -21,7 +21,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:mud_ball"
+				"item": "utilitycraft:mud_ball"
 			},
 			{
 				"item": "minecraft:mud"

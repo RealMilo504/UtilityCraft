@@ -2,7 +2,7 @@ import { world } from '@minecraft/server'
 import { ModalFormData } from '@minecraft/server-ui';
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:ender_hopper', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:ender_hopper', {
         onPlayerInteract(e) {
             const { block, player } = e
             let { x, y, z } = block.location
@@ -11,22 +11,22 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             const selectItem = equipment.getEquipment('Mainhand')
             const modalForm = new ModalFormData().title('Ender Hopper Settings');
             for (let i = 0; i <= 5; i++) {
-                if (block.permutation.getState('twm:range') == i && selectItem == undefined && player.isSneaking == false) {
-                    modalForm.toggle('Off/On', block.permutation.getState('twm:state'));
-                    modalForm.slider('Radius', 0, (3 + i * 2), 1, block.permutation.getState('twm:rangeSelected'));
+                if (block.permutation.getState('utilitycraft:range') == i && selectItem == undefined && player.isSneaking == false) {
+                    modalForm.toggle('Off/On', block.permutation.getState('utilitycraft:state'));
+                    modalForm.slider('Radius', 0, (3 + i * 2), 1, block.permutation.getState('utilitycraft:rangeSelected'));
                     modalForm
                         .show(player)
                         .then(formData => {
                             if (formData.formValues != undefined) {
-                                block.setPermutation(block.permutation.withState('twm:state', formData.formValues[0]))
-                                block.setPermutation(block.permutation.withState('twm:rangeSelected', formData.formValues[1]))
+                                block.setPermutation(block.permutation.withState('utilitycraft:state', formData.formValues[0]))
+                                block.setPermutation(block.permutation.withState('utilitycraft:rangeSelected', formData.formValues[1]))
                                 switch (formData.formValues[0]) {
                                     case true:
-                                        block.dimension.runCommand(`summon twm:ender_hopper tile.twm:ender_hopper.name ${x} ${y} ${z}`)
-                                        block.dimension.runCommandAsync(`tag @e[type=twm:ender_hopper,x=${x},y=${y},z=${z}] add enderhopper`)
+                                        block.dimension.runCommand(`summon utilitycraft:ender_hopper tile.utilitycraft:ender_hopper.name ${x} ${y} ${z}`)
+                                        block.dimension.runCommandAsync(`tag @e[type=utilitycraft:ender_hopper,x=${x},y=${y},z=${z}] add enderhopper`)
                                         break
                                     case false:
-                                        block.dimension.runCommandAsync(`tag @e[type=twm:ender_hopper,x=${x},y=${y},z=${z}] add despawn`)
+                                        block.dimension.runCommandAsync(`tag @e[type=utilitycraft:ender_hopper,x=${x},y=${y},z=${z}] add despawn`)
                                 }
                             }
                         })
@@ -38,11 +38,11 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             let { x, y, z } = block.location
             x += 0.5, z += 0.5, y += 0.2
             block.dimension.runCommand(`particle minecraft:end_chest ${x} ${y} ${z}`)
-            if (block.permutation.getState('twm:rangeSelected') > (3 + block.permutation.getState('twm:range') * 2)) {
-                block.setPermutation(block.permutation.withState('twm:rangeSelected', 3))
+            if (block.permutation.getState('utilitycraft:rangeSelected') > (3 + block.permutation.getState('utilitycraft:range') * 2)) {
+                block.setPermutation(block.permutation.withState('utilitycraft:rangeSelected', 3))
             }
-            if (block.permutation.getState('twm:state')) {
-                const radius = block.permutation.getState('twm:rangeSelected')
+            if (block.permutation.getState('utilitycraft:state')) {
+                const radius = block.permutation.getState('utilitycraft:rangeSelected')
                 block.dimension.runCommand(`tp @e[x=${x},y=${y},z=${z},r=${radius + 0.5},rm=0.5,type=item] ${x} ${y + 0.4} ${z} `)
             }
             const entity = block.dimension.getEntities({ tags: ["enderhopper"], maxDistance: 0.1, location: { x, y, z } })[0]

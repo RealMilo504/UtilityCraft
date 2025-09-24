@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:drill",
+			"identifier": "utilitycraft:drill",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/Drill"
 			},
 			"geometry": {
-				"default": "geometry.twm_drill"
+				"default": "geometry.utilitycraft_drill"
 			},
 			"render_controllers": [
 				"controller.render.drill"

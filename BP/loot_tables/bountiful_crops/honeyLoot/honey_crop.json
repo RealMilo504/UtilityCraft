@@ -5,7 +5,7 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "twm:honey_ball",
+					"name": "utilitycraft:honey_ball",
 					"functions": [
 						{
 							"function": "set_count",
@@ -23,7 +23,7 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "twm:honey_seeds",
+					"name": "utilitycraft:honey_seeds",
 					"weight": 1
 				},
 				{
@@ -50,7 +50,7 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "twm:honey_ball",
+					"name": "utilitycraft:honey_ball",
 					"weight": 1,
 					"functions": [
 						{

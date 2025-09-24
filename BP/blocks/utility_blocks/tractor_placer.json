@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:tractor_placer",
+			"identifier": "utilitycraft:tractor_placer",
 			"menu_category": {
 				"category": "items"
 			},
@@ -15,15 +15,15 @@
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_tractor_placer",
+			"minecraft:geometry": "geometry.utilitycraft_tractor_placer",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_tractor_placer",
+					"texture": "utilitycraft_tractor_placer",
 					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:custom_components": [
-				"twm:onInteract"
+				"utilitycraft:onInteract"
 			]
 		},
 		"permutations": [

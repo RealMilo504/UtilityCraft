@@ -1,7 +1,7 @@
 import { world } from '@minecraft/server'
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:lantern', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:lantern', {
         onPlace(e) {
             const { block } = e
             const { x, y, z } = block.location

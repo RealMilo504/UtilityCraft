@@ -2,23 +2,23 @@
   "format_version": "1.20.80",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:compressed_steel_block"
+      "identifier": "utilitycraft:compressed_steel_block"
     },
     "tags": [
       "crafting_table"
     ],
     "ingredients": [
       {
-        "item": "twm:steel_block",
+        "item": "utilitycraft:steel_block",
         "count": 9
       }
     ],
     "result": {
-      "item": "twm:compressed_steel_block"
+      "item": "utilitycraft:compressed_steel_block"
     },
     "unlock": [
       {
-        "item": "twm:steel_block"
+        "item": "utilitycraft:steel_block"
       }
     ]
   }

@@ -2,7 +2,7 @@
 	"format_version": "1.21.70",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:iron_aiot"
+			"identifier": "utilitycraft:iron_aiot"
 		},
 		"components": {
 			"minecraft:tags": {
@@ -10,15 +10,15 @@
 					"minecraft:is_axe",
 					"minecraft:is_pickaxe",
 					"minecraft:is_sword",
-					"twm:is_aiot"
+					"utilitycraft:is_aiot"
 				]
 			},
-			"minecraft:icon": "twm_iron_aiot",
+			"minecraft:icon": "utilitycraft_iron_aiot",
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:custom_components": [
-				"twm:break",
-				"twm:vein"
+				"utilitycraft:break",
+				"utilitycraft:vein"
 			],
 			"minecraft:durability": {
 				"max_durability": 1255
@@ -38,7 +38,7 @@
 					},
 					{
 						"items": [
-							"twm:iron_aiot"
+							"utilitycraft:iron_aiot"
 						],
 						"repair_amount": 251
 					}

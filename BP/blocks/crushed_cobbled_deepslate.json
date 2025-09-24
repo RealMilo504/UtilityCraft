@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:crushed_cobbled_deepslate",
+			"identifier": "utilitycraft:crushed_cobbled_deepslate",
 			"menu_category": {
 				"category": "construction"
 			}

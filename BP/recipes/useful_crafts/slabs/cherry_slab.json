@@ -2,7 +2,7 @@
 	"format_version": "1.12",
 	"minecraft:recipe_shapeless": {
 		"description": {
-			"identifier": "twm:cherry_slab"
+			"identifier": "utilitycraft:cherry_slab"
 		},
 		"tags": [
 			"crafting_table"

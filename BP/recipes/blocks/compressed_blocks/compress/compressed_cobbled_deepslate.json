@@ -2,7 +2,7 @@
   "format_version": "1.20.80",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:compressed_cobbled_deepslate"
+      "identifier": "utilitycraft:compressed_cobbled_deepslate"
     },
     "tags": [
       "crafting_table"
@@ -14,7 +14,7 @@
       }
     ],
     "result": {
-      "item": "twm:compressed_cobbled_deepslate"
+      "item": "utilitycraft:compressed_cobbled_deepslate"
     },
     "unlock": [
       {

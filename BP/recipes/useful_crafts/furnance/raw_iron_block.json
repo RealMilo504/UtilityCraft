@@ -2,7 +2,7 @@
 	"format_version": "1.16.100",
 	"minecraft:recipe_furnace": {
 		"description": {
-			"identifier": "twm:raw_iron_block"
+			"identifier": "utilitycraft:raw_iron_block"
 		},
 		"input": "raw_iron_block",
 		"tags": [

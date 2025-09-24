@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:andesite_pebble"
+			"identifier": "utilitycraft:andesite_pebble"
 		},
 		"components": {
-			"minecraft:icon": "twm_andesite_pebble"
+			"minecraft:icon": "utilitycraft_andesite_pebble"
 		}
 	}
 }

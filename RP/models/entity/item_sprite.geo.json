@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.twm_explosives",
+				"identifier": "geometry.utilitycraft_explosives",
 				"texture_width": 16,
 				"texture_height": 16
 			},

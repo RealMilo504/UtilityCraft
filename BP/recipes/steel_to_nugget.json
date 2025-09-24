@@ -2,24 +2,24 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shapeless": {
 		"description": {
-			"identifier": "twm:steel_to_nugget"
+			"identifier": "utilitycraft:steel_to_nugget"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"ingredients": [
 			{
-				"item": "twm:steel_ingot",
+				"item": "utilitycraft:steel_ingot",
 				"count": 1
 			}
 		],
 		"result": {
-			"item": "twm:steel_nugget",
+			"item": "utilitycraft:steel_nugget",
 			"count": 9
 		},
 		"unlock": [
 			{
-				"item": "twm:steel_ingot"
+				"item": "utilitycraft:steel_ingot"
 			}
 		]
 	}

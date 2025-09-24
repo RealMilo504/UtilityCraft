@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:iron_paxel"
+			"identifier": "utilitycraft:iron_paxel"
 		},
 		"tags": [
 			"utility_table"
@@ -51,7 +51,7 @@
 		],
 		"result": [
 			{
-				"item": "twm:iron_paxel"
+				"item": "utilitycraft:iron_paxel"
 			}
 		]
 	}

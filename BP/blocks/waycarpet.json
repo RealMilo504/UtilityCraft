@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:waycarpet",
+			"identifier": "utilitycraft:waycarpet",
 			"menu_category": {
 				"category": "construction"
 			}
@@ -11,7 +11,7 @@
 			"minecraft:geometry": "geometry.waycarpet",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_waycarpet",
+					"texture": "utilitycraft_waycarpet",
 					"render_method": "alpha_test"
 				}
 			},
@@ -40,7 +40,7 @@
 				]
 			},
 			"minecraft:custom_components": [
-				"twm:carpet"
+				"utilitycraft:carpet"
 			]
 		}
 	}

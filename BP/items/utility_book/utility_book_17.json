@@ -2,16 +2,16 @@
 	"format_version": "1.21.70",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:utility_book_17",
+			"identifier": "utilitycraft:utility_book_17",
 			"menu_category": {
 				"category": "none"
 			}
 		},
 		"components": {
-			"minecraft:icon": "twm_utility_book",
+			"minecraft:icon": "utilitycraft_utility_book",
 			"minecraft:max_stack_size": 1,
 			"minecraft:custom_components": [
-				"twm:utility_book"
+				"utilitycraft:utility_book"
 			]
 		}
 	}

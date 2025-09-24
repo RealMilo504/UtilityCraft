@@ -2,10 +2,10 @@
     "format_version": "1.20.80",
     "minecraft:recipe_shaped": {
         "description": {
-            "identifier": "twm:range_upgrade"
+            "identifier": "utilitycraft:range_upgrade"
         },
         "tags": [
-            "twm_workbench"
+            "utilitycraft_workbench"
         ],
         "pattern": [
             "SES",
@@ -14,7 +14,7 @@
         ],
         "key": {
             "B": {
-                "item": "twm:base_upgrade"
+                "item": "utilitycraft:base_upgrade"
             },
             "E": {
                 "item": "minecraft:blue_dye"
@@ -26,15 +26,15 @@
                 "item": "minecraft:redstone"
             },
             "S": {
-                "item": "twm:steel_plate"
+                "item": "utilitycraft:steel_plate"
             }
         },
         "result": {
-            "item": "twm:range_upgrade"
+            "item": "utilitycraft:range_upgrade"
         },
         "unlock": [
             {
-                "item": "twm:base_upgrade"
+                "item": "utilitycraft:base_upgrade"
             }
         ]
     }

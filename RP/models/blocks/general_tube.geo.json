@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.twm_general_tube",
+				"identifier": "geometry.utilitycraft_general_tube",
 				"texture_width": 16,
 				"texture_height": 16,
 				"visible_bounds_width": 2,

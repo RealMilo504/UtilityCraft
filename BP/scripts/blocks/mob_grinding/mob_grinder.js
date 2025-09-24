@@ -1,7 +1,7 @@
 import { world } from '@minecraft/server'
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:mob_grinder', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:mob_grinder', {
         onTick(e) {
             const { block } = e
             let { x, y, z } = block.location
@@ -10,7 +10,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
         onPlace(e) {
             const { block } = e
             let { x, y, z } = block.location
-            block.dimension.spawnEntity('twm:mob_grinder_entity', { x: x + 0.5, y: y, z: z + 0.5 })
+            block.dimension.spawnEntity('utilitycraft:mob_grinder_entity', { x: x + 0.5, y: y, z: z + 0.5 })
         }
     })
 })

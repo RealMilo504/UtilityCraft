@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:nonuple_compressed_cobblestone"
+			"identifier": "utilitycraft:nonuple_compressed_cobblestone"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"C": {
-				"item": "twm:octuple_compressed_cobblestone"
+				"item": "utilitycraft:octuple_compressed_cobblestone"
 			}
 		},
 		"pattern": [
@@ -18,11 +18,11 @@
 			"CCC"
 		],
 		"result": {
-			"item": "twm:nonuple_compressed_cobblestone"
+			"item": "utilitycraft:nonuple_compressed_cobblestone"
 		},
 		"unlock": [
 			{
-				"item": "twm:octuple_compressed_cobblestone"
+				"item": "utilitycraft:octuple_compressed_cobblestone"
 			}
 		]
 	}

@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:honey_seeds"
+			"identifier": "utilitycraft:honey_seeds"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "minecraft:honey_bottle"
 			},
 			"S": {
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		},
 		"pattern": [
@@ -21,14 +21,14 @@
 			"HHH"
 		],
 		"result": {
-			"item": "twm:honey_seeds"
+			"item": "utilitycraft:honey_seeds"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:honey_bottle"
 			},
 			{
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		]
 	}

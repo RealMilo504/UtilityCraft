@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:pebble_to_dripstone"
+			"identifier": "utilitycraft:pebble_to_dripstone"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:dripstone_pebble"
+				"item": "utilitycraft:dripstone_pebble"
 			}
 		},
 		"pattern": [
@@ -21,7 +21,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:dripstone_pebble"
+				"item": "utilitycraft:dripstone_pebble"
 			},
 			{
 				"item": "minecraft:dripstone_block"

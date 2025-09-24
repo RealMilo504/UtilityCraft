@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:fragment_to_gravel"
+			"identifier": "utilitycraft:fragment_to_gravel"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:gravel_fragments"
+				"item": "utilitycraft:gravel_fragments"
 			}
 		},
 		"pattern": [
@@ -21,7 +21,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:gravel_fragments"
+				"item": "utilitycraft:gravel_fragments"
 			},
 			{
 				"item": "minecraft:gravel"

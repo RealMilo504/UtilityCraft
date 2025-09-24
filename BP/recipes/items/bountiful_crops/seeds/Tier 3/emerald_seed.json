@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:emerald_seeds"
+			"identifier": "utilitycraft:emerald_seeds"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "emerald"
 			},
 			"S": {
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		},
 		"pattern": [
@@ -21,14 +21,14 @@
 			"OOO"
 		],
 		"result": {
-			"item": "twm:emerald_seeds"
+			"item": "utilitycraft:emerald_seeds"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:emerald"
 			},
 			{
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		]
 	}

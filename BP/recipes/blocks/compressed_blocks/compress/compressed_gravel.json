@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:compressed_gravel"
+			"identifier": "utilitycraft:compressed_gravel"
 		},
 		"tags": [
 			"crafting_table"
@@ -18,7 +18,7 @@
 			"BBB"
 		],
 		"result": {
-			"item": "twm:compressed_gravel"
+			"item": "utilitycraft:compressed_gravel"
 		},
 		"unlock": [
 			{

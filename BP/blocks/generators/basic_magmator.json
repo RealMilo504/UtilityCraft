@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:basic_magmator",
+			"identifier": "utilitycraft:basic_magmator",
 			"menu_category": {
 				"category": "construction"
 			},
@@ -15,11 +15,11 @@
 				}
 			},
 			"states": {
-				"twm:on": [
+				"utilitycraft:on": [
 					false,
 					true
 				],
-				"twm:refreshSpeed": [
+				"utilitycraft:refreshSpeed": [
 					1,
 					5,
 					10,
@@ -29,10 +29,10 @@
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_block_2",
+			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_basic_magmator_off",
+					"texture": "utilitycraft_basic_magmator_off",
 					"render_method": "alpha_test"
 				}
 			},
@@ -43,7 +43,7 @@
 				]
 			},
 			"minecraft:custom_components": [
-				"twm:magmator"
+				"utilitycraft:magmator"
 			],
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 1
@@ -54,7 +54,7 @@
 		},
 		"permutations": [
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 1 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 1 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -65,7 +65,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 5 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 5 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -76,7 +76,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 10 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 10 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -87,7 +87,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 20 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 20 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -98,7 +98,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 40 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 40 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -157,11 +157,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:on') == true ",
+				"condition": "q.block_state('utilitycraft:on') == true ",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_basic_magmator_on",
+							"texture": "utilitycraft_basic_magmator_on",
 							"render_method": "alpha_test"
 						}
 					},

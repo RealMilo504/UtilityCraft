@@ -2,7 +2,7 @@
 	"format_version": "1.21.70",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:diamond_paxel"
+			"identifier": "utilitycraft:diamond_paxel"
 		},
 		"components": {
 			"minecraft:tags": {
@@ -18,10 +18,10 @@
 				"max_durability": 4683
 			},
 			"minecraft:custom_components": [
-				"twm:break"
+				"utilitycraft:break"
 			],
 			"minecraft:damage": 6,
-			"minecraft:icon": "twm_diamond_paxel",
+			"minecraft:icon": "utilitycraft_diamond_paxel",
 			"minecraft:enchantable": {
 				"value": 15,
 				"slot": "axe"
@@ -36,7 +36,7 @@
 					},
 					{
 						"items": [
-							"twm:diamond_paxel"
+							"utilitycraft:diamond_paxel"
 						],
 						"repair_amount": 1561
 					}

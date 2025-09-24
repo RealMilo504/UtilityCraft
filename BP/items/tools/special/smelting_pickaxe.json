@@ -2,7 +2,7 @@
 	"format_version": "1.21.70",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:smelting_pickaxe",
+			"identifier": "utilitycraft:smelting_pickaxe",
 			"menu_category": {
 				"category": "equipment"
 			}
@@ -17,14 +17,14 @@
 				"value": "Smelting Pickaxe\n§7Ores will drop ingots"
 			},
 			"minecraft:damage": 7,
-			"minecraft:icon": "twm_smelting_pickaxe",
+			"minecraft:icon": "utilitycraft_smelting_pickaxe",
 			"minecraft:enchantable": {
 				"value": 15,
 				"slot": "pickaxe"
 			},
 			"minecraft:custom_components": [
-				"twm:break",
-				"twm:smelting"
+				"utilitycraft:break",
+				"utilitycraft:smelting"
 			],
 			"minecraft:repairable": {
 				"repair_items": [
@@ -36,7 +36,7 @@
 					},
 					{
 						"items": [
-							"twm:smelting_pickaxe"
+							"utilitycraft:smelting_pickaxe"
 						],
 						"repair_amount": 3031
 					}

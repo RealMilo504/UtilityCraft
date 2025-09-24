@@ -2,26 +2,26 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:assembler"
+			"identifier": "utilitycraft:assembler"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"I": {
-				"item": "twm:expert_chip"
+				"item": "utilitycraft:expert_chip"
 			},
 			"M": {
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			},
 			"R": {
 				"item": "crafter"
 			},
 			"S": {
-				"item": "twm:steel_plate"
+				"item": "utilitycraft:steel_plate"
 			},
 			"P": {
-				"item": "twm:iron_plate"
+				"item": "utilitycraft:iron_plate"
 			}
 		},
 		"pattern": [
@@ -30,11 +30,11 @@
 			"SRS"
 		],
 		"result": {
-			"item": "twm:assembler"
+			"item": "utilitycraft:assembler"
 		},
 		"unlock": [
 			{
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			}
 		]
 	}

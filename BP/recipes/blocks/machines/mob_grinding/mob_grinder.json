@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:mob_grinder"
+			"identifier": "utilitycraft:mob_grinder"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"C": {
@@ -27,7 +27,7 @@
 			"CCC"
 		],
 		"result": {
-			"item": "twm:mob_grinder"
+			"item": "utilitycraft:mob_grinder"
 		},
 		"unlock": [
 			{

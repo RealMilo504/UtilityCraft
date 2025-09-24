@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:cherry_tree",
+			"identifier": "utilitycraft:cherry_tree",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/cherry_tree"
 			},
 			"geometry": {
-				"default": "geometry.twm_cherry_tree"
+				"default": "geometry.utilitycraft_cherry_tree"
 			},
 			"render_controllers": [
 				"controller.render.cherry_tree"

@@ -2,7 +2,7 @@
 	"format_version": "1.16.0",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "twm:dynamite",
+			"identifier": "utilitycraft:dynamite",
 			"is_spawnable": false,
 			"is_summonable": false,
 			"is_experimental": false,

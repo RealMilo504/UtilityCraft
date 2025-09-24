@@ -2,7 +2,7 @@
 	"format_version": "1.12",
 	"minecraft:recipe_shapeless": {
 		"description": {
-			"identifier": "twm:nether_brick_slab"
+			"identifier": "utilitycraft:nether_brick_slab"
 		},
 		"tags": [
 			"crafting_table"

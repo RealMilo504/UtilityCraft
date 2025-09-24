@@ -3,7 +3,7 @@ import { world, ItemStack } from '@minecraft/server'
 import { Generator, settings } from '../generators_class.js'
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:furnator', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:furnator', {
         beforeOnPlayerPlace(e) {
             Generator.spawnGeneratorEntity(e, settings.furnator)
         },
@@ -13,12 +13,12 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 
             Generator.tick(() => {
                 const entity = gen.entity
-                let energyR = entity.getDynamicProperty('twm:energyR') || 0
-                let energyF = entity.getDynamicProperty('twm:energyF') || 0
+                let energyR = entity.getDynamicProperty('utilitycraft:energyR') || 0
+                let energyF = entity.getDynamicProperty('utilitycraft:energyF') || 0
 
                 let fuelP = 0
                 if (energyF > 0) fuelP = Math.floor((energyR / energyF) * 13)
-                let fuelBar = new ItemStack(`twm:fuel_bar_${fuelP}`)
+                let fuelBar = new ItemStack(`utilitycraft:fuel_bar_${fuelP}`)
                 gen.inv.setItem(4, fuelBar)
 
                 let burnSpeed = gen.burnSpeed
@@ -30,7 +30,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                         energy.add(burnSpeed)
                         gen.turnOn()
                     } else {
-                        entity.setDynamicProperty('twm:energyF', 0)
+                        entity.setDynamicProperty('utilitycraft:energyF', 0)
                         let item = gen.inv.getItem(3)
                         const fuel = settings.furnator.fuels.find(fuel => item?.typeId.includes(fuel.id))
                         if (fuel) {
@@ -39,13 +39,13 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                             energy.add(burnSpeed)
                             gen.turnOn()
                             doriosAPI.entities.changeItemAmount(gen.entity, 3, -1)
-                            entity.setDynamicProperty('twm:energyF', fuel.de)
+                            entity.setDynamicProperty('utilitycraft:energyF', fuel.de)
                         } else { gen.turnOff() }
                     }
                 } else { gen.turnOff() }
 
                 gen.displayEnergy()
-                entity.setDynamicProperty('twm:energyR', energyR)
+                entity.setDynamicProperty('utilitycraft:energyR', energyR)
             })
         },
         onPlayerDestroy(e) {

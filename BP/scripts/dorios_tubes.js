@@ -24,14 +24,14 @@ const blockFaceOffsets = {
 };
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:exporter', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:exporter', {
         beforeOnPlayerPlace(e) {
             const { block } = e
             let { x, y, z } = block.location
             y += 0.375, x += 0.5, z += 0.5
             system.run(() => {
-                const entity = block.dimension.spawnEntity('twm:pipe', { x, y, z })
-                entity.setDynamicProperty('twm:whitelistOn', true)
+                const entity = block.dimension.spawnEntity('utilitycraft:pipe', { x, y, z })
+                entity.setDynamicProperty('utilitycraft:whitelistOn', true)
             })
         },
         onPlayerDestroy(e) {
@@ -42,7 +42,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             let { x, y, z } = block.location
             x += 0.5, z += 0.5, y += 0.375
             if (player.isSneaking) return
-            const hasFilter = block.permutation.getState('twm:filter')
+            const hasFilter = block.permutation.getState('utilitycraft:filter')
             if (!hasFilter) return
             const mainHand = player.getComponent('equippable').getEquipment('Mainhand')
             if (mainHand?.typeId.includes('wrench')) return
@@ -54,8 +54,8 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 
             const entity = dimension.getEntitiesAtBlockLocation(block.location)[0]
             if (!entity) return
-            let state = entity.getDynamicProperty('twm:whitelistOn')
-            const hasFilter = block.permutation.getState('twm:filter')
+            let state = entity.getDynamicProperty('utilitycraft:whitelistOn')
+            const hasFilter = block.permutation.getState('utilitycraft:filter')
 
             const face = block.permutation.getState("minecraft:block_face");
             const faceOffset = blockFaceOffsets[face];
@@ -139,11 +139,11 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                         }
                         continue
                     }
-                    const nextFilter = targetBlock.permutation.getState('twm:filter')
+                    const nextFilter = targetBlock.permutation.getState('utilitycraft:filter')
                     if (nextFilter) {
-                        if (targetEnt.hasTag(`${itemToTransfer}`) != targetEnt.getDynamicProperty('twm:whitelistOn')) continue
+                        if (targetEnt.hasTag(`${itemToTransfer}`) != targetEnt.getDynamicProperty('utilitycraft:whitelistOn')) continue
                     }
-                    if (targetEnt.typeId == 'twm:assembler' && nextInv.emptySlotsCount < 2) continue
+                    if (targetEnt.typeId == 'utilitycraft:assembler' && nextInv.emptySlotsCount < 2) continue
                     nextInv.addItem(new ItemStack(itemToTransfer, firstAmount))
                     firstEnt.runCommandAsync(`scoreboard players add @s capacity ${-firstAmount}`);
                     return
@@ -230,11 +230,11 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                         }
                         continue
                     }
-                    const nextFilter = targetBlock.permutation.getState('twm:filter')
+                    const nextFilter = targetBlock.permutation.getState('utilitycraft:filter')
                     if (nextFilter) {
-                        if (targetEnt.hasTag(`${itemToTransfer.typeId}`) != targetEnt.getDynamicProperty('twm:whitelistOn')) continue
+                        if (targetEnt.hasTag(`${itemToTransfer.typeId}`) != targetEnt.getDynamicProperty('utilitycraft:whitelistOn')) continue
                     }
-                    if (targetEnt.typeId == 'twm:assembler' && nextInv.emptySlotsCount < 2) continue
+                    if (targetEnt.typeId == 'utilitycraft:assembler' && nextInv.emptySlotsCount < 2) continue
                     const transfered = firstInv.transferItem(i, nextInv)
                     if (!transfered) return
                     continue
@@ -245,32 +245,32 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 })
 
 const caps = {
-    'twm:basic_fluid_tank': 8000,
-    'twm:advanced_fluid_tank': 32000,
-    'twm:expert_fluid_tank': 128000,
-    'twm:ultimate_fluid_tank': 512000,
-    'twm:basic_magmator': 8000 * 1,
-    'twm:advanced_magmator': 8000 * 4,
-    'twm:expert_magmator': 8000 * 16,
-    'twm:ultimate_magmator': 8000 * 100,
-    'twm:basic_thermo_generator': 2000 * 1,
-    'twm:advanced_thermo_generator': 2000 * 4,
-    'twm:expert_thermo_generator': 2000 * 16,
-    'twm:ultimate_thermo_generator': 2000 * 100,
-    'twm:magmatic_chamber': 16000
+    'utilitycraft:basic_fluid_tank': 8000,
+    'utilitycraft:advanced_fluid_tank': 32000,
+    'utilitycraft:expert_fluid_tank': 128000,
+    'utilitycraft:ultimate_fluid_tank': 512000,
+    'utilitycraft:basic_magmator': 8000 * 1,
+    'utilitycraft:advanced_magmator': 8000 * 4,
+    'utilitycraft:expert_magmator': 8000 * 16,
+    'utilitycraft:ultimate_magmator': 8000 * 100,
+    'utilitycraft:basic_thermo_generator': 2000 * 1,
+    'utilitycraft:advanced_thermo_generator': 2000 * 4,
+    'utilitycraft:expert_thermo_generator': 2000 * 16,
+    'utilitycraft:ultimate_thermo_generator': 2000 * 100,
+    'utilitycraft:magmatic_chamber': 16000
 };
 const liquids = {
     'minecraft:water': 'water',
     'minecraft:lava': 'lava'
 }
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:extractor', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:extractor', {
         beforeOnPlayerPlace(e) {
             const { block } = e
             let { x, y, z } = block.location
             y += 0.375, x += 0.5, z += 0.5
             system.run(() => {
-                block.dimension.spawnEntity('twm:pipe', { x, y, z })
+                block.dimension.spawnEntity('utilitycraft:pipe', { x, y, z })
             })
         },
         onPlayerDestroy(e) {
@@ -302,7 +302,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             let firstAmount = 0
             let liquidType = null
             let isInfinite = false
-            let speed = 1000 * (2 ** block.permutation.getState('twm:speed'))
+            let speed = 1000 * (2 ** block.permutation.getState('utilitycraft:speed'))
 
             // Detectar tipo de fuente
             if (firstContainer) {
@@ -324,12 +324,12 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                 if (firstBlock.permutation.getState("liquid_depth") !== 0) return
                 firstAmount = 1000
                 liquidType = liquids[firstBlock.typeId]
-            } else if (firstBlock.typeId === 'twm:crucible') {
-                const lavaLevel = firstBlock.permutation.getState('twm:lava')
+            } else if (firstBlock.typeId === 'utilitycraft:crucible') {
+                const lavaLevel = firstBlock.permutation.getState('utilitycraft:lava')
                 if (lavaLevel < 1) return
                 firstAmount = 250 * lavaLevel
                 liquidType = 'lava'
-            } else if (firstBlock.typeId === 'twm:sink') {
+            } else if (firstBlock.typeId === 'utilitycraft:sink') {
                 liquidType = 'water'
                 firstAmount = Infinity
                 isInfinite = true
@@ -397,12 +397,12 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                             }
                             if (firstAmount <= 0 && firstBlock.typeId.includes('fluid_tank')) {
                                 firstContainer.remove()
-                                firstBlock.setPermutation(firstBlock.permutation.withState('twm:hasliquid', false))
+                                firstBlock.setPermutation(firstBlock.permutation.withState('utilitycraft:hasliquid', false))
                             }
                         } else if (liquids[firstBlock.typeId]) {
                             firstBlock.setType('minecraft:air')
-                        } else if (firstBlock.typeId === 'twm:crucible') {
-                            firstBlock.setPermutation(firstBlock.permutation.withState('twm:lava', 0))
+                        } else if (firstBlock.typeId === 'utilitycraft:crucible') {
+                            firstBlock.setPermutation(firstBlock.permutation.withState('utilitycraft:lava', 0))
                         }
                     }
 
@@ -425,12 +425,12 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                             }
                             if (firstAmount <= 0 && firstBlock.typeId.includes('fluid_tank')) {
                                 firstContainer.remove()
-                                firstBlock.setPermutation(firstBlock.permutation.withState('twm:hasliquid', false))
+                                firstBlock.setPermutation(firstBlock.permutation.withState('utilitycraft:hasliquid', false))
                             }
                         } else if (liquids[firstBlock.typeId]) {
                             firstBlock.setType('minecraft:air')
-                        } else if (firstBlock.typeId === 'twm:crucible') {
-                            firstBlock.setPermutation(firstBlock.permutation.withState('twm:lava', 0))
+                        } else if (firstBlock.typeId === 'utilitycraft:crucible') {
+                            firstBlock.setPermutation(firstBlock.permutation.withState('utilitycraft:lava', 0))
                         }
                     }
                     return
@@ -459,7 +459,7 @@ function updateGeometry(block, tag) {
             || (block.hasTag('dorios:item') && (vanillaContainers.includes(neighbor?.typeId) /*Borrar*/ || neighbor?.typeId.includes('dustveyn:storage_drawers')/*Borrar*/));
 
         // Set the perm
-        block.setPermutation(block.permutation.withState(`twm:${dir}`, shouldConnect));
+        block.setPermutation(block.permutation.withState(`utilitycraft:${dir}`, shouldConnect));
     }
 }
 
@@ -495,7 +495,7 @@ function updateGeometryExporter(block, tag) {
             neighbor?.hasTag(tag) ||
             (block.hasTag("dorios:item") && (vanillaContainers.includes(neighbor?.typeId) /*Borrar*/ || neighbor?.typeId.includes('dustveyn:storage_drawers')/*Borrar*/));
 
-        newPerm = newPerm.withState(`twm:${visualDir}`, shouldConnect);
+        newPerm = newPerm.withState(`utilitycraft:${visualDir}`, shouldConnect);
     }
 
     block.setPermutation(newPerm);
@@ -608,7 +608,7 @@ function startRescanEnergy(startPos, dimension) {
         const block = dimension.getBlock(pos);
         if (!block.hasTag('dorios:energy')) continue
 
-        if (block?.typeId === "twm:energy_cable") {
+        if (block?.typeId === "utilitycraft:energy_cable") {
             cablesUsed += 1
             for (const offset of offsets) {
                 queue.push({
@@ -674,7 +674,7 @@ function searchEnergyContainers(startQueue, gen) {
         const block = dimension.getBlock(pos);
         if (!block.hasTag('dorios:energy')) continue
 
-        if (block?.typeId === "twm:energy_cable") {
+        if (block?.typeId === "utilitycraft:energy_cable") {
             for (const offset of offsets) {
                 queue.push({
                     x: pos.x + offset.x,
@@ -724,7 +724,7 @@ function startRescanItem(startPos, dimension) {
 
         const block = dimension.getBlock(pos);
 
-        if (block?.typeId === "twm:item_conduit" || block?.typeId === "twm:item_exporter") {
+        if (block?.typeId === "utilitycraft:item_conduit" || block?.typeId === "utilitycraft:item_exporter") {
             cablesUsed += 1
             for (const offset of offsets) {
                 queue.push({
@@ -754,7 +754,7 @@ function startRescanItem(startPos, dimension) {
             continue
         }
         if (entity) {
-            if (entity.typeId === "twm:pipe") {
+            if (entity.typeId === "utilitycraft:pipe") {
                 extractors.push(entity);
                 continue;
             }
@@ -823,7 +823,7 @@ function startRescanFluid(startPos, dimension) {
 
         const block = dimension.getBlock(pos);
 
-        if (block?.typeId === "twm:fluid_pipe" || block?.typeId === "twm:fluid_extractor") {
+        if (block?.typeId === "utilitycraft:fluid_pipe" || block?.typeId === "utilitycraft:fluid_extractor") {
             cablesUsed += 1
             for (const offset of offsets) {
                 queue.push({
@@ -848,7 +848,7 @@ function startRescanFluid(startPos, dimension) {
             continue
         }
         if (entity) {
-            if (entity.typeId === "twm:pipe") {
+            if (entity.typeId === "utilitycraft:pipe") {
                 extractors.push(entity);
                 continue;
             }
@@ -901,7 +901,7 @@ function startRescanFluid(startPos, dimension) {
 function openMenu({ x, y, z }, block, player) {
     let menu = new ActionFormData()
     const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0]
-    let state = entity.getDynamicProperty('twm:whitelistOn')
+    let state = entity.getDynamicProperty('utilitycraft:whitelistOn')
 
     menu.title('Filter')
 
@@ -928,7 +928,7 @@ function openMenu({ x, y, z }, block, player) {
             if (selection == undefined) return;
 
             if (selection == 0) {
-                entity.setDynamicProperty('twm:whitelistOn', !state)
+                entity.setDynamicProperty('utilitycraft:whitelistOn', !state)
                 openMenu({ x, y, z }, block, player)
                 return
             }

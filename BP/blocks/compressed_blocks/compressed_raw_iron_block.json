@@ -2,16 +2,16 @@
 	"format_version": "1.19.50",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:compressed_raw_iron_block",
+			"identifier": "utilitycraft:compressed_raw_iron_block",
 			"menu_category": {
 				"category": "construction"
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_block",
+			"minecraft:geometry": "geometry.utilitycraft_block",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_compressed_raw_iron_block",
+					"texture": "utilitycraft_compressed_raw_iron_block",
 					"render_method": "alpha_test"
 				}
 			},

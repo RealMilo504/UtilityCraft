@@ -1,7 +1,7 @@
 import * as doriosAPI from '../../doriosAPI.js'
 import { Machine, settings } from '../machines_class.js'
 
-doriosAPI.register.OldBlockComponent('twm:crusher', {
+doriosAPI.register.OldBlockComponent('utilitycraft:crusher', {
     beforeOnPlayerPlace(e) {
         Machine.spawnMachineEntity(e, settings.crusher);
     },

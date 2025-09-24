@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:base_seeds"
+			"identifier": "utilitycraft:base_seeds"
 		},
 		"components": {
-			"minecraft:icon": "twm_base_seeds"
+			"minecraft:icon": "utilitycraft_base_seeds"
 		}
 	}
 }

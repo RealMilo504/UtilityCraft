@@ -2,7 +2,7 @@
   "format_version": "1.20.80",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:compressed_blackstone"
+      "identifier": "utilitycraft:compressed_blackstone"
     },
     "tags": [
       "crafting_table"
@@ -14,7 +14,7 @@
       }
     ],
     "result": {
-      "item": "twm:compressed_blackstone"
+      "item": "utilitycraft:compressed_blackstone"
     },
     "unlock": [
       {

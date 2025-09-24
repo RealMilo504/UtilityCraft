@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:chunk_to_coal"
+			"identifier": "utilitycraft:chunk_to_coal"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:coal_chunk"
+				"item": "utilitycraft:coal_chunk"
 			}
 		},
 		"pattern": [
@@ -20,7 +20,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:coal_chunk"
+				"item": "utilitycraft:coal_chunk"
 			},
 			{
 				"item": "minecraft:coal"

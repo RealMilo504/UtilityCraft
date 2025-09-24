@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:fan",
+			"identifier": "utilitycraft:fan",
 			"menu_category": {
 				"category": "construction"
 			},
@@ -14,14 +14,14 @@
 				}
 			},
 			"states": {
-				"twm:range": [
+				"utilitycraft:range": [
 					0,
 					1,
 					2,
 					3,
 					4
 				],
-				"twm:rangeSelected": [
+				"utilitycraft:rangeSelected": [
 					0,
 					1,
 					2,
@@ -35,27 +35,27 @@
 					10,
 					11
 				],
-				"twm:state": [
+				"utilitycraft:state": [
 					false,
 					true
 				]
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_fan",
+			"minecraft:geometry": "geometry.utilitycraft_fan",
 			"minecraft:material_instances": {
 				"north": {
-					"texture": "twm_fan_front_still",
+					"texture": "utilitycraft_fan_front_still",
 					"render_method": "opaque"
 				},
 				"*": {
-					"texture": "twm_fan",
+					"texture": "utilitycraft_fan",
 					"render_method": "opaque"
 				}
 			},
 			"minecraft:custom_components": [
-				"twm:fan",
-				"twm:machine_upgrades"
+				"utilitycraft:fan",
+				"utilitycraft:machine_upgrades"
 			],
 			"minecraft:tick": {
 				"interval_range": [
@@ -138,60 +138,60 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:range') == 1",
+				"condition": "q.block_state('utilitycraft:range') == 1",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_fan_range1",
+							"texture": "utilitycraft_fan_range1",
 							"render_method": "opaque"
 						},
 						"north": {
-							"texture": "twm_fan_front_still",
+							"texture": "utilitycraft_fan_front_still",
 							"render_method": "opaque"
 						}
 					}
 				}
 			},
 			{
-				"condition": "q.block_state('twm:range') == 2",
+				"condition": "q.block_state('utilitycraft:range') == 2",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_fan_range2",
+							"texture": "utilitycraft_fan_range2",
 							"render_method": "opaque"
 						},
 						"north": {
-							"texture": "twm_fan_front_still",
+							"texture": "utilitycraft_fan_front_still",
 							"render_method": "opaque"
 						}
 					}
 				}
 			},
 			{
-				"condition": "q.block_state('twm:range') == 3",
+				"condition": "q.block_state('utilitycraft:range') == 3",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_fan_range3",
+							"texture": "utilitycraft_fan_range3",
 							"render_method": "opaque"
 						},
 						"north": {
-							"texture": "twm_fan_front_still",
+							"texture": "utilitycraft_fan_front_still",
 							"render_method": "opaque"
 						}
 					}
 				}
 			},
 			{
-				"condition": "q.block_state('twm:range') == 4",
+				"condition": "q.block_state('utilitycraft:range') == 4",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_fan_range4",
+							"texture": "utilitycraft_fan_range4",
 							"render_method": "opaque"
 						},
 						"north": {
-							"texture": "twm_fan_front_still",
+							"texture": "utilitycraft_fan_front_still",
 							"render_method": "opaque"
 						}
 					}

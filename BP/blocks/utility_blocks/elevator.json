@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:elevator",
+			"identifier": "utilitycraft:elevator",
 			"menu_category": {
 				"category": "construction"
 			}
 		},
 		"components": {
 			"minecraft:custom_components": [
-				"twm:elevator"
+				"utilitycraft:elevator"
 			]
 		}
 	}

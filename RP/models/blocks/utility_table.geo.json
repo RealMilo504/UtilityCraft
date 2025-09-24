@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.twm_utility_table",
+				"identifier": "geometry.utilitycraft_utility_table",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 2,

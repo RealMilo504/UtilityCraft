@@ -2,15 +2,15 @@
     "format_version": "1.21.10",
     "minecraft:item": {
         "description": {
-            "identifier": "twm:essence_vessel",
+            "identifier": "utilitycraft:essence_vessel",
             "menu_category": {
                 "category": "nature"
             }
         },
         "components": {
-            "minecraft:icon": "twm_essence_vessel",
+            "minecraft:icon": "utilitycraft_essence_vessel",
             "minecraft:custom_components": [
-                "twm:essence"
+                "utilitycraft:essence"
             ],
             "minecraft:allow_off_hand": true,
             "minecraft:max_stack_size": 1

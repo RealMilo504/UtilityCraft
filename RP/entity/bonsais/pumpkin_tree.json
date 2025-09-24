@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:pumpkin",
+			"identifier": "utilitycraft:pumpkin",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/pumpkin_bonsai"
 			},
 			"geometry": {
-				"default": "geometry.twm_block_bonsai"
+				"default": "geometry.utilitycraft_block_bonsai"
 			},
 			"render_controllers": [
 				"controller.render.sugarcane"

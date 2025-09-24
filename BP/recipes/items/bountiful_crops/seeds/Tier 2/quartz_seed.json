@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:quartz_seeds"
+			"identifier": "utilitycraft:quartz_seeds"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "minecraft:quartz"
 			},
 			"S": {
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		},
 		"pattern": [
@@ -21,14 +21,14 @@
 			"QQQ"
 		],
 		"result": {
-			"item": "twm:quartz_seeds"
+			"item": "utilitycraft:quartz_seeds"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:quartz"
 			},
 			{
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		]
 	}

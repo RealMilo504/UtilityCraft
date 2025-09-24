@@ -2,7 +2,7 @@
 	"format_version": "1.8.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:kelp",
+			"identifier": "utilitycraft:kelp",
 			"materials": {
 				"default": "slime",
 				"outer": "slime_outer"
@@ -11,8 +11,8 @@
 				"default": "textures/entity/kelp"
 			},
 			"geometry": {
-				"default": "geometry.twm_kelp",
-				"armor": "geometry.twm_kelp_armor"
+				"default": "geometry.utilitycraft_kelp",
+				"armor": "geometry.utilitycraft_kelp_armor"
 			},
 			"render_controllers": [
 				"controller.render.slime",

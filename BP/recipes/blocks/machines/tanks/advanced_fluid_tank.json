@@ -2,23 +2,23 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:advanced_fluid_tank"
+			"identifier": "utilitycraft:advanced_fluid_tank"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"S": {
-				"item": "twm:advanced_chip"
+				"item": "utilitycraft:advanced_chip"
 			},
 			"R": {
-				"item": "twm:energized_iron_ingot"
+				"item": "utilitycraft:energized_iron_ingot"
 			},
 			"G": {
 				"item": "minecraft:glass"
 			},
 			"T": {
-				"item": "twm:basic_fluid_tank"
+				"item": "utilitycraft:basic_fluid_tank"
 			}
 		},
 		"pattern": [
@@ -27,17 +27,17 @@
 			"RGR"
 		],
 		"result": {
-			"item": "twm:advanced_fluid_tank"
+			"item": "utilitycraft:advanced_fluid_tank"
 		},
 		"unlock": [
 			{
-				"item": "twm:energized_iron_ingot"
+				"item": "utilitycraft:energized_iron_ingot"
 			},
 			{
-				"item": "twm:advanced_chip"
+				"item": "utilitycraft:advanced_chip"
 			},
 			{
-				"item": "twm:basic_fluid_tank"
+				"item": "utilitycraft:basic_fluid_tank"
 			}
 		]
 	}

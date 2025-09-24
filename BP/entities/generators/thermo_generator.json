@@ -2,7 +2,7 @@
 	"format_version": "1.19.20",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "twm:thermo_generator",
+			"identifier": "utilitycraft:thermo_generator",
 			"is_spawnable": false,
 			"is_summonable": true,
 			"is_experimental": false,

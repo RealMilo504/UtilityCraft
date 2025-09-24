@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:cactus",
+			"identifier": "utilitycraft:cactus",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/cactus"
 			},
 			"geometry": {
-				"default": "geometry.twm_cactus"
+				"default": "geometry.utilitycraft_cactus"
 			},
 			"render_controllers": [
 				"controller.render.cactus"

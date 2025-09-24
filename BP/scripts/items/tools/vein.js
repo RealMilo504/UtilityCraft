@@ -1,7 +1,7 @@
 import { world } from '@minecraft/server'
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.itemComponentRegistry.registerCustomComponent('twm:vein', {
+    eventData.itemComponentRegistry.registerCustomComponent('utilitycraft:vein', {
         onMineBlock(e) {
             const { block, source } = e
             let { x, y, z } = block.location

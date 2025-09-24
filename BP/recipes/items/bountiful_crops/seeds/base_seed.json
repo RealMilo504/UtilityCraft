@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:base_seeds"
+			"identifier": "utilitycraft:base_seeds"
 		},
 		"tags": [
 			"crafting_table"
@@ -24,7 +24,7 @@
 			"BOB"
 		],
 		"result": {
-			"item": "twm:base_seeds"
+			"item": "utilitycraft:base_seeds"
 		},
 		"unlock": [
 			{

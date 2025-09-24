@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:bomb",
+			"identifier": "utilitycraft:bomb",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/bomb"
 			},
 			"geometry": {
-				"default": "geometry.twm_explosives"
+				"default": "geometry.utilitycraft_explosives"
 			},
 			"render_controllers": [
 				"controller.render.bomb"

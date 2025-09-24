@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:pebble_to_tuff"
+			"identifier": "utilitycraft:pebble_to_tuff"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:tuff_pebble"
+				"item": "utilitycraft:tuff_pebble"
 			}
 		},
 		"pattern": [
@@ -21,7 +21,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:tuff_pebble"
+				"item": "utilitycraft:tuff_pebble"
 			},
 			{
 				"item": "minecraft:tuff"

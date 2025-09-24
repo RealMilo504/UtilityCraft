@@ -33,7 +33,7 @@ export function createEnergyNetwork(startPos, dimension) {
         const block = dimension.getBlock(pos);
         const isStart = pos.x === startPos.x && pos.y === startPos.y && pos.z === startPos.z;
 
-        if (block?.typeId === "twm:energy_cable") {
+        if (block?.typeId === "utilitycraft:energy_cable") {
             // Always scan neighbors of cables
             for (const offset of offsets) {
                 queue.push({
@@ -102,7 +102,7 @@ export function createItemNetwork(startPos, dimension) {
         const block = dimension.getBlock(pos);
         const isStart = pos.x === startPos.x && pos.y === startPos.y && pos.z === startPos.z;
 
-        if (block?.typeId === "twm:item_conduit" || block?.typeId === "twm:item_exporter") {
+        if (block?.typeId === "utilitycraft:item_conduit" || block?.typeId === "utilitycraft:item_exporter") {
             for (const offset of offsets) {
                 queue.push({
                     x: pos.x + offset.x,
@@ -137,7 +137,7 @@ export function createItemNetwork(startPos, dimension) {
         if (entities.length > 0) {
             const ent = entities[0];
 
-            if (ent.typeId === "twm:pipe") {
+            if (ent.typeId === "utilitycraft:pipe") {
                 extractors.push(ent);
                 continue;
             }
@@ -208,7 +208,7 @@ export function createFluidNetwork(startPos, dimension) {
         const block = dimension.getBlock(pos);
         const isStart = pos.x === startPos.x && pos.y === startPos.y && pos.z === startPos.z;
 
-        if (block?.typeId === "twm:fluid_pipe" || block?.typeId === "twm:fluid_extractor") {
+        if (block?.typeId === "utilitycraft:fluid_pipe" || block?.typeId === "utilitycraft:fluid_extractor") {
             for (const offset of offsets) {
                 queue.push({
                     x: pos.x + offset.x,
@@ -236,7 +236,7 @@ export function createFluidNetwork(startPos, dimension) {
         if (entities.length > 0) {
             const ent = entities[0];
 
-            if (ent.typeId === "twm:pipe") {
+            if (ent.typeId === "utilitycraft:pipe") {
                 extractors.push(ent);
                 continue;
             }

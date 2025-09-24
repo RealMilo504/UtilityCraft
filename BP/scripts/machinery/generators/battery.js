@@ -1,7 +1,7 @@
 import * as doriosAPI from '../../doriosAPI.js';
 import { Generator, settings } from '../generators_class.js'
 
-doriosAPI.register.OldBlockComponent('twm:battery', {
+doriosAPI.register.OldBlockComponent('utilitycraft:battery', {
     beforeOnPlayerPlace(e) {
         Generator.spawnGeneratorEntity(e, settings.battery)
     },
@@ -10,7 +10,7 @@ doriosAPI.register.OldBlockComponent('twm:battery', {
         const energy = gen.energy
         gen.transferEnergy(5)
         Generator.tick(() => {
-            e.block.setPermutation(e.block.permutation.withState('twm:capacity',
+            e.block.setPermutation(e.block.permutation.withState('utilitycraft:capacity',
                 doriosAPI.math.scaleToSetNumber(energy.value, energy.cap, 6)))
             gen.displayEnergy()
         })

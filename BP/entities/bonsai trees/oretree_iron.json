@@ -2,7 +2,7 @@
 	"format_version": "1.19.20",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "twm:oretree_iron",
+			"identifier": "utilitycraft:oretree_iron",
 			"is_spawnable": false,
 			"is_summonable": true,
 			"is_experimental": false
@@ -48,7 +48,7 @@
 							"event": "despawn"
 						},
 						"block": {
-							"name": "twm:bonsai"
+							"name": "utilitycraft:bonsai"
 						}
 					}
 				]

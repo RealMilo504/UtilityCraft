@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:emerald_mesh"
+			"identifier": "utilitycraft:emerald_mesh"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "emerald"
 			},
 			"M": {
-				"item": "twm:golden_mesh"
+				"item": "utilitycraft:golden_mesh"
 			}
 		},
 		"pattern": [
@@ -21,14 +21,14 @@
 			"SSS"
 		],
 		"result": {
-			"item": "twm:emerald_mesh"
+			"item": "utilitycraft:emerald_mesh"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:emerald"
 			},
 			{
-				"item": "twm:golden_mesh"
+				"item": "utilitycraft:golden_mesh"
 			}
 		]
 	}

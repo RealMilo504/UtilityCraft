@@ -2,7 +2,7 @@
 	"format_version": "1.16.0",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "twm:drill",
+			"identifier": "utilitycraft:drill",
 			"is_spawnable": false,
 			"is_summonable": true,
 			"is_experimental": false
@@ -11,10 +11,10 @@
 			"despawn": {
 				"minecraft:instant_despawn": {}
 			},
-			"twm:hopper": {
+			"utilitycraft:hopper": {
 				"minecraft:item_hopper": {}
 			},
-			"twm:get_items": {
+			"utilitycraft:get_items": {
 				"minecraft:timer": {
 					"time": 0.05,
 					"looping": false,
@@ -37,7 +37,7 @@
 											"test": "has_equipment",
 											"domain": "hand",
 											"operator": "==",
-											"value": "twm:wrench"
+											"value": "utilitycraft:wrench"
 										}
 									]
 								}
@@ -178,20 +178,20 @@
 					{
 						"remove": {
 							"component_groups": [
-								"twm:hopper"
+								"utilitycraft:hopper"
 							]
 						}
 					},
 					{
 						"add": {
 							"component_groups": [
-								"twm:get_items"
+								"utilitycraft:get_items"
 							]
 						}
 					},
 					{
 						"queue_command": {
-							"command": "kill @e[type=twm:drill, r= 0.1] "
+							"command": "kill @e[type=utilitycraft:drill, r= 0.1] "
 						}
 					},
 					{
@@ -204,7 +204,7 @@
 			"hopp": {
 				"add": {
 					"component_groups": [
-						"twm:hopper"
+						"utilitycraft:hopper"
 					]
 				}
 			}

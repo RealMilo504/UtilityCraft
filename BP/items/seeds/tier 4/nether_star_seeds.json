@@ -2,12 +2,12 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:nether_star_seeds"
+			"identifier": "utilitycraft:nether_star_seeds"
 		},
 		"components": {
-			"minecraft:icon": "twm_nether_star_seeds",
+			"minecraft:icon": "utilitycraft_nether_star_seeds",
 			"minecraft:block_placer": {
-				"block": "twm:netherstar_crop"
+				"block": "utilitycraft:netherstar_crop"
 			}
 		}
 	}

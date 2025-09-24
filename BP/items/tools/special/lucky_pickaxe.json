@@ -2,20 +2,20 @@
 	"format_version": "1.21.70",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:lucky_pickaxe",
+			"identifier": "utilitycraft:lucky_pickaxe",
 			"menu_category": {
 				"category": "none",
 				"group": "minecraft:itemGroup.name.pickaxe"
 			}
 		},
 		"components": {
-			"minecraft:icon": "twm_lucky_pickaxe",
+			"minecraft:icon": "utilitycraft_lucky_pickaxe",
 			"minecraft:enchantable": {
 				"value": 15,
 				"slot": "pickaxe"
 			},
 			"minecraft:custom_components": [
-				"twm:break"
+				"utilitycraft:break"
 			],
 			"minecraft:repairable": {
 				"repair_items": [
@@ -27,7 +27,7 @@
 					},
 					{
 						"items": [
-							"twm:lucky_pickaxe"
+							"utilitycraft:lucky_pickaxe"
 						],
 						"repair_amount": 1561
 					}

@@ -33,14 +33,14 @@ const solidFuels = [
     { id: 'leaves', de: 500 }
 ]
 
-export const battery = { burnSpeedBase: 100, energyCapBase: 256000, nameTag: 'entity.twm:battery.name', entity: 'twm:battery' }
-export const furnator = { burnSpeedBase: 40, energyCapBase: 64000, nameTag: 'entity.twm:furnator.name', entity: 'twm:furnator', fuels: solidFuels }
-export const magmator = { burnSpeedBase: 50, energyCapBase: 80000, liquidCapBase: 8000, nameTag: 'entity.twm:magmator.name', entity: 'twm:magmator' }
-export const solarPanel = { burnSpeedBase: 8, energyCapBase: 25600, nameTag: 'entity.twm:solar_panel.name', entity: 'twm:solar_panel' }
-export const thermoGen = { burnSpeedBase: 20, energyCapBase: 32000, liquidCapBase: 2000, nameTag: 'entity.twm:thermo_generator.name', entity: 'twm:thermo_generator' }
+export const battery = { burnSpeedBase: 100, energyCapBase: 256000, nameTag: 'entity.utilitycraft:battery.name', entity: 'utilitycraft:battery' }
+export const furnator = { burnSpeedBase: 40, energyCapBase: 64000, nameTag: 'entity.utilitycraft:furnator.name', entity: 'utilitycraft:furnator', fuels: solidFuels }
+export const magmator = { burnSpeedBase: 50, energyCapBase: 80000, liquidCapBase: 8000, nameTag: 'entity.utilitycraft:magmator.name', entity: 'utilitycraft:magmator' }
+export const solarPanel = { burnSpeedBase: 8, energyCapBase: 25600, nameTag: 'entity.utilitycraft:solar_panel.name', entity: 'utilitycraft:solar_panel' }
+export const thermoGen = { burnSpeedBase: 20, energyCapBase: 32000, liquidCapBase: 2000, nameTag: 'entity.utilitycraft:thermo_generator.name', entity: 'utilitycraft:thermo_generator' }
 
 export const heatSources = {
-    'twm:blaze_block': 1.5,
+    'utilitycraft:blaze_block': 1.5,
     'minecraft:lava': 1,
     'minecraft:flowing_lava': 1,
     'minecraft:soul_fire': 0.75,
@@ -54,7 +54,7 @@ export const heatSources = {
 
 export const itemLiquidContainers = {
     'minecraft:lava_bucket': { amount: 1000, type: 'lava', output: 'minecraft:bucket' },
-    'twm:lava_ball': { amount: 1000, type: 'lava' },
+    'utilitycraft:lava_ball': { amount: 1000, type: 'lava' },
     'minecraft:water_bucket': { amount: 1000, type: 'water', output: 'minecraft:bucket' },
-    'twm:water_ball': { amount: 1000, type: 'water' }
+    'utilitycraft:water_ball': { amount: 1000, type: 'water' }
 }

@@ -2,7 +2,7 @@ import * as doriosAPI from '../../doriosAPI.js'
 import { Machine, LiquidManager, settings } from '../machines_class.js'
 import { itemLiquidContainers } from '../generators_config.js'
 
-doriosAPI.register.OldBlockComponent('twm:magmatic_chamber', {
+doriosAPI.register.OldBlockComponent('utilitycraft:magmatic_chamber', {
     beforeOnPlayerPlace(e) {
         Machine.spawnMachineEntity(e, settings.magmaticChamber);
     },

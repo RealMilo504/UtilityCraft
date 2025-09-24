@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:fan"
+			"identifier": "utilitycraft:fan"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
@@ -15,10 +15,10 @@
 				"item": "redstone"
 			},
 			"M": {
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			},
 			"S": {
-				"item": "twm:steel_ingot"
+				"item": "utilitycraft:steel_ingot"
 			}
 		},
 		"pattern": [
@@ -27,7 +27,7 @@
 			"ACA"
 		],
 		"result": {
-			"item": "twm:fan"
+			"item": "utilitycraft:fan"
 		},
 		"unlock": [
 			{
@@ -37,10 +37,10 @@
 				"item": "minecraft:redstone"
 			},
 			{
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			},
 			{
-				"item": "twm:steel_ingot"
+				"item": "utilitycraft:steel_ingot"
 			}
 		]
 	}

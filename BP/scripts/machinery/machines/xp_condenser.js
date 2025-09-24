@@ -2,10 +2,10 @@ import { world, ItemStack } from '@minecraft/server'
 import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
 
 const tankCaps = {
-    'twm:basic_fluid_tank': 8000,
-    'twm:advanced_fluid_tank': 32000,
-    'twm:expert_fluid_tank': 128000,
-    'twm:ultimate_fluid_tank': 512000
+    'utilitycraft:basic_fluid_tank': 8000,
+    'utilitycraft:advanced_fluid_tank': 32000,
+    'utilitycraft:expert_fluid_tank': 128000,
+    'utilitycraft:ultimate_fluid_tank': 512000
 };
 
 function levelToXp(level) {
@@ -230,7 +230,7 @@ function tankMenu(player, entity) {
 }
 
 world.beforeEvents.worldInitialize.subscribe(e => {
-    e.blockComponentRegistry.registerCustomComponent('twm:xp_condenser', {
+    e.blockComponentRegistry.registerCustomComponent('utilitycraft:xp_condenser', {
         onPlayerInteract(e) {
             const { player, block } = e
             let { x, y, z } = block.location
@@ -271,7 +271,7 @@ world.beforeEvents.worldInitialize.subscribe(e => {
             const { block } = e
             let { x, y, z } = block.location
             x += 0.5; y += 0.25; z += 0.5
-            let entity = block.dimension.spawnEntity('twm:xp_condenser', { x, y, z })
+            let entity = block.dimension.spawnEntity('utilitycraft:xp_condenser', { x, y, z })
             entity.addTag(`${Math.floor(x)}_${Math.floor(y)}_${Math.floor(z)} `)
         },
         onPlayerDestroy(e) {

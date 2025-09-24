@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:chunk_to_redstone"
+			"identifier": "utilitycraft:chunk_to_redstone"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:redstone_chunk"
+				"item": "utilitycraft:redstone_chunk"
 			}
 		},
 		"pattern": [
@@ -21,7 +21,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:redstone_chunk"
+				"item": "utilitycraft:redstone_chunk"
 			},
 			{
 				"item": "minecraft:redstone"

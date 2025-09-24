@@ -1,7 +1,7 @@
 import * as doriosAPI from '../../doriosAPI.js'
 import { Machine, settings } from '../machines_class.js'
 
-doriosAPI.register.OldBlockComponent('twm:autosieve', {
+doriosAPI.register.OldBlockComponent('utilitycraft:autosieve', {
     beforeOnPlayerPlace(e) {
         Machine.spawnMachineEntity(e, settings.autosieve);
     },

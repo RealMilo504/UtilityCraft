@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.twm_oak_tree",
+				"identifier": "geometry.utilitycraft_oak_tree",
 				"texture_width": 16,
 				"texture_height": 16,
 				"visible_bounds_width": 2,

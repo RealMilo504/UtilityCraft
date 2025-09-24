@@ -2,26 +2,26 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:harvester"
+			"identifier": "utilitycraft:harvester"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
 				"item": "minecraft:iron_hoe"
 			},
 			"B": {
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			},
 			"P": {
-				"item": "twm:gold_plate"
+				"item": "utilitycraft:gold_plate"
 			},
 			"R": {
 				"item": "minecraft:redstone_block"
 			},
 			"C": {
-				"item": "twm:advanced_chip"
+				"item": "utilitycraft:advanced_chip"
 			}
 		},
 		"pattern": [
@@ -30,23 +30,23 @@
 			"PRP"
 		],
 		"result": {
-			"item": "twm:harvester"
+			"item": "utilitycraft:harvester"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:iron_hoe"
 			},
 			{
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			},
 			{
-				"item": "twm:gold_plate"
+				"item": "utilitycraft:gold_plate"
 			},
 			{
 				"item": "minecraft:redstone_block"
 			},
 			{
-				"item": "twm:advanced_chip"
+				"item": "utilitycraft:advanced_chip"
 			}
 		]
 	}

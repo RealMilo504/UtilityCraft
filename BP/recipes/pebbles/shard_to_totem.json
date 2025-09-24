@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:shard_to_totem"
+			"identifier": "utilitycraft:shard_to_totem"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:totem_shard"
+				"item": "utilitycraft:totem_shard"
 			}
 		},
 		"pattern": [
@@ -22,7 +22,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:totem_shard"
+				"item": "utilitycraft:totem_shard"
 			},
 			{
 				"item": "minecraft:totem_of_undying"

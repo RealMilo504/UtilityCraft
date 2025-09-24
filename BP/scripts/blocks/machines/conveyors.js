@@ -1,7 +1,7 @@
 import { world } from '@minecraft/server'
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:conveyors', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:conveyors', {
         onTick(e) {
             const { block } = e
             let { x, y, z } = block.location
@@ -10,7 +10,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             switch (block.permutation.getState('minecraft:cardinal_direction')) {
                 case 'north':
                     if (block.north(1) != undefined) {
-                        if (block.typeId == 'twm:conveyor_horizontal' && block.north(1).typeId == 'twm:conveyor_horizontal' && block.north(1).permutation.getState('minecraft:cardinal_direction') != block.permutation.getState('minecraft:cardinal_direction')) {
+                        if (block.typeId == 'utilitycraft:conveyor_horizontal' && block.north(1).typeId == 'utilitycraft:conveyor_horizontal' && block.north(1).permutation.getState('minecraft:cardinal_direction') != block.permutation.getState('minecraft:cardinal_direction')) {
                             next = true
                         }
                     }
@@ -18,7 +18,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                     break
                 case 'south':
                     if (block.south(1) != undefined) {
-                        if (block.typeId == 'twm:conveyor_horizontal' && block.south(1).typeId == 'twm:conveyor_horizontal' && block.south(1).permutation.getState('minecraft:cardinal_direction') != block.permutation.getState('minecraft:cardinal_direction')) {
+                        if (block.typeId == 'utilitycraft:conveyor_horizontal' && block.south(1).typeId == 'utilitycraft:conveyor_horizontal' && block.south(1).permutation.getState('minecraft:cardinal_direction') != block.permutation.getState('minecraft:cardinal_direction')) {
                             next = true
                         }
                     }
@@ -26,7 +26,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                     break
                 case 'west':
                     if (block.west(1) != undefined) {
-                        if (block.typeId == 'twm:conveyor_horizontal' && block.west(1).typeId == 'twm:conveyor_horizontal' && block.west(1).permutation.getState('minecraft:cardinal_direction') != block.permutation.getState('minecraft:cardinal_direction')) {
+                        if (block.typeId == 'utilitycraft:conveyor_horizontal' && block.west(1).typeId == 'utilitycraft:conveyor_horizontal' && block.west(1).permutation.getState('minecraft:cardinal_direction') != block.permutation.getState('minecraft:cardinal_direction')) {
                             next = true
                         }
                     }
@@ -34,14 +34,14 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                     break
                 case 'east':
                     if (block.east(1) != undefined) {
-                        if (block.typeId == 'twm:conveyor_horizontal' && block.east(1).typeId == 'twm:conveyor_horizontal' && block.east(1).permutation.getState('minecraft:cardinal_direction') != block.permutation.getState('minecraft:cardinal_direction')) {
+                        if (block.typeId == 'utilitycraft:conveyor_horizontal' && block.east(1).typeId == 'utilitycraft:conveyor_horizontal' && block.east(1).permutation.getState('minecraft:cardinal_direction') != block.permutation.getState('minecraft:cardinal_direction')) {
                             next = true
                         }
                     }
                     xvel = 1
                     break
             }
-            if (block.typeId == 'twm:conveyor_inclined') {
+            if (block.typeId == 'utilitycraft:conveyor_inclined') {
                 yvel = 1
                 let entitiesup = block.dimension.getEntities({ location: { x: x + 0.75 * xvel, y: y + 0.6 * yvel, z: z + 0.75 * zvel }, maxDistance: 0.75 })
                 if (entitiesup != undefined) {

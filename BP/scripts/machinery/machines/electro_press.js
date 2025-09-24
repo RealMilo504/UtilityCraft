@@ -1,7 +1,7 @@
 import * as doriosAPI from '../../doriosAPI.js'
 import { Machine, settings } from '../machines_class.js'
 
-doriosAPI.register.OldBlockComponent('twm:electro_press', {
+doriosAPI.register.OldBlockComponent('utilitycraft:electro_press', {
     beforeOnPlayerPlace(e) {
         Machine.spawnMachineEntity(e, settings.electroPress);
     },

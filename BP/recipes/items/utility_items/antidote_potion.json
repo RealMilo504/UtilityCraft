@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:antidote_potion"
+			"identifier": "utilitycraft:antidote_potion"
 		},
 		"tags": [
 			"crafting_table"
@@ -22,7 +22,7 @@
 			"EBG"
 		],
 		"result": {
-			"item": "twm:antidote_potion"
+			"item": "utilitycraft:antidote_potion"
 		},
 		"unlock": [
 			{

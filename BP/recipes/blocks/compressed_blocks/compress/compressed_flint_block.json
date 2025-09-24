@@ -2,23 +2,23 @@
   "format_version": "1.20.80",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:compressed_flint_block"
+      "identifier": "utilitycraft:compressed_flint_block"
     },
     "tags": [
       "crafting_table"
     ],
     "ingredients": [
       {
-        "item": "twm:flint_block",
+        "item": "utilitycraft:flint_block",
         "count": 9
       }
     ],
     "result": {
-      "item": "twm:compressed_flint_block"
+      "item": "utilitycraft:compressed_flint_block"
     },
     "unlock": [
       {
-        "item": "twm:flint_block"
+        "item": "utilitycraft:flint_block"
       }
     ]
   }

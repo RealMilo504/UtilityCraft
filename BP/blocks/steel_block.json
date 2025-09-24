@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:steel_block",
+			"identifier": "utilitycraft:steel_block",
 			"menu_category": {
 				"category": "construction"
 			}

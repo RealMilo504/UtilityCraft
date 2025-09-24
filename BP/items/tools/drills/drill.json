@@ -2,7 +2,7 @@
 	"format_version": "1.21.70",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:drill",
+			"identifier": "utilitycraft:drill",
 			"menu_category": {
 				"category": "equipment"
 			}
@@ -17,14 +17,14 @@
 				"value": "Drill\n§7Mines a 3x3 area in front of you"
 			},
 			"minecraft:damage": 5,
-			"minecraft:icon": "twm_drill",
+			"minecraft:icon": "utilitycraft_drill",
 			"minecraft:enchantable": {
 				"value": 15,
 				"slot": "pickaxe"
 			},
 			"minecraft:custom_components": [
-				"twm:break",
-				"twm:drill"
+				"utilitycraft:break",
+				"utilitycraft:drill"
 			],
 			"minecraft:repairable": {
 				"repair_items": [
@@ -36,7 +36,7 @@
 					},
 					{
 						"items": [
-							"twm:drill"
+							"utilitycraft:drill"
 						],
 						"repair_amount": 2031
 					}

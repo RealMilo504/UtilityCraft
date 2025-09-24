@@ -3,30 +3,30 @@ import { autosieve } from '../../machinery/machines_config.js'
 
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:mesh', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:mesh', {
         onPlayerInteract(e) {
             const { block, player } = e
             let { x, y, z } = block.location
             y += 0.75, x += 0.5, z += 0.5
             const mainHand = player.getComponent('equippable').getEquipment('Mainhand')
 
-            const meshState = block.permutation.getState('twm:mesh')
-            const blockState = block.permutation.getState('twm:state')
-            const blockType = block.permutation.getState('twm:block')
+            const meshState = block.permutation.getState('utilitycraft:mesh')
+            const blockState = block.permutation.getState('utilitycraft:state')
+            const blockType = block.permutation.getState('utilitycraft:block')
 
             if (!mainHand && player.isSneaking && meshState != 'empty' && blockState == 0) {
                 const playerInv = player.getComponent('inventory').container
                 if (playerInv.emptySlotsCount == 0) {
-                    block.dimension.spawnItem(new ItemStack('twm:' + meshState), block.location)
-                } else playerInv.addItem(new ItemStack('twm:' + meshState))
-                block?.setPermutation(block?.permutation.withState('twm:mesh', 'empty'))
-                block?.setPermutation(block?.permutation.withState('twm:state', 0))
+                    block.dimension.spawnItem(new ItemStack('utilitycraft:' + meshState), block.location)
+                } else playerInv.addItem(new ItemStack('utilitycraft:' + meshState))
+                block?.setPermutation(block?.permutation.withState('utilitycraft:mesh', 'empty'))
+                block?.setPermutation(block?.permutation.withState('utilitycraft:state', 0))
                 return
             }
 
             if (mainHand) {
                 if (mainHand.typeId.includes('mesh') && meshState == 'empty') {
-                    block?.setPermutation(block?.permutation.withState('twm:mesh', mainHand.typeId.split(':')[1]))
+                    block?.setPermutation(block?.permutation.withState('utilitycraft:mesh', mainHand.typeId.split(':')[1]))
                     if (player.getGameMode() != 'creative') {
                         player.runCommand(`clear @s ${mainHand.typeId} 0 1`)
                     }
@@ -58,9 +58,9 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
         },
         onPlayerDestroy(e) {
             const { destroyedBlockPermutation, block } = e
-            let mesh = destroyedBlockPermutation.getState('twm:mesh')
+            let mesh = destroyedBlockPermutation.getState('utilitycraft:mesh')
             if (mesh == 'empty') return;
-            block.dimension.spawnItem(new ItemStack(`twm:${mesh}`, 1), block.location)
+            block.dimension.spawnItem(new ItemStack(`utilitycraft:${mesh}`, 1), block.location)
         }
     })
 })
@@ -108,14 +108,14 @@ function applyBlock(player, block, mainHand) {
 
     for (const sieve of Object.values(sieves)) {
         if (!sieve) continue
-        if (sieve.typeId != 'twm:sieve') continue
-        if (sieve.permutation.getState('twm:mesh') == 'empty') continue
-        if (sieve.permutation.getState('twm:block') != 'empty') continue
+        if (sieve.typeId != 'utilitycraft:sieve') continue
+        if (sieve.permutation.getState('utilitycraft:mesh') == 'empty') continue
+        if (sieve.permutation.getState('utilitycraft:block') != 'empty') continue
         if (amount >= mainHand.amount) break
 
         amount++
-        sieve?.setPermutation(sieve?.permutation.withState('twm:state', 4))
-        sieve?.setPermutation(sieve?.permutation.withState('twm:block', mainHand.typeId))
+        sieve?.setPermutation(sieve?.permutation.withState('utilitycraft:state', 4))
+        sieve?.setPermutation(sieve?.permutation.withState('utilitycraft:block', mainHand.typeId))
     }
 
     player.runCommand(`clear @s ${mainHand.typeId} 0 ${amount}`)
@@ -164,16 +164,16 @@ function finishFiltering(block) {
         let { x, y, z } = sieve.location
         y += 0.75, x += 0.5, z += 0.5
         if (!sieve) continue
-        if (sieve.typeId != 'twm:sieve') continue
-        if (sieve.permutation.getState('twm:block') == 'empty') continue
-        if (sieve.permutation.getState('twm:mesh') == 'empty') continue
-        if (sieve.permutation.getState('twm:state') != 1) continue
+        if (sieve.typeId != 'utilitycraft:sieve') continue
+        if (sieve.permutation.getState('utilitycraft:block') == 'empty') continue
+        if (sieve.permutation.getState('utilitycraft:mesh') == 'empty') continue
+        if (sieve.permutation.getState('utilitycraft:state') != 1) continue
 
-        const meshState = sieve.permutation.getState('twm:mesh')
-        const multi = autosieve.mesh['twm:' + meshState]
+        const meshState = sieve.permutation.getState('utilitycraft:mesh')
+        const multi = autosieve.mesh['utilitycraft:' + meshState]
         if (!multi) continue
 
-        const sievableBlock = autosieve.recipes[sieve.permutation.getState('twm:block')]
+        const sievableBlock = autosieve.recipes[sieve.permutation.getState('utilitycraft:block')]
         sievableBlock.forEach(loot => {
             const randomChance = Math.random() * 100;
             if (randomChance <= loot.prob * multi) {
@@ -181,8 +181,8 @@ function finishFiltering(block) {
             }
         })
 
-        sieve?.setPermutation(sieve?.permutation.withState('twm:state', 0))
-        sieve?.setPermutation(sieve?.permutation.withState('twm:block', 'empty'))
+        sieve?.setPermutation(sieve?.permutation.withState('utilitycraft:state', 0))
+        sieve?.setPermutation(sieve?.permutation.withState('utilitycraft:block', 'empty'))
     }
 }
 
@@ -227,11 +227,11 @@ function filter(block, blockState) {
 
     for (const sieve of Object.values(sieves)) {
         if (!sieve) continue
-        if (sieve.typeId != 'twm:sieve') continue
-        if (sieve.permutation.getState('twm:state') != blockState) continue
-        if (sieve.permutation.getState('twm:block') == 'empty') continue
-        if (sieve.permutation.getState('twm:mesh') == 'empty') continue
+        if (sieve.typeId != 'utilitycraft:sieve') continue
+        if (sieve.permutation.getState('utilitycraft:state') != blockState) continue
+        if (sieve.permutation.getState('utilitycraft:block') == 'empty') continue
+        if (sieve.permutation.getState('utilitycraft:mesh') == 'empty') continue
 
-        sieve?.setPermutation(sieve?.permutation.withState('twm:state', blockState - 1))
+        sieve?.setPermutation(sieve?.permutation.withState('utilitycraft:state', blockState - 1))
     }
 }

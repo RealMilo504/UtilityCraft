@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:basic_battery"
+			"identifier": "utilitycraft:basic_battery"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
@@ -15,10 +15,10 @@
 				"item": "redstone_block"
 			},
 			"C": {
-				"item": "twm:basic_chip"
+				"item": "utilitycraft:basic_chip"
 			},
 			"D": {
-				"item": "twm:gold_dust"
+				"item": "utilitycraft:gold_dust"
 			}
 		},
 		"pattern": [
@@ -27,11 +27,11 @@
 			"CDC"
 		],
 		"result": {
-			"item": "twm:basic_battery"
+			"item": "utilitycraft:basic_battery"
 		},
 		"unlock": [
 			{
-				"item": "twm:basic_chip"
+				"item": "utilitycraft:basic_chip"
 			}
 		]
 	}

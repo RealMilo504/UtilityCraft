@@ -2,26 +2,26 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:expert_solar_panel"
+			"identifier": "utilitycraft:expert_solar_panel"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
-				"item": "twm:steel_plate"
+				"item": "utilitycraft:steel_plate"
 			},
 			"B": {
-				"item": "twm:advanced_solar_panel"
+				"item": "utilitycraft:advanced_solar_panel"
 			},
 			"C": {
-				"item": "twm:diamond_dust"
+				"item": "utilitycraft:diamond_dust"
 			},
 			"D": {
 				"item": "minecraft:redstone_block"
 			},
 			"E": {
-				"item": "twm:expert_chip"
+				"item": "utilitycraft:expert_chip"
 			}
 		},
 		"pattern": [
@@ -30,7 +30,7 @@
 			"CDC"
 		],
 		"result": {
-			"item": "twm:expert_solar_panel"
+			"item": "utilitycraft:expert_solar_panel"
 		},
 		"unlock": [
 			{

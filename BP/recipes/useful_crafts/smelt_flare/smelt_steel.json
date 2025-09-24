@@ -2,25 +2,25 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shapeless": {
 		"description": {
-			"identifier": "twm:smelt_steel"
+			"identifier": "utilitycraft:smelt_steel"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"ingredients": [
 			{
-				"item": "twm:smeltflare"
+				"item": "utilitycraft:smeltflare"
 			},
 			{
-				"item": "twm:raw_steel"
+				"item": "utilitycraft:raw_steel"
 			}
 		],
 		"result": {
-			"item": "twm:steel_ingot"
+			"item": "utilitycraft:steel_ingot"
 		}	,
 		"unlock": [
 			{
-				"item": "twm:smeltflare"
+				"item": "utilitycraft:smeltflare"
 			}
 		]
 	}

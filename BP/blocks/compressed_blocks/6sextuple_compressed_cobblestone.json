@@ -2,16 +2,16 @@
   "format_version": "1.21.100",
   "minecraft:block": {
     "description": {
-      "identifier": "twm:sextuple_compressed_cobblestone",
+      "identifier": "utilitycraft:sextuple_compressed_cobblestone",
       "menu_category": {
         "category": "construction"
       }
     },
     "components": {
-      "minecraft:geometry": "geometry.twm_block",
+      "minecraft:geometry": "geometry.utilitycraft_block",
       "minecraft:material_instances": {
         "*": {
-          "texture": "twm_compressed_cobblestone_6",
+          "texture": "utilitycraft_compressed_cobblestone_6",
           "render_method": "alpha_test"
         }
       },

@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.twm_sugarcane",
+				"identifier": "geometry.utilitycraft_sugarcane",
 				"texture_width": 16,
 				"texture_height": 16,
 				"visible_bounds_width": 2,

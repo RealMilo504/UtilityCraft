@@ -2,7 +2,7 @@
 	"format_version": "1.12",
 	"minecraft:recipe_shapeless": {
 		"description": {
-			"identifier": "twm:utility_book"
+			"identifier": "utilitycraft:utility_book"
 		},
 		"tags": [
 			"crafting_table"
@@ -14,7 +14,7 @@
 			}
 		],
 		"result": {
-			"item": "twm:utility_book_0"
+			"item": "utilitycraft:utility_book_0"
 		}
 	}
 }

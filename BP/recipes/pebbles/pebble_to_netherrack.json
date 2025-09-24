@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:pebble_to_netherrack"
+			"identifier": "utilitycraft:pebble_to_netherrack"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:netherrack_pebble"
+				"item": "utilitycraft:netherrack_pebble"
 			}
 		},
 		"pattern": [
@@ -21,7 +21,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:netherrack_pebble"
+				"item": "utilitycraft:netherrack_pebble"
 			},
 			{
 				"item": "minecraft:netherrack"

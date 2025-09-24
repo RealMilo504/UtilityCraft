@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:flint_mesh"
+			"identifier": "utilitycraft:flint_mesh"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "flint"
 			},
 			"M": {
-				"item": "twm:string_mesh"
+				"item": "utilitycraft:string_mesh"
 			}
 		},
 		"pattern": [
@@ -21,14 +21,14 @@
 			"SSS"
 		],
 		"result": {
-			"item": "twm:flint_mesh"
+			"item": "utilitycraft:flint_mesh"
 		},
 		"unlock": [
 			{
 				"item": "flint"
 			},
 			{
-				"item": "twm:string_mesh"
+				"item": "utilitycraft:string_mesh"
 			}
 		]
 	}

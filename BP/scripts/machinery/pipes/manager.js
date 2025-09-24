@@ -22,21 +22,21 @@ world.afterEvents.playerPlaceBlock.subscribe(e => {
     const { block } = e;
 
     if (block.hasTag('dorios:energy')) {
-        if (block.typeId === 'twm:energy_cable') updateGeometry(block, 'dorios:energy');
+        if (block.typeId === 'utilitycraft:energy_cable') updateGeometry(block, 'dorios:energy');
         updatePipes(block, 'dorios:energy', createEnergyNetwork);
     }
 
     if (block.hasTag('dorios:item') ||
         vanillaContainers.includes(block.typeId) ||
         brokenBlockPermutation.type.id.includes('dustveyn:storage_drawers')) {
-        if (block.typeId === 'twm:item_conduit') updateGeometry(block, 'dorios:item');
-        if (block.typeId === 'twm:item_exporter') updateGeometryExporter(block, 'dorios:item');
+        if (block.typeId === 'utilitycraft:item_conduit') updateGeometry(block, 'dorios:item');
+        if (block.typeId === 'utilitycraft:item_exporter') updateGeometryExporter(block, 'dorios:item');
         updatePipes(block, 'dorios:item', createItemNetwork);
     }
 
     if (block.hasTag('dorios:fluid')) {
-        if (block.typeId === 'twm:fluid_pipe') updateGeometry(block, 'dorios:fluid');
-        if (block.typeId === 'twm:fluid_extractor') updateGeometryExporter(block, 'dorios:fluid');
+        if (block.typeId === 'utilitycraft:fluid_pipe') updateGeometry(block, 'dorios:fluid');
+        if (block.typeId === 'utilitycraft:fluid_extractor') updateGeometryExporter(block, 'dorios:fluid');
         updatePipes(block, 'dorios:fluid', createFluidNetwork);
     }
 });
@@ -62,7 +62,7 @@ function updateGeometry(block, tag) {
                 || neighbor?.typeId.includes('dustveyn:storage_drawers')));
 
         // Set the perm
-        block.setPermutation(block.permutation.withState(`twm:${dir}`, shouldConnect));
+        block.setPermutation(block.permutation.withState(`utilitycraft:${dir}`, shouldConnect));
     }
 }
 
@@ -100,7 +100,7 @@ function updateGeometryExporter(block, tag) {
                 || neighbor?.typeId.includes('dustveyn:storage_drawers')
             ));
 
-        newPerm = newPerm.withState(`twm:${visualDir}`, shouldConnect);
+        newPerm = newPerm.withState(`utilitycraft:${visualDir}`, shouldConnect);
     }
 
     block.setPermutation(newPerm);

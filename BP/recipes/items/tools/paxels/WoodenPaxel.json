@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:WoodenPaxel"
+			"identifier": "utilitycraft:WoodenPaxel"
 		},
 		"tags": [
 			"crafting_table"
@@ -51,7 +51,7 @@
 		},
 		"result": [
 			{
-				"item": "twm:wooden_paxel"
+				"item": "utilitycraft:wooden_paxel"
 			}
 		]
 	}

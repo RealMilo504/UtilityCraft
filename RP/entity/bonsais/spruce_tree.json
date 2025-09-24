@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:spruce_tree",
+			"identifier": "utilitycraft:spruce_tree",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/spruce_tree"
 			},
 			"geometry": {
-				"default": "geometry.twm_spruce_tree"
+				"default": "geometry.utilitycraft_spruce_tree"
 			},
 			"render_controllers": [
 				"controller.render.spruce_tree"

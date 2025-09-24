@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:antidote_splash",
+			"identifier": "utilitycraft:antidote_splash",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/antidote_potion_splash"
 			},
 			"geometry": {
-				"default": "geometry.twm_explosives"
+				"default": "geometry.utilitycraft_explosives"
 			},
 			"render_controllers": [
 				"controller.render.antidote_splash"

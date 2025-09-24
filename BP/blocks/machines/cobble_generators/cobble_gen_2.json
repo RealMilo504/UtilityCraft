@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:cobble_gen_2",
+			"identifier": "utilitycraft:cobble_gen_2",
 			"traits": {
 				"minecraft:placement_direction": {
 					"enabled_states": [
@@ -14,7 +14,7 @@
 				"category": "construction"
 			},
 			"states": {
-				"twm:e0": [
+				"utilitycraft:e0": [
 					0,
 					1,
 					2,
@@ -27,7 +27,7 @@
 					9,
 					10
 				],
-				"twm:e1": [
+				"utilitycraft:e1": [
 					0,
 					1,
 					2,
@@ -45,11 +45,11 @@
 		"components": {
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_cobble_gen_2",
+					"texture": "utilitycraft_cobble_gen_2",
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:geometry": "geometry.twm_cobble_gen",
+			"minecraft:geometry": "geometry.utilitycraft_cobble_gen",
 			"minecraft:transformation": {
 				"rotation": [
 					0,
@@ -64,20 +64,20 @@
 				]
 			},
 			"minecraft:custom_components": [
-				"twm:cobble_generators"
+				"utilitycraft:cobble_generators"
 			]
 		},
 		"permutations": [
 			{
 				"condition": "q.block_state('minecraft:facing_direction') == 'up'",
 				"components": {
-					"minecraft:geometry": "geometry.twm_cobble_gen_down"
+					"minecraft:geometry": "geometry.utilitycraft_cobble_gen_down"
 				}
 			},
 			{
 				"condition": "q.block_state('minecraft:facing_direction') == 'down' ",
 				"components": {
-					"minecraft:geometry": "geometry.twm_cobble_gen_up"
+					"minecraft:geometry": "geometry.utilitycraft_cobble_gen_up"
 				}
 			},
 			{

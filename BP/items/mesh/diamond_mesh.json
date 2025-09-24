@@ -2,7 +2,7 @@
 	"format_version": "1.21.10",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:diamond_mesh",
+			"identifier": "utilitycraft:diamond_mesh",
 			"menu_category": {
 				"category": "equipment"
 			}
@@ -13,7 +13,7 @@
 					"minecraft:transformable_items"
 				]
 			},
-			"minecraft:icon": "twm_diamond_mesh",
+			"minecraft:icon": "utilitycraft_diamond_mesh",
 			"minecraft:durability": {
 				"max_durability": 1561
 			}

@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:chunk_to_copper"
+			"identifier": "utilitycraft:chunk_to_copper"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:copper_chunk"
+				"item": "utilitycraft:copper_chunk"
 			}
 		},
 		"pattern": [
@@ -20,7 +20,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:copper_chunk"
+				"item": "utilitycraft:copper_chunk"
 			},
 			{
 				"item": "minecraft:raw_copper"

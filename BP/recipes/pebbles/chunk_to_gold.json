@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:chunk_to_gold"
+			"identifier": "utilitycraft:chunk_to_gold"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:gold_chunk"
+				"item": "utilitycraft:gold_chunk"
 			}
 		},
 		"pattern": [
@@ -20,7 +20,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:gold_chunk"
+				"item": "utilitycraft:gold_chunk"
 			},
 			{
 				"item": "minecraft:raw_gold"

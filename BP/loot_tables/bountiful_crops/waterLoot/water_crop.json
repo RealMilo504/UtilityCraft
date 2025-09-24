@@ -5,7 +5,7 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "twm:water_ball",
+					"name": "utilitycraft:water_ball",
 					"functions": [
 						{
 							"function": "set_count",
@@ -23,7 +23,7 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "twm:water_seeds",
+					"name": "utilitycraft:water_seeds",
 					"weight": 1
 				},
 				{
@@ -50,7 +50,7 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "twm:water_ball",
+					"name": "utilitycraft:water_ball",
 					"weight": 1
 				},
 				{

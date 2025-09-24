@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:totem_seed"
+			"identifier": "utilitycraft:totem_seed"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"S": {
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			},
 			"E": {
 				"item": "minecraft:emerald_block"
@@ -24,14 +24,14 @@
 			"ETE"
 		],
 		"result": {
-			"item": "twm:totem_seeds"
+			"item": "utilitycraft:totem_seeds"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:totem_of_undying"
 			},
 			{
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		]
 	}

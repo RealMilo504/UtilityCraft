@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:crimson_tree",
+			"identifier": "utilitycraft:crimson_tree",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/crimson_tree"
 			},
 			"geometry": {
-				"default": "geometry.twm_nether_tree"
+				"default": "geometry.utilitycraft_nether_tree"
 			},
 			"render_controllers": [
 				"controller.render.crimson_tree"

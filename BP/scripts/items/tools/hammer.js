@@ -3,64 +3,64 @@ import { world, ItemStack } from '@minecraft/server'
 const blocks = {
     // ========== COBBLESTONE ==========
     "minecraft:cobblestone": { output: "minecraft:gravel", amount: 1, tier: 1 },
-    "twm:compressed_cobblestone": { output: "twm:compressed_gravel", amount: 1, tier: 2 },
-    "twm:double_compressed_cobblestone": { output: "twm:compressed_gravel_2", amount: 1, tier: 3 },
-    "twm:triple_compressed_cobblestone": { output: "twm:compressed_gravel_3", amount: 1, tier: 4 },
-    "twm:quadruple_compressed_cobblestone": { output: "twm:compressed_gravel_4", amount: 1, tier: 5 },
+    "utilitycraft:compressed_cobblestone": { output: "utilitycraft:compressed_gravel", amount: 1, tier: 2 },
+    "utilitycraft:double_compressed_cobblestone": { output: "utilitycraft:compressed_gravel_2", amount: 1, tier: 3 },
+    "utilitycraft:triple_compressed_cobblestone": { output: "utilitycraft:compressed_gravel_3", amount: 1, tier: 4 },
+    "utilitycraft:quadruple_compressed_cobblestone": { output: "utilitycraft:compressed_gravel_4", amount: 1, tier: 5 },
 
     // ========== GRAVEL ==========
     "minecraft:gravel": { output: "minecraft:dirt", amount: 1, tier: 1 },
-    "twm:compressed_gravel": { output: "twm:compressed_dirt", amount: 1, tier: 2 },
-    "twm:compressed_gravel_2": { output: "twm:compressed_dirt_2", amount: 1, tier: 3 },
-    "twm:compressed_gravel_3": { output: "twm:compressed_dirt_3", amount: 1, tier: 4 },
-    "twm:compressed_gravel_4": { output: "twm:compressed_dirt_4", amount: 1, tier: 5 },
+    "utilitycraft:compressed_gravel": { output: "utilitycraft:compressed_dirt", amount: 1, tier: 2 },
+    "utilitycraft:compressed_gravel_2": { output: "utilitycraft:compressed_dirt_2", amount: 1, tier: 3 },
+    "utilitycraft:compressed_gravel_3": { output: "utilitycraft:compressed_dirt_3", amount: 1, tier: 4 },
+    "utilitycraft:compressed_gravel_4": { output: "utilitycraft:compressed_dirt_4", amount: 1, tier: 5 },
 
     // ========== DIRT ==========
     "minecraft:dirt": { output: "minecraft:sand", amount: 1, tier: 1 },
-    "twm:compressed_dirt": { output: "twm:compressed_sand", amount: 1, tier: 2 },
-    "twm:compressed_dirt_2": { output: "twm:compressed_sand_2", amount: 1, tier: 3 },
-    "twm:compressed_dirt_3": { output: "twm:compressed_sand_3", amount: 1, tier: 4 },
-    "twm:compressed_dirt_4": { output: "twm:compressed_sand_4", amount: 1, tier: 5 },
+    "utilitycraft:compressed_dirt": { output: "utilitycraft:compressed_sand", amount: 1, tier: 2 },
+    "utilitycraft:compressed_dirt_2": { output: "utilitycraft:compressed_sand_2", amount: 1, tier: 3 },
+    "utilitycraft:compressed_dirt_3": { output: "utilitycraft:compressed_sand_3", amount: 1, tier: 4 },
+    "utilitycraft:compressed_dirt_4": { output: "utilitycraft:compressed_sand_4", amount: 1, tier: 5 },
 
     // ========== NETHERRACK ==========
-    "minecraft:netherrack": { output: "twm:crushed_netherrack", amount: 1, tier: 1 },
-    "twm:compressed_netherrack": { output: "twm:compressed_crushed_netherrack", amount: 1, tier: 2 },
-    "twm:compressed_netherrack_2": { output: "twm:compressed_crushed_netherrack_2", amount: 1, tier: 3 },
-    "twm:compressed_netherrack_3": { output: "twm:compressed_crushed_netherrack_3", amount: 1, tier: 4 },
-    "twm:compressed_netherrack_4": { output: "twm:compressed_crushed_netherrack_4", amount: 1, tier: 5 },
+    "minecraft:netherrack": { output: "utilitycraft:crushed_netherrack", amount: 1, tier: 1 },
+    "utilitycraft:compressed_netherrack": { output: "utilitycraft:compressed_crushed_netherrack", amount: 1, tier: 2 },
+    "utilitycraft:compressed_netherrack_2": { output: "utilitycraft:compressed_crushed_netherrack_2", amount: 1, tier: 3 },
+    "utilitycraft:compressed_netherrack_3": { output: "utilitycraft:compressed_crushed_netherrack_3", amount: 1, tier: 4 },
+    "utilitycraft:compressed_netherrack_4": { output: "utilitycraft:compressed_crushed_netherrack_4", amount: 1, tier: 5 },
 
     // ========== END STONE ==========
-    "minecraft:end_stone": { output: "twm:crushed_endstone", amount: 1, tier: 1 },
-    "twm:compressed_endstone": { output: "twm:compressed_crushed_endstone", amount: 1, tier: 2 },
-    "twm:compressed_endstone_2": { output: "twm:compressed_crushed_endstone_2", amount: 1, tier: 3 },
-    "twm:compressed_endstone_3": { output: "twm:compressed_crushed_endstone_3", amount: 1, tier: 4 },
-    "twm:compressed_endstone_4": { output: "twm:compressed_crushed_endstone_4", amount: 1, tier: 5 },
+    "minecraft:end_stone": { output: "utilitycraft:crushed_endstone", amount: 1, tier: 1 },
+    "utilitycraft:compressed_endstone": { output: "utilitycraft:compressed_crushed_endstone", amount: 1, tier: 2 },
+    "utilitycraft:compressed_endstone_2": { output: "utilitycraft:compressed_crushed_endstone_2", amount: 1, tier: 3 },
+    "utilitycraft:compressed_endstone_3": { output: "utilitycraft:compressed_crushed_endstone_3", amount: 1, tier: 4 },
+    "utilitycraft:compressed_endstone_4": { output: "utilitycraft:compressed_crushed_endstone_4", amount: 1, tier: 5 },
 
     // ========== COBBLED DEEPSLATE ==========
-    "minecraft:cobbled_deepslate": { output: "twm:crushed_cobbled_deepslate", amount: 1, tier: 1 },
-    "twm:compressed_cobbled_deepslate": { output: "twm:compressed_crushed_cobbled_deepslate", amount: 1, tier: 2 },
-    "twm:compressed_cobbled_deepslate_2": { output: "twm:compressed_crushed_cobbled_deepslate_2", amount: 1, tier: 3 },
-    "twm:compressed_cobbled_deepslate_3": { output: "twm:compressed_crushed_cobbled_deepslate_3", amount: 1, tier: 4 },
-    "twm:compressed_cobbled_deepslate_4": { output: "twm:compressed_crushed_cobbled_deepslate_4", amount: 1, tier: 5 },
+    "minecraft:cobbled_deepslate": { output: "utilitycraft:crushed_cobbled_deepslate", amount: 1, tier: 1 },
+    "utilitycraft:compressed_cobbled_deepslate": { output: "utilitycraft:compressed_crushed_cobbled_deepslate", amount: 1, tier: 2 },
+    "utilitycraft:compressed_cobbled_deepslate_2": { output: "utilitycraft:compressed_crushed_cobbled_deepslate_2", amount: 1, tier: 3 },
+    "utilitycraft:compressed_cobbled_deepslate_3": { output: "utilitycraft:compressed_crushed_cobbled_deepslate_3", amount: 1, tier: 4 },
+    "utilitycraft:compressed_cobbled_deepslate_4": { output: "utilitycraft:compressed_crushed_cobbled_deepslate_4", amount: 1, tier: 5 },
 
     // ========== DEEPSLATE ==========
     "minecraft:deepslate": { output: "minecraft:cobbled_deepslate", amount: 1, tier: 1 },
-    "twm:compressed_deepslate": { output: "twm:compressed_cobbled_deepslate", amount: 1, tier: 2 },
-    "twm:compressed_deepslate_2": { output: "twm:compressed_cobbled_deepslate_2", amount: 1, tier: 3 },
-    "twm:compressed_deepslate_3": { output: "twm:compressed_cobbled_deepslate_3", amount: 1, tier: 4 },
-    "twm:compressed_deepslate_4": { output: "twm:compressed_cobbled_deepslate_4", amount: 1, tier: 5 }
+    "utilitycraft:compressed_deepslate": { output: "utilitycraft:compressed_cobbled_deepslate", amount: 1, tier: 2 },
+    "utilitycraft:compressed_deepslate_2": { output: "utilitycraft:compressed_cobbled_deepslate_2", amount: 1, tier: 3 },
+    "utilitycraft:compressed_deepslate_3": { output: "utilitycraft:compressed_cobbled_deepslate_3", amount: 1, tier: 4 },
+    "utilitycraft:compressed_deepslate_4": { output: "utilitycraft:compressed_cobbled_deepslate_4", amount: 1, tier: 5 }
 };
 
 const toolTiers = {
-    "twm:wooden_hammer": 1,
-    "twm:stone_hammer": 2,
-    "twm:iron_hammer": 3,
-    "twm:diamond_hammer": 4,
-    "twm:netherite_hammer": 5
+    "utilitycraft:wooden_hammer": 1,
+    "utilitycraft:stone_hammer": 2,
+    "utilitycraft:iron_hammer": 3,
+    "utilitycraft:diamond_hammer": 4,
+    "utilitycraft:netherite_hammer": 5
 };
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.itemComponentRegistry.registerCustomComponent('twm:hammer', {
+    eventData.itemComponentRegistry.registerCustomComponent('utilitycraft:hammer', {
         onMineBlock(e) {
             const { block, minedBlockPermutation, itemStack } = e
 

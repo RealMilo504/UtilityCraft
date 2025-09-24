@@ -2,23 +2,23 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:expert_battery"
+			"identifier": "utilitycraft:expert_battery"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
-				"item": "twm:advanced_battery"
+				"item": "utilitycraft:advanced_battery"
 			},
 			"B": {
 				"item": "redstone_block"
 			},
 			"C": {
-				"item": "twm:expert_chip"
+				"item": "utilitycraft:expert_chip"
 			},
 			"D": {
-				"item": "twm:diamond_dust"
+				"item": "utilitycraft:diamond_dust"
 			}
 		},
 		"pattern": [
@@ -27,11 +27,11 @@
 			"CDC"
 		],
 		"result": {
-			"item": "twm:expert_battery"
+			"item": "utilitycraft:expert_battery"
 		},
 		"unlock": [
 			{
-				"item": "twm:expert_chip"
+				"item": "utilitycraft:expert_chip"
 			}
 		]
 	}

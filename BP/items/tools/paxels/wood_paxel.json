@@ -2,7 +2,7 @@
 	"format_version": "1.21.70",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:wooden_paxel"
+			"identifier": "utilitycraft:wooden_paxel"
 		},
 		"components": {
 			"minecraft:tags": {
@@ -17,10 +17,10 @@
 				"max_durability": 180
 			},
 			"minecraft:custom_components": [
-				"twm:break"
+				"utilitycraft:break"
 			],
 			"minecraft:damage": 6,
-			"minecraft:icon": "twm_wood_paxel",
+			"minecraft:icon": "utilitycraft_wood_paxel",
 			"minecraft:enchantable": {
 				"value": 15,
 				"slot": "axe"
@@ -35,7 +35,7 @@
 					},
 					{
 						"items": [
-							"twm:wooden_paxel"
+							"utilitycraft:wooden_paxel"
 						],
 						"repair_amount": 60
 					}

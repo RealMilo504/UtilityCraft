@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:nether_star_fragment"
+			"identifier": "utilitycraft:nether_star_fragment"
 		},
 		"components": {
-			"minecraft:icon": "twm_nether_star_fragment"
+			"minecraft:icon": "utilitycraft_nether_star_fragment"
 		}
 	}
 }

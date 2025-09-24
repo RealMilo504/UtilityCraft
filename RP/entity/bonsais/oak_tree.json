@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:oak_tree",
+			"identifier": "utilitycraft:oak_tree",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/oak_tree"
 			},
 			"geometry": {
-				"default": "geometry.twm_oak_tree"
+				"default": "geometry.utilitycraft_oak_tree"
 			},
 			"render_controllers": [
 				"controller.render.oak_tree"

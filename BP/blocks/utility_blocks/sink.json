@@ -2,7 +2,7 @@
     "format_version": "1.20.80",
     "minecraft:block": {
         "description": {
-            "identifier": "twm:sink",
+            "identifier": "utilitycraft:sink",
             "menu_category": {
                 "category": "construction"
             },
@@ -15,15 +15,15 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.twm_infinite_water_block",
+            "minecraft:geometry": "geometry.utilitycraft_infinite_water_block",
             "minecraft:material_instances": {
                 "*": {
-                    "texture": "twm_infinite_block_water",
+                    "texture": "utilitycraft_infinite_block_water",
                     "render_method": "alpha_test"
                 }
             },
             "minecraft:custom_components": [
-                "twm:onInteract"
+                "utilitycraft:onInteract"
             ],
             "minecraft:collision_box": {
                 "origin": [

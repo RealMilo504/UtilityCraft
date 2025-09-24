@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:fluid_pump",
+			"identifier": "utilitycraft:fluid_pump",
 			"menu_category": {
 				"category": "construction"
 			},
@@ -18,12 +18,12 @@
 			"minecraft:geometry": "geometry.fluid_pump",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_fluid_pump",
+					"texture": "utilitycraft_fluid_pump",
 					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:custom_components": [
-				"twm:fluid_pump"
+				"utilitycraft:fluid_pump"
 			],
 			"minecraft:tick": {
 				"interval_range": [

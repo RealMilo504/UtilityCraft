@@ -2,13 +2,13 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:emerald_mesh",
+			"identifier": "utilitycraft:emerald_mesh",
 			"menu_category": {
 				"category": "nature"
 			}
 		},
 		"components": {
-			"minecraft:icon": "twm_emerald_mesh"
+			"minecraft:icon": "utilitycraft_emerald_mesh"
 		}
 	}
 }

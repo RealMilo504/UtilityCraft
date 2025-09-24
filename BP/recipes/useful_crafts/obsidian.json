@@ -2,18 +2,18 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shapeless": {
 		"description": {
-			"identifier": "twm:obsidian"
+			"identifier": "utilitycraft:obsidian"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"ingredients": [
 			{
-				"item": "twm:water_ball",
+				"item": "utilitycraft:water_ball",
 				"count": 2
 			},
 			{
-				"item": "twm:lava_ball",
+				"item": "utilitycraft:lava_ball",
 				"count": 2
 			}
 		],
@@ -22,10 +22,10 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:lava_ball"
+				"item": "utilitycraft:lava_ball"
 			},
 			{
-				"item": "twm:water_ball"
+				"item": "utilitycraft:water_ball"
 			}
 		]
 	}

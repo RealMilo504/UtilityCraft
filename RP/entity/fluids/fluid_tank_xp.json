@@ -2,7 +2,7 @@
 	"format_version": "1.8.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:fluid_tank_xp",
+			"identifier": "utilitycraft:fluid_tank_xp",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/xp_fluid"
 			},
 			"geometry": {
-				"default": "geometry.twm_fluid_tank_entity"
+				"default": "geometry.utilitycraft_fluid_tank_entity"
 			},
 			"render_controllers": [
 				"controller.render.oak_tree"
@@ -20,7 +20,7 @@
 				"overlay_color": "#FFFFFF"
 			},
 			"animations": {
-				"fill": "animation.twm_fluid_tank_entity.fill"
+				"fill": "animation.utilitycraft_fluid_tank_entity.fill"
 			},
 			"animation_controllers": [
 				{

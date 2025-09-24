@@ -2,9 +2,9 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:magmatic_chamber",
+			"identifier": "utilitycraft:magmatic_chamber",
 			"states": {
-				"twm:speed": [
+				"utilitycraft:speed": [
 					0,
 					1,
 					2,
@@ -15,7 +15,7 @@
 					7,
 					8
 				],
-				"twm:energy": [
+				"utilitycraft:energy": [
 					0,
 					1,
 					2,
@@ -26,14 +26,14 @@
 					7,
 					8
 				],
-				"twm:refreshSpeed": [
+				"utilitycraft:refreshSpeed": [
 					1,
 					5,
 					10,
 					20,
 					40
 				],
-				"twm:on": [
+				"utilitycraft:on": [
 					false,
 					true
 				]
@@ -47,16 +47,16 @@
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_block_2",
+			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_magmatic_chamber",
+					"texture": "utilitycraft_magmatic_chamber",
 					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:custom_components": [
-				"twm:machine_upgrades",
-				"twm:magmatic_chamber"
+				"utilitycraft:machine_upgrades",
+				"utilitycraft:magmatic_chamber"
 			],
 			"minecraft:tick": {
 				"interval_range": [
@@ -74,7 +74,7 @@
 		},
 		"permutations": [
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 1 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 1 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -85,7 +85,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 5 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 5 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -96,7 +96,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 10 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 10 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -107,7 +107,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 20 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 20 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -118,7 +118,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 40 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 40 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -201,7 +201,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:on') == true ",
+				"condition": "q.block_state('utilitycraft:on') == true ",
 				"components": {}
 			}
 		]

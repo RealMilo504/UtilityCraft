@@ -1,11 +1,11 @@
 import * as doriosAPI from '../../doriosAPI.js'
 import { Machine, settings } from '../machines_class.js'
 
-doriosAPI.register.OldBlockComponent('twm:infuser', {
+doriosAPI.register.OldBlockComponent('utilitycraft:infuser', {
     beforeOnPlayerPlace(e) {
         Machine.spawnMachineEntity(e, settings.infuser,
             (entity) => {
-                doriosAPI.entities.setItem(entity, 6, 'twm:arrow_indicator_90', 1)
+                doriosAPI.entities.setItem(entity, 6, 'utilitycraft:arrow_indicator_90', 1)
             })
     },
     onTick(e) {

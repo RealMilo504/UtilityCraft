@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:pedestal"
+			"identifier": "utilitycraft:pedestal"
 		},
 		"tags": [
 			"crafting_table"
@@ -21,7 +21,7 @@
 			"BBB"
 		],
 		"result": {
-			"item": "twm:pedestal"
+			"item": "utilitycraft:pedestal"
 		},
 		"unlock": [
 			{

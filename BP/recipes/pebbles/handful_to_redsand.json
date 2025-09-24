@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:handful_to_redsand"
+			"identifier": "utilitycraft:handful_to_redsand"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:red_sand_handful"
+				"item": "utilitycraft:red_sand_handful"
 			}
 		},
 		"pattern": [
@@ -21,7 +21,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:red_sand_handful"
+				"item": "utilitycraft:red_sand_handful"
 			},
 			{
 				"item": "minecraft:red_sand"

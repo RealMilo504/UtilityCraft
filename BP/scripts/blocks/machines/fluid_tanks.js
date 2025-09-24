@@ -3,18 +3,18 @@ import { LiquidManager } from '../../machinery/managers.js'
 import * as doriosAPI from '../../doriosAPI.js'
 
 const tankCaps = {
-    'twm:basic_fluid_tank': 8000,
-    'twm:advanced_fluid_tank': 32000,
-    'twm:expert_fluid_tank': 128000,
-    'twm:ultimate_fluid_tank': 512000
+    'utilitycraft:basic_fluid_tank': 8000,
+    'utilitycraft:advanced_fluid_tank': 32000,
+    'utilitycraft:expert_fluid_tank': 128000,
+    'utilitycraft:ultimate_fluid_tank': 512000
 };
 
 const acceptedItems = [
     { id: 'minecraft:lava_bucket', value: 1000, liquid: 'lava', result: 'bucket' },
     { id: 'minecraft:water_bucket', value: 1000, liquid: 'water', result: 'bucket' },
     { id: 'minecraft:milk_bucket', value: 1000, liquid: 'milk', result: 'bucket' },
-    { id: 'twm:lava_ball', value: 1000, liquid: 'lava', result: 'air' },
-    { id: 'twm:water_ball', value: 1000, liquid: 'water', result: 'air' },
+    { id: 'utilitycraft:lava_ball', value: 1000, liquid: 'lava', result: 'air' },
+    { id: 'utilitycraft:water_ball', value: 1000, liquid: 'water', result: 'air' },
     { id: 'minecraft:experience_bottle', value: 8, liquid: 'xp', result: 'glass_bottle' }
 ];
 
@@ -23,11 +23,11 @@ function capitalizeWords(input) {
 }
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent("twm:fluid_tanks", {
+    eventData.blockComponentRegistry.registerCustomComponent("utilitycraft:fluid_tanks", {
         onPlayerInteract(e) {
             const { block, player } = e;
             const tankCap = tankCaps[block.typeId] || 8000;
-            const hasLiquid = block.permutation.getState("twm:hasliquid");
+            const hasLiquid = block.permutation.getState("utilitycraft:hasliquid");
             const pos = block.location;
             const mainhand = player.getComponent("equippable").getEquipment("Mainhand");
 
@@ -84,7 +84,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 
             if (liquid.get() <= 0) {
                 tank.remove();
-                block.setPermutation(block.permutation.withState("twm:hasliquid", false));
+                block.setPermutation(block.permutation.withState("utilitycraft:hasliquid", false));
                 return;
             }
 
@@ -97,7 +97,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             const { block, player, destroyedBlockPermutation } = e;
             const pos = block.location;
             const cap = tankCaps[destroyedBlockPermutation.type.id] || 8000;
-            if (!destroyedBlockPermutation.getState("twm:hasliquid")) return;
+            if (!destroyedBlockPermutation.getState("utilitycraft:hasliquid")) return;
 
             const tank = block.dimension.getEntitiesAtBlockLocation(pos)[0];
             if (!tank) return;
@@ -136,7 +136,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             const amount = parseInt(lore[1].split(": ")[1]);
 
             system.run(() => {
-                const tank = block.dimension.spawnEntity(`twm:fluid_tank_${type}`, {
+                const tank = block.dimension.spawnEntity(`utilitycraft:fluid_tank_${type}`, {
                     x: block.location.x + 0.5,
                     y: block.location.y,
                     z: block.location.z + 0.5
@@ -145,7 +145,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                 tank.runCommandAsync(`scoreboard players set @s liquid_0 ${amount}`);
                 tank.runCommandAsync(`scoreboard players set @s liquidCap_0 ${cap}`);
                 tank.addTag(`liquid0Type:${type}`);
-                block.setPermutation(block.permutation.withState("twm:hasliquid", true));
+                block.setPermutation(block.permutation.withState("utilitycraft:hasliquid", true));
                 const tier = permutationToPlace.type.id.split('_')[0]
                 tank.triggerEvent(tier)
                 tank.getComponent("minecraft:health")?.setCurrentValue(amount);

@@ -2,7 +2,7 @@
 	"format_version": "1.19.20",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "twm:ender_hopper",
+			"identifier": "utilitycraft:ender_hopper",
 			"is_spawnable": false,
 			"is_summonable": true,
 			"is_experimental": false

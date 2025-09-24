@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:steel_dust"
+			"identifier": "utilitycraft:steel_dust"
 		},
 		"components": {
-			"minecraft:icon": "twm_steel_dust"
+			"minecraft:icon": "utilitycraft_steel_dust"
 		}
 	}
 }

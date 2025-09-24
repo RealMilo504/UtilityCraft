@@ -2,9 +2,9 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:ultimate_battery",
+			"identifier": "utilitycraft:ultimate_battery",
 			"states": {
-				"twm:capacity": [
+				"utilitycraft:capacity": [
 					0,
 					1,
 					2,
@@ -13,7 +13,7 @@
 					5,
 					6
 				],
-				"twm:refreshSpeed": [
+				"utilitycraft:refreshSpeed": [
 					1,
 					5,
 					10,
@@ -26,15 +26,15 @@
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_battery",
+			"minecraft:geometry": "geometry.utilitycraft_battery",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_battery_ultimate_0",
+					"texture": "utilitycraft_battery_ultimate_0",
 					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:custom_components": [
-				"twm:battery"
+				"utilitycraft:battery"
 			],
 			"minecraft:tick": {
 				"interval_range": [
@@ -50,7 +50,7 @@
 		},
 		"permutations": [
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 1 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 1 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -61,7 +61,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 5 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 5 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -72,7 +72,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 10 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 10 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -83,7 +83,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 20 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 20 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -94,7 +94,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 40 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 40 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -105,22 +105,22 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:capacity') == 0",
+				"condition": "q.block_state('utilitycraft:capacity') == 0",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_battery_ultimate_0",
+							"texture": "utilitycraft_battery_ultimate_0",
 							"render_method": "alpha_test"
 						}
 					}
 				}
 			},
 			{
-				"condition": "q.block_state('twm:capacity') == 1",
+				"condition": "q.block_state('utilitycraft:capacity') == 1",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_battery_ultimate_1",
+							"texture": "utilitycraft_battery_ultimate_1",
 							"render_method": "alpha_test"
 						}
 					},
@@ -128,11 +128,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:capacity') == 2",
+				"condition": "q.block_state('utilitycraft:capacity') == 2",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_battery_ultimate_2",
+							"texture": "utilitycraft_battery_ultimate_2",
 							"render_method": "alpha_test"
 						}
 					},
@@ -140,11 +140,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:capacity') == 3",
+				"condition": "q.block_state('utilitycraft:capacity') == 3",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_battery_ultimate_3",
+							"texture": "utilitycraft_battery_ultimate_3",
 							"render_method": "alpha_test"
 						}
 					},
@@ -152,11 +152,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:capacity') == 4",
+				"condition": "q.block_state('utilitycraft:capacity') == 4",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_battery_ultimate_4",
+							"texture": "utilitycraft_battery_ultimate_4",
 							"render_method": "alpha_test"
 						}
 					},
@@ -164,11 +164,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:capacity') == 5",
+				"condition": "q.block_state('utilitycraft:capacity') == 5",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_battery_ultimate_5",
+							"texture": "utilitycraft_battery_ultimate_5",
 							"render_method": "alpha_test"
 						}
 					},
@@ -176,11 +176,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:capacity') == 6",
+				"condition": "q.block_state('utilitycraft:capacity') == 6",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_battery_ultimate_6",
+							"texture": "utilitycraft_battery_ultimate_6",
 							"render_method": "alpha_test"
 						}
 					},

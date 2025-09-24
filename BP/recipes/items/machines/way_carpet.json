@@ -2,10 +2,10 @@
     "format_version": "1.20.80",
     "minecraft:recipe_shaped": {
         "description": {
-            "identifier": "twm:way_carpet"
+            "identifier": "utilitycraft:way_carpet"
         },
         "tags": [
-            "twm_workbench"
+            "utilitycraft_workbench"
         ],
         "pattern": [
             " E ",
@@ -16,14 +16,14 @@
                 "item": "ender_eye"
             },
             "D": {
-                "item": "twm:expert_chip"
+                "item": "utilitycraft:expert_chip"
             },
             "S": {
-                "item": "twm:steel_plate"
+                "item": "utilitycraft:steel_plate"
             }
         },
         "result": {
-            "item": "twm:waycarpet"
+            "item": "utilitycraft:waycarpet"
         },
         "unlock": [
             {

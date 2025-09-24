@@ -5,7 +5,7 @@
             "entries": [
                 {
                     "type": "item",
-                    "name": "twm:sieve"
+                    "name": "utilitycraft:sieve"
                 }
             ]
         },
@@ -14,7 +14,7 @@
             "entries": [
                 {
                     "type": "item",
-                    "name": "twm:string_mesh"
+                    "name": "utilitycraft:string_mesh"
                 }
             ]
         }

@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:wooden_hammer"
+			"identifier": "utilitycraft:wooden_hammer"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"result": [
 			{
-				"item": "twm:wooden_hammer"
+				"item": "utilitycraft:wooden_hammer"
 			}
 		],
 		"unlock": [

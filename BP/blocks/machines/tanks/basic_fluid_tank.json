@@ -2,22 +2,22 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:basic_fluid_tank",
+			"identifier": "utilitycraft:basic_fluid_tank",
 			"menu_category": {
 				"category": "construction"
 			},
 			"states": {
-				"twm:hasliquid": [
+				"utilitycraft:hasliquid": [
 					false,
 					true
 				]
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_fluid_tank",
+			"minecraft:geometry": "geometry.utilitycraft_fluid_tank",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_basic_fluid_tank",
+					"texture": "utilitycraft_basic_fluid_tank",
 					"face_dimming": false,
 					"ambient_occlusion": false,
 					"render_method": "alpha_test"
@@ -55,7 +55,7 @@
 				]
 			},
 			"minecraft:custom_components": [
-				"twm:fluid_tanks"
+				"utilitycraft:fluid_tanks"
 			],
 			"tag:dorios:fluid": {}
 		}

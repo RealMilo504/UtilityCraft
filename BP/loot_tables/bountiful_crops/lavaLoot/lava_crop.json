@@ -5,7 +5,7 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "twm:lava_ball",
+					"name": "utilitycraft:lava_ball",
 					"functions": [
 						{
 							"function": "set_count",
@@ -23,7 +23,7 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "twm:lava_seeds",
+					"name": "utilitycraft:lava_seeds",
 					"weight": 1
 				},
 				{
@@ -50,7 +50,7 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "twm:lava_ball",
+					"name": "utilitycraft:lava_ball",
 					"weight": 1
 				},
 				{

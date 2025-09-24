@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:tractor_placer"
+			"identifier": "utilitycraft:tractor_placer"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
@@ -30,7 +30,7 @@
 			"BAB"
 		],
 		"result": {
-			"item": "twm:tractor_placer"
+			"item": "utilitycraft:tractor_placer"
 		},
 		"unlock": [
 			{

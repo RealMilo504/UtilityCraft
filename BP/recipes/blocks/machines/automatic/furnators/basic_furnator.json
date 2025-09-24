@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:basic_furnator"
+			"identifier": "utilitycraft:basic_furnator"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
-				"item": "twm:steel_ingot"
+				"item": "utilitycraft:steel_ingot"
 			},
 			"B": {
 				"item": "minecraft:blast_furnace"
@@ -21,7 +21,7 @@
 				"item": "minecraft:redstone_block"
 			},
 			"E": {
-				"item": "twm:basic_chip"
+				"item": "utilitycraft:basic_chip"
 			}
 		},
 		"pattern": [
@@ -30,7 +30,7 @@
 			"CDC"
 		],
 		"result": {
-			"item": "twm:basic_furnator"
+			"item": "utilitycraft:basic_furnator"
 		},
 		"unlock": [
 			{

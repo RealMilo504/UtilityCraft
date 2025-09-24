@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.twm_chunk_loader",
+				"identifier": "geometry.utilitycraft_chunk_loader",
 				"texture_width": 16,
 				"texture_height": 16,
 				"visible_bounds_width": 2,

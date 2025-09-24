@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:heavy_drill"
+			"identifier": "utilitycraft:heavy_drill"
 		},
 		"pattern": [
 			" ZX",
@@ -14,7 +14,7 @@
 		],
 		"result": [
 			{
-				"item": "twm:heavy_drill"
+				"item": "utilitycraft:heavy_drill"
 			}
 		],
 		"unlock": [
@@ -28,7 +28,7 @@
 				"item": "minecraft:repeater"
 			},
 			{
-				"item": "twm:drill"
+				"item": "utilitycraft:drill"
 			},
 			{
 				"item": "minecraft:redstone_block"
@@ -45,7 +45,7 @@
 				"item": "minecraft:repeater"
 			},
 			"S": {
-				"item": "twm:drill"
+				"item": "utilitycraft:drill"
 			},
 			"D": {
 				"item": "minecraft:redstone_block"

@@ -2,16 +2,16 @@
 	"format_version": "1.19.50",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:compressed_copper_block_3",
+			"identifier": "utilitycraft:compressed_copper_block_3",
 			"menu_category": {
 				"category": "construction"
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_block",
+			"minecraft:geometry": "geometry.utilitycraft_block",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_compressed_copper_block_3",
+					"texture": "utilitycraft_compressed_copper_block_3",
 					"render_method": "alpha_test"
 				}
 			},

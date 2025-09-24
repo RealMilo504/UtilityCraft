@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:chunk_to_iron"
+			"identifier": "utilitycraft:chunk_to_iron"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:iron_chunk"
+				"item": "utilitycraft:iron_chunk"
 			}
 		},
 		"pattern": [
@@ -20,7 +20,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:iron_chunk"
+				"item": "utilitycraft:iron_chunk"
 			},
 			{
 				"item": "minecraft:raw_iron"

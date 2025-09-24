@@ -2,21 +2,21 @@ import { world } from '@minecraft/server'
 import { ModalFormData } from '@minecraft/server-ui'
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:fan', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:fan', {
         onPlayerInteract(e) {
             const { block, player } = e
             const hand = player.getComponent('equippable').getEquipment('Mainhand')
             const modalForm = new ModalFormData().title('Fan Settings')
             for (let i = 0; i <= 5; i++) {
-                if (block.permutation.getState('twm:range') == i && hand == undefined && player.isSneaking == false) {
-                    modalForm.toggle('Off/On', block.permutation.getState('twm:state'));
-                    modalForm.slider('Range', 0, (3 + i * 2), 1, block.permutation.getState('twm:rangeSelected'));
+                if (block.permutation.getState('utilitycraft:range') == i && hand == undefined && player.isSneaking == false) {
+                    modalForm.toggle('Off/On', block.permutation.getState('utilitycraft:state'));
+                    modalForm.slider('Range', 0, (3 + i * 2), 1, block.permutation.getState('utilitycraft:rangeSelected'));
                     modalForm
                         .show(player)
                         .then(formData => {
                             if (formData.formValues != undefined) {
-                                block.setPermutation(block.permutation.withState('twm:state', formData.formValues[0]))
-                                block.setPermutation(block.permutation.withState('twm:rangeSelected', formData.formValues[1]))
+                                block.setPermutation(block.permutation.withState('utilitycraft:state', formData.formValues[0]))
+                                block.setPermutation(block.permutation.withState('utilitycraft:rangeSelected', formData.formValues[1]))
                             }
                         })
                 }
@@ -27,8 +27,8 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             let { x, y, z } = block.location
 
 
-            if (block.permutation.getState('twm:rangeSelected') > (3 + block.permutation.getState('twm:range') * 2)) {
-                block.setPermutation(block.permutation.withState('twm:rangeSelected', 3))
+            if (block.permutation.getState('utilitycraft:rangeSelected') > (3 + block.permutation.getState('utilitycraft:range') * 2)) {
+                block.setPermutation(block.permutation.withState('utilitycraft:rangeSelected', 3))
             }
 
             let entities = undefined
@@ -65,8 +65,8 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                     xdir = -1
                     break
             }
-            if (block.permutation.getState('twm:state')) {
-                for (let i = 0; i < block.permutation.getState('twm:rangeSelected'); i++) {
+            if (block.permutation.getState('utilitycraft:state')) {
+                for (let i = 0; i < block.permutation.getState('utilitycraft:rangeSelected'); i++) {
                     entities = block.dimension.getEntitiesAtBlockLocation({ x: x + i * xdir, y: y + i * ydir, z: z + i * zdir })
                     const blockatloc = block.dimension.getBlock({ x: x + i * xdir, y: y + i * ydir, z: z + i * zdir })
                     if (blockatloc != undefined) {

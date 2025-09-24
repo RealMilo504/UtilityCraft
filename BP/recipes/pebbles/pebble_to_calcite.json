@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:pebble_to_calcite"
+			"identifier": "utilitycraft:pebble_to_calcite"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:calcite_pebble"
+				"item": "utilitycraft:calcite_pebble"
 			}
 		},
 		"pattern": [
@@ -21,7 +21,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:calcite_pebble"
+				"item": "utilitycraft:calcite_pebble"
 			},
 			{
 				"item": "minecraft:calcite"

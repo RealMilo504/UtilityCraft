@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.twm_mushroom",
+				"identifier": "geometry.utilitycraft_mushroom",
 				"texture_width": 16,
 				"texture_height": 16,
 				"visible_bounds_width": 2,

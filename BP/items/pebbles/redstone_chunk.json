@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:redstone_chunk"
+			"identifier": "utilitycraft:redstone_chunk"
 		},
 		"components": {
-			"minecraft:icon": "twm_redstone_chunk"
+			"minecraft:icon": "utilitycraft_redstone_chunk"
 		}
 	}
 }

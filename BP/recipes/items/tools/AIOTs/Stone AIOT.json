@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:stone_aiot"
+			"identifier": "utilitycraft:stone_aiot"
 		},
 		"tags": [
 			"crafting_table"
@@ -14,7 +14,7 @@
 		],
 		"result": [
 			{
-				"item": "twm:stone_aiot"
+				"item": "utilitycraft:stone_aiot"
 			}
 		],
 		"unlock": [
@@ -28,7 +28,7 @@
 				"item": "minecraft:string"
 			},
 			{
-				"item": "twm:stone_paxel"
+				"item": "utilitycraft:stone_paxel"
 			},
 			{
 				"item": "minecraft:stone_hoe"
@@ -48,7 +48,7 @@
 				"item": "minecraft:string"
 			},
 			"P": {
-				"item": "twm:stone_paxel"
+				"item": "utilitycraft:stone_paxel"
 			},
 			"A": {
 				"item": "minecraft:stone_hoe"

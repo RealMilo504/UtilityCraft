@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shapeless": {
 		"description": {
-			"identifier": "twm:raw_steel"
+			"identifier": "utilitycraft:raw_steel"
 		},
 		"ingredients": [
 			{
@@ -12,15 +12,15 @@
 				"item": "raw_iron"
 			},
 			{
-				"item": "twm:smeltflare"
+				"item": "utilitycraft:smeltflare"
 			}
 		],
 		"result": {
-			"item": "twm:raw_steel"
+			"item": "utilitycraft:raw_steel"
 		},
 		"unlock": [
 			{
-				"item": "twm:smeltflare"
+				"item": "utilitycraft:smeltflare"
 			},
 			{
 				"item": "raw_iron"

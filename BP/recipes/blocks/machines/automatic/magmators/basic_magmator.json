@@ -2,26 +2,26 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:basic_magmator"
+			"identifier": "utilitycraft:basic_magmator"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"G": {
-				"item": "twm:gold_plate"
+				"item": "utilitycraft:gold_plate"
 			},
 			"B": {
 				"item": "furnace"
 			},
 			"S": {
-				"item": "twm:steel_plate"
+				"item": "utilitycraft:steel_plate"
 			},
 			"D": {
-				"item": "twm:basic_fluid_tank"
+				"item": "utilitycraft:basic_fluid_tank"
 			},
 			"E": {
-				"item": "twm:basic_chip"
+				"item": "utilitycraft:basic_chip"
 			}
 		},
 		"pattern": [
@@ -30,11 +30,11 @@
 			"SES"
 		],
 		"result": {
-			"item": "twm:basic_magmator"
+			"item": "utilitycraft:basic_magmator"
 		},
 		"unlock": [
 			{
-				"item": "twm:basic_chip"
+				"item": "utilitycraft:basic_chip"
 			}
 		]
 	}

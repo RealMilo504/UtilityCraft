@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:filter_upgrade"
+			"identifier": "utilitycraft:filter_upgrade"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"B": {
-				"item": "twm:base_upgrade"
+				"item": "utilitycraft:base_upgrade"
 			},
 			"C": {
 				"item": "comparator"
@@ -21,7 +21,7 @@
 				"item": "redstone"
 			},
 			"S": {
-				"item": "twm:steel_ingot"
+				"item": "utilitycraft:steel_ingot"
 			}
 		},
 		"pattern": [
@@ -30,11 +30,11 @@
 			"RHR"
 		],
 		"result": {
-			"item": "twm:filter_upgrade"
+			"item": "utilitycraft:filter_upgrade"
 		},
 		"unlock": [
 			{
-				"item": "twm:base_upgrade"
+				"item": "utilitycraft:base_upgrade"
 			}
 		]
 	}

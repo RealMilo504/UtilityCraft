@@ -2,23 +2,23 @@
     "format_version": "1.20.80",
     "minecraft:recipe_shapeless": {
         "description": {
-            "identifier": "twm:conveyor_declined_0"
+            "identifier": "utilitycraft:conveyor_declined_0"
         },
         "tags": [
-            "twm_workbench"
+            "utilitycraft_workbench"
         ],
         "ingredients": [
             {
-                "item": "twm:conveyor_inclined"
+                "item": "utilitycraft:conveyor_inclined"
             }
         ],
         "result": {
-            "item": "twm:conveyor_declined",
+            "item": "utilitycraft:conveyor_declined",
             "count": 1
         },
         "unlock": [
             {
-                "item": "twm:asphalt"
+                "item": "utilitycraft:asphalt"
             },
             {
                 "item": "minecraft:redstone"

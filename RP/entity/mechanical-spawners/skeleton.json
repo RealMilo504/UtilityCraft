@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:mechanical_spawner_skeleton",
+			"identifier": "utilitycraft:mechanical_spawner_skeleton",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/blocks/mech-spawners/mechanical_spawner_skeleton"
 			},
 			"geometry": {
-				"default": "geometry.twm_spawner_type"
+				"default": "geometry.utilitycraft_spawner_type"
 			},
 			"render_controllers": [
 				"controller.render.oak_tree"

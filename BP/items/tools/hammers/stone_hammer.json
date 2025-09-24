@@ -2,7 +2,7 @@
 	"format_version": "1.21.70",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:stone_hammer"
+			"identifier": "utilitycraft:stone_hammer"
 		},
 		"components": {
 			"minecraft:max_stack_size": 1,
@@ -11,15 +11,15 @@
 				"max_durability": 251
 			},
 			"minecraft:damage": 6,
-			"minecraft:icon": "twm_stone_hammer",
+			"minecraft:icon": "utilitycraft_stone_hammer",
 			"minecraft:enchantable": {
 				"value": 15,
 				"slot": "pickaxe"
 			},
 			"minecraft:custom_components": [
-				"twm:hammer",
-				"twm:break",
-				"twm:dig_pebble"
+				"utilitycraft:hammer",
+				"utilitycraft:break",
+				"utilitycraft:dig_pebble"
 			],
 			"minecraft:repairable": {
 				"repair_items": [
@@ -31,7 +31,7 @@
 					},
 					{
 						"items": [
-							"twm:stone_hammer"
+							"utilitycraft:stone_hammer"
 						],
 						"repair_amount": 251
 					}

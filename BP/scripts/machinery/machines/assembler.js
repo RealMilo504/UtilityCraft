@@ -1,7 +1,7 @@
 import * as doriosAPI from '../../doriosAPI.js'
 import { Machine, settings } from '../machines_class.js'
 
-doriosAPI.register.OldBlockComponent('twm:assembler', {
+doriosAPI.register.OldBlockComponent('utilitycraft:assembler', {
     beforeOnPlayerPlace(e) {
         Machine.spawnMachineEntity(e, settings.assembler);
     },
@@ -12,7 +12,7 @@ doriosAPI.register.OldBlockComponent('twm:assembler', {
         Machine.tick(() => {
             // We get the blueprint item
             let blueprint = machine.inv.getItem(3);
-            if (!blueprint || blueprint?.typeId != 'twm:blueprint') {
+            if (!blueprint || blueprint?.typeId != 'utilitycraft:blueprint') {
                 machine.displayEnergy()
                 machine.progress.reset()
                 return
@@ -49,7 +49,7 @@ doriosAPI.register.OldBlockComponent('twm:assembler', {
                 return
             }
 
-            let speed = 8 * e.block.permutation.getState('twm:speed')
+            let speed = 8 * e.block.permutation.getState('utilitycraft:speed')
             if (speed == 0) speed = 4
             let maxCraftAmount = Math.min(Math.floor(amountLeft / resultAmount), speed)
 

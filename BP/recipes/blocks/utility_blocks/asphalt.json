@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:asphalt"
+			"identifier": "utilitycraft:asphalt"
 		},
 		"tags": [
 			"crafting_table"
@@ -24,7 +24,7 @@
 			"GSG"
 		],
 		"result": {
-			"item": "twm:asphalt",
+			"item": "utilitycraft:asphalt",
 			"count": 8
 		},
 		"unlock": [

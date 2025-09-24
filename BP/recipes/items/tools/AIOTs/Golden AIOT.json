@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:golden_aiot"
+			"identifier": "utilitycraft:golden_aiot"
 		},
 		"tags": [
 			"utility_table"
@@ -14,7 +14,7 @@
 		],
 		"result": [
 			{
-				"item": "twm:golden_aiot"
+				"item": "utilitycraft:golden_aiot"
 			}
 		],
 		"unlock": [
@@ -31,7 +31,7 @@
 				"item": "minecraft:string"
 			},
 			{
-				"item": "twm:golden_paxel"
+				"item": "utilitycraft:golden_paxel"
 			},
 			{
 				"item": "minecraft:golden_hoe"
@@ -51,7 +51,7 @@
 				"item": "minecraft:string"
 			},
 			"P": {
-				"item": "twm:golden_paxel"
+				"item": "utilitycraft:golden_paxel"
 			},
 			"A": {
 				"item": "minecraft:golden_hoe"

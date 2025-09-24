@@ -2,7 +2,7 @@ import * as doriosAPI from '../../doriosAPI.js'
 import { Machine, settings } from '../machines_class.js'
 import { system } from '@minecraft/server'
 
-doriosAPI.register.OldBlockComponent('twm:block_breaker', {
+doriosAPI.register.OldBlockComponent('utilitycraft:block_breaker', {
     beforeOnPlayerPlace(e) {
         Machine.spawnMachineEntity(e, settings.blockBreaker);
         system.runTimeout(() => {
@@ -13,7 +13,7 @@ doriosAPI.register.OldBlockComponent('twm:block_breaker', {
     onTick(e) {
         const machine = new Machine(e.block, settings.blockBreaker)
 
-        const realEnergyCost = Math.ceil(settings.blockBreaker.energyCost * (1 - 0.2 * e.block.permutation.getState('twm:energy')))
+        const realEnergyCost = Math.ceil(settings.blockBreaker.energyCost * (1 - 0.2 * e.block.permutation.getState('utilitycraft:energy')))
 
         // If theres no energy, return
         if (machine.energy.get() < realEnergyCost) {

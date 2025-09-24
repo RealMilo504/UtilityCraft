@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:golden_paxel"
+			"identifier": "utilitycraft:golden_paxel"
 		},
 		"tags": [
 			"utility_table"
@@ -51,7 +51,7 @@
 		],
 		"result": [
 			{
-				"item": "twm:golden_paxel"
+				"item": "utilitycraft:golden_paxel"
 			}
 		]
 	}

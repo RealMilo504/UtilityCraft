@@ -2,13 +2,13 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:basic_solar_panel",
+			"identifier": "utilitycraft:basic_solar_panel",
 			"states": {
-				"twm:on": [
+				"utilitycraft:on": [
 					false,
 					true
 				],
-				"twm:refreshSpeed": [
+				"utilitycraft:refreshSpeed": [
 					1,
 					5,
 					10,
@@ -21,15 +21,15 @@
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_solar_panel",
+			"minecraft:geometry": "geometry.utilitycraft_solar_panel",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_basic_solar_panel_off",
+					"texture": "utilitycraft_basic_solar_panel_off",
 					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:custom_components": [
-				"twm:solar_panel"
+				"utilitycraft:solar_panel"
 			],
 			"minecraft:tick": {
 				"interval_range": [
@@ -69,7 +69,7 @@
 		},
 		"permutations": [
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 1 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 1 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -80,7 +80,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 5 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 5 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -91,7 +91,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 10 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 10 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -102,7 +102,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 20 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 20 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -113,7 +113,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 40 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 40 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -124,11 +124,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:on') == true ",
+				"condition": "q.block_state('utilitycraft:on') == true ",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_basic_solar_panel_on",
+							"texture": "utilitycraft_basic_solar_panel_on",
 							"render_method": "alpha_test"
 						}
 					},

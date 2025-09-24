@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:cobble_gen_2"
+			"identifier": "utilitycraft:cobble_gen_2"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "gold_ingot"
 			},
 			"G": {
-				"item": "twm:cobble_gen_1"
+				"item": "utilitycraft:cobble_gen_1"
 			}
 		},
 		"pattern": [
@@ -21,14 +21,14 @@
 			"MMM"
 		],
 		"result": {
-			"item": "twm:cobble_gen_2"
+			"item": "utilitycraft:cobble_gen_2"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:gold_ingot"
 			},
 			{
-				"item": "twm:cobble_gen_1"
+				"item": "utilitycraft:cobble_gen_1"
 			}
 		]
 	}

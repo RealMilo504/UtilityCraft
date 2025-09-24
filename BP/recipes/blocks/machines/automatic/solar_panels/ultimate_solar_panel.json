@@ -2,26 +2,26 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:ultimate_solar_panel"
+			"identifier": "utilitycraft:ultimate_solar_panel"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
-				"item": "twm:steel_plate"
+				"item": "utilitycraft:steel_plate"
 			},
 			"B": {
-				"item": "twm:expert_solar_panel"
+				"item": "utilitycraft:expert_solar_panel"
 			},
 			"C": {
-				"item": "twm:netherite_plate"
+				"item": "utilitycraft:netherite_plate"
 			},
 			"D": {
 				"item": "minecraft:redstone_block"
 			},
 			"E": {
-				"item": "twm:ultimate_chip"
+				"item": "utilitycraft:ultimate_chip"
 			}
 		},
 		"pattern": [
@@ -30,14 +30,14 @@
 			"CDC"
 		],
 		"result": {
-			"item": "twm:ultimate_solar_panel"
+			"item": "utilitycraft:ultimate_solar_panel"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:redstone_block"
 			},
 			{
-				"item": "twm:ultimate_chip"
+				"item": "utilitycraft:ultimate_chip"
 			},
 			{
 				"item": "minecraft:daylight_detector"

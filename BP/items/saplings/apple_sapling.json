@@ -2,13 +2,13 @@
   "format_version": "1.20.80",
   "minecraft:item": {
     "description": {
-      "identifier": "twm:apple_sapling",
+      "identifier": "utilitycraft:apple_sapling",
       "menu_category": {
         "category": "nature"
       }
     },
     "components": {
-      "minecraft:icon": "twm_apple_sapling"
+      "minecraft:icon": "utilitycraft_apple_sapling"
     }
   }
 }

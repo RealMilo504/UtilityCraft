@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:black_soil"
+			"identifier": "utilitycraft:black_soil"
 		},
 		"tags": [
 			"crafting_table"
@@ -13,7 +13,7 @@
 				"data": 1
 			},
 			"D": {
-				"item": "twm:blue_soil"
+				"item": "utilitycraft:blue_soil"
 			},
 			"R": {
 				"item": "nether_star"
@@ -28,7 +28,7 @@
 			"DND"
 		],
 		"result": {
-			"item": "twm:black_soil",
+			"item": "utilitycraft:black_soil",
 			"count": 4
 		},
 		"unlock": [
@@ -37,7 +37,7 @@
 				"data": 1
 			},
 			{
-				"item": "twm:blue_soil"
+				"item": "utilitycraft:blue_soil"
 			},
 			{
 				"item": "minecraft:nether_star"

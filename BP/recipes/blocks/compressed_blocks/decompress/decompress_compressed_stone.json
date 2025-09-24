@@ -2,14 +2,14 @@
   "format_version": "1.20.80",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:decompress_compressed_stone"
+      "identifier": "utilitycraft:decompress_compressed_stone"
     },
     "tags": [
       "crafting_table"
     ],
     "ingredients": [
       {
-        "item": "twm:compressed_stone"
+        "item": "utilitycraft:compressed_stone"
       }
     ],
     "result": {
@@ -18,7 +18,7 @@
     },
     "unlock": [
       {
-        "item": "twm:compressed_stone"
+        "item": "utilitycraft:compressed_stone"
       }
     ]
   }

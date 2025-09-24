@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shapeless": {
 		"description": {
-			"identifier": "twm:copper_to_nugget"
+			"identifier": "utilitycraft:copper_to_nugget"
 		},
 		"tags": [
 			"crafting_table"
@@ -14,7 +14,7 @@
 			}
 		],
 		"result": {
-			"item": "twm:copper_nugget",
+			"item": "utilitycraft:copper_nugget",
 			"count": 9
 		},
 		"unlock": [

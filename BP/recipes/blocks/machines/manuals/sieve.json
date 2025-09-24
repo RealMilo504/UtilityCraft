@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:sieve"
+			"identifier": "utilitycraft:sieve"
 		},
 		"tags": [
 			"crafting_table"
@@ -24,7 +24,7 @@
 			"A A"
 		],
 		"result": {
-			"item": "twm:sieve"
+			"item": "utilitycraft:sieve"
 		},
 		"unlock": [
 			{

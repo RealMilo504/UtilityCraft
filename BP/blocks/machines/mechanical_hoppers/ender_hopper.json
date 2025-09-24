@@ -2,19 +2,19 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:ender_hopper",
+			"identifier": "utilitycraft:ender_hopper",
 			"menu_category": {
 				"category": "construction"
 			},
 			"states": {
-				"twm:range": [
+				"utilitycraft:range": [
 					0,
 					1,
 					2,
 					3,
 					4
 				],
-				"twm:rangeSelected": [
+				"utilitycraft:rangeSelected": [
 					0,
 					1,
 					2,
@@ -28,21 +28,21 @@
 					10,
 					11
 				],
-				"twm:state": [
+				"utilitycraft:state": [
 					false,
 					true
 				]
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_ender_hopper",
+			"minecraft:geometry": "geometry.utilitycraft_ender_hopper",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_ender_hopper",
+					"texture": "utilitycraft_ender_hopper",
 					"render_method": "opaque"
 				},
 				"up": {
-					"texture": "twm_ender_hopper_animated",
+					"texture": "utilitycraft_ender_hopper_animated",
 					"render_method": "opaque"
 				}
 			},
@@ -71,8 +71,8 @@
 				]
 			},
 			"minecraft:custom_components": [
-				"twm:ender_hopper",
-				"twm:machine_upgrades"
+				"utilitycraft:ender_hopper",
+				"utilitycraft:machine_upgrades"
 			],
 			"minecraft:tick": {
 				"interval_range": [
@@ -88,60 +88,60 @@
 		},
 		"permutations": [
 			{
-				"condition": "q.block_state('twm:range') == 1",
+				"condition": "q.block_state('utilitycraft:range') == 1",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_ender_hopper_range1",
+							"texture": "utilitycraft_ender_hopper_range1",
 							"render_method": "opaque"
 						},
 						"up": {
-							"texture": "twm_ender_hopper_animated",
+							"texture": "utilitycraft_ender_hopper_animated",
 							"render_method": "opaque"
 						}
 					}
 				}
 			},
 			{
-				"condition": "q.block_state('twm:range') == 2",
+				"condition": "q.block_state('utilitycraft:range') == 2",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_ender_hopper_range2",
+							"texture": "utilitycraft_ender_hopper_range2",
 							"render_method": "opaque"
 						},
 						"up": {
-							"texture": "twm_ender_hopper_animated",
+							"texture": "utilitycraft_ender_hopper_animated",
 							"render_method": "opaque"
 						}
 					}
 				}
 			},
 			{
-				"condition": "q.block_state('twm:range') == 3",
+				"condition": "q.block_state('utilitycraft:range') == 3",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_ender_hopper_range3",
+							"texture": "utilitycraft_ender_hopper_range3",
 							"render_method": "opaque"
 						},
 						"up": {
-							"texture": "twm_ender_hopper_animated",
+							"texture": "utilitycraft_ender_hopper_animated",
 							"render_method": "opaque"
 						}
 					}
 				}
 			},
 			{
-				"condition": "q.block_state('twm:range') == 4",
+				"condition": "q.block_state('utilitycraft:range') == 4",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_ender_hopper_range4",
+							"texture": "utilitycraft_ender_hopper_range4",
 							"render_method": "opaque"
 						},
 						"up": {
-							"texture": "twm_ender_hopper_animated",
+							"texture": "utilitycraft_ender_hopper_animated",
 							"render_method": "opaque"
 						}
 					}

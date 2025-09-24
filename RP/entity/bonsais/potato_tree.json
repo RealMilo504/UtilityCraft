@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:potato",
+			"identifier": "utilitycraft:potato",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/potatoes_bonsai"
 			},
 			"geometry": {
-				"default": "geometry.twm_sugarcane"
+				"default": "geometry.utilitycraft_sugarcane"
 			},
 			"render_controllers": [
 				"controller.render.sugarcane"

@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:grenade"
+			"identifier": "utilitycraft:grenade"
 		},
 		"tags": [
 			"crafting_table"
@@ -21,7 +21,7 @@
 			" W"
 		],
 		"result": {
-			"item": "twm:grenade",
+			"item": "utilitycraft:grenade",
 			"count": 8
 		},
 		"unlock": [

@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:pebble_to_cobblestone"
+			"identifier": "utilitycraft:pebble_to_cobblestone"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:stone_pebble"
+				"item": "utilitycraft:stone_pebble"
 			}
 		},
 		"pattern": [
@@ -21,7 +21,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:stone_pebble"
+				"item": "utilitycraft:stone_pebble"
 			},
 			{
 				"item": "minecraft:cobblestone"

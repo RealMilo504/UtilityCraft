@@ -1,45 +1,45 @@
 import { world, ItemStack } from '@minecraft/server'
 
 const essences = [
-    'twm:essence_vessel',
-    'twm:blaze_essence',
-    'twm:chicken_essence',
-    'twm:cow_essence',
-    'twm:creeper_essence',
-    'twm:enderman_essence',
-    'twm:hoglin_essence',
-    'twm:magma_cube_essence',
-    'twm:mooshroom_essence',
-    'twm:pig_essence',
-    'twm:sheep_essence',
-    'twm:skeleton_essence',
-    'twm:slime_essence',
-    'twm:spider_essence',
-    'twm:wither_skeleton_essence',
-    'twm:zombie_essence'
+    'utilitycraft:essence_vessel',
+    'utilitycraft:blaze_essence',
+    'utilitycraft:chicken_essence',
+    'utilitycraft:cow_essence',
+    'utilitycraft:creeper_essence',
+    'utilitycraft:enderman_essence',
+    'utilitycraft:hoglin_essence',
+    'utilitycraft:magma_cube_essence',
+    'utilitycraft:mooshroom_essence',
+    'utilitycraft:pig_essence',
+    'utilitycraft:sheep_essence',
+    'utilitycraft:skeleton_essence',
+    'utilitycraft:slime_essence',
+    'utilitycraft:spider_essence',
+    'utilitycraft:wither_skeleton_essence',
+    'utilitycraft:zombie_essence'
 ]
 
 const spawnerTypes = [
-    'twm:mechanical_spawner',
-    'twm:mechanical_spawner_blaze',
-    'twm:mechanical_spawner_chicken',
-    'twm:mechanical_spawner_cow',
-    'twm:mechanical_spawner_creeper',
-    'twm:mechanical_spawner_enderman',
-    'twm:mechanical_spawner_hoglin',
-    'twm:mechanical_spawner_magma_cube',
-    'twm:mechanical_spawner_mooshroom',
-    'twm:mechanical_spawner_pig',
-    'twm:mechanical_spawner_sheep',
-    'twm:mechanical_spawner_skeleton',
-    'twm:mechanical_spawner_slime',
-    'twm:mechanical_spawner_spider',
-    'twm:mechanical_spawner_wither_skeleton',
-    'twm:mechanical_spawner_zombie'
+    'utilitycraft:mechanical_spawner',
+    'utilitycraft:mechanical_spawner_blaze',
+    'utilitycraft:mechanical_spawner_chicken',
+    'utilitycraft:mechanical_spawner_cow',
+    'utilitycraft:mechanical_spawner_creeper',
+    'utilitycraft:mechanical_spawner_enderman',
+    'utilitycraft:mechanical_spawner_hoglin',
+    'utilitycraft:mechanical_spawner_magma_cube',
+    'utilitycraft:mechanical_spawner_mooshroom',
+    'utilitycraft:mechanical_spawner_pig',
+    'utilitycraft:mechanical_spawner_sheep',
+    'utilitycraft:mechanical_spawner_skeleton',
+    'utilitycraft:mechanical_spawner_slime',
+    'utilitycraft:mechanical_spawner_spider',
+    'utilitycraft:mechanical_spawner_wither_skeleton',
+    'utilitycraft:mechanical_spawner_zombie'
 ]
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:mech_spawners_select', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:mech_spawners_select', {
         onPlayerInteract(e) {
             const { block, player } = e
             let { x, y, z } = block.location
@@ -48,7 +48,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             for (let i = 0; i < spawnerTypes.length; i++) {
                 if (selectItem == essences[i]) {
                     player.runCommand(`clear @s ${essences[i]} 0 1`)
-                    block.setPermutation(block.permutation.withState('twm:spawnerTypes', i))
+                    block.setPermutation(block.permutation.withState('utilitycraft:spawnerTypes', i))
                     block.dimension.runCommand(`summon ${spawnerTypes[i]} ${x} ${y} ${z} 0  0`)
                 }
             }

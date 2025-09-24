@@ -2,14 +2,14 @@
   "format_version": "1.20.80",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:decompress_compressed_glass"
+      "identifier": "utilitycraft:decompress_compressed_glass"
     },
     "tags": [
       "crafting_table"
     ],
     "ingredients": [
       {
-        "item": "twm:compressed_glass"
+        "item": "utilitycraft:compressed_glass"
       }
     ],
     "result": {
@@ -18,7 +18,7 @@
     },
     "unlock": [
       {
-        "item": "twm:compressed_glass"
+        "item": "utilitycraft:compressed_glass"
       }
     ]
   }

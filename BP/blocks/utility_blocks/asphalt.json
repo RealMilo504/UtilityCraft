@@ -2,9 +2,9 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:asphalt",
+			"identifier": "utilitycraft:asphalt",
 			"states": {
-				"twm:texture": [
+				"utilitycraft:texture": [
 					0,
 					1,
 					2,
@@ -19,25 +19,25 @@
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_block",
+			"minecraft:geometry": "geometry.utilitycraft_block",
 			"minecraft:custom_components": [
-				"twm:asphalt"
+				"utilitycraft:asphalt"
 			]
 		},
 		"permutations": [
 			{
-				"condition": "query.block_state('twm:texture') == 0",
+				"condition": "query.block_state('utilitycraft:texture') == 0",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_asphalt",
+							"texture": "utilitycraft_asphalt",
 							"render_method": "alpha_test"
 						}
 					}
 				}
 			},
 			{
-				"condition": "query.block_state('twm:texture') == 1",
+				"condition": "query.block_state('utilitycraft:texture') == 1",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
@@ -48,7 +48,7 @@
 				}
 			},
 			{
-				"condition": "query.block_state('twm:texture') == 2",
+				"condition": "query.block_state('utilitycraft:texture') == 2",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
@@ -59,7 +59,7 @@
 				}
 			},
 			{
-				"condition": "query.block_state('twm:texture') == 3",
+				"condition": "query.block_state('utilitycraft:texture') == 3",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
@@ -70,7 +70,7 @@
 				}
 			},
 			{
-				"condition": "query.block_state('twm:texture') == 4",
+				"condition": "query.block_state('utilitycraft:texture') == 4",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
@@ -81,7 +81,7 @@
 				}
 			},
 			{
-				"condition": "query.block_state('twm:texture') == 5",
+				"condition": "query.block_state('utilitycraft:texture') == 5",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
@@ -92,7 +92,7 @@
 				}
 			},
 			{
-				"condition": "query.block_state('twm:texture') == 6",
+				"condition": "query.block_state('utilitycraft:texture') == 6",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {

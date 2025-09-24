@@ -2,23 +2,23 @@
   "format_version": "1.20.80",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:decompress_compressed_raw_gold_block_3"
+      "identifier": "utilitycraft:decompress_compressed_raw_gold_block_3"
     },
     "tags": [
       "crafting_table"
     ],
     "ingredients": [
       {
-        "item": "twm:compressed_raw_gold_block_3"
+        "item": "utilitycraft:compressed_raw_gold_block_3"
       }
     ],
     "result": {
-      "item": "twm:compressed_raw_gold_block_2",
+      "item": "utilitycraft:compressed_raw_gold_block_2",
       "count": 9
     },
     "unlock": [
       {
-        "item": "twm:compressed_raw_gold_block_3"
+        "item": "utilitycraft:compressed_raw_gold_block_3"
       }
     ]
   }

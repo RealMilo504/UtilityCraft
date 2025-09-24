@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:chunk_to_quartz"
+			"identifier": "utilitycraft:chunk_to_quartz"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:nether_quartz_chunk"
+				"item": "utilitycraft:nether_quartz_chunk"
 			}
 		},
 		"pattern": [
@@ -21,7 +21,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:nether_quartz_chunk"
+				"item": "utilitycraft:nether_quartz_chunk"
 			},
 			{
 				"item": "minecraft:quartz"

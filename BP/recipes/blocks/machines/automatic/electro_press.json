@@ -2,26 +2,26 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:electro_press"
+			"identifier": "utilitycraft:electro_press"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
 				"item": "minecraft:piston"
 			},
 			"B": {
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			},
 			"P": {
 				"item": "redstone"
 			},
 			"R": {
-				"item": "twm:compressed_cobblestone"
+				"item": "utilitycraft:compressed_cobblestone"
 			},
 			"C": {
-				"item": "twm:chip"
+				"item": "utilitycraft:chip"
 			}
 		},
 		"pattern": [
@@ -30,23 +30,23 @@
 			"PRP"
 		],
 		"result": {
-			"item": "twm:electro_press"
+			"item": "utilitycraft:electro_press"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:piston"
 			},
 			{
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			},
 			{
 				"item": "redstone"
 			},
 			{
-				"item": "twm:compressed_cobblestone"
+				"item": "utilitycraft:compressed_cobblestone"
 			},
 			{
-				"item": "twm:chip"
+				"item": "utilitycraft:chip"
 			}
 		]
 	}

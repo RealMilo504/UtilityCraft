@@ -2,7 +2,7 @@
 	"format_version": "1.12",
 	"minecraft:recipe_shapeless": {
 		"description": {
-			"identifier": "twm:deepslate_brick_slab"
+			"identifier": "utilitycraft:deepslate_brick_slab"
 		},
 		"tags": [
 			"crafting_table"

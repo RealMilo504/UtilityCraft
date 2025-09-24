@@ -1,139 +1,139 @@
 // Upgrades for Machines
 export const acceptedUpgrades = [
-    { upgrade: 'twm:energy', cap: 8, name: '§bEnergy' },
-    { upgrade: 'twm:speed', cap: 8, name: '§aSpeed' },
-    { upgrade: 'twm:range', cap: 4, name: '§9Range' },
-    { upgrade: 'twm:quantity', cap: 4, name: '§3Quantity' },
-    { upgrade: 'twm:filter', cap: 1, name: '§7Filter' }
+    { upgrade: 'utilitycraft:energy', cap: 8, name: '§bEnergy' },
+    { upgrade: 'utilitycraft:speed', cap: 8, name: '§aSpeed' },
+    { upgrade: 'utilitycraft:range', cap: 4, name: '§9Range' },
+    { upgrade: 'utilitycraft:quantity', cap: 4, name: '§3Quantity' },
+    { upgrade: 'utilitycraft:filter', cap: 1, name: '§7Filter' }
 ]
 // Machines with a different speed/energy cap (4)
-export const diffCapMachines = ['twm:harvester', 'twm:block_placer', 'twm:block_breaker', 'twm:induction_anvil', 'twm:mechanic_upper', 'twm:mechanic_hopper', 'twm:mechanic_dropper', 'twm:mechanical_spawner', 'twm:item_exporter', 'twm:fluid_extractor']
+export const diffCapMachines = ['utilitycraft:harvester', 'utilitycraft:block_placer', 'utilitycraft:block_breaker', 'utilitycraft:induction_anvil', 'utilitycraft:mechanic_upper', 'utilitycraft:mechanic_hopper', 'utilitycraft:mechanic_dropper', 'utilitycraft:mechanical_spawner', 'utilitycraft:item_exporter', 'utilitycraft:fluid_extractor']
 
 const acceptedSoils = {
     'minecraft:dirt': { cost: 2, speed: 0.5 },
     'minecraft:grass_block': { cost: 1.5, speed: 1 },
-    'twm:yellow_soil': { cost: 1, speed: 1 },
-    'twm:red_soil': { cost: 0.75, speed: 2 },
-    'twm:blue_soil': { cost: 0.5, speed: 4 },
-    'twm:black_soil': { cost: 0.25, speed: 10 },
+    'utilitycraft:yellow_soil': { cost: 1, speed: 1 },
+    'utilitycraft:red_soil': { cost: 0.75, speed: 2 },
+    'utilitycraft:blue_soil': { cost: 0.5, speed: 4 },
+    'utilitycraft:black_soil': { cost: 0.25, speed: 10 },
 }
 
 const meshMulti = {
-    'twm:string_mesh': 0.75,
-    'twm:flint_mesh': 1,
-    'twm:iron_mesh': 1.25,
-    'twm:golden_mesh': 1.5,
-    'twm:emerald_mesh': 2,
-    'twm:diamond_mesh': 3,
-    'twm:netherite_mesh': 4
+    'utilitycraft:string_mesh': 0.75,
+    'utilitycraft:flint_mesh': 1,
+    'utilitycraft:iron_mesh': 1.25,
+    'utilitycraft:golden_mesh': 1.5,
+    'utilitycraft:emerald_mesh': 2,
+    'utilitycraft:diamond_mesh': 3,
+    'utilitycraft:netherite_mesh': 4
 }
 
 export const crushing = {
     // ========== COBBLESTONE ==========
     "minecraft:cobblestone": { output: "minecraft:gravel", amount: 1 },
-    "twm:compressed_cobblestone": { output: "twm:compressed_gravel", amount: 1 },
-    "twm:double_compressed_cobblestone": { output: "twm:compressed_gravel_2", amount: 1 },
-    "twm:triple_compressed_cobblestone": { output: "twm:compressed_gravel_3", amount: 1 },
-    "twm:quadruple_compressed_cobblestone": { output: "twm:compressed_gravel_4", amount: 1 },
+    "utilitycraft:compressed_cobblestone": { output: "utilitycraft:compressed_gravel", amount: 1 },
+    "utilitycraft:double_compressed_cobblestone": { output: "utilitycraft:compressed_gravel_2", amount: 1 },
+    "utilitycraft:triple_compressed_cobblestone": { output: "utilitycraft:compressed_gravel_3", amount: 1 },
+    "utilitycraft:quadruple_compressed_cobblestone": { output: "utilitycraft:compressed_gravel_4", amount: 1 },
 
     // ========== GRAVEL ==========
     "minecraft:gravel": { output: "minecraft:dirt", amount: 1 },
-    "twm:compressed_gravel": { output: "twm:compressed_dirt", amount: 1 },
-    "twm:compressed_gravel_2": { output: "twm:compressed_dirt_2", amount: 1 },
-    "twm:compressed_gravel_3": { output: "twm:compressed_dirt_3", amount: 1 },
-    "twm:compressed_gravel_4": { output: "twm:compressed_dirt_4", amount: 1 },
+    "utilitycraft:compressed_gravel": { output: "utilitycraft:compressed_dirt", amount: 1 },
+    "utilitycraft:compressed_gravel_2": { output: "utilitycraft:compressed_dirt_2", amount: 1 },
+    "utilitycraft:compressed_gravel_3": { output: "utilitycraft:compressed_dirt_3", amount: 1 },
+    "utilitycraft:compressed_gravel_4": { output: "utilitycraft:compressed_dirt_4", amount: 1 },
 
     // ========== DIRT ==========
     "minecraft:dirt": { output: "minecraft:sand", amount: 1 },
-    "twm:compressed_dirt": { output: "twm:compressed_sand", amount: 1 },
-    "twm:compressed_dirt_2": { output: "twm:compressed_sand_2", amount: 1 },
-    "twm:compressed_dirt_3": { output: "twm:compressed_sand_3", amount: 1 },
-    "twm:compressed_dirt_4": { output: "twm:compressed_sand_4", amount: 1 },
+    "utilitycraft:compressed_dirt": { output: "utilitycraft:compressed_sand", amount: 1 },
+    "utilitycraft:compressed_dirt_2": { output: "utilitycraft:compressed_sand_2", amount: 1 },
+    "utilitycraft:compressed_dirt_3": { output: "utilitycraft:compressed_sand_3", amount: 1 },
+    "utilitycraft:compressed_dirt_4": { output: "utilitycraft:compressed_sand_4", amount: 1 },
 
     // ========== NETHERRACK ==========
-    "minecraft:netherrack": { output: "twm:crushed_netherrack", amount: 1 },
-    "twm:compressed_netherrack": { output: "twm:compressed_crushed_netherrack", amount: 1 },
-    "twm:compressed_netherrack_2": { output: "twm:compressed_crushed_netherrack_2", amount: 1 },
-    "twm:compressed_netherrack_3": { output: "twm:compressed_crushed_netherrack_3", amount: 1 },
-    "twm:compressed_netherrack_4": { output: "twm:compressed_crushed_netherrack_4", amount: 1 },
+    "minecraft:netherrack": { output: "utilitycraft:crushed_netherrack", amount: 1 },
+    "utilitycraft:compressed_netherrack": { output: "utilitycraft:compressed_crushed_netherrack", amount: 1 },
+    "utilitycraft:compressed_netherrack_2": { output: "utilitycraft:compressed_crushed_netherrack_2", amount: 1 },
+    "utilitycraft:compressed_netherrack_3": { output: "utilitycraft:compressed_crushed_netherrack_3", amount: 1 },
+    "utilitycraft:compressed_netherrack_4": { output: "utilitycraft:compressed_crushed_netherrack_4", amount: 1 },
 
     // ========== END STONE ==========
-    "minecraft:end_stone": { output: "twm:crushed_endstone", amount: 1 },
-    "twm:compressed_endstone": { output: "twm:compressed_crushed_endstone", amount: 1 },
-    "twm:compressed_endstone_2": { output: "twm:compressed_crushed_endstone_2", amount: 1 },
-    "twm:compressed_endstone_3": { output: "twm:compressed_crushed_endstone_3", amount: 1 },
-    "twm:compressed_endstone_4": { output: "twm:compressed_crushed_endstone_4", amount: 1 },
+    "minecraft:end_stone": { output: "utilitycraft:crushed_endstone", amount: 1 },
+    "utilitycraft:compressed_endstone": { output: "utilitycraft:compressed_crushed_endstone", amount: 1 },
+    "utilitycraft:compressed_endstone_2": { output: "utilitycraft:compressed_crushed_endstone_2", amount: 1 },
+    "utilitycraft:compressed_endstone_3": { output: "utilitycraft:compressed_crushed_endstone_3", amount: 1 },
+    "utilitycraft:compressed_endstone_4": { output: "utilitycraft:compressed_crushed_endstone_4", amount: 1 },
 
     // ========== COBBLED DEEPSLATE ==========
-    "minecraft:cobbled_deepslate": { output: "twm:crushed_cobbled_deepslate", amount: 1 },
-    "twm:compressed_cobbled_deepslate": { output: "twm:compressed_crushed_cobbled_deepslate", amount: 1 },
-    "twm:compressed_cobbled_deepslate_2": { output: "twm:compressed_crushed_cobbled_deepslate_2", amount: 1 },
-    "twm:compressed_cobbled_deepslate_3": { output: "twm:compressed_crushed_cobbled_deepslate_3", amount: 1 },
-    "twm:compressed_cobbled_deepslate_4": { output: "twm:compressed_crushed_cobbled_deepslate_4", amount: 1 },
+    "minecraft:cobbled_deepslate": { output: "utilitycraft:crushed_cobbled_deepslate", amount: 1 },
+    "utilitycraft:compressed_cobbled_deepslate": { output: "utilitycraft:compressed_crushed_cobbled_deepslate", amount: 1 },
+    "utilitycraft:compressed_cobbled_deepslate_2": { output: "utilitycraft:compressed_crushed_cobbled_deepslate_2", amount: 1 },
+    "utilitycraft:compressed_cobbled_deepslate_3": { output: "utilitycraft:compressed_crushed_cobbled_deepslate_3", amount: 1 },
+    "utilitycraft:compressed_cobbled_deepslate_4": { output: "utilitycraft:compressed_crushed_cobbled_deepslate_4", amount: 1 },
 
     // ========== DEEPSLATE ==========
     "minecraft:deepslate": { output: "minecraft:cobbled_deepslate", amount: 1 },
-    "twm:compressed_deepslate": { output: "twm:compressed_cobbled_deepslate", amount: 1 },
-    "twm:compressed_deepslate_2": { output: "twm:compressed_cobbled_deepslate_2", amount: 1 },
-    "twm:compressed_deepslate_3": { output: "twm:compressed_cobbled_deepslate_3", amount: 1 },
-    "twm:compressed_deepslate_4": { output: "twm:compressed_cobbled_deepslate_4", amount: 1 },
+    "utilitycraft:compressed_deepslate": { output: "utilitycraft:compressed_cobbled_deepslate", amount: 1 },
+    "utilitycraft:compressed_deepslate_2": { output: "utilitycraft:compressed_cobbled_deepslate_2", amount: 1 },
+    "utilitycraft:compressed_deepslate_3": { output: "utilitycraft:compressed_cobbled_deepslate_3", amount: 1 },
+    "utilitycraft:compressed_deepslate_4": { output: "utilitycraft:compressed_cobbled_deepslate_4", amount: 1 },
 
     // Normal Chunks
-    "twm:copper_chunk": { output: "minecraft:raw_copper", amount: 1 },
-    "twm:gold_chunk": { output: "minecraft:raw_gold", amount: 1 },
-    "twm:iron_chunk": { output: "minecraft:raw_iron", amount: 1 },
-    "twm:coal_chunk": { output: "minecraft:coal", amount: 1 },
-    "twm:diamond_chunk": { output: "minecraft:diamond", amount: 1 },
-    "twm:emerald_chunk": { output: "minecraft:emerald", amount: 1 },
-    "twm:lapislazuli_chunk": { output: "minecraft:lapis_lazuli", amount: 3 },
-    "twm:redstone_chunk": { output: "minecraft:redstone", amount: 4 },
-    "twm:nether_quartz_chunk": { output: "minecraft:quartz", amount: 3 },
-    "twm:nether_gold_chunk": { output: "minecraft:raw_gold", amount: 1 },
+    "utilitycraft:copper_chunk": { output: "minecraft:raw_copper", amount: 1 },
+    "utilitycraft:gold_chunk": { output: "minecraft:raw_gold", amount: 1 },
+    "utilitycraft:iron_chunk": { output: "minecraft:raw_iron", amount: 1 },
+    "utilitycraft:coal_chunk": { output: "minecraft:coal", amount: 1 },
+    "utilitycraft:diamond_chunk": { output: "minecraft:diamond", amount: 1 },
+    "utilitycraft:emerald_chunk": { output: "minecraft:emerald", amount: 1 },
+    "utilitycraft:lapislazuli_chunk": { output: "minecraft:lapis_lazuli", amount: 3 },
+    "utilitycraft:redstone_chunk": { output: "minecraft:redstone", amount: 4 },
+    "utilitycraft:nether_quartz_chunk": { output: "minecraft:quartz", amount: 3 },
+    "utilitycraft:nether_gold_chunk": { output: "minecraft:raw_gold", amount: 1 },
 
     // Deepslate Chunks
-    "twm:deepslate_copper_chunk": { output: "minecraft:raw_copper", amount: 1 },
-    "twm:deepslate_gold_chunk": { output: "minecraft:raw_gold", amount: 1 },
-    "twm:deepslate_iron_chunk": { output: "minecraft:raw_iron", amount: 1 },
-    "twm:deepslate_coal_chunk": { output: "minecraft:coal", amount: 1 },
-    "twm:deepslate_diamond_chunk": { output: "minecraft:diamond", amount: 1 },
-    "twm:deepslate_emerald_chunk": { output: "minecraft:emerald", amount: 1 },
-    "twm:deepslate_lapislazuli_chunk": { output: "minecraft:lapis_lazuli", amount: 3 },
-    "twm:deepslate_redstone_chunk": { output: "minecraft:redstone", amount: 4 },
+    "utilitycraft:deepslate_copper_chunk": { output: "minecraft:raw_copper", amount: 1 },
+    "utilitycraft:deepslate_gold_chunk": { output: "minecraft:raw_gold", amount: 1 },
+    "utilitycraft:deepslate_iron_chunk": { output: "minecraft:raw_iron", amount: 1 },
+    "utilitycraft:deepslate_coal_chunk": { output: "minecraft:coal", amount: 1 },
+    "utilitycraft:deepslate_diamond_chunk": { output: "minecraft:diamond", amount: 1 },
+    "utilitycraft:deepslate_emerald_chunk": { output: "minecraft:emerald", amount: 1 },
+    "utilitycraft:deepslate_lapislazuli_chunk": { output: "minecraft:lapis_lazuli", amount: 3 },
+    "utilitycraft:deepslate_redstone_chunk": { output: "minecraft:redstone", amount: 4 },
 
     // Ingots
-    'minecraft:netherite_ingot': { output: 'twm:netherite_dust', amount: 1 },
-    'minecraft:iron_ingot': { output: 'twm:iron_dust', amount: 1 },
-    'minecraft:gold_ingot': { output: 'twm:gold_dust', amount: 1 },
-    'minecraft:copper_ingot': { output: 'twm:copper_dust', amount: 1 },
-    'twm:energized_iron_ingot': { output: 'twm:energized_iron_dust', amount: 1 },
-    'twm:steel_ingot': { output: 'twm:steel_dust', amount: 1 },
-    'minecraft:netherite_scrap': { output: 'twm:netherite_scrap_dust', amount: 1 },
-    'twm:ancient_debris_chunk': { output: 'twm:netherite_scrap_dust', amount: 1 },
+    'minecraft:netherite_ingot': { output: 'utilitycraft:netherite_dust', amount: 1 },
+    'minecraft:iron_ingot': { output: 'utilitycraft:iron_dust', amount: 1 },
+    'minecraft:gold_ingot': { output: 'utilitycraft:gold_dust', amount: 1 },
+    'minecraft:copper_ingot': { output: 'utilitycraft:copper_dust', amount: 1 },
+    'utilitycraft:energized_iron_ingot': { output: 'utilitycraft:energized_iron_dust', amount: 1 },
+    'utilitycraft:steel_ingot': { output: 'utilitycraft:steel_dust', amount: 1 },
+    'minecraft:netherite_scrap': { output: 'utilitycraft:netherite_scrap_dust', amount: 1 },
+    'utilitycraft:ancient_debris_chunk': { output: 'utilitycraft:netherite_scrap_dust', amount: 1 },
     // Plates
-    'twm:netherite_plate': { output: 'twm:netherite_dust', amount: 1 },
-    'twm:iron_plate': { output: 'twm:iron_dust', amount: 1 },
-    'twm:gold_plate': { output: 'twm:gold_dust', amount: 1 },
-    'twm:copper_plate': { output: 'twm:copper_dust', amount: 1 },
-    'twm:energized_iron_plate': { output: 'twm:energized_iron_dust', amount: 1 },
-    'twm:steel_plate': { output: 'twm:steel_dust', amount: 1 },
+    'utilitycraft:netherite_plate': { output: 'utilitycraft:netherite_dust', amount: 1 },
+    'utilitycraft:iron_plate': { output: 'utilitycraft:iron_dust', amount: 1 },
+    'utilitycraft:gold_plate': { output: 'utilitycraft:gold_dust', amount: 1 },
+    'utilitycraft:copper_plate': { output: 'utilitycraft:copper_dust', amount: 1 },
+    'utilitycraft:energized_iron_plate': { output: 'utilitycraft:energized_iron_dust', amount: 1 },
+    'utilitycraft:steel_plate': { output: 'utilitycraft:steel_dust', amount: 1 },
     // Raw
-    'twm:raw_energized_iron': { output: 'twm:energized_iron_dust', amount: 2 },
-    'minecraft:raw_iron': { output: 'twm:iron_dust', amount: 2 },
-    'minecraft:raw_gold': { output: 'twm:gold_dust', amount: 2 },
-    'minecraft:raw_copper': { output: 'twm:copper_dust', amount: 2 },
-    'twm:raw_steel': { output: 'twm:steel_dust', amount: 2 },
-    'minecraft:coal': { output: 'twm:coal_dust', amount: 2 },
-    'minecraft:charcoal': { output: 'twm:charcoal_dust', amount: 2 },
+    'utilitycraft:raw_energized_iron': { output: 'utilitycraft:energized_iron_dust', amount: 2 },
+    'minecraft:raw_iron': { output: 'utilitycraft:iron_dust', amount: 2 },
+    'minecraft:raw_gold': { output: 'utilitycraft:gold_dust', amount: 2 },
+    'minecraft:raw_copper': { output: 'utilitycraft:copper_dust', amount: 2 },
+    'utilitycraft:raw_steel': { output: 'utilitycraft:steel_dust', amount: 2 },
+    'minecraft:coal': { output: 'utilitycraft:coal_dust', amount: 2 },
+    'minecraft:charcoal': { output: 'utilitycraft:charcoal_dust', amount: 2 },
     // Gems
-    'minecraft:emerald': { output: 'twm:emerald_dust', amount: 2 },
-    'minecraft:diamond': { output: 'twm:diamond_dust', amount: 2 },
-    'minecraft:quartz': { output: 'twm:quartz_dust', amount: 2 },
-    'minecraft:amethyst_shard': { output: 'twm:amethyst_dust', amount: 2 },
-    'minecraft:ender_pearl': { output: 'twm:ender_pearl_dust', amount: 2 },
-    'minecraft:obsidian': { output: 'twm:obsidian_dust', amount: 4 },
-    'minecraft:crying_obsidian': { output: 'twm:crying_obsidian_dust', amount: 4 },
+    'minecraft:emerald': { output: 'utilitycraft:emerald_dust', amount: 2 },
+    'minecraft:diamond': { output: 'utilitycraft:diamond_dust', amount: 2 },
+    'minecraft:quartz': { output: 'utilitycraft:quartz_dust', amount: 2 },
+    'minecraft:amethyst_shard': { output: 'utilitycraft:amethyst_dust', amount: 2 },
+    'minecraft:ender_pearl': { output: 'utilitycraft:ender_pearl_dust', amount: 2 },
+    'minecraft:obsidian': { output: 'utilitycraft:obsidian_dust', amount: 4 },
+    'minecraft:crying_obsidian': { output: 'utilitycraft:crying_obsidian_dust', amount: 4 },
     // Blocks/Random
-    'minecraft:kelp': { output: 'twm:crushed_kelp', amount: 1 },
+    'minecraft:kelp': { output: 'utilitycraft:crushed_kelp', amount: 1 },
     'minecraft:blue_ice': { output: 'minecraft:packed_ice', amount: 9 },
     'minecraft:packed_ice': { output: 'minecraft:ice', amount: 9 },
     'minecraft:nether_wart_block': { output: 'minecraft:nether_wart', amount: 4 },
@@ -169,12 +169,12 @@ export const crushing = {
 export const sieving = {
     'minecraft:gravel': [
         { item: 'minecraft:flint', amount: 1, prob: 20 },
-        { item: 'twm:iron_chunk', amount: 1, prob: 20 },
-        { item: 'twm:coal_chunk', amount: 1, prob: 30 },
-        { item: 'twm:gold_chunk', amount: 1, prob: 10 },
-        { item: 'twm:lapislazuli_chunk', amount: 1, prob: 2 },
-        { item: 'twm:emerald_chunk', amount: 1, prob: 2 },
-        { item: 'twm:diamond_chunk', amount: 1, prob: 1.5 }
+        { item: 'utilitycraft:iron_chunk', amount: 1, prob: 20 },
+        { item: 'utilitycraft:coal_chunk', amount: 1, prob: 30 },
+        { item: 'utilitycraft:gold_chunk', amount: 1, prob: 10 },
+        { item: 'utilitycraft:lapislazuli_chunk', amount: 1, prob: 2 },
+        { item: 'utilitycraft:emerald_chunk', amount: 1, prob: 2 },
+        { item: 'utilitycraft:diamond_chunk', amount: 1, prob: 1.5 }
     ],
     'minecraft:dirt': [
         { item: 'minecraft:carrot', amount: 1, prob: 10 },
@@ -202,17 +202,17 @@ export const sieving = {
         { item: 'minecraft:pitcher_plant', amount: 1, prob: 20.0 },
         { item: 'minecraft:pink_petals', amount: 1, prob: 20.0 }
     ],
-    'twm:crushed_netherrack': [
-        { item: 'twm:nether_quartz_chunk', amount: 1, prob: 33.0 },
+    'utilitycraft:crushed_netherrack': [
+        { item: 'utilitycraft:nether_quartz_chunk', amount: 1, prob: 33.0 },
         { item: 'minecraft:gold_nugget', amount: 1, prob: 20 },
-        { item: 'twm:nether_gold_chunk', amount: 1, prob: 33 },
-        { item: 'twm:ancient_debris_chunk', amount: 1, prob: 2.5 }
+        { item: 'utilitycraft:nether_gold_chunk', amount: 1, prob: 33 },
+        { item: 'utilitycraft:ancient_debris_chunk', amount: 1, prob: 2.5 }
     ],
     'minecraft:sand': [
         { item: 'minecraft:prismarine_shard', amount: 1, prob: 10 },
         { item: 'minecraft:prismarine_crystals', amount: 1, prob: 10 },
-        { item: 'twm:copper_chunk', amount: 1, prob: 25 },
-        { item: 'twm:redstone_chunk', amount: 1, prob: 20 },
+        { item: 'utilitycraft:copper_chunk', amount: 1, prob: 25 },
+        { item: 'utilitycraft:redstone_chunk', amount: 1, prob: 20 },
         { item: 'minecraft:bone_meal', amount: 1, prob: 25 },
         { item: 'minecraft:gunpowder', amount: 1, prob: 12 },
         { item: 'minecraft:glowstone_dust', amount: 1, prob: 8 },
@@ -228,41 +228,41 @@ export const sieving = {
         { item: 'ae2be:charged_certus_quartz_crystal', amount: 1, prob: 1 }
     ],
     'minecraft:soul_sand': [
-        { item: 'twm:nether_quartz_chunk', amount: 1, prob: 33.0 },
-        { item: 'twm:nether_quartz_chunk', amount: 3, prob: 10.0 },
+        { item: 'utilitycraft:nether_quartz_chunk', amount: 1, prob: 33.0 },
+        { item: 'utilitycraft:nether_quartz_chunk', amount: 3, prob: 10.0 },
         { item: 'minecraft:bone', amount: 1, prob: 15 },
         { item: 'minecraft:ghast_tear', amount: 1, prob: 8 },
         { item: 'minecraft:nether_wart', amount: 1, prob: 12 },
         { item: 'minecraft:warped_fungus', amount: 1, prob: 10 },
         { item: 'minecraft:crimson_fungus', amount: 1, prob: 10 }
     ],
-    'twm:crushed_endstone': [
+    'utilitycraft:crushed_endstone': [
         { item: 'minecraft:chorus_flower', amount: 1, prob: 1 },
         { item: 'minecraft:chorus_fruit', amount: 1, prob: 8.0 },
         { item: 'minecraft:ender_pearl', amount: 1, prob: 16 }
     ],
-    'twm:crushed_cobbled_deepslate': [
+    'utilitycraft:crushed_cobbled_deepslate': [
         { item: 'minecraft:echo_shard', amount: 1, prob: 5 },
         { item: 'minecraft:sculk_catalyst', amount: 1, prob: 0.5 },
         { item: 'minecraft:amethyst_shard', amount: 1, prob: 1 },
-        { item: 'twm:deepslate_diamond_chunk', amount: 1, prob: 5 },
-        { item: 'twm:deepslate_emerald_chunk', amount: 1, prob: 5 },
-        { item: 'twm:deepslate_gold_chunk', amount: 1, prob: 20 },
-        { item: 'twm:deepslate_iron_chunk', amount: 1, prob: 25 },
-        { item: 'twm:deepslate_lapislazuli_chunk', amount: 1, prob: 15 },
-        { item: 'twm:deepslate_coal_chunk', amount: 1, prob: 30 }
+        { item: 'utilitycraft:deepslate_diamond_chunk', amount: 1, prob: 5 },
+        { item: 'utilitycraft:deepslate_emerald_chunk', amount: 1, prob: 5 },
+        { item: 'utilitycraft:deepslate_gold_chunk', amount: 1, prob: 20 },
+        { item: 'utilitycraft:deepslate_iron_chunk', amount: 1, prob: 25 },
+        { item: 'utilitycraft:deepslate_lapislazuli_chunk', amount: 1, prob: 15 },
+        { item: 'utilitycraft:deepslate_coal_chunk', amount: 1, prob: 30 }
     ],
     //Compressed
-    'twm:compressed_gravel': [
+    'utilitycraft:compressed_gravel': [
         { item: 'minecraft:flint', amount: 9, prob: 20 },
-        { item: 'twm:iron_chunk', amount: 9, prob: 20 },
-        { item: 'twm:coal_chunk', amount: 9, prob: 30 },
-        { item: 'twm:gold_chunk', amount: 9, prob: 10 },
-        { item: 'twm:lapislazuli_chunk', amount: 9, prob: 2 },
-        { item: 'twm:emerald_chunk', amount: 9, prob: 2 },
-        { item: 'twm:diamond_chunk', amount: 9, prob: 1.5 }
+        { item: 'utilitycraft:iron_chunk', amount: 9, prob: 20 },
+        { item: 'utilitycraft:coal_chunk', amount: 9, prob: 30 },
+        { item: 'utilitycraft:gold_chunk', amount: 9, prob: 10 },
+        { item: 'utilitycraft:lapislazuli_chunk', amount: 9, prob: 2 },
+        { item: 'utilitycraft:emerald_chunk', amount: 9, prob: 2 },
+        { item: 'utilitycraft:diamond_chunk', amount: 9, prob: 1.5 }
     ],
-    'twm:compressed_dirt': [
+    'utilitycraft:compressed_dirt': [
         { item: 'minecraft:carrot', amount: 9, prob: 10 },
         { item: 'minecraft:potato', amount: 9, prob: 10 },
         { item: 'minecraft:wheat_seeds', amount: 9, prob: 10 },
@@ -274,12 +274,12 @@ export const sieving = {
         { item: 'minecraft:sapling', amount: 9, prob: 10.0 },
         { item: 'minecraft:cherry_sapling', amount: 9, prob: 10.0 }
     ],
-    'twm:compressed_sand': [
+    'utilitycraft:compressed_sand': [
         { item: 'minecraft:prismarine_shard', amount: 9, prob: 10 },
         { item: 'minecraft:prismarine_crystals', amount: 9, prob: 10 },
-        { item: 'twm:copper_chunk', amount: 9, prob: 25 },
+        { item: 'utilitycraft:copper_chunk', amount: 9, prob: 25 },
         { item: 'minecraft:bone_meal', amount: 9, prob: 25 },
-        { item: 'twm:redstone_chunk', amount: 9, prob: 20 },
+        { item: 'utilitycraft:redstone_chunk', amount: 9, prob: 20 },
         { item: 'minecraft:gunpowder', amount: 9, prob: 12 },
         { item: 'minecraft:glowstone_dust', amount: 9, prob: 8 },
         { item: 'minecraft:blaze_powder', amount: 9, prob: 10 },
@@ -293,24 +293,24 @@ export const sieving = {
         { item: 'ae2be:certus_quartz_crystal', amount: 9, prob: 17 },
         { item: 'ae2be:charged_certus_quartz_crystal', amount: 9, prob: 1 }
     ],
-    'twm:compressed_crushed_netherrack': [
-        { item: 'twm:nether_quartz_chunk', amount: 9, prob: 33.0 },
+    'utilitycraft:compressed_crushed_netherrack': [
+        { item: 'utilitycraft:nether_quartz_chunk', amount: 9, prob: 33.0 },
         { item: 'minecraft:gold_nugget', amount: 9, prob: 20 },
-        { item: 'twm:nether_gold_chunk', amount: 9, prob: 33 },
-        { item: 'twm:ancient_debris_chunk', amount: 9, prob: 2.5 }
+        { item: 'utilitycraft:nether_gold_chunk', amount: 9, prob: 33 },
+        { item: 'utilitycraft:ancient_debris_chunk', amount: 9, prob: 2.5 }
     ],
-    'twm:compressed_crushed_cobbled_deepslate': [
+    'utilitycraft:compressed_crushed_cobbled_deepslate': [
         { item: 'minecraft:echo_shard', amount: 9, prob: 5 },
         { item: 'minecraft:sculk_catalyst', amount: 9, prob: 0.5 },
         { item: 'minecraft:amethyst_shard', amount: 9, prob: 1 },
-        { item: 'twm:deepslate_diamond_chunk', amount: 9, prob: 5 },
-        { item: 'twm:deepslate_emerald_chunk', amount: 9, prob: 5 },
-        { item: 'twm:deepslate_gold_chunk', amount: 9, prob: 20 },
-        { item: 'twm:deepslate_iron_chunk', amount: 9, prob: 25 },
-        { item: 'twm:deepslate_lapislazuli_chunk', amount: 9, prob: 15 },
-        { item: 'twm:deepslate_coal_chunk', amount: 9, prob: 30 }
+        { item: 'utilitycraft:deepslate_diamond_chunk', amount: 9, prob: 5 },
+        { item: 'utilitycraft:deepslate_emerald_chunk', amount: 9, prob: 5 },
+        { item: 'utilitycraft:deepslate_gold_chunk', amount: 9, prob: 20 },
+        { item: 'utilitycraft:deepslate_iron_chunk', amount: 9, prob: 25 },
+        { item: 'utilitycraft:deepslate_lapislazuli_chunk', amount: 9, prob: 15 },
+        { item: 'utilitycraft:deepslate_coal_chunk', amount: 9, prob: 30 }
     ],
-    'twm:compressed_crushed_endstone': [
+    'utilitycraft:compressed_crushed_endstone': [
         { item: 'minecraft:chorus_flower', amount: 9, prob: 1 },
         { item: 'minecraft:chorus_fruit', amount: 9, prob: 8.0 },
         { item: 'minecraft:ender_pearl', amount: 9, prob: 16 }
@@ -318,30 +318,30 @@ export const sieving = {
 }
 
 export const pressing = {
-    "minecraft:netherite_ingot": { output: "twm:netherite_plate", required: 1 },
-    "minecraft:iron_ingot": { output: "twm:iron_plate", required: 1 },
-    "minecraft:gold_ingot": { output: "twm:gold_plate", required: 1 },
-    "minecraft:copper_ingot": { output: "twm:copper_plate", required: 1 },
-    "twm:energized_iron_ingot": { output: "twm:energized_iron_plate", required: 1 },
-    "twm:steel_ingot": { output: "twm:steel_plate", required: 1 },
+    "minecraft:netherite_ingot": { output: "utilitycraft:netherite_plate", required: 1 },
+    "minecraft:iron_ingot": { output: "utilitycraft:iron_plate", required: 1 },
+    "minecraft:gold_ingot": { output: "utilitycraft:gold_plate", required: 1 },
+    "minecraft:copper_ingot": { output: "utilitycraft:copper_plate", required: 1 },
+    "utilitycraft:energized_iron_ingot": { output: "utilitycraft:energized_iron_plate", required: 1 },
+    "utilitycraft:steel_ingot": { output: "utilitycraft:steel_plate", required: 1 },
 
     // Compress
-    "minecraft:cobblestone": { output: "twm:compressed_cobblestone", required: 9 },
-    "twm:compressed_cobblestone": { output: "twm:double_compressed_cobblestone", required: 9 },
-    "twm:double_compressed_cobblestone": { output: "twm:triple_compressed_cobblestone", required: 9 },
-    "twm:triple_compressed_cobblestone": { output: "twm:quadruple_compressed_cobblestone", required: 9 },
-    "twm:quadruple_compressed_cobblestone": { output: "twm:quintuple_compressed_cobblestone", required: 9 },
-    "twm:quintuple_compressed_cobblestone": { output: "twm:sextuple_compressed_cobblestone", required: 9 },
-    "twm:sextuple_compressed_cobblestone": { output: "twm:septuple_compressed_cobblestone", required: 9 },
-    "twm:septuple_compressed_cobblestone": { output: "twm:octuple_compressed_cobblestone", required: 9 },
-    "twm:octuple_compressed_cobblestone": { output: "twm:nonuple_compressed_cobblestone", required: 9 },
-    "minecraft:gravel": { output: "twm:compressed_gravel", required: 9 },
-    "minecraft:sand": { output: "twm:compressed_sand", required: 9 },
-    "minecraft:dirt": { output: "twm:compressed_dirt", required: 9 },
-    "minecraft:netherrack": { output: "twm:compressed_netherrack", required: 9 },
-    "minecraft:diamond_block": { output: "twm:compressed_diamond_block", required: 9 },
-    "minecraft:iron_block": { output: "twm:compressed_iron_block", required: 9 },
-    "minecraft:coal_block": { output: "twm:compressed_coal_block", required: 9 },
+    "minecraft:cobblestone": { output: "utilitycraft:compressed_cobblestone", required: 9 },
+    "utilitycraft:compressed_cobblestone": { output: "utilitycraft:double_compressed_cobblestone", required: 9 },
+    "utilitycraft:double_compressed_cobblestone": { output: "utilitycraft:triple_compressed_cobblestone", required: 9 },
+    "utilitycraft:triple_compressed_cobblestone": { output: "utilitycraft:quadruple_compressed_cobblestone", required: 9 },
+    "utilitycraft:quadruple_compressed_cobblestone": { output: "utilitycraft:quintuple_compressed_cobblestone", required: 9 },
+    "utilitycraft:quintuple_compressed_cobblestone": { output: "utilitycraft:sextuple_compressed_cobblestone", required: 9 },
+    "utilitycraft:sextuple_compressed_cobblestone": { output: "utilitycraft:septuple_compressed_cobblestone", required: 9 },
+    "utilitycraft:septuple_compressed_cobblestone": { output: "utilitycraft:octuple_compressed_cobblestone", required: 9 },
+    "utilitycraft:octuple_compressed_cobblestone": { output: "utilitycraft:nonuple_compressed_cobblestone", required: 9 },
+    "minecraft:gravel": { output: "utilitycraft:compressed_gravel", required: 9 },
+    "minecraft:sand": { output: "utilitycraft:compressed_sand", required: 9 },
+    "minecraft:dirt": { output: "utilitycraft:compressed_dirt", required: 9 },
+    "minecraft:netherrack": { output: "utilitycraft:compressed_netherrack", required: 9 },
+    "minecraft:diamond_block": { output: "utilitycraft:compressed_diamond_block", required: 9 },
+    "minecraft:iron_block": { output: "utilitycraft:compressed_iron_block", required: 9 },
+    "minecraft:coal_block": { output: "utilitycraft:compressed_coal_block", required: 9 },
 
     // Extra
     "minecraft:packed_ice": { output: "minecraft:blue_ice", required: 9 },
@@ -357,48 +357,48 @@ export const pressing = {
 
 export const smelting = {
     // UtilityCraft
-    "twm:raw_steel": {
-        output: "twm:steel_ingot"
+    "utilitycraft:raw_steel": {
+        output: "utilitycraft:steel_ingot"
     },
-    "twm:raw_energized_iron": {
-        output: "twm:energized_iron_ingot"
+    "utilitycraft:raw_energized_iron": {
+        output: "utilitycraft:energized_iron_ingot"
     },
-    "twm:iron_dust": {
+    "utilitycraft:iron_dust": {
         output: "minecraft:iron_ingot"
     },
-    "twm:copper_dust": {
+    "utilitycraft:copper_dust": {
         output: "minecraft:copper_ingot"
     },
-    "twm:gold_dust": {
+    "utilitycraft:gold_dust": {
         output: "minecraft:gold_ingot"
     },
-    "twm:netherite_dust": {
+    "utilitycraft:netherite_dust": {
         output: "minecraft:netherite_ingot"
     },
-    "twm:netherite_scrap_dust": {
+    "utilitycraft:netherite_scrap_dust": {
         output: "minecraft:netherite_scrap"
     },
-    "twm:steel_dust": {
-        output: "twm:steel_ingot"
+    "utilitycraft:steel_dust": {
+        output: "utilitycraft:steel_ingot"
     },
-    "twm:energized_iron_dust": {
-        output: "twm:energized_iron_ingot"
+    "utilitycraft:energized_iron_dust": {
+        output: "utilitycraft:energized_iron_ingot"
     },
-    "twm:raw_steel_block": {
-        output: "twm:steel_block"
+    "utilitycraft:raw_steel_block": {
+        output: "utilitycraft:steel_block"
     },
-    "twm:raw_energized_iron_block": {
-        output: "twm:energized_iron_block"
+    "utilitycraft:raw_energized_iron_block": {
+        output: "utilitycraft:energized_iron_block"
     },
-    "twm:raw_leather": {
+    "utilitycraft:raw_leather": {
         output: "minecraft:leather"
     },
-    'twm:crushed_kelp': {
+    'utilitycraft:crushed_kelp': {
         output: "minecraft:slime_ball"
     },
     // Compressed    
-    "twm:compressed_sand": {
-        output: "twm:compressed_glass"
+    "utilitycraft:compressed_sand": {
+        output: "utilitycraft:compressed_glass"
     },
     // Utility Useful Recipes
     "minecraft:raw_iron_block": {
@@ -840,41 +840,41 @@ export const smelting = {
 export const infusing = {
     'minecraft:redstone': {
         'minecraft:iron_ingot': {
-            output: 'twm:energized_iron_ingot', required: 4
+            output: 'utilitycraft:energized_iron_ingot', required: 4
         },
-        'twm:iron_dust': {
-            output: 'twm:energized_iron_dust', required: 4
+        'utilitycraft:iron_dust': {
+            output: 'utilitycraft:energized_iron_dust', required: 4
         },
-        'twm:steel_plate': {
-            output: 'twm:chip', required: 2
+        'utilitycraft:steel_plate': {
+            output: 'utilitycraft:chip', required: 2
         }
     },
-    'twm:gold_dust': {
-        'twm:chip': {
-            output: 'twm:basic_chip', required: 2
+    'utilitycraft:gold_dust': {
+        'utilitycraft:chip': {
+            output: 'utilitycraft:basic_chip', required: 2
         }
     },
-    'twm:energized_iron_dust': {
-        'twm:basic_chip': {
-            output: 'twm:advanced_chip', required: 2
+    'utilitycraft:energized_iron_dust': {
+        'utilitycraft:basic_chip': {
+            output: 'utilitycraft:advanced_chip', required: 2
         }
     },
-    'twm:diamond_dust': {
-        'twm:advanced_chip': {
-            output: 'twm:expert_chip', required: 2
+    'utilitycraft:diamond_dust': {
+        'utilitycraft:advanced_chip': {
+            output: 'utilitycraft:expert_chip', required: 2
         }
     },
-    'twm:netherite_dust': {
-        'twm:expert_chip': {
-            output: 'twm:ultimate_chip', required: 2
+    'utilitycraft:netherite_dust': {
+        'utilitycraft:expert_chip': {
+            output: 'utilitycraft:ultimate_chip', required: 2
         }
     },
     'minecraft:coal': {
         'minecraft:iron_ingot': {
-            output: 'twm:steel_ingot', required: 1
+            output: 'utilitycraft:steel_ingot', required: 1
         },
-        'twm:iron_dust': {
-            output: 'twm:steel_dust', required: 1
+        'utilitycraft:iron_dust': {
+            output: 'utilitycraft:steel_dust', required: 1
         },
         'minecraft:cobblestone': {
             output: 'minecraft:blackstone', required: 1
@@ -882,32 +882,32 @@ export const infusing = {
     },
     'minecraft:charcoal': {
         'minecraft:iron_ingot': {
-            output: 'twm:steel_ingot', required: 1
+            output: 'utilitycraft:steel_ingot', required: 1
         },
-        'twm:iron_dust': {
-            output: 'twm:steel_dust', required: 1
-        },
-        'minecraft:cobblestone': {
-            output: 'minecraft:blackstone', required: 1
-        }
-    },
-    'twm:coal_dust': {
-        'minecraft:iron_ingot': {
-            output: 'twm:steel_ingot', required: 1
-        },
-        'twm:iron_dust': {
-            output: 'twm:steel_dust', required: 1
+        'utilitycraft:iron_dust': {
+            output: 'utilitycraft:steel_dust', required: 1
         },
         'minecraft:cobblestone': {
             output: 'minecraft:blackstone', required: 1
         }
     },
-    'twm:charcoal_dust': {
+    'utilitycraft:coal_dust': {
         'minecraft:iron_ingot': {
-            output: 'twm:steel_ingot', required: 1
+            output: 'utilitycraft:steel_ingot', required: 1
         },
-        'twm:iron_dust': {
-            output: 'twm:steel_dust', required: 1
+        'utilitycraft:iron_dust': {
+            output: 'utilitycraft:steel_dust', required: 1
+        },
+        'minecraft:cobblestone': {
+            output: 'minecraft:blackstone', required: 1
+        }
+    },
+    'utilitycraft:charcoal_dust': {
+        'minecraft:iron_ingot': {
+            output: 'utilitycraft:steel_ingot', required: 1
+        },
+        'utilitycraft:iron_dust': {
+            output: 'utilitycraft:steel_dust', required: 1
         },
         'minecraft:cobblestone': {
             output: 'minecraft:blackstone', required: 1
@@ -924,30 +924,30 @@ export const infusing = {
             output: 'minecraft:soul_soil', required: 1
         }
     },
-    'twm:ender_pearl_dust': {
+    'utilitycraft:ender_pearl_dust': {
         'minecraft:cobblestone': {
             output: 'minecraft:end_stone', required: 1
         }
     },
     "minecraft:coal_block": {
         'minecraft:iron_block': {
-            output: 'twm:steel_block', required: 1
+            output: 'utilitycraft:steel_block', required: 1
         },
-        'twm:compressed_cobblestone': {
-            output: 'twm:compressed_blackstone', required: 1
+        'utilitycraft:compressed_cobblestone': {
+            output: 'utilitycraft:compressed_blackstone', required: 1
         }
     },
     "minecraft:redstone_block": {
         'minecraft:iron_block': {
-            output: 'twm:energized_iron_block', required: 4
+            output: 'utilitycraft:energized_iron_block', required: 4
         }
     },
-    "twm:netherite_scrap_dust": {
+    "utilitycraft:netherite_scrap_dust": {
         'minecraft:gold_ingot': {
             output: 'minecraft:netherite_ingot', required: 4
         },
-        'twm:gold_dust': {
-            output: 'twm:netherite_dust', required: 4
+        'utilitycraft:gold_dust': {
+            output: 'utilitycraft:netherite_dust', required: 4
         }
     }
 }
@@ -989,13 +989,13 @@ export const growing = {
             { item: 'minecraft:acacia_sapling', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:apple_tree_sapling': {
+    'utilitycraft:apple_tree_sapling': {
         cost: 8000,
         drops: [
             { item: 'minecraft:log', min: 6, max: 10, prob: 100 },
             { item: 'minecraft:leaves', min: 0, max: 4, prob: 100 },
             { item: 'minecraft:stick', min: 6, max: 10, prob: 100 },
-            { item: 'twm:apple_sapling', min: 1, max: 1, prob: 5 },
+            { item: 'utilitycraft:apple_sapling', min: 1, max: 1, prob: 5 },
             { item: 'minecraft:apple', min: 1, max: 4, prob: 100 },
             { item: 'minecraft:enchanted_golden_apple', min: 1, max: 1, prob: 0.0001 },
             { item: 'minecraft:golden_apple', min: 1, max: 1, prob: 0.1 }
@@ -1192,21 +1192,21 @@ export const growing = {
             { item: 'minecraft:bread', min: 1, max: 1, prob: 0.1 }
         ]
     },
-    'twm:coal_seeds': {
+    'utilitycraft:coal_seeds': {
         cost: 64000,
         drops: [
             { item: 'minecraft:coal', min: 2, max: 4, prob: 100 },
-            { item: 'twm:coal_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:coal_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:copper_seeds': {
+    'utilitycraft:copper_seeds': {
         cost: 64000,
         drops: [
             { item: 'minecraft:raw_copper', min: 2, max: 4, prob: 100 },
-            { item: 'twm:copper_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:copper_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:dyes_seeds': {
+    'utilitycraft:dyes_seeds': {
         cost: 64000,
         drops: [
             { item: 'minecraft:black_dye', min: 1, max: 1, prob: 5 },
@@ -1225,203 +1225,203 @@ export const growing = {
             { item: 'minecraft:red_dye', min: 1, max: 1, prob: 5 },
             { item: 'minecraft:white_dye', min: 1, max: 1, prob: 5 },
             { item: 'minecraft:yellow_dye', min: 1, max: 1, prob: 5 },
-            { item: 'twm:dyes_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:dyes_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:glass_seeds': {
+    'utilitycraft:glass_seeds': {
         cost: 64000,
         drops: [
             { item: 'minecraft:glass', min: 8, max: 16, prob: 100 },
-            { item: 'twm:glass_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:glass_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:gunpowder_seeds': {
+    'utilitycraft:gunpowder_seeds': {
         cost: 64000,
         drops: [
             { item: 'minecraft:gunpowder', min: 4, max: 8, prob: 100 },
-            { item: 'twm:gunpowder_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:gunpowder_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:iron_seeds': {
+    'utilitycraft:iron_seeds': {
         cost: 64000,
         drops: [
             { item: 'minecraft:raw_iron', min: 1, max: 3, prob: 100 },
-            { item: 'twm:iron_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:iron_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:leather_seeds': {
+    'utilitycraft:leather_seeds': {
         cost: 64000,
         drops: [
             { item: 'minecraft:leather', min: 4, max: 8, prob: 100 },
-            { item: 'twm:leather_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:leather_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:prismarine_crystals_seeds': {
+    'utilitycraft:prismarine_crystals_seeds': {
         cost: 64000,
         drops: [
             { item: 'minecraft:prismarine_crystals', min: 8, max: 12, prob: 100 },
-            { item: 'twm:prismarine_crystals_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:prismarine_crystals_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:prismarine_shards_seeds': {
+    'utilitycraft:prismarine_shards_seeds': {
         cost: 64000,
         drops: [
             { item: 'minecraft:prismarine_shard', min: 8, max: 12, prob: 100 },
-            { item: 'twm:prismarine_shards_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:prismarine_shards_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:water_seeds': {
+    'utilitycraft:water_seeds': {
         cost: 64000,
         drops: [
-            { item: 'twm:water_ball', min: 1, max: 2, prob: 100 },
-            { item: 'twm:water_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:water_ball', min: 1, max: 2, prob: 100 },
+            { item: 'utilitycraft:water_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:wool_seeds': {
+    'utilitycraft:wool_seeds': {
         cost: 64000,
         drops: [
             { item: 'minecraft:wool', min: 2, max: 4, prob: 100 },
-            { item: 'twm:wool_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:wool_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:ghast_seeds': {
+    'utilitycraft:ghast_seeds': {
         cost: 128000,
         drops: [
             { item: 'minecraft:ghast_tear', min: 1, max: 2, prob: 100 },
-            { item: 'twm:ghast_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:ghast_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:glowstone_seeds': {
+    'utilitycraft:glowstone_seeds': {
         cost: 128000,
         drops: [
             { item: 'minecraft:glowstone_dust', min: 2, max: 4, prob: 100 },
-            { item: 'twm:glowstone_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:glowstone_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:gold_seeds': {
+    'utilitycraft:gold_seeds': {
         cost: 128000,
         drops: [
             { item: 'minecraft:raw_gold', min: 1, max: 3, prob: 100 },
-            { item: 'twm:gold_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:gold_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:honey_seeds': {
+    'utilitycraft:honey_seeds': {
         cost: 128000,
         drops: [
-            { item: 'twm:honey_ball', min: 1, max: 2, prob: 100 },
-            { item: 'twm:honey_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:honey_ball', min: 1, max: 2, prob: 100 },
+            { item: 'utilitycraft:honey_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:lapis_seeds': {
+    'utilitycraft:lapis_seeds': {
         cost: 128000,
         drops: [
             { item: 'minecraft:lapis_lazuli', min: 4, max: 9, prob: 100 },
-            { item: 'twm:lapis_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:lapis_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:lava_seeds': {
+    'utilitycraft:lava_seeds': {
         cost: 128000,
         drops: [
-            { item: 'twm:lava_ball', min: 1, max: 2, prob: 100 },
-            { item: 'twm:lava_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:lava_ball', min: 1, max: 2, prob: 100 },
+            { item: 'utilitycraft:lava_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:quartz_seeds': {
+    'utilitycraft:quartz_seeds': {
         cost: 128000,
         drops: [
             { item: 'minecraft:quartz', min: 4, max: 8, prob: 100 },
-            { item: 'twm:quartz_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:quartz_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:redstone_seeds': {
+    'utilitycraft:redstone_seeds': {
         cost: 128000,
         drops: [
             { item: 'minecraft:redstone', min: 3, max: 8, prob: 100 },
-            { item: 'twm:redstone_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:redstone_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:slime_seeds': {
+    'utilitycraft:slime_seeds': {
         cost: 128000,
         drops: [
             { item: 'minecraft:slime_ball', min: 1, max: 3, prob: 100 },
-            { item: 'twm:slime_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:slime_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:amethyst_seeds': {
+    'utilitycraft:amethyst_seeds': {
         cost: 512000,
         drops: [
             { item: 'minecraft:amethyst_shard', min: 2, max: 4, prob: 100 },
-            { item: 'twm:amethyst_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:amethyst_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:blaze_seeds': {
+    'utilitycraft:blaze_seeds': {
         cost: 512000,
         drops: [
             { item: 'minecraft:blaze_rod', min: 1, max: 2, prob: 100 },
-            { item: 'twm:blaze_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:blaze_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:diamond_seeds': {
+    'utilitycraft:diamond_seeds': {
         cost: 512000,
         drops: [
             { item: 'minecraft:diamond', min: 1, max: 1, prob: 100 },
-            { item: 'twm:diamond_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:diamond_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:emerald_seeds': {
+    'utilitycraft:emerald_seeds': {
         cost: 512000,
         drops: [
             { item: 'minecraft:emerald', min: 1, max: 1, prob: 100 },
-            { item: 'twm:emerald_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:emerald_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:enderpearl_seeds': {
+    'utilitycraft:enderpearl_seeds': {
         cost: 512000,
         drops: [
             { item: 'minecraft:ender_pearl', min: 1, max: 1, prob: 100 },
-            { item: 'twm:enderpearl_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:enderpearl_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:obsidian_seeds': {
+    'utilitycraft:obsidian_seeds': {
         cost: 512000,
         drops: [
             { item: 'minecraft:obsidian', min: 1, max: 2, prob: 100 },
-            { item: 'twm:obsidian_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:obsidian_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:netherite_seeds': {
+    'utilitycraft:netherite_seeds': {
         cost: 1024000,
         drops: [
             { item: 'minecraft:netherite_scrap', min: 1, max: 1, prob: 100 },
-            { item: 'twm:netherite_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:netherite_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:nether_star_seeds': {
+    'utilitycraft:nether_star_seeds': {
         cost: 1024000,
         drops: [
             { item: 'minecraft:nether_star', min: 1, max: 1, prob: 100 },
-            { item: 'twm:nether_star_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:nether_star_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:shulker_seeds': {
+    'utilitycraft:shulker_seeds': {
         cost: 1024000,
         drops: [
             { item: 'minecraft:shulker_shell', min: 1, max: 1, prob: 100 },
-            { item: 'twm:shulker_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:shulker_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:totem_seeds': {
+    'utilitycraft:totem_seeds': {
         cost: 1024000,
         drops: [
             { item: 'minecraft:totem_of_undying', min: 1, max: 1, prob: 100 },
-            { item: 'twm:totem_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:totem_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
-    'twm:wither_seeds': {
+    'utilitycraft:wither_seeds': {
         cost: 1024000,
         drops: [
             { item: 'minecraft:wither_skeleton_skull', min: 1, max: 1, prob: 100 },
-            { item: 'twm:wither_seeds', min: 1, max: 1, prob: 5 }
+            { item: 'utilitycraft:wither_seeds', min: 1, max: 1, prob: 5 }
         ]
     },
     'minecraft:poppy': {
@@ -1458,355 +1458,355 @@ export const growing = {
 
 export const crafting = {
     "steel_ingot,iron_ingot,steel_ingot,gold_ingot,redstone_block,gold_ingot,steel_ingot,iron_ingot,steel_ingot": {
-        output: "twm:machine_case",
+        output: "utilitycraft:machine_case",
         amount: 1
     },
     // Batteries
     "basic_chip,redstone,basic_chip,redstone,redstone_block,redstone,basic_chip,gold_dust,basic_chip": {
-        output: "twm:basic_battery",
+        output: "utilitycraft:basic_battery",
         amount: 1
     },
     "advanced_chip,basic_battery,advanced_chip,basic_battery,redstone_block,basic_battery,advanced_chip,energized_iron_dust,advanced_chip": {
-        output: "twm:advanced_battery",
+        output: "utilitycraft:advanced_battery",
         amount: 1
     },
     "expert_chip,advanced_battery,expert_chip,advanced_battery,redstone_block,advanced_battery,expert_chip,diamond_dust,expert_chip": {
-        output: "twm:expert_battery",
+        output: "utilitycraft:expert_battery",
         amount: 1
     },
     "ultimate_chip,expert_battery,ultimate_chip,expert_battery,redstone_block,expert_battery,ultimate_chip,netherite_dust,ultimate_chip": {
-        output: "twm:ultimate_battery",
+        output: "utilitycraft:ultimate_battery",
         amount: 1
     },
     // Furnators
     "steel_ingot,basic_chip,steel_ingot,basic_chip,blast_furnace,basic_chip,iron_ingot,redstone_block,iron_ingot": {
-        output: "twm:basic_furnator",
+        output: "utilitycraft:basic_furnator",
         amount: 1
     },
     "steel_plate,advanced_chip,steel_plate,advanced_chip,basic_furnator,advanced_chip,energized_iron_plate,redstone_block,energized_iron_plate": {
-        output: "twm:advanced_furnator",
+        output: "utilitycraft:advanced_furnator",
         amount: 1
     },
     "steel_plate,expert_chip,steel_plate,expert_chip,advanced_furnator,expert_chip,diamond_dust,redstone_block,diamond_dust": {
-        output: "twm:expert_furnator",
+        output: "utilitycraft:expert_furnator",
         amount: 1
     },
     "steel_plate,ultimate_chip,steel_plate,ultimate_chip,expert_furnator,ultimate_chip,netherite_plate,redstone_block,netherite_plate": {
-        output: "twm:ultimate_furnator",
+        output: "utilitycraft:ultimate_furnator",
         amount: 1
     },
     // Magmators
     "gold_plate,basic_fluid_tank,gold_plate,basic_chip,furnace,basic_chip,steel_plate,basic_chip,steel_plate": {
-        output: "twm:basic_magmator",
+        output: "utilitycraft:basic_magmator",
         amount: 1
     },
     "energized_iron_plate,advanced_fluid_tank,energized_iron_plate,advanced_chip,basic_magmator,advanced_chip,steel_plate,advanced_chip,steel_plate": {
-        output: "twm:advanced_magmator",
+        output: "utilitycraft:advanced_magmator",
         amount: 1
     },
     "diamond_dust,expert_fluid_tank,diamond_dust,expert_chip,advanced_magmator,expert_chip,steel_plate,expert_chip,steel_plate": {
-        output: "twm:expert_magmator",
+        output: "utilitycraft:expert_magmator",
         amount: 1
     },
     "netherite_plate,ultimate_fluid_tank,netherite_plate,ultimate_chip,expert_magmator,ultimate_chip,netherite_plate,ultimate_chip,netherite_plate": {
-        output: "twm:ultimate_magmator",
+        output: "utilitycraft:ultimate_magmator",
         amount: 1
     },
     // Solar Panels
     "steel_ingot,basic_chip,steel_ingot,basic_chip,gold_ingot,basic_chip,gold_ingot,redstone_block,gold_ingot": {
-        output: "twm:basic_solar_panel",
+        output: "utilitycraft:basic_solar_panel",
         amount: 1
     },
     "steel_plate,advanced_chip,steel_plate,advanced_chip,basic_solar_panel,advanced_chip,energized_iron_plate,redstone_block,energized_iron_plate": {
-        output: "twm:advanced_solar_panel",
+        output: "utilitycraft:advanced_solar_panel",
         amount: 1
     },
     "steel_plate,expert_chip,steel_plate,expert_chip,advanced_solar_panel,expert_chip,diamond_dust,redstone_block,diamond_dust": {
-        output: "twm:expert_solar_panel",
+        output: "utilitycraft:expert_solar_panel",
         amount: 1
     },
     "steel_plate,ultimate_chip,steel_plate,ultimate_chip,expert_solar_panel,ultimate_chip,netherite_plate,redstone_block,netherite_plate": {
-        output: "twm:ultimate_solar_panel",
+        output: "utilitycraft:ultimate_solar_panel",
         amount: 1
     },
     // Thermo Generator
     "copper_block,copper_plate,copper_block,basic_chip,basic_fluid_tank,basic_chip,gold_plate,copper_block,gold_plate": {
-        output: "twm:basic_thermo_generator",
+        output: "utilitycraft:basic_thermo_generator",
         amount: 1
     },
     "copper_block,advanced_fluid_tank,copper_block,advanced_chip,basic_thermo_generator,advanced_chip,energized_iron_plate,copper_block,energized_iron_plate": {
-        output: "twm:advanced_thermo_generator",
+        output: "utilitycraft:advanced_thermo_generator",
         amount: 1
     },
     "copper_block,expert_fluid_tank,copper_block,expert_chip,advanced_thermo_generator,expert_chip,diamond_dust,copper_block,diamond_dust": {
-        output: "twm:expert_thermo_generator",
+        output: "utilitycraft:expert_thermo_generator",
         amount: 1
     },
     "copper_block,ultimate_fluid_tank,copper_block,ultimate_chip,expert_thermo_generator,ultimate_chip,netherite_plate,copper_block,netherite_plate": {
-        output: "twm:ultimate_thermo_generator",
+        output: "utilitycraft:ultimate_thermo_generator",
         amount: 1
     },
     // Tanks
     "gold_plate,glass,gold_plate,glass,basic_chip,glass,gold_plate,glass,gold_plate": {
-        output: "twm:basic_fluid_tank",
+        output: "utilitycraft:basic_fluid_tank",
         amount: 1
     },
     "energized_iron_ingot,basic_fluid_tank,energized_iron_ingot,basic_fluid_tank,advanced_chip,basic_fluid_tank,energized_iron_ingot,glass,energized_iron_ingot": {
-        output: "twm:advanced_fluid_tank",
+        output: "utilitycraft:advanced_fluid_tank",
         amount: 1
     },
     "diamond_dust,advanced_fluid_tank,diamond_dust,advanced_fluid_tank,expert_chip,advanced_fluid_tank,diamond_dust,glass,diamond_dust": {
-        output: "twm:expert_fluid_tank",
+        output: "utilitycraft:expert_fluid_tank",
         amount: 1
     },
     "netherite_dust,expert_fluid_tank,netherite_dust,expert_fluid_tank,ultimate_chip,expert_fluid_tank,netherite_dust,glass,netherite_dust": {
-        output: "twm:ultimate_fluid_tank",
+        output: "utilitycraft:ultimate_fluid_tank",
         amount: 1
     },
     "steel_ingot,iron_bars,hopper,steel_ingot,iron_bars,hopper": {
-        output: "twm:xp_drain",
+        output: "utilitycraft:xp_drain",
         amount: 1
     },
     "steel_ingot,dropper,lever,iron_ingot,steel_ingot,dropper,lever,iron_ingot": {
-        output: "twm:xp_spout",
+        output: "utilitycraft:xp_spout",
         amount: 1
     },
     // Machines
     "iron_plate,expert_chip,iron_plate,expert_chip,machine_case,expert_chip,steel_plate,crafter,steel_plate": {
-        output: "twm:assembler",
+        output: "utilitycraft:assembler",
         amount: 1
     },
     "redstone,sieve,redstone,chip,machine_case,chip,redstone,gold_block,redstone": {
-        output: "twm:autosieve",
+        output: "utilitycraft:autosieve",
         amount: 1
     },
     "redstone,iron_pickaxe,redstone,chip,machine_case,chip,redstone,iron_plate,redstone": {
-        output: "twm:block_breaker",
+        output: "utilitycraft:block_breaker",
         amount: 1
     },
     "redstone,dropper,redstone,chip,machine_case,chip,redstone,iron_plate,redstone": {
-        output: "twm:block_placer",
+        output: "utilitycraft:block_placer",
         amount: 1
     },
     "redstone,iron_hammer,redstone,chip,machine_case,chip,redstone,gold_ingot,redstone": {
-        output: "twm:crusher",
+        output: "utilitycraft:crusher",
         amount: 1
     },
     "iron_plate,expert_chip,iron_plate,expert_chip,machine_case,expert_chip,steel_plate,blueprint_paper,steel_plate": {
-        output: "twm:digitizer",
+        output: "utilitycraft:digitizer",
         amount: 1
     },
     "redstone,piston,redstone,chip,machine_case,chip,redstone,compressed_cobblestone,redstone": {
-        output: "twm:electro_press",
+        output: "utilitycraft:electro_press",
         amount: 1
     },
     "gold_plate,iron_hoe,gold_plate,advanced_chip,machine_case,advanced_chip,gold_plate,redstone_block,gold_plate": {
-        output: "twm:harvester",
+        output: "utilitycraft:harvester",
         amount: 1
     },
     "gold_plate,blast_furnace,gold_plate,basic_chip,machine_case,basic_chip,gold_plate,redstone_block,gold_plate": {
-        output: "twm:incinerator",
+        output: "utilitycraft:incinerator",
         amount: 1
     },
     "gold_plate,anvil,gold_plate,advanced_chip,machine_case,advanced_chip,gold_plate,redstone_block,gold_plate": {
-        output: "twm:induction_anvil",
+        output: "utilitycraft:induction_anvil",
         amount: 1
     },
     "redstone,lapis_lazuli,redstone,basic_chip,machine_case,basic_chip,redstone,redstone_block,redstone": {
-        output: "twm:infuser",
+        output: "utilitycraft:infuser",
         amount: 1
     },
     "gold_plate,copper_plate,gold_plate,advanced_chip,machine_case,advanced_chip,redstone_block,netherite_plate,redstone_block": {
-        output: "twm:magmatic_chamber",
+        output: "utilitycraft:magmatic_chamber",
         amount: 1
     },
     "gold_plate,amethyst_shard,gold_plate,expert_chip,machine_case,expert_chip,gold_plate,redstone_block,gold_plate": {
-        output: "twm:seed_synthesizer",
+        output: "utilitycraft:seed_synthesizer",
         amount: 1
     },
     "ender_eye,echo_shard,ender_eye,expert_chip,machine_case,expert_chip,lapis_block,diamond_dust,lapis_block": {
-        output: "twm:waycenter",
+        output: "utilitycraft:waycenter",
         amount: 1
     },
     "steel_plate,emerald_dust,steel_plate,expert_chip,machine_case,expert_chip,steel_plate,lapis_block,steel_plate": {
-        output: "twm:xp_condenser",
+        output: "utilitycraft:xp_condenser",
         amount: 1
     },
     // Item Transport
     "redstone,asphalt,redstone,air,air,air,air,air,air": {
-        output: "twm:conveyor_horizontal",
+        output: "utilitycraft:conveyor_horizontal",
         amount: 4
     },
     "air,air,redstone,air,asphalt,air,redstone,air,air": {
-        output: "twm:conveyor_inclined",
+        output: "utilitycraft:conveyor_inclined",
         amount: 4
     },
     "steel_ingot,air,steel_ingot,steel_ingot,dropper,steel_ingot,air,steel_ingot,air": {
-        output: "twm:mechanic_dropper",
+        output: "utilitycraft:mechanic_dropper",
         amount: 1
     },
     "steel_ingot,air,steel_ingot,steel_ingot,hopper,steel_ingot,air,steel_ingot,air": {
-        output: "twm:mechanic_hopper",
+        output: "utilitycraft:mechanic_hopper",
         amount: 1
     },
     "mechanic_upper,air,air,air,air,air,air,air,air": {
-        output: "twm:mechanic_hopper",
+        output: "utilitycraft:mechanic_hopper",
         amount: 1
     },
     "mechanic_hopper,air,air,air,air,air,air,air,air": {
-        output: "twm:mechanic_upper",
+        output: "utilitycraft:mechanic_upper",
         amount: 1
     },
     "steel_nugget,steel_nugget,steel_nugget,glass,chest,glass,steel_nugget,steel_nugget,steel_nugget": {
-        output: "twm:item_conduit",
+        output: "utilitycraft:item_conduit",
         amount: 8
     },
     "air,item_conduit,air,item_conduit,hopper,item_conduit,air,item_conduit,air": {
-        output: "twm:item_exporter",
+        output: "utilitycraft:item_exporter",
         amount: 1
     },
     // Cables
     "air,fluid_pipe,air,fluid_pipe,hopper,fluid_pipe,air,fluid_pipe,air": {
-        output: "twm:fluid_extractor",
+        output: "utilitycraft:fluid_extractor",
         amount: 1
     },
     "steel_nugget,steel_nugget,steel_nugget,glass,bucket,glass,steel_nugget,steel_nugget,steel_nugget": {
-        output: "twm:fluid_pipe",
+        output: "utilitycraft:fluid_pipe",
         amount: 8
     },
     "gold_ingot,hopper,gold_ingot,glass,dispenser,glass,steel_ingot,gold_ingot,steel_ingot": {
-        output: "twm:fluid_pump",
+        output: "utilitycraft:fluid_pump",
         amount: 1
     },
     "steel_nugget,redstone,steel_nugget,copper_nugget,copper_nugget,copper_nugget,steel_nugget,redstone,steel_nugget": {
-        output: "twm:energy_cable",
+        output: "utilitycraft:energy_cable",
         amount: 8
     },
     // Upgrades
     "steel_ingot,iron_ingot,steel_ingot,redstone,gold_ingot,redstone,steel_ingot,redstone,steel_ingot": {
-        output: "twm:base_upgrade",
+        output: "utilitycraft:base_upgrade",
         amount: 1
     },
     "redstone,comparator,redstone,steel_ingot,base_upgrade,steel_ingot,redstone,hopper,redstone": {
-        output: "twm:filter_upgrade",
+        output: "utilitycraft:filter_upgrade",
         amount: 1
     },
     "steel_plate,diamond_dust,steel_plate,diamond_dust,base_upgrade,diamond_dust,steel_plate,redstone_block,steel_plate": {
-        output: "twm:energy_upgrade",
+        output: "utilitycraft:energy_upgrade",
         amount: 1
     },
     "steel_ingot,cyan_dye,steel_ingot,lapis_block,base_upgrade,lapis_block,steel_ingot,spawner_core,steel_ingot": {
-        output: "twm:quantity_upgrade",
+        output: "utilitycraft:quantity_upgrade",
         amount: 1
     },
     "steel_plate,blue_dye,steel_plate,redstone,base_upgrade,redstone,steel_plate,gold_ingot,steel_plate": {
-        output: "twm:range_upgrade",
+        output: "utilitycraft:range_upgrade",
         amount: 1
     },
     "steel_plate,emerald_dust,steel_plate,redstone_block,base_upgrade,redstone_block,steel_plate,emerald_block,steel_plate": {
-        output: "twm:speed_upgrade",
+        output: "utilitycraft:speed_upgrade",
         amount: 1
     },
     // Other Stuff
     "air,ender_eye,air,steel_plate,expert_chip,steel_plate,air,air,air": {
-        output: "twm:waycarpet",
+        output: "utilitycraft:waycarpet",
         amount: 1
     },
     "lapis_lazuli,ender_pearl_dust,lapis_lazuli,ender_pearl_dust,base_upgrade,ender_pearl_dust,lapis_lazuli,ender_pearl_dust,lapis_lazuli": {
-        output: "twm:way_chip",
+        output: "utilitycraft:way_chip",
         amount: 1
     },
     "lapis_lazuli,soul_soil,lapis_lazuli,soul_sand,glass_bottle,soul_sand,lapis_lazuli,soul_soil,lapis_lazuli": {
-        output: "twm:essence_vessel",
+        output: "utilitycraft:essence_vessel",
         amount: 1
     },
     "crying_obsidian,diamond,crying_obsidian,iron_bars,spawner_core,iron_bars,crying_obsidian,iron_bars,crying_obsidian": {
-        output: "twm:mechanical_spawner",
+        output: "utilitycraft:mechanical_spawner",
         amount: 1
     },
     "redstone_block,soul_sand,redstone_block,soul_sand,diamond_block,soul_sand,redstone_block,soul_sand,redstone_block": {
-        output: "twm:spawner_core",
+        output: "utilitycraft:spawner_core",
         amount: 1
     },
     "obsidian,ender_eye,obsidian,obsidian,chest,obsidian,air,obsidian,": {
-        output: "twm:ender_hopper",
+        output: "utilitycraft:ender_hopper",
         amount: 1
     },
     "iron_ingot,redstone,iron_ingot,steel_ingot,machine_case,steel_ingot,iron_ingot,redstone,iron_ingot": {
-        output: "twm:fan",
+        output: "utilitycraft:fan",
         amount: 1
     },
     "air,iron_ingot,air,iron_sword,redstone_block,iron_sword,cobblestone,cobblestone,cobblestone": {
-        output: "twm:mob_grinder",
+        output: "utilitycraft:mob_grinder",
         amount: 1
     },
     "experience_bottle,experience_bottle,experience_bottle,experience_bottle,ender_eye,experience_bottle,experience_bottle,experience_bottle,experience_bottle": {
-        output: "twm:xp_magnet",
+        output: "utilitycraft:xp_magnet",
         amount: 1
     },
     // Utility Table
     "diamond,diamond_sword,diamond,string,diamond_paxel,diamond_hoe,stick,string,diamond": {
-        output: "twm:diamond_aiot",
+        output: "utilitycraft:diamond_aiot",
         amount: 1
     },
     "gold_ingot,golden_sword,gold_ingot,string,golden_paxel,golden_hoe,stick,string,gold_ingot": {
-        output: "twm:golden_aiot",
+        output: "utilitycraft:golden_aiot",
         amount: 1
     },
     "iron_ingot,iron_sword,iron_ingot,string,iron_paxel,iron_hoe,stick,string,iron_ingot": {
-        output: "twm:iron_aiot",
+        output: "utilitycraft:iron_aiot",
         amount: 1
     },
     "cobblestone,stone_sword,cobblestone,string,stone_paxel,stone_hoe,stick,string,cobblestone": {
-        output: "twm:stone_aiot",
+        output: "utilitycraft:stone_aiot",
         amount: 1
     },
     "air,iron_ingot,iron_block,repeater,amethyst_block,iron_ingot,redstone_block,repeater,air": {
-        output: "twm:drill",
+        output: "utilitycraft:drill",
         amount: 1
     },
     "air,diamond,diamond_block,repeater,drill,diamond,redstone_block,repeater,air": {
-        output: "twm:heavy_drill",
+        output: "utilitycraft:heavy_drill",
         amount: 1
     },
     "cobblestone,stone,cobblestone,cobblestone,stick,cobblestone,air,stick,air": {
-        output: "twm:stone_hammer",
+        output: "utilitycraft:stone_hammer",
         amount: 1
     },
     "iron_ingot,iron_block,iron_ingot,iron_ingot,stick,iron_ingot,air,stick,air": {
-        output: "twm:iron_hammer",
+        output: "utilitycraft:iron_hammer",
         amount: 1
     },
     "diamond,diamond_block,diamond,diamond,stick,diamond,air,stick,air": {
-        output: "twm:diamond_hammer",
+        output: "utilitycraft:diamond_hammer",
         amount: 1
     }
 }
 
 // Machines Config, you can modify machine stats here
 
-export const crusher = { energyCost: 800, rateSpeedBase: 20, energyCap: 64000, entity: 'twm:machine_general', nameTag: 'entity.twm:crusher.name', recipes: crushing }
+export const crusher = { energyCost: 800, rateSpeedBase: 20, energyCap: 64000, entity: 'utilitycraft:machine_general', nameTag: 'entity.utilitycraft:crusher.name', recipes: crushing }
 
-export const autosieve = { energyCost: 2000, rateSpeedBase: 50, energyCap: 160000, entity: 'twm:machine3x3', nameTag: 'entity.twm:autosieve.name', recipes: sieving, mesh: meshMulti }
+export const autosieve = { energyCost: 2000, rateSpeedBase: 50, energyCap: 160000, entity: 'utilitycraft:machine3x3', nameTag: 'entity.utilitycraft:autosieve.name', recipes: sieving, mesh: meshMulti }
 
-export const incinerator = { energyCost: 800, rateSpeedBase: 20, energyCap: 64000, entity: 'twm:machine_general', nameTag: 'entity.twm:incinerator.name', recipes: smelting }
+export const incinerator = { energyCost: 800, rateSpeedBase: 20, energyCap: 64000, entity: 'utilitycraft:machine_general', nameTag: 'entity.utilitycraft:incinerator.name', recipes: smelting }
 
-export const blockPlacer = { energyCost: 800, energyCap: 64000, entity: 'twm:machine1x1', nameTag: 'entity.twm:block_placer.name' }
+export const blockPlacer = { energyCost: 800, energyCap: 64000, entity: 'utilitycraft:machine1x1', nameTag: 'entity.utilitycraft:block_placer.name' }
 
-export const blockBreaker = { energyCost: 800, energyCap: 64000, entity: 'twm:basic_machine', nameTag: 'entity.twm:block_breaker.name', }
+export const blockBreaker = { energyCost: 800, energyCap: 64000, entity: 'utilitycraft:basic_machine', nameTag: 'entity.utilitycraft:block_breaker.name', }
 
-export const harvester = { energyCost: 800, energyCap: 64000, entity: 'twm:basic_machine', nameTag: 'entity.twm:harvester.name' }
+export const harvester = { energyCost: 800, energyCap: 64000, entity: 'utilitycraft:basic_machine', nameTag: 'entity.utilitycraft:harvester.name' }
 
-export const electroPress = { energyCost: 800, rateSpeedBase: 20, energyCap: 64000, entity: 'twm:machine_general', nameTag: 'entity.twm:electro_press.name', recipes: pressing }
+export const electroPress = { energyCost: 800, rateSpeedBase: 20, energyCap: 64000, entity: 'utilitycraft:machine_general', nameTag: 'entity.utilitycraft:electro_press.name', recipes: pressing }
 
-export const infuser = { energyCost: 800, rateSpeedBase: 20, energyCap: 64000, entity: 'twm:infuser', nameTag: 'entity.twm:infuser.name', recipes: infusing }
+export const infuser = { energyCost: 800, rateSpeedBase: 20, energyCap: 64000, entity: 'utilitycraft:infuser', nameTag: 'entity.utilitycraft:infuser.name', recipes: infusing }
 
-export const magmaticChamber = { energyCost: 8000, rateSpeedBase: 200, energyCap: 640000, entity: 'twm:magmatic_chamber', nameTag: 'entity.twm:magmatic_chamber.name', recipes: melting, liquidCap: 16000 }
+export const magmaticChamber = { energyCost: 8000, rateSpeedBase: 200, energyCap: 640000, entity: 'utilitycraft:magmatic_chamber', nameTag: 'entity.utilitycraft:magmatic_chamber.name', recipes: melting, liquidCap: 16000 }
 
-export const seedSynthesizer = { rateSpeedBase: 160, energyCap: 512000, entity: 'twm:machine3x3', nameTag: 'entity.twm:seed_synthesizer.name', recipes: growing, soils: acceptedSoils }
+export const seedSynthesizer = { rateSpeedBase: 160, energyCap: 512000, entity: 'utilitycraft:machine3x3', nameTag: 'entity.utilitycraft:seed_synthesizer.name', recipes: growing, soils: acceptedSoils }
 
-export const assembler = { energyCost: 1600, rateSpeedBase: 20, energyCap: 256000, entity: 'twm:assembler', nameTag: 'entity.twm:assembler.name' }
+export const assembler = { energyCost: 1600, rateSpeedBase: 20, energyCap: 256000, entity: 'utilitycraft:assembler', nameTag: 'entity.utilitycraft:assembler.name' }
 
-export const digitizer = { energyCost: 100, rateSpeedBase: 5, energyCap: 8000, entity: 'twm:machine3x3', nameTag: 'entity.twm:digitizer.name', recipes: crafting }
+export const digitizer = { energyCost: 100, rateSpeedBase: 5, energyCap: 8000, entity: 'utilitycraft:machine3x3', nameTag: 'entity.utilitycraft:digitizer.name', recipes: crafting }
 
-export const inductionAnvil = { rateSpeedBase: 5, energyCap: 16000, entity: 'twm:machine1x1', nameTag: 'entity.twm:induction_anvil.name' }
+export const inductionAnvil = { rateSpeedBase: 5, energyCap: 16000, entity: 'utilitycraft:machine1x1', nameTag: 'entity.utilitycraft:induction_anvil.name' }

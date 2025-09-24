@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:gilded_blackstone_pebble"
+			"identifier": "utilitycraft:gilded_blackstone_pebble"
 		},
 		"components": {
-			"minecraft:icon": "twm_gilded_blackstone_pebble"
+			"minecraft:icon": "utilitycraft_gilded_blackstone_pebble"
 		}
 	}
 }

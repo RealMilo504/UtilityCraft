@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:crucible"
+			"identifier": "utilitycraft:crucible"
 		},
 		"tags": [
 			"crafting_table"
@@ -22,7 +22,7 @@
 		],
 		"result": [
 			{
-				"item": "twm:crucible"
+				"item": "utilitycraft:crucible"
 			}
 		],
 		"unlock": [

@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:smelting_pickaxe"
+			"identifier": "utilitycraft:smelting_pickaxe"
 		},
 		"tags": [
 			"utility_table"
 		],
 		"result": [
 			{
-				"item": "twm:smelting_pickaxe"
+				"item": "utilitycraft:smelting_pickaxe"
 			}
 		],
 		"pattern": [

@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:blueprint"
+			"identifier": "utilitycraft:blueprint"
 		},
 		"tags": [
-			"twm_workbench",
+			"utilitycraft_workbench",
 			"crafting_table"
 		],
 		"key": {
@@ -21,7 +21,7 @@
 			"B"
 		],
 		"result": {
-			"item": "twm:blueprint_paper"
+			"item": "utilitycraft:blueprint_paper"
 		},
 		"unlock": [
 			{

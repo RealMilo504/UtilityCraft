@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:cobble_gen_5"
+			"identifier": "utilitycraft:cobble_gen_5"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "netherite_scrap"
 			},
 			"G": {
-				"item": "twm:cobble_gen_4"
+				"item": "utilitycraft:cobble_gen_4"
 			}
 		},
 		"pattern": [
@@ -21,14 +21,14 @@
 			"MMM"
 		],
 		"result": {
-			"item": "twm:cobble_gen_5"
+			"item": "utilitycraft:cobble_gen_5"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:netherite_scrap"
 			},
 			{
-				"item": "twm:cobble_gen_4"
+				"item": "utilitycraft:cobble_gen_4"
 			}
 		]
 	}

@@ -2,17 +2,17 @@ import { world, system, ItemStack } from '@minecraft/server'
 
 world.afterEvents.playerJoin.subscribe(eventData => {
     system.runTimeout(() => {
-        world.getDimension('overworld').runCommand(`give @a[tag =! guideUC] twm:utility_book_0`)
+        world.getDimension('overworld').runCommand(`give @a[tag =! guideUC] utilitycraft:utility_book_0`)
         world.getDimension('overworld').runCommand(`tag @a add guideUC`)
         system.runTimeout(() => {
-            world.getDimension('overworld').runCommand(`give @a[tag =! guideUC] twm:utility_book_0`)
+            world.getDimension('overworld').runCommand(`give @a[tag =! guideUC] utilitycraft:utility_book_0`)
             world.getDimension('overworld').runCommand(`tag @a add guideUC`)
         }, 250);
     }, 100);
 })
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.itemComponentRegistry.registerCustomComponent('twm:utility_book', {
+    eventData.itemComponentRegistry.registerCustomComponent('utilitycraft:utility_book', {
         onUse(e) {
             const { itemStack, source } = e
             const book = itemStack.typeId

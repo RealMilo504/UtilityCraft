@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:pebble_to_andesite"
+			"identifier": "utilitycraft:pebble_to_andesite"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:andesite_pebble"
+				"item": "utilitycraft:andesite_pebble"
 			}
 		},
 		"pattern": [
@@ -21,7 +21,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:andesite_pebble"
+				"item": "utilitycraft:andesite_pebble"
 			},
 			{
 				"item": "minecraft:andesite"

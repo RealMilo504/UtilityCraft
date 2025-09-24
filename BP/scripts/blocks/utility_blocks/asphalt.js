@@ -1,7 +1,7 @@
 import { world } from '@minecraft/server'
 
 const camo = [
-    'twm:asphalt',
+    'utilitycraft:asphalt',
     'minecraft:grass_path',
     'minecraft:grass_block',
     'minecraft:dirt',
@@ -11,13 +11,13 @@ const camo = [
 ]
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:asphalt', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:asphalt', {
         onPlayerInteract(e) {
             const { block, player } = e
             const hand = player.getComponent('equippable').getEquipment('Mainhand')
             for (let i = 0; i < camo.length; i++) {
                 if (hand.typeId == camo[i]) {
-                    block.setPermutation(block.permutation.withState('twm:texture', i))
+                    block.setPermutation(block.permutation.withState('utilitycraft:texture', i))
                 }
             }
         },

@@ -1,7 +1,7 @@
 import { world } from '@minecraft/server'
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.itemComponentRegistry.registerCustomComponent('twm:potion', {
+    eventData.itemComponentRegistry.registerCustomComponent('utilitycraft:potion', {
         onUse(e) {
             const { source } = e
             let entity = undefined

@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:sinkv2"
+			"identifier": "utilitycraft:sinkv2"
 		},
 		"tags": [
 			"crafting_table"
@@ -18,7 +18,7 @@
 				"item": "planks"
 			},
 			"C": {
-				"item": "twm:water_ball"
+				"item": "utilitycraft:water_ball"
 			},
 			"H": {
 				"item": "heart_of_the_sea"
@@ -34,7 +34,7 @@
 		],
 		"result": [
 			{
-				"item": "twm:sink"
+				"item": "utilitycraft:sink"
 			}
 		],
 		"unlock": [

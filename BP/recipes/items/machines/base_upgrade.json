@@ -2,10 +2,10 @@
     "format_version": "1.20.80",
     "minecraft:recipe_shaped": {
         "description": {
-            "identifier": "twm:base_upgrade"
+            "identifier": "utilitycraft:base_upgrade"
         },
         "tags": [
-            "twm_workbench"
+            "utilitycraft_workbench"
         ],
         "pattern": [
             "SLS",
@@ -14,7 +14,7 @@
         ],
         "key": {
             "S": {
-                "item": "twm:steel_ingot"
+                "item": "utilitycraft:steel_ingot"
             },
             "G": {
                 "item": "gold_ingot"
@@ -27,11 +27,11 @@
             }
         },
         "result": {
-            "item": "twm:base_upgrade"
+            "item": "utilitycraft:base_upgrade"
         },
         "unlock": [
             {
-                "item": "twm:steel_ingot"
+                "item": "utilitycraft:steel_ingot"
             }
         ]
     }

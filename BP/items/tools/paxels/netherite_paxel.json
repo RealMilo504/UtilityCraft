@@ -2,7 +2,7 @@
 	"format_version": "1.21.70",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:netherite_paxel"
+			"identifier": "utilitycraft:netherite_paxel"
 		},
 		"components": {
 			"minecraft:tags": {
@@ -17,10 +17,10 @@
 				"max_durability": 6093
 			},
 			"minecraft:custom_components": [
-				"twm:break"
+				"utilitycraft:break"
 			],
 			"minecraft:damage": 7,
-			"minecraft:icon": "twm_netherite_paxel",
+			"minecraft:icon": "utilitycraft_netherite_paxel",
 			"minecraft:enchantable": {
 				"value": 15,
 				"slot": "axe"
@@ -35,7 +35,7 @@
 					},
 					{
 						"items": [
-							"twm:netherite_paxel"
+							"utilitycraft:netherite_paxel"
 						],
 						"repair_amount": 2031
 					}

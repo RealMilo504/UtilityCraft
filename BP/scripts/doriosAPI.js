@@ -1078,12 +1078,12 @@ export const register = {
         * This function subscribes to the world initialization event
         * and registers the component in the block component registry.
         * 
-        * @param {string} typeId The custom component's type identifier, e.g., 'twm:crusher'.
+        * @param {string} typeId The custom component's type identifier, e.g., 'utilitycraft:crusher'.
         * @param {Object} handlers An object containing event handler functions for the component.
         *                            Supported handlers: beforeOnPlayerPlace, onTick, onPlayerDestroy, etc.
         * 
         * @example
-        * blockComponent('twm:crusher', {
+        * blockComponent('utilitycraft:crusher', {
         *   beforeOnPlayerPlace(e) { /* ... * / },
         *   onTick(e) { /* ... * / },
         *   onPlayerDestroy(e) { /* ... * / }

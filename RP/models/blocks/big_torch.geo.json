@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.twm_big_torch",
+				"identifier": "geometry.utilitycraft_big_torch",
 				"texture_width": 8,
 				"texture_height": 8,
 				"visible_bounds_width": 2,

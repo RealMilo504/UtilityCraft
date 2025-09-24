@@ -1,10 +1,10 @@
 import * as doriosAPI from '../../doriosAPI.js'
 import { Generator, settings } from '../generators_class.js'
 
-doriosAPI.register.OldBlockComponent('twm:magmator', {
+doriosAPI.register.OldBlockComponent('utilitycraft:magmator', {
     beforeOnPlayerPlace(e) {
         Generator.spawnGeneratorEntity(e, settings.magmator, (entity) => {
-            doriosAPI.entities.setItem(entity, 6, `twm:arrow_indicator`)
+            doriosAPI.entities.setItem(entity, 6, `utilitycraft:arrow_indicator`)
         })
     },
     onTick(e) {

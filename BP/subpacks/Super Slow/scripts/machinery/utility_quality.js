@@ -1,6 +1,6 @@
 export function setQuality(block) {
-    if (block.permutation.getState('twm:refreshSpeed') != 40) {
-        block.setPermutation(block.permutation.withState('twm:refreshSpeed', 40))
+    if (block.permutation.getState('utilitycraft:refreshSpeed') != 40) {
+        block.setPermutation(block.permutation.withState('utilitycraft:refreshSpeed', 40))
     }
 }
 

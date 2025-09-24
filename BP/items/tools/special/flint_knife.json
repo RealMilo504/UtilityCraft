@@ -2,19 +2,19 @@
 	"format_version": "1.21.10",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:flint_knife",
+			"identifier": "utilitycraft:flint_knife",
 			"menu_category": {
 				"category": "equipment"
 			}
 		},
 		"components": {
-			"minecraft:icon": "twm_flint_knife",
+			"minecraft:icon": "utilitycraft_flint_knife",
 			"minecraft:durability": {
 				"max_durability": 128
 			},
 			"minecraft:custom_components": [
-				"twm:fiber",
-				"twm:break"
+				"utilitycraft:fiber",
+				"utilitycraft:break"
 			],
 			"minecraft:enchantable": {
 				"slot": "shears",

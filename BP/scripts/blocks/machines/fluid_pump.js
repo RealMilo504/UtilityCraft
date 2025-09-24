@@ -8,24 +8,24 @@ const liquids = {
 }
 
 const caps = {
-    'twm:basic_fluid_tank': 8000,
-    'twm:advanced_fluid_tank': 32000,
-    'twm:expert_fluid_tank': 128000,
-    'twm:ultimate_fluid_tank': 512000,
-    'twm:basic_magmator': 8000 * 1,
-    'twm:advanced_magmator': 8000 * 4,
-    'twm:expert_magmator': 8000 * 16,
-    'twm:ultimate_magmator': 8000 * 100,
-    'twm:basic_thermo_generator': 2000 * 1,
-    'twm:advanced_thermo_generator': 2000 * 4,
-    'twm:expert_thermo_generator': 2000 * 16,
-    'twm:ultimate_thermo_generator': 2000 * 100,
-    'twm:magmatic_chamber': 32000
+    'utilitycraft:basic_fluid_tank': 8000,
+    'utilitycraft:advanced_fluid_tank': 32000,
+    'utilitycraft:expert_fluid_tank': 128000,
+    'utilitycraft:ultimate_fluid_tank': 512000,
+    'utilitycraft:basic_magmator': 8000 * 1,
+    'utilitycraft:advanced_magmator': 8000 * 4,
+    'utilitycraft:expert_magmator': 8000 * 16,
+    'utilitycraft:ultimate_magmator': 8000 * 100,
+    'utilitycraft:basic_thermo_generator': 2000 * 1,
+    'utilitycraft:advanced_thermo_generator': 2000 * 4,
+    'utilitycraft:expert_thermo_generator': 2000 * 16,
+    'utilitycraft:ultimate_thermo_generator': 2000 * 100,
+    'utilitycraft:magmatic_chamber': 32000
 };
 
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:fluid_pump', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:fluid_pump', {
         onTick(e) {
             const { block, dimension } = e
             let { x, y, z } = block.location;
@@ -56,20 +56,20 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 
             // Detectar tipo de fuente
             if (firstContainer) {
-                firstAmount = firstContainer.getDynamicProperty('twm:liquid')
+                firstAmount = firstContainer.getDynamicProperty('utilitycraft:liquid')
                 if (firstAmount <= 0) return
-                liquidType = firstContainer.getDynamicProperty('twm:liquidType')
+                liquidType = firstContainer.getDynamicProperty('utilitycraft:liquidType')
             } else if (liquids[firstBlock.typeId]) {
                 // Bloques líquidos vanilla
                 if (firstBlock.permutation.getState("liquid_depth") !== 0) return
                 firstAmount = 1000
                 liquidType = liquids[firstBlock.typeId]
-            } else if (firstBlock.typeId === 'twm:crucible') {
-                const lavaLevel = firstBlock.permutation.getState('twm:lava')
+            } else if (firstBlock.typeId === 'utilitycraft:crucible') {
+                const lavaLevel = firstBlock.permutation.getState('utilitycraft:lava')
                 if (lavaLevel < 1) return
                 firstAmount = 250 * lavaLevel
                 liquidType = 'lava'
-            } else if (firstBlock.typeId === 'twm:sink') {
+            } else if (firstBlock.typeId === 'utilitycraft:sink') {
                 liquidType = 'water'
                 firstAmount = Infinity
                 isInfinite = true
@@ -86,8 +86,8 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             const nextBlock = dimension.getBlock(pos)
 
             if (targetEnt) {
-                nextAmount = targetEnt.getDynamicProperty('twm:liquid')
-                nextType = targetEnt.getDynamicProperty('twm:liquidType')
+                nextAmount = targetEnt.getDynamicProperty('utilitycraft:liquid')
+                nextType = targetEnt.getDynamicProperty('utilitycraft:liquidType')
                 nextCap = caps[nextBlock?.typeId]
 
                 if (!nextCap) return
@@ -97,8 +97,8 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                 const transfer = Math.min(speed, firstAmount, nextCap - nextAmount)
                 if (transfer <= 0) return
 
-                targetEnt.setDynamicProperty('twm:liquid', nextAmount + transfer)
-                targetEnt.setDynamicProperty('twm:liquidType', liquidType)
+                targetEnt.setDynamicProperty('utilitycraft:liquid', nextAmount + transfer)
+                targetEnt.setDynamicProperty('utilitycraft:liquidType', liquidType)
                 if (nextBlock.typeId.includes('fluid_tank')) {
                     targetEnt.getComponent('minecraft:health').setCurrentValue(nextAmount + transfer)
                 }
@@ -108,18 +108,18 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                     firstAmount -= transfer
 
                     if (firstContainer) {
-                        firstContainer.setDynamicProperty('twm:liquid', firstAmount)
+                        firstContainer.setDynamicProperty('utilitycraft:liquid', firstAmount)
                         if (firstContainer.typeId.includes('fluid_tank')) {
                             firstContainer.getComponent('minecraft:health').setCurrentValue(firstAmount)
                         }
                         if (firstAmount <= 0 && firstBlock.typeId.includes('fluid_tank')) {
                             firstContainer.remove()
-                            firstBlock.setPermutation(firstBlock.permutation.withState('twm:hasliquid', false))
+                            firstBlock.setPermutation(firstBlock.permutation.withState('utilitycraft:hasliquid', false))
                         }
                     } else if (liquids[firstBlock.typeId]) {
                         firstBlock.setType('minecraft:air')
-                    } else if (firstBlock.typeId === 'twm:crucible') {
-                        firstBlock.setPermutation(firstBlock.permutation.withState('twm:lava', 0))
+                    } else if (firstBlock.typeId === 'utilitycraft:crucible') {
+                        firstBlock.setPermutation(firstBlock.permutation.withState('utilitycraft:lava', 0))
                     }
                 }
                 return
@@ -127,7 +127,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 
             // Si no hay entidad y es un tag de tanque (crear nuevo tanque)
             if (!targetEnt && nextBlock.typeId.includes('fluid_tank')) {
-                const tank = dimension.spawnEntity(`twm:fluid_tank_${liquidType}`, {
+                const tank = dimension.spawnEntity(`utilitycraft:fluid_tank_${liquidType}`, {
                     x: pos.x + 0.5,
                     y: pos.y,
                     z: pos.z + 0.5
@@ -136,24 +136,24 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                 const nextBlock = dimension.getBlock(pos)
                 const transfer = Math.min(speed, firstAmount)
 
-                tank.setDynamicProperty('twm:liquid', transfer)
-                tank.setDynamicProperty('twm:liquidType', liquidType)
+                tank.setDynamicProperty('utilitycraft:liquid', transfer)
+                tank.setDynamicProperty('utilitycraft:liquidType', liquidType)
                 tank.getComponent('minecraft:health').setCurrentValue(transfer)
-                nextBlock.setPermutation(nextBlock.permutation.withState('twm:hasliquid', true))
+                nextBlock.setPermutation(nextBlock.permutation.withState('utilitycraft:hasliquid', true))
 
                 if (!isInfinite) {
                     firstAmount -= transfer
 
                     if (firstContainer) {
-                        firstContainer.setDynamicProperty('twm:liquid', firstAmount)
+                        firstContainer.setDynamicProperty('utilitycraft:liquid', firstAmount)
                         if (firstAmount <= 0 && firstBlock.typeId.includes('fluid_tank')) {
                             firstContainer.remove()
-                            firstBlock.setPermutation(firstBlock.permutation.withState('twm:hasliquid', false))
+                            firstBlock.setPermutation(firstBlock.permutation.withState('utilitycraft:hasliquid', false))
                         }
                     } else if (liquids[firstBlock.typeId]) {
                         firstBlock.setType('minecraft:air')
-                    } else if (firstBlock.typeId === 'twm:crucible') {
-                        firstBlock.setPermutation(firstBlock.permutation.withState('twm:lava', 0))
+                    } else if (firstBlock.typeId === 'utilitycraft:crucible') {
+                        firstBlock.setPermutation(firstBlock.permutation.withState('utilitycraft:lava', 0))
                     }
                 }
             }

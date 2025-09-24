@@ -1,7 +1,7 @@
 import { world } from '@minecraft/server'
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:big_torch', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:big_torch', {
         onPlace(e) {
             const { block } = e
             const { x, y, z } = block.location

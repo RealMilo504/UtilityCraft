@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:lava_seeds"
+			"identifier": "utilitycraft:lava_seeds"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "minecraft:lava_bucket"
 			},
 			"S": {
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		},
 		"pattern": [
@@ -22,7 +22,7 @@
 		],
 		"result": [
 			{
-				"item": "twm:lava_seeds"
+				"item": "utilitycraft:lava_seeds"
 			},
 			{
 				"item": "minecraft:bucket",
@@ -34,7 +34,7 @@
 				"item": "minecraft:lava_bucket"
 			},
 			{
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		],
 		"priority": 0

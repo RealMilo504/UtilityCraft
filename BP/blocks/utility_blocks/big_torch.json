@@ -2,16 +2,16 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:big_torch",
+			"identifier": "utilitycraft:big_torch",
 			"menu_category": {
 				"category": "construction"
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_big_torch",
+			"minecraft:geometry": "geometry.utilitycraft_big_torch",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_big_torch",
+					"texture": "utilitycraft_big_torch",
 					"render_method": "alpha_test"
 				}
 			},
@@ -41,7 +41,7 @@
 			},
 			"minecraft:light_emission": 15,
 			"minecraft:custom_components": [
-				"twm:big_torch"
+				"utilitycraft:big_torch"
 			],
 			"minecraft:destructible_by_explosion": false
 		}

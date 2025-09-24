@@ -6,12 +6,12 @@ const basesDimension = world.getDimension('overworld')
 world.getDimension('overworld').runCommand('tickingarea add 0 0 0 0 0 0 dorios')
 
 world.beforeEvents.worldInitialize.subscribe(e => {
-    e.blockComponentRegistry.registerCustomComponent('twm:computer', {
+    e.blockComponentRegistry.registerCustomComponent('utilitycraft:computer', {
         onPlayerInteract(e) {
             const { player, block } = e
             let mainHand = player.getComponent('equippable').getEquipment('Mainhand')
             let entity = basesDimension.getEntities({ tags: [`id: @${block.location.x} ${block.location.y} ${block.location.z}@ ${block.dimension.id}`] })[0]
-            let discountLevel = block.permutation.getState('twm:price')
+            let discountLevel = block.permutation.getState('utilitycraft:price')
             let discount = discountLevel * (5 + (5 * (-3 + discountLevel) * discountLevel) / (-1 + 2 * discountLevel))
             if (entity == undefined) {
                 return;
@@ -21,7 +21,7 @@ world.beforeEvents.worldInitialize.subscribe(e => {
                 return;
             }
             let item = mainHand.typeId
-            if (item != 'twm:way_chip') {
+            if (item != 'utilitycraft:way_chip') {
                 computerMenu(player, entity, discount)
             } else {
                 let loreArray = mainHand.getLore()
@@ -29,7 +29,7 @@ world.beforeEvents.worldInitialize.subscribe(e => {
                     player.onScreenDisplay.setActionBar('§4This chip does not have a carpet')
                     return;
                 }
-                let maxDistance = (block.permutation.getState('twm:range') != 5) ? (-5000 * (block.permutation.getState('twm:range') + 1)) / ((block.permutation.getState('twm:range') + 1) - 6) : Infinity
+                let maxDistance = (block.permutation.getState('utilitycraft:range') != 5) ? (-5000 * (block.permutation.getState('utilitycraft:range') + 1)) / ((block.permutation.getState('utilitycraft:range') + 1) - 6) : Infinity
                 if (findCarpet(loreArray[1], loreArray[2]) || maxDistance < getDistance(mainHand.getLore(), block)) {
                     if (maxDistance < getDistance(mainHand.getLore(), block)) {
                         player.onScreenDisplay.setActionBar('§4Not within range')
@@ -48,7 +48,7 @@ world.beforeEvents.worldInitialize.subscribe(e => {
         onPlace(e) {
             const { block } = e
             let location = block.location
-            block.dimension.runCommand(`summon twm:waycenter ${location.x} ${location.y} ${location.z}`)
+            block.dimension.runCommand(`summon utilitycraft:waycenter ${location.x} ${location.y} ${location.z}`)
             let entity = block.dimension.getEntitiesAtBlockLocation(location)[0]
             entity.addTag(`id: @${block.location.x} ${block.location.y} ${block.location.z}@ ${block.dimension.id}`)
             entity.runCommand('execute in overworld run tp @s 0 0 0')
@@ -60,7 +60,7 @@ world.beforeEvents.worldInitialize.subscribe(e => {
             for (let i = 1; i < tags.length; i++) {
                 let tagsArr = tags[i];
                 let data = tagsArr.split(',')
-                let item = new ItemStack('twm:way_chip', 1)
+                let item = new ItemStack('utilitycraft:way_chip', 1)
                 item.setLore([
                     `${data[0]}`,
                     `${data[1]}`,
@@ -71,7 +71,7 @@ world.beforeEvents.worldInitialize.subscribe(e => {
             entity.remove()
         }
     })
-    e.blockComponentRegistry.registerCustomComponent('twm:carpet', {
+    e.blockComponentRegistry.registerCustomComponent('utilitycraft:carpet', {
         onPlayerInteract(e) {
             const { player, block } = e
             let mainHand = player.getComponent('equippable').getEquipment('Mainhand')
@@ -80,7 +80,7 @@ world.beforeEvents.worldInitialize.subscribe(e => {
                 return;
             }
             mainHand = mainHand.typeId
-            if (mainHand != 'twm:way_chip') {
+            if (mainHand != 'utilitycraft:way_chip') {
                 tpToComputer(block, player)
                 return;
             } else {
@@ -113,7 +113,7 @@ function getDistance(itemLore, block) {
 }
 
 function deleteCarpet(location) {
-    let entities = basesDimension.getEntities({ type: 'twm:waycenter' })
+    let entities = basesDimension.getEntities({ type: 'utilitycraft:waycenter' })
     let { x, y, z } = location
     for (let entity of entities) {
         for (let i = 1; i < entity.getTags().length; i++) {
@@ -128,7 +128,7 @@ function deleteCarpet(location) {
 }
 
 function findCarpet(itemCoord, itemDimension) {
-    let entities = basesDimension.getEntities({ type: 'twm:waycenter' })
+    let entities = basesDimension.getEntities({ type: 'utilitycraft:waycenter' })
     for (let entity of entities) {
         for (let i = 1; i < entity.getTags().length; i++) {
             let tags = entity.getTags()[i].split(',')
@@ -141,7 +141,7 @@ function findCarpet(itemCoord, itemDimension) {
 }
 
 function tpToComputer(block, player) {
-    let entities = basesDimension.getEntities({ type: 'twm:waycenter' })
+    let entities = basesDimension.getEntities({ type: 'utilitycraft:waycenter' })
     let { x, y, z } = block.location
     for (let entity of entities) {
         for (let i = 1; i < entity.getTags().length; i++) {
@@ -236,7 +236,7 @@ function computerMenu(player, entity, discount) {
                     if (block == undefined) {
                         return;
                     }
-                    if (block.typeId != 'twm:way_carpet') {
+                    if (block.typeId != 'utilitycraft:way_carpet') {
                         (block.location)
                     }
                 }, 100)

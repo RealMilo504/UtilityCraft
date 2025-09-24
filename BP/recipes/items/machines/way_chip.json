@@ -2,10 +2,10 @@
     "format_version": "1.20.80",
     "minecraft:recipe_shaped": {
         "description": {
-            "identifier": "twm:way_chip"
+            "identifier": "utilitycraft:way_chip"
         },
         "tags": [
-            "twm_workbench"
+            "utilitycraft_workbench"
         ],
         "pattern": [
             "SDS",
@@ -14,21 +14,21 @@
         ],
         "key": {
             "B": {
-                "item": "twm:base_upgrade"
+                "item": "utilitycraft:base_upgrade"
             },
             "D": {
-                "item": "twm:ender_pearl_dust"
+                "item": "utilitycraft:ender_pearl_dust"
             },
             "S": {
                 "item": "lapis_lazuli"
             }
         },
         "result": {
-            "item": "twm:way_chip"
+            "item": "utilitycraft:way_chip"
         },
         "unlock": [
             {
-                "item": "twm:ender_pearl_dust"
+                "item": "utilitycraft:ender_pearl_dust"
             }
         ]
     }

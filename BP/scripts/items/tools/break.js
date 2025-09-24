@@ -1,7 +1,7 @@
 import { world, ItemEnchantableComponent } from '@minecraft/server'
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.itemComponentRegistry.registerCustomComponent('twm:break', {
+    eventData.itemComponentRegistry.registerCustomComponent('utilitycraft:break', {
         onMineBlock(e) {
             const { itemStack, source } = e
             const durability = itemStack.getComponent('minecraft:durability')

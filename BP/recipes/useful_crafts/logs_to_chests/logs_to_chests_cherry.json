@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:logs_to_chests_cherry"
+			"identifier": "utilitycraft:logs_to_chests_cherry"
 		},
 		"tags": [
 			"crafting_table"

@@ -2,23 +2,23 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:ultimate_battery"
+			"identifier": "utilitycraft:ultimate_battery"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
-				"item": "twm:expert_battery"
+				"item": "utilitycraft:expert_battery"
 			},
 			"B": {
 				"item": "redstone_block"
 			},
 			"C": {
-				"item": "twm:ultimate_chip"
+				"item": "utilitycraft:ultimate_chip"
 			},
 			"D": {
-				"item": "twm:netherite_dust"
+				"item": "utilitycraft:netherite_dust"
 			}
 		},
 		"pattern": [
@@ -27,11 +27,11 @@
 			"CDC"
 		],
 		"result": {
-			"item": "twm:ultimate_battery"
+			"item": "utilitycraft:ultimate_battery"
 		},
 		"unlock": [
 			{
-				"item": "twm:ultimate_chip"
+				"item": "utilitycraft:ultimate_chip"
 			}
 		]
 	}

@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:mushroom",
+			"identifier": "utilitycraft:mushroom",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/mushroom_red"
 			},
 			"geometry": {
-				"default": "geometry.twm_mushroom"
+				"default": "geometry.utilitycraft_mushroom"
 			},
 			"render_controllers": [
 				"controller.render.mushroom"

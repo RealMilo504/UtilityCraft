@@ -59,7 +59,7 @@
             "entries": [
                 {
                     "type": "item",
-                    "name": "twm:apple_sapling",
+                    "name": "utilitycraft:apple_sapling",
                     "functions": [
                         {
                             "function": "set_count",

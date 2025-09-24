@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:elevator"
+			"identifier": "utilitycraft:elevator"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"E": {
@@ -21,7 +21,7 @@
 			"WWW"
 		],
 		"result": {
-			"item": "twm:elevator"
+			"item": "utilitycraft:elevator"
 		},
 		"unlock": [
 			{

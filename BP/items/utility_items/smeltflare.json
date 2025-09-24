@@ -2,13 +2,13 @@
     "format_version": "1.20.80",
     "minecraft:item": {
         "description": {
-            "identifier": "twm:smeltflare",
+            "identifier": "utilitycraft:smeltflare",
             "menu_category": {
                 "category": "items"
             }
         },
         "components": {
-            "minecraft:icon": "twm_smeltflare"
+            "minecraft:icon": "utilitycraft_smeltflare"
         }
     }
 }

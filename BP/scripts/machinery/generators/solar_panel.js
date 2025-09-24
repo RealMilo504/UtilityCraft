@@ -2,7 +2,7 @@ import { world } from '@minecraft/server'
 import { Generator, settings } from '../generators_class.js'
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:solar_panel', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:solar_panel', {
         beforeOnPlayerPlace(e) {
             Generator.spawnGeneratorEntity(e, settings.solarPanel)
         },

@@ -3,7 +3,7 @@ import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
 
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:mechanic_hoppers', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:mechanic_hoppers', {
         onTick(e) {
             const { block, dimension } = e
             let { x, y, z } = block.location
@@ -19,21 +19,21 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             if (!hopperInv) return
 
 
-            let speed = 4 * (2 ** block.permutation.getState('twm:speed'))
+            let speed = 4 * (2 ** block.permutation.getState('utilitycraft:speed'))
             const acceptedItems = hopper?.getTags()
-            let state = hopper.getDynamicProperty('twm:whitelistOn')
+            let state = hopper.getDynamicProperty('utilitycraft:whitelistOn')
 
             const direction = block.permutation.getState('minecraft:block_face')
-            const hasFilter = block.permutation.getState('twm:filter')
+            const hasFilter = block.permutation.getState('utilitycraft:filter')
 
             let firstBlock = undefined
 
             let initialchest = undefined
-            if (block.typeId == 'twm:mechanic_hopper' || (block.typeId == 'twm:mechanic_dropper' && direction == 'up')) {
+            if (block.typeId == 'utilitycraft:mechanic_hopper' || (block.typeId == 'utilitycraft:mechanic_dropper' && direction == 'up')) {
                 y += 1
                 firstBlock = block.above(1)
             }
-            if (block.typeId == 'twm:mechanic_upper' || (block.typeId == 'twm:mechanic_dropper' && direction != 'up')) {
+            if (block.typeId == 'utilitycraft:mechanic_upper' || (block.typeId == 'utilitycraft:mechanic_dropper' && direction != 'up')) {
                 y -= 1
                 firstBlock = block.below(1)
             }
@@ -97,15 +97,15 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                     }
                 }
             }
-            if (block.typeId == 'twm:mechanic_hopper' && (direction == 'up' || direction == 'down') || (block.typeId == 'twm:mechanic_dropper' && direction == 'up')) {
+            if (block.typeId == 'utilitycraft:mechanic_hopper' && (direction == 'up' || direction == 'down') || (block.typeId == 'utilitycraft:mechanic_dropper' && direction == 'up')) {
                 y -= 2
             }
-            if (block.typeId == 'twm:mechanic_upper' && (direction == 'up' || direction == 'down') || (block.typeId == 'twm:mechanic_dropper' && direction != 'up')) {
+            if (block.typeId == 'utilitycraft:mechanic_upper' && (direction == 'up' || direction == 'down') || (block.typeId == 'utilitycraft:mechanic_dropper' && direction != 'up')) {
                 y += 2
             }
 
-            if (direction != 'up' && direction != 'down' && block.typeId != 'twm:mechanic_dropper') {
-                y = (block.typeId == 'twm:mechanic_hopper') ? y = y - 1 : y += 1
+            if (direction != 'up' && direction != 'down' && block.typeId != 'utilitycraft:mechanic_dropper') {
+                y = (block.typeId == 'utilitycraft:mechanic_hopper') ? y = y - 1 : y += 1
                 switch (direction) {
                     case 'north':
                         z += 1
@@ -149,8 +149,8 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             const nextInv = (nextchest != undefined) ? nextchest.container : ((nextentity != undefined) ? nextentity.getComponent('minecraft:inventory').container : undefined)
 
 
-            if (nextInv != undefined || block.typeId == 'twm:mechanic_dropper') {
-                if (nextentity?.typeId == 'twm:assembler' && nextInv.emptySlotsCount < 2) return
+            if (nextInv != undefined || block.typeId == 'utilitycraft:mechanic_dropper') {
+                if (nextentity?.typeId == 'utilitycraft:assembler' && nextInv.emptySlotsCount < 2) return
                 if (nextentity?.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:simple_input")) {
                     const slotNext = nextInv.getItem(3);
                     for (let i = 0; i < hopperInv.size; i++) {
@@ -171,11 +171,11 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                     return
                 }
                 for (let j = 0; j < hopperInv.size; j++) {
-                    if (hopperInv.getItem(j) != undefined && (nextInv?.emptySlotsCount != 0 || block.typeId == 'twm:mechanic_dropper')) {
+                    if (hopperInv.getItem(j) != undefined && (nextInv?.emptySlotsCount != 0 || block.typeId == 'utilitycraft:mechanic_dropper')) {
                         let item = hopperInv.getItem(j), itemnew = hopperInv.getItem(j)
                         speed = (speed <= item.amount) ? speed : item.amount
                         itemnew.amount = speed
-                        if (block.typeId != 'twm:mechanic_dropper') {
+                        if (block.typeId != 'utilitycraft:mechanic_dropper') {
                             nextInv.addItem(itemnew)
                         } else {
                             block.dimension.spawnItem(itemnew, { x, y, z })
@@ -198,8 +198,8 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             x += 0.5, z += 0.5, y += 0.375
 
             system.run(() => {
-                const entity = block.dimension.spawnEntity('twm:mechanic_hopper', { x, y, z })
-                entity.setDynamicProperty('twm:whitelistOn', true)
+                const entity = block.dimension.spawnEntity('utilitycraft:mechanic_hopper', { x, y, z })
+                entity.setDynamicProperty('utilitycraft:whitelistOn', true)
             })
         },
         onPlayerDestroy(e) {
@@ -222,7 +222,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             let { x, y, z } = block.location
             x += 0.5, z += 0.5, y += 0.375
             if (player.isSneaking) return
-            const hasFilter = block.permutation.getState('twm:filter')
+            const hasFilter = block.permutation.getState('utilitycraft:filter')
             if (!hasFilter) return
             const mainHand = player.getComponent('equippable').getEquipment('Mainhand')
             if (mainHand?.typeId.includes('wrench')) return
@@ -234,7 +234,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 function openMenu({ x, y, z }, block, player) {
     let menu = new ActionFormData()
     const hopper = block.dimension.getEntitiesAtBlockLocation(block.location)[0]
-    let state = hopper.getDynamicProperty('twm:whitelistOn')
+    let state = hopper.getDynamicProperty('utilitycraft:whitelistOn')
 
     menu.title('Filter')
 
@@ -261,7 +261,7 @@ function openMenu({ x, y, z }, block, player) {
             if (selection == undefined) return;
 
             if (selection == 0) {
-                hopper.setDynamicProperty('twm:whitelistOn', !state)
+                hopper.setDynamicProperty('utilitycraft:whitelistOn', !state)
                 openMenu({ x, y, z }, block, player)
                 return
             }

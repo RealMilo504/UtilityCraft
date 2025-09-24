@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:dyes_seeds"
+			"identifier": "utilitycraft:dyes_seeds"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "minecraft:dye"
 			},
 			"S": {
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		},
 		"pattern": [
@@ -21,14 +21,14 @@
 			"OOO"
 		],
 		"result": {
-			"item": "twm:dyes_seeds"
+			"item": "utilitycraft:dyes_seeds"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:dye"
 			},
 			{
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		]
 	}

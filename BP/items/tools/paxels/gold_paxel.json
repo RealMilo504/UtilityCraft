@@ -2,7 +2,7 @@
 	"format_version": "1.21.70",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:golden_paxel"
+			"identifier": "utilitycraft:golden_paxel"
 		},
 		"components": {
 			"minecraft:tags": {
@@ -17,10 +17,10 @@
 				"max_durability": 144
 			},
 			"minecraft:custom_components": [
-				"twm:break"
+				"utilitycraft:break"
 			],
 			"minecraft:damage": 4,
-			"minecraft:icon": "twm_gold_paxel",
+			"minecraft:icon": "utilitycraft_gold_paxel",
 			"minecraft:enchantable": {
 				"value": 15,
 				"slot": "axe"
@@ -35,7 +35,7 @@
 					},
 					{
 						"items": [
-							"twm:golden_paxel"
+							"utilitycraft:golden_paxel"
 						],
 						"repair_amount": 48
 					}

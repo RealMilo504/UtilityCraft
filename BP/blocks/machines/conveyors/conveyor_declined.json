@@ -2,7 +2,7 @@
     "format_version": "1.20.80",
     "minecraft:block": {
         "description": {
-            "identifier": "twm:conveyor_declined",
+            "identifier": "utilitycraft:conveyor_declined",
             "menu_category": {
                 "category": "construction"
             },
@@ -15,15 +15,15 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.twm_conveyor_declined",
+            "minecraft:geometry": "geometry.utilitycraft_conveyor_declined",
             "minecraft:material_instances": {
                 "*": {
-                    "texture": "twm_conveyor_inclined_2",
+                    "texture": "utilitycraft_conveyor_inclined_2",
                     "render_method": "alpha_test"
                 }
             },
             "minecraft:custom_components": [
-                "twm:conveyors"
+                "utilitycraft:conveyors"
             ],
             "minecraft:tick": {
                 "interval_range": [

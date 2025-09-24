@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:lucky_sword_item"
+			"identifier": "utilitycraft:lucky_sword_item"
 		},
 		"tags": [
 			"utility_table"
@@ -35,7 +35,7 @@
 			}
 		],
 		"result": {
-			"item": "twm:lucky_sword_item"
+			"item": "utilitycraft:lucky_sword_item"
 		}
 	}
 }

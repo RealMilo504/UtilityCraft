@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:xp_magnet"
+			"identifier": "utilitycraft:xp_magnet"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"C": {
@@ -21,7 +21,7 @@
 			"CCC"
 		],
 		"result": {
-			"item": "twm:xp_magnet"
+			"item": "utilitycraft:xp_magnet"
 		},
 		"unlock": [
 			{

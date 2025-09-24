@@ -2,10 +2,10 @@
     "format_version": "1.20.80",
     "minecraft:recipe_shaped": {
         "description": {
-            "identifier": "twm:speed_upgrade"
+            "identifier": "utilitycraft:speed_upgrade"
         },
         "tags": [
-            "twm_workbench"
+            "utilitycraft_workbench"
         ],
         "pattern": [
             "SDS",
@@ -14,10 +14,10 @@
         ],
         "key": {
             "B": {
-                "item": "twm:base_upgrade"
+                "item": "utilitycraft:base_upgrade"
             },
             "D": {
-                "item": "twm:emerald_dust"
+                "item": "utilitycraft:emerald_dust"
             },
             "I": {
                 "item": "emerald_block"
@@ -26,15 +26,15 @@
                 "item": "minecraft:redstone_block"
             },
             "S": {
-                "item": "twm:steel_plate"
+                "item": "utilitycraft:steel_plate"
             }
         },
         "result": {
-            "item": "twm:speed_upgrade"
+            "item": "utilitycraft:speed_upgrade"
         },
         "unlock": [
             {
-                "item": "twm:base_upgrade"
+                "item": "utilitycraft:base_upgrade"
             }
         ]
     }

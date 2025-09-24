@@ -2,33 +2,33 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:harvester",
+			"identifier": "utilitycraft:harvester",
 			"menu_category": {
 				"category": "construction"
 			},
 			"states": {
-				"twm:speed": [
+				"utilitycraft:speed": [
 					0,
 					1,
 					2,
 					3,
 					4
 				],
-				"twm:energy": [
+				"utilitycraft:energy": [
 					0,
 					1,
 					2,
 					3,
 					4
 				],
-				"twm:range": [
+				"utilitycraft:range": [
 					0,
 					1,
 					2,
 					3,
 					4
 				],
-				"twm:on": [
+				"utilitycraft:on": [
 					false,
 					true
 				]
@@ -42,16 +42,16 @@
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_block_2",
+			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_harvester_off",
+					"texture": "utilitycraft_harvester_off",
 					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:custom_components": [
-				"twm:machine_upgrades",
-				"twm:harvest"
+				"utilitycraft:machine_upgrades",
+				"utilitycraft:harvest"
 			],
 			"minecraft:tick": {
 				"interval_range": [
@@ -139,7 +139,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 1 ",
+				"condition": "q.block_state('utilitycraft:speed') == 1 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -150,7 +150,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 2 ",
+				"condition": "q.block_state('utilitycraft:speed') == 2 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -161,7 +161,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 3",
+				"condition": "q.block_state('utilitycraft:speed') == 3",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -172,7 +172,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 4",
+				"condition": "q.block_state('utilitycraft:speed') == 4",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -183,11 +183,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:on') == true ",
+				"condition": "q.block_state('utilitycraft:on') == true ",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_harvester_on",
+							"texture": "utilitycraft_harvester_on",
 							"render_method": "alpha_test"
 						}
 					}

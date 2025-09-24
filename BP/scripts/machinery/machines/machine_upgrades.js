@@ -14,7 +14,7 @@ const cardinal = ['north', 'south', 'east', 'west']
 const facing = ['up', 'down', 'north', 'south', 'east', 'west']
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:machine_upgrades', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:machine_upgrades', {
         onPlayerInteract(e) {
             const { block, player } = e
             const mainHand = player.getComponent('equippable').getEquipment('Mainhand')
@@ -37,7 +37,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                 return
             }
 
-            if (mainHand?.typeId == 'twm:wrench') {
+            if (mainHand?.typeId == 'utilitycraft:wrench') {
                 try {
                     const currentFacing = block.permutation.getState('minecraft:facing_direction');
                     const facingIndex = facing.indexOf(currentFacing);

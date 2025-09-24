@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:iron_seeds"
+			"identifier": "utilitycraft:iron_seeds"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "iron_ingot"
 			},
 			"S": {
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		},
 		"pattern": [
@@ -21,14 +21,14 @@
 			"OOO"
 		],
 		"result": {
-			"item": "twm:iron_seeds"
+			"item": "utilitycraft:iron_seeds"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:iron_ingot"
 			},
 			{
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		]
 	}

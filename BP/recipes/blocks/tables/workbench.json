@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:workbench"
+			"identifier": "utilitycraft:workbench"
 		},
 		"tags": [
 			"crafting_table"
@@ -15,10 +15,10 @@
 				"item": "copper_ingot"
 			},
 			"B": {
-				"item": "twm:steel_block"
+				"item": "utilitycraft:steel_block"
 			},
 			"S": {
-				"item": "twm:steel_ingot"
+				"item": "utilitycraft:steel_ingot"
 			}
 		},
 		"pattern": [
@@ -27,11 +27,11 @@
 			"IBI"
 		],
 		"result": {
-			"item": "twm:workbench"
+			"item": "utilitycraft:workbench"
 		},
 		"unlock": [
 			{
-				"item": "twm:steel_ingot"
+				"item": "utilitycraft:steel_ingot"
 			}
 		]
 	}

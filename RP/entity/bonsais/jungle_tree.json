@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:jungle_tree",
+			"identifier": "utilitycraft:jungle_tree",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/jungle_tree"
 			},
 			"geometry": {
-				"default": "geometry.twm_jungle_tree"
+				"default": "geometry.utilitycraft_jungle_tree"
 			},
 			"render_controllers": [
 				"controller.render.jungle_tree"

@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:slime_seeds"
+			"identifier": "utilitycraft:slime_seeds"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "minecraft:slime_ball"
 			},
 			"S": {
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		},
 		"pattern": [
@@ -21,14 +21,14 @@
 			"LLL"
 		],
 		"result": {
-			"item": "twm:slime_seeds"
+			"item": "utilitycraft:slime_seeds"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:slime_ball"
 			},
 			{
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		]
 	}

@@ -2,7 +2,7 @@ import * as doriosAPI from '../../doriosAPI.js'
 import { ItemStack, system } from '@minecraft/server'
 import { Machine, settings } from '../machines_class.js'
 
-doriosAPI.register.OldBlockComponent('twm:digitizer', {
+doriosAPI.register.OldBlockComponent('utilitycraft:digitizer', {
     beforeOnPlayerPlace(e) {
         Machine.spawnMachineEntity(e, settings.digitizer,
             (entity) => {
@@ -14,7 +14,7 @@ doriosAPI.register.OldBlockComponent('twm:digitizer', {
 
         Machine.tick(() => {
             let blueprint = machine.inv.getItem(3);
-            if (e.block.y < -60 || !blueprint || blueprint?.typeId != 'twm:blueprint_paper' || machine.inv.getItem(14)) {
+            if (e.block.y < -60 || !blueprint || blueprint?.typeId != 'utilitycraft:blueprint_paper' || machine.inv.getItem(14)) {
                 machine.displayEnergy()
                 machine.progress.reset()
                 return
@@ -63,7 +63,7 @@ doriosAPI.register.OldBlockComponent('twm:digitizer', {
                 dimension.setBlockType({ x, y: -63, z }, 'minecraft:redstone_block')
                 const recipeString = recipeArray.join(',')
                 let recipeData = Object.entries(materialMap).map(([id, amount]) => ({ id, amount }))
-                let newBlueprint = new ItemStack('twm:blueprint', 1)
+                let newBlueprint = new ItemStack('utilitycraft:blueprint', 1)
 
                 system.runTimeout(() => {
                     const itemEntity = dimension.getEntitiesAtBlockLocation({ x, y: -65, z })[0]

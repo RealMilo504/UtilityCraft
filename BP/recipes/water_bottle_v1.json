@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:water_bottle_v1"
+			"identifier": "utilitycraft:water_bottle_v1"
 		},
 		"tags": [
 			"crafting_table"
@@ -16,7 +16,7 @@
 				"item": "glass_bottle"
 			},
 			"M": {
-				"item": "twm:mortar"
+				"item": "utilitycraft:mortar"
 			},
 			"S": {
 				"item": "sapling"
@@ -27,12 +27,12 @@
 				"item": "potion"
 			},
 			{
-				"item": "twm:mortar"
+				"item": "utilitycraft:mortar"
 			}
 		],
 		"unlock": [
 			{
-				"item": "twm:mortar"
+				"item": "utilitycraft:mortar"
 			}
 		]
 	}

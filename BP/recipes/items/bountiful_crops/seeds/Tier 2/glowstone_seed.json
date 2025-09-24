@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:glowstone_seeds"
+			"identifier": "utilitycraft:glowstone_seeds"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "minecraft:glowstone_dust"
 			},
 			"S": {
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		},
 		"pattern": [
@@ -21,14 +21,14 @@
 			"GGG"
 		],
 		"result": {
-			"item": "twm:glowstone_seeds"
+			"item": "utilitycraft:glowstone_seeds"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:glowstone_dust"
 			},
 			{
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		]
 	}

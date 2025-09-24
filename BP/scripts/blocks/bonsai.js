@@ -10,13 +10,13 @@ let soils = [
     { soil: 'minecraft:warped_nylium' },
     { soil: 'minecraft:soul_sand' },
     { soil: 'minecraft:end_stone' },
-    { soil: 'twm:yellow_soil', bonus: 15 },
-    { soil: 'twm:red_soil', bonus: 30 },
-    { soil: 'twm:blue_soil', bonus: 30, multi: 2 }, // Double loot
-    { soil: 'twm:black_soil', bonus: 50, multi: 4 } // Quadruple loot1
+    { soil: 'utilitycraft:yellow_soil', bonus: 15 },
+    { soil: 'utilitycraft:red_soil', bonus: 30 },
+    { soil: 'utilitycraft:blue_soil', bonus: 30, multi: 2 }, // Double loot
+    { soil: 'utilitycraft:black_soil', bonus: 50, multi: 4 } // Quadruple loot1
 ]
 
-const specialSoils = ["twm:yellow_soil", "twm:red_soil", "twm:blue_soil", "twm:black_soil"]
+const specialSoils = ["utilitycraft:yellow_soil", "utilitycraft:red_soil", "utilitycraft:blue_soil", "utilitycraft:black_soil"]
 // Base time growth of the bonsai
 const timeGrowthBase = 60
 
@@ -26,33 +26,33 @@ const timeGrowthBase = 60
 //Entity: Its the entity it summons that has the appearance of the tree planted
 //Loot: The name loot table on the folder 'bonsaiDrops' that the tree uses 
 let bonsaiItems = [
-    { sapling: 'minecraft:acacia_sapling', allowed: ['dirt', 'grass_block'], entity: 'twm:acacia_tree', loot: 'acacia' },
-    { sapling: 'twm:apple_sapling', allowed: ['dirt', 'grass_block'], entity: 'twm:apple_tree', loot: 'apple_tree' },
-    { sapling: 'minecraft:bamboo', allowed: ['dirt', 'grass_block'], entity: 'twm:bamboo', loot: 'bamboo' },
-    { sapling: 'minecraft:beetroot_seeds', allowed: ['dirt', 'grass_block'], entity: 'twm:beetroot', loot: 'beetroot' },
-    { sapling: 'minecraft:birch_sapling', allowed: ['dirt', 'grass_block'], entity: 'twm:birch_tree', loot: 'birch' },
-    { sapling: 'minecraft:cactus', allowed: ['sand', 'red_sand'], entity: 'twm:cactus', loot: 'cactus' },
-    { sapling: 'minecraft:carrot', allowed: ['dirt', 'grass_block'], entity: 'twm:carrot', loot: 'carrot' },
-    { sapling: 'minecraft:cherry_sapling', allowed: ['dirt', 'grass_block'], entity: 'twm:cherry_tree', loot: 'cherry' },
-    { sapling: 'minecraft:chorus_fruit', allowed: ['end_stone'], entity: 'twm:chorus_fruit', loot: 'chorus_fruit' },
-    { sapling: 'minecraft:crimson_fungus', allowed: ['crimson_nylium'], entity: 'twm:crimson_tree', loot: 'crimson' },
-    { sapling: 'minecraft:dark_oak_sapling', allowed: ['dirt', 'grass_block'], entity: 'twm:darkoak_tree', loot: 'darkoak' },
-    { sapling: 'minecraft:jungle_sapling', allowed: ['dirt', 'grass_block'], entity: 'twm:jungle_tree', loot: 'jungle' },
-    { sapling: 'minecraft:kelp', allowed: ['sand', 'red_sand', 'dirt', 'grass_block'], entity: 'twm:kelp', loot: 'kelp' },
-    { sapling: 'minecraft:mangrove_propagule', allowed: ['dirt', 'grass_block'], entity: 'twm:mangrove_tree', loot: 'mangrove' },
-    { sapling: 'minecraft:melon_seeds', allowed: ['dirt', 'grass_block'], entity: 'twm:melon', loot: 'melon' },
-    { sapling: 'minecraft:red_mushroom', allowed: ['dirt', 'grass_block'], entity: 'twm:mushroom', loot: 'mushroom' },
-    { sapling: 'minecraft:brown_mushroom', allowed: ['dirt', 'grass_block'], entity: 'twm:mushroom', loot: 'mushroom' },
-    { sapling: 'minecraft:nether_wart', allowed: ['soul_sand'], entity: 'twm:nether_wart', loot: 'nether_wart' },
-    { sapling: 'minecraft:oak_sapling', allowed: ['dirt', 'grass_block'], entity: 'twm:oak_tree', loot: 'oak' },
-    { sapling: 'minecraft:pale_oak_sapling', allowed: ['dirt', 'grass_block'], entity: 'twm:pale_oak_tree', loot: 'pale_oak' },
-    { sapling: 'minecraft:potato', allowed: ['dirt', 'grass_block'], entity: 'twm:potato', loot: 'potato' },
-    { sapling: 'minecraft:pumpkin_seeds', allowed: ['dirt', 'grass_block'], entity: 'twm:pumpkin', loot: 'pumpkin' },
-    { sapling: 'minecraft:spruce_sapling', allowed: ['dirt', 'grass_block'], entity: 'twm:spruce_tree', loot: 'spruce' },
-    { sapling: 'minecraft:sugar_cane', allowed: ['dirt', 'grass_block', 'sand', 'red_sand'], entity: 'twm:sugarcane', loot: 'sugar_cane' },
-    { sapling: 'minecraft:sweet_berries', allowed: ['dirt', 'grass_block'], entity: 'twm:sweet_berries', loot: 'sweet_berries' },
-    { sapling: 'minecraft:warped_fungus', allowed: ['warped_nylium'], entity: 'twm:warped_tree', loot: 'warped' },
-    { sapling: 'minecraft:wheat_seeds', allowed: ['dirt', 'grass_block'], entity: 'twm:wheat', loot: 'wheat' }
+    { sapling: 'minecraft:acacia_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:acacia_tree', loot: 'acacia' },
+    { sapling: 'utilitycraft:apple_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:apple_tree', loot: 'apple_tree' },
+    { sapling: 'minecraft:bamboo', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:bamboo', loot: 'bamboo' },
+    { sapling: 'minecraft:beetroot_seeds', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:beetroot', loot: 'beetroot' },
+    { sapling: 'minecraft:birch_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:birch_tree', loot: 'birch' },
+    { sapling: 'minecraft:cactus', allowed: ['sand', 'red_sand'], entity: 'utilitycraft:cactus', loot: 'cactus' },
+    { sapling: 'minecraft:carrot', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:carrot', loot: 'carrot' },
+    { sapling: 'minecraft:cherry_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:cherry_tree', loot: 'cherry' },
+    { sapling: 'minecraft:chorus_fruit', allowed: ['end_stone'], entity: 'utilitycraft:chorus_fruit', loot: 'chorus_fruit' },
+    { sapling: 'minecraft:crimson_fungus', allowed: ['crimson_nylium'], entity: 'utilitycraft:crimson_tree', loot: 'crimson' },
+    { sapling: 'minecraft:dark_oak_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:darkoak_tree', loot: 'darkoak' },
+    { sapling: 'minecraft:jungle_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:jungle_tree', loot: 'jungle' },
+    { sapling: 'minecraft:kelp', allowed: ['sand', 'red_sand', 'dirt', 'grass_block'], entity: 'utilitycraft:kelp', loot: 'kelp' },
+    { sapling: 'minecraft:mangrove_propagule', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:mangrove_tree', loot: 'mangrove' },
+    { sapling: 'minecraft:melon_seeds', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:melon', loot: 'melon' },
+    { sapling: 'minecraft:red_mushroom', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:mushroom', loot: 'mushroom' },
+    { sapling: 'minecraft:brown_mushroom', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:mushroom', loot: 'mushroom' },
+    { sapling: 'minecraft:nether_wart', allowed: ['soul_sand'], entity: 'utilitycraft:nether_wart', loot: 'nether_wart' },
+    { sapling: 'minecraft:oak_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:oak_tree', loot: 'oak' },
+    { sapling: 'minecraft:pale_oak_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:pale_oak_tree', loot: 'pale_oak' },
+    { sapling: 'minecraft:potato', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:potato', loot: 'potato' },
+    { sapling: 'minecraft:pumpkin_seeds', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:pumpkin', loot: 'pumpkin' },
+    { sapling: 'minecraft:spruce_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:spruce_tree', loot: 'spruce' },
+    { sapling: 'minecraft:sugar_cane', allowed: ['dirt', 'grass_block', 'sand', 'red_sand'], entity: 'utilitycraft:sugarcane', loot: 'sugar_cane' },
+    { sapling: 'minecraft:sweet_berries', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:sweet_berries', loot: 'sweet_berries' },
+    { sapling: 'minecraft:warped_fungus', allowed: ['warped_nylium'], entity: 'utilitycraft:warped_tree', loot: 'warped' },
+    { sapling: 'minecraft:wheat_seeds', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:wheat', loot: 'wheat' }
 ]
 
 function randomInterval(min, max) {
@@ -72,7 +72,7 @@ let bonsaiDrops = {
         { item: 'minecraft:log', min: 6, max: 10, prob: 100 },
         { item: 'minecraft:leaves', min: 0, max: 4, prob: 100 },
         { item: 'minecraft:stick', min: 0, max: 6, prob: 100 },
-        { item: 'twm:apple_sapling', min: 1, max: 1, prob: 25 },
+        { item: 'utilitycraft:apple_sapling', min: 1, max: 1, prob: 25 },
         { item: 'minecraft:apple', min: 1, max: 4, prob: 100 },
         { item: 'minecraft:enchanted_golden_apple', min: 1, max: 1, prob: 0.0001 },
         { item: 'minecraft:golden_apple', min: 1, max: 1, prob: 0.1 }
@@ -197,9 +197,9 @@ function msg(message) {
 }
 
 function tellPerms(block) {
-    msg('soil: ' + block.permutation.getState('twm:soil'))
-    msg('sapling: ' + block.permutation.getState('twm:hasBonsai'))
-    msg('farmed: ' + block.permutation.getState('twm:isFarm'))
+    msg('soil: ' + block.permutation.getState('utilitycraft:soil'))
+    msg('sapling: ' + block.permutation.getState('utilitycraft:hasBonsai'))
+    msg('farmed: ' + block.permutation.getState('utilitycraft:isFarm'))
 }
 //Borrar!!!!!!!!!!!!!!
 
@@ -215,7 +215,7 @@ function getState(block, state) {
 
 //Here inicializes the custom components
 world.beforeEvents.worldInitialize.subscribe(e => {
-    e.blockComponentRegistry.registerCustomComponent('twm:newBonsais', {
+    e.blockComponentRegistry.registerCustomComponent('utilitycraft:newBonsais', {
         onPlayerInteract(e) {
             const { player, block } = e
             let { x, y, z } = block.location
@@ -237,15 +237,15 @@ world.beforeEvents.worldInitialize.subscribe(e => {
                     //block.dimension.runCommandAsync(`tag @e[x=${x},y=${y},z=${z},r=0.5] add despawn`)
                     block.dimension.spawnItem(new ItemStack(bonsaiEntity.sapling), { x, y, z })
                 }
-                if (getState(block, 'twm:soil') != 'empty') {
+                if (getState(block, 'utilitycraft:soil') != 'empty') {
                     //This functions similar to the one before but this one also removes the soil
                     //on the bonsai
-                    block.dimension.spawnItem(new ItemStack(getState(block, 'twm:soil')), { x, y, z })
-                    setState(block, 'twm:soil', 'empty')
-                    setState(block, "twm:isFarm", false)
+                    block.dimension.spawnItem(new ItemStack(getState(block, 'utilitycraft:soil')), { x, y, z })
+                    setState(block, 'utilitycraft:soil', 'empty')
+                    setState(block, "utilitycraft:isFarm", false)
                 }
-                setState(block, "twm:hasBonsai", false)
-                setState(block, "twm:isSlimed", false)
+                setState(block, "utilitycraft:hasBonsai", false)
+                setState(block, "utilitycraft:isSlimed", false)
 
                 return;
             }
@@ -267,8 +267,8 @@ world.beforeEvents.worldInitialize.subscribe(e => {
                     entity.addTag('despawn')
                     //block.dimension.runCommandAsync(`tag @e[x=${x},y=${y},z=${z},r=0.5] add despawn`)
                     block.dimension.spawnItem(new ItemStack(bonsaiEntity.sapling), { x, y, z })
-                    setState(block, "twm:hasBonsai", false)
-                    setState(block, "twm:isSlimed", false)
+                    setState(block, "utilitycraft:hasBonsai", false)
+                    setState(block, "utilitycraft:isSlimed", false)
                     player.playSound('mob.sheep.shear')
                 }
                 return;
@@ -276,8 +276,8 @@ world.beforeEvents.worldInitialize.subscribe(e => {
             if (itemId == 'minecraft:slime_ball') {
                 const entity = block.dimension.getEntities({ tags: ["bonsai"], maxDistance: 0.1, location: { x, y, z } })[0]
                 if (!entity) return;
-                setState(block, 'twm:isSlimed', !getState(block, 'twm:isSlimed'))
-                if (getState(block, 'twm:isSlimed')) {
+                setState(block, 'utilitycraft:isSlimed', !getState(block, 'utilitycraft:isSlimed'))
+                if (getState(block, 'utilitycraft:isSlimed')) {
                     entity.triggerEvent('normal')
                 } else {
                     entity.triggerEvent('small')
@@ -292,8 +292,8 @@ world.beforeEvents.worldInitialize.subscribe(e => {
                 if (itemEnchantable.hasEnchantment('unbreaking')) {
                     unbreakingLvl = itemEnchantable.getEnchantment('unbreaking').level
                 }
-                if (!getState(block, 'twm:isFarm') && getState(block, 'twm:soil') != 'empty') {
-                    setState(block, 'twm:isFarm', true)
+                if (!getState(block, 'utilitycraft:isFarm') && getState(block, 'utilitycraft:soil') != 'empty') {
+                    setState(block, 'utilitycraft:isFarm', true)
                     let durability = equipmentItem.getComponent('minecraft:durability')
                     if ((100 / (unbreakingLvl + 1) / 100) >= Math.random()) {
                         if (equipmentItem.hasComponent('minecraft:durability') && durability.damage != durability.maxDurability) {
@@ -316,8 +316,8 @@ world.beforeEvents.worldInitialize.subscribe(e => {
             //the allowed soil thats defined on the start
             const bonsai = bonsaiItems.find(item => item.sapling == itemId)
             if (bonsai) {
-                if ((specialSoils.includes(getState(block, 'twm:soil')) || bonsai.allowed.includes(getState(block, 'twm:soil').split(':')[1])) && !getState(block, 'twm:hasBonsai')) {
-                    setState(block, "twm:hasBonsai", true)
+                if ((specialSoils.includes(getState(block, 'utilitycraft:soil')) || bonsai.allowed.includes(getState(block, 'utilitycraft:soil').split(':')[1])) && !getState(block, 'utilitycraft:hasBonsai')) {
+                    setState(block, "utilitycraft:hasBonsai", true)
                     const bonsaiEntity = block.dimension.spawnEntity(bonsai.entity, { x, y, z })
                     bonsaiEntity.addTag('bonsai')
 
@@ -332,11 +332,11 @@ world.beforeEvents.worldInitialize.subscribe(e => {
             //Same as the last one but with soils, this checks the soils array defined at the start
             const soil = soils.find(block => block.soil == itemId)
             if (soil) {
-                let bonsaiSoil = getState(block, 'twm:soil')
+                let bonsaiSoil = getState(block, 'utilitycraft:soil')
                 if (!bonsaiSoil) return;
                 if (bonsaiSoil == 'empty') {
                     let newSoil = itemId
-                    setState(block, 'twm:soil', newSoil)
+                    setState(block, 'utilitycraft:soil', newSoil)
                     if (player.getGameMode() != 'creative') {
                         player.runCommand(`clear @s ${itemId} 0 1`)
                     }
@@ -347,12 +347,12 @@ world.beforeEvents.worldInitialize.subscribe(e => {
         //Every time the function tick on the block executes it executes this
         onTick(e) {
             const { block } = e
-            if (getState(block, 'twm:isSlimed')) return;
+            if (getState(block, 'utilitycraft:isSlimed')) return;
 
             let { x, y, z } = block.location
             y += 0.172, x += 0.5, z += 0.5
             const entity = block.dimension.getEntities({ tags: ["bonsai"], maxDistance: 0.1, location: { x, y, z } })[0]
-            const soil = soils.find(blockS => blockS.soil == getState(block, 'twm:soil'))
+            const soil = soils.find(blockS => blockS.soil == getState(block, 'utilitycraft:soil'))
 
 
             if (entity) {
@@ -366,7 +366,7 @@ world.beforeEvents.worldInitialize.subscribe(e => {
 
 
 
-                    if (!specialSoils.includes(soil.soil)) timeGrowth -= getState(block, 'twm:isFarm') * 10
+                    if (!specialSoils.includes(soil.soil)) timeGrowth -= getState(block, 'utilitycraft:isFarm') * 10
                     entity.playAnimation(`${'animation.grow_tree_' + timeGrowth}`)
 
 
@@ -401,11 +401,11 @@ world.beforeEvents.worldInitialize.subscribe(e => {
             const { destroyedBlockPermutation, block } = e
             let { x, y, z } = block.location
             y += 0.172, x += 0.5, z += 0.5
-            let soil = destroyedBlockPermutation.getState('twm:soil')
+            let soil = destroyedBlockPermutation.getState('utilitycraft:soil')
             if (soil != 'empty') {
                 block.dimension.spawnItem(new ItemStack(soil), { x, y, z })
             }
-            let hasBonsai = destroyedBlockPermutation.getState('twm:hasBonsai')
+            let hasBonsai = destroyedBlockPermutation.getState('utilitycraft:hasBonsai')
             if (hasBonsai) {
                 const entity = block.dimension.getEntities({ tags: ["bonsai"], maxDistance: 0.1, location: { x, y, z } })[0]
                 if (entity) {

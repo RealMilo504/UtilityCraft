@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:red_soil"
+			"identifier": "utilitycraft:red_soil"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "nether_wart_block"
 			},
 			"D": {
-				"item": "twm:yellow_soil"
+				"item": "utilitycraft:yellow_soil"
 			},
 			"R": {
 				"item": "redstone_block"
@@ -27,7 +27,7 @@
 			"DND"
 		],
 		"result": {
-			"item": "twm:red_soil",
+			"item": "utilitycraft:red_soil",
 			"count": 4
 		},
 		"unlock": [
@@ -35,7 +35,7 @@
 				"item": "minecraft:nether_wart_block"
 			},
 			{
-				"item": "twm:yellow_soil"
+				"item": "utilitycraft:yellow_soil"
 			},
 			{
 				"item": "minecraft:redstone_block"

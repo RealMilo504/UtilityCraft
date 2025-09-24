@@ -2,26 +2,26 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:expert_magmator"
+			"identifier": "utilitycraft:expert_magmator"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"G": {
-				"item": "twm:diamond_dust"
+				"item": "utilitycraft:diamond_dust"
 			},
 			"B": {
-				"item": "twm:advanced_magmator"
+				"item": "utilitycraft:advanced_magmator"
 			},
 			"S": {
-				"item": "twm:steel_plate"
+				"item": "utilitycraft:steel_plate"
 			},
 			"D": {
-				"item": "twm:expert_fluid_tank"
+				"item": "utilitycraft:expert_fluid_tank"
 			},
 			"E": {
-				"item": "twm:expert_chip"
+				"item": "utilitycraft:expert_chip"
 			}
 		},
 		"pattern": [
@@ -30,11 +30,11 @@
 			"SES"
 		],
 		"result": {
-			"item": "twm:expert_magmator"
+			"item": "utilitycraft:expert_magmator"
 		},
 		"unlock": [
 			{
-				"item": "twm:expert_chip"
+				"item": "utilitycraft:expert_chip"
 			}
 		]
 	}

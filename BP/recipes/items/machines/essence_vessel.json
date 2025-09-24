@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:essence_vessel"
+			"identifier": "utilitycraft:essence_vessel"
 		},
 		"tags": [
 			"crafting_table"
@@ -27,7 +27,7 @@
 			"LSL"
 		],
 		"result": {
-			"item": "twm:essence_vessel"
+			"item": "utilitycraft:essence_vessel"
 		},
 		"unlock": [
 			{

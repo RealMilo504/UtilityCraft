@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:drill_placer",
+			"identifier": "utilitycraft:drill_placer",
 			"menu_category": {
 				"category": "items"
 			},
@@ -65,15 +65,15 @@
 			}
 		],
 		"components": {
-			"minecraft:geometry": "geometry.twm_drill_place",
+			"minecraft:geometry": "geometry.utilitycraft_drill_place",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_drill_place",
+					"texture": "utilitycraft_drill_place",
 					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:custom_components": [
-				"twm:onInteract"
+				"utilitycraft:onInteract"
 			]
 		}
 	}

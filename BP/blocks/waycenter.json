@@ -2,12 +2,12 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:waycenter",
+			"identifier": "utilitycraft:waycenter",
 			"menu_category": {
 				"category": "construction"
 			},
 			"states": {
-				"twm:range": [
+				"utilitycraft:range": [
 					5,
 					1,
 					2,
@@ -15,7 +15,7 @@
 					4,
 					0
 				],
-				"twm:price": [
+				"utilitycraft:price": [
 					0,
 					1,
 					2,
@@ -33,15 +33,15 @@
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_block_2",
+			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_waycenter",
+					"texture": "utilitycraft_waycenter",
 					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:custom_components": [
-				"twm:computer"
+				"utilitycraft:computer"
 			]
 		},
 		"permutations": [

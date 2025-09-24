@@ -3,14 +3,14 @@ import { ItemStack, system, world, Container, Block } from '@minecraft/server'
 import { setQuality, refreshSpeed } from './utility_quality.js'
 
 const tankCaps = {
-    'twm:basic_fluid_tank': 8000,
-    'twm:advanced_fluid_tank': 32000,
-    'twm:expert_fluid_tank': 128000,
-    'twm:ultimate_fluid_tank': 512000
+    'utilitycraft:basic_fluid_tank': 8000,
+    'utilitycraft:advanced_fluid_tank': 32000,
+    'utilitycraft:expert_fluid_tank': 128000,
+    'utilitycraft:ultimate_fluid_tank': 512000
 };
 
 export const EnergyBarCache = {
-    bars: Array.from({ length: 17 }, (_, i) => new ItemStack(`twm:energy_bar_${i}`))
+    bars: Array.from({ length: 17 }, (_, i) => new ItemStack(`utilitycraft:energy_bar_${i}`))
 };
 
 function createMultipleLiquids(entity, inv, tankCount = 1) {
@@ -40,7 +40,7 @@ export class Machinery {
         this.energy = new EnergyManager(this.entity);
         this.liquid = createMultipleLiquids(this.entity, this.inv);
         this.setRefreshSpeed();
-        this.refreshSpeed = block.permutation.getState('twm:refreshSpeed') ?? 1;
+        this.refreshSpeed = block.permutation.getState('utilitycraft:refreshSpeed') ?? 1;
         if (this.entity) this.entity.nameTag = settings.nameTag
     }
 
@@ -105,7 +105,7 @@ export class Machinery {
         const lore = [];
 
         // Liquid
-        const liquidType = entity.getDynamicProperty("twm:liquidType");
+        const liquidType = entity.getDynamicProperty("utilitycraft:liquidType");
         const haveLiquid = liquidType && liquidType !== "empty"
         // Energy lore
         if (energy.value > 0 || haveLiquid) {
@@ -175,7 +175,7 @@ export class Machinery {
      * - Super Fast  → Every tick (1)
      * 
      * This should be called when a block is placed or settings change.
-     * It sets the `twm:refresh_speed` block state accordingly.
+     * It sets the `utilitycraft:refresh_speed` block state accordingly.
      * 
      */
     setRefreshSpeed() {
@@ -186,14 +186,14 @@ export class Machinery {
      * Changes the texture of the block to the on version.
      */
     turnOn() {
-        this.block.setPermutation(this.block.permutation.withState('twm:on', true))
+        this.block.setPermutation(this.block.permutation.withState('utilitycraft:on', true))
     }
 
     /**
      * Changes the texture of the block to the off version.
      */
     turnOff() {
-        this.block.setPermutation(this.block.permutation.withState('twm:on', false))
+        this.block.setPermutation(this.block.permutation.withState('utilitycraft:on', false))
     }
 
     /**
@@ -464,7 +464,7 @@ export class ProgressManager {
      * @returns {number} Current progress (0 if none).
      */
     get() {
-        return this.entity.getDynamicProperty('twm:progress') || 0;
+        return this.entity.getDynamicProperty('utilitycraft:progress') || 0;
     }
 
     /**
@@ -474,7 +474,7 @@ export class ProgressManager {
      */
     set(amount) {
         const clampedAmount = Math.max(0, amount);
-        this.entity.setDynamicProperty('twm:progress', clampedAmount);
+        this.entity.setDynamicProperty('utilitycraft:progress', clampedAmount);
     }
 
     /**
@@ -495,18 +495,18 @@ export class ProgressManager {
      * @param {number} [slot=4] Slot of the progress arrow.
      */
     reset(slot = 4) {
-        this.entity.setDynamicProperty('twm:progress', 0);
+        this.entity.setDynamicProperty('utilitycraft:progress', 0);
 
         // Only update permutation if needed
         const perm = this.block.permutation;
-        if (perm.getState('twm:on') !== false) {
-            this.block.setPermutation(perm.withState('twm:on', false));
+        if (perm.getState('utilitycraft:on') !== false) {
+            this.block.setPermutation(perm.withState('utilitycraft:on', false));
         }
 
         // Optional: clear arrow
         const current = this.inv.getItem(slot);
-        if (!current || current.typeId !== 'twm:arrow_right_0') {
-            this.inv.setItem(slot, new ItemStack('twm:arrow_right_0'));
+        if (!current || current.typeId !== 'utilitycraft:arrow_right_0') {
+            this.inv.setItem(slot, new ItemStack('utilitycraft:arrow_right_0'));
         }
     }
 
@@ -588,14 +588,14 @@ export class LiquidManager {
 
         if (!tank) {
             const spawnPos = { x: pos.x + 0.5, y: pos.y, z: pos.z + 0.5 };
-            tank = dim.spawnEntity(`twm:fluid_tank_${liquid}`, spawnPos);
+            tank = dim.spawnEntity(`utilitycraft:fluid_tank_${liquid}`, spawnPos);
             if (!tank) return false;
 
             tank.runCommandAsync(`scoreboard players set @s liquid_0 ${amount}`);
             tank.runCommandAsync(`scoreboard players set @s liquidCap_0 ${tankCap}`);
             tank.addTag(`liquid0Type:${liquid}`);
             tank.getComponent("minecraft:health")?.setCurrentValue(amount);
-            block.setPermutation(block.permutation.withState("twm:hasliquid", true));
+            block.setPermutation(block.permutation.withState("utilitycraft:hasliquid", true));
             return false;
         }
 
@@ -719,14 +719,14 @@ export class LiquidManager {
         const cap = this.getCap();
 
         if (type === 'empty') {
-            const item = new ItemStack(`twm:empty_liquid_bar`);
+            const item = new ItemStack(`utilitycraft:empty_liquid_bar`);
             this.inv.setItem(startSlot, item);
             this.inv.setItem(startSlot + 1, item);
             this.inv.setItem(startSlot + 2, item);
             return;
         }
 
-        const fluidIdPrefix = `twm:${type}_bar_`;
+        const fluidIdPrefix = `utilitycraft:${type}_bar_`;
         const displayName = doriosAPI.utils.capitalizeFirst(type);
         const percentage48 = Math.floor((amount / cap) * 48);
 
@@ -786,14 +786,14 @@ export class LiquidManager {
                 let { x, y, z } = targetBlock.location;
                 x += 0.5; z += 0.5;
 
-                const tank = targetBlock.dimension.spawnEntity(`twm:fluid_tank_${this.type}`, { x, y, z });
+                const tank = targetBlock.dimension.spawnEntity(`utilitycraft:fluid_tank_${this.type}`, { x, y, z });
                 const tankCap = tankCaps[targetBlock?.typeId] || 8000;
 
                 tank.runCommandAsync(`scoreboard players set @s liquid_0 ${amount}`);
                 tank.runCommandAsync(`scoreboard players set @s liquidCap_0 ${tankCap}`);
                 tank.addTag(`liquid0Type:${this.type}`);
 
-                targetBlock.setPermutation(targetBlock.permutation.withState("twm:hasliquid", true));
+                targetBlock.setPermutation(targetBlock.permutation.withState("utilitycraft:hasliquid", true));
 
                 system.run(() => {
                     tank.getComponent("minecraft:health").setCurrentValue(amount);

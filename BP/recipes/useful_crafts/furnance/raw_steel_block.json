@@ -2,13 +2,13 @@
 	"format_version": "1.16.100",
 	"minecraft:recipe_furnace": {
 		"description": {
-			"identifier": "twm:raw_steel_block_furnace"
+			"identifier": "utilitycraft:raw_steel_block_furnace"
 		},
-		"input": "twm:raw_steel_block",
+		"input": "utilitycraft:raw_steel_block",
 		"tags": [
 			"blast_furnace",
 			"furnace"
 		],
-		"output": "twm:steel_block"
+		"output": "utilitycraft:steel_block"
 	}
 }

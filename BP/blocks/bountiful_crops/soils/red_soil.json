@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:red_soil",
+			"identifier": "utilitycraft:red_soil",
 			"menu_category": {
 				"category": "construction"
 			}

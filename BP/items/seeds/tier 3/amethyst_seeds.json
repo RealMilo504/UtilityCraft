@@ -2,12 +2,12 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:amethyst_seeds"
+			"identifier": "utilitycraft:amethyst_seeds"
 		},
 		"components": {
-			"minecraft:icon": "twm_amethyst_seeds",
+			"minecraft:icon": "utilitycraft_amethyst_seeds",
 			"minecraft:block_placer": {
-				"block": "twm:amethyst_crop"
+				"block": "utilitycraft:amethyst_crop"
 			}
 		}
 	}

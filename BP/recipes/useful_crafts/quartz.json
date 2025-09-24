@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shapeless": {
 		"description": {
-			"identifier": "twm:quartz"
+			"identifier": "utilitycraft:quartz"
 		},
 		"tags": [
 			"crafting_table"

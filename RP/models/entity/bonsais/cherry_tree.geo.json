@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.twm_cherry_tree",
+				"identifier": "geometry.utilitycraft_cherry_tree",
 				"texture_width": 48,
 				"texture_height": 16,
 				"visible_bounds_width": 2,

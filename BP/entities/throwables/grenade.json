@@ -2,7 +2,7 @@
 	"format_version": "1.16.0",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "twm:grenade",
+			"identifier": "utilitycraft:grenade",
 			"is_spawnable": false,
 			"is_summonable": false,
 			"is_experimental": false,

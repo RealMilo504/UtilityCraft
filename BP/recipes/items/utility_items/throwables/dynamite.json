@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:dynamite"
+			"identifier": "utilitycraft:dynamite"
 		},
 		"tags": [
 			"crafting_table"
@@ -24,7 +24,7 @@
 			"CGC"
 		],
 		"result": {
-			"item": "twm:dynamite",
+			"item": "utilitycraft:dynamite",
 			"count": 8
 		},
 		"unlock": [

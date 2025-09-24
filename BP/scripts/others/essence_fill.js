@@ -26,8 +26,8 @@ function mobName(str) {
     let res = str.split('§r§7  ')[1].toLowerCase()
     res = res.split(' ')
     let len = res.length
-    if (len == 2) return 'twm:' + res[1] + '_essence'
-    let longRes = 'twm:' + res[1]
+    if (len == 2) return 'utilitycraft:' + res[1] + '_essence'
+    let longRes = 'utilitycraft:' + res[1]
     for (let i = 2; i < len; i++) {
         longRes += '_' + res[i]
     }
@@ -46,7 +46,7 @@ world.afterEvents.entityDie.subscribe(e => {
 
     if (offHand != undefined) {
         let offHandItem = offHand.typeId
-        if (offHandItem == 'twm:essence_vessel') {
+        if (offHandItem == 'utilitycraft:essence_vessel') {
             let mob = offHand.getLore()[0].split(': ')[1]
             if (mob == capitalize(deadEntity.typeId)) {
                 let kills = sumKills(offHand.getLore()[1])

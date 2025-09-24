@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "twm:accelerator_clock",
+			"identifier": "utilitycraft:accelerator_clock",
 			"is_spawnable": false,
 			"is_summonable": true,
 			"is_experimental": false
@@ -19,7 +19,7 @@
 			},
 			"minecraft:type_family": {
 				"family": [
-					"twm_container"
+					"utilitycraft_container"
 				]
 			},
 			"minecraft:fire_immune": true,
@@ -78,7 +78,7 @@
 				"sequence": [
 					{
 						"queue_command": {
-							"command": "execute unless block ~~-1~ twm:pedestal run tag @e[r=0.1] add despawn"
+							"command": "execute unless block ~~-1~ utilitycraft:pedestal run tag @e[r=0.1] add despawn"
 						}
 					}
 				]

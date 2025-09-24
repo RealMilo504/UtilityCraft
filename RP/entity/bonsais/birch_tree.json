@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:birch_tree",
+			"identifier": "utilitycraft:birch_tree",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/birch_tree"
 			},
 			"geometry": {
-				"default": "geometry.twm_birch_tree"
+				"default": "geometry.utilitycraft_birch_tree"
 			},
 			"render_controllers": [
 				"controller.render.birch_tree"

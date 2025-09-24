@@ -2,20 +2,20 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:crusher"
+			"identifier": "utilitycraft:crusher"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"H": {
-				"item": "twm:iron_hammer"
+				"item": "utilitycraft:iron_hammer"
 			},
 			"I": {
-				"item": "twm:chip"
+				"item": "utilitycraft:chip"
 			},
 			"M": {
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			},
 			"R": {
 				"item": "gold_ingot"
@@ -30,11 +30,11 @@
 			"SRS"
 		],
 		"result": {
-			"item": "twm:crusher"
+			"item": "utilitycraft:crusher"
 		},
 		"unlock": [
 			{
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			}
 		]
 	}

@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:ghast_seeds"
+			"identifier": "utilitycraft:ghast_seeds"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "minecraft:ghast_tear"
 			},
 			"S": {
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		},
 		"pattern": [
@@ -21,14 +21,14 @@
 			"HHH"
 		],
 		"result": {
-			"item": "twm:ghast_seeds"
+			"item": "utilitycraft:ghast_seeds"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:ghast_tear"
 			},
 			{
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		]
 	}

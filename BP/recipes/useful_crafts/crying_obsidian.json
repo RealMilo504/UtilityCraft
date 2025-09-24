@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:crying_obsidian"
+			"identifier": "utilitycraft:crying_obsidian"
 		},
 		"tags": [
 			"crafting_table"

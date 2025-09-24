@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:mud_ball"
+			"identifier": "utilitycraft:mud_ball"
 		},
 		"components": {
-			"minecraft:icon": "twm_mud_ball"
+			"minecraft:icon": "utilitycraft_mud_ball"
 		}
 	}
 }

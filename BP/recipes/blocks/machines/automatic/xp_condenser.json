@@ -2,26 +2,26 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:xp_condenser"
+			"identifier": "utilitycraft:xp_condenser"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
-				"item": "twm:emerald_dust"
+				"item": "utilitycraft:emerald_dust"
 			},
 			"B": {
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			},
 			"C": {
-				"item": "twm:steel_plate"
+				"item": "utilitycraft:steel_plate"
 			},
 			"D": {
 				"item": "minecraft:lapis_block"
 			},
 			"E": {
-				"item": "twm:expert_chip"
+				"item": "utilitycraft:expert_chip"
 			}
 		},
 		"pattern": [
@@ -30,20 +30,20 @@
 			"ADA"
 		],
 		"result": {
-			"item": "twm:xp_condenser"
+			"item": "utilitycraft:xp_condenser"
 		},
 		"unlock": [
 			{
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			},
 			{
-				"item": "twm:gold_plate"
+				"item": "utilitycraft:gold_plate"
 			},
 			{
 				"item": "minecraft:lapis_block"
 			},
 			{
-				"item": "twm:expert_chip"
+				"item": "utilitycraft:expert_chip"
 			}
 		]
 	}

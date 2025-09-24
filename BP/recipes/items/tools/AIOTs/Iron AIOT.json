@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:iron_aiot"
+			"identifier": "utilitycraft:iron_aiot"
 		},
 		"tags": [
 			"utility_table"
@@ -14,7 +14,7 @@
 		],
 		"result": [
 			{
-				"item": "twm:iron_aiot"
+				"item": "utilitycraft:iron_aiot"
 			}
 		],
 		"unlock": [
@@ -28,7 +28,7 @@
 				"item": "minecraft:string"
 			},
 			{
-				"item": "twm:iron_paxel"
+				"item": "utilitycraft:iron_paxel"
 			},
 			{
 				"item": "minecraft:iron_hoe"
@@ -48,7 +48,7 @@
 				"item": "minecraft:string"
 			},
 			"P": {
-				"item": "twm:iron_paxel"
+				"item": "utilitycraft:iron_paxel"
 			},
 			"A": {
 				"item": "minecraft:iron_hoe"

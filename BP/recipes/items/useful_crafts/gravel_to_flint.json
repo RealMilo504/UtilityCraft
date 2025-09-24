@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:gravel_to_flint"
+			"identifier": "utilitycraft:gravel_to_flint"
 		},
 		"tags": [
 			"crafting_table"

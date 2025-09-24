@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:compressed_sand"
+			"identifier": "utilitycraft:compressed_sand"
 		},
 		"tags": [
 			"crafting_table"
@@ -18,7 +18,7 @@
 			"BBB"
 		],
 		"result": {
-			"item": "twm:compressed_sand"
+			"item": "utilitycraft:compressed_sand"
 		},
 		"unlock": [
 			{

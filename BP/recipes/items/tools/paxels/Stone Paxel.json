@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:stone_paxel"
+			"identifier": "utilitycraft:stone_paxel"
 		},
 		"tags": [
 			"crafting_table"
@@ -51,7 +51,7 @@
 		},
 		"result": [
 			{
-				"item": "twm:stone_paxel"
+				"item": "utilitycraft:stone_paxel"
 			}
 		]
 	}

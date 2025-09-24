@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:wheat",
+			"identifier": "utilitycraft:wheat",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/wheat_bonsai"
 			},
 			"geometry": {
-				"default": "geometry.twm_sugarcane"
+				"default": "geometry.utilitycraft_sugarcane"
 			},
 			"render_controllers": [
 				"controller.render.sugarcane"

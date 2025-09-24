@@ -2,13 +2,13 @@
     "format_version": "1.20.80",
     "minecraft:item": {
         "description": {
-            "identifier": "twm:arrow_right_12",
+            "identifier": "utilitycraft:arrow_right_12",
             "menu_category": {
                 "category": "none"
             }
         },
         "components": {
-            "minecraft:icon": "twm_arrow_right_12"
+            "minecraft:icon": "utilitycraft_arrow_right_12"
         }
     }
 }

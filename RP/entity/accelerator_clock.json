@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:accelerator_clock",
+			"identifier": "utilitycraft:accelerator_clock",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/accelerator_clock"
 			},
 			"geometry": {
-				"default": "geometry.twm_accelerator_clock"
+				"default": "geometry.utilitycraft_accelerator_clock"
 			},
 			"render_controllers": [
 				"controller.render.accelerator_clock"

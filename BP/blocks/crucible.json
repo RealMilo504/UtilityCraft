@@ -2,23 +2,23 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:crucible",
+			"identifier": "utilitycraft:crucible",
 			"states": {
-				"twm:lava": [
+				"utilitycraft:lava": [
 					0,
 					1,
 					2,
 					3,
 					4
 				],
-				"twm:cobble": [
+				"utilitycraft:cobble": [
 					0,
 					1,
 					2,
 					3,
 					4
 				],
-				"twm:smelting": [
+				"utilitycraft:smelting": [
 					0,
 					1,
 					2,
@@ -39,15 +39,15 @@
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_crucible",
+			"minecraft:geometry": "geometry.utilitycraft_crucible",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_crucible",
+					"texture": "utilitycraft_crucible",
 					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:custom_components": [
-				"twm:crucible"
+				"utilitycraft:crucible"
 			],
 			"minecraft:tick": {
 				"interval_range": [
@@ -63,11 +63,11 @@
 		},
 		"permutations": [
 			{
-				"condition": "q.block_state('twm:lava') == 1 && q.block_state('twm:cobble') <= 1 ",
+				"condition": "q.block_state('utilitycraft:lava') == 1 && q.block_state('utilitycraft:cobble') <= 1 ",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_crucible_lava_1",
+							"texture": "utilitycraft_crucible_lava_1",
 							"render_method": "alpha_test"
 						}
 					},
@@ -75,11 +75,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:lava') == 2 && q.block_state('twm:cobble') <= 2 ",
+				"condition": "q.block_state('utilitycraft:lava') == 2 && q.block_state('utilitycraft:cobble') <= 2 ",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_crucible_lava_2",
+							"texture": "utilitycraft_crucible_lava_2",
 							"render_method": "alpha_test"
 						}
 					},
@@ -87,11 +87,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:lava') == 3 && q.block_state('twm:cobble') <= 3 ",
+				"condition": "q.block_state('utilitycraft:lava') == 3 && q.block_state('utilitycraft:cobble') <= 3 ",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_crucible_lava_3",
+							"texture": "utilitycraft_crucible_lava_3",
 							"render_method": "alpha_test"
 						}
 					},
@@ -99,11 +99,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:lava') == 4 && q.block_state('twm:cobble') <= 4 ",
+				"condition": "q.block_state('utilitycraft:lava') == 4 && q.block_state('utilitycraft:cobble') <= 4 ",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_crucible_lava_4",
+							"texture": "utilitycraft_crucible_lava_4",
 							"render_method": "alpha_test"
 						}
 					},
@@ -111,44 +111,44 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:cobble') == 1 && q.block_state('twm:lava') < 1 ",
+				"condition": "q.block_state('utilitycraft:cobble') == 1 && q.block_state('utilitycraft:lava') < 1 ",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_crucible_cobble_1",
+							"texture": "utilitycraft_crucible_cobble_1",
 							"render_method": "alpha_test"
 						}
 					}
 				}
 			},
 			{
-				"condition": "q.block_state('twm:cobble') == 2 && q.block_state('twm:lava') < 2 ",
+				"condition": "q.block_state('utilitycraft:cobble') == 2 && q.block_state('utilitycraft:lava') < 2 ",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_crucible_cobble_2",
+							"texture": "utilitycraft_crucible_cobble_2",
 							"render_method": "alpha_test"
 						}
 					}
 				}
 			},
 			{
-				"condition": "q.block_state('twm:cobble') == 3 && q.block_state('twm:lava') < 3 ",
+				"condition": "q.block_state('utilitycraft:cobble') == 3 && q.block_state('utilitycraft:lava') < 3 ",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_crucible_cobble_3",
+							"texture": "utilitycraft_crucible_cobble_3",
 							"render_method": "alpha_test"
 						}
 					}
 				}
 			},
 			{
-				"condition": "q.block_state('twm:cobble') == 4 && q.block_state('twm:lava') < 4 ",
+				"condition": "q.block_state('utilitycraft:cobble') == 4 && q.block_state('utilitycraft:lava') < 4 ",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_crucible_cobble_4",
+							"texture": "utilitycraft_crucible_cobble_4",
 							"render_method": "alpha_test"
 						}
 					}

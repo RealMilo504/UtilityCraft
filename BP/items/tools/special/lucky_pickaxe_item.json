@@ -2,14 +2,14 @@
 	"format_version": "1.21.10",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:lucky_pickaxe_item",
+			"identifier": "utilitycraft:lucky_pickaxe_item",
 			"menu_category": {
 				"category": "equipment",
 				"group": "itemGroup.name.pickaxe"
 			}
 		},
 		"components": {
-			"minecraft:icon": "twm_lucky_pickaxe_item",
+			"minecraft:icon": "utilitycraft_lucky_pickaxe_item",
 			"minecraft:glint": true,
 			"minecraft:display_name": {
 				"value": "§bLucky Pickaxe\n§7Fortune V"

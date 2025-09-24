@@ -63,9 +63,9 @@ export class Generator extends Machinery {
             entity.runCommand(`scoreboard players set @s energy ${energy}`)
             entity.runCommand(`scoreboard players set @s energyCap ${settings.energyCapBase * multi}`)
             if (liquid || settings.liquidCapBase > 0) {
-                entity.setDynamicProperty('twm:liquid', liquid.amount || 0)
-                entity.setDynamicProperty('twm:liquidType', liquid.type)
-                entity.setDynamicProperty('twm:liquidCap', settings.liquidCapBase * multi);
+                entity.setDynamicProperty('utilitycraft:liquid', liquid.amount || 0)
+                entity.setDynamicProperty('utilitycraft:liquidType', liquid.type)
+                entity.setDynamicProperty('utilitycraft:liquidCap', settings.liquidCapBase * multi);
             }
             this.addNearbyMachines(entity)
             if (callback) callback(entity)

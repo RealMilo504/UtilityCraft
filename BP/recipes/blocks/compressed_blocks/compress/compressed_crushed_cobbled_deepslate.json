@@ -2,23 +2,23 @@
   "format_version": "1.20.80",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:compressed_crushed_cobbled_deepslate"
+      "identifier": "utilitycraft:compressed_crushed_cobbled_deepslate"
     },
     "tags": [
       "crafting_table"
     ],
     "ingredients": [
       {
-        "item": "twm:crushed_cobbled_deepslate",
+        "item": "utilitycraft:crushed_cobbled_deepslate",
         "count": 9
       }
     ],
     "result": {
-      "item": "twm:compressed_crushed_cobbled_deepslate"
+      "item": "utilitycraft:compressed_crushed_cobbled_deepslate"
     },
     "unlock": [
       {
-        "item": "twm:crushed_cobbled_deepslate"
+        "item": "utilitycraft:crushed_cobbled_deepslate"
       }
     ]
   }

@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:diamond_chunk"
+			"identifier": "utilitycraft:diamond_chunk"
 		},
 		"components": {
-			"minecraft:icon": "twm_diamond_chunk"
+			"minecraft:icon": "utilitycraft_diamond_chunk"
 		}
 	}
 }

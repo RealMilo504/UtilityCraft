@@ -2,7 +2,7 @@
 	"format_version": "1.19.0",
 	"minecraft:attachable": {
 		"description": {
-			"identifier": "twm:utility_book_18",
+			"identifier": "utilitycraft:utility_book_18",
 			"materials": {
 				"default": "entity_alphatest"
 			},

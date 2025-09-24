@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:apple_sapling"
+			"identifier": "utilitycraft:apple_sapling"
 		},
 		"tags": [
 			"crafting_table"
@@ -24,7 +24,7 @@
 			}
 		],
 		"result": {
-			"item": "twm:apple_sapling"
+			"item": "utilitycraft:apple_sapling"
 		}
 	}
 }

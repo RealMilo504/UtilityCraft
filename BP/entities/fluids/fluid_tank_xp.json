@@ -2,7 +2,7 @@
 	"format_version": "1.19.20",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "twm:fluid_tank_xp",
+			"identifier": "utilitycraft:fluid_tank_xp",
 			"is_spawnable": false,
 			"is_summonable": true,
 			"is_experimental": false
@@ -11,28 +11,28 @@
 			"despawn": {
 				"minecraft:instant_despawn": {}
 			},
-			"twm:basic": {
+			"utilitycraft:basic": {
 				"minecraft:health": {
 					"max": 8000,
 					"min": 1,
 					"value": 8000
 				}
 			},
-			"twm:advanced": {
+			"utilitycraft:advanced": {
 				"minecraft:health": {
 					"max": 32000,
 					"min": 1,
 					"value": 32000
 				}
 			},
-			"twm:expert": {
+			"utilitycraft:expert": {
 				"minecraft:health": {
 					"max": 128000,
 					"min": 1,
 					"value": 128000
 				}
 			},
-			"twm:ultimate": {
+			"utilitycraft:ultimate": {
 				"minecraft:health": {
 					"max": 512000,
 					"min": 1,
@@ -88,30 +88,30 @@
 					{
 						"filters": {
 							"test": "in_block",
-							"value": "twm:basic_fluid_tank"
+							"value": "utilitycraft:basic_fluid_tank"
 						},
-						"event": "twm:basic"
+						"event": "utilitycraft:basic"
 					},
 					{
 						"filters": {
 							"test": "in_block",
-							"value": "twm:advanced_fluid_tank"
+							"value": "utilitycraft:advanced_fluid_tank"
 						},
-						"event": "twm:advanced"
+						"event": "utilitycraft:advanced"
 					},
 					{
 						"filters": {
 							"test": "in_block",
-							"value": "twm:expert_fluid_tank"
+							"value": "utilitycraft:expert_fluid_tank"
 						},
-						"event": "twm:expert"
+						"event": "utilitycraft:expert"
 					},
 					{
 						"filters": {
 							"test": "in_block",
-							"value": "twm:ultimate_fluid_tank"
+							"value": "utilitycraft:ultimate_fluid_tank"
 						},
-						"event": "twm:ultimate"
+						"event": "utilitycraft:ultimate"
 					}
 				]
 			}
@@ -124,31 +124,31 @@
 					]
 				}
 			},
-			"twm:basic": {
+			"utilitycraft:basic": {
 				"add": {
 					"component_groups": [
-						"twm:basic"
+						"utilitycraft:basic"
 					]
 				}
 			},
-			"twm:advanced": {
+			"utilitycraft:advanced": {
 				"add": {
 					"component_groups": [
-						"twm:advanced"
+						"utilitycraft:advanced"
 					]
 				}
 			},
-			"twm:expert": {
+			"utilitycraft:expert": {
 				"add": {
 					"component_groups": [
-						"twm:expert"
+						"utilitycraft:expert"
 					]
 				}
 			},
-			"twm:ultimate": {
+			"utilitycraft:ultimate": {
 				"add": {
 					"component_groups": [
-						"twm:ultimate"
+						"utilitycraft:ultimate"
 					]
 				}
 			}

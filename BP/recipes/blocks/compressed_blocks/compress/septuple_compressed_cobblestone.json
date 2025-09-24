@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:septuple_compressed_cobblestone"
+			"identifier": "utilitycraft:septuple_compressed_cobblestone"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"C": {
-				"item": "twm:sextuple_compressed_cobblestone"
+				"item": "utilitycraft:sextuple_compressed_cobblestone"
 			}
 		},
 		"pattern": [
@@ -18,11 +18,11 @@
 			"CCC"
 		],
 		"result": {
-			"item": "twm:septuple_compressed_cobblestone"
+			"item": "utilitycraft:septuple_compressed_cobblestone"
 		},
 		"unlock": [
 			{
-				"item": "twm:sextuple_compressed_cobblestone"
+				"item": "utilitycraft:sextuple_compressed_cobblestone"
 			}
 		]
 	}

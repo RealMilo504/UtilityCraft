@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:string_mesh"
+			"identifier": "utilitycraft:string_mesh"
 		},
 		"tags": [
 			"crafting_table"
@@ -21,7 +21,7 @@
 			"SPS"
 		],
 		"result": {
-			"item": "twm:string_mesh"
+			"item": "utilitycraft:string_mesh"
 		},
 		"unlock": [
 			{

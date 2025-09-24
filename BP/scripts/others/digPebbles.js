@@ -1,12 +1,12 @@
 import { world, ItemStack, ItemEnchantableComponent } from '@minecraft/server'
 
 const digDrops = [
-    { drop: 'twm:gravel_fragments', min: 1, max: 2, prob: 50 },
-    { drop: 'twm:stone_pebble', min: 1, max: 2, prob: 50 },
-    { drop: 'twm:dirt_handful', min: 1, max: 1, prob: 20 },
-    { drop: 'twm:andesite_pebble', min: 1, max: 1, prob: 20 },
-    { drop: 'twm:diorite_pebble', min: 1, max: 1, prob: 20 },
-    { drop: 'twm:granite_pebble', min: 1, max: 1, prob: 20 },
+    { drop: 'utilitycraft:gravel_fragments', min: 1, max: 2, prob: 50 },
+    { drop: 'utilitycraft:stone_pebble', min: 1, max: 2, prob: 50 },
+    { drop: 'utilitycraft:dirt_handful', min: 1, max: 1, prob: 20 },
+    { drop: 'utilitycraft:andesite_pebble', min: 1, max: 1, prob: 20 },
+    { drop: 'utilitycraft:diorite_pebble', min: 1, max: 1, prob: 20 },
+    { drop: 'utilitycraft:granite_pebble', min: 1, max: 1, prob: 20 },
     { drop: 'minecraft:bone_meal', min: 1, max: 1, prob: 10 }
 ]
 
@@ -21,7 +21,7 @@ function itemDrops(drop, block) {
 }
 
 world.beforeEvents.worldInitialize.subscribe(e => {
-    e.itemComponentRegistry.registerCustomComponent('twm:dig_pebble', {
+    e.itemComponentRegistry.registerCustomComponent('utilitycraft:dig_pebble', {
         onUseOn(e) {
             const { block, source, itemStack } = e
             let blockId = block.typeId

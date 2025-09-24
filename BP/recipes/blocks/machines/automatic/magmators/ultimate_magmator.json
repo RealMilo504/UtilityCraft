@@ -2,23 +2,23 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:ultimate_magmator"
+			"identifier": "utilitycraft:ultimate_magmator"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"G": {
-				"item": "twm:netherite_plate"
+				"item": "utilitycraft:netherite_plate"
 			},
 			"B": {
-				"item": "twm:expert_magmator"
+				"item": "utilitycraft:expert_magmator"
 			},
 			"D": {
-				"item": "twm:ultimate_fluid_tank"
+				"item": "utilitycraft:ultimate_fluid_tank"
 			},
 			"E": {
-				"item": "twm:ultimate_chip"
+				"item": "utilitycraft:ultimate_chip"
 			}
 		},
 		"pattern": [
@@ -27,11 +27,11 @@
 			"GEG"
 		],
 		"result": {
-			"item": "twm:ultimate_magmator"
+			"item": "utilitycraft:ultimate_magmator"
 		},
 		"unlock": [
 			{
-				"item": "twm:ultimate_chip"
+				"item": "utilitycraft:ultimate_chip"
 			}
 		]
 	}

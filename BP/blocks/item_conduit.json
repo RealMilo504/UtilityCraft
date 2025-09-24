@@ -2,29 +2,29 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:item_conduit",
+			"identifier": "utilitycraft:item_conduit",
 			"states": {
-				"twm:up": [
+				"utilitycraft:up": [
 					false,
 					true
 				],
-				"twm:down": [
+				"utilitycraft:down": [
 					false,
 					true
 				],
-				"twm:north": [
+				"utilitycraft:north": [
 					false,
 					true
 				],
-				"twm:south": [
+				"utilitycraft:south": [
 					false,
 					true
 				],
-				"twm:east": [
+				"utilitycraft:east": [
 					false,
 					true
 				],
-				"twm:west": [
+				"utilitycraft:west": [
 					false,
 					true
 				]
@@ -32,19 +32,19 @@
 		},
 		"components": {
 			"minecraft:geometry": {
-				"identifier": "geometry.twm_general_tube",
+				"identifier": "geometry.utilitycraft_general_tube",
 				"bone_visibility": {
-					"up": "q.block_state('twm:up')",
-					"down": "q.block_state('twm:down')",
-					"north": "q.block_state('twm:north')",
-					"south": "q.block_state('twm:south')",
-					"east": "q.block_state('twm:east')",
-					"west": "q.block_state('twm:west')"
+					"up": "q.block_state('utilitycraft:up')",
+					"down": "q.block_state('utilitycraft:down')",
+					"north": "q.block_state('utilitycraft:north')",
+					"south": "q.block_state('utilitycraft:south')",
+					"east": "q.block_state('utilitycraft:east')",
+					"west": "q.block_state('utilitycraft:west')"
 				}
 			},
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_item_conduit",
+					"texture": "utilitycraft_item_conduit",
 					"render_method": "alpha_test"
 				}
 			},

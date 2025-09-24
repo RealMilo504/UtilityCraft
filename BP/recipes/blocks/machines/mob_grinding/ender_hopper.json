@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:ender_hopper"
+			"identifier": "utilitycraft:ender_hopper"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"C": {
@@ -24,7 +24,7 @@
 			" O "
 		],
 		"result": {
-			"item": "twm:ender_hopper"
+			"item": "utilitycraft:ender_hopper"
 		},
 		"unlock": [
 			{

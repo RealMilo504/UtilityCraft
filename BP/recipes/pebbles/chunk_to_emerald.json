@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:chunk_to_emerald"
+			"identifier": "utilitycraft:chunk_to_emerald"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:emerald_chunk"
+				"item": "utilitycraft:emerald_chunk"
 			}
 		},
 		"pattern": [
@@ -20,7 +20,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:emerald_chunk"
+				"item": "utilitycraft:emerald_chunk"
 			},
 			{
 				"item": "minecraft:emerald"

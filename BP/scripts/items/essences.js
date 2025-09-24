@@ -29,7 +29,7 @@ function capitalize(str) {
 }
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.itemComponentRegistry.registerCustomComponent('twm:essence', {
+    eventData.itemComponentRegistry.registerCustomComponent('utilitycraft:essence', {
         onUse(e) {
             const { source } = e
             const equippable = source.getComponent('equippable')
@@ -40,7 +40,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             for (let i = 0; i < spawnerEntities.length; i++) {
                 if (entity.typeId == spawnerEntities[i]) {
                     let entityId = entity.typeId
-                    let essenceItem = new ItemStack(`twm:essence_vessel`, 1)
+                    let essenceItem = new ItemStack(`utilitycraft:essence_vessel`, 1)
                     essenceItem.setLore([
                         `§r§7  Mob: ${capitalize(entityId)}`,
                         '§r§7  0 %'

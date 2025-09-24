@@ -2,16 +2,16 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:xp_magnet",
+			"identifier": "utilitycraft:xp_magnet",
 			"menu_category": {
 				"category": "construction"
 			},
 			"states": {
-				"twm:isOn": [
+				"utilitycraft:isOn": [
 					true,
 					false
 				],
-				"twm:rangeSelected": [
+				"utilitycraft:rangeSelected": [
 					0,
 					1,
 					2,
@@ -35,10 +35,10 @@
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_xp_magnet",
+			"minecraft:geometry": "geometry.utilitycraft_xp_magnet",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_xp_magnet",
+					"texture": "utilitycraft_xp_magnet",
 					"render_method": "alpha_test"
 				}
 			},
@@ -49,7 +49,7 @@
 				]
 			},
 			"minecraft:custom_components": [
-				"twm:xp_magnet"
+				"utilitycraft:xp_magnet"
 			],
 			"minecraft:collision_box": {
 				"size": [
@@ -68,11 +68,11 @@
 		},
 		"permutations": [
 			{
-				"condition": "q.block_state('twm:isOn') == false",
+				"condition": "q.block_state('utilitycraft:isOn') == false",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_xp_magnet_off",
+							"texture": "utilitycraft_xp_magnet_off",
 							"render_method": "alpha_test"
 						}
 					}

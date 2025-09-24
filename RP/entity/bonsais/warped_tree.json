@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:warped_tree",
+			"identifier": "utilitycraft:warped_tree",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/warped_tree"
 			},
 			"geometry": {
-				"default": "geometry.twm_nether_tree"
+				"default": "geometry.utilitycraft_nether_tree"
 			},
 			"render_controllers": [
 				"controller.render.warped_tree"

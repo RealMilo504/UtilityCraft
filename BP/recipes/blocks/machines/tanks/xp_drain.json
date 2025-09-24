@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:xp_drain"
+			"identifier": "utilitycraft:xp_drain"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"S": {
-				"item": "twm:steel_ingot"
+				"item": "utilitycraft:steel_ingot"
 			},
 			"M": {
 				"item": "iron_bars"
@@ -24,11 +24,11 @@
 			"SMS"
 		],
 		"result": {
-			"item": "twm:xp_drain"
+			"item": "utilitycraft:xp_drain"
 		},
 		"unlock": [
 			{
-				"item": "twm:steel_ingot"
+				"item": "utilitycraft:steel_ingot"
 			}
 		]
 	}

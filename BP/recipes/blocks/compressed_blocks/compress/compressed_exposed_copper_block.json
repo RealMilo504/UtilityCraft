@@ -2,7 +2,7 @@
   "format_version": "1.20.80",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:compressed_exposed_copper_block"
+      "identifier": "utilitycraft:compressed_exposed_copper_block"
     },
     "tags": [
       "crafting_table"
@@ -14,7 +14,7 @@
       }
     ],
     "result": {
-      "item": "twm:compressed_exposed_copper_block"
+      "item": "utilitycraft:compressed_exposed_copper_block"
     },
     "unlock": [
       {

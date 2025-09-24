@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:obsidian_seeds"
+			"identifier": "utilitycraft:obsidian_seeds"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"S": {
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			},
 			"O": {
 				"item": "minecraft:obsidian"
@@ -21,14 +21,14 @@
 			"OOO"
 		],
 		"result": {
-			"item": "twm:obsidian_seeds"
+			"item": "utilitycraft:obsidian_seeds"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:obsidian"
 			},
 			{
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		]
 	}

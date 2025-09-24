@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:drill_placer"
+			"identifier": "utilitycraft:drill_placer"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
@@ -30,7 +30,7 @@
 			"BAB"
 		],
 		"result": {
-			"item": "twm:drill_placer"
+			"item": "utilitycraft:drill_placer"
 		},
 		"unlock": [
 			{

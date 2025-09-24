@@ -2,26 +2,26 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:basic_thermo_generator"
+			"identifier": "utilitycraft:basic_thermo_generator"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
 				"item": "minecraft:copper_block"
 			},
 			"B": {
-				"item": "twm:basic_fluid_tank"
+				"item": "utilitycraft:basic_fluid_tank"
 			},
 			"C": {
-				"item": "twm:gold_plate"
+				"item": "utilitycraft:gold_plate"
 			},
 			"D": {
-				"item": "twm:copper_plate"
+				"item": "utilitycraft:copper_plate"
 			},
 			"E": {
-				"item": "twm:basic_chip"
+				"item": "utilitycraft:basic_chip"
 			}
 		},
 		"pattern": [
@@ -30,11 +30,11 @@
 			"CAC"
 		],
 		"result": {
-			"item": "twm:basic_thermo_generator"
+			"item": "utilitycraft:basic_thermo_generator"
 		},
 		"unlock": [
 			{
-				"item": "twm:basic_chip"
+				"item": "utilitycraft:basic_chip"
 			}
 		]
 	}

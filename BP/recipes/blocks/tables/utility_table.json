@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:utility_table"
+			"identifier": "utilitycraft:utility_table"
 		},
 		"pattern": [
 			"XCX",
@@ -28,7 +28,7 @@
 		},
 		"result": [
 			{
-				"item": "twm:utility_table"
+				"item": "utilitycraft:utility_table"
 			}
 		],
 		"unlock": [

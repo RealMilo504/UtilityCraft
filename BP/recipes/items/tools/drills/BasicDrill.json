@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:drill"
+			"identifier": "utilitycraft:drill"
 		},
 		"tags": [
 			"utility_table"
@@ -48,7 +48,7 @@
 		],
 		"result": [
 			{
-				"item": "twm:drill"
+				"item": "utilitycraft:drill"
 			}
 		]
 	}

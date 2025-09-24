@@ -2,14 +2,14 @@
     "format_version": "1.20.80",
     "minecraft:recipe_shaped": {
         "description": {
-            "identifier": "twm:conveyor_inclined_0"
+            "identifier": "utilitycraft:conveyor_inclined_0"
         },
         "tags": [
-            "twm_workbench"
+            "utilitycraft_workbench"
         ],
         "key": {
             "A": {
-                "item": "twm:asphalt"
+                "item": "utilitycraft:asphalt"
             },
             "R": {
                 "item": "minecraft:redstone"
@@ -21,12 +21,12 @@
             "R"
         ],
         "result": {
-            "item": "twm:conveyor_inclined",
+            "item": "utilitycraft:conveyor_inclined",
             "count": 4
         },
         "unlock": [
             {
-                "item": "twm:asphalt"
+                "item": "utilitycraft:asphalt"
             },
             {
                 "item": "minecraft:redstone"

@@ -2,7 +2,7 @@
   "format_version": "1.20.80",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:compressed_deepslate"
+      "identifier": "utilitycraft:compressed_deepslate"
     },
     "tags": [
       "crafting_table"
@@ -14,7 +14,7 @@
       }
     ],
     "result": {
-      "item": "twm:compressed_deepslate"
+      "item": "utilitycraft:compressed_deepslate"
     },
     "unlock": [
       {

@@ -2,7 +2,7 @@
   "format_version": "1.20.80",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:compressed_gold_block"
+      "identifier": "utilitycraft:compressed_gold_block"
     },
     "tags": [
       "crafting_table"
@@ -14,7 +14,7 @@
       }
     ],
     "result": {
-      "item": "twm:compressed_gold_block"
+      "item": "utilitycraft:compressed_gold_block"
     },
     "unlock": [
       {

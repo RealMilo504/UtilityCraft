@@ -2,10 +2,10 @@
     "format_version": "1.20.80",
     "minecraft:recipe_shaped": {
         "description": {
-            "identifier": "twm:quantity_upgrade"
+            "identifier": "utilitycraft:quantity_upgrade"
         },
         "tags": [
-            "twm_workbench"
+            "utilitycraft_workbench"
         ],
         "pattern": [
             "SDS",
@@ -14,7 +14,7 @@
         ],
         "key": {
             "B": {
-                "item": "twm:base_upgrade"
+                "item": "utilitycraft:base_upgrade"
             },
             "D": {
                 "item": "minecraft:cyan_dye"
@@ -23,18 +23,18 @@
                 "item": "lapis_block"
             },
             "I": {
-                "item": "twm:spawner_core"
+                "item": "utilitycraft:spawner_core"
             },
             "S": {
-                "item": "twm:steel_ingot"
+                "item": "utilitycraft:steel_ingot"
             }
         },
         "result": {
-            "item": "twm:quantity_upgrade"
+            "item": "utilitycraft:quantity_upgrade"
         },
         "unlock": [
             {
-                "item": "twm:base_upgrade"
+                "item": "utilitycraft:base_upgrade"
             }
         ]
     }

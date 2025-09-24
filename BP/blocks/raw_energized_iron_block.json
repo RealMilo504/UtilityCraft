@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:raw_energized_iron_block",
+			"identifier": "utilitycraft:raw_energized_iron_block",
 			"menu_category": {
 				"category": "nature"
 			}

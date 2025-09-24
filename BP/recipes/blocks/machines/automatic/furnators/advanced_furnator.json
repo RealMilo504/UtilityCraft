@@ -2,26 +2,26 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:advanced_furnator"
+			"identifier": "utilitycraft:advanced_furnator"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
-				"item": "twm:steel_plate"
+				"item": "utilitycraft:steel_plate"
 			},
 			"B": {
-				"item": "twm:basic_furnator"
+				"item": "utilitycraft:basic_furnator"
 			},
 			"C": {
-				"item": "twm:energized_iron_plate"
+				"item": "utilitycraft:energized_iron_plate"
 			},
 			"D": {
 				"item": "minecraft:redstone_block"
 			},
 			"E": {
-				"item": "twm:advanced_chip"
+				"item": "utilitycraft:advanced_chip"
 			}
 		},
 		"pattern": [
@@ -30,7 +30,7 @@
 			"CDC"
 		],
 		"result": {
-			"item": "twm:advanced_furnator"
+			"item": "utilitycraft:advanced_furnator"
 		},
 		"unlock": [
 			{

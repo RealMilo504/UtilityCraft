@@ -2,7 +2,7 @@
 	"format_version": "1.12",
 	"minecraft:recipe_shapeless": {
 		"description": {
-			"identifier": "twm:waxed_weathered_cut_copper_slab"
+			"identifier": "utilitycraft:waxed_weathered_cut_copper_slab"
 		},
 		"tags": [
 			"crafting_table"

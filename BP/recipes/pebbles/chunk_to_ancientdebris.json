@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:chunk_to_ancientdebris"
+			"identifier": "utilitycraft:chunk_to_ancientdebris"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:ancient_debris_chunk"
+				"item": "utilitycraft:ancient_debris_chunk"
 			}
 		},
 		"pattern": [
@@ -20,7 +20,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:ancient_debris_chunk"
+				"item": "utilitycraft:ancient_debris_chunk"
 			},
 			{
 				"item": "ancient_debris"

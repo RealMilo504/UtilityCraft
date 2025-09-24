@@ -17,8 +17,8 @@ export class Machine extends Machinery {
         super(block, settings)
         this.entity?.runCommand(`scoreboard players set @s energyCap ${settings.energyCap}`)
         this.progress = new ProgressManager(this.entity, this.inv, this.block);
-        const energyLevel = block.permutation.getState('twm:energy') ?? 0;
-        const speedLevel = block.permutation.getState('twm:speed') ?? 0;
+        const energyLevel = block.permutation.getState('utilitycraft:energy') ?? 0;
+        const speedLevel = block.permutation.getState('utilitycraft:speed') ?? 0;
 
         /**
          * Speed multiplier based on speed upgrade level.
@@ -83,9 +83,9 @@ export class Machine extends Machinery {
             entity.runCommand(`scoreboard players set @s energy ${energy}`)
             entity.runCommand(`scoreboard players set @s energyCap ${settings.energyCap}`)
             if (liquid || settings.liquidCap > 0) {
-                entity.setDynamicProperty('twm:liquid', liquid.amount || 0)
-                entity.setDynamicProperty('twm:liquidType', liquid.type)
-                entity.setDynamicProperty('twm:liquidCap', settings.liquidCap);
+                entity.setDynamicProperty('utilitycraft:liquid', liquid.amount || 0)
+                entity.setDynamicProperty('utilitycraft:liquidType', liquid.type)
+                entity.setDynamicProperty('utilitycraft:liquidCap', settings.liquidCap);
             }
             if (callback) callback(entity)
         });
@@ -100,7 +100,7 @@ export class Machine extends Machinery {
     displayProgress(slot = 4, energyCost = 800) {
         const progress = this.progress.get();
         const progressLevel = Math.max(0, Math.min(16, Math.floor(16 * progress / energyCost)));
-        const expectedId = `twm:arrow_right_${progressLevel}`;
+        const expectedId = `utilitycraft:arrow_right_${progressLevel}`;
 
         const currentItem = this.inv.getItem(slot);
         if (!currentItem || currentItem.typeId !== expectedId) {
@@ -189,7 +189,7 @@ export class Machine extends Machinery {
                     continue
                 }
                 // Assemblers shouldnt accept new items if it has less than 2 empty slots, it could cause filling the output
-                if (nextEntity?.typeId == 'twm:assembler' && entityInv.emptySlotsCount < 2) return
+                if (nextEntity?.typeId == 'utilitycraft:assembler' && entityInv.emptySlotsCount < 2) return
                 // Normal entities
                 if (entityInv.emptySlotsCount > 0) {
                     this.inv.transferItem(i, entityInv);

@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:diamond_mesh"
+			"identifier": "utilitycraft:diamond_mesh"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "diamond"
 			},
 			"M": {
-				"item": "twm:emerald_mesh"
+				"item": "utilitycraft:emerald_mesh"
 			}
 		},
 		"pattern": [
@@ -21,11 +21,11 @@
 			"SSS"
 		],
 		"result": {
-			"item": "twm:diamond_mesh"
+			"item": "utilitycraft:diamond_mesh"
 		},
 		"unlock": [
 			{
-				"item": "twm:emerald_mesh"
+				"item": "utilitycraft:emerald_mesh"
 			},
 			{
 				"item": "minecraft:diamond"

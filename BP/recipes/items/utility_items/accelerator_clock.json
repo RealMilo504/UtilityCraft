@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:accelerator_clock"
+			"identifier": "utilitycraft:accelerator_clock"
 		},
 		"tags": [
 			"crafting_table"
@@ -24,7 +24,7 @@
 			"DGD"
 		],
 		"result": {
-			"item": "twm:accelerator_clock"
+			"item": "utilitycraft:accelerator_clock"
 		},
 		"unlock": [
 			{

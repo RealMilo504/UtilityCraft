@@ -2,16 +2,16 @@
 	"format_version": "1.21.100",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:compressed_cobbled_deepslate_2",
+			"identifier": "utilitycraft:compressed_cobbled_deepslate_2",
 			"menu_category": {
 				"category": "construction"
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_block",
+			"minecraft:geometry": "geometry.utilitycraft_block",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_compressed_cobbled_deepslate_2",
+					"texture": "utilitycraft_compressed_cobbled_deepslate_2",
 					"render_method": "alpha_test"
 				}
 			},

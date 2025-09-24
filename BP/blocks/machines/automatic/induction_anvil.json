@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:induction_anvil",
+			"identifier": "utilitycraft:induction_anvil",
 			"traits": {
 				"minecraft:placement_direction": {
 					"enabled_states": [
@@ -12,28 +12,28 @@
 				}
 			},
 			"states": {
-				"twm:speed": [
+				"utilitycraft:speed": [
 					0,
 					1,
 					2,
 					3,
 					4
 				],
-				"twm:energy": [
+				"utilitycraft:energy": [
 					0,
 					1,
 					2,
 					3,
 					4
 				],
-				"twm:refreshSpeed": [
+				"utilitycraft:refreshSpeed": [
 					1,
 					5,
 					10,
 					20,
 					40
 				],
-				"twm:on": [
+				"utilitycraft:on": [
 					false,
 					true
 				]
@@ -43,12 +43,12 @@
 			"minecraft:geometry": "geometry.induction_anvil",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_induction_anvil",
+					"texture": "utilitycraft_induction_anvil",
 					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:custom_components": [
-				"twm:induction_anvil"
+				"utilitycraft:induction_anvil"
 			],
 			"minecraft:tick": {
 				"interval_range": [
@@ -61,7 +61,7 @@
 		},
 		"permutations": [
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 1 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 1 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -72,7 +72,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 5 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 5 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -83,7 +83,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 10 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 10 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -94,7 +94,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 20 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 20 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [
@@ -105,7 +105,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:refreshSpeed') == 40 ",
+				"condition": "q.block_state('utilitycraft:refreshSpeed') == 40 ",
 				"components": {
 					"minecraft:tick": {
 						"interval_range": [

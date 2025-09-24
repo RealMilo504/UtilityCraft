@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:basalt_pebble"
+			"identifier": "utilitycraft:basalt_pebble"
 		},
 		"components": {
-			"minecraft:icon": "twm_basalt_pebble"
+			"minecraft:icon": "utilitycraft_basalt_pebble"
 		}
 	}
 }

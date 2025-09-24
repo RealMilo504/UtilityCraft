@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:crushed_netherrack",
+			"identifier": "utilitycraft:crushed_netherrack",
 			"menu_category": {
 				"category": "construction"
 			}

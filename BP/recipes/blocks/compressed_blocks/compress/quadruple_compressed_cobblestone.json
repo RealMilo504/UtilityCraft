@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:quadruple_compressed_cobblestone"
+			"identifier": "utilitycraft:quadruple_compressed_cobblestone"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"C": {
-				"item": "twm:triple_compressed_cobblestone"
+				"item": "utilitycraft:triple_compressed_cobblestone"
 			}
 		},
 		"pattern": [
@@ -18,11 +18,11 @@
 			"CCC"
 		],
 		"result": {
-			"item": "twm:quadruple_compressed_cobblestone"
+			"item": "utilitycraft:quadruple_compressed_cobblestone"
 		},
 		"unlock": [
 			{
-				"item": "twm:triple_compressed_cobblestone"
+				"item": "utilitycraft:triple_compressed_cobblestone"
 			}
 		]
 	}

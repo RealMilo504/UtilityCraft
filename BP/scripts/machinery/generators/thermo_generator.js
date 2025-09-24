@@ -3,10 +3,10 @@ import * as doriosAPI from '../../doriosAPI.js'
 import { Generator, settings } from '../generators_class.js'
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:thermo_generator', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:thermo_generator', {
         beforeOnPlayerPlace(e) {
             Generator.spawnGeneratorEntity(e, settings.thermoGen, (entity) => {
-                entity.getComponent('minecraft:inventory').container.setItem(6, new ItemStack(`twm:arrow_indicator`))
+                entity.getComponent('minecraft:inventory').container.setItem(6, new ItemStack(`utilitycraft:arrow_indicator`))
             })
         },
         onTick(e) {

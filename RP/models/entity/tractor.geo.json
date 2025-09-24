@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.twm_tractor",
+				"identifier": "geometry.utilitycraft_tractor",
 				"texture_width": 256,
 				"texture_height": 256,
 				"visible_bounds_width": 5,

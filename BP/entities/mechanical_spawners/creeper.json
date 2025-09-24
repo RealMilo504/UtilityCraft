@@ -2,7 +2,7 @@
 	"format_version": "1.19.20",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "twm:mechanical_spawner_creeper",
+			"identifier": "utilitycraft:mechanical_spawner_creeper",
 			"is_spawnable": false,
 			"is_summonable": true,
 			"is_experimental": false
@@ -19,7 +19,7 @@
 			},
 			"minecraft:type_family": {
 				"family": [
-					"twm_container"
+					"utilitycraft_container"
 				]
 			},
 			"minecraft:fire_immune": true,

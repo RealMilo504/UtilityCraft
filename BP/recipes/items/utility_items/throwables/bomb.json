@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:bomb"
+			"identifier": "utilitycraft:bomb"
 		},
 		"tags": [
 			"crafting_table"
@@ -24,7 +24,7 @@
 			"CGC"
 		],
 		"result": {
-			"item": "twm:bomb",
+			"item": "utilitycraft:bomb",
 			"count": 8
 		},
 		"unlock": [

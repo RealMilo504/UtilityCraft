@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:shard_to_shulker_shell"
+			"identifier": "utilitycraft:shard_to_shulker_shell"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:shulker_shell_shard"
+				"item": "utilitycraft:shulker_shell_shard"
 			}
 		},
 		"pattern": [
@@ -22,7 +22,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:shulker_shell_shard"
+				"item": "utilitycraft:shulker_shell_shard"
 			},
 			{
 				"item": "minecraft:shulker_shell"

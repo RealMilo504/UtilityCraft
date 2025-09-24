@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:mortar"
+			"identifier": "utilitycraft:mortar"
 		},
 		"tags": [
 			"crafting_table"
@@ -16,11 +16,11 @@
 				"item": "cobblestone"
 			},
 			"P": {
-				"item": "twm:stone_pebble"
+				"item": "utilitycraft:stone_pebble"
 			}
 		},
 		"result": {
-			"item": "twm:mortar"
+			"item": "utilitycraft:mortar"
 		},
 		"unlock": [
 			{

@@ -2,26 +2,26 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:way_center"
+			"identifier": "utilitycraft:way_center"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
 				"item": "minecraft:echo_shard"
 			},
 			"B": {
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			},
 			"C": {
 				"item": "minecraft:ender_eye"
 			},
 			"D": {
-				"item": "twm:diamond_dust"
+				"item": "utilitycraft:diamond_dust"
 			},
 			"E": {
-				"item": "twm:expert_chip"
+				"item": "utilitycraft:expert_chip"
 			},
 			"F": {
 				"item": "minecraft:lapis_block"
@@ -33,23 +33,23 @@
 			"FDF"
 		],
 		"result": {
-			"item": "twm:waycenter"
+			"item": "utilitycraft:waycenter"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:echo_shard"
 			},
 			{
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			},
 			{
 				"item": "minecraft:ender_eye"
 			},
 			{
-				"item": "twm:diamond_dust"
+				"item": "utilitycraft:diamond_dust"
 			},
 			{
-				"item": "twm:expert_chip"
+				"item": "utilitycraft:expert_chip"
 			},
 			{
 				"item": "minecraft:lapis_block"

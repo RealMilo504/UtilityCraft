@@ -2,26 +2,26 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:block_placer"
+			"identifier": "utilitycraft:block_placer"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
 				"item": "minecraft:dropper"
 			},
 			"B": {
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			},
 			"P": {
 				"item": "minecraft:redstone"
 			},
 			"R": {
-				"item": "twm:iron_plate"
+				"item": "utilitycraft:iron_plate"
 			},
 			"C": {
-				"item": "twm:chip"
+				"item": "utilitycraft:chip"
 			}
 		},
 		"pattern": [
@@ -30,23 +30,23 @@
 			"PRP"
 		],
 		"result": {
-			"item": "twm:block_placer"
+			"item": "utilitycraft:block_placer"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:dropper"
 			},
 			{
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			},
 			{
 				"item": "minecraft:redstone"
 			},
 			{
-				"item": "twm:iron_plate"
+				"item": "utilitycraft:iron_plate"
 			},
 			{
-				"item": "twm:chip"
+				"item": "utilitycraft:chip"
 			}
 		]
 	}

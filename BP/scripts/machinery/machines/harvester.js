@@ -2,7 +2,7 @@ import { system } from '@minecraft/server'
 import * as doriosAPI from '../../doriosAPI.js'
 import { Machine, settings } from '../machines_class.js'
 
-doriosAPI.register.OldBlockComponent('twm:harvest', {
+doriosAPI.register.OldBlockComponent('utilitycraft:harvest', {
     beforeOnPlayerPlace(e) {
         Machine.spawnMachineEntity(e, settings.harvester,)
         system.runTimeout(() => {
@@ -19,13 +19,13 @@ doriosAPI.register.OldBlockComponent('twm:harvest', {
         const machine = new Machine(block, settings.harvester)
         if (!machine.entity || !machine.inv) return
 
-        const range = block.permutation.getState('twm:range')
+        const range = block.permutation.getState('utilitycraft:range')
         let side = (range * 2) + 3
         let area = side ** 2
 
         let energy = machine.energy.get()
         const energyCost = settings.harvester.energyCost
-        const realEnergyCost = Math.ceil(energyCost * (1 - 0.2 * block.permutation.getState('twm:energy')))
+        const realEnergyCost = Math.ceil(energyCost * (1 - 0.2 * block.permutation.getState('utilitycraft:energy')))
 
         if (energy <= realEnergyCost * area) {
             machine.turnOff()

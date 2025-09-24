@@ -1,2 +1,2 @@
-execute at @a[hasitem=[{item=twm:lucky_pickaxe_item , location=slot.weapon.mainhand}]] run structure load mystructure:lucky_pickaxe ~ ~ ~
-clear @a[hasitem=[{item=twm:lucky_pickaxe_item , location=slot.weapon.mainhand}]] twm:lucky_pickaxe_item 0 1
+execute at @a[hasitem=[{item=utilitycraft:lucky_pickaxe_item , location=slot.weapon.mainhand}]] run structure load mystructure:lucky_pickaxe ~ ~ ~
+clear @a[hasitem=[{item=utilitycraft:lucky_pickaxe_item , location=slot.weapon.mainhand}]] utilitycraft:lucky_pickaxe_item 0 1

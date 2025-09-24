@@ -2,13 +2,13 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:iron_plate",
+			"identifier": "utilitycraft:iron_plate",
 			"menu_category": {
 				"category": "nature"
 			}
 		},
 		"components": {
-			"minecraft:icon": "twm_iron_plate"
+			"minecraft:icon": "utilitycraft_iron_plate"
 		}
 	}
 }

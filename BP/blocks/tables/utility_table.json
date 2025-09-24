@@ -2,16 +2,16 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:utility_table",
+			"identifier": "utilitycraft:utility_table",
 			"menu_category": {
 				"category": "equipment"
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_utility_table",
+			"minecraft:geometry": "geometry.utilitycraft_utility_table",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_utility_table",
+					"texture": "utilitycraft_utility_table",
 					"render_method": "alpha_test"
 				}
 			},

@@ -1,7 +1,7 @@
 import * as doriosAPI from '../../doriosAPI.js'
 import { Machine, settings } from '../machines_class.js'
 
-doriosAPI.register.OldBlockComponent('twm:seed_synthesizer', {
+doriosAPI.register.OldBlockComponent('utilitycraft:seed_synthesizer', {
     beforeOnPlayerPlace(e) {
         Machine.spawnMachineEntity(e, settings.seedSynthesizer);
     },

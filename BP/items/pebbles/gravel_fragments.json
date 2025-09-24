@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:gravel_fragments"
+			"identifier": "utilitycraft:gravel_fragments"
 		},
 		"components": {
-			"minecraft:icon": "twm_gravel_fragments"
+			"minecraft:icon": "utilitycraft_gravel_fragments"
 		}
 	}
 }

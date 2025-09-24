@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:mechanic_hopper"
+			"identifier": "utilitycraft:mechanic_hopper"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"S": {
-				"item": "twm:steel_ingot"
+				"item": "utilitycraft:steel_ingot"
 			},
 			"H": {
 				"item": "hopper"
@@ -21,14 +21,14 @@
 			" S"
 		],
 		"result": {
-			"item": "twm:mechanic_hopper"
+			"item": "utilitycraft:mechanic_hopper"
 		},
 		"unlock": [
 			{
 				"item": "hopper"
 			},
 			{
-				"item": "twm:steel_ingot"
+				"item": "utilitycraft:steel_ingot"
 			}
 		],
 		"priority": 0

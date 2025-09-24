@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:prismarine_shard_seeds"
+			"identifier": "utilitycraft:prismarine_shard_seeds"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "minecraft:prismarine_shard"
 			},
 			"S": {
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		},
 		"pattern": [
@@ -21,14 +21,14 @@
 			"PPP"
 		],
 		"result": {
-			"item": "twm:prismarine_shards_seeds"
+			"item": "utilitycraft:prismarine_shards_seeds"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:prismarine_shard"
 			},
 			{
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		]
 	}

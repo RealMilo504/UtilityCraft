@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:netherstar_seeds"
+			"identifier": "utilitycraft:netherstar_seeds"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"S": {
-				"item": "twm:wither_seeds"
+				"item": "utilitycraft:wither_seeds"
 			},
 			"N": {
 				"item": "minecraft:nether_star"
@@ -21,14 +21,14 @@
 			" N "
 		],
 		"result": {
-			"item": "twm:nether_star_seeds"
+			"item": "utilitycraft:nether_star_seeds"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:nether_star"
 			},
 			{
-				"item": "twm:base_seeds"
+				"item": "utilitycraft:base_seeds"
 			}
 		]
 	}

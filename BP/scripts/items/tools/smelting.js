@@ -65,7 +65,7 @@ function getSmeltedId(rawId) {
 
 // Registra o componente customizado quando o mundo inicializa
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.itemComponentRegistry.registerCustomComponent('twm:smelting', {
+    eventData.itemComponentRegistry.registerCustomComponent('utilitycraft:smelting', {
         /**
          * Handler chamado ao minerar um bloco
          * @param {{ block, minedBlockPermutation }} e

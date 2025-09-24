@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:dchunk_to_diamond"
+			"identifier": "utilitycraft:dchunk_to_diamond"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:deepslate_diamond_chunk"
+				"item": "utilitycraft:deepslate_diamond_chunk"
 			}
 		},
 		"pattern": [
@@ -20,7 +20,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:deepslate_diamond_chunk"
+				"item": "utilitycraft:deepslate_diamond_chunk"
 			},
 			{
 				"item": "minecraft:diamond"

@@ -2,21 +2,21 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:mob_grinder",
+			"identifier": "utilitycraft:mob_grinder",
 			"menu_category": {
 				"category": "construction"
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_mob_grinder",
+			"minecraft:geometry": "geometry.utilitycraft_mob_grinder",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_mob_grinder",
+					"texture": "utilitycraft_mob_grinder",
 					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:custom_components": [
-				"twm:mob_grinder"
+				"utilitycraft:mob_grinder"
 			],
 			"minecraft:collision_box": {
 				"origin": [

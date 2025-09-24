@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:shard_to_diamond"
+			"identifier": "utilitycraft:shard_to_diamond"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"P": {
-				"item": "twm:diamond_shard"
+				"item": "utilitycraft:diamond_shard"
 			}
 		},
 		"pattern": [
@@ -22,7 +22,7 @@
 		},
 		"unlock": [
 			{
-				"item": "twm:diamond_shard"
+				"item": "utilitycraft:diamond_shard"
 			},
 			{
 				"item": "minecraft:diamond"

@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:workbench",
+			"identifier": "utilitycraft:workbench",
 			"menu_category": {
 				"category": "construction"
 			},
@@ -15,16 +15,16 @@
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_workbench",
+			"minecraft:geometry": "geometry.utilitycraft_workbench",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_workbench",
+					"texture": "utilitycraft_workbench",
 					"render_method": "opaque"
 				}
 			},
 			"minecraft:crafting_table": {
 				"crafting_tags": [
-					"twm_workbench"
+					"utilitycraft_workbench"
 				],
 				"grid_size": 3,
 				"table_name": "Workbench"

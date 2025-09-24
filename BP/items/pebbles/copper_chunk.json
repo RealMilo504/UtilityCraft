@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:copper_chunk"
+			"identifier": "utilitycraft:copper_chunk"
 		},
 		"components": {
-			"minecraft:icon": "twm_copper_chunk"
+			"minecraft:icon": "utilitycraft_copper_chunk"
 		}
 	}
 }

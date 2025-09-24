@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:bonsai"
+			"identifier": "utilitycraft:bonsai"
 		},
 		"tags": [
 			"crafting_table"
@@ -34,7 +34,7 @@
 			}
 		],
 		"result": {
-			"item": "twm:bonsai"
+			"item": "utilitycraft:bonsai"
 		}
 	}
 }

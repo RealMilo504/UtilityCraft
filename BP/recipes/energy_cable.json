@@ -2,20 +2,20 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:energy_cable"
+			"identifier": "utilitycraft:energy_cable"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"R": {
 				"item": "redstone"
 			},
 			"C": {
-				"item": "twm:copper_nugget"
+				"item": "utilitycraft:copper_nugget"
 			},
 			"S": {
-				"item": "twm:steel_nugget"
+				"item": "utilitycraft:steel_nugget"
 			}
 		},
 		"pattern": [
@@ -24,12 +24,12 @@
 			"SRS"
 		],
 		"result": {
-			"item": "twm:energy_cable",
+			"item": "utilitycraft:energy_cable",
 			"count": 8
 		},
 		"unlock": [
 			{
-				"item": "twm:steel_ingot"
+				"item": "utilitycraft:steel_ingot"
 			}
 		]
 	}

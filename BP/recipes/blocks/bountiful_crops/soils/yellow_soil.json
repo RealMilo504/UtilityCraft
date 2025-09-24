@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:yellow_soil"
+			"identifier": "utilitycraft:yellow_soil"
 		},
 		"tags": [
 			"crafting_table"
@@ -24,7 +24,7 @@
 			"DBD"
 		],
 		"result": {
-			"item": "twm:yellow_soil",
+			"item": "utilitycraft:yellow_soil",
 			"count": 4
 		},
 		"unlock": [

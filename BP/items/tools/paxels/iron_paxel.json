@@ -2,7 +2,7 @@
 	"format_version": "1.21.70",
 	"minecraft:item": {
 		"description": {
-			"identifier": "twm:iron_paxel"
+			"identifier": "utilitycraft:iron_paxel"
 		},
 		"components": {
 			"minecraft:tags": {
@@ -17,10 +17,10 @@
 				"max_durability": 753
 			},
 			"minecraft:custom_components": [
-				"twm:break"
+				"utilitycraft:break"
 			],
 			"minecraft:damage": 5,
-			"minecraft:icon": "twm_iron_paxel",
+			"minecraft:icon": "utilitycraft_iron_paxel",
 			"minecraft:enchantable": {
 				"value": 15,
 				"slot": "axe"
@@ -35,7 +35,7 @@
 					},
 					{
 						"items": [
-							"twm:iron_paxel"
+							"utilitycraft:iron_paxel"
 						],
 						"repair_amount": 251
 					}

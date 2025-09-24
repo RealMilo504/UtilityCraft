@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:lucky_fishing_rod"
+			"identifier": "utilitycraft:lucky_fishing_rod"
 		},
 		"tags": [
 			"utility_table"
@@ -41,7 +41,7 @@
 			}
 		],
 		"result": {
-			"item": "twm:lucky_fishing_rod_item"
+			"item": "utilitycraft:lucky_fishing_rod_item"
 		}
 	}
 }

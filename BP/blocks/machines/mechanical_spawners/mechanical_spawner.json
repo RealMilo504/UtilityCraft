@@ -2,12 +2,12 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:mechanical_spawner",
+			"identifier": "utilitycraft:mechanical_spawner",
 			"menu_category": {
 				"category": "construction"
 			},
 			"states": {
-				"twm:spawnerTypes": [
+				"utilitycraft:spawnerTypes": [
 					0,
 					1,
 					2,
@@ -25,18 +25,18 @@
 					14,
 					15
 				],
-				"twm:isOn": [
+				"utilitycraft:isOn": [
 					true,
 					false
 				],
-				"twm:speed": [
+				"utilitycraft:speed": [
 					0,
 					1,
 					2,
 					3,
 					4
 				],
-				"twm:quantity": [
+				"utilitycraft:quantity": [
 					0,
 					1,
 					2,
@@ -46,15 +46,15 @@
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_mechanical_spawner",
+			"minecraft:geometry": "geometry.utilitycraft_mechanical_spawner",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_mechanical_spawner_empty",
+					"texture": "utilitycraft_mechanical_spawner_empty",
 					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:custom_components": [
-				"twm:mech_spawners_select"
+				"utilitycraft:mech_spawners_select"
 			],
 			"minecraft:tick": {
 				"interval_range": [
@@ -65,87 +65,70 @@
 		},
 		"permutations": [
 			{
-				"condition": "q.block_state('twm:spawnerTypes') != 0",
+				"condition": "q.block_state('utilitycraft:spawnerTypes') != 0",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner",
+							"texture": "utilitycraft_mechanical_spawner",
 							"render_method": "alpha_test"
 						}
 					},
 					"minecraft:custom_components": [
-						"twm:mech_spawners",
-						"twm:machine_upgrades"
+						"utilitycraft:mech_spawners",
+						"utilitycraft:machine_upgrades"
 					]
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 0 && q.block_state('twm:quantity') == 1",
+				"condition": "q.block_state('utilitycraft:speed') == 0 && q.block_state('utilitycraft:quantity') == 1",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_quantity1",
+							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
 						}
 					}
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 0 && q.block_state('twm:quantity') == 2",
+				"condition": "q.block_state('utilitycraft:speed') == 0 && q.block_state('utilitycraft:quantity') == 2",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_quantity2",
+							"texture": "utilitycraft_mechanical_spawner_quantity2",
 							"render_method": "alpha_test"
 						}
 					}
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 0 && q.block_state('twm:quantity') == 3",
+				"condition": "q.block_state('utilitycraft:speed') == 0 && q.block_state('utilitycraft:quantity') == 3",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_quantity3",
+							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
 						}
 					}
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 0 && q.block_state('twm:quantity') == 4",
+				"condition": "q.block_state('utilitycraft:speed') == 0 && q.block_state('utilitycraft:quantity') == 4",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_quantity4",
+							"texture": "utilitycraft_mechanical_spawner_quantity4",
 							"render_method": "alpha_test"
 						}
 					}
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 1 && q.block_state('twm:quantity') == 0",
+				"condition": "q.block_state('utilitycraft:speed') == 1 && q.block_state('utilitycraft:quantity') == 0",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed1",
-							"render_method": "alpha_test"
-						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							400,
-							600
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('twm:speed') == 1 && q.block_state('twm:quantity') == 1",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "twm_mechanical_spawner_speed1_quantity1",
+							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
 						}
 					},
@@ -158,11 +141,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 1 && q.block_state('twm:quantity') == 2",
+				"condition": "q.block_state('utilitycraft:speed') == 1 && q.block_state('utilitycraft:quantity') == 1",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed1_quantity2",
+							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
 							"render_method": "alpha_test"
 						}
 					},
@@ -175,11 +158,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 1 && q.block_state('twm:quantity') == 3",
+				"condition": "q.block_state('utilitycraft:speed') == 1 && q.block_state('utilitycraft:quantity') == 2",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed1_quantity3",
+							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
 						}
 					},
@@ -192,11 +175,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 1 && q.block_state('twm:quantity') == 4",
+				"condition": "q.block_state('utilitycraft:speed') == 1 && q.block_state('utilitycraft:quantity') == 3",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed1_quantity4",
+							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
 							"render_method": "alpha_test"
 						}
 					},
@@ -209,11 +192,28 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 2 && q.block_state('twm:quantity') == 0",
+				"condition": "q.block_state('utilitycraft:speed') == 1 && q.block_state('utilitycraft:quantity') == 4",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed2",
+							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							400,
+							600
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('utilitycraft:speed') == 2 && q.block_state('utilitycraft:quantity') == 0",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_speed2",
 							"render_method": "alpha_test"
 						}
 					},
@@ -226,11 +226,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 2 && q.block_state('twm:quantity') == 1",
+				"condition": "q.block_state('utilitycraft:speed') == 2 && q.block_state('utilitycraft:quantity') == 1",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed2_quantity1",
+							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
 						}
 					},
@@ -243,11 +243,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 2 && q.block_state('twm:quantity') == 2",
+				"condition": "q.block_state('utilitycraft:speed') == 2 && q.block_state('utilitycraft:quantity') == 2",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed2_quantity2",
+							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
 							"render_method": "alpha_test"
 						}
 					},
@@ -260,11 +260,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 2 && q.block_state('twm:quantity') == 3",
+				"condition": "q.block_state('utilitycraft:speed') == 2 && q.block_state('utilitycraft:quantity') == 3",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed2_quantity3",
+							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
 						}
 					},
@@ -277,11 +277,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 2 && q.block_state('twm:quantity') == 4",
+				"condition": "q.block_state('utilitycraft:speed') == 2 && q.block_state('utilitycraft:quantity') == 4",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed2_quantity4",
+							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
 							"render_method": "alpha_test"
 						}
 					},
@@ -294,11 +294,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 3 && q.block_state('twm:quantity') == 0",
+				"condition": "q.block_state('utilitycraft:speed') == 3 && q.block_state('utilitycraft:quantity') == 0",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed3",
+							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
 						}
 					},
@@ -311,11 +311,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 3 && q.block_state('twm:quantity') == 1",
+				"condition": "q.block_state('utilitycraft:speed') == 3 && q.block_state('utilitycraft:quantity') == 1",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed3_quantity1",
+							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
 							"render_method": "alpha_test"
 						}
 					},
@@ -328,11 +328,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 3 && q.block_state('twm:quantity') == 2",
+				"condition": "q.block_state('utilitycraft:speed') == 3 && q.block_state('utilitycraft:quantity') == 2",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed3_quantity2",
+							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
 						}
 					},
@@ -345,11 +345,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 3 && q.block_state('twm:quantity') == 3",
+				"condition": "q.block_state('utilitycraft:speed') == 3 && q.block_state('utilitycraft:quantity') == 3",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed3_quantity3",
+							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
 							"render_method": "alpha_test"
 						}
 					},
@@ -362,11 +362,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 3 && q.block_state('twm:quantity') == 4",
+				"condition": "q.block_state('utilitycraft:speed') == 3 && q.block_state('utilitycraft:quantity') == 4",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed3_quantity4",
+							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
 						}
 					},
@@ -379,11 +379,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 4 && q.block_state('twm:quantity') == 0",
+				"condition": "q.block_state('utilitycraft:speed') == 4 && q.block_state('utilitycraft:quantity') == 0",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed4",
+							"texture": "utilitycraft_mechanical_spawner_speed4",
 							"render_method": "alpha_test"
 						}
 					},
@@ -396,11 +396,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 4 && q.block_state('twm:quantity') == 1",
+				"condition": "q.block_state('utilitycraft:speed') == 4 && q.block_state('utilitycraft:quantity') == 1",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed4_quantity1",
+							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
 						}
 					},
@@ -413,11 +413,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 4 && q.block_state('twm:quantity') == 2",
+				"condition": "q.block_state('utilitycraft:speed') == 4 && q.block_state('utilitycraft:quantity') == 2",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed4_quantity2",
+							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
 							"render_method": "alpha_test"
 						}
 					},
@@ -430,11 +430,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 4 && q.block_state('twm:quantity') == 3",
+				"condition": "q.block_state('utilitycraft:speed') == 4 && q.block_state('utilitycraft:quantity') == 3",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed4_quantity3",
+							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
 						}
 					},
@@ -447,11 +447,11 @@
 				}
 			},
 			{
-				"condition": "q.block_state('twm:speed') == 4 && q.block_state('twm:quantity') == 4",
+				"condition": "q.block_state('utilitycraft:speed') == 4 && q.block_state('utilitycraft:quantity') == 4",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "twm_mechanical_spawner_speed4_quantity4",
+							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
 							"render_method": "alpha_test"
 						}
 					},

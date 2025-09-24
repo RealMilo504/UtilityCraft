@@ -2,7 +2,7 @@
 	"format_version": "1.12",
 	"minecraft:recipe_shapeless": {
 		"description": {
-			"identifier": "twm:polished_diorite_slab"
+			"identifier": "utilitycraft:polished_diorite_slab"
 		},
 		"tags": [
 			"crafting_table"

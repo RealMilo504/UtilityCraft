@@ -2,26 +2,26 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:magmatic_chamber"
+			"identifier": "utilitycraft:magmatic_chamber"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
-				"item": "twm:copper_plate"
+				"item": "utilitycraft:copper_plate"
 			},
 			"B": {
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			},
 			"C": {
-				"item": "twm:gold_plate"
+				"item": "utilitycraft:gold_plate"
 			},
 			"D": {
-				"item": "twm:netherite_plate"
+				"item": "utilitycraft:netherite_plate"
 			},
 			"E": {
-				"item": "twm:advanced_chip"
+				"item": "utilitycraft:advanced_chip"
 			},
 			"F": {
 				"item": "minecraft:redstone_block"
@@ -33,20 +33,20 @@
 			"FDF"
 		],
 		"result": {
-			"item": "twm:magmatic_chamber"
+			"item": "utilitycraft:magmatic_chamber"
 		},
 		"unlock": [
 			{
-				"item": "twm:machine_case"
+				"item": "utilitycraft:machine_case"
 			},
 			{
-				"item": "twm:gold_plate"
+				"item": "utilitycraft:gold_plate"
 			},
 			{
 				"item": "minecraft:redstone_block"
 			},
 			{
-				"item": "twm:advanced_chip"
+				"item": "utilitycraft:advanced_chip"
 			}
 		]
 	}

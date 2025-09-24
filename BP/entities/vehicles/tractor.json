@@ -2,7 +2,7 @@
 	"format_version": "1.16.0",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "twm:tractor",
+			"identifier": "utilitycraft:tractor",
 			"is_spawnable": false,
 			"is_summonable": true,
 			"is_experimental": false
@@ -11,10 +11,10 @@
 			"despawn": {
 				"minecraft:instant_despawn": {}
 			},
-			"twm:hopper": {
+			"utilitycraft:hopper": {
 				"minecraft:item_hopper": {}
 			},
-			"twm:get_items": {
+			"utilitycraft:get_items": {
 				"minecraft:timer": {
 					"time": 0.05,
 					"looping": false,
@@ -37,7 +37,7 @@
 											"test": "has_equipment",
 											"domain": "hand",
 											"operator": "==",
-											"value": "twm:wrench"
+											"value": "utilitycraft:wrench"
 										}
 									]
 								}
@@ -163,20 +163,20 @@
 					{
 						"remove": {
 							"component_groups": [
-								"twm:hopper"
+								"utilitycraft:hopper"
 							]
 						}
 					},
 					{
 						"add": {
 							"component_groups": [
-								"twm:get_items"
+								"utilitycraft:get_items"
 							]
 						}
 					},
 					{
 						"queue_command": {
-							"command": "kill @e[type=twm:tractor, r= 0.1] "
+							"command": "kill @e[type=utilitycraft:tractor, r= 0.1] "
 						}
 					},
 					{
@@ -188,7 +188,7 @@
 			},
 			"items": {
 				"queue_command": {
-					"command": "execute at @e[type=twm:tractor] run tp @e[type=item,r=4] ^ ^ ^1"
+					"command": "execute at @e[type=utilitycraft:tractor] run tp @e[type=item,r=4] ^ ^ ^1"
 				}
 			},
 			"function": {
@@ -210,7 +210,7 @@
 					{
 						"add": {
 							"component_groups": [
-								"twm:hopper"
+								"utilitycraft:hopper"
 							]
 						}
 					}

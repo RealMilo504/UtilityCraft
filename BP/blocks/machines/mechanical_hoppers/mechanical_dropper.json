@@ -2,19 +2,19 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:mechanic_dropper",
+			"identifier": "utilitycraft:mechanic_dropper",
 			"menu_category": {
 				"category": "construction"
 			},
 			"states": {
-				"twm:speed": [
+				"utilitycraft:speed": [
 					0,
 					1,
 					2,
 					3,
 					4
 				],
-				"twm:filter": [
+				"utilitycraft:filter": [
 					0,
 					1
 				]
@@ -31,13 +31,13 @@
 			"minecraft:geometry": "geometry.mechanic_dropper",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_mechanic_dropper",
+					"texture": "utilitycraft_mechanic_dropper",
 					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:custom_components": [
-				"twm:mechanic_hoppers",
-				"twm:machine_upgrades"
+				"utilitycraft:mechanic_hoppers",
+				"utilitycraft:machine_upgrades"
 			],
 			"minecraft:tick": {
 				"interval_range": [

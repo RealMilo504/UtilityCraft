@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:raw_leather"
+			"identifier": "utilitycraft:raw_leather"
 		},
 		"tags": [
 			"crafting_table"
@@ -17,7 +17,7 @@
 			"RR"
 		],
 		"result": {
-			"item": "twm:raw_leather"
+			"item": "utilitycraft:raw_leather"
 		},
 		"unlock": [
 			{

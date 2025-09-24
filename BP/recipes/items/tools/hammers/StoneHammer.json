@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:stone_hammer"
+			"identifier": "utilitycraft:stone_hammer"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"result": [
 			{
-				"item": "twm:stone_hammer"
+				"item": "utilitycraft:stone_hammer"
 			}
 		],
 		"unlock": [

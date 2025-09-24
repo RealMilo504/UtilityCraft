@@ -2,26 +2,26 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:ultimate_furnator"
+			"identifier": "utilitycraft:ultimate_furnator"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
-				"item": "twm:steel_plate"
+				"item": "utilitycraft:steel_plate"
 			},
 			"B": {
-				"item": "twm:expert_furnator"
+				"item": "utilitycraft:expert_furnator"
 			},
 			"C": {
-				"item": "twm:netherite_plate"
+				"item": "utilitycraft:netherite_plate"
 			},
 			"D": {
 				"item": "minecraft:redstone_block"
 			},
 			"E": {
-				"item": "twm:ultimate_chip"
+				"item": "utilitycraft:ultimate_chip"
 			}
 		},
 		"pattern": [
@@ -30,14 +30,14 @@
 			"CDC"
 		],
 		"result": {
-			"item": "twm:ultimate_furnator"
+			"item": "utilitycraft:ultimate_furnator"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:redstone_block"
 			},
 			{
-				"item": "twm:ultimate_chip"
+				"item": "utilitycraft:ultimate_chip"
 			}
 		]
 	}

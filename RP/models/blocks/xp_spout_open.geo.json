@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.twm_xp_spout_open",
+				"identifier": "geometry.utilitycraft_xp_spout_open",
 				"texture_width": 16,
 				"texture_height": 16,
 				"visible_bounds_width": 4,

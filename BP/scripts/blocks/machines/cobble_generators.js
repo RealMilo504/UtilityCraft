@@ -1,7 +1,7 @@
 import { world, ItemStack } from '@minecraft/server'
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:cobble_generators', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:cobble_generators', {
         onTick(e) {
             const { block, dimension } = e
             let { x, y, z } = block.location
@@ -17,8 +17,8 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                 [x, y, z] = [x + facingOffsets[facing][0], y + facingOffsets[facing][1], z + facingOffsets[facing][2]];
             }
 
-            const e0 = block.permutation.getState('twm:e0');
-            const e1 = block.permutation.getState('twm:e1');
+            const e0 = block.permutation.getState('utilitycraft:e0');
+            const e1 = block.permutation.getState('utilitycraft:e1');
             const quantity = (e1 * 10) + e0
 
             const nextBlock = block.dimension.getBlock({ x, y, z })
@@ -43,35 +43,35 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                         targetEnt.runCommandAsync(`scoreboard players add @s capacity ${amount}`);
                     }
                 }
-                block.setPermutation(block.permutation.withState('twm:e0', 0))
-                block.setPermutation(block.permutation.withState('twm:e1', 0))
+                block.setPermutation(block.permutation.withState('utilitycraft:e0', 0))
+                block.setPermutation(block.permutation.withState('utilitycraft:e1', 0))
                 return
             }
 
             const chestInv = nextBlock.getComponent('minecraft:inventory')?.container
             if (chestInv) {
                 chestInv.addItem(new ItemStack('cobblestone', (1 + quantity)))
-                block.setPermutation(block.permutation.withState('twm:e0', 0))
-                block.setPermutation(block.permutation.withState('twm:e1', 0))
+                block.setPermutation(block.permutation.withState('utilitycraft:e0', 0))
+                block.setPermutation(block.permutation.withState('utilitycraft:e1', 0))
                 return
             }
 
             if (quantity < 64) {
                 block.setPermutation(
                     block.permutation
-                        .withState('twm:e0', e0 < 10 ? e0 + 1 : 0)
-                        .withState('twm:e1', e0 < 10 ? e1 : e1 + 1)
+                        .withState('utilitycraft:e0', e0 < 10 ? e0 + 1 : 0)
+                        .withState('utilitycraft:e1', e0 < 10 ? e1 : e1 + 1)
                 );
             }
         },
         onPlayerInteract(e) {
             const { block, player } = e;
-            const e0 = block.permutation.getState('twm:e0');
-            const e1 = block.permutation.getState('twm:e1');
+            const e0 = block.permutation.getState('utilitycraft:e0');
+            const e1 = block.permutation.getState('utilitycraft:e1');
             const quantity = (e1 * 10) + e0;
             if (quantity > 0 && !player.getComponent('equippable')?.getEquipment('Mainhand')) {
                 player.getComponent('minecraft:inventory').container.addItem(new ItemStack('cobblestone', quantity));
-                block.setPermutation(block.permutation.withState('twm:e0', 0).withState('twm:e1', 0));
+                block.setPermutation(block.permutation.withState('utilitycraft:e0', 0).withState('utilitycraft:e1', 0));
             }
         }
     })

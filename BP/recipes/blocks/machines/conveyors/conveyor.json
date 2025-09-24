@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:conveyor_horizontal"
+			"identifier": "utilitycraft:conveyor_horizontal"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
-				"item": "twm:asphalt"
+				"item": "utilitycraft:asphalt"
 			},
 			"R": {
 				"item": "minecraft:redstone"
@@ -19,12 +19,12 @@
 			"RAR"
 		],
 		"result": {
-			"item": "twm:conveyor_horizontal",
+			"item": "utilitycraft:conveyor_horizontal",
 			"count": 4
 		},
 		"unlock": [
 			{
-				"item": "twm:asphalt"
+				"item": "utilitycraft:asphalt"
 			},
 			{
 				"item": "minecraft:redstone"

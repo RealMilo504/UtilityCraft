@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:string_to_web"
+			"identifier": "utilitycraft:string_to_web"
 		},
 		"tags": [
 			"crafting_table"

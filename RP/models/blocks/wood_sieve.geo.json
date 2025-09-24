@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.twm_wood_sieve",
+				"identifier": "geometry.utilitycraft_wood_sieve",
 				"texture_width": 105,
 				"texture_height": 16,
 				"visible_bounds_width": 2,

@@ -2,16 +2,16 @@
 	"format_version": "1.19.50",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:compressed_sand",
+			"identifier": "utilitycraft:compressed_sand",
 			"menu_category": {
 				"category": "construction"
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_block",
+			"minecraft:geometry": "geometry.utilitycraft_block",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_compressed_sand",
+					"texture": "utilitycraft_compressed_sand",
 					"render_method": "alpha_test"
 				}
 			},

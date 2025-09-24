@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:darkoak_tree",
+			"identifier": "utilitycraft:darkoak_tree",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/dark_oak_tree"
 			},
 			"geometry": {
-				"default": "geometry.twm_darkoak_tree"
+				"default": "geometry.utilitycraft_darkoak_tree"
 			},
 			"render_controllers": [
 				"controller.render.darkoak_tree"

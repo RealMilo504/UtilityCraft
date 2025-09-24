@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:bamboo",
+			"identifier": "utilitycraft:bamboo",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/bamboo_stem"
 			},
 			"geometry": {
-				"default": "geometry.twm_bamboo"
+				"default": "geometry.utilitycraft_bamboo"
 			},
 			"render_controllers": [
 				"controller.render.bamboo"

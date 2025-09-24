@@ -11,14 +11,14 @@ const blockFaceOffsets = {
 };
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
-    eventData.blockComponentRegistry.registerCustomComponent('twm:exporter', {
+    eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:exporter', {
         beforeOnPlayerPlace(e) {
             const { block } = e
             let { x, y, z } = block.location
             y += 0.375, x += 0.5, z += 0.5
             system.run(() => {
-                const entity = block.dimension.spawnEntity('twm:pipe', { x, y, z })
-                entity.setDynamicProperty('twm:whitelistOn', true)
+                const entity = block.dimension.spawnEntity('utilitycraft:pipe', { x, y, z })
+                entity.setDynamicProperty('utilitycraft:whitelistOn', true)
             })
         },
         onPlayerDestroy(e) {
@@ -29,7 +29,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
             let { x, y, z } = block.location
             x += 0.5, z += 0.5, y += 0.375
             if (player.isSneaking) return
-            const hasFilter = block.permutation.getState('twm:filter')
+            const hasFilter = block.permutation.getState('utilitycraft:filter')
             if (!hasFilter) return
             const mainHand = player.getComponent('equippable').getEquipment('Mainhand')
             if (mainHand?.typeId.includes('wrench')) return
@@ -41,8 +41,8 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 
             const entity = dimension.getEntitiesAtBlockLocation(block.location)[0]
             if (!entity) return
-            let state = entity.getDynamicProperty('twm:whitelistOn')
-            const hasFilter = block.permutation.getState('twm:filter')
+            let state = entity.getDynamicProperty('utilitycraft:whitelistOn')
+            const hasFilter = block.permutation.getState('utilitycraft:filter')
 
             const face = block.permutation.getState("minecraft:block_face");
             const faceOffset = blockFaceOffsets[face];
@@ -126,11 +126,11 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                         }
                         continue
                     }
-                    const nextFilter = targetBlock.permutation.getState('twm:filter')
+                    const nextFilter = targetBlock.permutation.getState('utilitycraft:filter')
                     if (nextFilter) {
-                        if (targetEnt.hasTag(`${itemToTransfer}`) != targetEnt.getDynamicProperty('twm:whitelistOn')) continue
+                        if (targetEnt.hasTag(`${itemToTransfer}`) != targetEnt.getDynamicProperty('utilitycraft:whitelistOn')) continue
                     }
-                    if (targetEnt.typeId == 'twm:assembler' && nextInv.emptySlotsCount < 2) continue
+                    if (targetEnt.typeId == 'utilitycraft:assembler' && nextInv.emptySlotsCount < 2) continue
                     nextInv.addItem(new ItemStack(itemToTransfer, firstAmount))
                     firstEnt.runCommandAsync(`scoreboard players add @s capacity ${-firstAmount}`);
                     return
@@ -217,11 +217,11 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                         }
                         continue
                     }
-                    const nextFilter = targetBlock.permutation.getState('twm:filter')
+                    const nextFilter = targetBlock.permutation.getState('utilitycraft:filter')
                     if (nextFilter) {
-                        if (targetEnt.hasTag(`${itemToTransfer.typeId}`) != targetEnt.getDynamicProperty('twm:whitelistOn')) continue
+                        if (targetEnt.hasTag(`${itemToTransfer.typeId}`) != targetEnt.getDynamicProperty('utilitycraft:whitelistOn')) continue
                     }
-                    if (targetEnt.typeId == 'twm:assembler' && nextInv.emptySlotsCount < 2) continue
+                    if (targetEnt.typeId == 'utilitycraft:assembler' && nextInv.emptySlotsCount < 2) continue
                     const transfered = firstInv.transferItem(i, nextInv)
                     if (!transfered) return
                     continue
@@ -242,7 +242,7 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
 function openMenu({ x, y, z }, block, player) {
     let menu = new ActionFormData()
     const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0]
-    let state = entity.getDynamicProperty('twm:whitelistOn')
+    let state = entity.getDynamicProperty('utilitycraft:whitelistOn')
 
     menu.title('Filter')
 
@@ -269,7 +269,7 @@ function openMenu({ x, y, z }, block, player) {
             if (selection == undefined) return;
 
             if (selection == 0) {
-                entity.setDynamicProperty('twm:whitelistOn', !state)
+                entity.setDynamicProperty('utilitycraft:whitelistOn', !state)
                 openMenu({ x, y, z }, block, player)
                 return
             }

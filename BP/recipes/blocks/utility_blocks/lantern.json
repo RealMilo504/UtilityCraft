@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:lantern"
+			"identifier": "utilitycraft:lantern"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"key": {
 			"T": {
-				"item": "twm:big_torch"
+				"item": "utilitycraft:big_torch"
 			},
 			"G": {
 				"item": "glowstone"
@@ -27,11 +27,11 @@
 			"MIM"
 		],
 		"result": {
-			"item": "twm:lantern"
+			"item": "utilitycraft:lantern"
 		},
 		"unlock": [
 			{
-				"item": "twm:big_torch"
+				"item": "utilitycraft:big_torch"
 			},
 			{
 				"item": "minecraft:glowstone"

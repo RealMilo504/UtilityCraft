@@ -2,7 +2,7 @@
 	"format_version": "1.8.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "twm:tractor",
+			"identifier": "utilitycraft:tractor",
 			"materials": {
 				"default": "entity_alphatest"
 			},
@@ -10,7 +10,7 @@
 				"default": "textures/entity/tractor"
 			},
 			"geometry": {
-				"default": "geometry.twm_tractor"
+				"default": "geometry.utilitycraft_tractor"
 			},
 			"render_controllers": [
 				"controller.render.tractor"

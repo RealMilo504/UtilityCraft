@@ -2,10 +2,10 @@
     "format_version": "1.20.80",
     "minecraft:recipe_shaped": {
         "description": {
-            "identifier": "twm:ultimate_chip"
+            "identifier": "utilitycraft:ultimate_chip"
         },
         "tags": [
-            "twm_workbench"
+            "utilitycraft_workbench"
         ],
         "pattern": [
             "RNR",
@@ -17,14 +17,14 @@
                 "item": "netherite_ingot"
             },
             "C": {
-                "item": "twm:expert_chip"
+                "item": "utilitycraft:expert_chip"
             },
             "R": {
                 "item": "minecraft:redstone"
             }
         },
         "result": {
-            "item": "twm:ultimate_chip"
+            "item": "utilitycraft:ultimate_chip"
         },
         "unlock": [
             {

@@ -2,26 +2,26 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:advanced_magmator"
+			"identifier": "utilitycraft:advanced_magmator"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"G": {
-				"item": "twm:energized_iron_plate"
+				"item": "utilitycraft:energized_iron_plate"
 			},
 			"B": {
-				"item": "twm:basic_magmator"
+				"item": "utilitycraft:basic_magmator"
 			},
 			"S": {
-				"item": "twm:steel_plate"
+				"item": "utilitycraft:steel_plate"
 			},
 			"D": {
-				"item": "twm:advanced_fluid_tank"
+				"item": "utilitycraft:advanced_fluid_tank"
 			},
 			"E": {
-				"item": "twm:advanced_chip"
+				"item": "utilitycraft:advanced_chip"
 			}
 		},
 		"pattern": [
@@ -30,11 +30,11 @@
 			"SES"
 		],
 		"result": {
-			"item": "twm:advanced_magmator"
+			"item": "utilitycraft:advanced_magmator"
 		},
 		"unlock": [
 			{
-				"item": "twm:advanced_chip"
+				"item": "utilitycraft:advanced_chip"
 			}
 		]
 	}

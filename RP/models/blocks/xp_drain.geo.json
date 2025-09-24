@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.twm_xp_drain",
+				"identifier": "geometry.utilitycraft_xp_drain",
 				"texture_width": 32,
 				"texture_height": 16,
 				"visible_bounds_width": 2,

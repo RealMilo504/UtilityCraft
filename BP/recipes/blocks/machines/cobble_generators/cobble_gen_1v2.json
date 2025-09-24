@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:cobble_gen_1v2"
+			"identifier": "utilitycraft:cobble_gen_1v2"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "glass"
 			},
 			"L": {
-				"item": "twm:lava_ball"
+				"item": "utilitycraft:lava_ball"
 			},
 			"M": {
 				"item": "iron_ingot"
@@ -21,7 +21,7 @@
 				"item": "obsidian"
 			},
 			"W": {
-				"item": "twm:water_ball"
+				"item": "utilitycraft:water_ball"
 			}
 		},
 		"pattern": [
@@ -30,7 +30,7 @@
 			"MOM"
 		],
 		"result": {
-			"item": "twm:cobble_gen_1"
+			"item": "utilitycraft:cobble_gen_1"
 		},
 		"unlock": [
 			{

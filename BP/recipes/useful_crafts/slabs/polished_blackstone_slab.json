@@ -2,7 +2,7 @@
 	"format_version": "1.12",
 	"minecraft:recipe_shapeless": {
 		"description": {
-			"identifier": "twm:polished_blackstone_slab"
+			"identifier": "utilitycraft:polished_blackstone_slab"
 		},
 		"tags": [
 			"crafting_table"

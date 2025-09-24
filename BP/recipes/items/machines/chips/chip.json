@@ -2,10 +2,10 @@
     "format_version": "1.20.80",
     "minecraft:recipe_shaped": {
         "description": {
-            "identifier": "twm:chip"
+            "identifier": "utilitycraft:chip"
         },
         "tags": [
-            "twm_workbench"
+            "utilitycraft_workbench"
         ],
         "pattern": [
             " S ",
@@ -14,18 +14,18 @@
         ],
         "key": {
             "S": {
-                "item": "twm:steel_ingot"
+                "item": "utilitycraft:steel_ingot"
             },
             "R": {
                 "item": "minecraft:redstone"
             }
         },
         "result": {
-            "item": "twm:chip"
+            "item": "utilitycraft:chip"
         },
         "unlock": [
             {
-                "item": "twm:steel_ingot"
+                "item": "utilitycraft:steel_ingot"
             },
             {
                 "item": "minecraft:redstone"

@@ -2,26 +2,26 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:ultimate_thermo_generator"
+			"identifier": "utilitycraft:ultimate_thermo_generator"
 		},
 		"tags": [
-			"twm_workbench"
+			"utilitycraft_workbench"
 		],
 		"key": {
 			"A": {
 				"item": "minecraft:copper_block"
 			},
 			"B": {
-				"item": "twm:expert_thermo_generator"
+				"item": "utilitycraft:expert_thermo_generator"
 			},
 			"C": {
-				"item": "twm:netherite_plate"
+				"item": "utilitycraft:netherite_plate"
 			},
 			"D": {
-				"item": "twm:ultimate_fluid_tank"
+				"item": "utilitycraft:ultimate_fluid_tank"
 			},
 			"E": {
-				"item": "twm:ultimate_chip"
+				"item": "utilitycraft:ultimate_chip"
 			}
 		},
 		"pattern": [
@@ -30,11 +30,11 @@
 			"CAC"
 		],
 		"result": {
-			"item": "twm:ultimate_thermo_generator"
+			"item": "utilitycraft:ultimate_thermo_generator"
 		},
 		"unlock": [
 			{
-				"item": "twm:ultimate_chip"
+				"item": "utilitycraft:ultimate_chip"
 			}
 		]
 	}

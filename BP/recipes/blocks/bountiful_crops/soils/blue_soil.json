@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "twm:blue_soil"
+			"identifier": "utilitycraft:blue_soil"
 		},
 		"tags": [
 			"crafting_table"
@@ -12,7 +12,7 @@
 				"item": "warped_wart_block"
 			},
 			"D": {
-				"item": "twm:red_soil"
+				"item": "utilitycraft:red_soil"
 			},
 			"R": {
 				"item": "diamond_block"
@@ -27,7 +27,7 @@
 			"DND"
 		],
 		"result": {
-			"item": "twm:blue_soil",
+			"item": "utilitycraft:blue_soil",
 			"count": 4
 		},
 		"unlock": [
@@ -35,7 +35,7 @@
 				"item": "minecraft:warped_wart_block"
 			},
 			{
-				"item": "twm:red_soil"
+				"item": "utilitycraft:red_soil"
 			},
 			{
 				"item": "minecraft:diamond_block"

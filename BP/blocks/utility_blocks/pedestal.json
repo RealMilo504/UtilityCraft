@@ -2,9 +2,9 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:pedestal",
+			"identifier": "utilitycraft:pedestal",
 			"states": {
-				"twm:hasItem": [
+				"utilitycraft:hasItem": [
 					0,
 					1
 				]
@@ -14,16 +14,16 @@
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_pedestal",
+			"minecraft:geometry": "geometry.utilitycraft_pedestal",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_pedestal",
+					"texture": "utilitycraft_pedestal",
 					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:custom_components": [
-				"twm:onInteract",
-				"twm:pedestal"
+				"utilitycraft:onInteract",
+				"utilitycraft:pedestal"
 			],
 			"minecraft:tick": {
 				"looping": true,

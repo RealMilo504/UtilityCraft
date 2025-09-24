@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:yellow_soil",
+			"identifier": "utilitycraft:yellow_soil",
 			"menu_category": {
 				"category": "construction"
 			}

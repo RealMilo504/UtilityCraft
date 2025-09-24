@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shapeless": {
 		"description": {
-			"identifier": "twm:charcoal_from_smelt"
+			"identifier": "utilitycraft:charcoal_from_smelt"
 		},
 		"tags": [
 			"crafting_table"
 		],
 		"ingredients": [
 			{
-				"item": "twm:smeltflare"
+				"item": "utilitycraft:smeltflare"
 			},
 			{
 				"item": "log"
@@ -20,7 +20,7 @@
 		}	,
 		"unlock": [
 			{
-				"item": "twm:smeltflare"
+				"item": "utilitycraft:smeltflare"
 			}
 		]
 	}

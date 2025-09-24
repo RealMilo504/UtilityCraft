@@ -2,16 +2,16 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "twm:lantern",
+			"identifier": "utilitycraft:lantern",
 			"menu_category": {
 				"category": "construction"
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.twm_lantern",
+			"minecraft:geometry": "geometry.utilitycraft_lantern",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "twm_lantern",
+					"texture": "utilitycraft_lantern",
 					"render_method": "alpha_test"
 				}
 			},
@@ -41,7 +41,7 @@
 			},
 			"minecraft:light_emission": 15,
 			"minecraft:custom_components": [
-				"twm:lantern"
+				"utilitycraft:lantern"
 			],
 			"minecraft:destructible_by_explosion": false
 		}
