@@ -1,5 +1,5 @@
 	{
-	"format_version": "1.19.50",
+	"format_version": "1.21.100",
 	"minecraft:block": {
 		"description": {
 			"identifier": "twm:compressed_blackstone_4",
@@ -16,7 +16,7 @@
 				}
 			},
 			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1.4
+				"seconds_to_destroy": 3.8
 			}
 		}
 	}
