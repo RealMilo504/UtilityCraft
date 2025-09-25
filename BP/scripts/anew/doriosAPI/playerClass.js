@@ -3,7 +3,6 @@ import { ItemStack, Player } from '@minecraft/server'
 
 /**
  * Extend Player prototype with custom methods.
- * New methods are grouped in DoriosAPI.player namespace,
  * then attached to Player.prototype for direct usage.
  */
 const playerExtensions = {

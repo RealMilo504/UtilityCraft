@@ -190,9 +190,7 @@
 			"minecraft:collision_box": false,
 			"minecraft:loot": "loot_tables/bountiful_crops/lapisLoot/lapis_seed.json",
 			"minecraft:light_dampening": 0,
-			"minecraft:custom_components": [
-				"utilitycraft:grow"
-			],
+				"utilitycraft:crop":{},
 			"minecraft:tick": {
 				"interval_range": [
 					2400,
