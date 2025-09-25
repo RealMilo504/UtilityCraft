@@ -38,9 +38,7 @@
 			}
 		},
 		"components": {
-			"minecraft:custom_components": [
-				"utilitycraft:newBonsais"
-			],
+			"utilitycraft:bonsai": {},
 			"minecraft:geometry": "geometry.utilitycraft_bonsai",
 			"minecraft:material_instances": {
 				"*": {
@@ -92,7 +90,7 @@
 							"texture": "utilitycraft_bonsai_grass",
 							"render_method": "opaque"
 						},
-            "tag:minecraft_is_pickaxe_item_destructible": {}
+						"tag:minecraft_is_pickaxe_item_destructible": {}
 					},
 					"minecraft:tick": {
 						"interval_range": [

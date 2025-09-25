@@ -1,6 +1,12 @@
-import { system, world, BlockCustomComponent, ItemCustomComponent } from '@minecraft/server';
-const NAMESPACE = 'utilitycraft'
+import { system, world } from '@minecraft/server';
 
+/**
+ * @typedef {import("@minecraft/server").BlockCustomComponent} BlockCustomComponent
+ * @typedef {import("@minecraft/server").ItemCustomComponent} ItemCustomComponent
+ */
+
+
+const NAMESPACE = 'utilitycraft'
 globalThis.DoriosAPI = {
     register: {
         /**
@@ -14,15 +20,13 @@ globalThis.DoriosAPI = {
          * @param {BlockCustomComponent} handlers Lifecycle callbacks for the block.
          */
         blockComponent(id, handlers) {
-            world.afterEvents.worldLoad.subscribe(() => {
-                system.beforeEvents.startup.subscribe(e => {
-                    const { blockComponentRegistry } = e;
+            system.beforeEvents.startup.subscribe(e => {
+                const { blockComponentRegistry } = e;
 
-                    blockComponentRegistry.registerCustomComponent(
-                        NAMESPACE + ':' + id,
-                        handlers
-                    );
-                });
+                blockComponentRegistry.registerCustomComponent(
+                    NAMESPACE + ':' + id,
+                    handlers
+                );
             });
         },
 
@@ -37,20 +41,46 @@ globalThis.DoriosAPI = {
          * @param {ItemCustomComponent} handlers Lifecycle callbacks for the item.
          */
         itemComponent(id, handlers) {
-            world.afterEvents.worldLoad.subscribe(() => {
-                system.beforeEvents.startup.subscribe(e => {
-                    const { itemComponentRegistry } = e;
+            system.beforeEvents.startup.subscribe(e => {
+                const { itemComponentRegistry } = e;
 
-                    itemComponentRegistry.registerCustomComponent(
-                        NAMESPACE + ':' + id,
-                        handlers
-                    );
-                });
+                itemComponentRegistry.registerCustomComponent(
+                    NAMESPACE + ':' + id,
+                    handlers
+                );
             });
         }
     },
     utils: {
-
+        /**
+         * Returns a random number between [min, max).
+         * 
+         * @param {number} min - Minimum value (inclusive).
+         * @param {number} max - Maximum value (exclusive).
+         * @param {string} [mode="floor"] - How to handle decimals:
+         *   - "floor": round down (default)
+         *   - "ceil": round up
+         *   - "round": round to nearest
+         *   - "float": return raw decimal
+         * @returns {number} Random value
+         */
+        randomInterval(min, max, mode = "floor") {
+            const value = Math.random() * (max - min) + min
+            switch (mode) {
+                case "ceil": return Math.ceil(value)
+                case "round": return Math.round(value)
+                case "float": return value
+                default: return Math.floor(value)
+            }
+        }
     }
 }
 
+
+world.afterEvents.worldLoad.subscribe(e => {
+    if (globalThis.DoriosAPI) {
+        world.sendMessage('Yes')
+    } else {
+        world.sendMessage('no')
+    }
+})
