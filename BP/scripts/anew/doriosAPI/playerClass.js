@@ -24,6 +24,24 @@ const playerExtensions = {
         } else {
             container.addItem(new ItemStack(itemId, 1))
         }
+    },
+
+    /**
+     * Checks if the player is currently in Creative mode.
+     * 
+     * @returns {boolean} true if the player is in Creative, false otherwise.
+     */
+    isInCreative() {
+        return this.getGameMode().toLowerCase() === "creative";
+    },
+
+    /**
+     * Checks if the player is currently in Survival mode.
+     * 
+     * @returns {boolean} true if the player is in Survival, false otherwise.
+     */
+    isInSurvival() {
+        return this.getGameMode().toLowerCase() === "survival";
     }
 }
 

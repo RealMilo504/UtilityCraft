@@ -292,6 +292,7 @@
 			}
 		],
 		"components": {
+			"utilitycraft:sieve": {},
 			"minecraft:geometry": {
 				"identifier": "geometry.utilitycraft_wood_sieve",
 				"bone_visibility": {
@@ -345,10 +346,7 @@
 					0,
 					-7
 				]
-			},
-			"minecraft:custom_components": [
-				"utilitycraft:mesh"
-			]
+			}
 		}
 	}
 }
