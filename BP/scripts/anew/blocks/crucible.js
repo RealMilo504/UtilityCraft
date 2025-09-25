@@ -39,24 +39,6 @@ const heatSources = {
     'minecraft:torch': 1
 }
 
-const utils = {
-    /**
-     * Gives an item to a player if they have inventory space,
-     * otherwise spawns it above the block.
-     */
-    giveItem(player, block, itemId) {
-        const { x, y, z } = block.location
-        const pos = { x: x + 0.5, y: y + 1, z: z + 0.5 }
-
-        const container = player.getComponent('inventory').container
-        if (container.emptySlotsCount === 0) {
-            block.dimension.spawnItem(new ItemStack(itemId, 1), pos)
-        } else {
-            container.addItem(new ItemStack(itemId, 1))
-        }
-    }
-}
-
 DoriosAPI.register.blockComponent('crucible', {
     /**
      * Handles player interaction with the crucible.
@@ -81,18 +63,18 @@ DoriosAPI.register.blockComponent('crucible', {
             if (mainhand?.typeId === 'minecraft:bucket' && lava === 4) {
                 // Collect lava
                 player.runCommand(`clear @s ${mainhand.typeId} 0 1`)
-                utils.giveItem(player, block, 'minecraft:lava_bucket')
+                player.giveItem('minecraft:lava_bucket')
                 lava = 0
             } else if (mainhand?.typeId === 'minecraft:water_bucket' && lava === 4) {
                 // Water + lava → obsidian
                 player.runCommand(`clear @s ${mainhand.typeId} 0 1`)
-                utils.giveItem(player, block, 'minecraft:bucket')
+                player.giveItem('minecraft:bucket')
                 block.dimension.spawnItem(new ItemStack('minecraft:obsidian', 1), pos)
                 lava = 0
             } else if (mainhand?.typeId === 'minecraft:lava_bucket' && lava === 0 && cobble === 0) {
                 // Insert lava
                 player.runCommand(`clear @s ${mainhand.typeId} 0 1`)
-                utils.giveItem(player, block, 'minecraft:bucket')
+                player.giveItem('minecraft:bucket')
                 lava = 4
             }
         }
