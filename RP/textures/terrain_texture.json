@@ -1001,31 +1001,31 @@
 			"textures": "textures/blocks/magmatic_chamber"
 		},
 		"utilitycraft_crucible": {
-			"textures": "textures/blocks/crucible/twm_crucible"
+			"textures": "textures/blocks/crucible/utilitycraft_crucible"
 		},
 		"utilitycraft_crucible_lava_1": {
-			"textures": "textures/blocks/crucible/twm_crucible_lava_1"
+			"textures": "textures/blocks/crucible/utilitycraft_crucible_lava_1"
 		},
 		"utilitycraft_crucible_lava_2": {
-			"textures": "textures/blocks/crucible/twm_crucible_lava_2"
+			"textures": "textures/blocks/crucible/utilitycraft_crucible_lava_2"
 		},
 		"utilitycraft_crucible_lava_3": {
-			"textures": "textures/blocks/crucible/twm_crucible_lava_3"
+			"textures": "textures/blocks/crucible/utilitycraft_crucible_lava_3"
 		},
 		"utilitycraft_crucible_lava_4": {
-			"textures": "textures/blocks/crucible/twm_crucible_lava_4"
+			"textures": "textures/blocks/crucible/utilitycraft_crucible_lava_4"
 		},
 		"utilitycraft_crucible_cobble_1": {
-			"textures": "textures/blocks/crucible/twm_crucible_cobble_1"
+			"textures": "textures/blocks/crucible/utilitycraft_crucible_cobble_1"
 		},
 		"utilitycraft_crucible_cobble_2": {
-			"textures": "textures/blocks/crucible/twm_crucible_cobble_2"
+			"textures": "textures/blocks/crucible/utilitycraft_crucible_cobble_2"
 		},
 		"utilitycraft_crucible_cobble_3": {
-			"textures": "textures/blocks/crucible/twm_crucible_cobble_3"
+			"textures": "textures/blocks/crucible/utilitycraft_crucible_cobble_3"
 		},
 		"utilitycraft_crucible_cobble_4": {
-			"textures": "textures/blocks/crucible/twm_crucible_cobble_4"
+			"textures": "textures/blocks/crucible/utilitycraft_crucible_cobble_4"
 		},
 		"utilitycraft_mechanic_dropper": {
 			"textures": "textures/blocks/Mechanical_dropper"
@@ -1542,6 +1542,6 @@
 		},
 		"utilitycraft_blaze_block": {
 			"textures": "textures/blocks/blaze_block"
-		}		
+		}
 	}
 }

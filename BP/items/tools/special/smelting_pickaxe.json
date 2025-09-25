@@ -13,9 +13,6 @@
 			"minecraft:durability": {
 				"max_durability": 3031
 			},
-			"minecraft:display_name": {
-				"value": "Smelting Pickaxe\n§7Ores will drop ingots"
-			},
 			"minecraft:damage": 7,
 			"minecraft:icon": "utilitycraft_smelting_pickaxe",
 			"minecraft:enchantable": {

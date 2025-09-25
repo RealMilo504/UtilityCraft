@@ -13,9 +13,6 @@
 			"minecraft:durability": {
 				"max_durability": 4062
 			},
-			"minecraft:display_name": {
-				"value": "Heavy Drill\n§7Mines a 5x5 area in front of you"
-			},
 			"minecraft:damage": 5,
 			"minecraft:icon": "utilitycraft_advanced_drill",
 			"minecraft:enchantable": {

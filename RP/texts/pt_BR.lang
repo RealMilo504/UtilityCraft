@@ -4,35 +4,35 @@
 - Bloques = ## Blocos
 
 - Tables = ## Bancadas
-tile.utilitycraft:workbench.name=Bancada de Engenharia
-tile.utilitycraft:utility_table.name=Bancada de Ferramentas Avançada
+tile.utilitycraft:workbench.name=Bancada de Engenharia\n§7- Use para criar tudo sobre máquinas
+tile.utilitycraft:utility_table.name=Bancada de Ferramentas Avançada\n§7- Use para criar ferramentas superiores
 
 - Fluid Stuff = ## Gerenciadores de Fluidos
 
-tile.utilitycraft:basic_fluid_tank.name=Tanque de Fluido §eBásico
-tile.utilitycraft:advanced_fluid_tank.name=Tanque de Fluido §cAvançado
-tile.utilitycraft:expert_fluid_tank.name=Tanque de Fluido §3Expert
-tile.utilitycraft:ultimate_fluid_tank.name=Tanque de Fluido §8Supremo
-tite.utilitycraft:fluid_pipe=Cano \n§7- Transporta líquidos
-tile.utilitycraft:fluid_extractor.name=Extrator de Fluidos \n§7- Aceita melhorias:\n §aVelocidade§r
-tile.utilitycraft:fluid_pump.name=Bomba\n§7- Aceita melhorias:\n §aVelocidade§r
+tile.utilitycraft:basic_fluid_tank.name=Tanque de Fluidos §eBásico
+tile.utilitycraft:advanced_fluid_tank.name=Tanque de Fluidos §cAvançado
+tile.utilitycraft:expert_fluid_tank.name=Tanque de Fluidos §3Expert
+tile.utilitycraft:ultimate_fluid_tank.name=Tanque de Fluidos §8Supremo
+tile.utilitycraft:fluid_pipe.name=Cano \n§7- Transporta líquidos
+tile.utilitycraft:fluid_extractor.name=Extrator de Fluidos \n§7- Aceita melhorias:\n §aVelocidade§7
+tile.utilitycraft:fluid_pump.name=Bomba\n§7- Aceita melhorias:\n §aVelocidade§7
 
 - Machines = ## Máquinas
-tile.utilitycraft:autosieve.name=Peneirador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
-tile.utilitycraft:assembler.name=Montador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
-tile.utilitycraft:block_breaker.name=Quebrador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
-tile.utilitycraft:block_placer.name=Colocador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+tile.utilitycraft:autosieve.name=Peneirador\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
+tile.utilitycraft:assembler.name=Montador\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
+tile.utilitycraft:block_breaker.name=Quebrador\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
+tile.utilitycraft:block_placer.name=Colocador\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
 tile.utilitycraft:crucible=Crisol
-tile.utilitycraft:crusher.name=Triturador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
-tile.utilitycraft:digitizer.name=Digitalizadora\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
-tile.utilitycraft:electro_press.name=Prensa Elétrica\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+tile.utilitycraft:crusher.name=Triturador\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
+tile.utilitycraft:digitizer.name=Digitalizadora\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
+tile.utilitycraft:electro_press.name=Prensa Elétrica\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
 tile.utilitycraft:ender_hopper.name=Funil do Fim \n§7- Aceita melhorias:\n §9Alcance§r
-tile.utilitycraft:incinerator.name=Incinerador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
-tile.utilitycraft:infuser.name=Infusor\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+tile.utilitycraft:incinerator.name=Incinerador\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
+tile.utilitycraft:infuser.name=Infusor\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
 tile.utilitycraft:induction_anvil.name=Bigorna de Indução
-tile.utilitycraft:magmatic_chamber.name=Câmara Magmática\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+tile.utilitycraft:magmatic_chamber.name=Câmara Magmática\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
 tile.utilitycraft:mortar=Pilão
-tile.utilitycraft:seed_synthesizer.name=Sintetizador de Sementes\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+tile.utilitycraft:seed_synthesizer.name=Sintetizador de Sementes\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
 tile.utilitycraft:xp_condenser.name=Condensador de XP
 ## COBBLE GEN
 tile.utilitycraft:cobble_gen_1.name=Gerador de Pedregulho (Tier 1)\n§7- Gera 0.5 por segundo
@@ -45,15 +45,15 @@ tile.utilitycraft:conveyor_horizontal.name=Esteira horizontal
 tile.utilitycraft:conveyor_inclined.name=Esteira Inclinada §7(Pra cima)
 tile.utilitycraft:conveyor_declined.name=Esteira inclinada §7(Pra baixo)
 tile.utilitycraft:energy_cable.name=Cabo de Energia
-tile.utilitycraft:item_exporter.name=Exportador de Itens \n§7- Aceita melhorias:\n §aVelocidade§r, §fFiltro§r
-tile.utilitycraft:item_conduit.name=Tubo de Itens
-tile.utilitycraft:mechanic_dropper.name=Liberador Mecânico \n§7- Aceita melhorias:\n §aVelocidade§r, §fFiltro§r
-tile.utilitycraft:mechanic_hopper.name=Funil Mecânico \n§7- Aceita melhorias:\n §aVelocidade§r, §fFiltro§r
-tile.utilitycraft:mechanic_upper.name=Funil Mecânico Invertido \n§7- Aceita melhorias:\n §aVelocidade§r, §fFiltro§r
-entity.utilitycraft:mechanic_upper=Funil Mecânico Invertido \n§7- Aceita melhorias:\n §aVelocidade§r, §fFiltro§r
+tile.utilitycraft:item_exporter.name=Exportador de Itens \n§7- Aceita melhorias:\n §aVelocidade§7, §fFiltro§7
+tile.utilitycraft:item_conduit.name=Tubo\n§7- Transporta itens
+tile.utilitycraft:mechanic_dropper.name=Liberador Mecânico \n§7- Aceita melhorias:\n §aVelocidade§7, §fFiltro§7
+tile.utilitycraft:mechanic_hopper.name=Funil Mecânico \n§7- Aceita melhorias:\n §aVelocidade§7, §fFiltro§7
+tile.utilitycraft:mechanic_upper.name=Funil Mecânico Invertido \n§7- Aceita melhorias:\n §aVelocidade§7, §fFiltro§7
+entity.utilitycraft:mechanic_upper=Funil Mecânico Invertido \n§7- Aceita melhorias:\n §aVelocidade§7, §fFiltro§7
 ## MISC
 tile.utilitycraft:fan.name=Ventilador
-tile.utilitycraft:harvester.name=Colheitadera \n§7- Aceita melhorias:\n §aVelocidade§r, §fEficiência§r, §9Alcance§r
+tile.utilitycraft:harvester.name=Colheitadera \n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiência§7, §9Alcance§7
 tile.utilitycraft:machine_case.name=Chassi de Máquinas
 tile.utilitycraft:mob_grinder.name=Abatedor de Mobs
 tile.utilitycraft:mob_trap.name=Armadilha de Mobs
@@ -61,7 +61,7 @@ tile.utilitycraft:sieve.name=Peneira\n§7- Multi-uso máximo: 5x5
 tile.utilitycraft:xp_magnet.name=Imã de XP
 
 - Bountiful Bonsais = ## Bonsais Abundantes
-tile.utilitycraft:bonsai.name=Bonsai \n§7- 
+tile.utilitycraft:bonsai.name=Bonsai
 
 - Bountiful Crops = ## Colheitas Abundantes
 ## >>>>>>>> Open Group -------- ##
@@ -115,7 +115,7 @@ tile.utilitycraft:yellow_soil.name=§eTerra Arada Amarela
 
 - Mechanical Spawners = ## Invocadores Mecânicos
 -- = ## Base
-tile.utilitycraft:mechanical_spawner.name=Invocador Mecânico
+tile.utilitycraft:mechanical_spawner.name=Invocador Mecânico\n§7- Aceita melhorias:\n §aVelocidade§7, §3Quantidade§7
 tile.utilitycraft:spawner_core.name=Núcleo de Invocador
 -- = ## Spawner Item
 item.spawn_egg.entity.utilitycraft:mechanical_spawner_blaze.name=Invocador Mecânico de Chama
@@ -177,10 +177,10 @@ tile.utilitycraft:compressed_copper_block.name=Bloco de Cobre Comprimido
 tile.utilitycraft:compressed_copper_block_2.name=Bloco de Cobre Duplamente Comprimido
 tile.utilitycraft:compressed_copper_block_3.name=Bloco de Cobre Triplamente Comprimido
 tile.utilitycraft:compressed_copper_block_4.name=Bloco de Cobre Quadruplicadamente Comprimido
-tile.utilitycraft:compressed_crushed_cobbled_deepslate.name=Ardósia Profunda Irregular Triturada Comprimida
-tile.utilitycraft:compressed_crushed_cobbled_deepslate_2.name=Ardósia Profunda Irregular Triturada Duplamente Comprimida
-tile.utilitycraft:compressed_crushed_cobbled_deepslate_3.name=Ardósia Profunda Irregular Triturada Triplamente Comprimida
-tile.utilitycraft:compressed_crushed_cobbled_deepslate_4.name=Ardósia Profunda Irregular Triturada Quadruplicadamente Comprimida
+tile.utilitycraft:compressed_crushed_cobbled_deepslate.name=Bloco de Ardosiabissal Triturada Triturada Comprimida
+tile.utilitycraft:compressed_crushed_cobbled_deepslate_2.name=Bloco de Ardosiabissal Triturada Triturada Duplamente Comprimida
+tile.utilitycraft:compressed_crushed_cobbled_deepslate_3.name=Bloco de Ardosiabissal Triturada Triturada Triplamente Comprimida
+tile.utilitycraft:compressed_crushed_cobbled_deepslate_4.name=Bloco de Ardosiabissal Triturada Quadruplicadamente Comprimida
 tile.utilitycraft:compressed_crushed_endstone.name=Pedra do Fim Triturada Comprimida
 tile.utilitycraft:compressed_crushed_endstone_2.name=Pedra do Fim Triturada Duplamente Comprimida
 tile.utilitycraft:compressed_crushed_endstone_3.name=Pedra do Fim Triturada Triplamente Comprimida
@@ -213,6 +213,10 @@ tile.utilitycraft:compressed_endstone.name=Pedra do Fim Comprimida
 tile.utilitycraft:compressed_endstone_2.name=Pedra do Fim Duplamente Comprimida
 tile.utilitycraft:compressed_endstone_3.name=Pedra do Fim Triplamente Comprimida
 tile.utilitycraft:compressed_endstone_4.name=Pedra do Fim Quadruplicadamente Comprimida
+tile.utilitycraft:compressed_energized_iron_block.name=Bloco de Ferro Energizado Comprimido
+tile.utilitycraft:compressed_energized_iron_block_2.name=Bloco de Ferro Duplamente Energizado Comprimido
+tile.utilitycraft:compressed_energized_iron_block_3.name=Bloco de Ferro Triplamente Energizado Comprimido
+tile.utilitycraft:compressed_energized_iron_block_4.name=Bloco de Ferro Quadruplicadamente Energizado Comprimido
 tile.utilitycraft:compressed_exposed_copper_block.name=Bloco de Cobre Exposto Comprimido
 tile.utilitycraft:compressed_exposed_copper_block_2.name=Bloco de Cobre Exposto Duplamente Comprimido
 tile.utilitycraft:compressed_exposed_copper_block_3.name=Bloco de Cobre Exposto Triplamente Comprimido
@@ -241,10 +245,10 @@ tile.utilitycraft:compressed_lapislazuli_block.name=Bloco de Lápis-Lazúli Comp
 tile.utilitycraft:compressed_lapislazuli_block_2.name=Bloco de Lápis-Lazúli Duplamente Comprimido
 tile.utilitycraft:compressed_lapislazuli_block_3.name=Bloco de Lápis-Lazúli Triplamente Comprimido
 tile.utilitycraft:compressed_lapislazuli_block_4.name=Bloco de Lápis-Lazúli Quadruplicadamente Comprimido
-tile.utilitycraft:compressed_nertherite_block.name=Bloco de Netherita Comprimido
-tile.utilitycraft:compressed_nertherite_block_2.name=Bloco de Netherita Duplamente Comprimido
-tile.utilitycraft:compressed_nertherite_block_3.name=Bloco de Netherita Triplamente Comprimido
-tile.utilitycraft:compressed_nertherite_block_4.name=Bloco de Netherita Quadruplicadamente Comprimido
+tile.utilitycraft:compressed_netherite_block.name=Bloco de Netherita Comprimido
+tile.utilitycraft:compressed_netherite_block_2.name=Bloco de Netherita Duplamente Comprimido
+tile.utilitycraft:compressed_netherite_block_3.name=Bloco de Netherita Triplamente Comprimido
+tile.utilitycraft:compressed_netherite_block_4.name=Bloco de Netherita Quadruplicadamente Comprimido
 tile.utilitycraft:compressed_netherrack.name=Netherack Comprimida
 tile.utilitycraft:compressed_netherrack_2.name=Netherrack Duplamente Comprimida
 tile.utilitycraft:compressed_netherrack_3.name=Netherrack Triplamente Comprimida
@@ -257,10 +261,10 @@ tile.utilitycraft:compressed_oxidized_copper_block.name=Bloco de Cobre Oxidado C
 tile.utilitycraft:compressed_oxidized_copper_block_2.name=Bloco de Cobre Oxidado Duplamente Comprimido
 tile.utilitycraft:compressed_oxidized_copper_block_3.name=Bloco de Cobre Oxidado Triplamente Comprimido
 tile.utilitycraft:compressed_oxidized_copper_block_4.name=Bloco de Cobre Oxidado Quadruplicadamente Comprimido
-tile.utilitycraft:compressed_quarts_block.name=Bloco de Quartzo Comprimido
-tile.utilitycraft:compressed_quarts_block_2.name=Bloco de Quartzo Duplamente Comprimido
-tile.utilitycraft:compressed_quarts_block_3.name=Bloco de Quartzo Triplamente Comprimido
-tile.utilitycraft:compressed_quarts_block_4.name=Bloco de Quartzo Quadruplicadamente Comprimido
+tile.utilitycraft:compressed_quartz_block.name=Bloco de Quartzo Comprimido
+tile.utilitycraft:compressed_quartz_block_2.name=Bloco de Quartzo Duplamente Comprimido
+tile.utilitycraft:compressed_quartz_block_3.name=Bloco de Quartzo Triplamente Comprimido
+tile.utilitycraft:compressed_quartz_block_4.name=Bloco de Quartzo Quadruplicadamente Comprimido
 tile.utilitycraft:compressed_raw_copper_block.name=Bloco de Cobre Bruto Comprimido
 tile.utilitycraft:compressed_raw_copper_block_2.name=Bloco de Cobre Bruto Duplamente Comprimido
 tile.utilitycraft:compressed_raw_copper_block_3.name=Bloco de Cobre Bruto Triplamente Comprimido
@@ -296,7 +300,9 @@ tile.utilitycraft:compressed_weathered_copper_block_4.name=Bloco de Cobre Oxidad
 - Utility Blocks = ## Blocos Utilitários
 tile.utilitycraft:asphalt.name=Asfalto
 tile.utilitycraft:big_torch.name=Tocha Grande
-tile.utilitcraft:blaze_block.name=Núcleo de Chama
+tile.utilitycraft:blaze_block.name=Núcleo de Chama
+tile.utilitycraft:crushed_cobbled_deepslate.name=Bloco de Ardosiabissal Triturada
+tile.utilitycraft:crushed_endstone.name=Pedra do Fim Triturada
 tile.utilitycraft:crushed_netherrack.name=Netherrack Triturada
 tile.utilitycraft:elevator.name=Elevador
 tile.utilitycraft:flint_block.name=Bloco de Sílex
@@ -347,6 +353,7 @@ item.utilitycraft:smelting_pickaxe=§6Picareta de Fusão\n§7- Derrete os minér
 item.utilitycraft:lucky_fishing_rod=§aVara de Pesca da Sorte\n§7Sorte do Mar V\nIsca V
 item.utilitycraft:flint_knife=Faca de Sílex \n§7- Separa a fibra das folhas
 
+
 -- Drills = ## Brocas
 item.utilitycraft:drill=Broca\n§7- Minera em escala 3x3
 item.utilitycraft:heavy_drill=Broca Pesada\n§7- Minera em escala 5x5
@@ -390,11 +397,11 @@ item.utilitycraft:enderpearl_seeds=Sementes de Pérola do End §9Tier 3
 item.utilitycraft:obsidian_seeds=Sementes de Obsidiana §9Tier 3
 
 -- Tier 4 = ## Tier (Escalão) 4
-item.utilitycraft:nether_star_seeds=Nether Star Seeds §8Tier 4
-item.utilitycraft:netherite_seeds=Netherite Seeds §8Tier 4
-item.utilitycraft:shulker_seeds=Shulker Seeds §8Tier 4
-item.utilitycraft:totem_seeds=Totem Seeds §8Tier 4
-item.utilitycraft:wither_seeds=Wither Seeds §8Tier 4
+item.utilitycraft:nether_star_seeds=Sementes de Estrela do Nether §8Tier 4
+item.utilitycraft:netherite_seeds=Sementes de Netherita §8Tier 4
+item.utilitycraft:shulker_seeds=Sementes de Shulker §8Tier 4
+item.utilitycraft:totem_seeds=Sementes de Totem §8Tier 4
+item.utilitycraft:wither_seeds=Sementes de Wither §8Tier 4
 ## -------- Close Group <<<<<<<< ##
 
 ## - Pebbles & Chunks | Pedaços e Gravilhas -------------
@@ -407,6 +414,7 @@ item.utilitycraft:coal_chunk=Pedaço de Carvão
 item.utilitycraft:copper_chunk=Pedaço de Cobre
 item.utilitycraft:crushed_deepslate_handful=Punhado de Ardosiabissal Triturada
 item.utilitycraft:crushed_endstone_handful=Punhado de Pedra do Fim Triturada
+item.utilitycraft:crushed_kelp=Alga Triturada
 item.utilitycraft:deepslate_coal_chunk=Pedaço de Carvão de Ardosiabissal
 item.utilitycraft:deepslate_diamond_chunk=Pedaço de Diamante de Ardosiabissal
 item.utilitycraft:deepslate_emerald_chunk=Pedaço de Esmeralda de Ardosiabissal
@@ -447,7 +455,7 @@ item.utilitycraft:tuff_pebble=Gravilha de Tufo
 item.utilitycraft:wither_skull_shard=Fragmento de Crânio do Wither
 
 - Mesh = ## Malha
-iitem.utilitycraft:string_mesh=Malha de Linha
+item.utilitycraft:string_mesh=Malha de Linha
 item.utilitycraft:flint_mesh=Malha de Sílex
 item.utilitycraft:iron_mesh=Malha de Ferro
 item.utilitycraft:golden_mesh=Malha de Ouro
@@ -476,12 +484,12 @@ item.utilitycraft:wither_skeleton_essence=Essência de Esqueleto Wither
 - Machines Upgrades = ## Módulos Melhorias
 item.utilitycraft:steel_ingot=Barra de Aço
 ## +
-item.utilitycraft:energy_upgrade=Módulo de Melhoria de §4Eficiência Energética§r\n§7- Aumenta a eficiência de máquinas\n- Reduz o consumo de energia
-item.utilitycraft:speed_upgrade=Módulo de Melhoria de §aVelocidade§r\n§7- Aumenta a velocidade de uma máquina\n- Aumenta o consumo de energia
+item.utilitycraft:energy_upgrade=Módulo de Melhoria de §bEficiência Energética§r\n§7- Aumenta a eficiência de máquinas\n- Reduz o consumo de energia
+item.utilitycraft:speed_upgrade=Módulo de Melhoria de §aVelocidade§7\n§7- Aumenta a velocidade de uma máquina\n- Aumenta o consumo de energia
 item.utilitycraft:range_upgrade=Módulo de Melhoria de §9Alcance§r\n§7- Aumenta o alcance de uma máquina
-item.utilitycraft:quantity_upgrade=Módulo de Melhoria de §3Quantidade§r\n§7- Aumenta o multiplicador de uma máquina
+item.utilitycraft:quantity_upgrade=Módulo de Melhoria de §3Quantidade§r\n§7- Aumenta a saída de uma máquina\n- Aumenta a quantidade de mobs invocados 
 item.utilitycraft:ultimate_upgrade=Módulo de Melhoria §8Supremo§r\n§7- A Melhoria Suprema
-item.utilitycraft:filter_upgrade=Módulo de Melhoria de §fFiltro§r\n§7- Adiciona um filtro à máquina\n- Possui exclusão e inclusão
+item.utilitycraft:filter_upgrade=Módulo de Melhoria de §fFiltro§7\n§7- Adiciona um filtro à máquina\n- Possui exclusão e inclusão
 ## +
 item.utilitycraft:base_upgrade=Módulo de Melhoria\n§7- Usado para criar módulos de melhorias para máquinas
 
@@ -527,13 +535,13 @@ entity.utilitycraft:grenade.name=Granada
 entity.utilitycraft:bamboo.name=Bambu
 entity.utilitycraft:cactus.name=Cacto
 entity.utilitycraft:kelp.name=Alga
-entity.utilitycraft:mushroom.name=Cogumelo\n§7§o*Italiano que salva princesas intensifies*§r
+entity.utilitycraft:mushroom.name=Cogumelo\n§7
 entity.utilitycraft:sugarcane.name=Cana-de-Açúcar
 ## -------- Close Group <<<<<<<< ##
 
 - Items 2 = ##| To format
-entity.utilitycraft:accelerator_clock.name=Relógio Temporal
-item.utilitycraft:accelerator_clock=Relógio Temporal
+entity.utilitycraft:accelerator_clock.name=Relógio Temporal\n§7- Acelera a velocidade do jogo
+item.utilitycraft:accelerator_clock=Relógio Temporal\n§7- Acelera a velocidade do jogo
 tile.utilitycraft:pedestal.name=Pedestal\n§7- Usado como base para o Relógio Temporal
 item.spawn_egg.entity.utilitycraft:accelerator_clock.name=Invocar Relógio Temporal
 item.utilitycraft:raw_steel=Aço Bruto
@@ -654,7 +662,7 @@ tile.utilitycraft:waycenter.name=Centro de Waypoints
 tile.utilitycraft:waycarpet.name=Carpete Waypoint
 item.utilitycraft:way_chip=Chip de Waypoint
 item.utilitycraft:blueprint=Esquema
-item:utilitycraft:blueprint_paper=Esquema Vazio
+item.utilitycraft:blueprint_paper=Esquema Vazio
 item.utilitycraft:amethyst_dust=Pó de Ametista
 item.utilitycraft:diamond_dust=Pó de Diamante
 item.utilitycraft:emerald_dust=Pó de Esmeralda
@@ -715,6 +723,8 @@ dorios:itemGroup.name.dusts=Pós
 dorios:itemGroup.name.seeds=Sementes
 dorios:itemGroup.name.basics=Básicos
 dorios:itemGroup.name.mob_grinding=Gerenciamento de Criaturas
+dorios:itemGroup.name.hammers=Martelos
+dorios:itemGroup.name.paxels=Pacachados
 ## < Categories
 
 - Progress Bars = Barras de Progressão ##///////////////////////////////////////////////////////////////
@@ -812,19 +822,19 @@ item.utilitycraft:utility_book_17=Manual do UtilityCraft
 item.utilitycraft:utility_book_18=Manual do UtilityCraft
 
 ## Machines Entities
-entity.utilitycraft:assembler.name=Montador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
-entity.utilitycraft:autosieve.name=Peneirador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
-entity.utilitycraft:block_breaker.name=Quebrador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
-entity.utilitycraft:block_placer.name=Colocador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
-entity.utilitycraft:crusher.name=Triturador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
-entity.utilitycraft:digitizer.name=Digitalizador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
-entity.utilitycraft:electro_press.name=Prensa Elétrica\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
-entity.utilitycraft:harvester.name=Colheitadeira\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r, §9Alcance§r
-entity.utilitycraft:incinerator.name=Incinerador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+entity.utilitycraft:assembler.name=Montador
+entity.utilitycraft:autosieve.name=Peneirador
+entity.utilitycraft:block_breaker.name=Quebrador
+entity.utilitycraft:block_placer.name=Colocador
+entity.utilitycraft:crusher.name=Triturador
+entity.utilitycraft:digitizer.name=Digitalizador
+entity.utilitycraft:electro_press.name=Prensa Elétrica
+entity.utilitycraft:harvester.name=Colheitadeira
+entity.utilitycraft:incinerator.name=Incinerador
 entity.utilitycraft:induction_anvil.name=Bigorna de Indução
-entity.utilitycraft:infuser.name=Infusor\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
-entity.utilitycraft:magmatic_chamber.name=Câmara Magmática\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
-entity.utilitycraft:seed_synthesizer.name=Sintetizador de Sementes\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+entity.utilitycraft:infuser.name=Infusor
+entity.utilitycraft:magmatic_chamber.name=Câmara Magmática
+entity.utilitycraft:seed_synthesizer.name=Sintetizador de Sementes
 
 ## Generators Entities
 entity.utilitycraft:battery.name=Bateria
@@ -833,3 +843,14 @@ entity.utilitycraft:magmator.name=Magmador
 entity.utilitycraft:solar_panel.name=Painel Solar
 entity.utilitycraft:thermo_generator.name=Gerador Térmico
 entity.utilitycraft:wind_turbine.name=Gerador Eólico
+
+## Extras
+entity.utilitycraft:fluid_tank_lava.name=Tanque de Fluidos\n- §6Lava
+entity.utilitycraft:fluid_tank_milk.name=Tanque de Fluidos\n- Leite
+entity.utilitycraft:fluid_tank_water.name=Tanque de Fluidos\n- §9Água
+entity.utilitycraft:fluid_tank_xp.name=Tanque de Fluidos\n- §aExperiência
+
+entity.utilitycraft:mechanic_hopper.name=Funil Mecânico
+item.utilitycraft:mortar=Pilão
+tile.utilitycraft:crucible.name=Crisol
+item.utilitycraft:wooden_hammer=Martelo de Madeira
