@@ -9,10 +9,7 @@
 		},
 		"components": {
 			"minecraft:icon": "utilitycraft_accelerator_clock",
-			"minecraft:max_stack_size": 1,
-			"minecraft:display_name": {
-				"value": "Accelerator Clock\n§7- Needs to be on a pedestal to work"
-			}
+			"minecraft:max_stack_size": 1
 		}
 	}
 }

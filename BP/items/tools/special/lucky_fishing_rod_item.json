@@ -9,9 +9,6 @@
 		},
 		"components": {
 			"minecraft:icon": "utilitycraft_lucky_fishing_rod",
-			"minecraft:display_name": {
-				"value": "§bLucky Fishing Rod\n§7Luck of the Sea V\nLure V"
-			},
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:glint": true

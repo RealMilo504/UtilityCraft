@@ -1,4 +1,4 @@
-{
+	{
 	"format_version": "1.21.70",
 	"minecraft:item": {
 		"description": {
@@ -12,9 +12,6 @@
 			"minecraft:hand_equipped": true,
 			"minecraft:durability": {
 				"max_durability": 2031
-			},
-			"minecraft:display_name": {
-				"value": "Drill\n§7Mines a 3x3 area in front of you"
 			},
 			"minecraft:damage": 5,
 			"minecraft:icon": "utilitycraft_drill",
