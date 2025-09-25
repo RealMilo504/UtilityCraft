@@ -7,14 +7,15 @@
 tile.utilitycraft:workbench.name=Bancada de Engenharia
 tile.utilitycraft:utility_table.name=Bancada de Ferramentas Avançada
 
-- Fluid Stuff = ##Gerenciadores Fluidos
+- Fluid Stuff = ## Gerenciadores de Fluidos
 
 tile.utilitycraft:basic_fluid_tank.name=Tanque de Fluido §eBásico
 tile.utilitycraft:advanced_fluid_tank.name=Tanque de Fluido §cAvançado
 tile.utilitycraft:expert_fluid_tank.name=Tanque de Fluido §3Expert
 tile.utilitycraft:ultimate_fluid_tank.name=Tanque de Fluido §8Supremo
-tite.utilitycraft:fluid_pump=Bomba \n§7- Extrai líquidos do solo ou de outras máquinas
 tite.utilitycraft:fluid_pipe=Cano \n§7- Transporta líquidos
+tile.utilitycraft:item_exporter.name=Exportador de Itens \n§7- Aceita melhorias: Velocidade
+tile.utilitycraft:fluid_extractor.name=Extrator de Fluidos \n§7- Aceita melhorias: Velocidade
 
 - Machines = ## Máquinas
 tile.utilitycraft:autosieve.name=Peneirador
