@@ -75,12 +75,3 @@ globalThis.DoriosAPI = {
         }
     }
 }
-
-
-world.afterEvents.worldLoad.subscribe(e => {
-    if (globalThis.DoriosAPI) {
-        world.sendMessage('Yes')
-    } else {
-        world.sendMessage('no')
-    }
-})

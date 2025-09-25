@@ -1,5 +1,5 @@
 import { ItemStack } from "@minecraft/server"
-// import { growing } from "../machinery/machines_config.js"
+import { cropsDrops } from "../config/crops_drops.js"
 
 /**
  * Crop data: defines seed item and loot table for each custom crop.
@@ -64,7 +64,7 @@ DoriosAPI.register.blockComponent("crop", {
                 const { x, y, z } = block.location
                 block.dimension.runCommand(`loot spawn ${x} ${y} ${z} loot "${crop.loot}"`)
             } else {
-                const drops = growing[crop.seed]?.drops ?? []
+                const drops = cropsDrops[crop.seed]?.drops ?? []
                 const fortuneLevel = fortune.level
 
                 drops.forEach(drop => {
