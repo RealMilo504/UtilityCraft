@@ -43,6 +43,7 @@
 			}
 		},
 		"components": {
+			"utilitycraft:cobble_generators": {},
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "utilitycraft_cobble_gen_4",
@@ -62,10 +63,7 @@
 					5,
 					5
 				]
-			},
-			"minecraft:custom_components": [
-				"utilitycraft:cobble_generators"
-			]
+			}
 		},
 		"permutations": [
 			{
