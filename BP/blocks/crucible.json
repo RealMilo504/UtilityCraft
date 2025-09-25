@@ -39,6 +39,7 @@
 			}
 		},
 		"components": {
+			"utilitycraft:crucible": {},
 			"minecraft:geometry": "geometry.utilitycraft_crucible",
 			"minecraft:material_instances": {
 				"*": {
@@ -46,9 +47,6 @@
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:crucible"
-			],
 			"minecraft:tick": {
 				"interval_range": [
 					40,
@@ -60,7 +58,7 @@
 			},
 			"minecraft:destructible_by_explosion": false,
 			"tag:dorios:fluid": {},
-            "tag:minecraft_is_pickaxe_item_destructible": {}
+			"tag:minecraft_is_pickaxe_item_destructible": {}
 		},
 		"permutations": [
 			{
