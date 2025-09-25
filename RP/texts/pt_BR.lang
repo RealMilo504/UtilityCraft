@@ -1,4 +1,4 @@
-## Traduzido e formatado por Kauziin e (Anônimo)
+## Traduzido e formatado por Kauziin, Milo404 e (Anônimo)
 ## Formatado por ordem descendente, capitalizado e espaçado corretamente
 
 - Bloques = ## Blocos
@@ -14,25 +14,25 @@ tile.utilitycraft:advanced_fluid_tank.name=Tanque de Fluido §cAvançado
 tile.utilitycraft:expert_fluid_tank.name=Tanque de Fluido §3Expert
 tile.utilitycraft:ultimate_fluid_tank.name=Tanque de Fluido §8Supremo
 tite.utilitycraft:fluid_pipe=Cano \n§7- Transporta líquidos
-tile.utilitycraft:item_exporter.name=Exportador de Itens \n§7- Aceita melhorias: Velocidade
-tile.utilitycraft:fluid_extractor.name=Extrator de Fluidos \n§7- Aceita melhorias: Velocidade
+tile.utilitycraft:fluid_extractor.name=Extrator de Fluidos \n§7- Aceita melhorias:\n §aVelocidade§r
+tile.utilitycraft:fluid_pump.name=Bomba\n§7- Aceita melhorias:\n §aVelocidade§r
 
 - Machines = ## Máquinas
-tile.utilitycraft:autosieve.name=Peneirador
-tile.utilitycraft:assembler.name=Montador
-tile.utilitycraft:block_breaker.name=Quebrador
-tile.utilitycraft:block_placer.name=Colocador
+tile.utilitycraft:autosieve.name=Peneirador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+tile.utilitycraft:assembler.name=Montador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+tile.utilitycraft:block_breaker.name=Quebrador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+tile.utilitycraft:block_placer.name=Colocador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
 tile.utilitycraft:crucible=Crisol
-tile.utilitycraft:crusher.name=Triturador
-tile.utilitycraft:digitalizer.name=Digitalizador
-tile.utilitycraft:electro_press.name=Prensa Elétrica
-tile.utilitycraft:ender_hopper.name=Funil do Fim
-tile.utilitycraft:incinerator.name=Incinerador
-tile.utilitycraft:infuser.name=Infusor
+tile.utilitycraft:crusher.name=Triturador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+tile.utilitycraft:digitizer.name=Digitalizadora\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+tile.utilitycraft:electro_press.name=Prensa Elétrica\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+tile.utilitycraft:ender_hopper.name=Funil do Fim \n§7- Aceita melhorias:\n §9Alcance§r
+tile.utilitycraft:incinerator.name=Incinerador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+tile.utilitycraft:infuser.name=Infusor\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
 tile.utilitycraft:induction_anvil.name=Bigorna de Indução
-tile.utilitycraft:magmatic_chamber.name=Câmara Magmática
+tile.utilitycraft:magmatic_chamber.name=Câmara Magmática\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
 tile.utilitycraft:mortar=Pilão
-tile.utilitycraft:seed_synthesizer.name=Sintetizador de Sementes
+tile.utilitycraft:seed_synthesizer.name=Sintetizador de Sementes\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
 tile.utilitycraft:xp_condenser.name=Condensador de XP
 ## COBBLE GEN
 tile.utilitycraft:cobble_gen_1.name=Gerador de Pedregulho (Tier 1)\n§7- Gera 0.5 por segundo
@@ -45,23 +45,23 @@ tile.utilitycraft:conveyor_horizontal.name=Esteira horizontal
 tile.utilitycraft:conveyor_inclined.name=Esteira Inclinada §7(Pra cima)
 tile.utilitycraft:conveyor_declined.name=Esteira inclinada §7(Pra baixo)
 tile.utilitycraft:energy_cable.name=Cabo de Energia
-tile.utilitycraft:item_exporter.name=Exportador de Itens
+tile.utilitycraft:item_exporter.name=Exportador de Itens \n§7- Aceita melhorias:\n §aVelocidade§r, §fFiltro§r
 tile.utilitycraft:item_conduit.name=Tubo de Itens
-tile.utilitycraft:mechanic_dropper.name=Liberador Mecânico
-tile.utilitycraft:mechanic_hopper.name=Funil Mecânico
-tile.utilitycraft:mechanic_upper.name=Funil Mecânico Invertido
-entity.utilitycraft:mechanic_upper=Funil Mecânico Invertido
+tile.utilitycraft:mechanic_dropper.name=Liberador Mecânico \n§7- Aceita melhorias:\n §aVelocidade§r, §fFiltro§r
+tile.utilitycraft:mechanic_hopper.name=Funil Mecânico \n§7- Aceita melhorias:\n §aVelocidade§r, §fFiltro§r
+tile.utilitycraft:mechanic_upper.name=Funil Mecânico Invertido \n§7- Aceita melhorias:\n §aVelocidade§r, §fFiltro§r
+entity.utilitycraft:mechanic_upper=Funil Mecânico Invertido \n§7- Aceita melhorias:\n §aVelocidade§r, §fFiltro§r
 ## MISC
 tile.utilitycraft:fan.name=Ventilador
-tile.utilitycraft:harvester.name=Colheitadera
+tile.utilitycraft:harvester.name=Colheitadera \n§7- Aceita melhorias:\n §aVelocidade§r, §fEficiência§r, §9Alcance§r
 tile.utilitycraft:machine_case.name=Chassi de Máquinas
 tile.utilitycraft:mob_grinder.name=Abatedor de Mobs
 tile.utilitycraft:mob_trap.name=Armadilha de Mobs
-tile.utilitycraft:sieve.name=Peneira
+tile.utilitycraft:sieve.name=Peneira\n§7- Multi-uso máximo: 5x5
 tile.utilitycraft:xp_magnet.name=Imã de XP
 
 - Bountiful Bonsais = ## Bonsais Abundantes
-tile.utilitycraft:bonsai.name=Bonsai
+tile.utilitycraft:bonsai.name=Bonsai \n§7- 
 
 - Bountiful Crops = ## Colheitas Abundantes
 ## >>>>>>>> Open Group -------- ##
@@ -165,7 +165,6 @@ tile.utilitycraft:compressed_cobbled_deepslate.name=Bloco de Ardosiabissal Compr
 tile.utilitycraft:compressed_cobbled_deepslate_2.name=Bloco de Ardosiabissal Duplamente Comprimida
 tile.utilitycraft:compressed_cobbled_deepslate_3.name=Bloco de Ardosiabissal Triplamente Comprimida
 tile.utilitycraft:compressed_cobbled_deepslate_4.name=Bloco de Ardosiabissal Quadruplicadamente Comprimida
-tile.utilitycraft:compressed_cobblestone.name=Pedregulho Comprimido
 tile.utilitycraft:compressed_cobblestone_2.name=Pedregulho Duplamente Comprimido
 tile.utilitycraft:compressed_cobblestone_3.name=Pedregulho Triplamente Comprimido
 tile.utilitycraft:compressed_cobblestone_4.name=Pedregulho Quadruplicadamente Comprimido
@@ -297,6 +296,7 @@ tile.utilitycraft:compressed_weathered_copper_block_4.name=Bloco de Cobre Oxidad
 - Utility Blocks = ## Blocos Utilitários
 tile.utilitycraft:asphalt.name=Asfalto
 tile.utilitycraft:big_torch.name=Tocha Grande
+tile.utilitcraft:blaze_block.name=Núcleo de Chama
 tile.utilitycraft:crushed_netherrack.name=Netherrack Triturada
 tile.utilitycraft:elevator.name=Elevador
 tile.utilitycraft:flint_block.name=Bloco de Sílex
@@ -311,9 +311,9 @@ action.hint.exit.utilitycraft:tractor=Sair do Trator
 action.hint.exit.utilitycraft:drill=Sair da Escavadeira
 
 - Placeholder Items = ## Itens de Pré-vizualização
-item.utilitycraft:lucky_fishing_rod_item=§aVara de Pesca da Sorte
-item.utilitycraft:lucky_pickaxe_item=§aPicareta da Sorte
-item.utilitycraft:lucky_sword_item=§aEspada da Sorte
+item.utilitycraft:lucky_fishing_rod_item=§aVara de Pesca da Sorte\n§7Sorte do Mar V\nIsca V
+item.utilitycraft:lucky_pickaxe_item=§aPicareta da Sorte\n§7Fortuna V
+item.utilitycraft:lucky_sword_item=§aEspada da Sorte\n§7Pilhagem V
 
 - Tools = ## Ferramentas 
 ## >>>>>>>> Open Group -------- ##
@@ -341,11 +341,11 @@ item.utilitycraft:iron_hammer=Martelo de Ferro
 item.utilitycraft:stone_hammer=Martelo de Pedra
 
 -- Special Tools = ## Ferramentas Especiais
-item.utilitycraft:lucky_pickaxe=§aPicareta da Sorte ## My beloved
-item.utilitycraft:lucky_sword=§aEspada da Sorte
+item.utilitycraft:lucky_pickaxe=§aPicareta da Sorte\n§7Fortuna V
+item.utilitycraft:lucky_sword=§aEspada da Sorte\n§7Pilhagem V
 item.utilitycraft:smelting_pickaxe=§6Picareta de Fusão\n§7- Derrete os minérios ao quebrá-los
-item.utilitycraft:lucky_fishing_rod=§aVara de Pesca da Sorte
-item.utilitycraft:flint_knife=Faca de Sílex \n§7- Corte folhas para consehuir fibras
+item.utilitycraft:lucky_fishing_rod=§aVara de Pesca da Sorte\n§7Sorte do Mar V\nIsca V
+item.utilitycraft:flint_knife=Faca de Sílex \n§7- Separa a fibra das folhas
 
 -- Drills = ## Brocas
 item.utilitycraft:drill=Broca\n§7- Minera em escala 3x3
@@ -456,7 +456,7 @@ item.utilitycraft:diamond_mesh=Malha de Diamante
 item.utilitycraft:netherite_mesh=Malha de Netherita
 
 - Essences = ## Essências
-item.utilitycraft:essence_vessel=Garrafa de Essência \n§7- Interaja com um mob para escolher\n- Mate mobs do mesmo tipo para preencher
+item.utilitycraft:essence_vessel=Garrafa de Essência \n§7- Interaja com um mob para escolher\n- Mate mobs do mesmo tipo para preencher\n- Precisa estar na segunda mão
 item.utilitycraft:pig_essence=Essência de Porco
 item.utilitycraft:cow_essence=Essência de Vaca
 item.utilitycraft:zombie_essence=Essência de Zumbi
@@ -476,11 +476,12 @@ item.utilitycraft:wither_skeleton_essence=Essência de Esqueleto Wither
 - Machines Upgrades = ## Módulos Melhorias
 item.utilitycraft:steel_ingot=Barra de Aço
 ## +
-item.utilitycraft:energy_upgrade=Módulo de Melhoria de §4Energia§r\n§7- Aumenta a eficiência de máquinas elétricas
-item.utilitycraft:speed_upgrade=Módulo de Melhoria de §aVelocidade§r\n§7- Aumenta a eficiência de uma máquina\n- Aumenta o consumo de energia
+item.utilitycraft:energy_upgrade=Módulo de Melhoria de §4Eficiência Energética§r\n§7- Aumenta a eficiência de máquinas\n- Reduz o consumo de energia
+item.utilitycraft:speed_upgrade=Módulo de Melhoria de §aVelocidade§r\n§7- Aumenta a velocidade de uma máquina\n- Aumenta o consumo de energia
 item.utilitycraft:range_upgrade=Módulo de Melhoria de §9Alcance§r\n§7- Aumenta o alcance de uma máquina
 item.utilitycraft:quantity_upgrade=Módulo de Melhoria de §3Quantidade§r\n§7- Aumenta o multiplicador de uma máquina
 item.utilitycraft:ultimate_upgrade=Módulo de Melhoria §8Supremo§r\n§7- A Melhoria Suprema
+item.utilitycraft:filter_upgrade=Módulo de Melhoria de §fFiltro§r\n§7- Adiciona um filtro à máquina\n- Possui exclusão e inclusão
 ## +
 item.utilitycraft:base_upgrade=Módulo de Melhoria\n§7- Usado para criar módulos de melhorias para máquinas
 
@@ -518,9 +519,7 @@ entity.utilitycraft:spruce_tree.name=Àrvore de Pinheiro
 entity.utilitycraft:tractor.name=Trator
 entity.utilitycraft:warped_tree.name=Àrvore Distorcida
 ## +
-entity.utilitycraft:autosieve.name=Peneira Automatizada
 entity.utilitycraft:bomb.name=Bomba
-entity.utilitycraft:crusher.name=Triturador
 entity.utilitycraft:drill.name=Broca
 entity.utilitycraft:dynamite.name=Dinamite
 entity.utilitycraft:grenade.name=Granada
@@ -532,14 +531,10 @@ entity.utilitycraft:mushroom.name=Cogumelo\n§7§o*Italiano que salva princesas 
 entity.utilitycraft:sugarcane.name=Cana-de-Açúcar
 ## -------- Close Group <<<<<<<< ##
 
-#########################################################
-## Imma do my own thing YAAAAAAAAAA (im going insane.)
-#########################################################
-
 - Items 2 = ##| To format
 entity.utilitycraft:accelerator_clock.name=Relógio Temporal
 item.utilitycraft:accelerator_clock=Relógio Temporal
-tile.utilitycraft:pedestal.name=Pedestal
+tile.utilitycraft:pedestal.name=Pedestal\n§7- Usado como base para o Relógio Temporal
 item.spawn_egg.entity.utilitycraft:accelerator_clock.name=Invocar Relógio Temporal
 item.utilitycraft:raw_steel=Aço Bruto
 tile.utilitycraft:steel_block.name=Bloco de Aço
@@ -636,21 +631,21 @@ tile.utilitycraft:advanced_magmator.name=§cMagmador Avançado\n §7 Velocidade:
 tile.utilitycraft:advanced_thermo_generator.name=§cGerador Térmico Avançado \n §7 Velocidade: 80 DE/t
 tile.utilitycraft:advanced_battery.name=§cBateria Avançada \n §7 Velocidade: 800 DE/t
 tile.utilitycraft:advanced_solar_panel.name=§cPainel Solar Avançado\n §7 Velocidade: 32 DE/t
-tile.utilitycraft:basic_wind_turbine.name=§eTurbina Eólica Avançada\n §7 Velocidade Base: 20 DE/t\n Multiplicador de Altura Máximo: 360%\n Não funciona abaixo de y20
+tile.utilitycraft:advanced_wind_turbine.name=§eTurbina Eólica Avançada\n §7 Velocidade Base: 20 DE/t\n Multiplicador de Altura Máximo: 360%\n Não funciona abaixo de y20
 
 tile.utilitycraft:expert_furnator.name=§3Forgerador Expert \n §7 Velocidade: 640 DE/t
 tile.utilitycraft:expert_magmator.name=§3Magmador Expert \n §7 Velocidade: 800 DE/t
 tile.utilitycraft:expert_thermo_generator.name=§3Gerador Térmico Expert\n §7 Velocidade: 320 DE/t
 tile.utilitycraft:expert_battery.name=§3Bateria Expert \n §7 Velocidade: 1.6 kDE/t
 tile.utilitycraft:expert_solar_panel.name=§3Painel Solar Expert \n §7 Velocidade: 128 DE/t
-tile.utilitycraft:basic_wind_turbine.name=§eTurbina Eólica Expert\n §7 Velocidade Base: 160 DE/t\n Multiplicador de Altura Máximo: 360%\n Não funciona abaixo de y20
+tile.utilitycraft:expert_wind_turbine.name=§eTurbina Eólica Expert\n §7 Velocidade Base: 160 DE/t\n Multiplicador de Altura Máximo: 360%\n Não funciona abaixo de y20
 
 tile.utilitycraft:ultimate_furnator.name=§8Forgerador Supremo \n §7 Velocidade: 4 kDE/t
 tile.utilitycraft:ultimate_magmator.name=§8Magmador Supremo\n §7 Velocidade: 5 kDE/t
 tile.utilitycraft:ultimate_thermo_generator.name=§8Gerador Térmico Supremo \n §7 Velocidade: 2 kDE/t
 tile.utilitycraft:ultimate_battery.name=§8Bateria Suprema\n §7 Velocidade: 10 kDE/t
 tile.utilitycraft:ultimate_solar_panel.name=§8Painel Solar Supremo \n §7 Velocidade: 800 DE/t
-tile.utilitycraft:basic_wind_turbine.name=§eTurbina Eólica Básica\n §7 Velocidade Base: 640 DE/t\n Multiplicador de Altura Máximo: 360%\n Não funciona abaixo de y20
+tile.utilitycraft:ultimate_wind_turbine.name=§eTurbina Eólica Básica\n §7 Velocidade Base: 640 DE/t\n Multiplicador de Altura Máximo: 360%\n Não funciona abaixo de y20
 < Energy Generators = Geradores de Energia 
 ##///////////////////////////////////////////////////////////////
 
@@ -676,9 +671,6 @@ item.utilitycraft:crying_obsidian_dust=Pó de Obsidian Gritante
 item.utilitycraft:refined_obsidian_dust=Pó de Obsidian Refinada
 item.utilitycraft:ender_pearl_dust=Pó de Pérola do Fim
 
-
-item.utilitycraft:filter_upgrade=Módulo de Melhoria de Filtro\n§7- Usada para filtrar itens em funís mecânicos ou conduítes
-
 item.utilitycraft:chip=Chip
 item.utilitycraft:basic_chip=Chip §eBásico
 item.utilitycraft:advanced_chip=Chip §cAvançado
@@ -688,7 +680,6 @@ item.utilitycraft:ultimate_chip=Chip §8Supremo
 item.utilitycraft:energized_iron_ingot=Barra de Ferro Energizado
 item.utilitycraft:energized_iron_dust=Pó de Ferro Energizado
 item.utilitycraft:energized_iron_nugget=Pepita de Ferro Energizado
-item.utilitycraft:energized_iron_dust=Pó de Ferro Energizado
 item.utilitycraft:energized_iron_plate=Placa de Ferro Energizado
 item.utilitycraft:raw_energized_iron=Ferro Energizado Bruto
 item.utilitycraft:energized_iron_block=Bloco de Ferro Energizado
@@ -821,19 +812,19 @@ item.utilitycraft:utility_book_17=Manual do UtilityCraft
 item.utilitycraft:utility_book_18=Manual do UtilityCraft
 
 ## Machines Entities
-entity.utilitycraft:assembler.name=Montador
-entity.utilitycraft:autosieve.name=Peneirador
-entity.utilitycraft:block_breaker.name=Quebrador
-entity.utilitycraft:block_placer.name=Colocador
-entity.utilitycraft:crusher.name=Triturador
-entity.utilitycraft:digitizer.name=Digitalizador
-entity.utilitycraft:electro_press.name=Prensa Elétrica
-entity.utilitycraft:harvester.name=Colheitadeira
-entity.utilitycraft:incinerator.name=Incinerador
+entity.utilitycraft:assembler.name=Montador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+entity.utilitycraft:autosieve.name=Peneirador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+entity.utilitycraft:block_breaker.name=Quebrador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+entity.utilitycraft:block_placer.name=Colocador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+entity.utilitycraft:crusher.name=Triturador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+entity.utilitycraft:digitizer.name=Digitalizador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+entity.utilitycraft:electro_press.name=Prensa Elétrica\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+entity.utilitycraft:harvester.name=Colheitadeira\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r, §9Alcance§r
+entity.utilitycraft:incinerator.name=Incinerador\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
 entity.utilitycraft:induction_anvil.name=Bigorna de Indução
-entity.utilitycraft:infuser.name=Infusor
-entity.utilitycraft:magmatic_chamber.name=Câmara Magmática
-entity.utilitycraft:seed_synthesizer.name=Sintetizador de Sementes
+entity.utilitycraft:infuser.name=Infusor\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+entity.utilitycraft:magmatic_chamber.name=Câmara Magmática\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
+entity.utilitycraft:seed_synthesizer.name=Sintetizador de Sementes\n§7- Aceita melhorias:\n §aVelocidade§r, §bEficiencia§r
 
 ## Generators Entities
 entity.utilitycraft:battery.name=Bateria
