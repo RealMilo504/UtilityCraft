@@ -36,7 +36,7 @@
 			"type": "script",
 			"language": "javascript",
 			"uuid": "15b36bf3-32b4-47f1-9d03-a65ad50eeaf4",
-			"entry": "scripts/main.js",
+			"entry": "scripts/anew/main.js",
 			"version": [
 				3,
 				0,
@@ -55,11 +55,11 @@
 		},
 		{
 			"module_name": "@minecraft/server",
-			"version": "1.18.0"
+			"version": "2.1.0"
 		},
 		{
 			"module_name": "@minecraft/server-ui",
-			"version": "1.2.0"
+			"version": "2.0.0"
 		}
 	],
 	"subpacks": [

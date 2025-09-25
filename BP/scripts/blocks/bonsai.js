@@ -1,6 +1,7 @@
 import { world, ItemStack } from '@minecraft/server'
 
 //To add a new soil you need to add it on the bonsai block first as a state, if the block reduce time growth, its defined in bonus
+
 let soils = [
     { soil: 'minecraft:dirt' },
     { soil: 'minecraft:grass_block', bonus: 10 },
@@ -191,18 +192,6 @@ let bonsaiDrops = {
 
 }
 
-//Borrar!!!!!!!!!!!!!!
-function msg(message) {
-    world.sendMessage(`${message}`)
-}
-
-function tellPerms(block) {
-    msg('soil: ' + block.permutation.getState('utilitycraft:soil'))
-    msg('sapling: ' + block.permutation.getState('utilitycraft:hasBonsai'))
-    msg('farmed: ' + block.permutation.getState('utilitycraft:isFarm'))
-}
-//Borrar!!!!!!!!!!!!!!
-
 //This function makes the code a little bit cleaner by allowing to set the state in a simpler manner
 function setState(block, state, perm) {
     block.setPermutation(block.permutation.withState(state, perm))
@@ -217,7 +206,10 @@ function getState(block, state) {
 world.beforeEvents.worldInitialize.subscribe(e => {
     e.blockComponentRegistry.registerCustomComponent('utilitycraft:newBonsais', {
         onPlayerInteract(e) {
+
+
             const { player, block } = e
+
             let { x, y, z } = block.location
             y += 0.172, x += 0.5, z += 0.5
             //Gets the item on the main hand of the player
@@ -388,7 +380,7 @@ world.beforeEvents.worldInitialize.subscribe(e => {
                         const randomChance = Math.random() * 100;
                         if (randomChance <= drop.prob) {
                             try {
-                                const amount = randomInterval(drop.min, drop.max)
+                                const amount = DoriosAPI.utils.randomInterval(drop.min, drop.max)
                                 inv.addItem(new ItemStack(drop.item, amount * multi))
                             } catch { }
                         }
