@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.80",
+	"format_version": "1.21.90",
 	"minecraft:item": {
 		"description": {
 			"identifier": "utilitycraft:emerald_mesh",
@@ -8,7 +8,11 @@
 			}
 		},
 		"components": {
-			"minecraft:icon": "utilitycraft_emerald_mesh"
+			"minecraft:icon": "utilitycraft_emerald_mesh",
+			"utilitycraft:mesh": {
+				"tier": 5,
+				"multiplier": 2.5
+			}
 		}
 	}
 }

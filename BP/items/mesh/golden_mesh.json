@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.80",
+	"format_version": "1.21.90",
 	"minecraft:item": {
 		"description": {
 			"identifier": "utilitycraft:golden_mesh",
@@ -8,7 +8,11 @@
 			}
 		},
 		"components": {
-			"minecraft:icon": "utilitycraft_golden_mesh"
+			"minecraft:icon": "utilitycraft_golden_mesh",
+			"utilitycraft:mesh": {
+				"tier": 4,
+				"multiplier": 2
+			}
 		}
 	}
 }

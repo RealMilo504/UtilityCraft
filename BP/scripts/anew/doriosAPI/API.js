@@ -53,25 +53,30 @@ globalThis.DoriosAPI = {
     },
     utils: {
         /**
-         * Returns a random number between [min, max).
-         * 
-         * @param {number} min - Minimum value (inclusive).
-         * @param {number} max - Maximum value (exclusive).
-         * @param {string} [mode="floor"] - How to handle decimals:
-         *   - "floor": round down (default)
-         *   - "ceil": round up
-         *   - "round": round to nearest
-         *   - "float": return raw decimal
-         * @returns {number} Random value
-         */
+         * Returns a random number between [min, max], inclusive if mode = "floor".
+        * 
+        * @param {number} min Minimum value.
+        * @param {number} max Maximum value.
+        * @param {string} [mode="floor"] How to handle decimals:
+        *   - "floor": round down (inclusive of max)
+        *   - "round": round to nearest
+        *   - "float": return raw decimal
+        * @returns {number} Random value
+        */
         randomInterval(min, max, mode = "floor") {
-            const value = Math.random() * (max - min) + min
+            let value;
+            if (mode === "floor") {
+                value = Math.random() * (max - min + 1) + min; // inclusive max
+                return Math.floor(value);
+            }
+
+            value = Math.random() * (max - min) + min; // [min, max)
             switch (mode) {
-                case "ceil": return Math.ceil(value)
-                case "round": return Math.round(value)
-                case "float": return value
-                default: return Math.floor(value)
+                case "round": return Math.round(value);
+                case "float": return value;
+                default: return Math.floor(value);
             }
         }
+
     }
 }

@@ -1,5 +1,5 @@
 import { ItemStack } from "@minecraft/server"
-import { sieveDrops, meshMulti } from "../config/sieve.js"
+import { sieveDrops } from "../config/sieve.js"
 
 /**
  * Represents a single sieve block with utility methods.
@@ -86,13 +86,20 @@ class Sieve {
         if (this.stage !== 1 || this.blockType === "empty" || this.mesh === "empty") return false
 
         const { x, y, z } = this.block.location
-
-        const multi = meshMulti["utilitycraft:" + this.mesh]
-        if (!multi) return false
+        const meshItem = Sieve.meshesItemStack["utilitycraft:" + this.mesh]
+        if (!meshItem) return false
+        const meshData = meshItem.getComponent('utilitycraft:mesh')?.customComponentParameters?.params
+        if (!meshData) return false
+        const multi = meshData.multiplier
+        const tier = meshData.tier
         const sievableBlock = sieveDrops[this.blockType]
         sievableBlock?.forEach(loot => {
+            if (tier < (loot.tier ?? 0)) return
             if (Math.random() <= loot.chance * multi) {
-                const qty = Math.ceil(Math.random() * loot.amount)
+                const qty = Array.isArray(loot.amount)
+                    ? DoriosAPI.utils.randomInterval(loot.amount[0], loot.amount[1])
+                    : loot.amount;
+
                 this.block.dimension.spawnItem(new ItemStack(loot.item, qty), {
                     x: x + 0.25 + Math.random() / 2,
                     y: y + 0.75,
@@ -106,6 +113,23 @@ class Sieve {
         this.block.dimension.playSound("dig.gravel", this.block.location)
         return true
     }
+    /**
+        * Hashmap of all sieve meshes.
+        * Keys are mesh item identifiers,
+        * values are plain ItemStack objects.
+        * 
+        * @type {ItemStack>}
+        */
+    static meshesItemStack = {
+        "utilitycraft:string_mesh": new ItemStack("utilitycraft:string_mesh"),
+        "utilitycraft:flint_mesh": new ItemStack("utilitycraft:flint_mesh"),
+        "utilitycraft:copper_mesh": new ItemStack("utilitycraft:copper_mesh"),
+        "utilitycraft:iron_mesh": new ItemStack("utilitycraft:iron_mesh"),
+        "utilitycraft:golden_mesh": new ItemStack("utilitycraft:golden_mesh"),
+        "utilitycraft:emerald_mesh": new ItemStack("utilitycraft:emerald_mesh"),
+        "utilitycraft:diamond_mesh": new ItemStack("utilitycraft:diamond_mesh"),
+        "utilitycraft:netherite_mesh": new ItemStack("utilitycraft:netherite_mesh")
+    };
 }
 
 DoriosAPI.register.blockComponent("sieve", {
@@ -121,7 +145,7 @@ DoriosAPI.register.blockComponent("sieve", {
         }
 
         // Insert or swap mesh
-        if (mainHand?.typeId.includes("mesh")) {
+        if (mainHand?.hasComponent('utilitycraft:mesh')) {
             if (sieve.mesh === "empty") {
                 sieve.insertMesh(player, mainHand.typeId)
             } else {

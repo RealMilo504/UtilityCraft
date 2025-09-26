@@ -1063,6 +1063,9 @@
 		},
 		"utilitycraft_crushed_kelp": {
 			"textures": "textures/items/crushed_kelp"
+		},
+		"utilitycraft_copper_mesh": {
+			"textures": "textures/items/copper_mesh"
 		}
 	}
 }
