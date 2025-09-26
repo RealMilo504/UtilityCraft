@@ -1,4 +1,4 @@
-import { system, world } from '@minecraft/server';
+import { system } from '@minecraft/server';
 
 /**
  * @typedef {import("@minecraft/server").BlockCustomComponent} BlockCustomComponent

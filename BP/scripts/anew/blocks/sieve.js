@@ -1,5 +1,5 @@
 import { ItemStack } from "@minecraft/server"
-import { sieveDrops, meshMulti } from "../config/sieve_drops.js"
+import { sieveDrops, meshMulti } from "../config/sieve.js"
 
 /**
  * Represents a single sieve block with utility methods.
@@ -157,12 +157,11 @@ DoriosAPI.register.blockComponent("sieve", {
             }
         }
     },
-
-    onPlayerDestroy(e) {
-        const { destroyedBlockPermutation, block, player } = e
-        const mesh = destroyedBlockPermutation.getState("utilitycraft:mesh")
+    onPlayerBreak(e) {
+        const { brokenBlockPermutation, block } = e
+        const mesh = brokenBlockPermutation.getState("utilitycraft:mesh")
         if (mesh !== "empty") {
-            player.giveItem("utilitycraft:" + mesh)
+            block.dimension.spawnItem(new ItemStack(`${"utilitycraft:" + mesh}`, 1), block.center())
         }
     }
 })

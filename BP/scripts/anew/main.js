@@ -1,5 +1,4 @@
 import './doriosAPI/main.js'
-import './config/main.js'
 
 import './blocks/bonsai.js'
 import './blocks/cobble_generators.js'
