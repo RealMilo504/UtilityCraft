@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.10",
+	"format_version": "1.21.90",
 	"minecraft:item": {
 		"description": {
 			"identifier": "utilitycraft:flint_knife",
@@ -8,14 +8,19 @@
 			}
 		},
 		"components": {
+			"utilitycraft:block_loot": {
+				"blockEndsWith": "leaves",
+				"item": "utilitycraft:fiber",
+				"chance": 0.5,
+				"amount": [
+					1,
+					2
+				]
+			},
 			"minecraft:icon": "utilitycraft_flint_knife",
 			"minecraft:durability": {
 				"max_durability": 128
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:fiber",
-				"utilitycraft:break"
-			],
 			"minecraft:enchantable": {
 				"slot": "shears",
 				"value": 10

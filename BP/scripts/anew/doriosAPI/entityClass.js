@@ -372,8 +372,6 @@ const entityExtensions = {
      * @returns {boolean} Whether the operation was successful.
      */
     setEquipment(slot, item) {
-        if (!item) return false;
-
         const equip = this.getComponent('equippable');
         if (!equip) return false;
 
