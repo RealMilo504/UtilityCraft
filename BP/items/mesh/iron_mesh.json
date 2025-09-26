@@ -11,7 +11,7 @@
 			"minecraft:icon": "utilitycraft_iron_mesh",
 			"utilitycraft:mesh": {
 				"tier": 3,
-				"multiplier": 1.75
+				"multiplier": 1.5
 			}
 		}
 	}

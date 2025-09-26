@@ -6,3 +6,6 @@ import './blocks/crucible.js'
 import './blocks/sieve.js'
 import './blocks/crops.js'
 
+import './items/durability.js'
+import './items/drill.js'
+

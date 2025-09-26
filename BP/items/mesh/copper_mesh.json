@@ -11,7 +11,7 @@
 			"minecraft:icon": "utilitycraft_copper_mesh",
 			"utilitycraft:mesh": {
 				"tier": 2,
-				"multiplier": 1.5
+				"multiplier": 1.25
 			}
 		}
 	}

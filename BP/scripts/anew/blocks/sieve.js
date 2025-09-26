@@ -119,7 +119,7 @@ class Sieve {
         * Keys are mesh item identifiers,
         * values are plain ItemStack objects.
         * 
-        * @type {ItemStack>}
+        * @type {ItemStack}
         */
     static meshesItemStack = {}
 }

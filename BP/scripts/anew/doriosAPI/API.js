@@ -5,7 +5,6 @@ import { system } from '@minecraft/server';
  * @typedef {import("@minecraft/server").ItemCustomComponent} ItemCustomComponent
  */
 
-
 const NAMESPACE = 'utilitycraft'
 globalThis.DoriosAPI = {
     register: {
@@ -78,5 +77,24 @@ globalThis.DoriosAPI = {
             }
         }
 
-    }
+    },
+    /**
+    * List of blocks that cannot be broken or replaced by machines.
+    * 
+    * These blocks are considered unbreakable for safety reasons,
+    * game logic, or to avoid exploits. 
+    * 
+    * Use this array to check against when validating block-breaking
+    * operations (e.g., Block Breaker, custom mining systems).
+    */
+    unbreakableBlocks: [
+        "minecraft:bedrock",
+        "minecraft:end_portal_frame",
+        "minecraft:end_portal",
+        "minecraft:portal",
+        "minecraft:reinforced_deepslate",
+        "minecraft:command_block",
+        "minecraft:chain_command_block",
+        "minecraft:repeating_command_block"
+    ]
 }
