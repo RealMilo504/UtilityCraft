@@ -1,4 +1,4 @@
-import { ItemStack } from "@minecraft/server"
+import { ItemStack, world } from "@minecraft/server"
 import { sieveDrops } from "../config/sieve.js"
 
 /**
@@ -30,7 +30,6 @@ class Sieve {
     removeMesh(player) {
         if (this.mesh === "empty" || this.blockType !== "empty" || this.stage !== 0) return false
 
-        // Devuelve la malla al jugador
         player.giveItem("utilitycraft:" + this.mesh)
 
         this.block.setState("utilitycraft:mesh", "empty")
@@ -93,8 +92,10 @@ class Sieve {
         const multi = meshData.multiplier
         const tier = meshData.tier
         const sievableBlock = sieveDrops[this.blockType]
-        sievableBlock?.forEach(loot => {
+        if (!sievableBlock) return false
+        sievableBlock.forEach(loot => {
             if (tier < (loot.tier ?? 0)) return
+            if (loot.item == 'minecraft:flint' && tier >= 7) return
             if (Math.random() <= loot.chance * multi) {
                 const qty = Array.isArray(loot.amount)
                     ? DoriosAPI.utils.randomInterval(loot.amount[0], loot.amount[1])
@@ -120,7 +121,11 @@ class Sieve {
         * 
         * @type {ItemStack>}
         */
-    static meshesItemStack = {
+    static meshesItemStack = {}
+}
+
+world.afterEvents.worldLoad.subscribe(() => {
+    Sieve.meshesItemStack = {
         "utilitycraft:string_mesh": new ItemStack("utilitycraft:string_mesh"),
         "utilitycraft:flint_mesh": new ItemStack("utilitycraft:flint_mesh"),
         "utilitycraft:copper_mesh": new ItemStack("utilitycraft:copper_mesh"),
@@ -129,8 +134,8 @@ class Sieve {
         "utilitycraft:emerald_mesh": new ItemStack("utilitycraft:emerald_mesh"),
         "utilitycraft:diamond_mesh": new ItemStack("utilitycraft:diamond_mesh"),
         "utilitycraft:netherite_mesh": new ItemStack("utilitycraft:netherite_mesh")
-    };
-}
+    }
+})
 
 DoriosAPI.register.blockComponent("sieve", {
     onPlayerInteract(e) {
