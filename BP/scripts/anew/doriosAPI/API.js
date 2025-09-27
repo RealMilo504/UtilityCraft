@@ -1,4 +1,4 @@
-import { system } from '@minecraft/server';
+import { system, Player, Block, Entity, Container } from '@minecraft/server';
 const NAMESPACE = 'utilitycraft'
 
 /**
@@ -92,7 +92,116 @@ globalThis.DoriosAPI = {
             });
         }
     },
-    utils: {
+    import { ItemStack, world } from "@minecraft/server";
+
+    /**
+     * ============================================================
+     * transferItems - Dorios Studios Official Transfer Function
+     * ============================================================
+     *
+     * This function was created by **Dorios Studios** to handle
+     * item transfers between inventories in Minecraft Bedrock.
+     *
+     * ## Features
+     * - Works with both **entities** and **containers** as parameters.
+     * - Automatically extracts `minecraft:inventory.container` if an
+     *   entity is passed instead of a container.
+     * - Compatible with multiple addons:
+     *   - **Storage Drawers (dustveyn:storage_drawers)**.
+     *   - **Dorios containers** (custom entities with inventories).
+     *   - **UtilityCraft machines** like Assemblers and Simple Inputs.
+     * - Additional compatibility will be added for more addons in the future.
+     *
+     * ## Parameters
+     * - `initial` → Source entity or container.
+     * - `target` → Target entity or container.
+     * - `range` → Required. Either:
+     *   - A single slot number (e.g. `5`)
+     *   - An array with `[start, end]` indices (e.g. `[0, 5]`)
+     *
+     * @function transferItems
+     * @memberof DoriosAPI.utils
+     * @param {Entity | Container} initial Source entity or container.
+     * @param {Entity | Container} target Target entity or container.
+     * @param {number | [number, number]} range Slot index or range of slots to transfer.
+     */
+    transferItems(initial, target, range) {
+        const sourceInv = initial?.getComponent?.("minecraft:inventory")?.container ?? initial;
+        if (!sourceInv) return;
+
+        const targetInv = target?.getComponent?.("minecraft:inventory")?.container ?? target;
+        if (!targetInv && !target) return;
+
+        // Resolve range
+        let start, end;
+        if (typeof range === "number") {
+            start = end = range;
+        } else if (Array.isArray(range) && range.length === 2) {
+            [start, end] = range;
+        } else {
+            // Invalid range
+            return;
+        }
+
+        for (let slot = start; slot <= end; slot++) {
+            let itemToTransfer = sourceInv.getItem(slot);
+            if (!itemToTransfer) continue;
+
+            // Storage Drawers
+            if (target?.typeId?.includes("dustveyn:storage_drawers")) {
+                const targetEnt = target.dimension.getEntitiesAtBlockLocation(target.location)[0];
+                if (!targetEnt?.hasTag(itemToTransfer.typeId)) continue;
+
+                const targetId = targetEnt.scoreboardIdentity;
+                let capacity = world.scoreboard.getObjective("capacity").getScore(targetId);
+                let max_capacity = world.scoreboard.getObjective("max_capacity").getScore(targetId);
+
+                if (capacity < max_capacity) {
+                    let amount = Math.min(itemToTransfer.amount, max_capacity - capacity);
+                    itemToTransfer.amount > amount ? (itemToTransfer.amount -= amount) : (itemToTransfer = undefined);
+                    sourceInv.setItem(slot, itemToTransfer);
+                    targetEnt.runCommandAsync(`scoreboard players add @s capacity ${amount}`);
+                }
+                return;
+            }
+
+            // Target is a container
+            if (targetInv?.emptySlotsCount > 0) {
+                sourceInv.transferItem(slot, targetInv);
+                continue;
+            }
+
+            // Target is entity with logic
+            if (target?.getComponent) {
+                // Simple Input
+                if (target.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:simple_input")) {
+                    const slotNext = targetInv.getItem(3);
+                    if (!slotNext) {
+                        sourceInv.transferItem(slot, targetInv);
+                        continue;
+                    }
+                    if (itemToTransfer.typeId == slotNext.typeId && slotNext.amount < 64) {
+                        const amount = Math.min(itemToTransfer.amount, 64 - slotNext.amount);
+                        targetInv.addItem(new ItemStack(itemToTransfer.typeId, amount));
+                        itemToTransfer.amount > amount ? (itemToTransfer.amount -= amount) : (itemToTransfer = undefined);
+                        sourceInv.setItem(slot, itemToTransfer);
+                    }
+                    continue;
+                }
+
+                // Assemblers rule
+                if (target?.typeId === "utilitycraft:assembler" && targetInv.emptySlotsCount < 2) return;
+
+                // Normal entities
+                if (targetInv.emptySlotsCount > 0) {
+                    sourceInv.transferItem(slot, targetInv);
+                    continue;
+                }
+            }
+        }
+    }
+
+utils: {
         /**
          * Returns a random number between [min, max], inclusive if mode = "floor".
         * 
