@@ -138,7 +138,7 @@ export const crushing = {
     'minecraft:packed_ice': { output: 'minecraft:ice', amount: 9 },
     'minecraft:nether_wart_block': { output: 'minecraft:nether_wart', amount: 4 },
     'minecraft:magma_block': { output: 'minecraft:magma_cream', amount: 4 },
-    'minecraft:slime_black': { output: 'minecraft:slime_ball', amount: 9 },
+    'minecraft:slime_block': { output: 'minecraft:slime_ball', amount: 9 },
     'minecraft:bone': { output: 'minecraft:bone_meal', amount: 3 },
     'minecraft:bone_block': { output: 'minecraft:bone_meal', amount: 9 },
     'minecraft:blaze_rod': { output: 'minecraft:blaze_powder', amount: 2 },

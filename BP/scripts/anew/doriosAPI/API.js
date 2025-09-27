@@ -88,7 +88,11 @@ globalThis.DoriosAPI = {
     * operations (e.g., Block Breaker, custom mining systems).
     */
     unbreakableBlocks: [
+        "minecraft:allow",
+        "minecraft:barrier",
         "minecraft:bedrock",
+        "minecraft:border_block",
+        "minecraft:deny",
         "minecraft:end_portal_frame",
         "minecraft:end_portal",
         "minecraft:portal",

@@ -118,7 +118,14 @@ export const sieveDrops = {
         { item: 'minecraft:melon_seeds', amount: 9, chance: 0.10 },
         { item: 'minecraft:sugar_cane', amount: 9, chance: 0.10 },
         { item: 'minecraft:bamboo', amount: 9, chance: 0.10 },
-        { item: 'minecraft:sapling', amount: 9, chance: 0.10 },
+        { item: 'minecraft:acacia_sapling', amount: 9, chance: 0.10 },
+        { item: 'minecraft:birch_sapling', amount: 9, chance: 0.10 },
+        { item: 'minecraft:dark_oak_sapling', amount: 9, chance: 0.10 },
+        { item: 'minecraft:jungle_sapling', amount: 9, chance: 0.10 },
+        { item: 'minecraft:mangrove_sapling', amount: 9, chance: 0.10 },
+        { item: 'minecraft:oak_sapling', amount: 9, chance: 0.10 },
+        { item: 'minecraft:pale_oak_sapling', amount: 9, chance: 0.10 },
+        { item: 'minecraft:spruce_sapling', amount: 9, chance: 0.10 },
         { item: 'minecraft:cherry_sapling', amount: 9, chance: 0.10 }
     ],
     'utilitycraft:compressed_sand': [
