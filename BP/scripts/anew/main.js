@@ -9,4 +9,5 @@ import './blocks/crops.js'
 import './items/durability.js'
 import './items/drill.js'
 import './items/block_loot.js'
+import './items/hammer.js'
 
