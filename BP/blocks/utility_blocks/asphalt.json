@@ -20,9 +20,7 @@
 		},
 		"components": {
 			"minecraft:geometry": "geometry.utilitycraft_block",
-			"minecraft:custom_components": [
-				"utilitycraft:asphalt"
-			]
+			"utilitycraft:asphalt": {}
 		},
 		"permutations": [
 			{
