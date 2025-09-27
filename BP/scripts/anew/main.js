@@ -17,6 +17,7 @@ import './items/hammer.js'
 import './items/dig_pebble.js'
 import './items/smelting.js'
 import './items/potion.js'
+import './items/hoe.js'
 
 import './guide.js'
 import './stack_refill.js'

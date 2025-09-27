@@ -1,10 +1,14 @@
 {
-	"format_version": "1.21.70",
+	"format_version": "1.21.90",
 	"minecraft:item": {
 		"description": {
 			"identifier": "utilitycraft:diamond_aiot"
 		},
 		"components": {
+			"utilitycraft:hoe": {
+				"size": 1,
+				"runTractor": true
+			},
 			"minecraft:tags": {
 				"tags": [
 					"minecraft:is_axe",
@@ -20,10 +24,6 @@
 			"minecraft:durability": {
 				"max_durability": 7805
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:break",
-				"utilitycraft:vein"
-			],
 			"minecraft:damage": 8,
 			"minecraft:enchantable": {
 				"value": 15,
