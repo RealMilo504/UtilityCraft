@@ -2,7 +2,7 @@ import { ItemStack } from "@minecraft/server";
 import { crusherRecipes } from "../config/recipes/crusher.js";
 
 DoriosAPI.register.itemComponent("hammer", {
-    onMineBlock({ block, minedBlockPermutation, itemStack }, { params }) {
+    onMineBlock({ block, minedBlockPermutation }, { params }) {
         let { x, y, z } = block.location;
         x += 0.5;
         z += 0.5;
