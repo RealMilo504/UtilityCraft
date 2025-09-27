@@ -76,8 +76,6 @@ globalThis.DoriosAPI = {
                 default: return Math.floor(value);
             }
         }
-
-<<<<<<< Updated upstream
     },
     /**
     * List of blocks that cannot be broken or replaced by machines.
@@ -102,7 +100,4 @@ globalThis.DoriosAPI = {
         "minecraft:chain_command_block",
         "minecraft:repeating_command_block"
     ]
-=======
-    }
->>>>>>> Stashed changes
 }
