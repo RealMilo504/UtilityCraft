@@ -75,7 +75,29 @@ globalThis.DoriosAPI = {
                 case "float": return value;
                 default: return Math.floor(value);
             }
+        },
+        /**
+         * Capitalizes and formats a namespaced identifier into a readable string.
+         *
+         * Examples:
+         * - "minecraft:stone" → "Stone"
+         * - "utilitycraft:iron_block" → "Iron Block"
+         *
+         * @param {string} str The namespaced identifier (e.g. "namespace:item_name").
+         * @returns {string} The formatted, capitalized name.
+         */
+        capitalize(str) {
+            let name = str.split(':')[1]
+            let result = name.charAt(0).toUpperCase() + name.slice(1)
+            if (result.indexOf('_') === -1) return result
+
+            let temp = result
+                .split('_')
+                .map((x) => x.charAt(0).toUpperCase() + x.slice(1))
+                .join(' ')
+            return temp
         }
+
     },
     /**
     * List of blocks that cannot be broken or replaced by machines.
