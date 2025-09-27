@@ -39,13 +39,13 @@ world.afterEvents.itemUse.subscribe((event) => {
 
     if (!source.isSneaking && page < MAX_PAGE) {
         inventory.setItem(slot, new ItemStack(`${identifier}_${page + 1}`, 1))
-        world.playSound('item.book.page_turn', location)
+        source.playSound('item.book.page_turn', location)
         return
     }
 
     if (source.isSneaking && page > 0) {
         inventory.setItem(slot, new ItemStack(`${identifier}_${page - 1}`, 1))
-        world.playSound('item.book.page_turn', location)
+        source.playSound('item.book.page_turn', location)
     }
 })
 
