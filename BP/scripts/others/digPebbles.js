@@ -1,4 +1,5 @@
 import { world, ItemStack, ItemEnchantableComponent } from '@minecraft/server'
+import * as DoriosAPI from '../doriosAPI.js'
 
 const digDrops = [
     { drop: 'utilitycraft:gravel_fragments', min: 1, max: 2, prob: 50 },
@@ -15,7 +16,7 @@ function itemDrops(drop, block) {
     let { x, y, z } = block.location
     x += 0.5; y += 1; z += 0.5
     if (roll <= drop.prob) {
-        let numDrops = Math.floor(Math.random() * (drop.max - drop.min + 1)) + drop.min;
+        const numDrops = DoriosAPI.utils.randomInterval(drop.min, drop.max)
         block.dimension.spawnItem(new ItemStack(drop.drop, numDrops), { x, y, z })
     }
 }
@@ -34,8 +35,8 @@ world.beforeEvents.worldInitialize.subscribe(e => {
             const inventory = source.getComponent("minecraft:inventory").container
             const ench = itemStack.getComponent(ItemEnchantableComponent.componentId)
             let unbreaking = 0
-            if (ench == undefined) {
-                unbreaking = ench.getEnchantment("unbreaking").level
+            if (ench !== undefined) {
+                unbreaking = ench.getEnchantment("unbreaking")?.level ?? 0
             }
             if (!source.matches({ gameMode: 'creative' })) {
                 if ((Math.ceil(Math.random() * 100)) <= (100 / (unbreaking + 1))) {

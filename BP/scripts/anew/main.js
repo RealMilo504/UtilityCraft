@@ -10,6 +10,7 @@ import './items/durability.js'
 import './items/drill.js'
 import './items/block_loot.js'
 import './items/hammer.js'
+import './items/dig_pebble.js'
 import './items/smelting.js'
 import './items/potion.js'
 
