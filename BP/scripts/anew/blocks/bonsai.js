@@ -363,7 +363,7 @@ DoriosAPI.register.blockComponent('bonsai', {
                 if (Math.random() * 100 <= drop.prob) {
                     const amount = DoriosAPI.utils.randomInterval(drop.min, drop.max)
                     try {
-                        inv.addItem(new ItemStack(drop.item, amount * multi))
+                        DoriosAPI.addItem(inv, drop.item, amount * multi)
                     } catch { }
                 }
             })

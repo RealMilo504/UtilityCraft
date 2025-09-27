@@ -36,7 +36,7 @@ const NAMESPACE = 'utilitycraft'
  * Contributors are welcome to build upon this API, but credits to
  * **Dorios Studios** and **Milo504** should always remain.
  *
- * ------------------------------------------------------------
+ * ----------------------------------------------------
  * @namespace DoriosAPI
  * @version 1.0.0
  * @author Milo504
@@ -45,7 +45,7 @@ const NAMESPACE = 'utilitycraft'
  * @repository 
  * @docs 
  * @lastUpdate 2025-09-27
- * ------------------------------------------------------------
+ * -----------------------------------------------------
  */
 globalThis.DoriosAPI = {
     version: "1.0.0",
@@ -92,15 +92,10 @@ globalThis.DoriosAPI = {
             });
         }
     },
-    import { ItemStack, world } from "@minecraft/server";
-
     /**
-     * ============================================================
-     * transferItems - Dorios Studios Official Transfer Function
-     * ============================================================
-     *
      * This function was created by **Dorios Studios** to handle
-     * item transfers between inventories in Minecraft Bedrock.
+     * item insertions into inventories with compatibility for
+     * custom addons and containers.
      *
      * ## Features
      * - Works with both **entities** and **containers** as parameters.
@@ -110,7 +105,96 @@ globalThis.DoriosAPI = {
      *   - **Storage Drawers (dustveyn:storage_drawers)**.
      *   - **Dorios containers** (custom entities with inventories).
      *   - **UtilityCraft machines** like Assemblers and Simple Inputs.
-     * - Additional compatibility will be added for more addons in the future.
+     * - Additional compatibility will be added in the future.
+     *
+     * @function addItem
+     * @memberof DoriosAPI
+     * @param {Entity | Container} target Target entity or container.
+     * @param {ItemStack} itemStack Item to insert.
+     * @returns {boolean} Whether the item was successfully added.
+     */
+    addItemStack(target, itemStack) {
+        if (!itemStack) return false;
+
+        // Resolve target inventory
+        const targetInv = target?.getComponent?.("minecraft:inventory")?.container ?? target;
+        if (!targetInv && !target) return false;
+
+        // Storage Drawers
+        if (target?.typeId?.includes("dustveyn:storage_drawers")) {
+            const targetEnt = target.dimension.getEntitiesAtBlockLocation(target.location)[0];
+            if (!targetEnt?.hasTag(itemStack.typeId)) return false;
+
+            const targetId = targetEnt.scoreboardIdentity;
+            let capacity = world.scoreboard.getObjective("capacity").getScore(targetId);
+            let max_capacity = world.scoreboard.getObjective("max_capacity").getScore(targetId);
+
+            if (capacity < max_capacity) {
+                const amount = Math.min(itemStack.amount, max_capacity - capacity);
+                targetEnt.runCommandAsync(`scoreboard players add @s capacity ${amount}`);
+                return true;
+            }
+            return false;
+        }
+
+        // Entity with logic
+        if (target?.getComponent) {
+            // Simple input → slot 3 only
+            if (target.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:simple_input")) {
+                const slotNext = targetInv.getItem(3);
+                if (!slotNext) {
+                    targetInv.setItem(3, itemStack);
+                    return true;
+                }
+                if (slotNext.typeId === itemStack.typeId && slotNext.amount < 64) {
+                    const amount = Math.min(itemStack.amount, 64 - slotNext.amount);
+                    slotNext.amount += amount;
+                    targetInv.setItem(3, slotNext);
+                    return true;
+                }
+                return false;
+            }
+
+            // Assemblers → require 2 empty slots
+            if (target?.typeId === "utilitycraft:assembler" && targetInv.emptySlotsCount < 2) return false;
+        }
+
+        // Normal containers
+        if (targetInv?.emptySlotsCount > 0) {
+            targetInv.addItem(itemStack);
+            return true;
+        }
+
+        return false;
+    },
+    /**
+     * Adds an item to an inventory or entity by item identifier and amount.
+     *
+     * Internally creates an `ItemStack` and uses {@link addItemStack}.
+     *
+     * @function addItem
+     * @memberof DoriosAPI
+     * @param {import("@minecraft/server").Entity | import("@minecraft/server").Container} target Target entity or container.
+     * @param {string} itemId The identifier of the item (e.g. `"minecraft:iron_ingot"`).
+     * @param {number} amount The quantity of items to add.
+     * @returns {boolean} Whether the item was successfully added.
+     */
+    addItem(target, itemId, amount = 1) {
+        if (!itemId || amount <= 0) return false;
+        const itemStack = new ItemStack(itemId, amount);
+        return addItemStack(target, itemStack);
+    },
+    /**
+     * This function was created by **Dorios Studios** to handle
+     * item transfers between inventories in Minecraft Bedrock.
+     *
+     * ## Features
+     * - Works with both **entities** and **containers** as parameters.
+     * - Automatically extracts `minecraft:inventory.container` if an
+     *   entity is passed instead of a container.
+     * - Uses {@link addItemStack} for all target insertions, ensuring
+     *   compatibility with Dorios containers, Storage Drawers, and
+     *   UtilityCraft machines.
      *
      * ## Parameters
      * - `initial` → Source entity or container.
@@ -120,7 +204,7 @@ globalThis.DoriosAPI = {
      *   - An array with `[start, end]` indices (e.g. `[0, 5]`)
      *
      * @function transferItems
-     * @memberof DoriosAPI.utils
+     * @memberof DoriosAPI
      * @param {Entity | Container} initial Source entity or container.
      * @param {Entity | Container} target Target entity or container.
      * @param {number | [number, number]} range Slot index or range of slots to transfer.
@@ -129,9 +213,6 @@ globalThis.DoriosAPI = {
         const sourceInv = initial?.getComponent?.("minecraft:inventory")?.container ?? initial;
         if (!sourceInv) return;
 
-        const targetInv = target?.getComponent?.("minecraft:inventory")?.container ?? target;
-        if (!targetInv && !target) return;
-
         // Resolve range
         let start, end;
         if (typeof range === "number") {
@@ -139,69 +220,25 @@ globalThis.DoriosAPI = {
         } else if (Array.isArray(range) && range.length === 2) {
             [start, end] = range;
         } else {
-            // Invalid range
-            return;
+            return; // invalid
         }
 
         for (let slot = start; slot <= end; slot++) {
             let itemToTransfer = sourceInv.getItem(slot);
             if (!itemToTransfer) continue;
 
-            // Storage Drawers
-            if (target?.typeId?.includes("dustveyn:storage_drawers")) {
-                const targetEnt = target.dimension.getEntitiesAtBlockLocation(target.location)[0];
-                if (!targetEnt?.hasTag(itemToTransfer.typeId)) continue;
+            // Try to add to target using addItemStack
+            const added = addItemStack(target, itemToTransfer);
 
-                const targetId = targetEnt.scoreboardIdentity;
-                let capacity = world.scoreboard.getObjective("capacity").getScore(targetId);
-                let max_capacity = world.scoreboard.getObjective("max_capacity").getScore(targetId);
-
-                if (capacity < max_capacity) {
-                    let amount = Math.min(itemToTransfer.amount, max_capacity - capacity);
-                    itemToTransfer.amount > amount ? (itemToTransfer.amount -= amount) : (itemToTransfer = undefined);
-                    sourceInv.setItem(slot, itemToTransfer);
-                    targetEnt.runCommandAsync(`scoreboard players add @s capacity ${amount}`);
-                }
-                return;
-            }
-
-            // Target is a container
-            if (targetInv?.emptySlotsCount > 0) {
-                sourceInv.transferItem(slot, targetInv);
+            // If fully added → clear slot
+            if (added) {
+                sourceInv.setItem(slot, undefined);
                 continue;
             }
-
-            // Target is entity with logic
-            if (target?.getComponent) {
-                // Simple Input
-                if (target.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:simple_input")) {
-                    const slotNext = targetInv.getItem(3);
-                    if (!slotNext) {
-                        sourceInv.transferItem(slot, targetInv);
-                        continue;
-                    }
-                    if (itemToTransfer.typeId == slotNext.typeId && slotNext.amount < 64) {
-                        const amount = Math.min(itemToTransfer.amount, 64 - slotNext.amount);
-                        targetInv.addItem(new ItemStack(itemToTransfer.typeId, amount));
-                        itemToTransfer.amount > amount ? (itemToTransfer.amount -= amount) : (itemToTransfer = undefined);
-                        sourceInv.setItem(slot, itemToTransfer);
-                    }
-                    continue;
-                }
-
-                // Assemblers rule
-                if (target?.typeId === "utilitycraft:assembler" && targetInv.emptySlotsCount < 2) return;
-
-                // Normal entities
-                if (targetInv.emptySlotsCount > 0) {
-                    sourceInv.transferItem(slot, targetInv);
-                    continue;
-                }
-            }
         }
-    }
+    },
 
-utils: {
+    utils: {
         /**
          * Returns a random number between [min, max], inclusive if mode = "floor".
         * 
