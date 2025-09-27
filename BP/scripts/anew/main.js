@@ -8,6 +8,7 @@ import './blocks/crops.js'
 import './blocks/light_blocks.js'
 import './blocks/on_interact.js'
 import './blocks/asphalt.js'
+import './blocks/elevator.js'
 
 import './items/durability.js'
 import './items/drill.js'

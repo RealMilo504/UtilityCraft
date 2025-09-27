@@ -8,9 +8,7 @@
 			}
 		},
 		"components": {
-			"minecraft:custom_components": [
-				"utilitycraft:elevator"
-			]
+			"utilitycraft:elevator": {}
 		}
 	}
 }
