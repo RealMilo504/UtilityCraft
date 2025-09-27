@@ -10,11 +10,11 @@ world.afterEvents.playerBreakBlock.subscribe(({ itemStackAfterBreak, player }) =
     }
 })
 
-world.afterEvents.entityHitEntity.subscribe(({ hitEntity }) => {
-    if (hitEntity.typeId != 'minecraft:player') return
-    const player = hitEntity
+world.afterEvents.entityHitEntity.subscribe(({ damagingEntity }) => {
+    if (damagingEntity.typeId != 'minecraft:player') return
+    const player = damagingEntity
     /** @type {ItemStack} */
-    const itemStack = hitEntity.getEquipment("Mainhand")
+    const itemStack = player.getEquipment("Mainhand")
     if (itemStack.durability.damage(1, 1)) {
         player.setEquipment("Mainhand", itemStack)
     } else {
