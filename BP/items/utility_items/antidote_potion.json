@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.10",
+        "format_version": "1.21.90",
 	"minecraft:item": {
 		"description": {
 			"identifier": "utilitycraft:antidote_potion",
@@ -20,9 +20,7 @@
 				"use_duration": 1.5
 			},
 			"minecraft:use_animation": "drink",
-			"minecraft:custom_components": [
-				"utilitycraft:potion"
-			]
-		}
-	}
+                        "utilitycraft:potion": {}
+                }
+        }
 }
