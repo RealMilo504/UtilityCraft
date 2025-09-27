@@ -10,7 +10,7 @@
 		"components": {
 			"minecraft:icon": "utilitycraft_mooshroom_essence",
 			"minecraft:max_stack_size": 16,
-			"minecraft:foil": true
+			"minecraft:glint": true
 		}
 	}
 }

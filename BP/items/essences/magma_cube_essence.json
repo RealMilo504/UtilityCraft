@@ -10,7 +10,7 @@
 		"components": {
 			"minecraft:icon": "utilitycraft_magma_cube_essence",
 			"minecraft:max_stack_size": 16,
-			"minecraft:foil": true
+			"minecraft:glint": true
 		}
 	}
 }
