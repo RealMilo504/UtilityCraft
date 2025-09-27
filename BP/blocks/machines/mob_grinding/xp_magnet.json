@@ -35,6 +35,7 @@
 			}
 		},
 		"components": {
+			"utilitycraft:xp_magnet": {},
 			"minecraft:geometry": "geometry.utilitycraft_xp_magnet",
 			"minecraft:material_instances": {
 				"*": {
@@ -48,9 +49,6 @@
 					5
 				]
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:xp_magnet"
-			],
 			"minecraft:collision_box": {
 				"size": [
 					16,
