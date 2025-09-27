@@ -12,7 +12,7 @@ DoriosAPI.register.itemComponent('mesh', {})
  *   - chance {number}  Drop probability (0.0 – 1.0, default = 0.1)
  *   - tier {number}  Mesh tier needed
  */
-export const sieveDrops = {
+export const sieveRecipes = {
     'minecraft:gravel': [
         { item: 'minecraft:flint', amount: 1, chance: 0.20, tier: 0 },
         { item: 'utilitycraft:iron_chunk', amount: 1, chance: 0.20, tier: 1 },
@@ -188,7 +188,7 @@ export const sieveDrops = {
  *   ]
  * }
  * 
- * - If a block ID is not already defined in `sieveDrops`, the entry is skipped.
+ * - If a block ID is not already defined in `sieveRecipes`, the entry is skipped.
  * - If an invalid format is detected, a warning is printed and ignored.
  */
 system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
@@ -203,7 +203,7 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
         }
 
         for (const [blockId, drops] of Object.entries(payload)) {
-            if (!sieveDrops[blockId]) {
+            if (!sieveRecipes[blockId]) {
                 console.warn(`[UtilityCraft] Block '${blockId}' not registered. Cannot add new blocks.`);
                 continue;
             }
@@ -226,7 +226,7 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
                     chance: drop.chance ?? 0.1
                 };
 
-                sieveDrops[blockId].push(safeDrop);
+                sieveRecipes[blockId].push(safeDrop);
                 console.warn(`[UtilityCraft] Added drop to '${blockId}':`, safeDrop);
             }
         }

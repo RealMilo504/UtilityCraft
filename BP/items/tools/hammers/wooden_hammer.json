@@ -1,10 +1,13 @@
 {
-	"format_version": "1.21.70",
+	"format_version": "1.21.90",
 	"minecraft:item": {
 		"description": {
 			"identifier": "utilitycraft:wooden_hammer"
 		},
 		"components": {
+			"utilitycraft:hammer": {
+				"tier": 0
+			},
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:durability": {
@@ -16,11 +19,6 @@
 				"value": 15,
 				"slot": "pickaxe"
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:hammer",
-				"utilitycraft:break",
-				"utilitycraft:dig_pebble"
-			],
 			"minecraft:repairable": {
 				"repair_items": [
 					{

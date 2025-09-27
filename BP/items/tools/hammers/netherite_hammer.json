@@ -1,20 +1,18 @@
 {
-	"format_version": "1.21.70",
+	"format_version": "1.21.90",
 	"minecraft:item": {
 		"description": {
 			"identifier": "utilitycraft:netherite_hammer"
 		},
 		"components": {
+			"utilitycraft:hammer": {
+				"tier": 3
+			},
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:durability": {
 				"max_durability": 2031
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:hammer",
-				"utilitycraft:break",
-				"utilitycraft:dig_pebble"
-			],
 			"minecraft:damage": 6,
 			"minecraft:icon": "utilitycraft_netherite_hammer",
 			"minecraft:enchantable": {

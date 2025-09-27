@@ -1,5 +1,5 @@
 import { ItemStack, world } from "@minecraft/server"
-import { sieveDrops } from "../config/sieve.js"
+import { sieveRecipes } from "../config/recipes/sieve.js"
 
 /**
  * Represents a single sieve block with utility methods.
@@ -61,7 +61,7 @@ class Sieve {
 
     insertBlock(player, mainHand) {
         if (this.mesh === "empty" || this.blockType !== "empty" || this.stage !== 0) return false
-        if (!sieveDrops[mainHand.typeId]) return false
+        if (!sieveRecipes[mainHand.typeId]) return false
 
         this.block.setState("utilitycraft:block", mainHand.typeId)
         this.block.setState("utilitycraft:state", 4)
@@ -91,15 +91,17 @@ class Sieve {
         if (!meshData) return false
         const multi = meshData.multiplier
         const tier = meshData.tier
-        const sievableBlock = sieveDrops[this.blockType]
+        const sievableBlock = sieveRecipes[this.blockType]
         if (!sievableBlock) return false
         sievableBlock.forEach(loot => {
             if (tier < (loot.tier ?? 0)) return
             if (loot.item == 'minecraft:flint' && tier >= 7) return
             if (Math.random() <= loot.chance * multi) {
-                const qty = Array.isArray(loot.amount)
+                let qty = Array.isArray(loot.amount)
                     ? DoriosAPI.utils.randomInterval(loot.amount[0], loot.amount[1])
                     : loot.amount;
+
+                if (meshData.amount_multiplier) qty * meshData.amount_multiplier
 
                 this.block.dimension.spawnItem(new ItemStack(loot.item, qty), {
                     x: x + 0.25 + Math.random() / 2,

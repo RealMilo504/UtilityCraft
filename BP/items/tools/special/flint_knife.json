@@ -8,15 +8,17 @@
 			}
 		},
 		"components": {
-			"utilitycraft:block_loot": {
-				"blockEndsWith": "leaves",
-				"item": "utilitycraft:fiber",
-				"chance": 0.5,
-				"amount": [
-					1,
-					2
-				]
-			},
+			"utilitycraft:block_loot": [
+				{
+					"blockEndsWith": "leaves",
+					"item": "utilitycraft:fiber",
+					"chance": 0.5,
+					"amount": [
+						1,
+						2
+					]
+				}
+			],
 			"minecraft:icon": "utilitycraft_flint_knife",
 			"minecraft:durability": {
 				"max_durability": 128

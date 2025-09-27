@@ -1,10 +1,13 @@
 {
-	"format_version": "1.21.70",
+	"format_version": "1.21.90",
 	"minecraft:item": {
 		"description": {
 			"identifier": "utilitycraft:diamond_hammer"
 		},
 		"components": {
+			"utilitycraft:hammer": {
+				"tier": 3
+			},
 			"minecraft:max_stack_size": 1,
 			"minecraft:tags": {
 				"tags": [
@@ -15,11 +18,6 @@
 			"minecraft:durability": {
 				"max_durability": 1561
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:hammer",
-				"utilitycraft:break",
-				"utilitycraft:dig_pebble"
-			],
 			"minecraft:damage": 6,
 			"minecraft:icon": "utilitycraft_diamond_hammer",
 			"minecraft:enchantable": {
