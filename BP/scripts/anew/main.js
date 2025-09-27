@@ -13,3 +13,5 @@ import './items/hammer.js'
 import './items/smelting.js'
 import '../items/tools/potion.js'
 
+import './guide.js'
+
