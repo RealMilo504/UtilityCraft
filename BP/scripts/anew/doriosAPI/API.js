@@ -49,6 +49,15 @@ const NAMESPACE = 'utilitycraft'
  */
 globalThis.DoriosAPI = {
     version: "1.0.0",
+    /**
+     * Functions to register custom components into Minecraft registries.
+     *
+     * Provides helpers to simplify the registration of
+     * block and item components, automatically prefixing
+     * the identifier with the `"utilitycraft"` namespace.
+     *
+     * @namespace DoriosAPI.register
+     */
     register: {
         /**
          * Registers a custom block component into the block component registry.
@@ -237,7 +246,12 @@ globalThis.DoriosAPI = {
             }
         }
     },
-
+    /**
+     * Utility functions provided by Dorios Studios
+     * to simplify common development tasks within Minecraft addons.
+     *
+     * @namespace DoriosAPI.utils
+     */
     utils: {
         /**
          * Returns a random number between [min, max], inclusive if mode = "floor".
@@ -287,6 +301,14 @@ globalThis.DoriosAPI = {
         }
 
     },
+    /**
+     * Constants used across Dorios Studios addons.
+     *
+     * Includes both general Minecraft constants and
+     * specific constants defined by Dorios Studios.
+     *
+     * @namespace DoriosAPI.constants
+     */
     constants: {
         /**
             * List of blocks that cannot be broken or replaced by machines.
