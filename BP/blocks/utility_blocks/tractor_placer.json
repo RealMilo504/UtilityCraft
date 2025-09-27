@@ -21,10 +21,7 @@
 					"texture": "utilitycraft_tractor_placer",
 					"render_method": "alpha_test"
 				}
-			},
-			"minecraft:custom_components": [
-				"utilitycraft:onInteract"
-			]
+			}
 		},
 		"permutations": [
 			{

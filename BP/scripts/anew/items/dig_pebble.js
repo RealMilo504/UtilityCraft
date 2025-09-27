@@ -31,26 +31,13 @@ DoriosAPI.register.itemComponent("dig_pebble", {
             block.dimension.spawnItem(new ItemStack(drop.drop, amount), location);
         }
 
-        if (source.matches?.({ gameMode: "creative" })) return;
-
-        const durability = itemStack.getComponent("minecraft:durability");
-        if (!durability) return;
-
-        const inventory = source.getComponent("minecraft:inventory")?.container;
-        const ench = itemStack.getComponent(ItemEnchantableComponent.componentId);
-        const unbreaking = ench?.getEnchantment?.("unbreaking")?.level ?? 0;
-
-        const shouldDamage = Math.ceil(Math.random() * 100) <= (100 / (unbreaking + 1));
-        if (!shouldDamage) return;
-
-        if (durability.damage + 1 <= durability.maxDurability) {
-            durability.damage += 1;
-            inventory?.setItem(source.selectedSlotIndex, itemStack);
-            return;
+        if (source.isInCreative()) return;
+        if (itemStack.durability.damage(1, 1)) {
+            source.setEquipment("Mainhand", itemStack)
+        } else {
+            source.setEquipment("Mainhand",)
+            source.playSound('random.break')
         }
-
-        inventory?.setItem(source.selectedSlotIndex, undefined);
-        source.playSound?.("random.break");
     }
 });
 

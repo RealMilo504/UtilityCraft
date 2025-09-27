@@ -5,6 +5,8 @@ import './blocks/cobble_generators.js'
 import './blocks/crucible.js'
 import './blocks/sieve.js'
 import './blocks/crops.js'
+import './blocks/light_blocks.js'
+import './blocks/on_interact.js'
 
 import './items/durability.js'
 import './items/drill.js'

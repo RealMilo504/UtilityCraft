@@ -40,9 +40,6 @@
 				]
 			},
 			"minecraft:light_emission": 15,
-			"minecraft:custom_components": [
-				"utilitycraft:big_torch"
-			],
 			"minecraft:destructible_by_explosion": false
 		}
 	}

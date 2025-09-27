@@ -22,9 +22,6 @@
                     "render_method": "alpha_test"
                 }
             },
-            "minecraft:custom_components": [
-                "utilitycraft:onInteract"
-            ],
             "minecraft:collision_box": {
                 "origin": [
                     -6,

@@ -57,22 +57,3 @@ world.afterEvents.itemCompleteUse.subscribe((e) => {
         }
     }
 })
-
-world.afterEvents.itemUseOn.subscribe((e) => {
-    const { source, itemStack } = e
-
-    const mainhandSlot = source.selectedSlotIndex
-    const mainhand = source.getComponent('equippable').getEquipment('Mainhand');
-    const inv = source.getComponent('minecraft:inventory')
-
-    if (mainhand) return
-
-    for (let i = 0; i < inv.inventorySize; i++) {
-        if (inv.container.getItem(i)) {
-            if (inv.container.getItem(i).typeId == itemStack.typeId) {
-                inv.container.swapItems(i, mainhandSlot, inv.container)
-                break
-            }
-        }
-    }
-})

@@ -21,10 +21,6 @@
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:onInteract",
-				"utilitycraft:pedestal"
-			],
 			"minecraft:tick": {
 				"looping": true,
 				"interval_range": [

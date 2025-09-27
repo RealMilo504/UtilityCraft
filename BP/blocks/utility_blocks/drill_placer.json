@@ -71,10 +71,7 @@
 					"texture": "utilitycraft_drill_place",
 					"render_method": "alpha_test"
 				}
-			},
-			"minecraft:custom_components": [
-				"utilitycraft:onInteract"
-			]
+			}
 		}
 	}
 }
