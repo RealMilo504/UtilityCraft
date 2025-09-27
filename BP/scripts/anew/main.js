@@ -14,4 +14,5 @@ import './items/smelting.js'
 import './items/potion.js'
 
 import './guide.js'
+import './stack_refill.js'
 
