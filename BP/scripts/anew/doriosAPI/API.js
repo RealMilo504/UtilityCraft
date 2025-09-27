@@ -1,12 +1,54 @@
 import { system } from '@minecraft/server';
+const NAMESPACE = 'utilitycraft'
 
 /**
  * @typedef {import("@minecraft/server").BlockCustomComponent} BlockCustomComponent
  * @typedef {import("@minecraft/server").ItemCustomComponent} ItemCustomComponent
  */
 
-const NAMESPACE = 'utilitycraft'
+/**
+ * ==================================================
+ * DoriosAPI - Official Library by Dorios Studios
+ * ==================================================
+ *
+ * This is the official API of **Dorios Studios**, created by Milo504.
+ *
+ * It serves as the foundation of the UtilityCraft addon and other projects,
+ * centralizing common logic and utilities in one place.
+ *
+ * ## Purpose
+ * - Simplifies the registration of custom **block** and **item components**.
+ * - Provides **utility functions** (random ranges, string formatting, etc.).
+ * - Stores **constants** used across multiple systems (e.g., unbreakable blocks).
+ *
+ * ## Extensions
+ * In addition to this core file, DoriosAPI includes multiple modules
+ * where default Minecraft classes are extended with new methods:
+ *
+ * - **Entity** → extra methods for data handling and interaction.
+ * - **Player** → inventory helpers, item giving, stat handling, etc.
+ * - **Block** → additional logic for machines and block utilities.
+ * - **ItemStack** → simplified manipulation and checks.
+ *
+ * All extensions were created by **Milo504** with the goal of making
+ * development **faster, cleaner, and more consistent**.
+ *
+ * Contributors are welcome to build upon this API, but credits to
+ * **Dorios Studios** and **Milo504** should always remain.
+ *
+ * ------------------------------------------------------------
+ * @namespace DoriosAPI
+ * @version 1.0.0
+ * @author Milo504
+ * @studio Dorios Studios
+ * @license All Rights Reserved
+ * @repository 
+ * @docs 
+ * @lastUpdate 2025-09-27
+ * ------------------------------------------------------------
+ */
 globalThis.DoriosAPI = {
+    version: "1.0.0",
     register: {
         /**
          * Registers a custom block component into the block component registry.
@@ -99,27 +141,29 @@ globalThis.DoriosAPI = {
         }
 
     },
-    /**
-    * List of blocks that cannot be broken or replaced by machines.
-    * 
-    * These blocks are considered unbreakable for safety reasons,
-    * game logic, or to avoid exploits. 
-    * 
-    * Use this array to check against when validating block-breaking
-    * operations (e.g., Block Breaker, custom mining systems).
-    */
-    unbreakableBlocks: [
-        "minecraft:allow",
-        "minecraft:barrier",
-        "minecraft:bedrock",
-        "minecraft:border_block",
-        "minecraft:deny",
-        "minecraft:end_portal_frame",
-        "minecraft:end_portal",
-        "minecraft:portal",
-        "minecraft:reinforced_deepslate",
-        "minecraft:command_block",
-        "minecraft:chain_command_block",
-        "minecraft:repeating_command_block"
-    ]
+    constants: {
+        /**
+            * List of blocks that cannot be broken or replaced by machines.
+            * 
+            * These blocks are considered unbreakable for safety reasons,
+            * game logic, or to avoid exploits. 
+            * 
+            * Use this array to check against when validating block-breaking
+            * operations (e.g., Block Breaker, custom mining systems).
+            */
+        unbreakableBlocks: [
+            "minecraft:allow",
+            "minecraft:barrier",
+            "minecraft:bedrock",
+            "minecraft:border_block",
+            "minecraft:deny",
+            "minecraft:end_portal_frame",
+            "minecraft:end_portal",
+            "minecraft:portal",
+            "minecraft:reinforced_deepslate",
+            "minecraft:command_block",
+            "minecraft:chain_command_block",
+            "minecraft:repeating_command_block"
+        ]
+    }
 }

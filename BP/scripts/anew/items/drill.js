@@ -21,7 +21,7 @@ function buildCubicDrillCommand(location, size) {
     const maxZ = z + radius
 
     // Add all conditions for unbreakable blocks
-    const conditions = DoriosAPI.unbreakableBlocks
+    const conditions = DoriosAPI.constants.unbreakableBlocks
         .map(b => `unless block ${x} ${y} ${z} ${b}`)
         .join(" ")
 
