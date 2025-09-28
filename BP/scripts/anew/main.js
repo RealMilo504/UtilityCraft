@@ -11,6 +11,7 @@ import './blocks/asphalt.js'
 import './blocks/elevator.js'
 import './blocks/xp_magnet.js'
 import './blocks/xp.js'
+import './blocks/pedestal.js'
 
 import './items/durability.js'
 import './items/drill.js'
