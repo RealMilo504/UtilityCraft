@@ -1,4 +1,4 @@
-import { system, Player, Block, Entity, Container } from '@minecraft/server';
+import { system, world, Player, Block, Entity, Container, CommandPermissionLevel, CustomCommandParamType } from '@minecraft/server';
 const NAMESPACE = 'utilitycraft'
 
 /**
@@ -302,8 +302,31 @@ globalThis.DoriosAPI = {
          */
         actionBar(player, msg) {
             if (!player?.onScreenDisplay || typeof msg !== 'string') return;
-            player.onScreenDisplay.setActionBar(msg);
+            try {
+                player.onScreenDisplay.setActionBar(msg);
+            } catch {
+                system.runTimeout(() => {
+                    player.onScreenDisplay.setActionBar(msg);
+                })
+            }
         },
+        /**
+         * Sends a chat message directly to a player.
+         * 
+         * @param {Player} player The player to send the message to.
+         * @param {string} msg The message to display.
+         */
+        playerMessage(player, msg) {
+            if (!player || typeof msg !== 'string') return;
+            try {
+                player.sendMessage(msg);
+            } catch {
+                system.runTimeout(() => {
+                    player.sendMessage(msg);
+                });
+            }
+        },
+
         /**
          * Returns a random integer between min and max, inclusive.
          * 
@@ -596,6 +619,131 @@ globalThis.DoriosAPI = {
             "minecraft:command_block",
             "minecraft:chain_command_block",
             "minecraft:repeating_command_block"
-        ]
+        ],
+        /**
+         * Permission map for custom command registration.
+         * 
+         * Provides shortcuts for mapping string keys to 
+         * CommandPermissionLevel values.
+         * 
+         * @constant
+         */
+        permissionMap: {
+            any: CommandPermissionLevel.Any,
+            host: CommandPermissionLevel.Host,
+            owner: CommandPermissionLevel.Owner,
+            admin: CommandPermissionLevel.Admin,
+            gamedirector: CommandPermissionLevel.GameDirectors,
+        },
+
+        /**
+         * Type map for custom command parameter definitions.
+         * 
+         * Provides shortcuts for mapping string keys to 
+         * CustomCommandParamType values.
+         * 
+         * @constant
+         */
+        typeMap: {
+            string: CustomCommandParamType.String,
+            int: CustomCommandParamType.Integer,
+            float: CustomCommandParamType.Float,
+            bool: CustomCommandParamType.Boolean,
+            enum: CustomCommandParamType.Enum,
+            block: CustomCommandParamType.BlockType,
+            item: CustomCommandParamType.ItemType,
+            location: CustomCommandParamType.Location,
+            target: CustomCommandParamType.EntitySelector,
+            entityType: CustomCommandParamType.EntityType,
+            player: CustomCommandParamType.PlayerSelector,
+        },
+
+        /**
+         * Minecraft text formatting codes.
+         * 
+         * Includes all color codes and style modifiers
+         * that can be used in chat, action bar, and UI text.
+         * 
+         * @constant
+         */
+        textColors: {
+            // Colors
+            black: "§0",
+            darkBlue: "§1",
+            darkGreen: "§2",
+            darkAqua: "§3",
+            darkRed: "§4",
+            darkPurple: "§5",
+            gold: "§6",
+            gray: "§7",
+            darkGray: "§8",
+            blue: "§9",
+            green: "§a",
+            aqua: "§b",
+            red: "§c",
+            lightPurple: "§d",
+            yellow: "§e",
+            white: "§f",
+
+            // Styles
+            obfuscated: "§k",
+            bold: "§l",
+            strikethrough: "§m",
+            underline: "§n",
+            italic: "§o",
+            reset: "§r"
+        },
+
+        /**
+         * Common dimension identifiers with metadata.
+         * 
+         * @constant
+         */
+        dimensions: {
+            overworld: {
+                id: "minecraft:overworld",
+                maxY: 320,
+                minY: -64
+            },
+            nether: {
+                id: "minecraft:nether",
+                maxY: 128,
+                minY: 0
+            },
+            end: {
+                id: "minecraft:the_end",
+                maxY: 256,
+                minY: 0
+            }
+        },
+
+        /**
+         * Time conversion constants in game ticks.
+         * 
+         * @constant
+         */
+        time: {
+            tick: 1,
+            second: 20,
+            minute: 1200,
+            hour: 72000,
+            day: 172800
+        },
+
+        /**
+         * Equipment slot identifiers for entities/players.
+         * Useful with Equippable component.
+         * 
+         * @constant
+         */
+        equipmentSlots: {
+            mainhand: "Mainhand",
+            offhand: "Offhand",
+            head: "Head",
+            chest: "Chest",
+            legs: "Legs",
+            feet: "Feet"
+        },
     }
 }
+
