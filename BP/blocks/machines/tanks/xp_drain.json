@@ -8,6 +8,7 @@
 			}
 		},
 		"components": {
+			"utilitycraft:xp": {},
 			"minecraft:geometry": "geometry.utilitycraft_xp_drain",
 			"minecraft:material_instances": {
 				"*": {
@@ -39,9 +40,6 @@
 					10
 				]
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:xp"
-			],
 			"minecraft:tick": {
 				"interval_range": [
 					1,

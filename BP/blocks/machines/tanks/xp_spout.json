@@ -21,6 +21,7 @@
 			}
 		},
 		"components": {
+			"utilitycraft:xp": {},
 			"minecraft:geometry": "geometry.utilitycraft_xp_spout",
 			"minecraft:material_instances": {
 				"*": {
@@ -67,9 +68,6 @@
 					}
 				]
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:xp"
-			],
 			"minecraft:tick": {
 				"interval_range": [
 					1,
