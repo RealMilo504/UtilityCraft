@@ -361,7 +361,7 @@ DoriosAPI.register.blockComponent('bonsai', {
 
             bonsaiDrops[bonsaiEntity.loot].forEach(drop => {
                 if (Math.random() * 100 <= drop.prob) {
-                    const amount = DoriosAPI.utils.randomInterval(drop.min, drop.max)
+                    const amount = DoriosAPI.math.randomInterval(drop.min, drop.max)
                     try {
                         DoriosAPI.addItem(inv, drop.item, amount * multi)
                     } catch { }

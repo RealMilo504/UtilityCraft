@@ -27,7 +27,7 @@ DoriosAPI.register.itemComponent("block_loot", {
 
             // Resolve quantity
             const qty = Array.isArray(amount)
-                ? DoriosAPI.utils.randomInterval(amount[0], amount[1])
+                ? DoriosAPI.math.randomInterval(amount[0], amount[1])
                 : amount;
 
             if (qty <= 0) continue;

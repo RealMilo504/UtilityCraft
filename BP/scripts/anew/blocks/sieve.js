@@ -98,7 +98,7 @@ class Sieve {
             if (loot.item == 'minecraft:flint' && tier >= 7) return
             if (Math.random() <= loot.chance * multi) {
                 let qty = Array.isArray(loot.amount)
-                    ? DoriosAPI.utils.randomInterval(loot.amount[0], loot.amount[1])
+                    ? DoriosAPI.math.randomInterval(loot.amount[0], loot.amount[1])
                     : loot.amount;
 
                 if (meshData.amount_multiplier) qty * meshData.amount_multiplier

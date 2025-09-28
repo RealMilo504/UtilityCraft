@@ -380,7 +380,7 @@ world.beforeEvents.worldInitialize.subscribe(e => {
                         const randomChance = Math.random() * 100;
                         if (randomChance <= drop.prob) {
                             try {
-                                const amount = DoriosAPI.utils.randomInterval(drop.min, drop.max)
+                                const amount = DoriosAPI.math.randomInterval(drop.min, drop.max)
                                 inv.addItem(new ItemStack(drop.item, amount * multi))
                             } catch { }
                         }

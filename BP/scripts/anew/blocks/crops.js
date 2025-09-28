@@ -35,7 +35,7 @@ DoriosAPI.register.blockComponent("crop", {
                         if (drop.item.endsWith("_seeds")) {
                             player.giveItem(drop.item, block)
                         } else {
-                            const amount = DoriosAPI.utils.randomInterval(drop.min, drop.max * fortuneLevel)
+                            const amount = DoriosAPI.math.randomInterval(drop.min, drop.max * fortuneLevel)
                             block.dimension.spawnItem(new ItemStack(drop.item, amount), block.location)
                         }
                     }

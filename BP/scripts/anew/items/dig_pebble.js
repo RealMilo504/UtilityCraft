@@ -27,7 +27,7 @@ DoriosAPI.register.itemComponent("dig_pebble", {
         for (const drop of digDrops) {
             if (Math.random() * 100 > drop.prob) continue;
 
-            const amount = DoriosAPI.utils.randomInterval(drop.min, drop.max);
+            const amount = DoriosAPI.math.randomInterval(drop.min, drop.max);
             block.dimension.spawnItem(new ItemStack(drop.drop, amount), location);
         }
 

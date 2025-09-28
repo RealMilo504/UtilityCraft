@@ -29,7 +29,7 @@ DoriosAPI.register.itemComponent("essence", {
         if (spawnerEntities.includes(target.typeId)) {
             const essenceItem = new ItemStack("utilitycraft:essence_vessel", 1)
             essenceItem.setLore([
-                `§r§7  Mob: ${DoriosAPI.utils.capitalize(target.typeId)}`,
+                `§r§7  Mob: ${DoriosAPI.utils.formatIdToText(target.typeId)}`,
                 "§r§7  0 %"
             ])
 
@@ -52,7 +52,7 @@ world.afterEvents.entityDie.subscribe(e => {
 
     // Expected mob type from essence vessel lore
     const expectedMob = offHand.getLore()[0].split(": ")[1]
-    if (expectedMob !== DoriosAPI.utils.capitalize(deadEntity.typeId)) return
+    if (expectedMob !== DoriosAPI.utils.formatIdToText(deadEntity.typeId)) return
 
     // Parse kills from lore and increment
     let kills = parseInt(offHand.getLore()[1].split("§r§7  ")[1].split(" %")[0])

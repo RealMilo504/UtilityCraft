@@ -16,7 +16,7 @@ function itemDrops(drop, block) {
     let { x, y, z } = block.location
     x += 0.5; y += 1; z += 0.5
     if (roll <= drop.prob) {
-        const numDrops = DoriosAPI.utils.randomInterval(drop.min, drop.max)
+        const numDrops = DoriosAPI.math.randomInterval(drop.min, drop.max)
         block.dimension.spawnItem(new ItemStack(drop.drop, numDrops), { x, y, z })
     }
 }
