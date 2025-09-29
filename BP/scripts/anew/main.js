@@ -1,4 +1,4 @@
-import './DoriosAPI/main.js'
+import './doriosAPI/main.js'
 
 import './blocks/bonsai.js'
 import './blocks/cobble_generators.js'
@@ -11,7 +11,7 @@ import './blocks/asphalt.js'
 import './blocks/elevator.js'
 import './blocks/xp_magnet.js'
 import './blocks/xp.js'
-import './blocks/pedestal.js'
+// import './blocks/pedestal.js'
 
 import './items/durability.js'
 import './items/drill.js'

@@ -1,9 +1,10 @@
-import { system, world, ItemStack, Player, Block, Entity, Container, CommandPermissionLevel, CustomCommandParamType, Vector3, Dimension } from '@minecraft/server';
+import { system, world, ItemStack, Player, Block, Entity, Container, CommandPermissionLevel, CustomCommandParamType, Dimension } from '@minecraft/server';
 const NAMESPACE = 'utilitycraft'
 
 /**
  * @typedef {import("@minecraft/server").BlockCustomComponent} BlockCustomComponent
  * @typedef {import("@minecraft/server").ItemCustomComponent} ItemCustomComponent
+ * @typedef {import("@minecraft/server").Vector3} Vector3
  */
 
 /**
@@ -800,7 +801,7 @@ globalThis.DoriosAPI = {
          * 
          * @constant
          */
-        vanillaContainers =[
+        vanillaContainers: [
             "minecraft:chest",
             "minecraft:trapped_chest",
             "minecraft:barrel",

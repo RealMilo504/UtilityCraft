@@ -1,18 +1,3 @@
-import { ItemStack, world } from "@minecraft/server"
-
-/**
- * Cobblestone Generator Block Component
- * -------------------------------------
- * - Generates cobblestone over time.
- * - Stores progress in two states: `e0` (units), `e1` (tens).
- * - Pushes cobblestone into connected inventories or entities.
- * - Players can manually collect stored cobblestone with empty hand.
- *
- * States used:
- * - utilitycraft:e0 (number, 0–9 → ones)
- * - utilitycraft:e1 (number, 0–n → tens)
- */
-
 DoriosAPI.register.blockComponent("cobble_generators", {
     onTick({ block, dimension }) {
         let { x, y, z } = block.location
@@ -51,8 +36,7 @@ DoriosAPI.register.blockComponent("cobble_generators", {
         const quantity = e1 * 10 + e0
 
         if (quantity > 0 && !player.getComponent("equippable")?.getEquipment("Mainhand")) {
-            const inv = player.getComponent("minecraft:inventory").container
-            inv.addItem(new ItemStack("cobblestone", quantity))
+            player.giveItem("cobblestone", quantity)
             block.setState("utilitycraft:e0", 0)
             block.setState("utilitycraft:e1", 0)
         }

@@ -12,16 +12,17 @@ const playerExtensions = {
      * - Else → adds the item directly to the player.
      * 
      * @param {string} itemId The item identifier (e.g. "minecraft:lava_bucket").
+     * @param {number} [amount=1] Number of items to insert.
      */
-    giveItem(itemId) {
+    giveItem(itemId, amount = 1) {
         const { x, y, z } = this.location
         const pos = { x: x + 0.5, y: y + 1, z: z + 0.5 }
 
         const container = this.getComponent('inventory').container
         if (container.emptySlotsCount === 0) {
-            this.dimension.spawnItem(new ItemStack(itemId, 1), pos)
+            this.dimension.spawnItem(new ItemStack(itemId, amount), pos)
         } else {
-            container.addItem(new ItemStack(itemId, 1))
+            container.addItem(new ItemStack(itemId, amount))
         }
     },
 

@@ -1,8 +1,8 @@
 import { world, ItemStack } from '@minecraft/server'
 
 world.afterEvents.playerBreakBlock.subscribe(({ itemStackAfterBreak, player }) => {
-    if (!itemStackAfterBreak)
-        if (!itemStackAfterBreak.typeId.startsWith('utilitycraft:')) return
+    if (!itemStackAfterBreak) return
+    if (!itemStackAfterBreak.typeId.startsWith('utilitycraft:')) return
     if (!itemStackAfterBreak.hasComponent('durability')) return
     if (itemStackAfterBreak.durability.damage(1, 1)) {
         player.setEquipment("Mainhand", itemStackAfterBreak)
