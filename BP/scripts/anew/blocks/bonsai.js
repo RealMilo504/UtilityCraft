@@ -348,22 +348,12 @@ DoriosAPI.register.blockComponent('bonsai', {
 
             entity.playAnimation(`animation.grow_tree_${timeGrowth}`)
 
-            // Inventory target: block below or nearby container entity
-            const blockInv = block.below(1).getComponent('minecraft:inventory')?.container
-            const entityInv = block.dimension.getEntities({
-                families: ['dorios:container'],
-                maxDistance: 0.5,
-                location: { x: x + 0.5, y: y - 1, z: z + 0.5 }
-            })[0]?.getComponent('minecraft:inventory')?.container
-
-            const inv = blockInv ?? entityInv
-            if (!inv) return
-
+            const loc = { x: x + 0.5, y: y - 1, z: z + 0.5 }
             bonsaiDrops[bonsaiEntity.loot].forEach(drop => {
                 if (Math.random() * 100 <= drop.prob) {
                     const amount = DoriosAPI.math.randomInterval(drop.min, drop.max)
                     try {
-                        DoriosAPI.addItem(inv, drop.item, amount * multi)
+                        DoriosAPI.addItemAt(loc, block.dimension, drop.item, amount * multi)
                     } catch { }
                 }
             })
