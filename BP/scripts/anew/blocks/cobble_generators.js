@@ -14,9 +14,6 @@ import { ItemStack, world } from "@minecraft/server"
  */
 
 DoriosAPI.register.blockComponent("cobble_generators", {
-    /**
-     * Ticking logic → handles cobble generation and transfer.
-     */
     onTick({ block, dimension }) {
         let { x, y, z } = block.location
 
@@ -37,38 +34,7 @@ DoriosAPI.register.blockComponent("cobble_generators", {
         const e1 = block.getState("utilitycraft:e1")
         const quantity = e1 * 10 + e0
 
-        const nextBlock = block.dimension.getBlock({ x, y, z })
-        const targetEnt = dimension.getEntitiesAtBlockLocation(nextBlock.location)[0]
-
-        if (targetEnt) {
-            // Simple Input (1-slot machine input)
-            if (targetEnt.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:simple_input")) {
-                const entityInv = targetEnt.getComponent("minecraft:inventory").container
-                const slotItem = entityInv.getItem(3)
-                if (slotItem && (slotItem.typeId !== "minecraft:cobblestone" || slotItem.amount > 63)) return
-                entityInv.addItem(new ItemStack("cobblestone", 1 + quantity))
-            }
-
-            // Storage Drawers
-            if (nextBlock.typeId.includes("dustveyn:storage_drawers")) {
-                if (!targetEnt.hasTag("minecraft:cobblestone")) return
-                const targetId = targetEnt.scoreboardIdentity
-                const capacity = world.scoreboard.getObjective("capacity").getScore(targetId)
-                const maxCapacity = world.scoreboard.getObjective("max_capacity").getScore(targetId)
-                if (capacity < maxCapacity) {
-                    const amount = Math.min(1 + quantity, maxCapacity - capacity)
-                    targetEnt.runCommandAsync(`scoreboard players add @s capacity ${amount}`)
-                }
-            }
-
-            block.setState("utilitycraft:e0", 0)
-            block.setState("utilitycraft:e1", 0)
-            return
-        }
-
-        const chestInv = nextBlock.getComponent("minecraft:inventory")?.container
-        if (chestInv) {
-            chestInv.addItem(new ItemStack("cobblestone", 1 + quantity))
+        if (DoriosAPI.addItemAt({ x, y, z }, dimension, "minecraft:cobblestone", 1 + quantity)) {
             block.setState("utilitycraft:e0", 0)
             block.setState("utilitycraft:e1", 0)
             return
@@ -79,10 +45,6 @@ DoriosAPI.register.blockComponent("cobble_generators", {
             block.setState("utilitycraft:e1", e0 < 10 ? e1 : e1 + 1)
         }
     },
-
-    /**
-     * Handles manual collection by the player.
-     */
     onPlayerInteract({ block, player }) {
         const e0 = block.getState("utilitycraft:e0")
         const e1 = block.getState("utilitycraft:e1")
