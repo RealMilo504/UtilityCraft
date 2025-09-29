@@ -1,4 +1,4 @@
-import { system, world, Player, Block, Entity, Container, CommandPermissionLevel, CustomCommandParamType } from '@minecraft/server';
+import { system, world, ItemStack, Player, Block, Entity, Container, CommandPermissionLevel, CustomCommandParamType, Vector3, Dimension } from '@minecraft/server';
 const NAMESPACE = 'utilitycraft'
 
 /**
@@ -106,7 +106,7 @@ globalThis.DoriosAPI = {
      * custom addons and containers.
      *
      * ## Features
-     * - Works with both **entities** and **containers** as parameters.
+     * - Works with **entities**, **blocks** and **containers** as parameters.
      * - Automatically extracts `minecraft:inventory.container` if an
      *   entity is passed instead of a container.
      * - Compatible with multiple addons:
@@ -117,21 +117,40 @@ globalThis.DoriosAPI = {
      *
      * @function addItem
      * @memberof DoriosAPI
-     * @param {Entity | Container} target Target entity or container.
-     * @param {ItemStack} itemStack Item to insert.
+     * @param {Block | Entity | Container} target Target entity, block, or container.
+     * @param {ItemStack | String} itemStack Item to insert. Can be an ItemStack or an item identifier string.
+     * @param {number} [amount=1] Number of items to insert when `itemStack` is a string. Ignored if an ItemStack is provided.
      * @returns {boolean} Whether the item was successfully added.
      */
-    addItemStack(target, itemStack) {
-        if (!itemStack) return false;
+    addItem(target, itemStack, amount = 1) {
+        if (itemStack == undefined || target == undefined) return false;
+
+        // Resolve itemStack 
+        if (!(itemStack instanceof ItemStack) && typeof itemStack == 'string') itemStack = new ItemStack(itemStack, amount)
+        const itemId = itemStack.typeId
+
+        // Containers
+        if (target.size) {
+            target.addItem(itemStack)
+            return true
+        }
 
         // Resolve target inventory
-        const targetInv = target?.getComponent?.("minecraft:inventory")?.container ?? target;
-        if (!targetInv && !target) return false;
+        const targetInv = target?.getComponent?.("minecraft:inventory")?.container;
+        if (!targetInv || !target) return false;
 
-        // Storage Drawers
+        // Blocks
+        if (target.permutation) {
+            if (this.constants.vanillaContainers.includes(target.typeId)) {
+                targetInv.addItem(itemStack)
+                return true
+            }
+        }
+
+        // Storage Drawers by Dustveyn
         if (target?.typeId?.includes("dustveyn:storage_drawers")) {
             const targetEnt = target.dimension.getEntitiesAtBlockLocation(target.location)[0];
-            if (!targetEnt?.hasTag(itemStack.typeId)) return false;
+            if (!targetEnt?.hasTag(itemId)) return false;
 
             const targetId = targetEnt.scoreboardIdentity;
             let capacity = world.scoreboard.getObjective("capacity").getScore(targetId);
@@ -145,52 +164,80 @@ globalThis.DoriosAPI = {
             return false;
         }
 
-        // Entity with logic
-        if (target?.getComponent) {
-            // Simple input → slot 3 only
-            if (target.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:simple_input")) {
-                const slotNext = targetInv.getItem(3);
-                if (!slotNext) {
-                    targetInv.setItem(3, itemStack);
-                    return true;
-                }
-                if (slotNext.typeId === itemStack.typeId && slotNext.amount < 64) {
-                    const amount = Math.min(itemStack.amount, 64 - slotNext.amount);
-                    slotNext.amount += amount;
-                    targetInv.setItem(3, slotNext);
-                    return true;
-                }
-                return false;
-            }
+        const tf = target.getComponent("minecraft:type_family")
+        if (!tf) return false
 
-            // Assemblers → require 2 empty slots
-            if (target?.typeId === "utilitycraft:assembler" && targetInv.emptySlotsCount < 2) return false;
+        // Entity with logic
+        if (tf.hasTypeFamily("dorios:simple_input")) {
+            const slotNext = targetInv.getItem(3);
+            if (!slotNext) {
+                targetInv.setItem(3, itemStack);
+                return true;
+            }
+            if (slotNext.typeId === itemId && slotNext.amount < slotNext.maxAmount) {
+                const insertAmount = Math.min(itemStack.amount, slotNext.maxAmount - slotNext.amount);
+                slotNext.amount += insertAmount;
+                targetInv.setItem(3, slotNext);
+                return true;
+            }
+            return false;
         }
 
-        // Normal containers
-        if (targetInv?.emptySlotsCount > 0) {
-            targetInv.addItem(itemStack);
-            return true;
+        // Assemblers → require 2 empty slots
+        if (tf.hasTypeFamily("dorios:complex_input") && targetInv.emptySlotsCount >= 2) {
+            targetInv.addItem(itemStack)
+            return true
+        };
+
+        // Dorios Containers
+        if (tf.hasTypeFamily("dorios:container")) {
+            targetInv.addItem(itemStack)
+            return true
         }
 
         return false;
     },
     /**
-     * Adds an item to an inventory or entity by item identifier and amount.
+     * This function was created by **Dorios Studios** to handle
+     * item insertions at a specific location with compatibility for
+     * custom addons and containers.
      *
-     * Internally creates an `ItemStack` and uses {@link addItemStack}.
+     * ## Features
+     * - Works with **entities**, **blocks** and **containers** as parameters.
+     * - Automatically extracts `minecraft:inventory.container` if an
+     *   entity is passed instead of a container.
+     * - Compatible with multiple addons:
+     *   - **Storage Drawers (dustveyn:storage_drawers)**.
+     *   - **Dorios containers** (custom entities with inventories).
+     *   - **UtilityCraft machines** like Assemblers and Simple Inputs.
+     * - Additional compatibility will be added in the future.
      *
      * @function addItem
      * @memberof DoriosAPI
-     * @param {import("@minecraft/server").Entity | import("@minecraft/server").Container} target Target entity or container.
-     * @param {string} itemId The identifier of the item (e.g. `"minecraft:iron_ingot"`).
-     * @param {number} amount The quantity of items to add.
+     * @param {Vector3} loc World coordinates of the target.
+     * @param {Dimension} dim Dimension where the target exists.
+     * @param {ItemStack | String} itemStack Item to insert. Can be an ItemStack or an item identifier string.
+     * @param {number} [amount=1] Number of items to insert when `itemStack` is a string. Ignored if an ItemStack is provided.
      * @returns {boolean} Whether the item was successfully added.
      */
-    addItem(target, itemId, amount = 1) {
-        if (!itemId || amount <= 0) return false;
-        const itemStack = new ItemStack(itemId, amount);
-        return addItemStack(target, itemStack);
+    addItemAt(loc, dim, itemStack, amount = 1) {
+        if (!loc || !dim || !itemStack) return false
+
+        let target = null
+        try {
+            const targetBlock = dim.getBlock(loc)
+            if (this.constants.vanillaContainers.includes(targetBlock?.typeId)) {
+                target = targetBlock
+            } else {
+                const targetEntity = dim.getEntitiesAtBlockLocation(loc)[0]
+                if (targetEntity) target = targetEntity
+            }
+        } catch {
+            return false
+        }
+
+        if (!target) return false
+        return this.addItem(target, itemStack, amount)
     },
     /**
      * This function was created by **Dorios Studios** to handle
@@ -744,6 +791,26 @@ globalThis.DoriosAPI = {
             legs: "Legs",
             feet: "Feet"
         },
+
+        /**
+         * List of vanilla container block identifiers.
+         * 
+         * These represent the default Minecraft blocks
+         * that have inventories and can be used as containers.
+         * 
+         * @constant
+         */
+        vanillaContainers =[
+            "minecraft:chest",
+            "minecraft:trapped_chest",
+            "minecraft:barrel",
+            "minecraft:furnace",
+            "minecraft:blast_furnace",
+            "minecraft:hopper",
+            "minecraft:smoker",
+            "minecraft:shulker",
+            "minecraft:dropper"
+        ]
     }
 }
 
