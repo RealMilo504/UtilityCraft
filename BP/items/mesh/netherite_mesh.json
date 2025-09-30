@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.90",
+	"format_version": "1.21.110",
 	"minecraft:item": {
 		"description": {
 			"identifier": "utilitycraft:netherite_mesh",

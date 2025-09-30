@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.80",
+	"format_version": "1.21.110",
 	"minecraft:item": {
 		"description": {
 			"identifier": "utilitycraft:nether_star_seeds"
@@ -8,6 +8,9 @@
 			"minecraft:icon": "utilitycraft_nether_star_seeds",
 			"minecraft:block_placer": {
 				"block": "utilitycraft:netherstar_crop"
+			},
+			"minecraft:fire_resistant": {
+				"value": true
 			}
 		}
 	}
