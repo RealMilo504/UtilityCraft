@@ -9,6 +9,7 @@ const tankCaps = {
     'utilitycraft:ultimate_fluid_tank': 512000
 };
 
+
 export const EnergyBarCache = {
     bars: Array.from({ length: 17 }, (_, i) => new ItemStack(`utilitycraft:energy_bar_${i}`))
 };

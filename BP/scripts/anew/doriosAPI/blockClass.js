@@ -82,7 +82,25 @@ const BlockHandler = {
             dim.getBlock({ x, y, z: z + 1 }),
             dim.getBlock({ x, y, z: z - 1 })
         ];
+    },
+    /**
+     * Gets the first entity found at this object's current block location.
+     *
+     * ## Behavior
+     * - Uses `Dimension.getEntitiesAtBlockLocation` to query all entities
+     *   at the block position of this object.
+     * - Returns the first entity in the list, or `undefined` if none are found.
+     *
+     * @function getEntity
+     * @memberof DoriosAPI
+     * @returns {Entity | undefined} The first entity at the current block location, or `undefined` if none exist.
+     */
+    getEntity() {
+        const entity = this.dimension.getEntitiesAtBlockLocation(this.location)[0]
+        if (entity.isValid) return entity
+        return undefined
     }
+
 };
 
 Object.keys(BlockHandler).forEach(fn => {
