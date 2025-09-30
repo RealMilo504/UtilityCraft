@@ -17,6 +17,9 @@
 					"utilitycraft:is_aiot"
 				]
 			},
+			"minecraft:fire_resistant": {
+				"value": true
+			},
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:durability": {

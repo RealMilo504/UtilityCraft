@@ -5,7 +5,10 @@
 			"identifier": "utilitycraft:netherite_scrap_dust"
 		},
 		"components": {
-			"minecraft:icon": "utilitycraft_netherite_scrap_dust"
+			"minecraft:icon": "utilitycraft_netherite_scrap_dust",
+			"minecraft:fire_resistant": {
+				"value": true
+			}
 		}
 	}
 }

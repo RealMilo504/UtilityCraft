@@ -14,6 +14,9 @@
 			"minecraft:durability": {
 				"max_durability": 2031
 			},
+			"minecraft:fire_resistant": {
+				"value": true
+			},
 			"minecraft:damage": 6,
 			"minecraft:icon": "utilitycraft_netherite_hammer",
 			"minecraft:enchantable": {

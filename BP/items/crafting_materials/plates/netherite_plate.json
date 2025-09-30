@@ -8,7 +8,10 @@
 			}
 		},
 		"components": {
-			"minecraft:icon": "utilitycraft_netherite_plate"
+			"minecraft:icon": "utilitycraft_netherite_plate",
+			"minecraft:fire_resistant": {
+				"value": true
+			}
 		}
 	}
 }

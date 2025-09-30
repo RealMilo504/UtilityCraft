@@ -8,7 +8,10 @@
 			}
 		},
 		"components": {
-			"minecraft:icon": "utilitycraft_ultimate_chip"
+			"minecraft:icon": "utilitycraft_ultimate_chip",
+			"minecraft:fire_resistant": {
+				"value": true
+			}
 		}
 	}
 }

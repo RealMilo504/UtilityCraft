@@ -5,7 +5,10 @@
 			"identifier": "utilitycraft:ancient_debris_chunk"
 		},
 		"components": {
-			"minecraft:icon": "utilitycraft_ancient_debris_chunk"
+			"minecraft:icon": "utilitycraft_ancient_debris_chunk",
+			"minecraft:fire_resistant": {
+				"value": true
+			}
 		}
 	}
 }

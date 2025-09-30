@@ -12,6 +12,9 @@
 			"utilitycraft:mesh": {
 				"tier": 7,
 				"multiplier": 4
+			},
+			"minecraft:fire_resistant": {
+				"value": true
 			}
 		}
 	}
