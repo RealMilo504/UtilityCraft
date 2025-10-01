@@ -26,3 +26,4 @@ import './items/essences.js'
 import './guide.js'
 import './stack_refill.js'
 
+import './machinery/main.js'

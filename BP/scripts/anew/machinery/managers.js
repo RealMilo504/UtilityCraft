@@ -1,14 +1,26 @@
 import { system, world, ItemStack } from '@minecraft/server'
 /**
+ * Machine settings object for configuring behavior.
+ * 
+ * @typedef {Object} MachineSettings
+ * @property {string} entity Entity identifier used to spawn the machine.
+ * @property {string} name_tag Localized name tag identifier.
+ * @property {number} energy_cost Energy consumed per operation.
+ * @property {number} rate_speed_base Base processing rate (DE/t).
+ * @property {number} energy_cap Maximum internal energy capacity.
+ * @property {string} recipes Recipe group name associated with this machine.
+ */
+/**
  * @typedef {import("@minecraft/server").Container} Container
  * @typedef {import("@minecraft/server").Block} Block
  * @typedef {import("@minecraft/server").Entity} Entity
  * @typedef {import("@minecraft/server").ScoreboardObjective} ScoreboardObjective
  * @typedef {import("@minecraft/server").Vector3} Vector3
+ * @typedef {import("@minecraft/server").Dimension} Dimension
+ * @typedef {import("@minecraft/server").BlockPermutation} BlockPermutation
  */
 
-
-let worldLoaded = false;
+globalThis.worldLoaded = false;
 
 /**
  * Retrieves a scoreboard objective by id, or creates it if it does not exist.
@@ -38,7 +50,7 @@ const getOrCreateObjective = (id, display = id) =>
  * ]);
  *
  * // Access example
- * const energyScore = objectives.energy;
+ * const objectives.energy = objectives.energy;
  */
 function loadObjectives(definitions) {
     const result = {};
@@ -71,10 +83,186 @@ world.afterEvents.worldLoad.subscribe(() => {
     worldLoaded = true;
 });
 
+export class Machine {
+
+
+    /**
+     * Creates a new Machinery instance.
+     * 
+     * @param {Block} block The block representing the machine.
+     * @param {MachineSettings} settings Machine's settings.
+     */
+    constructor(block, settings) {
+        this.settings = settings
+        this.dim = block.dimension
+        this.block = block
+        this.entity = this.dim.getEntitiesAtBlockLocation(block.location)[0]
+        this.inv = this.entity.getComponent('inventory').container
+        this.energy = new Energy(this.entity)
+    }
+
+    /**
+     * Handles machine destruction:
+     * - Drops inventory (excluding UI items).
+     * - Drops the machine block item with stored energy and liquid info in lore.
+     * - Removes the machine entity.
+     * - Skips drop if the player is in Creative mode.
+     *
+     * @param {{ block: Block, brokenBlockPermutation: BlockPermutationplayer: Player, dimension: Dimension }} e The event data object containing the dimension, block and player.
+     */
+    static onDestroy(e) {
+        const { block, brokenBlockPermutation, player, dimension: dim } = e;
+        const entity = dim.getEntitiesAtBlockLocation(block.location)[0];
+        if (!entity) return;
+
+        const energy = new Energy(entity);
+        const blockItemId = brokenBlockPermutation.type.id
+        const blockItem = new ItemStack(blockItemId);
+        const lore = [];
+
+        // Energy lore
+        if (energy.value > 0) {
+            lore.push(`§r§7  Stored Energy: ${Energy.formatEnergyToText(energy.value)}/${Energy.formatEnergyToText(energy.cap)}`);
+        }
+
+        if (lore.length > 0) {
+            blockItem.setLore(lore);
+        }
+
+        // Drop item and cleanup
+        system.run(() => {
+            if (player.getGameMode() == "survival") {
+                dim.getEntities({ type: 'item', maxDistance: 3, location: block.center() }).find(item => {
+                    item.getComponent('minecraft:item')?.itemStack?.typeId == blockItemId
+                }).remove()
+            };
+            // this.dropInventoryItems(entity);
+            entity.remove();
+            dim.spawnItem(blockItem, block.center());
+        });
+    }
+
+    /**
+     * Spawns a machine entity at the given block location with a name tag and energy settings.
+     *
+     * @param {{ block: Block, player: Player, dimension: Dimension }} e The event data object containing the dimension, block and player.
+     * @param {Object} settings Custom settings to apply to the machine entity.
+     * @param {Function} [callback] A function to execute after the entity is spawned (optional).
+     */
+    static spawnMachineEntity(e, settings, callback) {
+        const { block, player, dimension: dim } = e
+        let { x, y, z } = block.center(); y -= 0.25
+
+        const itemInfo = player.getComponent('equippable').getEquipment('Mainhand').getLore();
+        let energy = 0;
+        if (itemInfo[0]) {
+            energy = Energy.getEnergyFromText(itemInfo[0]);
+        }
+
+        system.run(() => {
+            const entity = dim.spawnEntity(settings.entity, { x, y, z });
+            entity.nameTag = settings.name_tag;
+            Energy.initialize(entity)
+            const energyManager = new Energy(entity)
+            energyManager.set(energy)
+            energyManager.setCap(settings.energy_cap)
+            energyManager.display()
+            if (callback) callback(entity)
+        });
+    }
+
+    /**
+     * Changes the texture of the block to the on version.
+     */
+    on() {
+        this.block.setState('utilitycraft:on', true)
+    }
+
+    /**
+     * Changes the texture of the block to the off version.
+     */
+    off() {
+        this.block.setState('utilitycraft:on', false)
+    }
+
+    /**
+     * Adds progress to the machine.
+     * 
+     * @param {number} amount Value to add to the current progress.
+     */
+    addProgress(amount) {
+        const key = "dorios:progress";
+        let current = this.entity.getDynamicProperty(key) ?? 0;
+        this.entity.setDynamicProperty(key, current + amount);
+    }
+
+    /**
+     * Sets the machine progress directly.
+     * 
+     * @param {number} value New progress value.
+     * @param {number} [slot=2] Inventory slot to place the progress item.
+     * @param {string} [type='arrow_right_'] Item type suffix. 
+     */
+    setProgress(value, slot = 2, type = "arrow_right") {
+        this.entity.setDynamicProperty("dorios:progress", Math.max(0, value));
+        this.displayProgress(slot, type)
+    }
+
+    /**
+     * Gets the current progress of the machine.
+     * 
+     * @returns {number} Current progress value.
+     */
+    getProgress() {
+        return this.entity.getDynamicProperty("dorios:progress") ?? 0;
+    }
+
+    /**
+     * Sets the machine's energy cost (maximum progress).
+     * 
+     * @param {number} value Energy cost representing 100% progress.
+     */
+    setEnergyCost(value) {
+        this.entity.setDynamicProperty("dorios:energy_cost", Math.max(1, value));
+    }
+
+    /**
+     * Gets the energy cost (maximum progress).
+     * 
+     * @returns {number} Energy cost value.
+     */
+    getEnergyCost() {
+        return this.entity.getDynamicProperty("dorios:energy_cost") ?? 800;
+    }
+
+    /**
+     * Displays the current progress in the machine's inventory as a progress bar item.
+     * Progress is scaled between 0–16, where 16 = 100% (energy_cost).
+     * 
+     * @param {number} [slot=2] Inventory slot to place the progress item.
+     * @param {string} [type='arrow_right_'] Item type suffix. 
+     * Always assumes the `utilitycraft:` namespace, so pass only the suffix.
+     */
+    displayProgress(slot = 2, type = "arrow_right") {
+        const inv = this.entity.getComponent("minecraft:inventory")?.container;
+        if (!inv) return;
+
+        const progress = this.getProgress();
+        const max = this.getEnergyCost();
+        const normalized = Math.min(16, Math.floor((progress / max) * 16));
+
+        const itemId = `utilitycraft:${type}_${normalized}`;
+        inv.setItem(slot, new ItemStack(itemId, 1));
+    }
+}
+
+
+
+
 /**
  * Utility class to manage scoreboard-based energy values for entities.
  */
-class Energy {
+export class Energy {
     /**
      * Creates a new Energy instance linked to the given entity.
      *
@@ -87,6 +275,7 @@ class Energy {
     }
 
     //#region Statics
+
     /**
      * Ensures that the given entity has a valid scoreboard identity.
      *
@@ -94,13 +283,8 @@ class Energy {
      * Running this method forces the entity to be registered in the scoreboard system
      * by setting its `energy` objective to `0`.
      *
-     * @param {Entity} entity The entity to initialize.
+     * @param {Entity} entity The entity representing the machine.
      * @returns {void}
-     *
-     * @example
-     * // Before using Energy, ensure entity has a scoreboard identity:
-     * Energy.initialize(myEntity);
-     * const energy = new Energy(myEntity);
      */
     static initialize(entity) {
         entity.runCommand(`scoreboard players set @s energy 0`);
@@ -143,6 +327,72 @@ class Energy {
     static combineValue(value, exp) {
         return value * (10 ** exp);
     }
+
+    /**
+     * Formats a numerical Dorios Energy (DE) value into a human-readable string with appropriate unit suffix.
+     * 
+     * @param {number} value The energy value in DE (Dorios Energy).
+     * @returns {string} A formatted string representing the value with the appropriate unit (DE, kDE, MDE, GDE, TDE).
+     *
+     * @example
+     * formatEnergyToText(15300); // "15.3 kDE"
+     * formatEnergyToText(1048576); // "1.05 MDE"
+     */
+    static formatEnergyToText(value) {
+        let unit = 'DE';
+
+        if (value >= 1e12) {
+            unit = 'TDE';
+            value /= 1e12;
+        } else if (value >= 1e9) {
+            unit = 'GDE';
+            value /= 1e9;
+        } else if (value >= 1e6) {
+            unit = 'MDE';
+            value /= 1e6;
+        } else if (value >= 1e3) {
+            unit = 'kDE';
+            value /= 1e3;
+        }
+
+        return `${parseFloat(value.toFixed(2))} ${unit}`;
+    }
+
+    /**
+     * Parses a formatted energy string (with Minecraft color codes) and returns the numeric value in DE.
+     * 
+     * @param {string} input The string with formatted energy (e.g., "§r§7  Stored Energy: 12.5 kDE / 256 kDE").
+     * @param {number} index Which value to extract: 0 = current, 1 = max.
+     * @returns {number} The numeric value in base DE.
+     *
+     * @example
+     * parseFormattedEnergy("§r§7  Stored Energy: 12.5 kDE / 256 kDE", 0); // 12500
+     * parseFormattedEnergy("§r§7  Stored Energy: 12.5 kDE / 256 kDE", 1); // 256000
+     */
+    static getEnergyFromText(input, index = 0) {
+        // Remove Minecraft formatting codes
+        const cleanedInput = input.replace(/§[0-9a-frklmnor]/gi, '');
+
+        // Find all matches like "12.5 kDE"
+        const matches = cleanedInput.match(/([\d.]+)\s*(kDE|MDE|GDE|TDE|DE)/g);
+
+        if (!matches || index >= matches.length) {
+            throw new Error("Invalid input or index: couldn't parse energy values.");
+        }
+
+        const [valueStr, unit] = matches[index].split(' ');
+        let multiplier = 1;
+
+        switch (unit) {
+            case 'kDE': multiplier = 1e3; break;
+            case 'MDE': multiplier = 1e6; break;
+            case 'GDE': multiplier = 1e9; break;
+            case 'TDE': multiplier = 1e12; break;
+            case 'DE': multiplier = 1; break;
+        }
+
+        return parseFloat(valueStr) * multiplier;
+    }
     //#endregion
 
     //#region Caps
@@ -159,8 +409,8 @@ class Energy {
      */
     setCap(amount) {
         const { value, exp } = Energy.normalizeValue(amount);
-        energyCapScore.setScore(this.scoreId, value);
-        energyCapExpScore.setScore(this.scoreId, exp);
+        objectives.energyCap.setScore(this.scoreId, value);
+        objectives.energyCapExp.setScore(this.scoreId, exp);
     }
 
     /**
@@ -177,8 +427,8 @@ class Energy {
      * console.log(cap); // → 25600000
      */
     getCap() {
-        const value = energyCapScore.getScore(this.scoreId) || 0;
-        const exp = energyCapExpScore.getScore(this.scoreId) || 0;
+        const value = objectives.energyCap.getScore(this.scoreId) || 0;
+        const exp = objectives.energyCapExp.getScore(this.scoreId) || 0;
 
         this.cap = Energy.combineValue(value, exp);
         return this.cap;
@@ -197,8 +447,8 @@ class Energy {
      * console.log(value, exp); // → 25600 , 3
      */
     getCapNormalized() {
-        const value = energyCapScore.getScore(this.scoreId) || 0;
-        const exp = energyCapExpScore.getScore(this.scoreId) || 0;
+        const value = objectives.energyCap.getScore(this.scoreId) || 0;
+        const exp = objectives.energyCapExp.getScore(this.scoreId) || 0;
 
         this.cap = Energy.combineValue(value, exp);
         return { value, exp };
@@ -219,8 +469,8 @@ class Energy {
     set(amount) {
         const { value, exp } = Energy.normalizeValue(amount);
 
-        energyScore.setScore(this.scoreId, value);
-        energyExpScore.setScore(this.scoreId, exp);
+        objectives.energy.setScore(this.scoreId, value);
+        objectives.energyExp.setScore(this.scoreId, exp);
     }
 
     /**
@@ -235,8 +485,8 @@ class Energy {
      * console.log(current); // → 1250000
      */
     get() {
-        const value = energyScore.getScore(this.scoreId) || 0;
-        const exp = energyExpScore.getScore(this.scoreId) || 0;
+        const value = objectives.energy.getScore(this.scoreId) || 0;
+        const exp = objectives.energyExp.getScore(this.scoreId) || 0;
         return Energy.combineValue(value, exp);
     }
 
@@ -252,8 +502,8 @@ class Energy {
      */
     getNormalized() {
         return {
-            value: energyScore.getScore(this.scoreId) || 0,
-            exp: energyExpScore.getScore(this.scoreId) || 0,
+            value: objectives.energy.getScore(this.scoreId) || 0,
+            exp: objectives.energyExp.getScore(this.scoreId) || 0,
         };
     }
 
@@ -307,7 +557,7 @@ class Energy {
         // Add directly if safe
         let newValue = value + normalizedAdd;
         if (newValue <= 1e9) {
-            energyScore.addScore(this.scoreId, normalizedAdd);
+            objectives.energy.addScore(this.scoreId, normalizedAdd);
 
             if (exp > 0 && value < 1e6) {
                 this.set(this.get() + amount);
@@ -317,6 +567,33 @@ class Energy {
         }
 
         return amount;
+    }
+
+    /**
+     * Displays the current energy as a 48-frame bar item inside the entity's inventory.
+     *
+     * @param {number} [slot=0] The slot index to place the item in (default is 0).
+     * @returns {void}
+     *
+     * @example
+     * energy.display();     // shows bar in slot 0
+     * energy.display(5);    // shows bar in slot 5
+     */
+    display(slot = 0) {
+        const container = this.entity.getComponent("minecraft:inventory")?.container;
+        if (!container) return;
+
+        const energy = this.get();
+        const energyCap = this.getCap();
+
+        const energyP = Math.floor((energy / energyCap) * 48);
+        const frame = Math.max(0, Math.min(48, energyP));
+        const frameName = frame.toString().padStart(2, "0");
+
+        const item = new ItemStack(`utilitycraft:energy_${frameName}`, 1);
+        item.nameTag = '§rEnergy';
+
+        container.setItem(slot, item);
     }
 
     //#region Utils
@@ -477,3 +754,4 @@ class Energy {
     }
     //#endregion
 }
+

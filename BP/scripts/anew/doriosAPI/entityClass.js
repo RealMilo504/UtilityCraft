@@ -11,8 +11,9 @@ const entityExtensions = {
      *
      * @param {ItemStack|string} item The item to add. Can be an ItemStack or an item identifier string.
      * @param {number} [amount=1] Amount of the item if a string is provided. Ignored if item is an ItemStack.
+     * @param {boolean} [shouldSpawn=false]
      */
-    addItem(item, amount = 1) {
+    addItem(item, amount = 1, shouldSpawn) {
         if (!this?.getComponent || !this.getComponent('inventory')) return;
 
         const inventory = this.getComponent('inventory');
@@ -22,7 +23,7 @@ const entityExtensions = {
             ? new ItemStack(item, amount)
             : item;
 
-        if (this.isInventoryFull()) {
+        if (this.isInventoryFull() && shouldSpawn) {
             this.dimension.spawnItem(itemStack, this.location);
         } else {
             invContainer.addItem(itemStack);
