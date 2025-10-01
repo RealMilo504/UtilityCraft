@@ -36,8 +36,8 @@
             {
                 "upgrades@machineryCommon.vertical_interactive": {
                     "$has_bg": true,
-                    "$collection_index_first": 5,
-                    "$collection_index_second": 6,
+                    "$collection_index_first": 4,
+                    "$collection_index_second": 5,
                     "$has_third": false,
                     "offset": [
                         102,
@@ -75,7 +75,7 @@
                         34,
                         26
                     ],
-                    "collection_index": 5,
+                    "collection_index": 6,
                     "$cell_image_size": [
                         26,
                         26

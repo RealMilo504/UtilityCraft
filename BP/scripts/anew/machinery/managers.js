@@ -80,7 +80,9 @@ world.afterEvents.worldLoad.subscribe(() => {
         ["energyCap", "Energy Max Capacity"],
         ["energyCapExp", "Energy Max Capacity Exp"],
     ]);
-    worldLoaded = true;
+    system.runTimeout(() => {
+        worldLoaded = true;
+    }, 200)
 });
 
 export class Machine {
@@ -254,6 +256,18 @@ export class Machine {
         const itemId = `utilitycraft:${type}_${normalized}`;
         inv.setItem(slot, new ItemStack(itemId, 1));
     }
+
+    /**
+     * Displays the current energy of the machine in the specified inventory slot.
+     *
+     * Delegates the call to the internal {@link Energy.display} method.
+     *
+     * @param {number} [slot=0] The inventory slot index where the energy bar will be displayed.
+     */
+    displayEnergy(slot = 0) {
+        this.energy.display(slot);
+    }
+
 }
 
 
