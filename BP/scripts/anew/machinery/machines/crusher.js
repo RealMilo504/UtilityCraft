@@ -1,4 +1,4 @@
-import { Machine } from '../managers.js'
+import { Machine, Energy } from '../managers.js'
 import { crusherRecipes } from "../../config/recipes/crusher.js";
 
 const INPUT = 3
@@ -46,6 +46,17 @@ DoriosAPI.register.blockComponent('crusher', {
 
         const inv = machine.inv;
 
+        //test
+        const testItem = inv.getItem(1)
+        testItem.nameTag = `
+§r§3Energy
+§r§3   ${Energy.formatEnergyToText(machine.energy.get())}
+§r${DoriosAPI.constants.textColors.yellow}Warnings:
+§r${DoriosAPI.constants.textColors.red}Invalid Recipe
+        `
+        inv.setItem(1, testItem)
+
+        //test
         // Get the input slot (slot 3 in this case)
         const inputSlot = inv.getItem(INPUT);
         if (!inputSlot) {
@@ -57,6 +68,9 @@ DoriosAPI.register.blockComponent('crusher', {
 
         // Get the output slot (usually the last one)
         const outputSlot = inv.getItem(OUTPUT);
+
+
+
 
         // Validate recipe based on the input item
         const recipe = crusherRecipes[inputSlot?.typeId];

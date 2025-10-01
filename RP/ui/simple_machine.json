@@ -45,12 +45,41 @@
                     ]
                 }
             },
+            {
+                "screen": {
+                    "type": "image",
+                    "texture": "textures/ui/screen_vertical_bg",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "size": [
+                        52,
+                        52
+                    ],
+                    "offset": [
+                        11,
+                        14
+                    ],
+                    "layer": 0
+                }
+            },
+            {
+                "item_label@machineryCommon.item_label": {
+                    "collection_index": 1,
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "$text_scale": 0.65,
+                    "offset": [
+                        15,
+                        12
+                    ]
+                }
+            },
             { // Progress
                 "machinery@common_machines.machinery": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        10,
+                        30,
                         30
                     ],
                     "collection_index": 2
@@ -61,7 +90,7 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        -10,
+                        10,
                         30
                     ],
                     "collection_index": 3
@@ -72,7 +101,7 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        34,
+                        54,
                         26
                     ],
                     "collection_index": 6,

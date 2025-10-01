@@ -82,7 +82,7 @@ world.afterEvents.worldLoad.subscribe(() => {
     ]);
     system.runTimeout(() => {
         worldLoaded = true;
-    }, 200)
+    }, 20)
 });
 
 export class Machine {
@@ -605,7 +605,9 @@ export class Energy {
         const frameName = frame.toString().padStart(2, "0");
 
         const item = new ItemStack(`utilitycraft:energy_${frameName}`, 1);
-        item.nameTag = '§rEnergy';
+        item.nameTag = `§rEnergy
+§r§7  Stored: ${Energy.formatEnergyToText(this.get())} / ${Energy.formatEnergyToText(this.cap)}
+§r§7  Percentage: ${this.getPercent()}%%`;
 
         container.setItem(slot, item);
     }
