@@ -3,6 +3,7 @@ import { crusherRecipes } from "../../config/recipes/crusher.js";
 
 const INPUT = 3
 const OUTPUT = 6
+const COLORS = DoriosAPI.constants.textColors
 
 /**
  * Machine settings object for configuring behavior.
@@ -27,6 +28,7 @@ DoriosAPI.register.blockComponent('crusher', {
             const machine = new Machine(e.block, settings);
             machine.setEnergyCost(settings.energy_cost);
             machine.displayProgress()
+            // Fill Slot to avoid issues
             machine.entity.setItem(1, 'utilitycraft:arrow_right_0')
         });
     },
@@ -46,17 +48,13 @@ DoriosAPI.register.blockComponent('crusher', {
 
         const inv = machine.inv;
 
-        //test
-        const testItem = inv.getItem(1)
-        testItem.nameTag = `
-§r§3Energy
-§r§3   ${Energy.formatEnergyToText(machine.energy.get())}
-§r${DoriosAPI.constants.textColors.yellow}Warnings:
-§r${DoriosAPI.constants.textColors.red}Invalid Recipe
-        `
-        inv.setItem(1, testItem)
+        machine.setLabel(`
+§r§3Energy at ${machine.energy.getPercent()}%%
+§r§3 ${Energy.formatEnergyToText(machine.energy.get())}
 
-        //test
+§r${COLORS.yellow}Warnings:
+§r${COLORS.red}Invalid Recipe
+        `)
         // Get the input slot (slot 3 in this case)
         const inputSlot = inv.getItem(INPUT);
         if (!inputSlot) {

@@ -67,7 +67,7 @@
                     "collection_index": 1,
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
-                    "$text_scale": 0.65,
+                    "$text_scale": 0.6,
                     "offset": [
                         15,
                         12

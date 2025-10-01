@@ -82,7 +82,7 @@ world.afterEvents.worldLoad.subscribe(() => {
     ]);
     system.runTimeout(() => {
         worldLoaded = true;
-    }, 20)
+    }, 50)
 });
 
 export class Machine {
@@ -171,6 +171,25 @@ export class Machine {
             energyManager.display()
             if (callback) callback(entity)
         });
+    }
+
+    /**
+     * Sets a label in the machine inventory using a fixed item as placeholder.
+     *
+     * The label is displayed by overriding the item's `nameTag` with custom text.
+     *
+     * @param {string} text The text to display in the label. Supports Minecraft formatting codes (§).
+     * @param {number} [slot=1] The inventory slot where the label will be placed.
+     */
+    setLabel(text, slot = 1) {
+        // Always use the same placeholder item
+        const baseItem = this.inv.getItem(slot) ?? new ItemStack("utilitycraft:arrow_right_0");
+
+        // Apply the custom label text
+        baseItem.nameTag = text;
+
+        // Update the slot in the inventory
+        this.inv.setItem(slot, baseItem);
     }
 
     /**
