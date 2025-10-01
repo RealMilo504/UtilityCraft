@@ -329,9 +329,9 @@ export class Machine {
 §r${COLORS.red}${message}
 
 §r${COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
-§r${COLORS.green}Consumption ${(this.boosts.consumption * 100).toFixed(0)}%%
+§r${COLORS.green}Cost ${Energy.formatEnergyToText(this.getEnergyCost() * this.boosts.consumption)}
 
-§r${COLORS.red}Using: ${Energy.formatEnergyToText(this.rate)}/t
+§r${COLORS.red}Using ${Energy.formatEnergyToText(Math.floor(this.rate))}/t
     `);
     }
 
@@ -350,9 +350,9 @@ export class Machine {
 §r${COLORS.darkGreen}${message}
 
 §r${COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
-§r${COLORS.green}Consumption ${(this.boosts.consumption * 100).toFixed(0)}%%
+§r${COLORS.green}Cost ${Energy.formatEnergyToText(this.getEnergyCost() * this.boosts.consumption)}
 
-§r${COLORS.red}Using: ${Energy.formatEnergyToText(this.rate)}/t
+§r${COLORS.red}Using ${Energy.formatEnergyToText(Math.floor(this.rate))}/t
     `);
     }
 
