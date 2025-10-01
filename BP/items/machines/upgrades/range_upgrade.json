@@ -8,7 +8,12 @@
 			}
 		},
 		"components": {
-			"minecraft:icon": "utilitycraft_range_upgrade"
+			"minecraft:icon": "utilitycraft_range_upgrade",
+			"minecraft:tags": {
+				"tags": [
+					"utilitycraft:is_upgrade"
+				]
+			}
 		}
 	}
 }

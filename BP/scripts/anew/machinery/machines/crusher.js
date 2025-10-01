@@ -3,7 +3,6 @@ import { crusherRecipes } from "../../config/recipes/crusher.js";
 
 const INPUT = 3
 const OUTPUT = 6
-const COLORS = DoriosAPI.constants.textColors
 
 /**
  * Machine settings object for configuring behavior.
@@ -44,65 +43,44 @@ DoriosAPI.register.blockComponent('crusher', {
         const { block, dimension: dim } = e;
         const machine = new Machine(block, settings);
 
-        // ================== Single-machine processing logic ==================
-
         const inv = machine.inv;
 
-        machine.setLabel(`
-§r§3Energy at ${machine.energy.getPercent()}%%
-§r§3 ${Energy.formatEnergyToText(machine.energy.get())}
-
-§r${COLORS.yellow}Warnings:
-§r${COLORS.red}Invalid Recipe
-        `)
         // Get the input slot (slot 3 in this case)
         const inputSlot = inv.getItem(INPUT);
         if (!inputSlot) {
-            // No input item → reset progress and stop
-            machine.setProgress(0);
-            machine.displayEnergy();
+            machine.showWarning('No Input Item')
             return;
         }
 
         // Get the output slot (usually the last one)
         const outputSlot = inv.getItem(OUTPUT);
 
-
-
-
         // Validate recipe based on the input item
         const recipe = crusherRecipes[inputSlot?.typeId];
-        if (!recipe || outputSlot?.amount >= 64) {
-            // No valid recipe or output is already full
-            machine.setProgress(0);
-            machine.displayEnergy();
+        if (!recipe) {
+            machine.showWarning('Invalid Recipe')
             return;
         }
 
         // Output slot must either match the recipe result or be empty
         if (outputSlot && outputSlot.typeId !== recipe.output) {
-            machine.setProgress(0);
-            machine.displayEnergy();
+            machine.showWarning('Recipe Conflict')
             return;
         }
 
         // Check how many items can still fit in the output slot
         const spaceLeft = (outputSlot?.maxAmount ?? 64) - (outputSlot?.amount ?? 0);
         if ((recipe.amount ?? 1) > spaceLeft) {
-            // Not enough room for recipe output
-            machine.setProgress(0);
-            machine.displayEnergy();
+            machine.showWarning('Output Full')
             return;
         }
-
-        // ================== Cycle execution ==================
 
         const progress = machine.getProgress();
         const energyCost = settings.energy_cost;
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
-            machine.off();
+            machine.showWarning('No Energy')
             return;
         }
 
@@ -126,7 +104,7 @@ DoriosAPI.register.blockComponent('crusher', {
             machine.entity.changeItemAmount(INPUT, -processCount);
         } else {
             // If not enough progress, continue charging with energy
-            const energyToConsume = Math.min(machine.energy.get(), settings.rate_speed_base)
+            const energyToConsume = Math.min(machine.energy.get(), machine.rate)
             machine.energy.consume(energyToConsume);
             machine.addProgress(energyToConsume)
         }
@@ -135,6 +113,9 @@ DoriosAPI.register.blockComponent('crusher', {
         machine.on();
         machine.displayEnergy();
         machine.displayProgress();
+        // Machine operating normally
+        machine.showStatus('Running')
+
     },
     onPlayerBreak(e) {
         Machine.onDestroy(e);

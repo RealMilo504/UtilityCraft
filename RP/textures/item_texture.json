@@ -779,6 +779,24 @@
 		"utilitycraft_arrow_right_16": {
 			"textures": "textures/items/progress_bars/arrow_right_16"
 		},
+		"utilitycraft_arrow_right_17": {
+			"textures": "textures/ui/progress_bar/arrow_right_17"
+		},
+		"utilitycraft_arrow_right_18": {
+			"textures": "textures/ui/progress_bar/arrow_right_18"
+		},
+		"utilitycraft_arrow_right_19": {
+			"textures": "textures/ui/progress_bar/arrow_right_19"
+		},
+		"utilitycraft_arrow_right_20": {
+			"textures": "textures/ui/progress_bar/arrow_right_20"
+		},
+		"utilitycraft_arrow_right_21": {
+			"textures": "textures/ui/progress_bar/arrow_right_21"
+		},
+		"utilitycraft_arrow_right_22": {
+			"textures": "textures/ui/progress_bar/arrow_right_22"
+		},
 		"utilitycraft_way_chip": {
 			"textures": "textures/items/Way_Chip_Anchored_V2"
 		},

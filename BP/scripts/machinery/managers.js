@@ -198,9 +198,9 @@ export class Machinery {
     }
 
     /**
-     * Displays energy information in a 3-bar format inside the given inventory.
+     * Displays energy information in abar format inside the given inventory.
      * 
-     * Uses the first 3 inventory slots (index 0–2) to show energy bars that visually represent:
+     * Uses the first inventory slot to show energy bars that visually represent:
      * - Stored energy
      * - Rate or energy cost 
      * - Efficiency (if applicable)
@@ -831,41 +831,6 @@ export class LiquidManager {
 
 
 
-/**
- * Parses a formatted energy string (with Minecraft color codes) and returns the numeric value in DE.
- * 
- * @param {string} input The string with formatted energy (e.g., "§r§7  Stored Energy: 12.5 kDE / 256 kDE").
- * @param {number} index Which value to extract: 0 = current, 1 = max.
- * @returns {number} The numeric value in base DE.
- *
- * @example
- * parseFormattedEnergy("§r§7  Stored Energy: 12.5 kDE / 256 kDE", 0); // 12500
- * parseFormattedEnergy("§r§7  Stored Energy: 12.5 kDE / 256 kDE", 1); // 256000
- */
-export function obtainEnergyFromText(input, index = 0) {
-    // Remove Minecraft formatting codes
-    const cleanedInput = input.replace(/§[0-9a-frklmnor]/gi, '');
-
-    // Find all matches like "12.5 kDE"
-    const matches = cleanedInput.match(/([\d.]+)\s*(kDE|MDE|GDE|TDE|DE)/g);
-
-    if (!matches || index >= matches.length) {
-        throw new Error("Invalid input or index: couldn't parse energy values.");
-    }
-
-    const [valueStr, unit] = matches[index].split(' ');
-    let multiplier = 1;
-
-    switch (unit) {
-        case 'kDE': multiplier = 1e3; break;
-        case 'MDE': multiplier = 1e6; break;
-        case 'GDE': multiplier = 1e9; break;
-        case 'TDE': multiplier = 1e12; break;
-        case 'DE': multiplier = 1; break;
-    }
-
-    return parseFloat(valueStr) * multiplier;
-}
 
 /**
  * Formats a numerical Dorios Energy (DE) value into a human-readable string with appropriate unit suffix.

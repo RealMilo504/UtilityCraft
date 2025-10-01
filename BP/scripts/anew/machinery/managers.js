@@ -1,4 +1,6 @@
 import { system, world, ItemStack } from '@minecraft/server'
+const COLORS = DoriosAPI.constants.textColors
+
 /**
  * Machine settings object for configuring behavior.
  * 
@@ -9,6 +11,21 @@ import { system, world, ItemStack } from '@minecraft/server'
  * @property {number} rate_speed_base Base processing rate (DE/t).
  * @property {number} energy_cap Maximum internal energy capacity.
  * @property {string} recipes Recipe group name associated with this machine.
+ */
+
+/**
+ * @typedef {"energy" | "filter" | "quantity" | "range" | "speed" | "ultimate"} UpgradeType
+ */
+
+/**
+ * Object mapping upgrade levels by type.
+ * Keys are autocompleted from UpgradeType.
+ *
+ * @typedef {Object} UpgradeLevels
+ * @property {number} energy
+ * @property {number} range
+ * @property {number} speed
+ * @property {number} ultimate
  */
 /**
  * @typedef {import("@minecraft/server").Container} Container
@@ -101,6 +118,9 @@ export class Machine {
         this.entity = this.dim.getEntitiesAtBlockLocation(block.location)[0]
         this.inv = this.entity.getComponent('inventory').container
         this.energy = new Energy(this.entity)
+        this.upgrades = this.getUpgradeLevels(settings.upgrades)
+        this.boosts = this.calculateBoosts(this.upgrades)
+        this.rate = settings.rate_speed_base * this.boosts.speed * this.boosts.consumption
     }
 
     /**
@@ -206,6 +226,7 @@ export class Machine {
         this.block.setState('utilitycraft:on', false)
     }
 
+    //#region Progress
     /**
      * Adds progress to the machine.
      * 
@@ -275,6 +296,7 @@ export class Machine {
         const itemId = `utilitycraft:${type}_${normalized}`;
         inv.setItem(slot, new ItemStack(itemId, 1));
     }
+    //#endregion
 
     /**
      * Displays the current energy of the machine in the specified inventory slot.
@@ -286,6 +308,138 @@ export class Machine {
     displayEnergy(slot = 0) {
         this.energy.display(slot);
     }
+
+    /**
+     * Displays a warning label in the machine.
+     *
+     * Optionally resets the machine progress to 0 and turns off the machine.
+     *
+     * @param {string} message The warning text to display.
+     * @param {boolean} [resetProgress=true] Whether to reset the machine progress to 0.
+     */
+    showWarning(message, resetProgress = true) {
+        if (resetProgress) {
+            this.setProgress(0);
+        }
+
+        this.displayEnergy();
+        this.off()
+        this.setLabel(`
+§r${COLORS.yellow}Warnings:
+§r${COLORS.red}${message}
+
+§r${COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
+§r${COLORS.green}Consumption ${(this.boosts.consumption * 100).toFixed(0)}%%
+
+§r${COLORS.red}Using: ${Energy.formatEnergyToText(this.rate)}/t
+    `);
+    }
+
+    /**
+     * Displays a normal status label in the machine (green).
+     *
+     * Does not reset the machine progress.
+     *
+     * @param {string} message The status text to display.
+     */
+    showStatus(message) {
+        this.displayEnergy();
+
+        this.setLabel(`
+§r${COLORS.green}Status:
+§r${COLORS.darkGreen}${message}
+
+§r${COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
+§r${COLORS.green}Consumption ${(this.boosts.consumption * 100).toFixed(0)}%%
+
+§r${COLORS.red}Using: ${Energy.formatEnergyToText(this.rate)}/t
+    `);
+    }
+
+    /**
+     * Scans upgrade slots and returns upgrade levels by type.
+     *
+     * @param {Array<number>} [slots=[4,5,6]] The inventory slots reserved for upgrades.
+     * @returns {UpgradeLevels}
+     */
+    getUpgradeLevels(slots = [4, 5]) {
+        /** @type {UpgradeLevels} */
+        const levels = {
+            energy: 0,
+            range: 0,
+            speed: 0,
+            ultimate: 0
+        };
+
+        for (const slot of slots) {
+            const item = this.inv.getItem(slot);
+            if (!item) continue;
+
+            if (!item.hasTag("utilitycraft:is_upgrade")) continue;
+
+            // Parse type (e.g. "utilitycraft:energy_upgrade" → "energy")
+            const [, raw] = item.typeId.split(":");
+            const type = raw.split("_")[0];
+
+            if (levels[type] !== undefined) {
+                levels[type] += item.amount;
+            }
+        }
+
+        return levels;
+    }
+
+    /**
+     * Calculates the speed multiplier based on upgrade amounts.
+     *
+     * Formula:
+     * speed = 1 + 0.125 * n * (n + 1)
+     *
+     * @param {number} speedAmount
+     * @returns {number} Speed multiplier
+     */
+    calculateSpeed(speedAmount) {
+        const speedLevel = Math.min(8, speedAmount)
+        return 1 + 0.125 * speedLevel * (speedLevel + 1);
+    }
+
+    /**
+     * Calculates the consumption multiplier (lower = better).
+     *
+     * Formula (depends on energy upgrade level):
+     * If level < 4:
+     *   consumption = (1 - 0.2 * level) * speed
+     * Else:
+     *   consumption = (1 - (0.95 - 0.05 * (8 - level))) * speed
+     *
+     * @param {number} energyAmount
+     * @param {number} speed
+     * @returns {number} Consumption multiplier (0–1)
+     */
+    calculateConsumption(energyAmount, speed) {
+        const energyLevel = Math.min(8, energyAmount)
+        if (energyLevel < 4) {
+            return (1 - 0.2 * energyLevel) * speed;
+        }
+        return (1 - (0.95 - 0.05 * (8 - energyLevel))) * speed;
+    }
+
+    /**
+     * Aggregates all boosts (speed + consumption).
+     *
+     * @param {Object} levels Upgrade levels { speed, energy, ... }
+     * @returns {{ speed: number, consumption: number }}
+     */
+    calculateBoosts(levels) {
+        const speedLevel = levels.speed ?? 0;
+        const energyLevel = levels.energy ?? 0;
+
+        const speed = this.calculateSpeed(speedLevel);
+        const consumption = this.calculateConsumption(energyLevel, speed);
+
+        return { speed, consumption };
+    }
+
 
 }
 

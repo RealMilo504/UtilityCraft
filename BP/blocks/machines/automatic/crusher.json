@@ -34,6 +34,10 @@
 				"energy_cost": 800,
 				"rate_speed_base": 20,
 				"energy_cap": 64000,
+				"upgrades": [
+					4,
+					5
+				],
 				"recipes": "crushing"
 			},
 			"minecraft:geometry": "geometry.utilitycraft_block_2",
