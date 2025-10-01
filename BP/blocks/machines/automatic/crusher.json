@@ -7,28 +7,6 @@
 				"category": "construction"
 			},
 			"states": {
-				"utilitycraft:speed": [
-					0,
-					1,
-					2,
-					3,
-					4,
-					5,
-					6,
-					7,
-					8
-				],
-				"utilitycraft:energy": [
-					0,
-					1,
-					2,
-					3,
-					4,
-					5,
-					6,
-					7,
-					8
-				],
 				"utilitycraft:refreshSpeed": [
 					1,
 					5,
@@ -50,6 +28,14 @@
 			}
 		},
 		"components": {
+			"utilitycraft:crusher": {
+				"entity": "utilitycraft:machine_general",
+				"name_tag": "entity.utilitycraft:crusher.name",
+				"energy_cost": 800,
+				"rate_speed_base": 20,
+				"energy_cap": 64000,
+				"recipes": "crushing"
+			},
 			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {
 				"*": {
@@ -57,14 +43,10 @@
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:machine_upgrades",
-				"utilitycraft:crusher"
-			],
 			"minecraft:tick": {
 				"interval_range": [
-					20,
-					20
+					5,
+					5
 				]
 			},
 			"minecraft:destructible_by_mining": {
@@ -73,7 +55,7 @@
 			"minecraft:destructible_by_explosion": false,
 			"tag:dorios:energy": {},
 			"tag:dorios:item": {},
-            "tag:minecraft_is_pickaxe_item_destructible": {}
+			"tag:minecraft_is_pickaxe_item_destructible": {}
 		},
 		"permutations": [
 			{
