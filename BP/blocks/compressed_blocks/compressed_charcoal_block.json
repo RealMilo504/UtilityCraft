@@ -1,22 +1,22 @@
-{
+	{
 	"format_version": "1.21.110",
 	"minecraft:block": {
 		"description": {
-			"identifier": "utilitycraft:blaze_block",
+			"identifier": "utilitycraft:compressed_charcoal_block",
 			"menu_category": {
 				"category": "construction"
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.utilitycraft_block_2",
+			"minecraft:geometry": "geometry.utilitycraft_block",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_blaze_block",
+					"texture": "utilitycraft_compressed_charcoal_block",
 					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1.4
+				"seconds_to_destroy": 2.5
 			},
 			"tag:minecraft:is_pickaxe_item_destructible": {}
 		}

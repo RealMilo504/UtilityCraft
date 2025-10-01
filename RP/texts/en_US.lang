@@ -255,7 +255,17 @@ tile.utilitycraft:compressed_weathered_copper_block.name=Compressed Weathered Co
 tile.utilitycraft:compressed_weathered_copper_block_2.name=Double Compressed Weathered Copper Block
 tile.utilitycraft:compressed_weathered_copper_block_3.name=Triple Compressed Weathered Copper Block
 tile.utilitycraft:compressed_weathered_copper_block_4.name=Quadruple Compressed Weathered Copper Block
-
+// Block Placer Items
+item.utilitycraft:blaze_block=Blaze Core
+item.utilitycraft:charcoal_block=Charcoal Block
+item.utilitycraft:compressed_charcoal_block=Compressed Charcoal Block
+item.utilitycraft:compressed_charcoal_block_2=Double Compressed Charcoal Block
+item.utilitycraft:compressed_charcoal_block_3=Triple Compressed Charcoal Block
+item.utilitycraft:compressed_charcoal_block_4=Quadruple Compressed Charcoal Block
+item.utilitycraft:compressed_coal_block=Compressed Coal Block
+item.utilitycraft:compressed_coal_block_2=Double Compressed Coal Block
+item.utilitycraft:compressed_coal_block_3=Triple Compressed Coal Block
+item.utilitycraft:compressed_coal_block_4=Quadruple Compressed Coal Block
 
 ## +
 tile.utilitycraft:compressed_sand.name=Compressed Sand

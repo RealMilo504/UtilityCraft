@@ -1,4 +1,4 @@
-{
+	{
     "format_version": "1.21.60",
     "minecraft:crafting_items_catalog": {
         "categories": [
@@ -139,6 +139,8 @@
                             "name": "dorios:itemGroup.name.compressed"
                         },
                         "items": [
+                            "utilitycraft:blaze_block",
+                            "utilitycraft:charcoal_block",
                             "utilitycraft:compressed_amethyst_block",
                             "utilitycraft:compressed_amethyst_block_2",
                             "utilitycraft:compressed_amethyst_block_3",
@@ -151,6 +153,10 @@
                             "utilitycraft:compressed_brute_steel_block_2",
                             "utilitycraft:compressed_brute_steel_block_3",
                             "utilitycraft:compressed_brute_steel_block_4",
+                            "utilitycraft:compressed_charcoal_block",
+                            "utilitycraft:compressed_charcoal_block_2",
+                            "utilitycraft:compressed_charcoal_block_3",
+                            "utilitycraft:compressed_charcoal_block_4",
                             "utilitycraft:compressed_coal_block",
                             "utilitycraft:compressed_coal_block_2",
                             "utilitycraft:compressed_coal_block_3",

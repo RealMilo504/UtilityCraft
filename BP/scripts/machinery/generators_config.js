@@ -3,13 +3,18 @@ export const tierMultis = {
 }
 
 const solidFuels = [
+    { id: 'charcoal', de: 8000 },
+    { id: 'charcoal_block', de: 80000 },
+    { id: 'compressed_charcoal_block', de: 800000 },
+    { id: 'compressed_charcoal_block_2', de: 8000000 },
+    { id: 'compressed_charcoal_block_3', de: 80000000 },
+    { id: 'compressed_charcoal_block_4', de: 800000000 },
+    { id: 'coal', de: 8000 },
+    { id: 'coal_block', de: 80000 },
     { id: 'compressed_coal_block_4', de: 800000000 },
     { id: 'compressed_coal_block_3', de: 80000000 },
     { id: 'compressed_coal_block_2', de: 8000000 },
     { id: 'compressed_coal_block', de: 800000 },
-    { id: 'coal_block', de: 80000 },
-    { id: 'coal', de: 8000 },
-    { id: 'charcoal', de: 8000 },
     { id: 'plank', de: 1500 },
     { id: 'stair', de: 1500 },
     { id: 'fence', de: 1500 },

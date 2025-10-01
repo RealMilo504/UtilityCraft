@@ -1,0 +1,16 @@
+{
+    "format_version": "1.21.110",
+    "minecraft:item": {
+        "description": {
+            "identifier": "utilitycraft:blaze_block"
+        },
+        "components": {
+            "minecraft:block_placer": {
+                "block": "utilitycraft:blaze_block"
+            },
+            "minecraft:fuel": {
+                "duration": 25600
+            }
+        }
+    }
+}

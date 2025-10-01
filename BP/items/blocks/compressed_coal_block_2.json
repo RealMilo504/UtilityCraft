@@ -1,0 +1,16 @@
+{
+    "format_version": "1.21.110",
+    "minecraft:item": {
+        "description": {
+            "identifier": "utilitycraft:compressed_coal_block_2"
+        },
+        "components": {
+            "minecraft:block_placer": {
+                "block": "utilitycraft:compressed_coal_block_2"
+            },
+            "minecraft:fuel": {
+                "duration": 1600000
+            }
+        }
+    }
+}

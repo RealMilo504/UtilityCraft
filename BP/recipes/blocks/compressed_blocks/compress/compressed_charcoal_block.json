@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "utilitycraft:compressed_charcoal_block"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"B": {
+				"item": "minecraft:charcoal"
+			}
+		},
+		"pattern": [
+			"BBB",
+			"BBB",
+			"BBB"
+		],
+		"result": {
+			"item": "utilitycraft:compressed_charcoal_block"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:charcoal"
+			}
+		]
+	}
+}

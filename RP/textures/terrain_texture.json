@@ -1099,6 +1099,21 @@
 		"utilitycraft_compressed_brute_steel_block_4": {
 			"textures": "textures/blocks/compressed_blocks/compressed_brute_steel_block_4"
 		},
+		"utilitycraft_charcoal_block": {
+			"textures": "textures/blocks/compressed_blocks/charcoal_block"
+		},
+		"utilitycraft_compressed_charcoal_block": {
+			"textures": "textures/blocks/compressed_blocks/compressed_charcoal_block"
+		},
+		"utilitycraft_compressed_charcoal_block_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_charcoal_block_2"
+		},
+		"utilitycraft_compressed_charcoal_block_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_charcoal_block_3"
+		},
+		"utilitycraft_compressed_charcoal_block_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_charcoal_block_4"
+		},
 		"utilitycraft_compressed_coal_block": {
 			"textures": "textures/blocks/compressed_blocks/compressed_coal_block"
 		},
