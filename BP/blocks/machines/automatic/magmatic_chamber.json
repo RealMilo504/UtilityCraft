@@ -71,7 +71,7 @@
 			"tag:dorios:energy": {},
 			"tag:dorios:item": {},
 			"tag:dorios:fluid": {},
-            "tag:minecraft_is_pickaxe_item_destructible": {}
+            "tag:minecraft:is_pickaxe_item_destructible": {}
 		},
 		"permutations": [
 			{

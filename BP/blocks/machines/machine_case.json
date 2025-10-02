@@ -19,7 +19,7 @@
 				"seconds_to_destroy": 4
 			},
 			"minecraft:destructible_by_explosion": false,
-			"tag:minecraft_is_pickaxe_item_destructible": {}
+			"tag:minecraft:is_pickaxe_item_destructible": {}
 		}   
 	}
 }
