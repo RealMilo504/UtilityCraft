@@ -3,14 +3,20 @@ import { system } from "@minecraft/server";
 DoriosAPI.register.itemComponent('mesh', {})
 
 /**
- * Base sieving drop table.
+ * Represents a possible sieve loot drop.
  * 
- * Each block ID maps to an array of possible drops.
- * A drop must define:
- *   - item   {string}  The item identifier
- *   - amount {number}  Quantity (default = 1)
- *   - chance {number}  Drop probability (0.0 – 1.0, default = 0.1)
- *   - tier {number}  Mesh tier needed
+ * @typedef {Object} SieveLoot
+ * @property {string} item   Item identifier (namespace:item_name).
+ * @property {number} amount Number of items granted on success.
+ * @property {number} chance Drop probability (0–1).
+ * @property {number} tier   Minimum sieve tier required.
+ */
+
+/**
+ * Recipes for the Sieve machine.
+ * Each key is the input block/item, and the value is an array of possible loot.
+ *
+ * @type {Object.<string, SieveLoot[]>}
  */
 export const sieveRecipes = {
     'minecraft:gravel': [

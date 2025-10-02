@@ -24,23 +24,54 @@
                 }
             },
             {
-                "energy_bar@machineryCommon.vertical": {
+                "energy_bar@machineryCommon.vertical_single": {
                     "$is_energy": true,
+                    "$has_bg": true,
                     "offset": [
-                        -72,
+                        -102,
                         0
                     ]
                 }
             },
-            { // Item
-                "item@common.container_item": {
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
+            {
+                "upgrades@machineryCommon.vertical_interactive": {
+                    "$has_bg": true,
+                    "$collection_index_first": 4,
+                    "$collection_index_second": 5,
+                    "$has_third": false,
                     "offset": [
-                        -26,
-                        13
+                        102,
+                        0
+                    ]
+                }
+            },
+            {
+                "screen": {
+                    "type": "image",
+                    "texture": "textures/ui/screen_vertical_bg",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "size": [
+                        52,
+                        52
                     ],
-                    "collection_index": 3
+                    "offset": [
+                        11,
+                        14
+                    ],
+                    "layer": 0
+                }
+            },
+            {
+                "item_label@machineryCommon.item_label": {
+                    "collection_index": 1,
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "$text_scale": 0.55,
+                    "offset": [
+                        14,
+                        12
+                    ]
                 }
             },
             { // Progress
@@ -48,21 +79,10 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        1,
-                        27
+                        19,
+                        30
                     ],
-                    "collection_index": 4
-                }
-            },
-            { // Item
-                "item@common.container_item": {
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        -26,
-                        41
-                    ],
-                    "collection_index": 5
+                    "collection_index": 2
                 }
             },
             {
@@ -70,8 +90,19 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        28,
-                        9
+                        -2,
+                        17
+                    ],
+                    "collection_index": 3
+                }
+            },
+            {
+                "item@common.container_item": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        -2,
+                        45
                     ],
                     "collection_index": 6
                 }
@@ -81,8 +112,8 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        46,
-                        9
+                        41,
+                        13
                     ],
                     "collection_index": 7
                 }
@@ -92,8 +123,8 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        64,
-                        9
+                        59,
+                        13
                     ],
                     "collection_index": 8
                 }
@@ -103,8 +134,8 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        28,
-                        27
+                        77,
+                        13
                     ],
                     "collection_index": 9
                 }
@@ -114,8 +145,8 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        46,
-                        27
+                        41,
+                        31
                     ],
                     "collection_index": 10
                 }
@@ -125,8 +156,8 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        64,
-                        27
+                        59,
+                        31
                     ],
                     "collection_index": 11
                 }
@@ -136,8 +167,8 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        28,
-                        45
+                        77,
+                        31
                     ],
                     "collection_index": 12
                 }
@@ -147,8 +178,8 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        46,
-                        45
+                        41,
+                        49
                     ],
                     "collection_index": 13
                 }
@@ -158,10 +189,21 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        64,
-                        45
+                        59,
+                        49
                     ],
                     "collection_index": 14
+                }
+            },
+            {
+                "item@common.container_item": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        77,
+                        49
+                    ],
+                    "collection_index": 15
                 }
             }
         ]

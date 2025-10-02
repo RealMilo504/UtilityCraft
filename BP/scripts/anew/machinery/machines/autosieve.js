@@ -1,8 +1,9 @@
 import { Machine, Energy } from '../managers.js'
 import { sieveRecipes } from "../../config/recipes/sieve.js";
 
-const INPUT = 3
-const OUTPUT = 6
+const INTPUTSLOT = 3
+const MESHSLOT = 6
+const OUTPUTSLOT = 9
 
 /**
  * Machine settings object for configuring behavior.
@@ -46,31 +47,38 @@ DoriosAPI.register.blockComponent('autosieve', {
         const inv = machine.inv;
 
         // Get the input slot (slot 3 in this case)
-        const inputSlot = inv.getItem(INPUT);
+        const inputSlot = inv.getItem(INTPUTSLOT);
         if (!inputSlot) {
             machine.showWarning('No Input Item')
             return;
         }
 
-        // Get the output slot (usually the last one)
-        const outputSlot = inv.getItem(OUTPUT);
-
-        // Validate recipe based on the input item
-        const recipe = sieveRecipes[inputSlot?.typeId];
-        if (!recipe) {
-            machine.showWarning('Invalid Recipe')
+        const meshSlot = inv.getItem(MESHSLOT)
+        if (!meshSlot || !meshSlot?.hasComponent("utilitycraft:mesh")) {
+            machine.showWarning('No Mesh Item')
             return;
         }
 
-        // Output slot must either match the recipe result or be empty
-        if (outputSlot && outputSlot.typeId !== recipe.output) {
-            machine.showWarning('Recipe Conflict')
+        /**
+         * Parameters stored in a sieve mesh item.
+         *
+         * @typedef {Object} MeshParams
+         * @property {number} tier       The mesh tier level (e.g., 0, 1, 2...).
+         * @property {number} multiplier Loot multiplier applied to sieve results.
+         */
+
+        /** @type {MeshParams} */
+        const meshData = meshSlot.getComponent("utilitycraft:mesh").customComponentParameters.params
+
+        // Validate recipe based on the input item
+        const recipe = sieveRecipes[inputSlot?.typeId]
+        if (!recipe) {
+            machine.showWarning('Invalid Block')
             return;
         }
 
         // Check how many items can still fit in the output slot
-        const spaceLeft = (outputSlot?.maxAmount ?? 64) - (outputSlot?.amount ?? 0);
-        if ((recipe.amount ?? 1) > spaceLeft) {
+        if (machine.inv.emptySlotsCount == 0) {
             machine.showWarning('Output Full')
             return;
         }
@@ -88,20 +96,21 @@ DoriosAPI.register.blockComponent('autosieve', {
         if (progress >= energyCost) {
             const processCount = Math.min(
                 Math.floor(progress / energyCost),
-                Math.floor(inputSlot.amount),
-                Math.floor(spaceLeft / recipe.amount)
+                Math.floor(inputSlot.amount)
             );
 
-            // Add the processed items to the output
-            if (!outputSlot) {
-                machine.entity.setItem(OUTPUT, recipe.output, processCount * (recipe.amount ?? 1))
-            } else {
-                machine.entity.changeItemAmount(OUTPUT, processCount * (recipe.amount ?? 1))
-            }
+            recipe.forEach(loot => {
+                if (Math.random() <= loot.prob * multi) {
+                    try {
+                        machine.entity.addItem(loot.item, processCount * Math.ceil(Math.random() * loot.amount)
+                        )
+                    } catch { }
+                }
+            });
 
             // Deduct progress and input items
             machine.addProgress(-processCount * energyCost);
-            machine.entity.changeItemAmount(INPUT, -processCount);
+            machine.entity.changeItemAmount(INTPUTSLOT, -processCount);
         } else {
             // If not enough progress, continue charging with energy
             const energyToConsume = Math.min(machine.energy.get(), machine.rate)

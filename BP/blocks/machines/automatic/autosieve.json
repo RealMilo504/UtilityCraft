@@ -31,9 +31,9 @@
 			"utilitycraft:autosieve": {
 				"entity": "utilitycraft:machine3x3",
 				"name_tag": "entity.utilitycraft:autosieve.name",
-				"energy_cost": 3200,
-				"rate_speed_base": 20,
-				"energy_cap": 256000,
+				"energy_cost": 6400,
+				"rate_speed_base": 40,
+				"energy_cap": 512000,
 				"upgrades": [
 					4,
 					5
