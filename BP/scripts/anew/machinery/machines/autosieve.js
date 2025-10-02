@@ -83,8 +83,20 @@ DoriosAPI.register.blockComponent('autosieve', {
             return;
         }
 
+        const upgrades = {
+            hasSpeed: machine.upgrades.speed !== 0,
+            hasEnergy: machine.upgrades.energy !== 0
+        };
+
+        // Base count of empty slots
+        let filledSlots = inv.emptySlotsCount;
+
+        // Subtract empty upgrade slots so they don't count as usable space
+        if (!upgrades.hasSpeed) filledSlots--;
+        if (!upgrades.hasEnergy) filledSlots--;
+
         // Check how many items can still fit in the output slot
-        if (machine.inv.emptySlotsCount == 0) {
+        if (filledSlots == 0) {
             machine.showWarning('Output Full')
             return;
         }
@@ -108,22 +120,30 @@ DoriosAPI.register.blockComponent('autosieve', {
             const multi = meshData.multiplier
             const tier = meshData.tier
 
+            machine.blockSlots(settings.machine.upgrades)
+
+            // === 2) Process and add loot ===
             recipe.forEach(loot => {
-                if (tier < (loot.tier ?? 0)) return
-                if (loot.item == 'minecraft:flint' && tier >= 7) return
+                if (tier < (loot.tier ?? 0)) return;
+                if (loot.item == "minecraft:flint" && tier >= 7) return;
                 if (Math.random() <= loot.chance * multi) {
                     let qty = Array.isArray(loot.amount)
                         ? DoriosAPI.math.randomInterval(loot.amount[0], loot.amount[1])
                         : loot.amount;
 
-                    if (meshData.amount_multiplier) qty * meshData.amount_multiplier
+                    if (meshData.amount_multiplier) qty *= meshData.amount_multiplier;
 
                     try {
-                        machine.entity.addItem(loot.item, processCount * Math.ceil(Math.random() * qty)
-                        )
+                        machine.entity.addItem(
+                            loot.item,
+                            processCount * Math.ceil(Math.random() * qty)
+                        );
                     } catch { }
                 }
             });
+
+            machine.unblockSlots(settings.machine.upgrades)
+
 
             // Deduct progress and input items
             machine.addProgress(-processCount * energyCost);

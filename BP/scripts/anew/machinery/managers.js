@@ -506,6 +506,33 @@ export class Machine {
         return { speed, consumption };
     }
 
+    /**
+     * Block specific slots in this machine by filling them with a blocker item.
+     * Only applies to empty slots.
+     *
+     * @param {number[]} slots Array of slot indices to block.
+     */
+    blockSlots(slots) {
+        for (const index of slots) {
+            if (!this.inv.getItem(index)) {
+                this.inv.setItem(index, new ItemStack("utilitycraft:arrow_right_0", 1));
+            }
+        }
+    }
+
+    /**
+     * Unblock specific slots in this machine by clearing the blocker item.
+     *
+     * @param {number[]} slots Array of slot indices to unblock.
+     */
+    unblockSlots(slots) {
+        for (const index of slots) {
+            const item = this.inv.getItem(index);
+            if (item && item.typeId === "utilitycraft:arrow_right_0") {
+                this.inv.setItem(index, undefined);
+            }
+        }
+    }
 
 }
 
