@@ -1,15 +1,13 @@
+
 /**
-* Crusher recipes table.
-*
-* Each block ID maps to its crushing recipe.
-* A recipe must define:
-*   - output {string}  The resulting item/block identifier
-*   - amount {number}  Quantity produced (default = 1)
-*   - tier   {number}  Crusher tier required (0–4)
-*
-* Example:
-*   "minecraft:cobblestone": { output: "minecraft:gravel", amount: 1, tier: 0 }
-*/
+ * Recipes for the Crusher machine.
+ *
+ * Each key represents an input item identifier, and its value specifies
+ * the resulting output item, required input quantity, and output amount.
+ *
+ * @constant
+ * @type {SingleInputRecipes}
+ */
 export const crusherRecipes = {
     // ========== COBBLESTONE ==========
     "minecraft:cobblestone": { output: "minecraft:gravel", amount: 1, tier: 0 },

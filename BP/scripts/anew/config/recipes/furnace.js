@@ -1,13 +1,13 @@
+
 /**
-* Recipe group for smelting operations.
-*
-* Each key is the input item identifier, and the value defines the recipe output.
-*
-* @typedef {Object} SmeltingRecipe
-* @property {string} output The resulting item identifier after smelting.
-*
-* @type {Object.<string, SmeltingRecipe>}
-*/
+ * Recipes for the Incinerator machine.
+ *
+ * Each key represents an input item identifier, and its value specifies
+ * the resulting output item, required input quantity, and output amount.
+ *
+ * @constant
+ * @type {SingleInputRecipes}
+ */
 export const furnaceRecipes = {
     // UtilityCraft
     "utilitycraft:raw_steel": {

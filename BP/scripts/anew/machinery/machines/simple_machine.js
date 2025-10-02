@@ -12,23 +12,6 @@ const UTILITYCRAFT_RECIPES = {
 const INPUTSLOT = 3
 const OUTPUTSLOT = 6
 
-/**
- * Machine settings object for configuring behavior.
- * 
- * @typedef {Object} MachineSettings
- * @property {Object} entity Entity configuration of the machine.
- * @property {string} entity.name Internal machine name (e.g., "crusher").
- * @property {string} entity.input_type Type of input (e.g., "simple").
- * @property {string} entity.output_type Type of output (e.g., "complex").
- * @property {number} entity.inventory_size Number of inventory slots.
- * 
- * @property {Object} machine Machine operational settings.
- * @property {number} machine.energy_cap Maximum internal energy capacity.
- * @property {number} machine.energy_cost Energy consumed per operation.
- * @property {number} machine.rate_speed_base Base processing rate (DE/t).
- * @property {number[]} machine.upgrades List of accepted upgrade IDs.
- */
-
 DoriosAPI.register.blockComponent('simple_machine', {
     /**
      * Runs before the machine is placed by the player.

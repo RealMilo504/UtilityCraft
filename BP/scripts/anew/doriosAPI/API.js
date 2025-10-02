@@ -2,13 +2,6 @@ import { system, world, ItemStack, Player, Block, Entity, Container, CommandPerm
 const NAMESPACE = 'utilitycraft'
 
 /**
- * @typedef {import("@minecraft/server").BlockCustomComponent} BlockCustomComponent
- * @typedef {import("@minecraft/server").ItemCustomComponent} ItemCustomComponent
- * @typedef {import("@minecraft/server").Vector3} Vector3
- * @typedef {import("@minecraft/server").EntityTypeFamilyComponent} EntityTypeFamilyComponent
- */
-
-/**
  * ==================================================
  * DoriosAPI - Official Library by Dorios Studios
  * ==================================================

@@ -1,33 +1,11 @@
 import { Machine } from '../managers.js'
-import { crusherRecipes } from "../../config/recipes/crusher.js";
-import { furnaceRecipes } from "../../config/recipes/furnace.js";
-import { pressRecipes } from "../../config/recipes/press.js";
+import { infuserRecipes } from "../../config/recipes/infuser.js"
 
-const UTILITYCRAFT_RECIPES = {
-    'crusher': crusherRecipes,
-    'furnace': furnaceRecipes,
-    'presser': pressRecipes
-}
+infuserRecipes['minecraft:redstone']['minecraft:iron_ingot']
+
 
 const INPUTSLOT = 3
 const OUTPUTSLOT = 6
-
-/**
- * Machine settings object for configuring behavior.
- * 
- * @typedef {Object} MachineSettings
- * @property {Object} entity Entity configuration of the machine.
- * @property {string} entity.name Internal machine name (e.g., "crusher").
- * @property {string} entity.input_type Type of input (e.g., "simple").
- * @property {string} entity.output_type Type of output (e.g., "complex").
- * @property {number} entity.inventory_size Number of inventory slots.
- * 
- * @property {Object} machine Machine operational settings.
- * @property {number} machine.energy_cap Maximum internal energy capacity.
- * @property {number} machine.energy_cost Energy consumed per operation.
- * @property {number} machine.rate_speed_base Base processing rate (DE/t).
- * @property {number[]} machine.upgrades List of accepted upgrade IDs.
- */
 
 DoriosAPI.register.blockComponent('simple_machine', {
     /**
@@ -57,7 +35,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
         const { block } = e;
         const machine = new Machine(block, settings);
         if (!machine.entity) return
-
+        settings
         const inv = machine.inv;
 
         //#region Comprobations

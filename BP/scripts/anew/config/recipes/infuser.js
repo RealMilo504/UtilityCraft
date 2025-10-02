@@ -1,32 +1,10 @@
-/**
-* Infusing recipes configuration.
-*
-* The structure follows a nested object:
-* {
-*   catalyst: {
-*     ingredient: {
-*       output: string,
-*       required?: number,
-*       amount?: number
-*     }
-*   }
-* }
-*
-* - `catalyst` is the primary input (outer key).
-* - `ingredient` is the secondary input (nested key).
-* - `output` is the resulting item identifier.
-* - `required` (optional) is the number of catalyst items required (defaults to 1).
-* - `amount` (optional) is the number of output items produced (defaults to 1).
-*
-* @typedef {Object} InfusingRecipe
-* @property {string} output The resulting item identifier.
-* @property {number} [required=1] Number of catalyst items required.
-* @property {number} [amount=1] Number of output items produced.
-*
-* @typedef {Object.<string, Object.<string, InfusingRecipe>>} InfusingRecipes
-*/
 
-/** @type {InfusingRecipes} */
+/**
+ * Represents all infusing recipes.
+ *
+ * @global
+ * @typedef {Object.<string, Object.<string, InfusingRecipe>>} InfusingRecipes
+ */
 export const infuserRecipes = {
     'minecraft:redstone': {
         'minecraft:iron_ingot': {
@@ -141,3 +119,4 @@ export const infuserRecipes = {
         }
     }
 }
+

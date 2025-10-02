@@ -2,24 +2,10 @@
 * Pressing and compression recipes for the Electro Press machine.
 *
 * Each key represents an input item identifier, and its value specifies
-* the resulting output item and the number of input items required.
-*
-* ## Structure
-* ```js
-* {
-*   "inputItemId": {
-*     output: "outputItemId",
-*     required: number
-*   }
-* }
-* ```
-*
-* - **inputItemId**: Minecraft or UtilityCraft item identifier used as input.
-* - **output**: Resulting item identifier after pressing/compression.
-* - **required**: Number of input items needed per operation.
+* the resulting output item, required input quantity, and output amount.
 *
 * @constant
-* @type {Object.<string, {output: string, required: number}>}
+* @type {SingleInputRecipes}
 */
 export const pressRecipes = {
     "minecraft:netherite_ingot": { output: "utilitycraft:netherite_plate", required: 1 },

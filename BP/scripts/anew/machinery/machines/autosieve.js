@@ -4,23 +4,6 @@ import { sieveRecipes } from "../../config/recipes/sieve.js";
 const INTPUTSLOT = 3
 const MESHSLOT = 6
 
-/**
- * Machine settings object for configuring behavior.
- * 
- * @typedef {Object} MachineSettings
- * @property {Object} entity Entity configuration of the machine.
- * @property {string} entity.name Internal machine name (e.g., "crusher").
- * @property {string} entity.input_type Type of input (e.g., "simple").
- * @property {string} entity.output_type Type of output (e.g., "complex").
- * @property {number} entity.inventory_size Number of inventory slots.
- * 
- * @property {Object} machine Machine operational settings.
- * @property {number} machine.energy_cap Maximum internal energy capacity.
- * @property {number} machine.energy_cost Energy consumed per operation.
- * @property {number} machine.rate_speed_base Base processing rate (DE/t).
- * @property {number[]} machine.upgrades List of accepted upgrade IDs.
- */
-
 DoriosAPI.register.blockComponent('autosieve', {
     /**
      * Runs before the machine is placed by the player.
@@ -63,15 +46,6 @@ DoriosAPI.register.blockComponent('autosieve', {
             machine.showWarning('No Mesh Item')
             return;
         }
-
-        /**
-         * Parameters stored in a sieve mesh item.
-         *
-         * @typedef {Object} MeshParams
-         * @property {number} tier       The mesh tier level (e.g., 0, 1, 2...).
-         * @property {number} multiplier Loot multiplier applied to sieve results.
-         * @property {number} amount_multiplier Loot multiplier applied to sieve results.
-         */
 
         /** @type {MeshParams} */
         const meshData = meshSlot.getComponent("utilitycraft:mesh").customComponentParameters.params

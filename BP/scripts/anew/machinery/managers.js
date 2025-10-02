@@ -1,48 +1,6 @@
 import { system, world, ItemStack } from '@minecraft/server'
 const COLORS = DoriosAPI.constants.textColors
 
-/**
- * Machine settings object for configuring behavior.
- * 
- * @typedef {Object} MachineSettings
- * @property {Object} entity Entity configuration of the machine.
- * @property {string} entity.name Internal machine name (e.g., "crusher").
- * @property {string} entity.input_type Type of input (e.g., "simple").
- * @property {string} entity.output_type Type of output (e.g., "complex").
- * @property {number} entity.inventory_size Number of inventory slots.
- * 
- * @property {Object} machine Machine operational settings.
- * @property {number} machine.energy_cap Maximum internal energy capacity.
- * @property {number} machine.energy_cost Energy consumed per operation.
- * @property {number} machine.rate_speed_base Base processing rate (DE/t).
- * @property {number[]} machine.upgrades List of accepted upgrade IDs.
- */
-
-
-/**
- * @typedef {"energy" | "filter" | "quantity" | "range" | "speed" | "ultimate"} UpgradeType
- */
-
-/**
- * Object mapping upgrade levels by type.
- * Keys are autocompleted from UpgradeType.
- *
- * @typedef {Object} UpgradeLevels
- * @property {number} energy
- * @property {number} range
- * @property {number} speed
- * @property {number} ultimate
- */
-/**
- * @typedef {import("@minecraft/server").Container} Container
- * @typedef {import("@minecraft/server").Block} Block
- * @typedef {import("@minecraft/server").Entity} Entity
- * @typedef {import("@minecraft/server").ScoreboardObjective} ScoreboardObjective
- * @typedef {import("@minecraft/server").Vector3} Vector3
- * @typedef {import("@minecraft/server").Dimension} Dimension
- * @typedef {import("@minecraft/server").BlockPermutation} BlockPermutation
- */
-
 globalThis.worldLoaded = false;
 
 /**
