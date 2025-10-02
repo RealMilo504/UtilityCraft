@@ -8,10 +8,15 @@
   - Implemented fuel behavior for Coal, Charcoal and Blaze Core block family.
 
 - Reworked Sieving System:
-  - Added Copper Mesh and defined Mesh Tiers.
-  - Sieve Drops now scale by tier (e.g., Diamond requires at least Iron Mesh).
-  - Netherite Mesh no longer drops Flint.
-  - Updated mesh multipliers for balance.
+  - General
+    - Added Copper Mesh and defined Mesh Tiers.
+    - Sieve Drops now scale by tier (e.g., Diamond requires at least Iron Mesh).
+    - Netherite Mesh no longer drops Flint.
+    - Updated mesh multipliers for balance.
+  - Autosieve
+    - Increased autosieve process cost from 3.2 kDE to 6.4 kDE
+    - Added the `utilitycraft:mesh` component to items to create custom meshes
+      > Note: Custom meshes won't work with the basic sieve
 
 The meshes individual stats are:
     
@@ -34,6 +39,11 @@ The meshes individual stats are:
   - Updated breaking times for most blocks.
   - Proper tool requirements for breaking blocks applied (e.g., Compressed Dirt requires Shovel, Machines requires Pickaxe…).
       > "Late, we know that."
+- Updated machines UI
+  - Moved energy bar to the side
+  - Added screen to display warnings and information
+  - Added a side upgrades bar
+  - Upgrades are now added manually in the UI
   
 - General:
   - Added descriptions for machines, listing supported upgrades.
