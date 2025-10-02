@@ -79,6 +79,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
             recipes = recipesComponent
         }
 
+        //#region Comprobations
         if (!recipes) {
             machine.showWarning('No Recipes');
             return;
@@ -110,6 +111,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
             machine.showWarning(`Needs ${recipe.required ?? 1} Items`);
             return;
         }
+        //#endregion
 
         const progress = machine.getProgress();
         const energyCost = settings.machine.energy_cost;
