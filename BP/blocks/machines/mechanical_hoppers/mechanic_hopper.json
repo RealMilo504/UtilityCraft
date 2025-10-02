@@ -28,6 +28,7 @@
 			}
 		},
 		"components": {
+			"utilitycraft:upgradeable": {},
 			"minecraft:geometry": "geometry.utilitycraft_mechanical_hopper",
 			"minecraft:material_instances": {
 				"*": {
@@ -35,10 +36,6 @@
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:mechanic_hoppers",
-				"utilitycraft:machine_upgrades"
-			],
 			"minecraft:tick": {
 				"interval_range": [
 					5,
@@ -48,9 +45,9 @@
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 1
 			},
-			"minecraft:destructible_by_explosion":false,
+			"minecraft:destructible_by_explosion": false,
 			"tag:dorios:item": {},
-            "tag:minecraft:is_pickaxe_item_destructible": {}
+			"tag:minecraft:is_pickaxe_item_destructible": {}
 		},
 		"permutations": [
 			{

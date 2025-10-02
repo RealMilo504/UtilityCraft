@@ -5,4 +5,4 @@ import './machines/autosieve.js'
 import './machines/simple_machine.js'
 import './managers.js'
 
-import './machines/upgradeable.js'
+import './upgradeable.js'
