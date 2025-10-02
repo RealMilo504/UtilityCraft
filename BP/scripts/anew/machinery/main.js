@@ -1,3 +1,5 @@
 import './machines/crusher.js'
 import './machines/incinerator.js'
+import './machines/electro_press.js'
+import './machines/autosieve.js'
 import './managers.js'

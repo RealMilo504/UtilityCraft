@@ -143,8 +143,8 @@ export class Machine {
         const lore = [];
 
         // Energy lore
-        if (energy.value > 0) {
-            lore.push(`§r§7  Stored Energy: ${Energy.formatEnergyToText(energy.value)}/${Energy.formatEnergyToText(energy.cap)}`);
+        if (energy.get() > 0) {
+            lore.push(`§r§7  Stored Energy: ${Energy.formatEnergyToText(energy.get())}/${Energy.formatEnergyToText(energy.cap)}`);
         }
 
         if (lore.length > 0) {
@@ -325,13 +325,13 @@ export class Machine {
         this.displayEnergy();
         this.off()
         this.setLabel(`
-§r${COLORS.red}${message}!
+§r${COLORS.yellow}${message}!
 
 §r${COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
 §r${COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
 §r${COLORS.green}Cost ${Energy.formatEnergyToText(this.getEnergyCost() * this.boosts.consumption)}
 
-§r${COLORS.red}Using ${Energy.formatEnergyToText(Math.floor(this.rate))}/t
+§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(this.rate))}/t
     `);
     }
 
@@ -350,9 +350,9 @@ export class Machine {
 
 §r${COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
 §r${COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
-§r${COLORS.green}Cost x${Energy.formatEnergyToText(this.getEnergyCost() * this.boosts.consumption)}
+§r${COLORS.green}Cost ${Energy.formatEnergyToText(this.getEnergyCost() * this.boosts.consumption)}
 
-§r${COLORS.red}Using ${Energy.formatEnergyToText(Math.floor(this.rate))}/t
+§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(this.rate))}/t
     `);
     }
 
@@ -780,7 +780,7 @@ export class Energy {
         const item = new ItemStack(`utilitycraft:energy_${frameName}`, 1);
         item.nameTag = `§rEnergy
 §r§7  Stored: ${Energy.formatEnergyToText(this.get())} / ${Energy.formatEnergyToText(this.cap)}
-§r§7  Percentage: ${this.getPercent()}%%`;
+§r§7  Percentage: ${this.getPercent().toFixed(2)}%%`;
 
         container.setItem(slot, item);
     }

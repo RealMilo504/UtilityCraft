@@ -1,5 +1,5 @@
 import { Machine, Energy } from '../managers.js'
-import { furnaceRecipes } from "../../config/recipes/furnace.js";
+import { sieveRecipes } from "../../config/recipes/sieve.js";
 
 const INPUT = 3
 const OUTPUT = 6
@@ -16,7 +16,7 @@ const OUTPUT = 6
  * @property {Object.<string, {output: string, amount?: number}>} recipes Recipe group by input item id.
  */
 
-DoriosAPI.register.blockComponent('incinerator', {
+DoriosAPI.register.blockComponent('autosieve', {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -56,7 +56,7 @@ DoriosAPI.register.blockComponent('incinerator', {
         const outputSlot = inv.getItem(OUTPUT);
 
         // Validate recipe based on the input item
-        const recipe = furnaceRecipes[inputSlot?.typeId];
+        const recipe = sieveRecipes[inputSlot?.typeId];
         if (!recipe) {
             machine.showWarning('Invalid Recipe')
             return;

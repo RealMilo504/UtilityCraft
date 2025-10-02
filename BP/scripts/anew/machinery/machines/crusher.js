@@ -88,8 +88,8 @@ DoriosAPI.register.blockComponent('crusher', {
         if (progress >= energyCost) {
             const processCount = Math.min(
                 Math.floor(progress / energyCost),
-                inputSlot.amount,
-                spaceLeft
+                Math.floor(inputSlot.amount),
+                Math.floor(spaceLeft / recipe.amount)
             );
 
             // Add the processed items to the output
