@@ -7,13 +7,6 @@
 				"category": "construction"
 			},
 			"states": {
-				"utilitycraft:refreshSpeed": [
-					1,
-					5,
-					10,
-					20,
-					40
-				],
 				"utilitycraft:on": [
 					false,
 					true
@@ -30,7 +23,6 @@
 		"components": {
 			"utilitycraft:simple_machine": {
 				"entity": {
-					"name": "crusher",
 					"input_type": "simple",
 					"output_type": "complex",
 					"inventory_size": 7
@@ -45,18 +37,18 @@
 					]
 				}
 			},
-			// "utilitycraft:machine_recipes": {
-			// 	"minecraft:cobblestone": {
-			// 		"output": "minecraft:gravel",
-			// 		"amount": 1,
-			// 		"tier": 0
-			// 	},
-			// 	"utilitycraft:compressed_cobblestone": {
-			// 		"output": "utilitycraft:compressed_gravel",
-			// 		"amount": 1,
-			// 		"tier": 1
-			// 	}
-			// },
+			"utilitycraft:machine_recipes": {
+				// Here you can define "type" to use Utility's Machines Recipes, or write them manually
+				"type": "crusher"
+				// "minecraft:cobblestone": {
+				// 	"output": "minecraft:gravel",
+				// 	"amount": 1
+				// },
+				// "utilitycraft:compressed_cobblestone": {
+				// 	"output": "utilitycraft:compressed_gravel",
+				// 	"amount": 1
+				// }
+			},
 			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {
 				"*": {
@@ -66,8 +58,8 @@
 			},
 			"minecraft:tick": {
 				"interval_range": [
-					5,
-					5
+					2,
+					2
 				]
 			},
 			"minecraft:destructible_by_mining": {
@@ -77,146 +69,6 @@
 			"tag:dorios:energy": {},
 			"tag:dorios:item": {},
 			"tag:minecraft_is_pickaxe_item_destructible": {}
-		},
-		"permutations": [
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 1 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							5,
-							5
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 5 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							25,
-							25
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 10 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							50,
-							50
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 20 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							100,
-							100
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 40 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							200,
-							200
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'up'",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							-90,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'down' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							90,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'north' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							180,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'south' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'east' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'west' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							-90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:on') == true ",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_crusher_on",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			}
-		]
+		}
 	}
 }

@@ -3,34 +3,47 @@ import { crusherRecipes } from "../../config/recipes/crusher.js";
 import { furnaceRecipes } from "../../config/recipes/furnace.js";
 import { pressRecipes } from "../../config/recipes/press.js";
 
-const INPUT = 3
-const OUTPUT = 6
+const UTILITYCRAFT_RECIPES = {
+    'crusher': crusherRecipes,
+    'furnace': furnaceRecipes,
+    'presser': pressRecipes
+}
+
+const INPUTSLOT = 3
+const OUTPUTSLOT = 6
 
 /**
  * Machine settings object for configuring behavior.
  * 
  * @typedef {Object} MachineSettings
- * @property {string} entity Entity identifier used to spawn the machine.
- * @property {string} name_tag Localized name tag identifier.
- * @property {number} energy_cost Energy consumed per operation.
- * @property {number} rate_speed_base Base processing rate (DE/t).
- * @property {number} energy_cap Maximum internal energy capacity.
- * @property {Object.<string, {output: string, amount?: number}>} recipes Recipe group by input item id.
+ * @property {Object} entity Entity configuration of the machine.
+ * @property {string} entity.name Internal machine name (e.g., "crusher").
+ * @property {string} entity.input_type Type of input (e.g., "simple").
+ * @property {string} entity.output_type Type of output (e.g., "complex").
+ * @property {number} entity.inventory_size Number of inventory slots.
+ * 
+ * @property {Object} machine Machine operational settings.
+ * @property {number} machine.energy_cap Maximum internal energy capacity.
+ * @property {number} machine.energy_cost Energy consumed per operation.
+ * @property {number} machine.rate_speed_base Base processing rate (DE/t).
+ * @property {number[]} machine.upgrades List of accepted upgrade IDs.
  */
 
 DoriosAPI.register.blockComponent('simple_machine', {
     /**
      * Runs before the machine is placed by the player.
      * 
+     * @param {import('@minecraft/server').BlockComponentPlayerPlaceBeforeEvent} e
      * @param {{ params: MachineSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
         Machine.spawnMachineEntity(e, settings, () => {
             const machine = new Machine(e.block, settings);
-            machine.setEnergyCost(settings.energy_cost);
+            machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress()
             // Fill Slot to avoid issues
             machine.entity.setItem(1, 'utilitycraft:arrow_right_0')
+            machine.energy.set(10000)
         });
     },
 
@@ -42,24 +55,37 @@ DoriosAPI.register.blockComponent('simple_machine', {
      */
     onTick(e, { params: settings }) {
         if (!worldLoaded) return;
-        const { block, dimension: dim } = e;
+        const { block } = e;
         const machine = new Machine(block, settings);
         if (!machine.entity) return
 
         const inv = machine.inv;
 
         // Get the input slot (slot 3 in this case)
-        const inputSlot = inv.getItem(INPUT);
+        const inputSlot = inv.getItem(INPUTSLOT);
         if (!inputSlot) {
             machine.showWarning('No Input Item');
             return;
         }
 
         // Get the output slot (usually the last one)
-        const outputSlot = inv.getItem(OUTPUT);
+        const outputSlot = inv.getItem(OUTPUTSLOT);
+
+        const recipesComponent = block.getComponent("utilitycraft:machine_recipes")?.customComponentParameters?.params
+        let recipes;
+        if (recipesComponent.type) {
+            recipes = UTILITYCRAFT_RECIPES[recipesComponent.type]
+        } else {
+            recipes = recipesComponent
+        }
+
+        if (!recipes) {
+            machine.showWarning('No Recipes');
+            return;
+        }
 
         // Validate recipe based on the input item
-        const recipe = pressRecipes[inputSlot?.typeId];
+        const recipe = recipes[inputSlot?.typeId];
         if (!recipe) {
             machine.showWarning('Invalid Recipe');
             return;
@@ -86,7 +112,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
         }
 
         const progress = machine.getProgress();
-        const energyCost = settings.energy_cost;
+        const energyCost = settings.machine.energy_cost;
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
@@ -101,18 +127,18 @@ DoriosAPI.register.blockComponent('simple_machine', {
                 Math.floor(inputSlot.amount / required),
                 Math.floor(spaceLeft / (recipe.amount ?? 1))
             );
-
+            block.dimension.runCommand('say hello')
             if (processCount > 0) {
                 // Add the processed items to the output
                 if (!outputSlot) {
-                    machine.entity.setItem(OUTPUT, recipe.output, processCount * (recipe.amount ?? 1));
+                    machine.entity.setItem(OUTPUTSLOT, recipe.output, processCount * (recipe.amount ?? 1));
                 } else {
-                    machine.entity.changeItemAmount(OUTPUT, processCount * (recipe.amount ?? 1));
+                    machine.entity.changeItemAmount(OUTPUTSLOT, processCount * (recipe.amount ?? 1));
                 }
 
                 // Deduct progress and input items
                 machine.addProgress(-processCount * energyCost);
-                machine.entity.changeItemAmount(INPUT, -processCount * required);
+                machine.entity.changeItemAmount(INPUTSLOT, -processCount * required);
             }
         } else {
             // If not enough progress, continue charging with energy
@@ -133,3 +159,5 @@ DoriosAPI.register.blockComponent('simple_machine', {
         Machine.onDestroy(e);
     }
 });
+
+DoriosAPI.register.blockComponent('machine_recipes', {})

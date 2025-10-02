@@ -229,7 +229,9 @@
 				]
 			},
 			"minecraft:health": {
-				"min": 1
+				"max": 1,
+				"min": 1,
+				"value": 1
 			},
 			"minecraft:knockback_resistance": {
 				"value": 1000,
@@ -239,6 +241,7 @@
 				"height": 0.5,
 				"width": 1
 			},
+			"minecraft:fire_immune": true,
 			"minecraft:inventory": {
 				"inventory_size": 6,
 				"container_type": "container"

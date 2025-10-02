@@ -1,6 +1,3 @@
-import './machines/crusher.js'
-import './machines/incinerator.js'
-import './machines/electro_press.js'
 import './machines/autosieve.js'
 import './machines/simple_machine.js'
 import './managers.js'

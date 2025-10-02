@@ -5,13 +5,19 @@ const COLORS = DoriosAPI.constants.textColors
  * Machine settings object for configuring behavior.
  * 
  * @typedef {Object} MachineSettings
- * @property {string} entity Entity identifier used to spawn the machine.
- * @property {string} name_tag Localized name tag identifier.
- * @property {number} energy_cost Energy consumed per operation.
- * @property {number} rate_speed_base Base processing rate (DE/t).
- * @property {number} energy_cap Maximum internal energy capacity.
- * @property {string} recipes Recipe group name associated with this machine.
+ * @property {Object} entity Entity configuration of the machine.
+ * @property {string} entity.name Internal machine name (e.g., "crusher").
+ * @property {string} entity.input_type Type of input (e.g., "simple").
+ * @property {string} entity.output_type Type of output (e.g., "complex").
+ * @property {number} entity.inventory_size Number of inventory slots.
+ * 
+ * @property {Object} machine Machine operational settings.
+ * @property {number} machine.energy_cap Maximum internal energy capacity.
+ * @property {number} machine.energy_cost Energy consumed per operation.
+ * @property {number} machine.rate_speed_base Base processing rate (DE/t).
+ * @property {number[]} machine.upgrades List of accepted upgrade IDs.
  */
+
 
 /**
  * @typedef {"energy" | "filter" | "quantity" | "range" | "speed" | "ultimate"} UpgradeType
@@ -103,8 +109,6 @@ world.afterEvents.worldLoad.subscribe(() => {
 });
 
 export class Machine {
-
-
     /**
      * Creates a new Machinery instance.
      * 
@@ -112,15 +116,15 @@ export class Machine {
      * @param {MachineSettings} settings Machine's settings.
      */
     constructor(block, settings) {
-        this.settings = settings.machine
+        this.settings = settings
         this.dim = block.dimension
         this.block = block
         this.entity = this.dim.getEntitiesAtBlockLocation(block.location)[0]
         this.inv = this.entity?.getComponent('inventory')?.container
         this.energy = new Energy(this.entity)
-        this.upgrades = this.getUpgradeLevels(settings.upgrades)
+        this.upgrades = this.getUpgradeLevels(settings.machine.upgrades)
         this.boosts = this.calculateBoosts(this.upgrades)
-        this.rate = settings.rate_speed_base * this.boosts.speed * this.boosts.consumption
+        this.rate = settings.machine.rate_speed_base * this.boosts.speed * this.boosts.consumption
     }
 
     /**
@@ -174,7 +178,8 @@ export class Machine {
         machineEntity.triggerEvent(inventoryEvent);
 
         // 4. Assign name tag
-        machineEntity.nameTag = `entity.utilitycraft:${entity.name}.name`;
+        const name = block.typeId.split(':')[1] ?? entity.name
+        machineEntity.nameTag = `entity.utilitycraft:${name}.name`;
 
         return machineEntity;
     }
@@ -224,7 +229,7 @@ export class Machine {
      * Spawns a machine entity at the given block location with a name tag and energy settings.
      *
      * @param {{ block: Block, player: Player, dimension: Dimension }} e The event data object containing the dimension, block and player.
-     * @param {Object} settings Custom settings to apply to the machine entity.
+     * @param {MachineSettings} settings Custom settings to apply to the machine entity.
      * @param {Function} [callback] A function to execute after the entity is spawned (optional).
      */
     static spawnMachineEntity(e, settings, callback) {
@@ -499,7 +504,7 @@ export class Machine {
 
 
 
-
+1
 /**
  * Utility class to manage scoreboard-based energy values for entities.
  */
@@ -511,7 +516,7 @@ export class Energy {
      */
     constructor(entity) {
         this.entity = entity;
-        this.scoreId = entity.scoreboardIdentity;
+        this.scoreId = entity?.scoreboardIdentity;
         this.cap = this.getCap()
     }
 
