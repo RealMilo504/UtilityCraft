@@ -325,10 +325,10 @@ export class Machine {
         this.displayEnergy();
         this.off()
         this.setLabel(`
-§r${COLORS.yellow}Warnings:
-§r${COLORS.red}${message}
+§r${COLORS.red}${message}!
 
 §r${COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
+§r${COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
 §r${COLORS.green}Cost ${Energy.formatEnergyToText(this.getEnergyCost() * this.boosts.consumption)}
 
 §r${COLORS.red}Using ${Energy.formatEnergyToText(Math.floor(this.rate))}/t
@@ -346,11 +346,11 @@ export class Machine {
         this.displayEnergy();
 
         this.setLabel(`
-§r${COLORS.green}Status:
-§r${COLORS.darkGreen}${message}
+§r${COLORS.darkGreen}${message}!
 
 §r${COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
-§r${COLORS.green}Cost ${Energy.formatEnergyToText(this.getEnergyCost() * this.boosts.consumption)}
+§r${COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
+§r${COLORS.green}Cost x${Energy.formatEnergyToText(this.getEnergyCost() * this.boosts.consumption)}
 
 §r${COLORS.red}Using ${Energy.formatEnergyToText(Math.floor(this.rate))}/t
     `);
