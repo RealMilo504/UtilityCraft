@@ -28,17 +28,22 @@
 			}
 		},
 		"components": {
-			"utilitycraft:crusher": {
-				"entity": "utilitycraft:machine_general",
-				"name_tag": "entity.utilitycraft:crusher.name",
-				"energy_cost": 800,
-				"rate_speed_base": 20,
-				"energy_cap": 64000,
-				"upgrades": [
-					4,
-					5
-				],
-				"recipes": "crushing"
+			"utilitycraft:simple_machine": {
+				"entity": {
+					"name": "crusher",
+					"input_type": "simple",
+					"output_type": "complex",
+					"inventory_size": 7
+				},
+				"machine": {
+					"energy_cap": 64000,
+					"energy_cost": 800,
+					"rate_speed_base": 20,
+					"upgrades": [
+						4,
+						5
+					]
+				}
 			},
 			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {

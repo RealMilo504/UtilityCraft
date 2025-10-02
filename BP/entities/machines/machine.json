@@ -2,7 +2,7 @@
 	"format_version": "1.19.20",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "utilitycraft:crusher",
+			"identifier": "utilitycraft:machine",
 			"is_spawnable": false,
 			"is_summonable": true,
 			"is_experimental": false
@@ -10,6 +10,202 @@
 		"component_groups": {
 			"despawn": {
 				"minecraft:instant_despawn": {}
+			},
+			"utilitycraft:basic_machine": {
+				"minecraft:type_family": {
+					"family": [
+						"dorios:machine",
+						"dorios:energy_container"
+					]
+				}
+			},
+			// Normal Machines
+			"utilitycraft:simple_machine": {
+				"minecraft:type_family": {
+					"family": [
+						"dorios:machine",
+						"dorios:energy_container",
+						"dorios:container",
+						"dorios:simple_input",
+						"dorios:simple_output"
+					]
+				}
+			},
+			"utilitycraft:complex_in_machine": {
+				"minecraft:type_family": {
+					"family": [
+						"dorios:machine",
+						"dorios:energy_container",
+						"dorios:container",
+						"dorios:complex_input",
+						"dorios:simple_output"
+					]
+				}
+			},
+			"utilitycraft:complex_out_machine": {
+				"minecraft:type_family": {
+					"family": [
+						"dorios:machine",
+						"dorios:energy_container",
+						"dorios:container",
+						"dorios:simple_input",
+						"dorios:complex_output"
+					]
+				}
+			},
+			"utilitycraft:complex_machine": {
+				"minecraft:type_family": {
+					"family": [
+						"dorios:machine",
+						"dorios:energy_container",
+						"dorios:container",
+						"dorios:complex_input",
+						"dorios:complex_output"
+					]
+				}
+			},
+			// ======= fluid_container =======
+			"utilitycraft:simple_machine_fluid": {
+				"minecraft:type_family": {
+					"family": [
+						"dorios:machine",
+						"dorios:energy_container",
+						"dorios:container",
+						"dorios:fluid_container",
+						"dorios:simple_input"
+					]
+				}
+			},
+			"utilitycraft:complex_machine_fluid": {
+				"minecraft:type_family": {
+					"family": [
+						"dorios:machine",
+						"dorios:energy_container",
+						"dorios:container",
+						"dorios:fluid_container",
+						"dorios:complex_input"
+					]
+				}
+			},
+			"utilitycraft:inventory_1": {
+				"minecraft:inventory": {
+					"inventory_size": 1,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_2": {
+				"minecraft:inventory": {
+					"inventory_size": 2,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_3": {
+				"minecraft:inventory": {
+					"inventory_size": 3,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_4": {
+				"minecraft:inventory": {
+					"inventory_size": 4,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_5": {
+				"minecraft:inventory": {
+					"inventory_size": 5,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_6": {
+				"minecraft:inventory": {
+					"inventory_size": 6,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_7": {
+				"minecraft:inventory": {
+					"inventory_size": 7,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_8": {
+				"minecraft:inventory": {
+					"inventory_size": 8,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_9": {
+				"minecraft:inventory": {
+					"inventory_size": 9,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_10": {
+				"minecraft:inventory": {
+					"inventory_size": 10,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_11": {
+				"minecraft:inventory": {
+					"inventory_size": 11,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_12": {
+				"minecraft:inventory": {
+					"inventory_size": 12,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_13": {
+				"minecraft:inventory": {
+					"inventory_size": 13,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_14": {
+				"minecraft:inventory": {
+					"inventory_size": 14,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_15": {
+				"minecraft:inventory": {
+					"inventory_size": 15,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_16": {
+				"minecraft:inventory": {
+					"inventory_size": 16,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_17": {
+				"minecraft:inventory": {
+					"inventory_size": 17,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_18": {
+				"minecraft:inventory": {
+					"inventory_size": 18,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_19": {
+				"minecraft:inventory": {
+					"inventory_size": 19,
+					"container_type": "container"
+				}
+			},
+			"utilitycraft:inventory_20": {
+				"minecraft:inventory": {
+					"inventory_size": 20,
+					"container_type": "container"
+				}
 			}
 		},
 		"components": {
@@ -21,9 +217,7 @@
 				"family": [
 					"dorios:machine",
 					"dorios:energy_container",
-					"dorios:container",
-					"dorios:simple_input",
-					"dorios:simple_output"
+					"dorios:container"
 				]
 			},
 			"minecraft:damage_sensor": {
@@ -64,6 +258,197 @@
 				"add": {
 					"component_groups": [
 						"despawn"
+					]
+				}
+			},
+			"utilitycraft:basic_machine": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:basic_machine"
+					]
+				}
+			},
+			// Normal Machines
+			"utilitycraft:simple_machine": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:simple_machine"
+					]
+				}
+			},
+			"utilitycraft:complex_in_machine": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:complex_in_machine"
+					]
+				}
+			},
+			"utilitycraft:complex_out_machine": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:complex_out_machine"
+					]
+				}
+			},
+			"utilitycraft:complex_machine": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:complex_machine"
+					]
+				}
+			},
+			// ======= fluid =======
+			"utilitycraft:simple_machine_fluid": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:simple_machine_fluid"
+					]
+				}
+			},
+			"utilitycraft:complex_machine_fluid": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:complex_machine_fluid"
+					]
+				}
+			},
+			"utilitycraft:inventory_1": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_1"
+					]
+				}
+			},
+			"utilitycraft:inventory_2": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_2"
+					]
+				}
+			},
+			"utilitycraft:inventory_3": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_3"
+					]
+				}
+			},
+			"utilitycraft:inventory_4": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_4"
+					]
+				}
+			},
+			"utilitycraft:inventory_5": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_5"
+					]
+				}
+			},
+			"utilitycraft:inventory_6": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_6"
+					]
+				}
+			},
+			"utilitycraft:inventory_7": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_7"
+					]
+				}
+			},
+			"utilitycraft:inventory_8": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_8"
+					]
+				}
+			},
+			"utilitycraft:inventory_9": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_9"
+					]
+				}
+			},
+			"utilitycraft:inventory_10": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_10"
+					]
+				}
+			},
+			"utilitycraft:inventory_11": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_11"
+					]
+				}
+			},
+			"utilitycraft:inventory_12": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_12"
+					]
+				}
+			},
+			"utilitycraft:inventory_13": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_13"
+					]
+				}
+			},
+			"utilitycraft:inventory_14": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_14"
+					]
+				}
+			},
+			"utilitycraft:inventory_15": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_15"
+					]
+				}
+			},
+			"utilitycraft:inventory_16": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_16"
+					]
+				}
+			},
+			"utilitycraft:inventory_17": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_17"
+					]
+				}
+			},
+			"utilitycraft:inventory_18": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_18"
+					]
+				}
+			},
+			"utilitycraft:inventory_19": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_19"
+					]
+				}
+			},
+			"utilitycraft:inventory_20": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_20"
 					]
 				}
 			}

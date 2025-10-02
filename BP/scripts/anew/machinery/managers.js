@@ -124,6 +124,62 @@ export class Machine {
     }
 
     /**
+     * Spawns a UtilityCraft machine entity at the given block location,
+     * triggers the correct type and inventory events, assigns its name,
+     * and applies machine settings like energy and upgrades.
+     *
+     * @param {Block} block The block where the machine will be placed.
+     * @param {Object} data Machine configuration.
+     * @param {Object} data.entity Entity config object.
+     * @param {string} data.entity.name Machine name (e.g. "crusher").
+     * @param {"simple"|"complex"|null} data.entity.input_type Input type.
+     * @param {"simple"|"complex"|null} data.entity.output_type Output type.
+     * @param {number} data.entity.inventory_size Number of slots in inventory.
+     * @param {boolean} [data.entity.fluid=false] Whether this is a fluid machine.
+     * @param {Object} data.machine Machine settings.
+     * @param {number} data.machine.energy_cap Max energy capacity.
+     * @param {number} data.machine.energy_cost Energy per operation.
+     * @param {number} data.machine.rate_speed_base Base processing speed (DE/t).
+     * @param {number[]} [data.machine.upgrades] Allowed upgrade IDs.
+     * @returns {Entity} The spawned machine entity.
+     */
+    static spawn(block, data) {
+        const dim = block.dimension;
+        const { entity, machine } = data;
+
+        // 1. Spawn the base machine entity
+        const machineEntity = dim.spawnEntity("utilitycraft:machine", block.center());
+
+        // 2. Decide events to trigger
+        const { machineEvent, inventoryEvent } = getMachineEvents({
+            input_type: entity.input_type,
+            output_type: entity.output_type,
+            inventory_size: entity.inventory_size,
+            fluid: entity.fluid ?? false
+        });
+
+        // 3. Trigger machine type and inventory slot events
+        machineEntity.triggerEvent(machineEvent);
+        machineEntity.triggerEvent(inventoryEvent);
+
+        // 4. Assign name tag
+        machineEntity.nameTag = `§e${entity.name}`;
+
+        // 5. Store machine settings in dynamic properties or scoreboard
+        const comp = machineEntity.getComponent("minecraft:dynamic_properties");
+
+        comp.set("utilitycraft:energy_cap", machine.energy_cap);
+        comp.set("utilitycraft:energy_cost", machine.energy_cost);
+        comp.set("utilitycraft:rate_speed_base", machine.rate_speed_base);
+
+        if (machine.upgrades) {
+            comp.set("utilitycraft:upgrades", JSON.stringify(machine.upgrades));
+        }
+
+        return machineEntity;
+    }
+
+    /**
      * Handles machine destruction:
      * - Drops inventory (excluding UI items).
      * - Drops the machine block item with stored energy and liquid info in lore.
