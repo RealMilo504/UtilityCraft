@@ -45,18 +45,18 @@
 					]
 				}
 			},
-			"utilitycraft:machine_recipes": {
-				"minecraft:cobblestone": {
-					"output": "minecraft:gravel",
-					"amount": 1,
-					"tier": 0
-				},
-				"utilitycraft:compressed_cobblestone": {
-					"output": "utilitycraft:compressed_gravel",
-					"amount": 1,
-					"tier": 1
-				}
-			},
+			// "utilitycraft:machine_recipes": {
+			// 	"minecraft:cobblestone": {
+			// 		"output": "minecraft:gravel",
+			// 		"amount": 1,
+			// 		"tier": 0
+			// 	},
+			// 	"utilitycraft:compressed_cobblestone": {
+			// 		"output": "utilitycraft:compressed_gravel",
+			// 		"amount": 1,
+			// 		"tier": 1
+			// 	}
+			// },
 			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {
 				"*": {
@@ -76,7 +76,7 @@
 			"minecraft:destructible_by_explosion": false,
 			"tag:dorios:energy": {},
 			"tag:dorios:item": {},
-			"tag:minecraft:is_pickaxe_item_destructible": {}
+			"tag:minecraft_is_pickaxe_item_destructible": {}
 		},
 		"permutations": [
 			{
