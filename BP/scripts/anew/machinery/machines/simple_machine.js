@@ -44,6 +44,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
         if (!worldLoaded) return;
         const { block, dimension: dim } = e;
         const machine = new Machine(block, settings);
+        if (!machine.entity) return
 
         const inv = machine.inv;
 

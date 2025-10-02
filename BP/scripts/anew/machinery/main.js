@@ -4,3 +4,5 @@ import './machines/electro_press.js'
 import './machines/autosieve.js'
 import './machines/simple_machine.js'
 import './managers.js'
+
+import './machines/upgradeable.js'

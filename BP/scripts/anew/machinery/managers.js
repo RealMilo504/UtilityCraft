@@ -112,11 +112,11 @@ export class Machine {
      * @param {MachineSettings} settings Machine's settings.
      */
     constructor(block, settings) {
-        this.settings = settings
+        this.settings = settings.machine
         this.dim = block.dimension
         this.block = block
         this.entity = this.dim.getEntitiesAtBlockLocation(block.location)[0]
-        this.inv = this.entity.getComponent('inventory').container
+        this.inv = this.entity?.getComponent('inventory')?.container
         this.energy = new Energy(this.entity)
         this.upgrades = this.getUpgradeLevels(settings.upgrades)
         this.boosts = this.calculateBoosts(this.upgrades)
@@ -125,8 +125,7 @@ export class Machine {
 
     /**
      * Spawns a UtilityCraft machine entity at the given block location,
-     * triggers the correct type and inventory events, assigns its name,
-     * and applies machine settings like energy and upgrades.
+     * triggers the correct type and inventory events, and assigns its name.
      *
      * @param {Block} block The block where the machine will be placed.
      * @param {Object} data Machine configuration.
@@ -136,45 +135,46 @@ export class Machine {
      * @param {"simple"|"complex"|null} data.entity.output_type Output type.
      * @param {number} data.entity.inventory_size Number of slots in inventory.
      * @param {boolean} [data.entity.fluid=false] Whether this is a fluid machine.
-     * @param {Object} data.machine Machine settings.
-     * @param {number} data.machine.energy_cap Max energy capacity.
-     * @param {number} data.machine.energy_cost Energy per operation.
-     * @param {number} data.machine.rate_speed_base Base processing speed (DE/t).
-     * @param {number[]} [data.machine.upgrades] Allowed upgrade IDs.
      * @returns {Entity} The spawned machine entity.
      */
     static spawn(block, data) {
         const dim = block.dimension;
-        const { entity, machine } = data;
+        const { entity } = data;
 
-        // 1. Spawn the base machine entity
-        const machineEntity = dim.spawnEntity("utilitycraft:machine", block.center());
+        let { x, y, z } = block.center(); y -= 0.25
+        const machineEntity = dim.spawnEntity("utilitycraft:machine", { x, y, z });
 
-        // 2. Decide events to trigger
-        const { machineEvent, inventoryEvent } = getMachineEvents({
-            input_type: entity.input_type,
-            output_type: entity.output_type,
-            inventory_size: entity.inventory_size,
-            fluid: entity.fluid ?? false
-        });
+        let machineEvent;
+        if (!entity.fluid) {
+            if (entity.input_type === "simple" && entity.output_type === "simple") {
+                machineEvent = "utilitycraft:simple_machine";
+            } else if (entity.input_type === "complex" && entity.output_type === "simple") {
+                machineEvent = "utilitycraft:complex_in_machine";
+            } else if (entity.input_type === "simple" && entity.output_type === "complex") {
+                machineEvent = "utilitycraft:complex_out_machine";
+            } else if (entity.input_type === "complex" && entity.output_type === "complex") {
+                machineEvent = "utilitycraft:complex_in_out_machine";
+            } else {
+                machineEvent = "utilitycraft:basic_machine";
+            }
+        } else {
+            if (entity.input_type === "simple") {
+                machineEvent = "utilitycraft:fluid_simple_machine";
+            } else if (entity.input_type === "complex") {
+                machineEvent = "utilitycraft:fluid_complex_machine";
+            } else {
+                machineEvent = "utilitycraft:fluid_basic_machine";
+            }
+        }
+
+        const inventoryEvent = `utilitycraft:inventory_${entity.inventory_size}`;
 
         // 3. Trigger machine type and inventory slot events
         machineEntity.triggerEvent(machineEvent);
         machineEntity.triggerEvent(inventoryEvent);
 
         // 4. Assign name tag
-        machineEntity.nameTag = `§e${entity.name}`;
-
-        // 5. Store machine settings in dynamic properties or scoreboard
-        const comp = machineEntity.getComponent("minecraft:dynamic_properties");
-
-        comp.set("utilitycraft:energy_cap", machine.energy_cap);
-        comp.set("utilitycraft:energy_cost", machine.energy_cost);
-        comp.set("utilitycraft:rate_speed_base", machine.rate_speed_base);
-
-        if (machine.upgrades) {
-            comp.set("utilitycraft:upgrades", JSON.stringify(machine.upgrades));
-        }
+        machineEntity.nameTag = `entity.utilitycraft:${entity.name}.name`;
 
         return machineEntity;
     }
@@ -228,8 +228,7 @@ export class Machine {
      * @param {Function} [callback] A function to execute after the entity is spawned (optional).
      */
     static spawnMachineEntity(e, settings, callback) {
-        const { block, player, dimension: dim } = e
-        let { x, y, z } = block.center(); y -= 0.25
+        const { block, player } = e
 
         const itemInfo = player.getComponent('equippable').getEquipment('Mainhand').getLore();
         let energy = 0;
@@ -238,12 +237,11 @@ export class Machine {
         }
 
         system.run(() => {
-            const entity = dim.spawnEntity(settings.entity, { x, y, z });
-            entity.nameTag = settings.name_tag;
+            const entity = Machine.spawn(block, settings)
             Energy.initialize(entity)
             const energyManager = new Energy(entity)
             energyManager.set(energy)
-            energyManager.setCap(settings.energy_cap)
+            energyManager.setCap(settings.machine.energy_cap)
             energyManager.display()
             if (callback) callback(entity)
         });
