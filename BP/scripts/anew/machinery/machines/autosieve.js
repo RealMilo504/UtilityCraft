@@ -3,18 +3,22 @@ import { sieveRecipes } from "../../config/recipes/sieve.js";
 
 const INTPUTSLOT = 3
 const MESHSLOT = 6
-const OUTPUTSLOT = 9
 
 /**
  * Machine settings object for configuring behavior.
  * 
  * @typedef {Object} MachineSettings
- * @property {string} entity Entity identifier used to spawn the machine.
- * @property {string} name_tag Localized name tag identifier.
- * @property {number} energy_cost Energy consumed per operation.
- * @property {number} rate_speed_base Base processing rate (DE/t).
- * @property {number} energy_cap Maximum internal energy capacity.
- * @property {Object.<string, {output: string, amount?: number}>} recipes Recipe group by input item id.
+ * @property {Object} entity Entity configuration of the machine.
+ * @property {string} entity.name Internal machine name (e.g., "crusher").
+ * @property {string} entity.input_type Type of input (e.g., "simple").
+ * @property {string} entity.output_type Type of output (e.g., "complex").
+ * @property {number} entity.inventory_size Number of inventory slots.
+ * 
+ * @property {Object} machine Machine operational settings.
+ * @property {number} machine.energy_cap Maximum internal energy capacity.
+ * @property {number} machine.energy_cost Energy consumed per operation.
+ * @property {number} machine.rate_speed_base Base processing rate (DE/t).
+ * @property {number[]} machine.upgrades List of accepted upgrade IDs.
  */
 
 DoriosAPI.register.blockComponent('autosieve', {
@@ -26,10 +30,11 @@ DoriosAPI.register.blockComponent('autosieve', {
     beforeOnPlayerPlace(e, { params: settings }) {
         Machine.spawnMachineEntity(e, settings, () => {
             const machine = new Machine(e.block, settings);
-            machine.setEnergyCost(settings.energy_cost);
+            machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress()
             // Fill Slot to avoid issues
             machine.entity.setItem(1, 'utilitycraft:arrow_right_0')
+            machine.energy.set(100000)
         });
     },
 
@@ -41,7 +46,7 @@ DoriosAPI.register.blockComponent('autosieve', {
      */
     onTick(e, { params: settings }) {
         if (!worldLoaded) return;
-        const { block, dimension: dim } = e;
+        const { block } = e;
         const machine = new Machine(block, settings);
 
         const inv = machine.inv;
@@ -65,6 +70,7 @@ DoriosAPI.register.blockComponent('autosieve', {
          * @typedef {Object} MeshParams
          * @property {number} tier       The mesh tier level (e.g., 0, 1, 2...).
          * @property {number} multiplier Loot multiplier applied to sieve results.
+         * @property {number} amount_multiplier Loot multiplier applied to sieve results.
          */
 
         /** @type {MeshParams} */
@@ -84,7 +90,7 @@ DoriosAPI.register.blockComponent('autosieve', {
         }
 
         const progress = machine.getProgress();
-        const energyCost = settings.energy_cost;
+        const energyCost = settings.machine.energy_cost;
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
@@ -99,10 +105,21 @@ DoriosAPI.register.blockComponent('autosieve', {
                 Math.floor(inputSlot.amount)
             );
 
+            const multi = meshData.multiplier
+            const tier = meshData.tier
+
             recipe.forEach(loot => {
-                if (Math.random() <= loot.prob * multi) {
+                if (tier < (loot.tier ?? 0)) return
+                if (loot.item == 'minecraft:flint' && tier >= 7) return
+                if (Math.random() <= loot.chance * multi) {
+                    let qty = Array.isArray(loot.amount)
+                        ? DoriosAPI.math.randomInterval(loot.amount[0], loot.amount[1])
+                        : loot.amount;
+
+                    if (meshData.amount_multiplier) qty * meshData.amount_multiplier
+
                     try {
-                        machine.entity.addItem(loot.item, processCount * Math.ceil(Math.random() * loot.amount)
+                        machine.entity.addItem(loot.item, processCount * Math.ceil(Math.random() * qty)
                         )
                     } catch { }
                 }

@@ -1,4 +1,4 @@
-import { Machine, Energy } from '../managers.js'
+import { Machine } from '../managers.js'
 import { crusherRecipes } from "../../config/recipes/crusher.js";
 import { furnaceRecipes } from "../../config/recipes/furnace.js";
 import { pressRecipes } from "../../config/recipes/press.js";
@@ -43,7 +43,6 @@ DoriosAPI.register.blockComponent('simple_machine', {
             machine.displayProgress()
             // Fill Slot to avoid issues
             machine.entity.setItem(1, 'utilitycraft:arrow_right_0')
-            machine.energy.set(10000)
         });
     },
 
@@ -61,6 +60,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
 
         const inv = machine.inv;
 
+        //#region Comprobations
         // Get the input slot (slot 3 in this case)
         const inputSlot = inv.getItem(INPUTSLOT);
         if (!inputSlot) {
@@ -79,7 +79,6 @@ DoriosAPI.register.blockComponent('simple_machine', {
             recipes = recipesComponent
         }
 
-        //#region Comprobations
         if (!recipes) {
             machine.showWarning('No Recipes');
             return;

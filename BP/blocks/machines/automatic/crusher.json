@@ -24,7 +24,7 @@
 			"utilitycraft:simple_machine": {
 				"entity": {
 					"input_type": "simple",
-					"output_type": "complex",
+					"output_type": "simple",
 					"inventory_size": 7
 				},
 				"machine": {

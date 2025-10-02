@@ -149,15 +149,20 @@ export class Machine {
         const machineEntity = dim.spawnEntity("utilitycraft:machine", { x, y, z });
 
         let machineEvent;
+        let inventorySize = 2
         if (!entity.fluid) {
             if (entity.input_type === "simple" && entity.output_type === "simple") {
                 machineEvent = "utilitycraft:simple_machine";
+                inventorySize = 7
             } else if (entity.input_type === "complex" && entity.output_type === "simple") {
                 machineEvent = "utilitycraft:complex_in_machine";
+                inventorySize = 17
             } else if (entity.input_type === "simple" && entity.output_type === "complex") {
                 machineEvent = "utilitycraft:complex_out_machine";
+                inventorySize = 17
             } else if (entity.input_type === "complex" && entity.output_type === "complex") {
-                machineEvent = "utilitycraft:complex_in_out_machine";
+                machineEvent = "utilitycraft:complex_machine";
+                inventorySize = 25
             } else {
                 machineEvent = "utilitycraft:basic_machine";
             }
@@ -171,7 +176,9 @@ export class Machine {
             }
         }
 
-        const inventoryEvent = `utilitycraft:inventory_${entity.inventory_size}`;
+        if (data.entity.inventory_size) inventorySize = data.entity.inventory_size
+
+        const inventoryEvent = `utilitycraft:inventory_${inventorySize}`;
 
         // 3. Trigger machine type and inventory slot events
         machineEntity.triggerEvent(machineEvent);
