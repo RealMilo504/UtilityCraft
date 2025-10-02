@@ -1,17 +1,16 @@
 import { Machine } from '../managers.js'
 import { infuserRecipes } from "../../config/recipes/infuser.js"
 
-infuserRecipes['minecraft:redstone']['minecraft:iron_ingot']
-
 
 const INPUTSLOT = 3
+const CATALYSTSLOT = 4
 const OUTPUTSLOT = 6
 
-DoriosAPI.register.blockComponent('simple_machine', {
+DoriosAPI.register.blockComponent('double_machine', {
     /**
      * Runs before the machine is placed by the player.
      * 
-     * @param {import('@minecraft/server').BlockComponentPlayerPlaceBeforeEvent} e
+     * @param {BlockComponentPlayerPlaceBeforeEvent} e
      * @param {{ params: MachineSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
@@ -27,7 +26,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
     /**
      * Executes each tick for the machine.
      * 
-     * @param {import('@minecraft/server').BlockComponentTickEvent} e
+     * @param {BlockComponentTickEvent} e
      * @param {{ params: MachineSettings }} ctx
      */
     onTick(e, { params: settings }) {

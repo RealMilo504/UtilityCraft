@@ -11,6 +11,8 @@
  * @typedef {import("@minecraft/server").BlockPermutation} BlockPermutation
  * @typedef {import("@minecraft/server").BlockCustomComponent} BlockCustomComponent
  * @typedef {import("@minecraft/server").ItemCustomComponent} ItemCustomComponent
+ * @typedef {import("@minecraft/server").BlockComponentTickEvent} BlockComponentTickEvent
+ * @typedef {import("@minecraft/server").BlockComponentPlayerPlaceBeforeEvent} BlockComponentPlayerPlaceBeforeEvent
  */
 
 /**

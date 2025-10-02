@@ -184,7 +184,7 @@ export class Machine {
                     item.getComponent('minecraft:item')?.itemStack?.typeId == blockItemId
                 }).remove()
             };
-            // this.dropInventoryItems(entity);
+            Machine.dropAllItems(entity);
             entity.remove();
             dim.spawnItem(blockItem, block.center());
         });
@@ -492,6 +492,32 @@ export class Machine {
         }
     }
 
+    /**
+     * Drops all items from a machine entity's inventory except UI elements.
+     *
+     * @param {Entity} entity The machine entity whose items will be dropped.
+     */
+    static dropAllItems(entity) {
+        const inv = entity.getComponent("minecraft:inventory")?.container;
+        if (!inv) return;
+
+        const dim = entity.dimension;
+        const center = entity.location;
+
+        for (let i = 0; i < inv.size; i++) {
+            const item = inv.getItem(i);
+            if (!item) continue;
+
+            // Skip UI placeholder items
+            if (item.hasTag("utilitycraft:ui_element")) continue;
+
+            // Drop item into the world
+            dim.spawnItem(item, center);
+
+            // Clear the slot
+            inv.setItem(i, undefined);
+        }
+    }
 }
 
 
