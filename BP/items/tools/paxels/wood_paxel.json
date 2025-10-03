@@ -16,9 +16,6 @@
 			"minecraft:durability": {
 				"max_durability": 180
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:break"
-			],
 			"minecraft:damage": 6,
 			"minecraft:icon": "utilitycraft_wood_paxel",
 			"minecraft:enchantable": {

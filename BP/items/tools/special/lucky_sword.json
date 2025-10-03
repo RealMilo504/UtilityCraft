@@ -14,9 +14,6 @@
 				"max_durability": 1125
 			},
 			"minecraft:damage": 8,
-			"minecraft:custom_components": [
-				"utilitycraft:break"
-			],
 			"minecraft:digger": {
 				"use_efficiency": true,
 				"destroy_speeds": [
