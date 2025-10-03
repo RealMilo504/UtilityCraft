@@ -163,7 +163,7 @@
         "value": [
           {
             "requires": "($temp_container_title = 'entity.utilitycraft:block_placer.name')",
-            "$screen_content": "machine1x1.utility_panel",
+            "$screen_content": "one_slot.utility_panel",
             "$screen_bg_content": "common.screen_background"
           }
         ]
@@ -174,7 +174,7 @@
         "value": [
           {
             "requires": "($temp_container_title = 'entity.utilitycraft:induction_anvil.name')",
-            "$screen_content": "machine1x1.utility_panel",
+            "$screen_content": "one_slot.utility_panel",
             "$screen_bg_content": "common.screen_background"
           }
         ]
