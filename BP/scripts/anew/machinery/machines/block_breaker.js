@@ -57,14 +57,14 @@ DoriosAPI.register.blockComponent('block_breaker', {
                     // Reset progress after operation
                     machine.setProgress(0, undefined, undefined, false);
                 } else {
-                    machine.showWarning('Nothing to Break');
+                    machine.showWarning('Nothing to Break', false);
                     return;
                 }
             }
 
         } else {
             // Charge up progress
-            const energyToConsume = Math.min(machine.energy.get(), machine.rate, energyCost - progress, 0);
+            const energyToConsume = Math.min(machine.energy.get(), machine.rate, energyCost - progress);
             machine.energy.consume(energyToConsume);
             machine.addProgress(energyToConsume);
         }
