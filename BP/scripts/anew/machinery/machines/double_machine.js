@@ -3,7 +3,6 @@ import { infuserRecipes } from "../../config/recipes/infuser.js"
 
 const INPUTSLOT = 3
 const CATALYSTSLOT = 4
-const OUTPUTSLOT = 7
 
 DoriosAPI.register.blockComponent('double_machine', {
     /**
@@ -36,6 +35,7 @@ DoriosAPI.register.blockComponent('double_machine', {
         if (!machine.entity) return
         settings
         const inv = machine.inv;
+        const OUTPUTSLOT = inv.size - 1
 
         //#region Comprobations
         // Get the catalyst slot
@@ -108,7 +108,7 @@ DoriosAPI.register.blockComponent('double_machine', {
         if (progress >= energyCost) {
             const processCount = Math.min(
                 Math.floor(progress / energyCost),
-                Math.floor(inputSlot.amount / required),
+                Math.floor(catalystSlot.amount / required),
                 Math.floor(spaceLeft / (recipe.amount ?? 1))
             );
             if (processCount > 0) {
