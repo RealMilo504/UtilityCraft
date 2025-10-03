@@ -51,9 +51,6 @@ DoriosAPI.register.blockComponent('simple_machine', {
             return;
         }
 
-        // Get the output slot (usually the last one)
-        const outputSlot = inv.getItem(OUTPUTSLOT);
-
         const recipesComponent = block.getComponent("utilitycraft:machine_recipes")?.customComponentParameters?.params
         let recipes;
         if (recipesComponent.type) {
@@ -74,6 +71,8 @@ DoriosAPI.register.blockComponent('simple_machine', {
             return;
         }
 
+        // Get the output slot (usually the last one)
+        const outputSlot = inv.getItem(OUTPUTSLOT);
         // Output slot must either match the recipe result or be empty
         if (outputSlot && outputSlot.typeId !== recipe.output) {
             machine.showWarning('Recipe Conflict');

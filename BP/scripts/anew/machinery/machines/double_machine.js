@@ -38,8 +38,8 @@ DoriosAPI.register.blockComponent('double_machine', {
 
         //#region Comprobations
         // Get the catalyst slot
-        const inputSlot = inv.getItem(CATALYSTSLOT);
-        if (!inputSlot) {
+        const catalystSlot = inv.getItem(CATALYSTSLOT);
+        if (!catalystSlot) {
             machine.showWarning('No Catalyst');
             return;
         }
@@ -50,9 +50,6 @@ DoriosAPI.register.blockComponent('double_machine', {
             machine.showWarning('No Base Item');
             return;
         }
-
-        // Get the output slot (usually the last one)
-        const outputSlot = inv.getItem(OUTPUTSLOT);
 
         const recipesComponent = block.getComponent("utilitycraft:machine_recipes")?.customComponentParameters?.params
         let recipes;
@@ -68,14 +65,16 @@ DoriosAPI.register.blockComponent('double_machine', {
         }
 
         // Validate recipe based on the input item
-        const recipe = recipes[inputSlot?.typeId];
+        const recipe = recipes[inputSlot.typeId + catalystSlot.typeId];
         if (!recipe) {
             machine.showWarning('Invalid Recipe');
             return;
         }
 
+        // Get the output slot (usually the last one)
+        const outputSlot = inv.getItem(OUTPUTSLOT);
         // Output slot must either match the recipe result or be empty
-        if (outputSlot && outputSlot.typeId !== recipe.output) {
+        if (outputSlot && outputSlot?.typeId !== recipe.output) {
             machine.showWarning('Recipe Conflict');
             return;
         }
@@ -143,5 +142,3 @@ DoriosAPI.register.blockComponent('double_machine', {
         Machine.onDestroy(e);
     }
 });
-
-DoriosAPI.register.blockComponent('machine_recipes', {})
