@@ -19,9 +19,6 @@
 			"minecraft:durability": {
 				"max_durability": 6093
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:break"
-			],
 			"minecraft:damage": 7,
 			"minecraft:icon": "utilitycraft_netherite_paxel",
 			"minecraft:enchantable": {
