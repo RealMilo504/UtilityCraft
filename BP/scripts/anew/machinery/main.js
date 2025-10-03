@@ -1,4 +1,5 @@
 import './machines/autosieve.js'
+import './machines/seed_synthesizer.js'
 import './machines/simple_machine.js'
 import './machines/double_machine.js'
 import './machines/block_breaker.js'

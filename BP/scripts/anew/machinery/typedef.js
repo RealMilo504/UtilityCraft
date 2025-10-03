@@ -98,3 +98,26 @@
  * @global
  * @typedef {Object.<string, InfusingRecipe>} InfuserRecipes
  */
+
+/**
+ * @global
+ * @typedef {Object} SoilData
+ * @property {number} cost Energy cost multiplier for growth.
+ * @property {number} multi Loot multiplier (max 4).
+ */
+
+/**
+ * @global
+* @typedef {Object} CropDrop
+* @property {string} item Item identifier.
+* @property {number} min Minimum quantity dropped.
+* @property {number} max Maximum quantity dropped.
+* @property {number} chance Probability percentage (0–100).
+*/
+
+/**
+ * @global
+ * @typedef {Object} CropData
+ * @property {number} cost Energy cost to grow the crop.
+ * @property {CropDrop[]} drops List of possible drops from the crop.
+ */

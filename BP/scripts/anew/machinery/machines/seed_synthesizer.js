@@ -1,10 +1,25 @@
 import { Machine, Energy } from '../managers.js'
-import { sieveRecipes } from "../../config/recipes/sieve.js";
+import { cropsDrops } from "../../config/crops.js";
 
 const INTPUTSLOT = 3
 const MESHSLOT = 6
 
-DoriosAPI.register.blockComponent('autosieve', {
+/**
+ * A registry of all accepted soils with their properties.
+ * 
+ * @type {Record<string, SoilData>}
+ */
+const acceptedSoils = {
+    'minecraft:dirt': { cost: 2, multi: 1 },
+    'minecraft:grass_block': { cost: 1.5, multi: 1 },
+    'utilitycraft:yellow_soil': { cost: 1, multi: 1 },
+    'utilitycraft:red_soil': { cost: 0.75, multi: 2 },
+    'utilitycraft:blue_soil': { cost: 0.5, multi: 3 },
+    'utilitycraft:black_soil': { cost: 0.25, multi: 4 },
+};
+
+
+DoriosAPI.register.blockComponent('seed_synthesizer', {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -17,6 +32,7 @@ DoriosAPI.register.blockComponent('autosieve', {
             machine.displayProgress()
             // Fill Slot to avoid issues
             machine.entity.setItem(1, 'utilitycraft:arrow_right_0')
+            machine.energy.set(1000000)
         });
     },
 
@@ -36,23 +52,26 @@ DoriosAPI.register.blockComponent('autosieve', {
         // Get the input slot (slot 3 in this case)
         const inputSlot = inv.getItem(INTPUTSLOT);
         if (!inputSlot) {
-            machine.showWarning('No Input Item')
+            machine.showWarning('No Seed')
             return;
         }
 
-        const meshSlot = inv.getItem(MESHSLOT)
-        if (!meshSlot || !meshSlot?.hasComponent("utilitycraft:mesh")) {
-            machine.showWarning('No Mesh Item')
+        const soilSlot = inv.getItem(MESHSLOT)
+        if (!soilSlot) {
+            machine.showWarning('No Soil')
             return;
         }
 
-        /** @type {MeshParams} */
-        const meshData = meshSlot.getComponent("utilitycraft:mesh").customComponentParameters.params
+        const soil = acceptedSoils[soilSlot.typeId]
+        if (!soil) {
+            machine.showWarning('Invalid Soil')
+            return;
+        }
 
         // Validate recipe based on the input item
-        const recipe = sieveRecipes[inputSlot?.typeId]
+        const recipe = cropsDrops[inputSlot?.typeId]
         if (!recipe) {
-            machine.showWarning('Invalid Block')
+            machine.showWarning('Invalid Seed')
             return;
         }
 
@@ -75,7 +94,9 @@ DoriosAPI.register.blockComponent('autosieve', {
         }
 
         const progress = machine.getProgress();
-        const energyCost = settings.machine.energy_cost;
+        const energyCost = recipe.cost * soil.cost
+        // Update Energy Cost
+        machine.setEnergyCost(energyCost)
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
@@ -89,22 +110,16 @@ DoriosAPI.register.blockComponent('autosieve', {
                 Math.floor(progress / energyCost),
                 Math.floor(inputSlot.amount)
             );
-
-            const multi = meshData.multiplier
-            const tier = meshData.tier
-
             machine.blockSlots(settings.machine.upgrades)
 
-            // === 2) Process and add loot ===
-            recipe.forEach(loot => {
-                if (tier < (loot.tier ?? 0)) return;
-                if (loot.item == "minecraft:flint" && tier >= 7) return;
-                if (Math.random() <= loot.chance * multi) {
+            recipe.drops.forEach(loot => {
+                if (Math.random() <= loot.chance) {
                     let qty = Array.isArray(loot.amount)
                         ? DoriosAPI.math.randomInterval(loot.amount[0], loot.amount[1])
                         : loot.amount;
 
-                    if (meshData.amount_multiplier) qty *= meshData.amount_multiplier;
+
+                    if (!loot.item.endsWith('_seeds')) qty *= soil.multi;
 
                     try {
                         machine.entity.addItem(
@@ -117,10 +132,8 @@ DoriosAPI.register.blockComponent('autosieve', {
 
             machine.unblockSlots(settings.machine.upgrades)
 
-
             // Deduct progress and input items
             machine.addProgress(-processCount * energyCost);
-            machine.entity.changeItemAmount(INTPUTSLOT, -processCount);
         } else {
             // If not enough progress, continue charging with energy
             const energyToConsume = Math.min(machine.energy.get(), machine.rate)

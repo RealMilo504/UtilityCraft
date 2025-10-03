@@ -270,7 +270,7 @@ export class Machine {
      * @param {string} [type='arrow_right_'] Item type suffix. 
      * @param {boolean} [display=true] Display the progress. 
      */
-    setProgress(value, slot = 2, type = "arrow_right", display) {
+    setProgress(value, slot = 2, type = "arrow_right", display = true) {
         this.entity.setDynamicProperty("dorios:progress", Math.max(0, value));
         if (display) this.displayProgress(slot, type)
     }
