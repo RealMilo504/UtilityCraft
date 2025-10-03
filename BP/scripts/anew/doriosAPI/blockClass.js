@@ -99,8 +99,7 @@ const BlockHandler = {
         const entity = this.dimension.getEntitiesAtBlockLocation(this.location)[0]
         if (entity.isValid) return entity
         return undefined
-    }
-
+    },
 };
 
 Object.keys(BlockHandler).forEach(fn => {

@@ -100,7 +100,7 @@ DoriosAPI.register.blockComponent('double_machine', {
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
-            machine.showWarning('No Energy');
+            machine.showWarning('No Energy', false);
             return;
         }
 

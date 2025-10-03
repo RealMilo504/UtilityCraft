@@ -268,10 +268,11 @@ export class Machine {
      * @param {number} value New progress value.
      * @param {number} [slot=2] Inventory slot to place the progress item.
      * @param {string} [type='arrow_right_'] Item type suffix. 
+     * @param {boolean} [display=true] Display the progress. 
      */
-    setProgress(value, slot = 2, type = "arrow_right") {
+    setProgress(value, slot = 2, type = "arrow_right", display) {
         this.entity.setDynamicProperty("dorios:progress", Math.max(0, value));
-        this.displayProgress(slot, type)
+        if (display) this.displayProgress(slot, type)
     }
 
     /**

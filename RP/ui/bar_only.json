@@ -24,10 +24,23 @@
                 }
             },
             {
-                "energy_bar@machineryCommon.vertical": {
+                "energy_bar@machineryCommon.vertical_single": {
                     "$is_energy": true,
+                    "$has_bg": true,
                     "offset": [
-                        -54,
+                        -102,
+                        0
+                    ]
+                }
+            },
+            {
+                "upgrades@machineryCommon.vertical_interactive": {
+                    "$has_bg": true,
+                    "$collection_index_first": 2,
+                    "$collection_index_second": 3,
+                    "$has_third": false,
+                    "offset": [
+                        102,
                         0
                     ]
                 }
@@ -35,28 +48,28 @@
             {
                 "screen": {
                     "type": "image",
-                    "texture": "textures/ui/screen_thermo_bg",
-                    "anchor_from": "top_left",
-                    "anchor_to": "top_left",
+                    "texture": "textures/ui/screen_vertical_bg",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
                     "size": [
-                        88,
-                        185
+                        52,
+                        52
                     ],
                     "offset": [
-                        64,
-                        -54
+                        9,
+                        14
                     ],
                     "layer": 0
                 }
             },
             {
                 "item_label@machineryCommon.item_label": {
-                    "collection_index": 3,
-                    "anchor_from": "top_left",
-                    "anchor_to": "top_left",
-                    "$text_scale": 0.6,
+                    "collection_index": 1,
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "$text_scale": 0.55,
                     "offset": [
-                        67.5,
+                        9,
                         12
                     ]
                 }
