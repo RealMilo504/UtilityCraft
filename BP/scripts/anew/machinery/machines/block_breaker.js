@@ -11,7 +11,6 @@ DoriosAPI.register.blockComponent('block_breaker', {
         Machine.spawnMachineEntity(e, settings, () => {
             const machine = new Machine(e.block, settings);
             machine.setEnergyCost(settings.machine.energy_cost);
-            machine.energy.set(10000)
         });
     },
 

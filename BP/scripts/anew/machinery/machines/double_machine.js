@@ -18,7 +18,6 @@ DoriosAPI.register.blockComponent('double_machine', {
             machine.displayProgress()
             // Fill Slot to avoid issues
             machine.entity.setItem(1, 'utilitycraft:arrow_indicator_90')
-            machine.energy.set(10000)
         });
     },
 

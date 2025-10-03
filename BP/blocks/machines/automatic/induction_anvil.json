@@ -12,27 +12,6 @@
 				}
 			},
 			"states": {
-				"utilitycraft:speed": [
-					0,
-					1,
-					2,
-					3,
-					4
-				],
-				"utilitycraft:energy": [
-					0,
-					1,
-					2,
-					3,
-					4
-				],
-				"utilitycraft:refreshSpeed": [
-					1,
-					5,
-					10,
-					20,
-					40
-				],
 				"utilitycraft:on": [
 					false,
 					true
@@ -40,6 +19,20 @@
 			}
 		},
 		"components": {
+			"utilitycraft:induction_anvil": {
+				"entity": {
+					"inventory_size": 6
+				},
+				"machine": {
+					"energy_cap": 64000,
+					"energy_cost": 1000,
+					"rate_speed_base": 25,
+					"upgrades": [
+						2,
+						3
+					]
+				}
+			},
 			"minecraft:geometry": "geometry.induction_anvil",
 			"minecraft:material_instances": {
 				"*": {
@@ -47,74 +40,16 @@
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:induction_anvil"
-			],
 			"minecraft:tick": {
 				"interval_range": [
-					20,
-					20
+					2,
+					2
 				]
 			},
 			"tag:dorios:energy": {},
 			"tag:dorios:item": {}
 		},
 		"permutations": [
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 1 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							5,
-							5
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 5 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							25,
-							25
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 10 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							50,
-							50
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 20 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							100,
-							100
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 40 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							200,
-							200
-						]
-					}
-				}
-			},
 			{
 				"condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
 				"components": {

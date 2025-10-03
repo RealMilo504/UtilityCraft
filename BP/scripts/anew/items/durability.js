@@ -3,8 +3,8 @@ import { world, ItemStack } from '@minecraft/server'
 world.afterEvents.playerBreakBlock.subscribe(({ itemStackAfterBreak, player }) => {
     if (!itemStackAfterBreak) return
     if (!itemStackAfterBreak.typeId.startsWith('utilitycraft:')) return
-    if (!itemStackAfterBreak.hasComponent('durability')) return
-    if (itemStackAfterBreak.durability.damage(1, 1)) {
+    if (!itemStackAfterBreak.getComponent('durability')) return
+    if (itemStackAfterBreak.durability.damage()) {
         player.setEquipment("Mainhand", itemStackAfterBreak)
     } else {
         player.setEquipment("Mainhand",)
@@ -19,8 +19,8 @@ world.afterEvents.entityHitEntity.subscribe(({ damagingEntity }) => {
     const itemStack = player.getEquipment("Mainhand")
     if (!itemStack) return
     if (!itemStack.typeId.startsWith('utilitycraft:')) return
-    if (!itemStack.hasComponent('durability')) return
-    if (itemStack.durability.damage(1, 1)) {
+    if (!itemStackAfterBreak.getComponent('durability')) return
+    if (itemStack.durability.damage()) {
         player.setEquipment("Mainhand", itemStack)
     } else {
         player.setEquipment("Mainhand",)

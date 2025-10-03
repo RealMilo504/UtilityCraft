@@ -16,6 +16,19 @@ import { ItemStack } from "@minecraft/server";
  */
 const DurabilityHandler = {
     /**
+     * Repairs the item by decreasing its damage value.
+     * Returns the modified item.
+     * @param {number} amount Amount of durability to restore.
+     * @returns {ItemStack|null}
+     */
+    repair(amount) {
+        const durability = this.item.getComponent("minecraft:durability");
+        if (!durability) return null;
+
+        durability.damage = Math.max(durability.damage - amount, 0);
+        return
+    },
+    /**
      * Apply durability damage to the item.
      *
      * @param {number} amount How many "damage attempts" to apply.

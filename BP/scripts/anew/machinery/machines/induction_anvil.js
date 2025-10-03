@@ -2,25 +2,26 @@ import { Machine } from '../managers.js'
 
 const INPUTSLOT = 3
 
-DoriosAPI.register.blockComponent('block_placer', {
+DoriosAPI.register.blockComponent('induction_anvil', {
     /**
      * Runs before the machine is placed by the player.
      * 
-     * @param {import('@minecraft/server').BlockComponentPlayerPlaceBeforeEvent} e
+     * @param {BlockComponentPlayerPlaceBeforeEvent} e
      * @param {{ params: MachineSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
         Machine.spawnMachineEntity(e, settings, () => {
             const machine = new Machine(e.block, settings);
             machine.setEnergyCost(settings.machine.energy_cost);
-            machine.entity.setItem(2, 'utilitycraft:arrow_right_0')
+            machine.entity.setItem(2, 'utilitycraft:arrow_right_0');
+            machine.energy.add(10000)
         });
     },
 
     /**
      * Executes each tick for the machine.
      * 
-     * @param {import('@minecraft/server').BlockComponentTickEvent} e
+     * @param {BlockComponentTickEvent} e
      * @param {{ params: MachineSettings }} ctx
      */
     onTick(e, { params: settings }) {
@@ -40,40 +41,38 @@ DoriosAPI.register.blockComponent('block_placer', {
         }
 
         if (progress >= energyCost) {
-            const facing = machine.block.getFacingBlock();
-            if (!facing) return;
-
-            // Si no es aire => warning
-            if (!facing.isAir) {
-                machine.showWarning('Block in Front', false);
+            const stack = inv.getItem(INPUTSLOT);
+            if (!stack) {
+                machine.showWarning('No Item', false);
                 return;
             }
 
-            // Revisar ítem en el slot
-            const stack = inv.getItem(INPUTSLOT);
-            if (!stack) {
-                machine.showWarning('No Block', false);
+            const remaining = stack.durability.getRemaining()
+            // Si ya está full reparado
+            if (remaining === 0) {
+                machine.showWarning('Fully Repaired', false);
+                machine.setProgress(0, undefined, undefined, false);
                 return;
             }
 
             try {
-                // Intentar colocar el bloque
-                facing.setType(`${stack.typeId}`)
-
-                // Consumir 1 ítem si se colocó bien
-                machine.entity.changeItemAmount(INPUTSLOT, -1);
-
-                // Resetear progreso
-                machine.setProgress(0, undefined, undefined, false);
+                const repairAmount = Math.min(remaining, energyCost / 10)
+                machine.dim.runCommand('say hola')
+                stack.durability.repair(repairAmount);
+                inv.setItem(INPUTSLOT, stack);
+                machine.addProgress(-repairAmount * 10)
             } catch {
-                // Si no se pudo colocar => no era un bloque válido
                 machine.showWarning('Invalid Item', false);
-                return
+                return;
             }
 
         } else {
             // Charge up progress
-            const energyToConsume = Math.min(machine.energy.get(), machine.rate, energyCost - progress);
+            const energyToConsume = Math.min(
+                machine.energy.get(),
+                machine.rate,
+                energyCost - progress
+            );
             machine.energy.consume(energyToConsume);
             machine.addProgress(energyToConsume);
         }
