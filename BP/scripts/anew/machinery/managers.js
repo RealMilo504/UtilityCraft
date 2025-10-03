@@ -227,7 +227,7 @@ export class Machine {
      */
     setLabel(text, slot = 1) {
         // Always use the same placeholder item
-        const baseItem = this.inv.getItem(slot) ?? new ItemStack("utilitycraft:arrow_right_0");
+        const baseItem = this.inv.getItem(slot) ?? new ItemStack("utilitycraft:arrow_indicator_90");
 
         // Apply the custom label text
         baseItem.nameTag = text;

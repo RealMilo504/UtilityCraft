@@ -1,10 +1,9 @@
 import { Machine } from '../managers.js'
 import { infuserRecipes } from "../../config/recipes/infuser.js"
 
-
 const INPUTSLOT = 3
 const CATALYSTSLOT = 4
-const OUTPUTSLOT = 6
+const OUTPUTSLOT = 8
 
 DoriosAPI.register.blockComponent('double_machine', {
     /**
@@ -19,7 +18,7 @@ DoriosAPI.register.blockComponent('double_machine', {
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress()
             // Fill Slot to avoid issues
-            machine.entity.setItem(1, 'utilitycraft:arrow_right_0')
+            machine.entity.setItem(1, 'utilitycraft:arrow_indicator_90')
         });
     },
 
@@ -38,10 +37,17 @@ DoriosAPI.register.blockComponent('double_machine', {
         const inv = machine.inv;
 
         //#region Comprobations
+        // Get the catalyst slot
+        const inputSlot = inv.getItem(CATALYSTSLOT);
+        if (!inputSlot) {
+            machine.showWarning('No Catalyst');
+            return;
+        }
+
         // Get the input slot (slot 3 in this case)
         const inputSlot = inv.getItem(INPUTSLOT);
         if (!inputSlot) {
-            machine.showWarning('No Input Item');
+            machine.showWarning('No Base Item');
             return;
         }
 
@@ -51,7 +57,7 @@ DoriosAPI.register.blockComponent('double_machine', {
         const recipesComponent = block.getComponent("utilitycraft:machine_recipes")?.customComponentParameters?.params
         let recipes;
         if (recipesComponent.type) {
-            recipes = UTILITYCRAFT_RECIPES[recipesComponent.type]
+            recipes = infuserRecipes
         } else {
             recipes = recipesComponent
         }

@@ -81,11 +81,20 @@
  */
 
 /**
- * Represents a single infusing recipe.
+ * Represents a single infusing recipe entry.
  *
  * @global
  * @typedef {Object} InfusingRecipe
  * @property {string} output The resulting item identifier.
  * @property {number} [required=1] Number of catalyst items required (defaults to 1).
  * @property {number} [amount=1] Number of output items produced (defaults to 1).
+ */
+
+/**
+ * Represents all infusing recipes in a flat format (catalyst|input).
+ *
+ * Key format: "catalyst|input"
+ *
+ * @global
+ * @typedef {Object.<string, InfusingRecipe>} InfuserRecipes
  */

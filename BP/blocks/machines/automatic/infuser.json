@@ -7,35 +7,6 @@
 				"category": "construction"
 			},
 			"states": {
-				"utilitycraft:speed": [
-					0,
-					1,
-					2,
-					3,
-					4,
-					5,
-					6,
-					7,
-					8
-				],
-				"utilitycraft:energy": [
-					0,
-					1,
-					2,
-					3,
-					4,
-					5,
-					6,
-					7,
-					8
-				],
-				"utilitycraft:refreshSpeed": [
-					1,
-					5,
-					10,
-					20,
-					40
-				],
 				"utilitycraft:on": [
 					false,
 					true
@@ -50,6 +21,25 @@
 			}
 		},
 		"components": {
+			"utilitycraft:simple_machine": {
+				"entity": {
+					"input_type": "simple",
+					"output_type": "simple",
+					"inventory_size": 8
+				},
+				"machine": {
+					"energy_cap": 128000,
+					"energy_cost": 1600,
+					"rate_speed_base": 80,
+					"upgrades": [
+						5,
+						6
+					]
+				}
+			},
+			"utilitycraft:machine_recipes": {
+				"type": "infuser"
+			},
 			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {
 				"*": {
@@ -57,14 +47,10 @@
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:machine_upgrades",
-				"utilitycraft:infuser"
-			],
 			"minecraft:tick": {
 				"interval_range": [
-					20,
-					20
+					2,
+					2
 				]
 			},
 			"minecraft:destructible_by_mining": {
@@ -73,147 +59,7 @@
 			"minecraft:destructible_by_explosion": false,
 			"tag:dorios:energy": {},
 			"tag:dorios:item": {},
-            "tag:minecraft:is_pickaxe_item_destructible": {}
-		},
-		"permutations": [
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 1 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							5,
-							5
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 5 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							25,
-							25
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 10 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							50,
-							50
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 20 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							100,
-							100
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 40 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							200,
-							200
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'up'",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							-90,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'down' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							90,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'north' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							180,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'south' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'east' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'west' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							-90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:on') == true ",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_infuser_on",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			}
-		]
+			"tag:minecraft:is_pickaxe_item_destructible": {}
+		}
 	}
 }

@@ -52,17 +52,51 @@
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
                     "size": [
-                        48,
-                        48
+                        52,
+                        52
                     ],
                     "offset": [
-                        10,
+                        11,
                         14
                     ],
                     "layer": 0
                 }
             },
             {
+                "item_label@machineryCommon.item_label": {
+                    "collection_index": 1,
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "$text_scale": 0.55,
+                    "offset": [
+                        14,
+                        12
+                    ]
+                }
+            },
+            {
+                "machinery@common_machines.machinery": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        2,
+                        35
+                    ],
+                    "collection_index": 1
+                }
+            },
+            {
+                "machinery@common_machines.machinery": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        40,
+                        35
+                    ],
+                    "collection_index": 2
+                }
+            },
+            { // Input
                 "item@common.container_item": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
@@ -74,17 +108,6 @@
                 }
             },
             {
-                "machinery@common_machines.machinery": {
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        40,
-                        35
-                    ],
-                    "collection_index": 4
-                }
-            },
-            {
                 "item@common.container_item": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
@@ -92,18 +115,7 @@
                         2,
                         16
                     ],
-                    "collection_index": 5
-                }
-            },
-            {
-                "machinery@common_machines.machinery": {
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        2,
-                        35
-                    ],
-                    "collection_index": 6
+                    "collection_index": 4
                 }
             },
             {
