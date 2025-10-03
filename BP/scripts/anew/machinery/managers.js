@@ -213,7 +213,7 @@ export class Machine {
             energyManager.set(energy)
             energyManager.setCap(settings.machine.energy_cap)
             energyManager.display()
-            if (callback) callback(entity)
+            system.run(() => { if (callback) callback(entity) })
         });
     }
 

@@ -3,7 +3,7 @@ import { infuserRecipes } from "../../config/recipes/infuser.js"
 
 const INPUTSLOT = 3
 const CATALYSTSLOT = 4
-const OUTPUTSLOT = 8
+const OUTPUTSLOT = 7
 
 DoriosAPI.register.blockComponent('double_machine', {
     /**
@@ -19,6 +19,7 @@ DoriosAPI.register.blockComponent('double_machine', {
             machine.displayProgress()
             // Fill Slot to avoid issues
             machine.entity.setItem(1, 'utilitycraft:arrow_indicator_90')
+            machine.energy.set(10000)
         });
     },
 
@@ -65,7 +66,7 @@ DoriosAPI.register.blockComponent('double_machine', {
         }
 
         // Validate recipe based on the input item
-        const recipe = recipes[inputSlot.typeId + catalystSlot.typeId];
+        const recipe = recipes[catalystSlot.typeId + '|' + inputSlot.typeId];
         if (!recipe) {
             machine.showWarning('Invalid Recipe');
             return;
@@ -88,7 +89,7 @@ DoriosAPI.register.blockComponent('double_machine', {
 
         // Check if there are enough items in the input slot
         const required = recipe.required ?? 1;
-        if (inputSlot.amount < required) {
+        if (catalystSlot.amount < required) {
             machine.showWarning(`Needs ${recipe.required ?? 1} Items`);
             return;
         }
@@ -110,7 +111,6 @@ DoriosAPI.register.blockComponent('double_machine', {
                 Math.floor(inputSlot.amount / required),
                 Math.floor(spaceLeft / (recipe.amount ?? 1))
             );
-            block.dimension.runCommand('say hello')
             if (processCount > 0) {
                 // Add the processed items to the output
                 if (!outputSlot) {
@@ -121,7 +121,8 @@ DoriosAPI.register.blockComponent('double_machine', {
 
                 // Deduct progress and input items
                 machine.addProgress(-processCount * energyCost);
-                machine.entity.changeItemAmount(INPUTSLOT, -processCount * required);
+                machine.entity.changeItemAmount(INPUTSLOT, -processCount);
+                machine.entity.changeItemAmount(CATALYSTSLOT, -processCount * required);
             }
         } else {
             // If not enough progress, continue charging with energy

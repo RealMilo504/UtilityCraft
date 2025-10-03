@@ -21,7 +21,7 @@
 			}
 		},
 		"components": {
-			"utilitycraft:simple_machine": {
+			"utilitycraft:double_machine": {
 				"entity": {
 					"input_type": "simple",
 					"output_type": "simple",

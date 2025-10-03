@@ -110,7 +110,6 @@ DoriosAPI.register.blockComponent('simple_machine', {
                 Math.floor(inputSlot.amount / required),
                 Math.floor(spaceLeft / (recipe.amount ?? 1))
             );
-            block.dimension.runCommand('say hello')
             if (processCount > 0) {
                 // Add the processed items to the output
                 if (!outputSlot) {
