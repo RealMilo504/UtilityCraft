@@ -56,6 +56,9 @@ DoriosAPI.register.blockComponent('block_breaker', {
                     );
                     // Reset progress after operation
                     machine.setProgress(0, undefined, undefined, false);
+                } else {
+                    machine.showWarning('Nothing to Break');
+                    return;
                 }
             }
 

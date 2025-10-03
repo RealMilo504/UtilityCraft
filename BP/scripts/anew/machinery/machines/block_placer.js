@@ -53,7 +53,7 @@ DoriosAPI.register.blockComponent('block_placer', {
             // Revisar ítem en el slot
             const stack = inv.getItem(INPUTSLOT);
             if (!stack) {
-                machine.showWarning('No Block to Place', false);
+                machine.showWarning('No Block', false);
                 return;
             }
 
