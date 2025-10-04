@@ -5,8 +5,7 @@
 - Reworked Coal Blocks:
   - Added a new Charcoal Block and four levels of Compressed Charcoal Blocks.
   - Updated Blaze Core format and mining properties.
-  - Implemented fuel behavior for Coal, Charcoal and Blaze Core block family.
-
+  - Implemented fuel behavior for Coal, Charcoal and Blaze Core block family. These blocks can now be used in any furnace.
 - Reworked Sieving System:
   - General
     - Added Copper Mesh and defined Mesh Tiers.
@@ -24,7 +23,7 @@ The meshes individual stats are:
  |-----------|----------|----------------|------------|
  | String    | 0        | 1x             | Yes        |
  | Flint     | 1        | 1.2x           | Yes        |
- | Copper    | 2        | 1.5x           | Yes        |
+ | Copper    | 2        | 1.5x           | Yes        | 
  | Iron      | 3        | 1.75x          | Yes        |
  | Gold      | 4        | 2x             | Yes        |
  | Emerald   | 5        | 2.5x           | Yes        |
@@ -34,18 +33,32 @@ The meshes individual stats are:
   > - **Tier**: The mesh tier. The bigger it is, the more new resources appear.
   > - **Multiplier**: The drop chance multiplier. Increases the chance of multiple resources appearing.
   > - **Flint?**: If it drops flint.
+- Reworked Mob Grinder
+  - Mob Grinders can now be upgraded
+  - Added Damage Upgrade to increased the inflicted damage
+  - Added Range Upgrade to extened the grinder's area of effect
+  - Added ability to toggle the block on/off
+  - It can no longer incflict damage on inanimate entities
+  - Changed its texture
+> [!WARNING]
+> The block does not drop its upgrades after destroyed. This is a bug.
 
-- Block Interactions:
-  - Updated breaking times for most blocks.
-  - Proper tool requirements for breaking blocks applied (e.g., Compressed Dirt requires Shovel, Machines requires Pickaxe…).
-      > "Late, we know that."
+- Induction Anvil
+  - Increased rate speed to 25 DE/t
+  - Fixed issue where the item were stuck in the slot
+- Infuser
+  - Increased process cost from 800 DE to 1.6 kDE
+  - Increased base rate speed from 20 DE/t to 40 DE/t
+- Seed Synthesizer
+  - Better soil no longer increases speed. It now multiplies the yield instead
 - Updated machines UI
   - Moved energy bar to the side
   - Added screen to display warnings and information
   - Added a side upgrades bar
   - Upgrades are now added manually in the UI
-  
 - General:
+  - Updated breaking times for most blocks.
+  - Proper tool requirements for breaking blocks applied (e.g., Compressed Dirt requires Shovel, Machines requires Pickaxe…).
   - Added descriptions for machines, listing supported upgrades.
   - Added descriptions for special blocks to improve understanding.
   - Updated display translations across multiple languages.
@@ -87,3 +100,7 @@ The meshes individual stats are:
   - XP Magnet code reworked.
   - XP Spout & Drain reworked.
     > (requires testing, no tank support yet).
+  - Crusher code reworked.
+  - Electro Press code reworked.
+  - Incinerator code reworked.
+  - Block Breaker/Placer codes reworked.
