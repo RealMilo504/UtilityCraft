@@ -17,7 +17,7 @@
                 "item": "utilitycraft:base_upgrade"
             },
             "D": {
-                "item": "utilitycraft:diamond_dust"
+                "item": "utilitycraft:energized_iron_dust"
             },
             "R": {
                 "item": "minecraft:redstone_block"
