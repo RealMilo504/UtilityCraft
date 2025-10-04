@@ -5,6 +5,14 @@
 			"identifier": "utilitycraft:mob_grinder",
 			"menu_category": {
 				"category": "construction"
+			},
+			"states":{
+				"utilitycraft:rangeSelected":
+				[1, 2, 3, 4],
+				"utilitycraft:damageSelected":
+				[1, 2, 3, 4, 5, 6, 7, 8],
+				"utilitycraft:isOn":
+				[true, false]
 			}
 		},
 		"components": {
@@ -15,9 +23,8 @@
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:mob_grinder"
-			],
+			"utilitycraft:mob_grinder":{},
+			"utilitycraft:upgradeable":{},
 			"minecraft:collision_box": {
 				"origin": [
 					-8,
