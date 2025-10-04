@@ -7,15 +7,12 @@
   - Updated Blaze Core format and mining properties.
   - Implemented fuel behavior for Coal, Charcoal and Blaze Core block family. These blocks can now be used in any furnace.
 - Reworked Sieving System:
-  - General
-    - Added Copper Mesh and defined Mesh Tiers.
-    - Sieve Drops now scale by tier (e.g., Diamond requires at least Iron Mesh).
-    - Netherite Mesh no longer drops Flint.
-    - Updated mesh multipliers for balance.
-  - Autosieve
-    - Increased autosieve process cost from 3.2 kDE to 6.4 kDE
-    - Added the `utilitycraft:mesh` component to items to create custom meshes
-      > Note: Custom meshes won't work with the basic sieve
+  - Added Copper Mesh and defined Mesh Tiers.
+  - Sieve Drops now scale by tier (e.g., Diamond requires at least Iron Mesh).
+  - Netherite Mesh no longer drops Flint.
+  - Updated mesh multipliers for balance.
+  - Added the `utilitycraft:mesh` component to items to create custom meshes
+    > Note: Custom meshes won't work with the basic sieve
 
 The meshes individual stats are:
     
@@ -43,6 +40,8 @@ The meshes individual stats are:
 > [!WARNING]
 > The block does not drop its upgrades after destroyed. This is a bug.
 
+- Autosieve
+  - Increased autosieve process cost from 3.2 kDE to 6.4 kDE
 - Induction Anvil
   - Increased rate speed to 25 DE/t
   - Fixed issue where the item were stuck in the slot
