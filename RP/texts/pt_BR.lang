@@ -496,12 +496,13 @@ item.utilitycraft:wither_skeleton_essence=Essência de Esqueleto Wither
 - Machines Upgrades = ## Módulos Melhorias
 item.utilitycraft:steel_ingot=Barra de Aço
 ## +
-item.utilitycraft:energy_upgrade=Módulo de Melhoria de §bEficiência Energética§r\n§7- Aumenta a eficiência de máquinas\n- Reduz o consumo de energia
+item.utilitycraft:energy_upgrade=Módulo de Melhoria de §bEficiência Energética§7\n§7- Aumenta a eficiência de máquinas\n- Reduz o consumo de energia
 item.utilitycraft:speed_upgrade=Módulo de Melhoria de §aVelocidade§7\n§7- Aumenta a velocidade de uma máquina\n- Aumenta o consumo de energia
-item.utilitycraft:range_upgrade=Módulo de Melhoria de §9Alcance§r\n§7- Aumenta o alcance de uma máquina
+item.utilitycraft:range_upgrade=Módulo de Melhoria de §9Alcance§7\n§7- Aumenta o alcance de uma máquina
 item.utilitycraft:quantity_upgrade=Módulo de Melhoria de §3Quantidade§r\n§7- Aumenta a saída de uma máquina\n- Aumenta a quantidade de mobs invocados 
-item.utilitycraft:ultimate_upgrade=Módulo de Melhoria §8Supremo§r\n§7- A Melhoria Suprema
+item.utilitycraft:ultimate_upgrade=Módulo de Melhoria §8Supremo§7\n§7- A Melhoria Suprema
 item.utilitycraft:filter_upgrade=Módulo de Melhoria de §fFiltro§7\n§7- Adiciona um filtro à máquina\n- Possui exclusão e inclusão
+item.utilitycraft:damage_upgrade=Módulo de Melhoria de §cDano§7\n§7- Aumenta o dano infligido pelo Abatedor de Mobs
 ## +
 item.utilitycraft:base_upgrade=Módulo de Melhoria\n§7- Usado para criar módulos de melhorias para máquinas
 

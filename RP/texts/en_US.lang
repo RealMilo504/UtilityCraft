@@ -255,7 +255,7 @@ tile.utilitycraft:compressed_weathered_copper_block.name=Compressed Weathered Co
 tile.utilitycraft:compressed_weathered_copper_block_2.name=Double Compressed Weathered Copper Block
 tile.utilitycraft:compressed_weathered_copper_block_3.name=Triple Compressed Weathered Copper Block
 tile.utilitycraft:compressed_weathered_copper_block_4.name=Quadruple Compressed Weathered Copper Block
-// Block Placer Items
+## Block Placer Items
 item.utilitycraft:blaze_block=Blaze Core
 item.utilitycraft:charcoal_block=Charcoal Block
 item.utilitycraft:compressed_charcoal_block=Compressed Charcoal Block
@@ -384,12 +384,6 @@ item.utilitycraft:totem_seeds=Totem Seeds \n§8Tier 4
 item.utilitycraft:wither_seeds=Wither Seeds \n§8Tier 4
 ## -------- Close Group <<<<<<<< ##
 
-
-## --------------------------------------------------------
-## You've gone too far, rest a little bit before proceding.
-## --------------------------------------------------------
-
-
 - Mesh = ## Meshs
 item.utilitycraft:string_mesh=String Mesh
 item.utilitycraft:flint_mesh=Flint Mesh
@@ -424,6 +418,7 @@ item.utilitycraft:speed_upgrade=§aSpeed Upgrade§r\n§7- Increases speed in Mac
 item.utilitycraft:range_upgrade=§9Range Upgrade§r\n§7- Increases range for Machines
 item.utilitycraft:quantity_upgrade=§3Quantity Upgrade§r\n§7- Increases mob cap spawn for Mechanical Spawner
 item.utilitycraft:ultimate_upgrade=§8Ultimate Upgrade
+item.utilitycraft:damage_upgrade=§cDamage Upgrade§r\n§7- Increases damage dealt by Mob Grinder
 ## +
 item.utilitycraft:base_upgrade=Base Upgrade\n§7- Used to craft Machine upgrades
 

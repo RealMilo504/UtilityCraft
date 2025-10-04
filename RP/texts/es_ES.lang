@@ -414,6 +414,7 @@ item.utilitycraft:speed_upgrade=§aMejora de Velocidad§r\n§7- Incrementa la ve
 item.utilitycraft:range_upgrade=§9Mejora de Rango§r\n§7- Incrementa el rango para las Máquinas
 item.utilitycraft:quantity_upgrade=§3Mejora de Cantidad§r\n§7- Incrementa la capacidad de generación para los Generadores Mecánicos
 item.utilitycraft:ultimate_upgrade=§8Mejora Definitiva
+item.utilitycraft:damage_upgrade=§cMejora de Daño§r\n§7- Incrementa lo daño infligido por Triturador de Mobs
 ## +
 item.utilitycraft:base_upgrade=Mejora Bae\n§7- Usada para craftear las mejoras de las Máquinas
 

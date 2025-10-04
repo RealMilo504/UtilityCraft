@@ -356,6 +356,9 @@
 		"utilitycraft_ultimate_upgrade": {
 			"textures": "textures/items/ultimate_upgrade"
 		},
+		"utilitycraft_damage_upgrade":{
+			"textures": "textures/items/damage_upgrade"
+		},
 		"utilitycraft_accelerator_clock": {
 			"textures": "textures/items/accelerator_clock"
 		},
