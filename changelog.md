@@ -44,7 +44,6 @@ The meshes individual stats are:
   - Increased autosieve process cost from 3.2 kDE to 6.4 kDE
 - Induction Anvil
   - Increased rate speed to 25 DE/t
-  - Fixed issue where the item were stuck in the slot
 - Infuser
   - Increased process cost from 800 DE to 1.6 kDE
   - Increased base rate speed from 20 DE/t to 40 DE/t
@@ -69,11 +68,12 @@ The meshes individual stats are:
   - Drills: introduced `utilitycraft:drill` component.
   - Knives: introduced `utilitycraft:block_loot` component, allowing extra loot definitions for blocks.
   - Hammers: introduced `utilitycraft:hammer` component.
-  - Tools under `utilitycraft:` namespace now support durability (`Durability.js` rework).
+  - Tools under `utilitycraft:` namespace now correctly support durability.
 
 ---
 ## BUG FIXES
 
+  - Tools no longer get stuck after repaired in Induction Anvil
   - Mangrove Sapling now drops correctly when sieving Dirt and Compressed Dirt.
   - Compressed Dirt now drops a wider variety of saplings (previously limited to Oak and Cherry due to a bug).
   - Slime Block recipe on the Electro Press fixed.
