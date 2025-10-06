@@ -3,8 +3,7 @@ UtilityCraft Minecraft Bedrock Add-On
 
 See also UtilityCraft Expansions:
 
-- UtilityCraft: Extra Content Repository
-    - [Chiselling Project](https://github.com/Kauziin/UC-Extra-Content/tree/main/Chiseling%20Project)
+- [Chiselling Project](https://github.com/Kauziin/UC-Extra-Content/tree/main/Chiseling%20Project)
 - [Heavy Machinery](#)
 
 More Dorios Studios projects:
