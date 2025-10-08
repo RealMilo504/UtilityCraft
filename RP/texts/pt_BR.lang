@@ -712,7 +712,7 @@ item.utilitycraft:gold_plate=Placa de Ouro
 item.utilitycraft:iron_plate=Placa de Ferro
 item.utilitycraft:netherite_plate=Placa de Netherita
 
-item.utilitycraft:copper_nugget=Pepita de Cobre
+## Old item.utilitycraft:copper_nugget=Pepita de Cobre
 item.utilitycraft:netherite_nugget=Pepita de Netherita
 
 tile.utilitycraft:raw_steel_block.name=Bloco de Aço Bruto

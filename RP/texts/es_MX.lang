@@ -624,7 +624,7 @@ item.utilitycraft:gold_plate=Placa de Oro
 item.utilitycraft:iron_plate=Placa de Hierro
 item.utilitycraft:netherite_plate=Placa de Netherita
 
-item.utilitycraft:copper_nugget=Pepita de Cobre
+## Old item.utilitycraft:copper_nugget=Pepita de Cobre
 item.utilitycraft:netherite_nugget=Pepita de Netherita
 
 tile.utilitycraft:electro_press.name=Prensa Electro
