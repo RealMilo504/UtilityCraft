@@ -1,0 +1,32 @@
+{
+	"format_version": "1.21.0",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "utilitycraft:paper_shapeless"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"priority": -1,
+		"ingredients": [
+			{
+				"item": "minecraft:sugar_cane"
+			},
+			{
+				"item": "minecraft:sugar_cane"
+			},
+			{
+				"item": "minecraft:sugar_cane"
+			}
+		],
+		"unlock": [
+			{
+				"item": "minecraft:sugar_cane"
+			}
+		],
+		"result": {
+			"item": "minecraft:paper",
+			"count": 3
+		}
+	}
+}
