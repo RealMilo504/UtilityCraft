@@ -899,9 +899,6 @@
 		"utilitycraft_iron_plate": {
 			"textures": "textures/items/Iron_plate"
 		},
-		"utilitycraft_copper_nugget": {
-			"textures": "textures/items/Copper_nugget"
-		},
 		"utilitycraft_netherite_nugget": {
 			"textures": "textures/items/Netherite_nugget"
 		},

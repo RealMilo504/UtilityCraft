@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:sc-stripped_acacia_log"
+    },
+    "tags": [
+      "stonecutter"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:acacia_log"
+      }
+    ],
+    "priority": 4,
+    "group": "log",
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "minecraft:stripped_acacia_log"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:sc-stone_pickaxe"
+    },
+    "tags": [
+      "stonecutter"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:stone_pickaxe"
+      }
+    ],
+    "priority": 4,
+    "group": "equipment",
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "minecraft:cobblestone",
+      "count": 1
+    }
+  }
+}

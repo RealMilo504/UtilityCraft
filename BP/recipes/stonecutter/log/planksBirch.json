@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:sc-birch_planks"
+    },
+    "tags": [
+      "stonecutter"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:birch_log"
+      }
+    ],
+    "priority": 4,
+    "group": "planks",
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "minecraft:birch_planks",
+      "count": 6
+    }
+  }
+}

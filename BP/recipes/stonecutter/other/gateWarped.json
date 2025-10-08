@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:sc-warped_fence_gate"
+    },
+    "tags": [
+      "stonecutter"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:stripped_warped_stem"
+      }
+    ],
+    "priority": 4,
+    "group": "fence",
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "minecraft:warped_fence_gate",
+      "count": 2
+    }
+  }
+}

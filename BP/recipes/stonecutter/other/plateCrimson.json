@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:sc-crimson_pressure_plate"
+    },
+    "tags": [
+      "stonecutter"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:stripped_crimson_stem"
+      }
+    ],
+    "priority": 4,
+    "group": "pressure_plate",
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "minecraft:crimson_pressure_plate",
+      "count": 3
+    }
+  }
+}

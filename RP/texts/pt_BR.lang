@@ -493,7 +493,7 @@ item.utilitycraft:magma_cube_essence=Essência de Cubo de Magma
 item.utilitycraft:mooshroom_essence=Essência de Coguvaga
 item.utilitycraft:wither_skeleton_essence=Essência de Esqueleto Wither
 
-- Machines Upgrades = ## Módulos Melhorias
+- Machines Upgrades = ## Módulos de Melhorias
 item.utilitycraft:steel_ingot=Barra de Aço
 ## +
 item.utilitycraft:energy_upgrade=Módulo de Melhoria de §bEficiência Energética§7\n§7- Aumenta a eficiência de máquinas\n- Reduz o consumo de energia
@@ -670,7 +670,7 @@ tile.utilitycraft:ultimate_wind_turbine.name=§eTurbina Eólica Básica\n §7 Ve
 < Energy Generators = Geradores de Energia 
 ##///////////////////////////////////////////////////////////////
 
-- Stuff = ## Coisas Não-Categorizadas
+## > Stuff = ## Coisas Não-Categorizadas
 tile.utilitycraft:waycenter.name=Centro de Waypoints
 tile.utilitycraft:waycarpet.name=Carpete Waypoint
 item.utilitycraft:way_chip=Chip de Waypoint
@@ -711,14 +711,12 @@ item.utilitycraft:copper_plate=Placa de Cobre
 item.utilitycraft:gold_plate=Placa de Ouro
 item.utilitycraft:iron_plate=Placa de Ferro
 item.utilitycraft:netherite_plate=Placa de Netherita
-
-## Old item.utilitycraft:copper_nugget=Pepita de Cobre
 item.utilitycraft:netherite_nugget=Pepita de Netherita
 
 tile.utilitycraft:raw_steel_block.name=Bloco de Aço Bruto
 
 item.utilitycraft:arrow_indicator_90=Seta Indicadora
-< Stuff = ## Coisas Não-Categorizadas
+## < Stuff = ## Coisas Não-Categorizadas
 
 ## - Categories
 dorios:itemGroup.name.generators=Geradores
@@ -739,79 +737,6 @@ dorios:itemGroup.name.mob_grinding=Gerenciamento de Criaturas
 dorios:itemGroup.name.hammers=Martelos
 dorios:itemGroup.name.paxels=Pacachados
 ## < Categories
-
-- Progress Bars = Barras de Progressão ##///////////////////////////////////////////////////////////////
-item.utilitycraft:energy_bar_0=Energia:
-item.utilitycraft:energy_bar_1=Energia:
-item.utilitycraft:energy_bar_2=Energia:
-item.utilitycraft:energy_bar_3=Energia:
-item.utilitycraft:energy_bar_4=Energia:
-item.utilitycraft:energy_bar_5=Energy:
-item.utilitycraft:energy_bar_6=Energia:
-item.utilitycraft:energy_bar_7=Energia:
-item.utilitycraft:energy_bar_8=Energia:
-item.utilitycraft:energy_bar_9=Energia:
-item.utilitycraft:energy_bar_10=Energia:
-item.utilitycraft:energy_bar_11=Energia:
-item.utilitycraft:energy_bar_12=Energia:
-item.utilitycraft:energy_bar_13=Energia:
-item.utilitycraft:energy_bar_14=Energia:
-item.utilitycraft:energy_bar_15=Energia:
-item.utilitycraft:energy_bar_16=Energia:
-item.utilitycraft:fuel_bar_0=Combustível: 
-item.utilitycraft:fuel_bar_1=Combustível:
-item.utilitycraft:fuel_bar_2=Combustível:
-item.utilitycraft:fuel_bar_3=Combustível:
-item.utilitycraft:fuel_bar_4=Combustível:
-item.utilitycraft:fuel_bar_5=Combustível:
-item.utilitycraft:fuel_bar_6=Combustível:
-item.utilitycraft:fuel_bar_7=Combustível:
-item.utilitycraft:fuel_bar_8=Combustível:
-item.utilitycraft:fuel_bar_9=Combustível:
-item.utilitycraft:fuel_bar_10=Combustível:
-item.utilitycraft:fuel_bar_11=Combustível:
-item.utilitycraft:fuel_bar_12=Combustível:
-item.utilitycraft:fuel_bar_13=Combustível:
-item.utilitycraft:fuel_bar_14=Combustível:
-item.utilitycraft:fuel_bar_15=Combustível:
-item.utilitycraft:fuel_bar_16=Combustível:
-item.utilitycraft:lava_bar_0=Lava:
-item.utilitycraft:lava_bar_1=Lava:
-item.utilitycraft:lava_bar_2=Lava:
-item.utilitycraft:lava_bar_3=Lava:
-item.utilitycraft:lava_bar_4=Lava:
-item.utilitycraft:lava_bar_5=Lava:
-item.utilitycraft:lava_bar_6=Lava:
-item.utilitycraft:lava_bar_7=Lava:
-item.utilitycraft:lava_bar_8=Lava:
-item.utilitycraft:lava_bar_9=Lava:
-item.utilitycraft:lava_bar_10=Lava:
-item.utilitycraft:lava_bar_11=Lava:
-item.utilitycraft:lava_bar_12=Lava:
-item.utilitycraft:lava_bar_13=Lava:
-item.utilitycraft:lava_bar_14=Lava:
-item.utilitycraft:lava_bar_15=Lava:
-item.utilitycraft:lava_bar_16=Lava:
-item.utilitycraft:water_bar_0=Àgua:
-item.utilitycraft:water_bar_1=Àgua:
-item.utilitycraft:water_bar_2=Àgua:
-item.utilitycraft:water_bar_3=Àgua:
-item.utilitycraft:water_bar_4=Àgua:
-item.utilitycraft:water_bar_5=Àgua:
-item.utilitycraft:water_bar_6=Àgua:
-item.utilitycraft:water_bar_7=Àgua:
-item.utilitycraft:water_bar_8=Àgua:
-item.utilitycraft:water_bar_9=Àgua:
-item.utilitycraft:water_bar_10=Àgua:
-item.utilitycraft:water_bar_11=Àgua:
-item.utilitycraft:water_bar_12=Àgua:
-item.utilitycraft:water_bar_13=Àgua:
-item.utilitycraft:water_bar_14=Àgua:
-item.utilitycraft:water_bar_15=Àgua:
-item.utilitycraft:water_bar_16=Àgua:
-item.utilitycraft:arrow_indicator=Indicador
-item.utilitycraft:info=Informações:
-< Progress Bars = Barras de Progressão ##///////////////////////////////////////////////////////////////
 
 ## All the same
 item.utilitycraft:utility_book_0=Manual do UtilityCraft

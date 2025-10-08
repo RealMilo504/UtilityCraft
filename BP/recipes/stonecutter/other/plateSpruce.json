@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:sc-spruce_pressure_plate"
+    },
+    "tags": [
+      "stonecutter"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:stripped_spruce_log"
+      }
+    ],
+    "priority": 4,
+    "group": "pressure_plate",
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "minecraft:spruce_pressure_plate",
+      "count": 3
+    }
+  }
+}

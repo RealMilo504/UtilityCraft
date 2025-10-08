@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:sc-crimson_chest"
+    },
+    "tags": [
+      "stonecutter"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:stripped_crimson_stem"
+      }
+    ],
+    "priority": 4,
+    "group": "chest",
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "minecraft:chest"
+    }
+  }
+}

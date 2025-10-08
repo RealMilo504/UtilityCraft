@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:sc-pale_oak_trapdoor"
+    },
+    "tags": [
+      "stonecutter"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:stripped_pale_oak_log"
+      }
+    ],
+    "priority": 4,
+    "group": "trapdoor",
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "minecraft:pale_oak_trapdoor",
+      "count": 3
+    }
+  }
+}

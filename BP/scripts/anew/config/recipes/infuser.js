@@ -45,20 +45,12 @@ export const infuserRecipes = {
         output: "utilitycraft:steel_dust",
         required: 1
     },
-    "minecraft:coal|minecraft:cobblestone": {
-        output: "minecraft:blackstone",
-        required: 1
-    },
     "minecraft:charcoal|minecraft:iron_ingot": {
         output: "utilitycraft:steel_ingot",
         required: 1
     },
     "minecraft:charcoal|utilitycraft:iron_dust": {
         output: "utilitycraft:steel_dust",
-        required: 1
-    },
-    "minecraft:charcoal|minecraft:cobblestone": {
-        output: "minecraft:blackstone",
         required: 1
     },
     "utilitycraft:coal_dust|minecraft:iron_ingot": {
@@ -69,24 +61,12 @@ export const infuserRecipes = {
         output: "utilitycraft:steel_dust",
         required: 1
     },
-    "utilitycraft:coal_dust|minecraft:cobblestone": {
-        output: "minecraft:blackstone",
-        required: 1
-    },
     "utilitycraft:charcoal_dust|minecraft:iron_ingot": {
         output: "utilitycraft:steel_ingot",
         required: 1
     },
     "utilitycraft:charcoal_dust|utilitycraft:iron_dust": {
         output: "utilitycraft:steel_dust",
-        required: 1
-    },
-    "utilitycraft:charcoal_dust|minecraft:cobblestone": {
-        output: "minecraft:blackstone",
-        required: 1
-    },
-    "minecraft:blaze_powder|minecraft:cobblestone": {
-        output: "minecraft:netherrack",
         required: 1
     },
     "minecraft:blaze_powder|minecraft:sand": {
@@ -97,16 +77,8 @@ export const infuserRecipes = {
         output: "minecraft:soul_soil",
         required: 1
     },
-    "utilitycraft:ender_pearl_dust|minecraft:cobblestone": {
-        output: "minecraft:end_stone",
-        required: 1
-    },
     "minecraft:coal_block|minecraft:iron_block": {
         output: "utilitycraft:steel_block",
-        required: 1
-    },
-    "minecraft:coal_block|utilitycraft:compressed_cobblestone": {
-        output: "utilitycraft:compressed_blackstone",
         required: 1
     },
     "minecraft:redstone_block|minecraft:iron_block": {
@@ -120,5 +92,72 @@ export const infuserRecipes = {
     "utilitycraft:netherite_scrap_dust|utilitycraft:gold_dust": {
         output: "utilitycraft:netherite_dust",
         required: 4
+    },
+    // Stone variants
+    "minecraft:quartz|minecraft:cobblestone": {
+        output: "minecraft:diorite",
+        required: 1
+    },
+    "utilitycraft:flint|minecraft:cobblestone": {
+        output: "minecraft:andesite",
+        required: 1
+    },
+    "utilitycraft:dirt_handful|minecraft:cobblestone": {
+        output: "minecraft:granite",
+        required: 1
+    },
+    "minecraft:charcoal|minecraft:cobblestone": {
+        output: "minecraft:blackstone",
+        required: 1
+    },
+    "minecraft:coal|minecraft:cobblestone": {
+        output: "minecraft:blackstone",
+        required: 1
+    },
+    "utilitycraft:coal_dust|minecraft:cobblestone": {
+        output: "minecraft:blackstone",
+        required: 1
+    },
+    "utilitycraft:charcoal_dust|minecraft:cobblestone": {
+        output: "minecraft:blackstone",
+        required: 1
+    },
+    "minecraft:coal_block|utilitycraft:compressed_cobblestone": {
+        output: "utilitycraft:compressed_blackstone",
+        required: 1
+    },
+    "minecraft:blaze_powder|minecraft:cobblestone": {
+        output: "minecraft:netherrack",
+        required: 1
+    },
+    "utilitycraft:ender_pearl_dust|minecraft:cobblestone": {
+        output: "minecraft:end_stone",
+        required: 1
+    },
+    // Integrated Storage
+    "minecraft:blaze_powder|ae2be:cetuz_quartz_crystal": {
+        output: "ae2be:charged_certus_quartz_crystal",
+        required: 1
+    },
+    "minecraft:redstone|ae2be:charged_certus_quartz_crystal": {
+        output: "ae2be:fluix_crystal",
+        required: 4
+    },
+    "ae2be:silicon|utilitycraft:iron_plate": {
+        output: "ae2:silicon_press",
+        required: 4
+    },
+    "ae2be:silicon|utilitycraft:gold_plate": {
+        output: "ae2be:logic_processor_press",
+        required: 4
+    },
+    "ae2be:silicon|utilitycraft:diamond_plate": {
+        output: "ae2be:engineering_processor_press",
+        required: 4
+    },
+    "ae2be:silicon|ae2be:charged_certus_quartz_crystal": {
+        output: "ae2be:calculation_processor_press",
+        required: 4
     }
+    // Future recipes can be added here
 };

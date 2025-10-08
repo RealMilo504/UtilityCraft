@@ -629,8 +629,6 @@ item.utilitycraft:copper_plate=Copper Plate
 item.utilitycraft:gold_plate=Gold Plate
 item.utilitycraft:iron_plate=Iron Plate
 item.utilitycraft:netherite_plate=Netherite Plate
-
-## Old item.utilitycraft:copper_nugget=Copper Nugget
 item.utilitycraft:netherite_nugget=Netherite Nugget
 
 tile.utilitycraft:electro_press.name=Electro Press

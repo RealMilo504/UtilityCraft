@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:sc-bamboo_fence_gate"
+    },
+    "tags": [
+      "stonecutter"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:stripped_bamboo_block"
+      }
+    ],
+    "priority": 4,
+    "group": "fence",
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "minecraft:bamboo_fence_gate"
+    }
+  }
+}

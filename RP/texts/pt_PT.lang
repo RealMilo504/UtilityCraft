@@ -685,7 +685,6 @@ item.utilitycraft:expert_chip=Chip §3Expert
 item.utilitycraft:ultimate_chip=Chip §8Supremo
 
 item.utilitycraft:energized_iron_ingot=Barra de Ferro Energizado
-item.utilitycraft:energized_iron_dust=Pó de Ferro Energizado
 item.utilitycraft:energized_iron_nugget=Pepita de Ferro Energizado
 item.utilitycraft:energized_iron_dust=Pó de Ferro Energizado
 item.utilitycraft:energized_iron_plate=Placa de Ferro Energizado
@@ -698,8 +697,6 @@ item.utilitycraft:copper_plate=Placa de Cobre
 item.utilitycraft:gold_plate=Placa de Ouro
 item.utilitycraft:iron_plate=Placa de Ferro
 item.utilitycraft:netherite_plate=Placa de Netherita
-
-## Old item.utilitycraft:copper_nugget=Pepita de Cobre
 item.utilitycraft:netherite_nugget=Pepita de Netherita
 
 tile.utilitycraft:raw_steel_block.name=Bloco de Aço Bruto
