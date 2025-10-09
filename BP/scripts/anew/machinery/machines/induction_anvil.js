@@ -74,7 +74,7 @@ DoriosAPI.register.blockComponent('induction_anvil', {
                 energyCost - progress
             );
             machine.energy.consume(energyToConsume);
-            machine.addProgress(energyToConsume);
+            machine.addProgress(energyToConsume / machine.boosts.consumption);
         }
 
         // Update visuals

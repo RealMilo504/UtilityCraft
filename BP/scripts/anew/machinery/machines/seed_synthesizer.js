@@ -138,7 +138,7 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
             // If not enough progress, continue charging with energy
             const energyToConsume = Math.min(machine.energy.get(), machine.rate)
             machine.energy.consume(energyToConsume);
-            machine.addProgress(energyToConsume)
+            machine.addProgress(energyToConsume / machine.boosts.consumption);
         }
 
         // Update machine visuals and state

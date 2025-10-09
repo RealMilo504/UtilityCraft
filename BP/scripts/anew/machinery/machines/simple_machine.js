@@ -107,7 +107,6 @@ DoriosAPI.register.blockComponent('simple_machine', {
         }
 
         // If there is enough progress accumulated to process
-        const consumption = machine.boosts.consumption
         if (progress >= energyCost) {
             const processCount = Math.min(
                 Math.floor(progress / energyCost),
@@ -130,7 +129,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
             // If not enough progress, continue charging with energy
             const energyToConsume = Math.min(machine.energy.get(), machine.rate);
             machine.energy.consume(energyToConsume);
-            machine.addProgress(energyToConsume / consumption);
+            machine.addProgress(energyToConsume / machine.boosts.consumption);
         }
 
         // Update machine visuals and state
