@@ -1,5 +1,5 @@
 DoriosAPI.register.blockComponent("upgradeable", {
-    onPlayerInteract({ player, block }, { params }) {
+    onPlayerInteract({ player, block }) {
         /** @type {import('@minecraft/server').ItemStack} */
         const mainHand = player.getEquipment("Mainhand")
         if (!mainHand || !mainHand?.typeId.endsWith("_upgrade")) return
@@ -23,7 +23,8 @@ DoriosAPI.register.blockComponent("upgradeable", {
         player.runCommand(`clear @s ${mainHand.typeId} 0 1`);
 
         player.onScreenDisplay.setActionBar(`§aApplied ${upgradeKey} upgrade (${current + 1}/${max})`);
-
+    },
+    onPlayerBreak(e) {
     }
 })
 

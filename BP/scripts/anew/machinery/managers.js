@@ -375,7 +375,7 @@ export class Machine {
 
 §r${COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
 §r${COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
-§r${COLORS.green}Cost ${Energy.formatEnergyToText(this.getEnergyCost())}
+§r${COLORS.green}Cost ${Energy.formatEnergyToText(this.getEnergyCost() * this.boosts.consumption)}
 
 §r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(this.rate))}/t
     `);

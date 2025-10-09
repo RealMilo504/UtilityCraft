@@ -26,6 +26,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
             machine.displayProgress()
             // Fill Slot to avoid issues
             machine.entity.setItem(1, 'utilitycraft:arrow_right_0')
+            machine.energy.set(32_000)
         });
     },
 
@@ -70,6 +71,9 @@ DoriosAPI.register.blockComponent('simple_machine', {
             machine.showWarning('Invalid Recipe');
             return;
         }
+        const energyCost = settings.machine.energy_cost;
+        // machine.setEnergyCost(energyCost)
+
 
         // Get the output slot (usually the last one)
         const outputSlot = inv.getItem(OUTPUTSLOT);
@@ -95,8 +99,6 @@ DoriosAPI.register.blockComponent('simple_machine', {
         //#endregion
 
         const progress = machine.getProgress();
-        const energyCost = settings.machine.energy_cost * machine.boosts.consumption;
-        machine.setEnergyCost(energyCost)
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
@@ -105,6 +107,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
         }
 
         // If there is enough progress accumulated to process
+        const consumption = machine.boosts.consumption
         if (progress >= energyCost) {
             const processCount = Math.min(
                 Math.floor(progress / energyCost),
@@ -127,7 +130,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
             // If not enough progress, continue charging with energy
             const energyToConsume = Math.min(machine.energy.get(), machine.rate);
             machine.energy.consume(energyToConsume);
-            machine.addProgress(energyToConsume);
+            machine.addProgress(energyToConsume / consumption);
         }
 
         // Update machine visuals and state
