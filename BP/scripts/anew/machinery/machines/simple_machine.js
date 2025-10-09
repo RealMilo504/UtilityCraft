@@ -95,7 +95,8 @@ DoriosAPI.register.blockComponent('simple_machine', {
         //#endregion
 
         const progress = machine.getProgress();
-        const energyCost = settings.machine.energy_cost;
+        const energyCost = settings.machine.energy_cost * machine.boosts.consumption;
+        machine.setEnergyCost(energyCost)
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
