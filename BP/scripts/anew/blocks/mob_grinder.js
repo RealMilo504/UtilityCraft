@@ -1,4 +1,14 @@
 import { ModalFormData } from "@minecraft/server-ui";
+import { world, system } from "@minecraft/server";
+
+// --- Tick global --- //
+// let GLOBAL_TICK = 0;
+// system.runInterval(() => {
+//     GLOBAL_TICK++;
+//     if (GLOBAL_TICK >= 1000) GLOBAL_TICK = 0;
+// }, 1);
+
+
 /**
  * Mob Grinder Block Component
  * - Inflicts continuos damage on the entity within the block's effect radius
@@ -6,94 +16,105 @@ import { ModalFormData } from "@minecraft/server-ui";
  * - Allows players to configure radius, damage and on/off state via UI.
  */
 DoriosAPI.register.blockComponent("mob_grinder", {
-    onTick({ block: grinder, dimension}) {
-        const { x, y, z } = grinder.location
+    onTick({ block: grinder, dimension }) {
+        const { x, y, z } = grinder.location;
+        const id = `mob_grinder_${x}_${y}_${z}`;
 
-        // isOn pode vir como boolean ou string "true"
-        const isOnState = grinder.permutation.getState("utilitycraft:isOn")
-        const isOn = isOnState === true || isOnState === "true"
+        // // isOn pode vir como boolean ou string "true"
+        // const isOnState = world.getDynamicProperty(`${id}_isOn`);
+        // const isOn = isOnState === true || isOnState === "true";
+        // if (!isOn) return
+
+        // let current = grinder.permutation.getState("utilitycraft:frame")
+        // // soma +1; se chegar em 7, volta a 0
+        // const nextFrame = (current + 1) % 8;
+        // grinder.setPermutation(grinder.permutation.withState("utilitycraft:frame", nextFrame));
+
+        // if (GLOBAL_TICK % 5 !== 0) return;
+
 
         // Limit
-        let rangeUpgrade = Number(grinder.permutation.getState("utilitycraft:range"))
-        if (Number.isNaN(rangeUpgrade)) rangeUpgrade = 0
+        let rangeUpgrade = Number(grinder.permutation.getState("utilitycraft:range"));
+        if (Number.isNaN(rangeUpgrade)) rangeUpgrade = 0;
 
-        let damageUpgrade = Number(grinder.permutation.getState("utilitycraft:damage"))
-        if (Number.isNaN(damageUpgrade)) damageUpgrade = 0
+        let damageUpgrade = Number(grinder.permutation.getState("utilitycraft:damage"));
+        if (Number.isNaN(damageUpgrade)) damageUpgrade = 0;
 
         // níveis escolhidos pelo jogador (dentro do teto)
-        let rangeSelected = Number(grinder.permutation.getState("utilitycraft:rangeSelected"))
-        if (Number.isNaN(rangeSelected)) rangeSelected = rangeUpgrade
+        let rangeSelected = Number(world.getDynamicProperty(`${id}_rangeSelected`));
+        if (Number.isNaN(rangeSelected)) rangeSelected = rangeUpgrade;
 
-        let damageSelected = Number(grinder.permutation.getState("utilitycraft:damageSelected"))
-        if (Number.isNaN(damageSelected)) damageSelected = damageUpgrade
+        let damageSelected = Number(world.getDynamicProperty(`${id}_damageSelected`));
+        if (Number.isNaN(damageSelected)) damageSelected = damageUpgrade;
 
         // mapa de alcance (index corresponde ao level)
-        let rangeMap = [0.5, 1, 1.5, 2, 2.5] // mantém o seu mapa original; index 0 já é válido
-        const maxIndex = rangeMap.length - 1
+        let rangeMap = [0.5, 1, 1.5, 2, 2.5]; // mantém o seu mapa original; index 0 já é válido
+        const maxIndex = rangeMap.length - 1;
 
         // garante índice seguro dentro do array
-        const clampIndex = (i) => Math.max(0, Math.min(Math.floor(i), maxIndex))
+        const clampIndex = (i) => Math.max(0, Math.min(Math.floor(i), maxIndex));
 
-        const trueRange = rangeMap[clampIndex(rangeSelected)]
+        const trueRange = rangeMap[clampIndex(rangeSelected)];
 
-        if (isOn) {
-            // garante damage mínimo 0
-            const damageAmount = Math.max(0, Math.floor(damageSelected))
+        // garante damage mínimo 0
+        const damageAmount = Math.max(0, Math.floor(damageSelected));
 
-            dimension.runCommand(
-                `damage @e[r=${trueRange}, type=!item, family=!inanimate, x=${x + 0.5}, y=${y}, z=${z + 0.5}] ${damageAmount} none entity @p`
-            )
-        }
+        dimension.runCommand(
+            `damage @e[r=${trueRange}, type=!item, family=!inanimate, x=${x + 0.5}, y=${y}, z=${z + 0.5}] ${damageAmount} none entity @p`
+        );
     },
 
     onPlayerInteract(e) {
-        const { block, player } = e
-        const hand = player.getComponent("equippable").getEquipment("Mainhand")
+        const { block, player } = e;
+        const { x, y, z } = block.location;
+        const id = `mob_grinder_${x}_${y}_${z}`;
+
+        const hand = player.getComponent("equippable").getEquipment("Mainhand");
+
         // Only open menu if empty-handed and not sneaking
-        if (!hand && !player.isSneaking) {
-            let isOnState = block.permutation.getState("utilitycraft:isOn")
-            let isOn = isOnState === true || isOnState === "true"
+        if (!hand) {
+            let isOn = world.getDynamicProperty(`${id}_isOn`);
 
             // teto (upgrades)
-            let rangeUpgrade = Number(block.permutation.getState("utilitycraft:range"))
-            if (Number.isNaN(rangeUpgrade)) rangeUpgrade = 0
+            let rangeUpgrade = Number(block.permutation.getState("utilitycraft:range"));
+            if (Number.isNaN(rangeUpgrade)) rangeUpgrade = 0;
 
-            let damageUpgrade = Number(block.permutation.getState("utilitycraft:damage"))
-            if (Number.isNaN(damageUpgrade)) damageUpgrade = 0
+            let damageUpgrade = Number(block.permutation.getState("utilitycraft:damage"));
+            if (Number.isNaN(damageUpgrade)) damageUpgrade = 0;
 
             // selecionados (nível atual do jogador)
-            let rangeSelected = Number(block.permutation.getState("utilitycraft:rangeSelected"))
-            if (Number.isNaN(rangeSelected)) rangeSelected = rangeUpgrade
+            let rangeSelected = Number(world.getDynamicProperty(`${id}_rangeSelected`));
+            if (Number.isNaN(rangeSelected)) rangeSelected = rangeUpgrade;
 
-            let damageSelected = Number(block.permutation.getState("utilitycraft:damageSelected"))
-            if (Number.isNaN(damageSelected)) damageSelected = damageUpgrade
+            let damageSelected = Number(world.getDynamicProperty(`${id}_damageSelected`));
+            if (Number.isNaN(damageSelected)) damageSelected = damageUpgrade;
 
             // limites do design
-            const RANGE_CAP = 4
-            const DAMAGE_CAP = 8
+            const RANGE_CAP = 4;
+            const DAMAGE_CAP = 8;
 
             // limita o teto pelos caps do design e pelo tamanho do rangeMap (se necessário)
-            const rangeMapLength = 5 // se você mudar rangeMap no onTick, mantenha o mesmo tamanho aqui
-            const maxRange = Math.min(rangeUpgrade, RANGE_CAP, rangeMapLength - 1)
-            const maxDamage = Math.min(damageUpgrade, DAMAGE_CAP)
+            const rangeMapLength = 5; // se você mudar rangeMap no onTick, mantenha o mesmo tamanho aqui
+            const maxRange = Math.min(rangeUpgrade, RANGE_CAP, rangeMapLength - 1);
+            const maxDamage = Math.min(damageUpgrade, DAMAGE_CAP);
 
             const modalForm = new ModalFormData()
                 .title("Mob Grinder Settings")
                 .toggle("Off/On", { defaultValue: isOn })
                 // Range suporta 0 (conforme você comentou) -> slider de 0 a maxRange
                 .slider("§9Range §rLevel", 0, maxRange, { defaultValue: Math.min(rangeSelected, maxRange) })
-                .slider("§cDamage §rLevel", 1, maxDamage, { defaultValue: Math.min(damageSelected, maxDamage) })
+                .slider("§cDamage §rLevel", 1, maxDamage, { defaultValue: Math.min(damageSelected, maxDamage) });
 
             modalForm.show(player).then(formData => {
                 if (!formData.canceled && formData.formValues) {
-                    const [newOn, newRangeSelected, newDamageSelected] = formData.formValues
+                    const [newOn, newRangeSelected, newDamageSelected] = formData.formValues;
 
                     // salva apenas os valores selecionados — não sobrescreve os tetos (upgrades)
-                    block.setPermutation(block.permutation.withState("utilitycraft:isOn", newOn))
-                    block.setPermutation(block.permutation.withState("utilitycraft:rangeSelected", newRangeSelected))
-                    block.setPermutation(block.permutation.withState("utilitycraft:damageSelected", newDamageSelected))
+                    world.setDynamicProperty(`${id}_isOn`, newOn);
+                    world.setDynamicProperty(`${id}_rangeSelected`, newRangeSelected);
+                    world.setDynamicProperty(`${id}_damageSelected`, newDamageSelected);
                 }
-            })
+            });
         }
     }
-})
+});
