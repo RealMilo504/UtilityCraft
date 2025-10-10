@@ -26,9 +26,9 @@
 					"inventory_size": 5
 				},
 				"machine": {
-					"energy_cap": 64000,
-					"energy_cost": 200,
-					"rate_speed_base": 5,
+					"energy_cap": 128000,
+					"energy_cost": 100,
+					"rate_speed_base": 1,
 					"upgrades": [
 						2,
 						3,
@@ -43,14 +43,10 @@
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:machine_upgrades",
-				"utilitycraft:harvest"
-			],
 			"minecraft:tick": {
 				"interval_range": [
-					1200,
-					1200
+					2,
+					2
 				]
 			},
 			"minecraft:destructible_by_mining": {
@@ -130,61 +126,6 @@
 							-90,
 							0
 						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:speed') == 1 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							800,
-							800
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:speed') == 2 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							400,
-							400
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:speed') == 3",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							200,
-							200
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:speed') == 4",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							100,
-							100
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:on') == true ",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_harvester_on",
-							"render_method": "alpha_test"
-						}
 					}
 				}
 			}

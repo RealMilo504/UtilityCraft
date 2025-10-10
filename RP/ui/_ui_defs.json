@@ -13,6 +13,7 @@
         "ui/assembler.json",
         "ui/power_condenser.json",
         "ui/machineryCommon.json",
+        "ui/harvester.json",
         "ui/one_slot.json"
     ]
 }

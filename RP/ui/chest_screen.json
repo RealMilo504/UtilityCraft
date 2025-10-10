@@ -86,7 +86,7 @@
         "value": [
           {
             "requires": "($temp_container_title = 'entity.utilitycraft:harvester.name')",
-            "$screen_content": "bar_only.utility_panel",
+            "$screen_content": "harvester.utility_panel",
             "$screen_bg_content": "common.screen_background"
           }
         ]

@@ -17,6 +17,7 @@ DoriosAPI.register.blockComponent("harvester", {
         Machine.spawnMachineEntity(e, settings, () => {
             const machine = new Machine(e.block, settings);
             machine.displayEnergy();
+            machine.energy.set(32_000)
         });
     },
 
@@ -37,14 +38,15 @@ DoriosAPI.register.blockComponent("harvester", {
         if (!machine.entity) return;
 
         // --- Machine parameters ---
-        const range = block.permutation.getState("utilitycraft:range");
+        const range = machine.upgrades.range
         const side = (range * 2) + 3;
         const area = side ** 2;
 
         const progress = machine.getProgress();
         const energyCost = settings.machine.energy_cost;
-        const realEnergyCost = Math.ceil(energyCost * (1 - 0.2 * block.permutation.getState("utilitycraft:energy")));
+        const realEnergyCost = energyCost * machine.boosts.consumption;
 
+        machine.setEnergyCost(energyCost * area)
         // --- Energy check ---
         if (machine.energy.get() <= 0) {
             machine.showWarning("No Energy", false);
@@ -118,7 +120,6 @@ DoriosAPI.register.blockComponent("harvester", {
                 dimension.runCommand(
                     `tp @e[x=${x},y=${y - 1},z=${z},dx=${adjustedSide},dz=${adjustedSide},dy=${y - 1},type=item] ${xtp} ${ytp} ${ztp}`
                 );
-                machine.displayEnergy();
             }, 30);
 
             // Reset progress after operation
@@ -137,7 +138,6 @@ DoriosAPI.register.blockComponent("harvester", {
         // --- Visual updates ---
         machine.on();
         machine.displayEnergy();
-        machine.displayProgress();
         machine.showStatus("Running");
     },
 

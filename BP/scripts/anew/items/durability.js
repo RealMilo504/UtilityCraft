@@ -19,7 +19,7 @@ world.afterEvents.entityHitEntity.subscribe(({ damagingEntity }) => {
     const itemStack = player.getEquipment("Mainhand")
     if (!itemStack) return
     if (!itemStack.typeId.startsWith('utilitycraft:')) return
-    if (!itemStackAfterBreak.getComponent('durability')) return
+    if (!itemStack.getComponent('durability')) return
     if (itemStack.durability.damage()) {
         player.setEquipment("Mainhand", itemStack)
     } else {
