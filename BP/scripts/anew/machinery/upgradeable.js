@@ -1,3 +1,5 @@
+import { ItemStack } from '@minecraft/server'
+
 DoriosAPI.register.blockComponent("upgradeable", {
     onPlayerInteract({ player, block }) {
         /** @type {import('@minecraft/server').ItemStack} */
@@ -24,7 +26,22 @@ DoriosAPI.register.blockComponent("upgradeable", {
 
         player.onScreenDisplay.setActionBar(`§aApplied ${upgradeKey} upgrade (${current + 1}/${max})`);
     },
-    onPlayerBreak(e) {
+    /**
+     * Drop upgrade items when the block is broken
+     */
+    onPlayerBreak({ block, brokenBlockPermutation, dimension }) {
+        const states = brokenBlockPermutation.getAllStates();
+
+        for (const [key, value] of Object.entries(states)) {
+            if (typeof value !== "number" || value <= 0) continue;
+
+            const upgradeId = `${key}_upgrade`;
+            try {
+                dimension.spawnItem(new ItemStack(upgradeId, value), block.center());
+            } catch {
+                // En caso de que el ítem no exista, simplemente lo ignora
+            }
+        }
     }
 })
 
