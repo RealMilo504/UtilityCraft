@@ -1,4 +1,4 @@
-import { ItemStack } from "@minecraft/server"
+import { ItemStack, system } from "@minecraft/server"
 import { cropsDrops, data } from "../config/crops.js"
 
 DoriosAPI.register.blockComponent("crop", {
@@ -41,6 +41,16 @@ DoriosAPI.register.blockComponent("crop", {
                     }
                 })
             }
+
+            system.run(() => {
+                let { x, y, z } = block.location;
+                if (mainHand?.getComponent("utilitycraft:hoe")?.customComponentParameters?.params?.runTractor ?? false) {
+                    block.dimension.runCommand(
+                        `execute positioned ${x} ${y} ${z} run function tractor`
+                    );
+                }
+            })
+
 
             block.dimension.playSound("dig.grass", block.location)
             block.setState("utilitycraft:age", 0)

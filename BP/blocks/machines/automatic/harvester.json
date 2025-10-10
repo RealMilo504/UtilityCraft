@@ -7,27 +7,6 @@
 				"category": "construction"
 			},
 			"states": {
-				"utilitycraft:speed": [
-					0,
-					1,
-					2,
-					3,
-					4
-				],
-				"utilitycraft:energy": [
-					0,
-					1,
-					2,
-					3,
-					4
-				],
-				"utilitycraft:range": [
-					0,
-					1,
-					2,
-					3,
-					4
-				],
 				"utilitycraft:on": [
 					false,
 					true
@@ -42,6 +21,21 @@
 			}
 		},
 		"components": {
+			"utilitycraft:harvester": {
+				"entity": {
+					"inventory_size": 5
+				},
+				"machine": {
+					"energy_cap": 64000,
+					"energy_cost": 200,
+					"rate_speed_base": 5,
+					"upgrades": [
+						2,
+						3,
+						4
+					]
+				}
+			},
 			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {
 				"*": {
@@ -64,7 +58,7 @@
 			},
 			"minecraft:destructible_by_explosion": false,
 			"tag:dorios:energy": {},
-            "tag:minecraft:is_pickaxe_item_destructible": {}
+			"tag:minecraft:is_pickaxe_item_destructible": {}
 		},
 		"permutations": [
 			{
