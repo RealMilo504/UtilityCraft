@@ -1022,3 +1022,371 @@ export class Energy {
     //#endregion
 }
 
+
+import { world, ItemStack } from "@minecraft/server";
+
+/**
+ * Global map storing loaded fluid-related scoreboard objectives per index.
+ * Each index represents an independent tank slot (e.g., 0, 1, 2).
+ */
+const fluidObjectives = new Map();
+
+/**
+ * Ensures that the required scoreboard objectives exist for a given tank index.
+ *
+ * Creates or retrieves four objectives per index:
+ * - `liquid_{index}` → Liquid amount (mantissa)
+ * - `liquidExp_{index}` → Liquid exponent
+ * - `liquidCap_{index}` → Capacity (mantissa)
+ * - `liquidCapExp_{index}` → Capacity exponent
+ *
+ * @param {number} [index=0] The fluid tank index to initialize (default 0).
+ * @returns {void}
+ */
+export function initFluidObjectives(index = 0) {
+    const definitions = [
+        [`liquid_${index}`, `Liquid ${index}`],
+        [`liquidExp_${index}`, `Liquid Exp ${index}`],
+        [`liquidCap_${index}`, `Liquid Cap ${index}`],
+        [`liquidCapExp_${index}`, `Liquid Cap Exp ${index}`]
+    ];
+
+    for (const [id, display] of definitions) {
+        if (!fluidObjectives.has(id)) {
+            let obj = world.scoreboard.getObjective(id);
+            if (!obj) obj = world.scoreboard.addObjective(id, display);
+            fluidObjectives.set(id, obj);
+        }
+    }
+}
+
+/**
+ * Manages scoreboard-based liquid values for entities or machines.
+ * 
+ * Provides a unified API to store, retrieve, normalize, and display fluid values.
+ * Each instance can manage a specific tank index (0, 1, ...).
+ *
+ * The system uses the same mantissa–exponent structure as the Energy system
+ * to support large numbers efficiently while maintaining scoreboard safety.
+ */
+export class FluidManager {
+    /**
+     * Creates a new FluidManager instance for a specific entity and tank index.
+     *
+     * @param {Entity} entity The entity representing the fluid container.
+     * @param {number} [index=0] The index of the fluid tank managed by this instance.
+     */
+    constructor(entity, index = 0) {
+        this.entity = entity;
+        this.index = index;
+        this.scoreId = entity?.scoreboardIdentity;
+
+        // Ensure fluid objectives exist for this tank index
+        initFluidObjectives(index);
+
+        this.scores = {
+            liquid: fluidObjectives.get(`liquid_${index}`),
+            liquidExp: fluidObjectives.get(`liquidExp_${index}`),
+            liquidCap: fluidObjectives.get(`liquidCap_${index}`),
+            liquidCapExp: fluidObjectives.get(`liquidCapExp_${index}`)
+        };
+
+        this.type = this.getType();
+        this.cap = this.getCap();
+    }
+
+    // --------------------------------------------------------------------------
+    // Normalization utilities
+    // --------------------------------------------------------------------------
+
+    /**
+     * Normalizes a raw fluid amount into a mantissa–exponent pair.
+     *
+     * This ensures the mantissa never exceeds 1e9 to remain scoreboard-safe.
+     *
+     * @param {number} amount The raw liquid amount.
+     * @returns {{ value: number, exp: number }} The normalized mantissa and exponent.
+     */
+    static normalizeValue(amount) {
+        let exp = 0;
+        let value = amount;
+        while (value > 1e9) {
+            value /= 1000;
+            exp += 3;
+        }
+        return { value: Math.floor(value), exp };
+    }
+
+    /**
+     * Combines a mantissa and exponent into a full numeric value.
+     *
+     * @param {number} value Mantissa value.
+     * @param {number} exp Exponent multiplier (power of 10).
+     * @returns {number} The reconstructed numeric value.
+     */
+    static combineValue(value, exp) {
+        return (value || 0) * (10 ** (exp || 0));
+    }
+
+    /**
+     * Formats a liquid amount into a human-readable string with units.
+     *
+     * @param {number} value The liquid amount in millibuckets (mB).
+     * @returns {string} A formatted string with unit suffix (mB, kB, MB).
+     */
+    static formatFluid(value) {
+        let unit = "mB";
+        if (value >= 1e9) {
+            unit = "MB";
+            value /= 1e6;
+        } else if (value >= 1e6) {
+            unit = "kB";
+            value /= 1e3;
+        }
+        return `${value.toFixed(1)} ${unit}`;
+    }
+
+    // --------------------------------------------------------------------------
+    // Core operations
+    // --------------------------------------------------------------------------
+
+    /**
+     * Initializes scoreboard values for a new fluid entity.
+     *
+     * @param {Entity} entity The entity to initialize.
+     * @returns {void}
+     */
+    static initialize(entity) {
+        entity.runCommand(`scoreboard players set @s liquid_0 0`);
+    }
+
+    /**
+     * Sets the fluid capacity of this tank.
+     *
+     * @param {number} amount Maximum liquid capacity in mB.
+     * @returns {void}
+     */
+    setCap(amount) {
+        const { value, exp } = FluidManager.normalizeValue(amount);
+        this.scores.liquidCap.setScore(this.scoreId, value);
+        this.scores.liquidCapExp.setScore(this.scoreId, exp);
+    }
+
+    /**
+     * Retrieves the full capacity of this tank.
+     *
+     * @returns {number} The maximum capacity in mB.
+     */
+    getCap() {
+        const v = this.scores.liquidCap.getScore(this.scoreId) || 0;
+        const e = this.scores.liquidCapExp.getScore(this.scoreId) || 0;
+        this.cap = FluidManager.combineValue(v, e);
+        return this.cap;
+    }
+
+    /**
+     * Sets the current amount of liquid in this tank.
+     *
+     * Automatically clamps to the tank capacity and normalizes for scoreboard storage.
+     *
+     * @param {number} amount Amount to set in mB.
+     * @returns {void}
+     */
+    set(amount) {
+        const { value, exp } = FluidManager.normalizeValue(amount);
+        this.scores.liquid.setScore(this.scoreId, value);
+        this.scores.liquidExp.setScore(this.scoreId, exp);
+    }
+
+    /**
+     * Gets the current amount of liquid stored in this tank.
+     *
+     * @returns {number} The current liquid amount in mB.
+     */
+    get() {
+        const v = this.scores.liquid.getScore(this.scoreId) || 0;
+        const e = this.scores.liquidExp.getScore(this.scoreId) || 0;
+        return FluidManager.combineValue(v, e);
+    }
+
+    /**
+     * Adds or subtracts a specific amount of liquid.
+     *
+     * Automatically clamps to the tank capacity.
+     *
+     * @param {number} amount Amount to add (negative values subtract).
+     * @returns {number} Actual amount added or removed.
+     */
+    add(amount) {
+        const current = this.get();
+        const newValue = Math.max(0, Math.min(current + amount, this.getCap()));
+        this.set(newValue);
+        return newValue - current;
+    }
+
+    /**
+     * Consumes a specific amount of liquid if available.
+     *
+     * @param {number} amount The amount to consume.
+     * @returns {number} The amount actually consumed (0 if insufficient).
+     */
+    consume(amount) {
+        const current = this.get();
+        if (current < amount) return 0;
+        this.add(-amount);
+        return amount;
+    }
+
+    /**
+     * Returns the remaining space available in this tank.
+     *
+     * @returns {number} Remaining free capacity in mB.
+     */
+    getFreeSpace() {
+        return Math.max(0, this.getCap() - this.get());
+    }
+
+    /**
+     * Checks whether the tank has at least a certain amount of liquid.
+     *
+     * @param {number} amount Amount to check for.
+     * @returns {boolean} True if there is enough liquid.
+     */
+    has(amount) {
+        return this.get() >= amount;
+    }
+
+    /**
+     * Checks whether the tank is full.
+     *
+     * @returns {boolean} True if the tank has no free space remaining.
+     */
+    isFull() {
+        return this.get() >= this.getCap();
+    }
+
+    // --------------------------------------------------------------------------
+    // Type tag management
+    // --------------------------------------------------------------------------
+
+    /**
+     * Gets the liquid type currently stored in this tank.
+     *
+     * The type is stored in the entity's tags as `liquid{index}Type:{type}`.
+     *
+     * @returns {string} The stored liquid type, or "empty" if none.
+     */
+    getType() {
+        const tag = this.entity.getTags().find(t => t.startsWith(`liquid${this.index}Type:`));
+        return tag ? tag.split(":")[1] : "empty";
+    }
+
+    /**
+     * Sets the liquid type for this tank.
+     *
+     * Removes any previous type tag before adding the new one.
+     *
+     * @param {string} type The new liquid type (e.g. "lava", "water").
+     * @returns {void}
+     */
+    setType(type) {
+        const old = this.entity.getTags().find(t => t.startsWith(`liquid${this.index}Type:`));
+        if (old) this.entity.removeTag(old);
+        this.entity.addTag(`liquid${this.index}Type:${type}`);
+        this.type = type;
+    }
+
+    // --------------------------------------------------------------------------
+    // Transfer operations
+    // --------------------------------------------------------------------------
+
+    /**
+     * Transfers a specific amount of liquid from this tank to another.
+     *
+     * @param {FluidManager} other The target tank to receive the liquid.
+     * @param {number} amount The amount to transfer in mB.
+     * @returns {number} The actual amount transferred.
+     */
+    transferTo(other, amount) {
+        if (this.getType() !== other.getType() && other.getType() !== "empty") return 0;
+
+        const transferable = Math.min(amount, this.get(), other.getFreeSpace());
+        if (transferable <= 0) return 0;
+
+        this.add(-transferable);
+        other.add(transferable);
+        if (other.getType() === "empty") other.setType(this.getType());
+        return transferable;
+    }
+
+    /**
+     * Receives liquid from another FluidManager.
+     *
+     * @param {FluidManager} other The source tank to pull from.
+     * @param {number} amount The maximum amount to receive.
+     * @returns {number} The actual amount received.
+     */
+    receiveFrom(other, amount) {
+        return other.transferTo(this, amount);
+    }
+
+    // --------------------------------------------------------------------------
+    // Display logic
+    // --------------------------------------------------------------------------
+
+    /**
+     * Displays the current liquid level in the entity's inventory.
+     *
+     * Renders a 48-frame progress bar representing how full the tank is.
+     * The item used depends on the current liquid type.
+     *
+     * @param {number} [slot=4] Inventory slot index for the display item.
+     * @returns {void}
+     */
+    display(slot = 4) {
+        const inv = this.entity.getComponent("minecraft:inventory")?.container;
+        if (!inv) return;
+
+        const liquid = this.get();
+        const cap = this.getCap();
+        const type = this.getType();
+
+        if (type === "empty") {
+            inv.setItem(slot, new ItemStack("utilitycraft:empty_liquid_bar"));
+            return;
+        }
+
+        const frame = Math.max(0, Math.min(48, Math.floor((liquid / cap) * 48)));
+        const frameName = frame.toString().padStart(2, "0");
+
+        const item = new ItemStack(`utilitycraft:${type}_bar_${frameName}`, 1);
+        item.nameTag = `§r${DoriosAPI.utils.capitalizeFirst(type)}
+§r§7  Stored: ${FluidManager.formatFluid(liquid)} / ${FluidManager.formatFluid(cap)}
+§r§7  Percentage: ${(liquid / cap * 100).toFixed(2)}%`;
+
+        inv.setItem(slot, item);
+    }
+
+    // --------------------------------------------------------------------------
+    // Utility for blocks
+    // --------------------------------------------------------------------------
+
+    /**
+     * Adds a specified liquid to a tank block at a given location.
+     *
+     * Spawns a fluid tank entity if missing and initializes its scoreboards.
+     *
+     * @param {Block} block The block representing the tank.
+     * @param {string} type The type of liquid to insert.
+     * @param {number} amount Amount of liquid to insert in mB.
+     * @returns {boolean} True if insertion was successful.
+     */
+    static addLiquidToTank(block, type, amount) {
+        const dim = block.dimension;
+        const pos = block.location;
+        let entity = dim.getEntitiesAtBlockLocation(pos)[0];
+
+        if (!entity) {
+            const { x, y, z } = block.location;
+            entity = dim.spawnEntity(`utilitycraft:fluid_tank_${type}`, { x: x + 0.5, y,
+

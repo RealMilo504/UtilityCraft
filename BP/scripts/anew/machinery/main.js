@@ -8,6 +8,8 @@ import './machines/induction_anvil.js'
 import './machines/digitizer.js'
 import './machines/assembler.js'
 import './machines/harvester.js'
+import './machines/way_center.js'
+import './machines/xp_condenser.js'
 import './managers.js'
 
 import './upgradeable.js'

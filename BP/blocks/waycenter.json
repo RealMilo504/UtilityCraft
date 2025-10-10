@@ -33,16 +33,14 @@
 			}
 		},
 		"components": {
+			"utilitycraft:computer": {},
 			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "utilitycraft_waycenter",
 					"render_method": "alpha_test"
 				}
-			},
-			"minecraft:custom_components": [
-				"utilitycraft:computer"
-			]
+			}
 		},
 		"permutations": [
 			{
