@@ -1,285 +1,221 @@
+import { Machine, Energy } from '../managers.js';
+import { crafterRecipes } from "../../config/recipes/crafter.js";
 import { ItemStack, system } from '@minecraft/server'
-import { Machine } from '../managers.js'
-import { crafting as legacyCraftingRecipes } from '../../../machinery/machines_config.js'
 
-const BLUEPRINT_SLOT = 3
-const MATERIAL_SLOTS = 9
-const CRAFTING_FLAG = 'utilitycraft:digitizer_crafting'
-const DEFAULT_SETTINGS = {
-    entity: {
-        name: 'digitizer',
-        input_type: 'complex',
-        output_type: 'simple',
-        inventory_size: 17
-    },
-    machine: {
-        energy_cap: 8000,
-        energy_cost: 100,
-        rate_speed_base: 5,
-        upgrades: [4, 5, 6]
-    },
-    recipes: legacyCraftingRecipes
-}
+
+// Ranuras
+const BLUEPRINT_SLOT = 3;
+// Ajusta estos IDs si tu namespace difiere
+const BLUEPRINT_ITEM = 'utilitycraft:blueprint_paper';
+const OUTPUT_BLUEPRINT_ITEM = 'utilitycraft:blueprint';
 
 DoriosAPI.register.blockComponent('digitizer', {
-    beforeOnPlayerPlace(e, ctx) {
-        const settings = resolveSettings(ctx?.params)
+    /**
+     * Runs before the machine is placed by the player.
+     * 
+     * @param {{ params: MachineSettings }} ctx
+     */
+    beforeOnPlayerPlace(e, { params: settings }) {
         Machine.spawnMachineEntity(e, settings, () => {
-            const machine = new Machine(e.block, settings)
-            machine.setEnergyCost(settings.machine.energy_cost)
-            machine.displayProgress()
-            machine.entity?.setDynamicProperty(CRAFTING_FLAG, false)
-            machine.displayEnergy()
-            machine.setLabel('§r§7Insert blueprint paper', 1)
-        })
+            const machine = new Machine(e.block, settings);
+            machine.setEnergyCost(settings.machine.energy_cost);
+            machine.displayProgress();
+            machine.entity.setItem(1, 'utilitycraft:arrow_right_0');
+            machine.entity.setDynamicProperty('crafting', false);
+            machine.energy.set(8000);
+        });
     },
 
-    onTick(e, ctx) {
-        if (!worldLoaded) return
+    /**
+     * Executes each tick for the machine.
+     * 
+     * @param {import('@minecraft/server').BlockComponentTickEvent} e
+     * @param {{ params: MachineSettings }} ctx
+     */
+    onTick(e, { params: settings }) {
+        if (!worldLoaded) return;
 
-        const settings = resolveSettings(ctx?.params)
-        const machine = new Machine(e.block, settings)
-        const { inv } = machine
-        if (!machine.entity || !inv) return
+        const { block } = e;
+        const machine = new Machine(block, settings);
+        const inv = machine.inv;
 
-        const outputSlotIndex = inv.size - 1
-        const blueprint = inv.getItem(BLUEPRINT_SLOT)
-        const outputSlot = inv.getItem(outputSlotIndex)
-        const isCrafting = machine.entity.getDynamicProperty(CRAFTING_FLAG) === true
+        const size = inv.size;
+        const OUTPUT_SLOT = size - 1;
+        const INPUT_START = size - 10;
+        const INPUT_END = size - 2; // inclusive
 
-        if (e.block.location.y < -60) {
-            machine.showWarning('Invalid Position')
-            return
+        // --- Validaciones de ranuras ---
+        const blueprint = inv.getItem(BLUEPRINT_SLOT);
+        if (!blueprint || blueprint.typeId !== BLUEPRINT_ITEM) {
+            machine.showWarning('No Blueprint');
+            return; // label: No Blueprint
         }
 
-        if (!blueprint || blueprint.typeId !== 'utilitycraft:blueprint_paper') {
-            machine.showWarning('Insert Paper')
-            return
+        // Output ocupado
+        if (inv.getItem(OUTPUT_SLOT)) {
+            machine.showWarning('Output Full');
+            return; // label: Output Full
         }
 
-        if (outputSlot) {
-            machine.showWarning('Output Full')
-            return
+        // Sin materiales en inputs (los 9 anteriores al output)
+        let materialCount = 0;
+        for (let i = INPUT_START; i <= INPUT_END; i++) {
+            if (inv.getItem(i)) materialCount++;
         }
-
-        if (isCrafting) {
-            machine.off()
-            machine.displayEnergy()
-            machine.displayProgress()
-            machine.showStatus('Crafting Blueprint')
-            return
+        if (materialCount === 0) {
+            machine.showWarning('No Materials');
+            return; // label: No Materials
         }
 
         if (machine.energy.get() <= 0) {
-            machine.showWarning('No Energy', false)
-            return
+            machine.showWarning('No Energy', false);
+            return; // label: No Energy
         }
 
-        const materialSlots = getMaterialSlotIndexes(inv.size)
-        const materials = materialSlots
-            .map(slot => inv.getItem(slot))
-            .filter(item => !!item)
-
-        if (materials.length === 0) {
-            machine.showWarning('No Materials')
-            return
+        if (machine.entity.getDynamicProperty('crafting')) {
+            machine.showWarning('Crafting', false);
+            return; // label: No Energy
         }
 
-        const energyCost = settings.machine.energy_cost
-        machine.setEnergyCost(energyCost)
-        const progress = machine.getProgress()
+        const energyCost = settings.machine.energy_cost;
+        const progress = machine.getProgress();
 
         if (progress >= energyCost) {
-            beginCrafting(machine, settings, materialSlots, outputSlotIndex, energyCost)
-            return
-        }
+            // Replicar EXACTAMENTE el comportamiento del crafter físico
+            // Coordenadas y offsets como el código original
+            let { x, y, z } = block.location;
+            y += 0.25;
+            x += 0.5;
+            z += 0.5;
 
-        const energyToConsume = Math.min(machine.energy.get(), machine.rate, energyCost - progress)
-        machine.energy.consume(energyToConsume)
-        machine.addProgress(energyToConsume / machine.boosts.consumption)
+            const dimension = machine.dim;
+            const crafterBlockId = dimension.getBlock({ x: x, y: -64, z })?.typeId;
+            const redstoneBlockId = dimension.getBlock({ x: x, y: -63, z })?.typeId;
 
-        machine.on()
-        machine.displayEnergy()
-        machine.displayProgress()
-        machine.showStatus('Running')
-    },
+            // Estado: bloqueando para evitar dobles ejecuciones
+            machine.entity.setDynamicProperty('crafting', true);
 
-    onPlayerBreak(e) {
-        Machine.onDestroy(e)
-    }
-})
+            // Colocar crafter y construir receta/materiales
+            dimension.setBlockType({ x: x, y: -64, z }, 'minecraft:crafter');
 
-/**
- * @param {Machine} machine
- * @param {MachineSettings & { recipes: Record<string, { output: string, amount?: number, leftover?: string }> }} settings
- * @param {number[]} materialSlots
- * @param {number} outputSlotIndex
- * @param {number} energyCost
- */
-function beginCrafting(machine, settings, materialSlots, outputSlotIndex, energyCost) {
-    const { entity: machineEntity, inv, dim, block } = machine
-    machineEntity.setDynamicProperty(CRAFTING_FLAG, true)
+            /** @type {Record<string, number>} */
+            const materialMap = {};
+            /** @type {string[]} */
+            const recipeArray = [];
 
-    const crafterPos = { x: block.location.x, y: -64, z: block.location.z }
-    const redstonePos = { x: crafterPos.x, y: crafterPos.y + 1, z: crafterPos.z }
-
-    const originalCrafter = dim.getBlock(crafterPos)?.typeId ?? 'minecraft:air'
-    const originalRedstone = dim.getBlock(redstonePos)?.typeId ?? 'minecraft:air'
-
-    dim.setBlockType(crafterPos, 'minecraft:crafter')
-
-    const recipeArray = []
-    const materialMap = {}
-
-    materialSlots.forEach((slot, index) => {
-        const item = inv.getItem(slot)
-        if (item) {
-            materialMap[item.typeId] = (materialMap[item.typeId] || 0) + 1
-            recipeArray.push(item.typeId.split(':')[1])
-            dim.runCommand(`replaceitem block ${crafterPos.x} ${crafterPos.y} ${crafterPos.z} slot.container ${index} ${item.typeId}`)
-        } else {
-            recipeArray.push('air')
-            dim.runCommand(`replaceitem block ${crafterPos.x} ${crafterPos.y} ${crafterPos.z} slot.container ${index} air`)
-        }
-    })
-
-    dim.setBlockType(redstonePos, 'minecraft:redstone_block')
-
-    const recipeKey = recipeArray.join(',')
-    const recipeData = Object.entries(materialMap).map(([id, amount]) => ({ id, amount }))
-    const blueprintResult = new ItemStack('utilitycraft:blueprint', 1)
-
-    machine.off()
-    machine.displayEnergy()
-    machine.displayProgress()
-    machine.showStatus('Crafting Blueprint')
-
-    system.runTimeout(() => {
-        const dropPos = { x: crafterPos.x, y: crafterPos.y - 1, z: crafterPos.z }
-        const itemEntity = dim.getEntitiesAtBlockLocation(dropPos)[0]
-        let outputAmount = 0
-        let outputId = ''
-        let leftover
-
-        if (itemEntity) {
-            const itemStack = itemEntity.getComponent('minecraft:item')?.itemStack
-            if (itemStack) {
-                outputAmount = itemStack.amount
-                outputId = itemStack.typeId
-            }
-            itemEntity.remove()
-        } else {
-            const fallbackRecipe = settings.recipes?.[recipeKey]
-            if (fallbackRecipe) {
-                outputAmount = fallbackRecipe.amount ?? 1
-                outputId = fallbackRecipe.output
-                leftover = fallbackRecipe.leftover
-            }
-        }
-
-        if (outputAmount > 0 && outputId) {
-            blueprintResult.setDynamicProperty('amount', outputAmount)
-            blueprintResult.setDynamicProperty('id', outputId)
-            if (leftover) {
-                blueprintResult.setDynamicProperty('leftover', leftover)
-            }
-            blueprintResult.setDynamicProperty('materials', JSON.stringify(recipeData))
-            blueprintResult.setLore(buildBlueprintLore(outputId, recipeData))
-
-            const currentPaper = inv.getItem(BLUEPRINT_SLOT)
-            if (currentPaper && currentPaper.typeId === 'utilitycraft:blueprint_paper') {
-                if (currentPaper.amount > 1) {
-                    currentPaper.amount -= 1
-                    inv.setItem(BLUEPRINT_SLOT, currentPaper)
+            for (let i = INPUT_START; i <= INPUT_END; i++) {
+                const item = inv.getItem(i);
+                if (item) {
+                    const id = item.typeId;
+                    materialMap[id] = (materialMap[id] || 0) + 1;
+                    // Misma fórmula de índice que el código antiguo: i - 5
+                    // (INPUT_START = size-10 → slot.container = (size-10)-5 = size-15 ... hasta (size-2)-5 = size-7)
+                    dimension.runCommand(`replaceitem block ${x} -64 ${z} slot.container ${i - 6} ${id}`);
+                    dimension.runCommand(`say ${i - 5}`)
+                    recipeArray.push(id.split(':')[1]);
                 } else {
-                    inv.setItem(BLUEPRINT_SLOT, undefined)
+                    recipeArray.push('air');
                 }
             }
 
-            inv.setItem(outputSlotIndex, blueprintResult)
-            machine.addProgress(-energyCost)
-            machine.displayProgress()
-            machine.showStatus('Blueprint Ready')
+            // Activar crafter
+            dimension.setBlockType({ x, y: -63, z }, 'minecraft:redstone_block');
+
+            // Clave de receta y datos de materiales
+            const recipeString = recipeArray.join(',');
+            const recipeData = Object.entries(materialMap).map(([id, amount]) => ({ id, amount }));
+
+            // Crear blueprint de salida
+            const newBlueprint = new ItemStack(OUTPUT_BLUEPRINT_ITEM, 1);
+
+            // Espera corta (como el original: 9 ticks) para leer drop del crafter
+            system.runTimeout(() => {
+                const itemEntity = dimension.getEntitiesAtBlockLocation({ x, y: -65, z })[0];
+
+                let recipeExists = false;
+                let outputAmount = 0;
+                let outputId;
+
+                if (itemEntity) {
+                    // Si el crafter dropeó un ítem, lo usamos
+                    const itemStack = itemEntity.getComponent('minecraft:item').itemStack;
+                    outputAmount = itemStack.amount;
+                    outputId = itemStack.typeId;
+                    itemEntity.remove();
+                    recipeExists = true;
+                } else {
+                    // Si no dropeó, buscamos en las recetas configuradas
+                    const itemRecipe = crafterRecipes[recipeString];
+                    if (itemRecipe) {
+                        outputAmount = itemRecipe.amount;
+                        outputId = itemRecipe.output;
+                        recipeExists = true;
+                        if (itemRecipe.leftover) {
+                            newBlueprint.setDynamicProperty('leftover', itemRecipe.leftover);
+                        }
+                    }
+                }
+
+                if (recipeExists && outputId) {
+                    // Guardar metadata en el nuevo blueprint
+                    newBlueprint.setDynamicProperty('amount', outputAmount);
+                    newBlueprint.setDynamicProperty('id', outputId);
+
+                    const fmt = DoriosAPI.utils.formatIdToText;
+                    const lore = [
+                        `§r§7 Recipe: §r§f${fmt(outputId)}`,
+                        '§r§7 Materials:'
+                    ];
+                    for (const mat of recipeData) {
+                        lore.push(`§r§7 - ${fmt(mat.id)} x${mat.amount}`);
+                    }
+                    newBlueprint.setDynamicProperty('materials', JSON.stringify(recipeData));
+                    newBlueprint.setLore(lore);
+
+                    // Consumir 1 blueprint base
+                    if (blueprint.amount > 1) {
+                        blueprint.amount--;
+                        inv.setItem(BLUEPRINT_SLOT, blueprint);
+                    } else {
+                        inv.setItem(BLUEPRINT_SLOT);
+                    }
+
+                    // Colocar el blueprint resultante en el output
+                    inv.setItem(OUTPUT_SLOT, newBlueprint);
+
+                    // Descontar progreso consumido
+                    machine.addProgress(-energyCost);
+                }
+
+                // Limpiar y restaurar mundo exactamente como antes
+                removeCrafter(dimension, { x, y, z }, machine.entity, crafterBlockId, redstoneBlockId);
+            }, 9);
         } else {
-            machine.showWarning('Invalid Recipe')
+            // Cargar energía y avanzar progreso como el autosieve
+            const energyToConsume = Math.min(machine.energy.get(), machine.rate);
+            const consumed = machine.energy.consume(energyToConsume);
+            machine.dim.runCommand(`say ${machine.energy.get()}`)
+            machine.addProgress(energyToConsume / machine.boosts.consumption);
         }
 
-        cleanupCrafter(dim, crafterPos, redstonePos, originalCrafter, originalRedstone, machineEntity)
-    }, 9)
-}
+        // Estado/visualización (mismo patrón del autosieve)
+        machine.on();
+        machine.displayEnergy();
+        machine.displayProgress();
+        machine.showStatus('Running');
+    },
 
-/**
- * Restores the crafter setup to its original state.
- *
- * @param {import('@minecraft/server').Dimension} dimension
- * @param {{ x: number, y: number, z: number }} crafterPos
- * @param {{ x: number, y: number, z: number }} redstonePos
- * @param {string} originalCrafter
- * @param {string} originalRedstone
- * @param {import('@minecraft/server').Entity} entity
- */
-function cleanupCrafter(dimension, crafterPos, redstonePos, originalCrafter, originalRedstone, entity) {
-    for (let i = 0; i < MATERIAL_SLOTS; i++) {
-        dimension.runCommand(`replaceitem block ${crafterPos.x} ${crafterPos.y} ${crafterPos.z} slot.container ${i} air`)
+    onPlayerBreak(e) {
+        Machine.onDestroy(e);
     }
+});
 
-    dimension.setBlockType(crafterPos, originalCrafter)
-    dimension.setBlockType(redstonePos, originalRedstone)
-    entity.setDynamicProperty(CRAFTING_FLAG, false)
-}
-
-/**
- * Builds the lore shown in the resulting blueprint item.
- *
- * @param {string} outputId
- * @param {{ id: string, amount: number }[]} materials
- */
-function buildBlueprintLore(outputId, materials) {
-    const lore = [`§r§7 Recipe: §r§f${formatItemId(outputId)}`, '§r§7 Materials:']
-    for (const mat of materials) {
-        lore.push(`§r§7 - ${formatItemId(mat.id)} x${mat.amount}`)
+/** Mantiene EXACTAMENTE la limpieza del crafter original */
+function removeCrafter(dimension, { x, y, z }, entity, crafterBlockId, redstoneBlockId) {
+    for (let i = 0; i < 9; i++) {
+        dimension.runCommand(`replaceitem block ${x} -64 ${z} slot.container ${i} air`);
     }
-    return lore
-}
-
-/**
- * Formats an identifier to a human-readable string.
- *
- * @param {string} typeId
- */
-function formatItemId(typeId) {
-    const cleanId = typeId.split(':')[1] || typeId
-    return cleanId
-        .split('_')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ')
-}
-
-/**
- * Computes the inventory indexes used for the 3x3 crafting grid.
- *
- * @param {number} size
- */
-function getMaterialSlotIndexes(size) {
-    const start = size - (MATERIAL_SLOTS + 1)
-    return Array.from({ length: MATERIAL_SLOTS }, (_, index) => start + index)
-}
-
-/**
- * Normalizes machine settings with defaults.
- *
- * @param {MachineSettings & { recipes?: Record<string, { output: string, amount?: number, leftover?: string }> }} params
- * @returns {MachineSettings & { recipes: Record<string, { output: string, amount?: number, leftover?: string }> }}
- */
-function resolveSettings(params) {
-    const entity = { ...DEFAULT_SETTINGS.entity, ...(params?.entity ?? {}) }
-    const machine = { ...DEFAULT_SETTINGS.machine, ...(params?.machine ?? {}) }
-    const recipes = params?.recipes ?? DEFAULT_SETTINGS.recipes
-
-    const extra = { ...(params ?? {}) }
-    delete extra.entity
-    delete extra.machine
-    delete extra.recipes
-
-    return { ...extra, entity, machine, recipes }
+    dimension.setBlockType({ x, y: -64, z }, crafterBlockId);
+    dimension.setBlockType({ x, y: -63, z }, redstoneBlockId);
+    entity.setDynamicProperty('crafting', false);
 }
