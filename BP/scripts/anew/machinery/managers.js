@@ -208,53 +208,6 @@ export class Generator {
     displayEnergy(slot = 0) {
         this.energy.display(slot);
     }
-
-    /**
-     * Displays a warning label in the generator.
-     *
-     * Optionally resets the generator progress to 0 and turns off the generator.
-     *
-     * @param {string} message The warning text to display.
-     * @param {boolean} [resetProgress=true] Whether to reset the generator progress to 0.
-     */
-    showWarning(message, resetProgress = true) {
-        if (resetProgress) {
-            this.setProgress(0);
-        }
-
-        this.displayEnergy();
-        this.off()
-        this.setLabel(`
-§r${COLORS.yellow}${message}!
-
-§r${COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
-§r${COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
-§r${COLORS.green}Cost ---
-
-§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(this.rate))}/t
-    `);
-    }
-
-    /**
-     * Displays a normal status label in the generator (green).
-     *
-     * Does not reset the generator progress.
-     *
-     * @param {string} message The status text to display.
-     */
-    showStatus(message) {
-        this.displayEnergy();
-
-        this.setLabel(`
-§r${COLORS.darkGreen}${message}!
-
-§r${COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
-§r${COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
-§r${COLORS.green}Cost ${Energy.formatEnergyToText(this.getEnergyCost() * this.boosts.consumption)}
-
-§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(this.rate))}/t
-    `);
-    }
 }
 
 

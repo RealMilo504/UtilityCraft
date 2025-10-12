@@ -395,6 +395,62 @@ globalThis.DoriosAPI = {
      */
     utils: {
         /**
+         * Converts a number of seconds into a formatted time string (mm:ss or hh:mm:ss).
+         *
+         * - Displays hours only when greater than zero.
+         * - Pads minutes and seconds with leading zeros when needed.
+         *
+         * Example outputs:
+         *   formatTimeFull(2083) → "34:43"
+         *   formatTimeFull(7265) → "2:01:05"
+         *
+         * @param {number} seconds Total seconds to convert.
+         * @returns {string} Time string formatted as "mm:ss" or "hh:mm:ss".
+         */
+        formatTimeFull(seconds) {
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = Math.floor(seconds % 60);
+
+            if (hours > 0) {
+                return `${hours}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            }
+            return `${minutes}:${secs.toString().padStart(2, '0')}`;
+        },
+
+        /**
+         * Converts seconds into a compact, human-readable duration string.
+         *
+         * Rules:
+         * - Shows at most 2 time units.
+         * - Example outputs:
+         *   45 s → "45 s"
+         *   323 s → "5 m 23 s"
+         *   8108 s → "2 h 15 m"
+         *   98640 s → "1 d 3 h"
+         *
+         * @param {number} seconds Total seconds to convert.
+         * @returns {string} Compact time string.
+         */
+        formatTime(seconds) {
+            const d = Math.floor(seconds / 86400);
+            const h = Math.floor((seconds % 86400) / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = Math.floor(seconds % 60);
+
+            if (d > 0) {
+                return `${d} d${h > 0 ? ` ${h} h` : ''}`; // only days + hours
+            }
+            if (h > 0) {
+                return `${h} h${m > 0 ? ` ${m} m` : ''}`; // only hours + minutes
+            }
+            if (m > 0) {
+                return `${m} m${s > 0 ? ` ${s} s` : ''}`; // only minutes + seconds
+            }
+            return `${s} s`; // only seconds
+        },
+
+        /**
         * Capitalizes the first letter of a string and lowers the rest.
         * 
         * Example:
