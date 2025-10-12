@@ -66,9 +66,207 @@ world.afterEvents.worldLoad.subscribe(() => {
     }, 50)
 });
 
+
+export class Generator {
+    /**
+    * Creates a new Generator instance.
+    * 
+    * @param {Block} block The block representing the generator.
+    * @param {GeneratorSettings} settings generator's settings.
+    */
+    constructor(block, settings) {
+        this.settings = settings
+        this.dim = block.dimension
+        this.block = block
+        this.entity = this.dim.getEntitiesAtBlockLocation(block.location)[0]
+        this.inv = this.entity?.getComponent('inventory')?.container
+        this.energy = new Energy(this.entity)
+        this.rate = settings.generator.rate_speed_base
+    }
+
+    /**
+     * Spawns a UtilityCraft generator entity at the given block location,
+     * triggers the correct type and inventory events, and assigns its name.
+     *
+     * @param {Block} block The block where the generator will be placed.
+     * @param {Object} data Generator configuration.
+     * @param {Object} data.entity Entity config object.
+     * @param {string} data.entity.name Generator name (e.g. "crusher").
+     * @param {number} data.entity.inventory_size Number of slots in inventory.
+     * @returns {Entity} The spawned generator entity.
+     */
+    static spawn(block, data) {
+        const dim = block.dimension;
+        const { entity } = data;
+
+        let { x, y, z } = block.center(); y -= 0.25
+        const generatorEntity = dim.spawnEntity("utilitycraft:machine", { x, y, z });
+
+        let generatorEvent;
+        let inventorySize = 2
+
+        if (entity.type == 'simple') {
+            generatorEvent = "utilitycraft:simple_generator";
+            inventorySize = 5
+        } else if (entity.type == 'fluid') {
+            generatorEvent = "utilitycraft:fluid_generator";
+            inventorySize = 4
+        } else if (entity.type == 'passive') {
+            generatorEvent = "utilitycraft:passive_generator";
+            inventorySize = 2
+        }
+
+        if (entity.inventory_size) inventorySize = entity.inventory_size
+
+        const inventoryEvent = `utilitycraft:inventory_${inventorySize}`;
+
+        // 3. Trigger generator type and inventory slot events
+        generatorEntity.triggerEvent(generatorEvent);
+        generatorEntity.triggerEvent(inventoryEvent);
+
+        // 4. Assign name tag
+        const name = entity.name ?? block.typeId.split(':')[1]
+        generatorEntity.nameTag = `entity.utilitycraft:${name}.name`;
+
+        return generatorEntity;
+    }
+
+
+    /**
+     * Spawns a generator entity at the given block location with a name tag and energy settings.
+     *
+     * @param {{ block: Block, player: Player, dimension: Dimension }} e The event data object containing the dimension, block and player.
+     * @param {GeneratorSettings} settings Custom settings to apply to the generator entity.
+     * @param {Function} [callback] A function to execute after the entity is spawned (optional).
+     */
+    static spawnGeneratorEntity(e, settings, callback) {
+        const { block, player } = e
+
+        const itemInfo = player.getComponent('equippable').getEquipment('Mainhand').getLore();
+        let energy = 0;
+        if (itemInfo[0]) {
+            energy = Energy.getEnergyFromText(itemInfo[0]);
+        }
+
+        system.run(() => {
+            const entity = Generator.spawn(block, settings)
+            Energy.initialize(entity)
+            const energyManager = new Energy(entity)
+            energyManager.set(energy)
+            energyManager.setCap(settings.generator.energy_cap)
+            energyManager.display()
+            if (settings.generator.fluid_cap) {
+                const fluidManager = new FluidManager(entity, 0)
+                fluidManager.setCap(settings.generator.fluid_cap)
+                fluidManager.display()
+            }
+            system.run(() => { if (callback) callback(entity) })
+        });
+    }
+
+    /**
+     * Sets a label in the generator inventory using a fixed item as placeholder.
+     *
+     * The label is displayed by overriding the item's `nameTag` with custom text.
+     *
+     * @param {string} text The text to display in the label. Supports Minecraft formatting codes (§).
+     * @param {number} [slot=1] The inventory slot where the label will be placed.
+     */
+    setLabel(text, slot = 1) {
+        // Always use the same placeholder item
+        const baseItem = this.inv.getItem(slot) ?? new ItemStack("utilitycraft:arrow_indicator_90");
+
+        // Apply the custom label text
+        baseItem.nameTag = text;
+
+        // Update the slot in the inventory
+        this.inv.setItem(slot, baseItem);
+    }
+
+    /**
+     * Changes the texture of the block to the on version.
+     */
+    on() {
+        this.block.setState('utilitycraft:on', true)
+    }
+
+    /**
+     * Changes the texture of the block to the off version.
+     */
+    off() {
+        this.block.setState('utilitycraft:on', false)
+    }
+
+
+    /**
+     * Displays the current energy of the generator in the specified inventory slot.
+     *
+     * Delegates the call to the internal {@link Energy.display} method.
+     *
+     * @param {number} [slot=0] The inventory slot index where the energy bar will be displayed.
+     */
+    displayEnergy(slot = 0) {
+        this.energy.display(slot);
+    }
+
+    /**
+     * Displays a warning label in the generator.
+     *
+     * Optionally resets the generator progress to 0 and turns off the generator.
+     *
+     * @param {string} message The warning text to display.
+     * @param {boolean} [resetProgress=true] Whether to reset the generator progress to 0.
+     */
+    showWarning(message, resetProgress = true) {
+        if (resetProgress) {
+            this.setProgress(0);
+        }
+
+        this.displayEnergy();
+        this.off()
+        this.setLabel(`
+§r${COLORS.yellow}${message}!
+
+§r${COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
+§r${COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
+§r${COLORS.green}Cost ---
+
+§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(this.rate))}/t
+    `);
+    }
+
+    /**
+     * Displays a normal status label in the generator (green).
+     *
+     * Does not reset the generator progress.
+     *
+     * @param {string} message The status text to display.
+     */
+    showStatus(message) {
+        this.displayEnergy();
+
+        this.setLabel(`
+§r${COLORS.darkGreen}${message}!
+
+§r${COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
+§r${COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
+§r${COLORS.green}Cost ${Energy.formatEnergyToText(this.getEnergyCost() * this.boosts.consumption)}
+
+§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(this.rate))}/t
+    `);
+    }
+}
+
+
+
+
+
+
+
+
 export class Machine {
     /**
-     * Creates a new Machinery instance.
+     * Creates a new Machine instance.
      * 
      * @param {Block} block The block representing the machine.
      * @param {MachineSettings} settings Machine's settings.
@@ -132,7 +330,7 @@ export class Machine {
             }
         }
 
-        if (data.entity.inventory_size) inventorySize = data.entity.inventory_size
+        if (entity.inventory_size) inventorySize = entity.inventory_size
 
         const inventoryEvent = `utilitycraft:inventory_${inventorySize}`;
 

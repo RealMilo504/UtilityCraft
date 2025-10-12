@@ -11,6 +11,8 @@ import './machines/assembler.js'
 import './machines/harvester.js'
 import './machines/way_center.js'
 import './machines/xp_condenser.js'
-import './managers.js'
 
+import './generators/furnator.js'
+
+import './managers.js'
 import './upgradeable.js'

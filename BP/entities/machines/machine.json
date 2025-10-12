@@ -19,6 +19,34 @@
 					]
 				}
 			},
+			// Normal Generators
+			"utilitycraft:simple_generator": {
+				"minecraft:type_family": {
+					"family": [
+						"dorios:machine",
+						"dorios:energy_container",
+						"dorios:container",
+						"dorios:simple_input"
+					]
+				}
+			},
+			"utilitycraft:fluid_generator": {
+				"minecraft:type_family": {
+					"family": [
+						"dorios:machine",
+						"dorios:energy_container",
+						"dorios:fluid_container"
+					]
+				}
+			},
+			"utilitycraft:passive_generator": {
+				"minecraft:type_family": {
+					"family": [
+						"dorios:machine",
+						"dorios:energy_container"
+					]
+				}
+			},
 			// Normal Machines
 			"utilitycraft:simple_machine": {
 				"minecraft:type_family": {
@@ -452,6 +480,27 @@
 				"add": {
 					"component_groups": [
 						"utilitycraft:inventory_20"
+					]
+				}
+			},
+			"utilitycraft:simple_generator": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:simple_generator"
+					]
+				}
+			},
+			"utilitycraft:fluid_generator": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:fluid_generator"
+					]
+				}
+			},
+			"utilitycraft:passive_generator": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:passive_generator"
 					]
 				}
 			}

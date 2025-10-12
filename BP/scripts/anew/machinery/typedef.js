@@ -29,9 +29,27 @@
  * @property {Object} machine Machine operational settings.
  * @property {number} machine.energy_cap Maximum internal energy capacity.
  * @property {number} machine.energy_cost Energy consumed per operation.
+ * @property {number} generator.fluidCap Maximum internal fluid capacity.
  * @property {number} machine.rate_speed_base Base processing rate (DE/t).
  * @property {number[]} machine.upgrades List of accepted upgrade IDs.
  */
+
+/**
+ * Generator settings object for configuring behavior.
+ * 
+ * @global
+ * @typedef {Object} GeneratorSettings
+ * @property {Object} entity Entity configuration of the generator.
+ * @property {string} entity.name Internal generator name (e.g., "furnator").
+ * @property {string} entity.type Type of generator (e.g., "simple").
+ * @property {number} entity.inventory_size Number of inventory slots.
+ * 
+ * @property {Object} generator Generator operational settings.
+ * @property {number} generator.energy_cap Maximum internal energy capacity.
+ * @property {number} generator.fluidCap Maximum internal fluid capacity.
+ * @property {number} generator.rate_speed_base Base processing rate (DE/t).
+ */
+
 
 /**
  * @global
