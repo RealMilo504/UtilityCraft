@@ -49,9 +49,9 @@ DoriosAPI.register.blockComponent('thermo_generator', {
             generator.setLabel(`
 §r§eNo Heat Source
 
-§r§eCoolant
- §eTime: §f---
- §eValue: §f---
+§r§eInformation
+ §eHeat: §f---
+
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
 §r§cRate ${Energy.formatEnergyToText(generator.rate)}/t
@@ -68,9 +68,9 @@ DoriosAPI.register.blockComponent('thermo_generator', {
             generator.setLabel(`
 §r§eNo Coolant
 
-§r§eCoolant
- §eTime: §f---
- §eValue: §f---
+§r§eInformation
+ §eHeat: §f---
+
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
 §r§cRate ${Energy.formatEnergyToText(burnSpeed)}/t
@@ -78,16 +78,16 @@ DoriosAPI.register.blockComponent('thermo_generator', {
             return
         }
 
-        if (fluid.type != 'lava') {
+        if (fluid.type != 'water') {
             generator.displayEnergy();
             fluid.display(2)
             generator.off();
             generator.setLabel(`
 §r§eInvalid Coolant
 
-§r§eCoolant
- §eTime: §f---
- §eValue: §f---
+§r§eInformation
+ §eHeat: §f---
+
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
 §r§cRate ${Energy.formatEnergyToText(burnSpeed)}/t
@@ -103,9 +103,9 @@ DoriosAPI.register.blockComponent('thermo_generator', {
             generator.setLabel(`
 §r§eEnergy Full
 
-§r§eFuel Information
- §eTime: §f${DoriosAPI.utils.formatTime((fluid.get() / (rate / 50)) / 10)}
- §eValue: §f${Energy.formatEnergyToText(fluid.get() * ENERGY_PER_LAVA_MB)}
+§r§eInformation
+ §eHeat: §f${heatMultiplier * 100}%%
+
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
 §r§cRate ${Energy.formatEnergyToText(burnSpeed)}/t
@@ -116,10 +116,10 @@ DoriosAPI.register.blockComponent('thermo_generator', {
         burnSpeed = Math.min(
             burnSpeed,
             energy.getFreeSpace(),
-            fluid.get() * ENERGY_PER_LAVA_MB
+            fluid.get() * ENERGY_PER_WATER_MB
         )
 
-        fluid.consume(burnSpeed / 100)
+        fluid.consume(burnSpeed / ENERGY_PER_WATER_MB)
         energy.add(burnSpeed)
 
         // Update visuals
@@ -129,9 +129,9 @@ DoriosAPI.register.blockComponent('thermo_generator', {
         generator.setLabel(`
 §r§aRunning
 
-§r§eFuel Information
- §eTime: §f${DoriosAPI.utils.formatTime((fluid.get() / (rate / 50)) / 10)}
- §eValue: §f${Energy.formatEnergyToText(fluid.get() * ENERGY_PER_LAVA_MB)}
+§r§eInformation
+ §eHeat: §f${heatMultiplier * 100}%%
+ 
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
 §r§cRate ${Energy.formatEnergyToText(generator.rate)}/t

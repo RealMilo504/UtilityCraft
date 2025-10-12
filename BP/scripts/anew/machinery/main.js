@@ -15,6 +15,7 @@ import './machines/xp_condenser.js'
 import './generators/furnator.js'
 import './generators/solar_panel.js'
 import './generators/magmator.js'
+import './generators/thermo_generator.js'
 
 import './managers.js'
 import './upgradeable.js'
