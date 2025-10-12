@@ -725,6 +725,153 @@
 		"utilitycraft:lava_48": {
 			"textures": "textures/ui/lava_bar/lava_frame_48"
 		},
+		"utilitycraft:water_00": {
+			"textures": "textures/ui/water_bar/water_frame_00"
+		},
+		"utilitycraft:water_01": {
+			"textures": "textures/ui/water_bar/water_frame_01"
+		},
+		"utilitycraft:water_02": {
+			"textures": "textures/ui/water_bar/water_frame_02"
+		},
+		"utilitycraft:water_03": {
+			"textures": "textures/ui/water_bar/water_frame_03"
+		},
+		"utilitycraft:water_04": {
+			"textures": "textures/ui/water_bar/water_frame_04"
+		},
+		"utilitycraft:water_05": {
+			"textures": "textures/ui/water_bar/water_frame_05"
+		},
+		"utilitycraft:water_06": {
+			"textures": "textures/ui/water_bar/water_frame_06"
+		},
+		"utilitycraft:water_07": {
+			"textures": "textures/ui/water_bar/water_frame_07"
+		},
+		"utilitycraft:water_08": {
+			"textures": "textures/ui/water_bar/water_frame_08"
+		},
+		"utilitycraft:water_09": {
+			"textures": "textures/ui/water_bar/water_frame_09"
+		},
+		"utilitycraft:water_10": {
+			"textures": "textures/ui/water_bar/water_frame_10"
+		},
+		"utilitycraft:water_11": {
+			"textures": "textures/ui/water_bar/water_frame_11"
+		},
+		"utilitycraft:water_12": {
+			"textures": "textures/ui/water_bar/water_frame_12"
+		},
+		"utilitycraft:water_13": {
+			"textures": "textures/ui/water_bar/water_frame_13"
+		},
+		"utilitycraft:water_14": {
+			"textures": "textures/ui/water_bar/water_frame_14"
+		},
+		"utilitycraft:water_15": {
+			"textures": "textures/ui/water_bar/water_frame_15"
+		},
+		"utilitycraft:water_16": {
+			"textures": "textures/ui/water_bar/water_frame_16"
+		},
+		"utilitycraft:water_17": {
+			"textures": "textures/ui/water_bar/water_frame_17"
+		},
+		"utilitycraft:water_18": {
+			"textures": "textures/ui/water_bar/water_frame_18"
+		},
+		"utilitycraft:water_19": {
+			"textures": "textures/ui/water_bar/water_frame_19"
+		},
+		"utilitycraft:water_20": {
+			"textures": "textures/ui/water_bar/water_frame_20"
+		},
+		"utilitycraft:water_21": {
+			"textures": "textures/ui/water_bar/water_frame_21"
+		},
+		"utilitycraft:water_22": {
+			"textures": "textures/ui/water_bar/water_frame_22"
+		},
+		"utilitycraft:water_23": {
+			"textures": "textures/ui/water_bar/water_frame_23"
+		},
+		"utilitycraft:water_24": {
+			"textures": "textures/ui/water_bar/water_frame_24"
+		},
+		"utilitycraft:water_25": {
+			"textures": "textures/ui/water_bar/water_frame_25"
+		},
+		"utilitycraft:water_26": {
+			"textures": "textures/ui/water_bar/water_frame_26"
+		},
+		"utilitycraft:water_27": {
+			"textures": "textures/ui/water_bar/water_frame_27"
+		},
+		"utilitycraft:water_28": {
+			"textures": "textures/ui/water_bar/water_frame_28"
+		},
+		"utilitycraft:water_29": {
+			"textures": "textures/ui/water_bar/water_frame_29"
+		},
+		"utilitycraft:water_30": {
+			"textures": "textures/ui/water_bar/water_frame_30"
+		},
+		"utilitycraft:water_31": {
+			"textures": "textures/ui/water_bar/water_frame_31"
+		},
+		"utilitycraft:water_32": {
+			"textures": "textures/ui/water_bar/water_frame_32"
+		},
+		"utilitycraft:water_33": {
+			"textures": "textures/ui/water_bar/water_frame_33"
+		},
+		"utilitycraft:water_34": {
+			"textures": "textures/ui/water_bar/water_frame_34"
+		},
+		"utilitycraft:water_35": {
+			"textures": "textures/ui/water_bar/water_frame_35"
+		},
+		"utilitycraft:water_36": {
+			"textures": "textures/ui/water_bar/water_frame_36"
+		},
+		"utilitycraft:water_37": {
+			"textures": "textures/ui/water_bar/water_frame_37"
+		},
+		"utilitycraft:water_38": {
+			"textures": "textures/ui/water_bar/water_frame_38"
+		},
+		"utilitycraft:water_39": {
+			"textures": "textures/ui/water_bar/water_frame_39"
+		},
+		"utilitycraft:water_40": {
+			"textures": "textures/ui/water_bar/water_frame_40"
+		},
+		"utilitycraft:water_41": {
+			"textures": "textures/ui/water_bar/water_frame_41"
+		},
+		"utilitycraft:water_42": {
+			"textures": "textures/ui/water_bar/water_frame_42"
+		},
+		"utilitycraft:water_43": {
+			"textures": "textures/ui/water_bar/water_frame_43"
+		},
+		"utilitycraft:water_44": {
+			"textures": "textures/ui/water_bar/water_frame_44"
+		},
+		"utilitycraft:water_45": {
+			"textures": "textures/ui/water_bar/water_frame_45"
+		},
+		"utilitycraft:water_46": {
+			"textures": "textures/ui/water_bar/water_frame_46"
+		},
+		"utilitycraft:water_47": {
+			"textures": "textures/ui/water_bar/water_frame_47"
+		},
+		"utilitycraft:water_48": {
+			"textures": "textures/ui/water_bar/water_frame_48"
+		},
 		"utilitycraft_fuel_bar_0": {
 			"textures": "textures/items/progress_bars/flame_0"
 		},

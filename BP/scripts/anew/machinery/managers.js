@@ -107,10 +107,10 @@ export class Generator {
 
         if (entity.type == 'simple') {
             generatorEvent = "utilitycraft:simple_generator";
-            inventorySize = 5
+            inventorySize = 4
         } else if (entity.type == 'fluid') {
             generatorEvent = "utilitycraft:fluid_generator";
-            inventorySize = 4
+            inventorySize = 3
         } else if (entity.type == 'passive') {
             generatorEvent = "utilitycraft:passive_generator";
             inventorySize = 2
@@ -1252,6 +1252,7 @@ export class FluidManager {
 
         this.type = this.getType();
         this.cap = this.getCap();
+        if (this.get() == 0) this.setType('empty')
     }
 
     /**
@@ -1354,6 +1355,33 @@ export class FluidManager {
     static initialize(entity) {
         entity.runCommand(`scoreboard players set @s fluid_0 0`);
     }
+
+    /**
+     * Attempts to insert a given liquid type and amount into the tank.
+     *
+     * The insertion will only succeed if:
+     * - The tank is empty or already contains the same liquid type.
+     * - There is enough free space to hold the specified amount.
+     *
+     * If the tank is empty, its type will automatically be set to the inserted liquid.
+     *
+     * @param {string} type The liquid type to insert (e.g., "lava", "water").
+     * @param {number} amount The amount of liquid to insert.
+     * @returns {boolean} True if the liquid was successfully inserted, false otherwise.
+     */
+    tryInsert(type, amount) {
+        if (amount <= 0) return false;
+        const currentType = this.getType();
+        if (currentType === "empty" || currentType === type) {
+            if (amount <= this.getFreeSpace()) {
+                if (currentType === "empty") this.setType(type);
+                this.add(amount);
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     /**
      * Handles item-to-fluid interactions for machines or fluid tanks.

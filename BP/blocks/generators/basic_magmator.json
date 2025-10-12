@@ -18,17 +18,22 @@
 				"utilitycraft:on": [
 					false,
 					true
-				],
-				"utilitycraft:refreshSpeed": [
-					1,
-					5,
-					10,
-					20,
-					40
 				]
 			}
 		},
 		"components": {
+			"utilitycraft:magmator": {
+				"entity": {
+					"name": "magmator",
+					"type": "fluid"
+				},
+				"generator": {
+					"energy_cap": 80000,
+					"fluid_cap": 32000,
+					"fluid_types": 1,
+					"rate_speed_base": 50
+				}
+			},
 			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {
 				"*": {
@@ -38,77 +43,19 @@
 			},
 			"minecraft:tick": {
 				"interval_range": [
-					20,
-					20
+					2,
+					2
 				]
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:magmator"
-			],
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 1
 			},
 			"minecraft:destructible_by_explosion": false,
 			"tag:dorios:energy": {},
 			"tag:dorios:fluid": {},
-            "tag:minecraft:is_pickaxe_item_destructible": {}
+			"tag:minecraft:is_pickaxe_item_destructible": {}
 		},
 		"permutations": [
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 1 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							5,
-							5
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 5 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							25,
-							25
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 10 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							50,
-							50
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 20 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							100,
-							100
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 40 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							200,
-							200
-						]
-					}
-				}
-			},
 			{
 				"condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
 				"components": {

@@ -17,7 +17,7 @@
 			"utilitycraft:solar_panel": {
 				"entity": {
 					"name": "solar_panel",
-					"type": "simple"
+					"type": "passive"
 				},
 				"generator": {
 					"energy_cap": 32000,
