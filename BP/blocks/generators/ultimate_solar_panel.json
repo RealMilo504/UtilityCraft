@@ -7,13 +7,6 @@
 				"utilitycraft:on": [
 					false,
 					true
-				],
-				"utilitycraft:refreshSpeed": [
-					1,
-					5,
-					10,
-					20,
-					40
 				]
 			},
 			"menu_category": {
@@ -21,6 +14,16 @@
 			}
 		},
 		"components": {
+			"utilitycraft:solar_panel": {
+				"entity": {
+					"name": "solar_panel",
+					"type": "simple"
+				},
+				"generator": {
+					"energy_cap": 3200000,
+					"rate_speed_base": 2000
+				}
+			},
 			"minecraft:geometry": "geometry.utilitycraft_solar_panel",
 			"minecraft:material_instances": {
 				"*": {
@@ -28,13 +31,10 @@
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:solar_panel"
-			],
 			"minecraft:tick": {
 				"interval_range": [
-					20,
-					20
+					2,
+					2
 				]
 			},
 			"minecraft:selection_box": {
@@ -66,64 +66,9 @@
 			},
 			"minecraft:destructible_by_explosion": false,
 			"tag:dorios:energy": {},
-            "tag:minecraft:is_pickaxe_item_destructible": {}
+			"tag:minecraft:is_pickaxe_item_destructible": {}
 		},
 		"permutations": [
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 1 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							5,
-							5
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 5 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							25,
-							25
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 10 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							50,
-							50
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 20 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							100,
-							100
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 40 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							200,
-							200
-						]
-					}
-				}
-			},
 			{
 				"condition": "q.block_state('utilitycraft:on') == true ",
 				"components": {

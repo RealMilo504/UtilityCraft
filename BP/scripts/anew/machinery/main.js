@@ -13,6 +13,7 @@ import './machines/way_center.js'
 import './machines/xp_condenser.js'
 
 import './generators/furnator.js'
+import './generators/solar_panel.js'
 
 import './managers.js'
 import './upgradeable.js'

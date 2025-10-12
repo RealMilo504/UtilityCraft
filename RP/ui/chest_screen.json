@@ -53,7 +53,7 @@
         "value": [
           {
             "requires": "($temp_container_title = 'entity.utilitycraft:solar_panel.name')",
-            "$screen_content": "bar_only.utility_panel",
+            "$screen_content": "solar_panel.utility_panel",
             "$screen_bg_content": "common.screen_background"
           }
         ]
