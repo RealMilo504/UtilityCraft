@@ -575,6 +575,153 @@
 		"utilitycraft:energy_48": {
 			"textures": "textures/ui/energy_bar/energy_frame_48"
 		},
+		"utilitycraft:lava_00": {
+			"textures": "textures/ui/lava_bar/lava_frame_00"
+		},
+		"utilitycraft:lava_01": {
+			"textures": "textures/ui/lava_bar/lava_frame_01"
+		},
+		"utilitycraft:lava_02": {
+			"textures": "textures/ui/lava_bar/lava_frame_02"
+		},
+		"utilitycraft:lava_03": {
+			"textures": "textures/ui/lava_bar/lava_frame_03"
+		},
+		"utilitycraft:lava_04": {
+			"textures": "textures/ui/lava_bar/lava_frame_04"
+		},
+		"utilitycraft:lava_05": {
+			"textures": "textures/ui/lava_bar/lava_frame_05"
+		},
+		"utilitycraft:lava_06": {
+			"textures": "textures/ui/lava_bar/lava_frame_06"
+		},
+		"utilitycraft:lava_07": {
+			"textures": "textures/ui/lava_bar/lava_frame_07"
+		},
+		"utilitycraft:lava_08": {
+			"textures": "textures/ui/lava_bar/lava_frame_08"
+		},
+		"utilitycraft:lava_09": {
+			"textures": "textures/ui/lava_bar/lava_frame_09"
+		},
+		"utilitycraft:lava_10": {
+			"textures": "textures/ui/lava_bar/lava_frame_10"
+		},
+		"utilitycraft:lava_11": {
+			"textures": "textures/ui/lava_bar/lava_frame_11"
+		},
+		"utilitycraft:lava_12": {
+			"textures": "textures/ui/lava_bar/lava_frame_12"
+		},
+		"utilitycraft:lava_13": {
+			"textures": "textures/ui/lava_bar/lava_frame_13"
+		},
+		"utilitycraft:lava_14": {
+			"textures": "textures/ui/lava_bar/lava_frame_14"
+		},
+		"utilitycraft:lava_15": {
+			"textures": "textures/ui/lava_bar/lava_frame_15"
+		},
+		"utilitycraft:lava_16": {
+			"textures": "textures/ui/lava_bar/lava_frame_16"
+		},
+		"utilitycraft:lava_17": {
+			"textures": "textures/ui/lava_bar/lava_frame_17"
+		},
+		"utilitycraft:lava_18": {
+			"textures": "textures/ui/lava_bar/lava_frame_18"
+		},
+		"utilitycraft:lava_19": {
+			"textures": "textures/ui/lava_bar/lava_frame_19"
+		},
+		"utilitycraft:lava_20": {
+			"textures": "textures/ui/lava_bar/lava_frame_20"
+		},
+		"utilitycraft:lava_21": {
+			"textures": "textures/ui/lava_bar/lava_frame_21"
+		},
+		"utilitycraft:lava_22": {
+			"textures": "textures/ui/lava_bar/lava_frame_22"
+		},
+		"utilitycraft:lava_23": {
+			"textures": "textures/ui/lava_bar/lava_frame_23"
+		},
+		"utilitycraft:lava_24": {
+			"textures": "textures/ui/lava_bar/lava_frame_24"
+		},
+		"utilitycraft:lava_25": {
+			"textures": "textures/ui/lava_bar/lava_frame_25"
+		},
+		"utilitycraft:lava_26": {
+			"textures": "textures/ui/lava_bar/lava_frame_26"
+		},
+		"utilitycraft:lava_27": {
+			"textures": "textures/ui/lava_bar/lava_frame_27"
+		},
+		"utilitycraft:lava_28": {
+			"textures": "textures/ui/lava_bar/lava_frame_28"
+		},
+		"utilitycraft:lava_29": {
+			"textures": "textures/ui/lava_bar/lava_frame_29"
+		},
+		"utilitycraft:lava_30": {
+			"textures": "textures/ui/lava_bar/lava_frame_30"
+		},
+		"utilitycraft:lava_31": {
+			"textures": "textures/ui/lava_bar/lava_frame_31"
+		},
+		"utilitycraft:lava_32": {
+			"textures": "textures/ui/lava_bar/lava_frame_32"
+		},
+		"utilitycraft:lava_33": {
+			"textures": "textures/ui/lava_bar/lava_frame_33"
+		},
+		"utilitycraft:lava_34": {
+			"textures": "textures/ui/lava_bar/lava_frame_34"
+		},
+		"utilitycraft:lava_35": {
+			"textures": "textures/ui/lava_bar/lava_frame_35"
+		},
+		"utilitycraft:lava_36": {
+			"textures": "textures/ui/lava_bar/lava_frame_36"
+		},
+		"utilitycraft:lava_37": {
+			"textures": "textures/ui/lava_bar/lava_frame_37"
+		},
+		"utilitycraft:lava_38": {
+			"textures": "textures/ui/lava_bar/lava_frame_38"
+		},
+		"utilitycraft:lava_39": {
+			"textures": "textures/ui/lava_bar/lava_frame_39"
+		},
+		"utilitycraft:lava_40": {
+			"textures": "textures/ui/lava_bar/lava_frame_40"
+		},
+		"utilitycraft:lava_41": {
+			"textures": "textures/ui/lava_bar/lava_frame_41"
+		},
+		"utilitycraft:lava_42": {
+			"textures": "textures/ui/lava_bar/lava_frame_42"
+		},
+		"utilitycraft:lava_43": {
+			"textures": "textures/ui/lava_bar/lava_frame_43"
+		},
+		"utilitycraft:lava_44": {
+			"textures": "textures/ui/lava_bar/lava_frame_44"
+		},
+		"utilitycraft:lava_45": {
+			"textures": "textures/ui/lava_bar/lava_frame_45"
+		},
+		"utilitycraft:lava_46": {
+			"textures": "textures/ui/lava_bar/lava_frame_46"
+		},
+		"utilitycraft:lava_47": {
+			"textures": "textures/ui/lava_bar/lava_frame_47"
+		},
+		"utilitycraft:lava_48": {
+			"textures": "textures/ui/lava_bar/lava_frame_48"
+		},
 		"utilitycraft_fuel_bar_0": {
 			"textures": "textures/items/progress_bars/flame_0"
 		},

@@ -5,27 +5,7 @@
 			"identifier": "utilitycraft:magmatic_chamber",
 			"is_spawnable": false,
 			"is_summonable": true,
-			"is_experimental": false,
-			"properties": {
-				"dorios:energy": {
-					"type": "int",
-					"range": [
-						0,
-						10000000
-					],
-					"default": 0,
-					"client_sync": true
-				},
-				"dorios:energycap": {
-					"type": "int",
-					"range": [
-						0,
-						10000000
-					],
-					"default": 0,
-					"client_sync": true
-				}
-			}
+			"is_experimental": false
 		},
 		"component_groups": {
 			"despawn": {
