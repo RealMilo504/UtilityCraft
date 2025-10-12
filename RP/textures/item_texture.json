@@ -575,6 +575,9 @@
 		"utilitycraft:energy_48": {
 			"textures": "textures/ui/energy_bar/energy_frame_48"
 		},
+		"utilitycraft:empty_fluid_bar": {
+			"textures": "textures/ui/empty_fluid_bar"
+		},
 		"utilitycraft:lava_00": {
 			"textures": "textures/ui/lava_bar/lava_frame_00"
 		},

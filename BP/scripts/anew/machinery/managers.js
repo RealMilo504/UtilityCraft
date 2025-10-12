@@ -211,6 +211,11 @@ export class Machine {
             energyManager.set(energy)
             energyManager.setCap(settings.machine.energy_cap)
             energyManager.display()
+            if (settings.machine.fluid_cap) {
+                const fluidManager = new FluidManager(entity, 0)
+                fluidManager.setCap(settings.machine.fluid_cap)
+                fluidManager.display()
+            }
             system.run(() => { if (callback) callback(entity) })
         });
     }
@@ -1435,14 +1440,16 @@ export class FluidManager {
         const type = this.getType();
 
         if (type === "empty") {
-            inv.setItem(slot, new ItemStack("utilitycraft:empty_fluid_bar"));
+            let emptyBar = new ItemStack("utilitycraft:empty_fluid_bar")
+            emptyBar.nameTag = '§rEmpty'
+            inv.setItem(slot, emptyBar)
             return;
         }
 
         const frame = Math.max(0, Math.min(48, Math.floor((fluid / cap) * 48)));
         const frameName = frame.toString().padStart(2, "0");
 
-        const item = new ItemStack(`utilitycraft:${type}_bar_${frameName}`, 1);
+        const item = new ItemStack(`utilitycraft:${type}_${frameName}`, 1);
         item.nameTag = `§r${DoriosAPI.utils.capitalizeFirst(type)}
 §r§7  Stored: ${FluidManager.formatFluid(fluid)} / ${FluidManager.formatFluid(cap)}
 §r§7  Percentage: ${(fluid / cap * 100).toFixed(2)}%`;

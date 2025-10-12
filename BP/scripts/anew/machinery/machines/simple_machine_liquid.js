@@ -43,7 +43,7 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
         const inputSlot = inv.getItem(INPUTSLOT);
         if (!inputSlot) {
             machine.showWarning('No Input Item');
-            // liquid.display()
+            liquid.display()
             return;
         }
 
@@ -58,7 +58,7 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
 
         if (!recipes) {
             machine.showWarning('No Recipes');
-            // liquid.display()
+            liquid.display()
             return;
         }
 
@@ -66,7 +66,7 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
         const recipe = recipes[inputSlot?.typeId];
         if (!recipe) {
             machine.showWarning('Invalid Recipe');
-            // liquid.display()
+            liquid.display()
             return;
         }
         const energyCost = settings.machine.energy_cost;
@@ -76,13 +76,13 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
         // Liquid type must either match the recipe result or be empty
         if (liquid.type != 'empty' && recipe.liquid != liquid.type) {
             machine.showWarning('Recipe Conflict');
-            // liquid.display()
+            liquid.display()
             return;
         }
 
         if (liquid.getFreeSpace() < recipe.amount) {
             machine.showWarning('Container Full');
-            // liquid.display()
+            liquid.display()
             return;
         }
 
@@ -93,7 +93,7 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
         // Check energy availability
         if (machine.energy.get() <= 0) {
             machine.showWarning('No Energy', false);
-            // liquid.display()
+            liquid.display()
             return;
         }
 
@@ -101,7 +101,6 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
         if (progress >= energyCost) {
             const processCount = Math.min(
                 Math.floor(progress / energyCost),
-                Math.floor(inputSlot.amount / required),
                 Math.floor(liquid.getFreeSpace() / (recipe.amount ?? 1000))
             );
             if (processCount > 0) {
@@ -110,7 +109,7 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
                 if (liquid.type == 'empty') liquid.setType(recipe.liquid)
                 // Deduct progress and input items
                 machine.addProgress(-processCount * energyCost);
-                machine.entity.changeItemAmount(INPUTSLOT, -processCount * required);
+                machine.entity.changeItemAmount(INPUTSLOT, -processCount);
             }
         } else {
             // If not enough progress, continue charging with energy
@@ -123,7 +122,7 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
         machine.on();
         machine.displayEnergy();
         machine.displayProgress();
-        // liquid.display()
+        liquid.display()
         // Machine operating normally
         machine.showStatus('Running');
     },
@@ -132,3 +131,4 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
         Machine.onDestroy(e);
     }
 });
+
