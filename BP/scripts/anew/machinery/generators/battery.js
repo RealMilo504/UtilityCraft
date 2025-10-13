@@ -35,34 +35,50 @@ DoriosAPI.register.blockComponent('battery', {
         if (!worldLoaded) return;
         const { block } = e;
         const generator = new Generator(block, settings);
-        if (!generator.entity) return
+        if (!generator.entity) return;
 
-        const { energy, rate, entity } = generator
-        const current = energy.get()
+        const { energy, rate, entity } = generator;
+        const current = energy.get();
 
-        const lastEnergy = entity.getDynamicProperty('lastEnergy') ?? 0
-        const buffer = current - lastEnergy
-        let sign = buffer > 0 ? "§a+" : buffer < 0 ? "§c-" : "§f";
+        const lastEnergy = entity.getDynamicProperty('lastEnergy') ?? current;
+        const beforeTransfer = current;
 
-        const transfered = generator.energy.transferToNetwork(rate / 10)
+        // Calculate change since last tick (raw delta)
+        const delta = beforeTransfer - lastEnergy;
 
-        e.block.setPermutation(e.block.permutation.withState('utilitycraft:capacity',
-            DoriosAPI.math.scaleToSetNumber(current, energy.cap, 6)))
+        // Transfer energy out (output)
+        const transferred = energy.transferToNetwork(rate / 100);
 
-        // Update visuals
+        // Get energy after transfer (final value)
+        const afterTransfer = energy.get();
+
+        // Input is only positive delta (incoming energy)
+        const input = Math.max(0, afterTransfer - lastEnergy + transferred);
+
+        // Output is the energy transferred to network
+        const output = transferred;
+
+        // Update capacity visuals
+        block.setState('utilitycraft:capacity',
+            DoriosAPI.math.scaleToSetNumber(current, energy.cap, 6));
+
+        // Update visuals and label
         generator.on();
         generator.displayEnergy();
         generator.setLabel(`
-§r§aStatus
+§r§eInformation
 
-§r§bEnergy at §f${Math.floor(energy.getPercent())}%%
- ${Energy.formatEnergyToText(current)} / ${Energy.formatEnergyToText(energy.cap)}
+§r§bCapacity §f${Math.floor(energy.getPercent())}%%
+§r§bStored §f${Energy.formatEnergyToText(current)} / ${Energy.formatEnergyToText(energy.cap)}
 
-§r§cTransferring §f${Energy.formatEnergyToText(transfered)}
-§r§aFlow ${sign}${Energy.formatEnergyToText(Math.abs(buffer))}/t
-                    `)
-        entity.setDynamicProperty('lastEnergy', current)
+§r§aInput §f${Energy.formatEnergyToText(input)}/t
+§r§cOutput §f${Energy.formatEnergyToText(output)}/t
+§r§bSpeed §f${Energy.formatEnergyToText(rate / 100)}/t
+        `);
+
+        entity.setDynamicProperty('lastEnergy', afterTransfer);
     },
+
 
     onPlayerBreak(e) {
         Generator.onDestroy(e);

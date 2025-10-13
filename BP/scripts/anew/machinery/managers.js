@@ -1230,7 +1230,8 @@ export class Energy {
         const pos = this.entity.location;
         const isBattery = this.entity.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:battery");
         let transferred = 0;
-        // Parse network positions from tags
+
+        // Obtener posiciones desde los tags
         const positions = this.entity.getTags()
             .filter(tag => tag.startsWith("pos:[") || tag.startsWith("net:["))
             .map(tag => {
@@ -1238,7 +1239,7 @@ export class Energy {
                 return { x, y, z };
             });
 
-        // Collect valid energy container targets
+        // Recolectar contenedores válidos
         const targets = [];
         for (const loc of positions) {
             const [target] = dim.getEntitiesAtBlockLocation(loc);
@@ -1252,41 +1253,41 @@ export class Energy {
 
         if (targets.length === 0) return 0;
 
-        // Sort targets based on mode
-        if (mode === "nearest") {
-            targets.sort((a, b) => a.dist - b.dist);
-        } else if (mode === "farthest") {
-            targets.sort((a, b) => b.dist - a.dist);
-        }
+        // Ordenar por modo
+        if (mode === "nearest") targets.sort((a, b) => a.dist - b.dist);
+        else if (mode === "farthest") targets.sort((a, b) => b.dist - a.dist);
 
+        // Distribución
         if (mode === "round") {
-            // Distribute equally
-            const share = Math.floor(Math.min(speed, available) / targets.length);
+            // Dividir equitativamente el total speed
+            const share = Math.floor(speed / targets.length);
             for (const { entity } of targets) {
-                if (available <= 0) break;
+                if (available <= 0 || speed <= 0) break;
                 const energy = new Energy(entity);
-                const added = energy.add(Math.min(share, energy.getFreeSpace()));
+                const added = energy.add(Math.min(share, energy.getFreeSpace(), available, speed));
                 available -= added;
+                speed -= added;
                 transferred += added;
             }
         } else {
-            // Sequential (nearest/farthest)
+            // Transferencia secuencial
             for (const { entity } of targets) {
-                if (available <= 0) break;
+                if (available <= 0 || speed <= 0) break;
                 const energy = new Energy(entity);
                 const space = energy.getFreeSpace();
                 if (space <= 0) continue;
-                const amount = Math.min(speed, space, available);
+                const amount = Math.min(space, available, speed);
                 const added = energy.add(amount);
                 available -= added;
+                speed -= added;
                 transferred += added;
             }
         }
 
-        if (transferred > 0) this.consume(transferred)
-
+        if (transferred > 0) this.consume(transferred);
         return transferred;
     }
+
 
 }
 
