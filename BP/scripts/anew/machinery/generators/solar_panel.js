@@ -52,9 +52,7 @@ DoriosAPI.register.blockComponent('solar_panel', {
 §r§cRate ${Energy.formatEnergyToText(generator.rate * efficiency)}/t
                     `)
             return
-
         }
-
 
         if (energy.get() >= energy.cap) {
             generator.off()

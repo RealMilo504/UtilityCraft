@@ -27,6 +27,7 @@ DoriosAPI.register.blockComponent('furnator', {
         const generator = new Generator(block, settings);
         if (!generator.entity) return
         const { entity, energy, rate } = generator
+        generator.energy.transferToNetwork(rate * 4)
 
         let energyR = entity.getDynamicProperty("utilitycraft:energyR") ?? 0;
         let energyF = entity.getDynamicProperty("utilitycraft:energyF") ?? 0;

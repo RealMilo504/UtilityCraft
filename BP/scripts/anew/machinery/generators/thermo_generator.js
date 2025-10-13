@@ -38,6 +38,7 @@ DoriosAPI.register.blockComponent('thermo_generator', {
         const generator = new Generator(block, settings);
         if (!generator.entity) return
         const { entity, energy, rate } = generator
+        generator.energy.transferToNetwork(rate * 4)
 
         /** @type {FluidManager} */
         const fluid = FluidManager.initializeSingle(entity);

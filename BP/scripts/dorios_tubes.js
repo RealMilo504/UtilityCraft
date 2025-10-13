@@ -596,8 +596,6 @@ const offsets = [
 function startRescanEnergy(startPos, dimension) {
     const queue = [startPos];
     const visited = new Set();
-    let energySources = 0
-    let cablesUsed = 0
 
     while (queue.length > 0) {
         const pos = queue.shift();
@@ -642,9 +640,6 @@ function startRescanEnergy(startPos, dimension) {
             searchEnergyContainers(queue, entity)
         }
     }
-    // const isNetwork = cablesUsed > 0 && energySources > 0
-    // if (isNetwork) console.warn(`[Energy Network] Created a network with ${energySources} Energy Source(s).`);
-    // return visited
 }
 
 

@@ -27,6 +27,7 @@ DoriosAPI.register.blockComponent('magmator', {
         const generator = new Generator(block, settings);
         if (!generator.entity) return
         const { entity, energy, rate } = generator
+        generator.energy.transferToNetwork(rate * 4)
 
         /** @type {FluidManager} */
         const fluid = FluidManager.initializeSingle(generator.entity);
