@@ -20,6 +20,15 @@
 				}
 			},
 			// Normal Generators
+			"utilitycraft:battery": {
+				"minecraft:type_family": {
+					"family": [
+						"dorios:battery",
+						"dorios:energy_source",
+						"dorios:energy_container"
+					]
+				}
+			},
 			"utilitycraft:simple_generator": {
 				"minecraft:type_family": {
 					"family": [
@@ -501,6 +510,13 @@
 				"add": {
 					"component_groups": [
 						"utilitycraft:passive_generator"
+					]
+				}
+			},
+			"utilitycraft:battery_generator": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:battery"
 					]
 				}
 			}

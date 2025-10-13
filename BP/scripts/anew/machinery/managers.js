@@ -114,6 +114,9 @@ export class Generator {
         } else if (entity.type == 'passive') {
             generatorEvent = "utilitycraft:passive_generator";
             inventorySize = 2
+        } if (entity.type == 'battery') {
+            generatorEvent = "utilitycraft:battery_generator";
+            inventorySize = 2
         }
 
         if (entity.inventory_size) inventorySize = entity.inventory_size

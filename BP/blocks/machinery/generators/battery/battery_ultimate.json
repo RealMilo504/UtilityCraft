@@ -1,8 +1,8 @@
-{
+	{
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "utilitycraft:basic_battery",
+			"identifier": "utilitycraft:ultimate_battery",
 			"states": {
 				"utilitycraft:capacity": [
 					0,
@@ -12,13 +12,6 @@
 					4,
 					5,
 					6
-				],
-				"utilitycraft:refreshSpeed": [
-					1,
-					5,
-					10,
-					20,
-					40
 				]
 			},
 			"menu_category": {
@@ -26,91 +19,37 @@
 			}
 		},
 		"components": {
+			"utilitycraft:battery": {
+				"energy_cap": 25600000,
+				"rate_speed_base": 10000
+			},
 			"minecraft:geometry": "geometry.utilitycraft_battery",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_battery_basic_0",
+					"texture": "utilitycraft_battery_ultimate_0",
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:battery"
-			],
 			"minecraft:tick": {
 				"interval_range": [
-					20,
-					20
+					2,
+					2
 				]
 			},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 1
 			},
-			"minecraft:destructible_by_explosion":false,
+			"minecraft:destructible_by_explosion": false,
 			"tag:dorios:energy": {},
-            "tag:minecraft:is_pickaxe_item_destructible": {}
+			"tag:minecraft:is_pickaxe_item_destructible": {}
 		},
 		"permutations": [
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 1 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							5,
-							5
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 5 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							25,
-							25
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 10 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							50,
-							50
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 20 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							100,
-							100
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:refreshSpeed') == 40 ",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							200,
-							200
-						]
-					}
-				}
-			},
 			{
 				"condition": "q.block_state('utilitycraft:capacity') == 0",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "utilitycraft_battery_basic_0",
+							"texture": "utilitycraft_battery_ultimate_0",
 							"render_method": "alpha_test"
 						}
 					}
@@ -121,7 +60,7 @@
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "utilitycraft_battery_basic_1",
+							"texture": "utilitycraft_battery_ultimate_1",
 							"render_method": "alpha_test"
 						}
 					},
@@ -133,7 +72,7 @@
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "utilitycraft_battery_basic_2",
+							"texture": "utilitycraft_battery_ultimate_2",
 							"render_method": "alpha_test"
 						}
 					},
@@ -145,7 +84,7 @@
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "utilitycraft_battery_basic_3",
+							"texture": "utilitycraft_battery_ultimate_3",
 							"render_method": "alpha_test"
 						}
 					},
@@ -157,7 +96,7 @@
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "utilitycraft_battery_basic_4",
+							"texture": "utilitycraft_battery_ultimate_4",
 							"render_method": "alpha_test"
 						}
 					},
@@ -169,7 +108,7 @@
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "utilitycraft_battery_basic_5",
+							"texture": "utilitycraft_battery_ultimate_5",
 							"render_method": "alpha_test"
 						}
 					},
@@ -181,7 +120,7 @@
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "utilitycraft_battery_basic_6",
+							"texture": "utilitycraft_battery_ultimate_6",
 							"render_method": "alpha_test"
 						}
 					},
