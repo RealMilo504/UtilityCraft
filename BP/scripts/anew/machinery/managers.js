@@ -160,8 +160,38 @@ export class Generator {
                 fluidManager.setCap(settings.generator.fluid_cap)
                 fluidManager.display()
             }
+            this.addNearbyMachines(entity)
             system.run(() => { if (callback) callback(entity) })
         });
+    }
+
+
+    /**
+     * Adds tags to the entity for all adjacent blocks (6 directions) around it.
+     * 
+     * - Each tag follows the format: `pos:[x,y,z]`
+     * - This is used by energy transfer functions to identify nearby machines.
+     * - Adds positions in all cardinal directions: North, South, East, West, Up, Down.
+     * 
+     * @param {Entity} entity The entity (usually a generator or battery) to tag with nearby positions.
+     */
+    static addNearbyMachines(entity) {
+        let { x, y, z } = entity.location
+        const directions = [
+            [1, 0, 0], // East
+            [-1, 0, 0], // West
+            [0, 1, 0], // Up
+            [0, -1, 0], // Down
+            [0, 0, 1], // South
+            [0, 0, -1]  // North
+        ];
+
+        for (const [dx, dy, dz] of directions) {
+            const xf = x + dx;
+            const yf = y + dy;
+            const zf = z + dz;
+            entity.addTag(`pos:[${xf},${yf},${zf}]`);
+        }
     }
 
     /**
@@ -960,7 +990,7 @@ export class Energy {
     add(amount) {
         // Clamp amount to remaining capacity
         const free = this.getFreeSpace();
-        if (free <= 0) return 0;
+        if (amount > 0 && free <= 0) return 0;
 
         if (amount > free) {
             amount = free;
@@ -1174,6 +1204,87 @@ export class Energy {
         return this.receiveFrom(other, amount);
     }
     //#endregion
+
+    /**
+     * Transfers energy from this entity to connected energy containers.
+     *
+     * Modes:
+     * - "nearest": Transfers starting from the closest targets first.
+     * - "farthest": Transfers starting from the farthest targets first.
+     * - "round": Distributes energy evenly among all valid targets.
+     *
+     * @param {number} speed Total transfer speed limit (DE/tick).
+     * @param {"nearest"|"farthest"|"round"} [mode="nearest"] Transfer mode.
+     * @returns {number} Total amount of energy transferred.
+     */
+    transferToNetwork(speed, mode = "nearest") {
+        if (!this.entity) return 0;
+
+        let available = this.get();
+        if (available <= 0 || speed <= 0) return 0;
+
+        const dim = this.entity.dimension;
+        const pos = this.entity.location;
+        const isBattery = this.entity.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:battery");
+        let transferred = 0;
+        // Parse network positions from tags
+        const positions = this.entity.getTags()
+            .filter(tag => tag.startsWith("pos:[") || tag.startsWith("net:["))
+            .map(tag => {
+                const [x, y, z] = tag.slice(5, -1).split(",").map(Number);
+                return { x, y, z };
+            });
+
+        // Collect valid energy container targets
+        const targets = [];
+        for (const loc of positions) {
+            const [target] = dim.getEntitiesAtBlockLocation(loc);
+            if (!target) continue;
+            const tf = target.getComponent("minecraft:type_family");
+            if (!tf?.hasTypeFamily("dorios:energy_container")) continue;
+            if (isBattery && tf.hasTypeFamily("dorios:battery")) continue;
+
+            targets.push({ entity: target, dist: DoriosAPI.math.distanceBetween(pos, loc) });
+        }
+
+        if (targets.length === 0) return 0;
+
+        // Sort targets based on mode
+        if (mode === "nearest") {
+            targets.sort((a, b) => a.dist - b.dist);
+        } else if (mode === "farthest") {
+            targets.sort((a, b) => b.dist - a.dist);
+        }
+
+        if (mode === "round") {
+            // Distribute equally
+            const share = Math.floor(Math.min(speed, available) / targets.length);
+            for (const { entity } of targets) {
+                if (available <= 0) break;
+                const energy = new Energy(entity);
+                const added = energy.add(Math.min(share, energy.getFreeSpace()));
+                available -= added;
+                transferred += added;
+            }
+        } else {
+            // Sequential (nearest/farthest)
+            for (const { entity } of targets) {
+                if (available <= 0) break;
+                const energy = new Energy(entity);
+                const space = energy.getFreeSpace();
+                if (space <= 0) continue;
+                const amount = Math.min(speed, space, available);
+                const added = energy.add(amount);
+                available -= added;
+                transferred += added;
+            }
+        }
+
+        if (transferred > 0) this.consume(transferred)
+
+        return transferred;
+    }
+
 }
 
 

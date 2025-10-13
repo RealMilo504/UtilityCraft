@@ -23,7 +23,9 @@ DoriosAPI.register.blockComponent('solar_panel', {
         const { block } = e;
         const generator = new Generator(block, settings);
         if (!generator.entity) return
+
         const { energy, rate } = generator
+        generator.energy.transferToNetwork(rate * 4)
 
         const time = world.getTimeOfDay()
         const adjusted = (time + 1000) % 24000  // mover día real a rango 0–14000

@@ -24,7 +24,7 @@
 				"minecraft:type_family": {
 					"family": [
 						"dorios:machine",
-						"dorios:energy_container",
+						"dorios:energy_source",
 						"dorios:container",
 						"dorios:simple_input"
 					]
@@ -34,7 +34,7 @@
 				"minecraft:type_family": {
 					"family": [
 						"dorios:machine",
-						"dorios:energy_container",
+						"dorios:energy_source",
 						"dorios:fluid_container"
 					]
 				}
@@ -43,7 +43,7 @@
 				"minecraft:type_family": {
 					"family": [
 						"dorios:machine",
-						"dorios:energy_container"
+						"dorios:energy_source"
 					]
 				}
 			},

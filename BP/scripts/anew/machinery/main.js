@@ -17,5 +17,7 @@ import './generators/solar_panel.js'
 import './generators/magmator.js'
 import './generators/thermo_generator.js'
 
+import './transfer_system/system.js'
+
 import './managers.js'
 import './upgradeable.js'
