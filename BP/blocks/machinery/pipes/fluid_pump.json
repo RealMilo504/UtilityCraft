@@ -15,6 +15,7 @@
 			}
 		},
 		"components": {
+			"utilitycraft:upgradeable": {},
 			"minecraft:geometry": "geometry.fluid_pump",
 			"minecraft:material_instances": {
 				"*": {
@@ -22,9 +23,6 @@
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:fluid_pump"
-			],
 			"minecraft:tick": {
 				"interval_range": [
 					5,

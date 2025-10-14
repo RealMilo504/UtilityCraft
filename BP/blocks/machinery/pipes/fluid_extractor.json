@@ -45,6 +45,7 @@
 			}
 		},
 		"components": {
+			"utilitycraft:upgradeable": {},
 			"minecraft:geometry": {
 				"identifier": "geometry.fluid_extractor",
 				"bone_visibility": {
@@ -85,10 +86,6 @@
 					8
 				]
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:extractor",
-				"utilitycraft:machine_upgrades"
-			],
 			"minecraft:tick": {
 				"interval_range": [
 					5,

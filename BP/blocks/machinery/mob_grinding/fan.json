@@ -42,6 +42,7 @@
 			}
 		},
 		"components": {
+			"utilitycraft:upgradeable": {},
 			"minecraft:geometry": "geometry.utilitycraft_fan",
 			"minecraft:material_instances": {
 				"north": {
@@ -53,10 +54,6 @@
 					"render_method": "opaque"
 				}
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:fan",
-				"utilitycraft:machine_upgrades"
-			],
 			"minecraft:tick": {
 				"interval_range": [
 					1,

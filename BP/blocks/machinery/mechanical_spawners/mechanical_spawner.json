@@ -53,9 +53,6 @@
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:mech_spawners_select"
-			],
 			"minecraft:tick": {
 				"interval_range": [
 					500,
@@ -67,16 +64,13 @@
 			{
 				"condition": "q.block_state('utilitycraft:spawnerTypes') != 0",
 				"components": {
+					"utilitycraft:upgradeable": {},
 					"minecraft:material_instances": {
 						"*": {
 							"texture": "utilitycraft_mechanical_spawner",
 							"render_method": "alpha_test"
 						}
-					},
-					"minecraft:custom_components": [
-						"utilitycraft:mech_spawners",
-						"utilitycraft:machine_upgrades"
-					]
+					}
 				}
 			},
 			{
