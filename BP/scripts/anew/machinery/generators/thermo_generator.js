@@ -47,7 +47,7 @@ DoriosAPI.register.blockComponent('thermo_generator', {
             generator.displayEnergy();
             fluid.display(2)
             generator.off();
-            generator.setLabel(`
+            generator.setLabel(` 
 §r§eNo Heat Source
 
 §r§eInformation
@@ -141,21 +141,5 @@ DoriosAPI.register.blockComponent('thermo_generator', {
 
     onPlayerBreak(e) {
         Generator.onDestroy(e);
-    },
-
-    onPlayerInteract({ block, player }) {
-        const mainHand = player.getEquipment('Mainhand')
-        if (!mainHand) return
-
-        const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0]
-        if (!entity) return
-
-        const fluid = new FluidManager(entity, 0)
-        const insert = fluid.fluidItem(mainHand.typeId)
-        if (insert == false) return
-        if (!player.isInCreative()) {
-            player.changeItemAmount(player.selectedSlotIndex, -1)
-            if (insert != undefined) player.giveItem(insert)
-        }
     }
 });

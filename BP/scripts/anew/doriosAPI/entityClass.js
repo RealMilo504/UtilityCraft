@@ -298,7 +298,7 @@ const entityExtensions = {
     setHealth(value) {
         const health = this.getComponent('health');
         if (!health) return false;
-        health.setCurrent(value);
+        health.setCurrentValue(value);
         return true;
     },
 

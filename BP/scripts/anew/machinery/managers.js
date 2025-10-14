@@ -1384,7 +1384,7 @@ const fluidObjectives = new Map();
  * @param {number} [index=0] The fluid tank index to initialize (default 0).
  * @returns {void}
  */
-export function initFluidObjectives(index = 0) {
+function initFluidObjectives(index = 0) {
     const definitions = [
         [`fluid_${index}`, `fluid ${index}`],
         [`fluidExp_${index}`, `fluid Exp ${index}`],
@@ -1401,12 +1401,6 @@ export function initFluidObjectives(index = 0) {
     }
 }
 
-const itemFluidContainers = {
-    'minecraft:lava_bucket': { amount: 1000, type: 'lava', output: 'minecraft:bucket' },
-    'utilitycraft:lava_ball': { amount: 1000, type: 'lava' },
-    'minecraft:water_bucket': { amount: 1000, type: 'water', output: 'minecraft:bucket' },
-    'utilitycraft:water_ball': { amount: 1000, type: 'water' }
-}
 
 /**
  * Manages scoreboard-based fluid values for entities or machines.
@@ -1478,6 +1472,28 @@ export class FluidManager {
         }
         return tanks;
     }
+
+    /**
+     * Map of items that contain or provide fluids.
+     *
+     * Each key represents an item identifier, and its value
+     * defines the resulting fluid type, amount, and optional output item.
+     *
+     * Example:
+     * ```js
+     * FluidManager.itemFluidContainers["minecraft:lava_bucket"]
+     * // → { amount: 1000, type: "lava", output: "minecraft:bucket" }
+     * ```
+     *
+     * @constant
+     * @type {Record<string, { amount: number, type: string, output?: string }>}
+     */
+    static itemFluidContainers = {
+        'minecraft:lava_bucket': { amount: 1000, type: 'lava', output: 'minecraft:bucket' },
+        'utilitycraft:lava_ball': { amount: 1000, type: 'lava' },
+        'minecraft:water_bucket': { amount: 1000, type: 'water', output: 'minecraft:bucket' },
+        'utilitycraft:water_ball': { amount: 1000, type: 'water' }
+    };
 
 
     // --------------------------------------------------------------------------
@@ -1561,6 +1577,18 @@ export class FluidManager {
         return { type, amount };
     }
 
+    /**
+     * Returns fluid container data for a given item identifier.
+     *
+     * Looks up the internal fluid container map and returns
+     * the corresponding data if the item can store or provide fluid.
+     *
+     * @param {string} id Item identifier (e.g. "minecraft:lava_bucket").
+     * @returns {{ amount: number, type: string, output?: string }|null} Fluid data if found, otherwise null.
+     */
+    static getContainerData(id) {
+        return this.itemFluidContainers[id] ?? null;
+    }
 
     // --------------------------------------------------------------------------
     // Core operations
@@ -1615,7 +1643,7 @@ export class FluidManager {
      */
     fluidItem(typeId) {
         // 1. Handle known container items (e.g., water bucket, lava bucket)
-        const insertData = itemFluidContainers[typeId];
+        const insertData = FluidManager.itemFluidContainers[typeId];
         if (insertData) {
             const { type, amount, output } = insertData;
 
@@ -1880,12 +1908,16 @@ export class FluidManager {
             entity = dim.spawnEntity(`utilitycraft:fluid_tank_${type}`, { x: x + 0.5, y, z: z + 0.5 });
             if (!entity) return false;
             FluidManager.initialize(entity);
+            entity.triggerEvent(`${block.typeId.split('_')[0]}`)
         }
 
         const tank = new FluidManager(entity, 0);
         tank.setCap(FluidManager.getTankCapacity(block.typeId));
         tank.setType(type);
         tank.add(amount);
+        system.run(() => {
+            entity.setHealth(tank.get())
+        })
         return true;
     }
 

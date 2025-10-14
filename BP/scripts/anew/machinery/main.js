@@ -22,3 +22,4 @@ import './transfer_system/system.js'
 
 import './managers.js'
 import './upgradeable.js'
+import './fluid_containers.js'

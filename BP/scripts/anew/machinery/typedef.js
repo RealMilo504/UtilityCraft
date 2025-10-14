@@ -1,6 +1,7 @@
 
 /**
  * @global
+ * @typedef {import("@minecraft/server").ItemStack} ItemStack
  * @typedef {import("@minecraft/server").Container} Container
  * @typedef {import("@minecraft/server").Block} Block
  * @typedef {import("@minecraft/server").Entity} Entity
