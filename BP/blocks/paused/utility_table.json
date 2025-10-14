@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "utilitycraft:utility_table",
 			"menu_category": {
-				"category": "equipment"
+				"category": "none"
 			}
 		},
 		"components": {
@@ -52,6 +52,6 @@
 			},
 			"minecraft:destructible_by_explosion": false,
 			"tag:minecraft:is_pickaxe_item_destructible": {}
-		}   
+		}
 	}
 }

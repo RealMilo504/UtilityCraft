@@ -5,7 +5,7 @@
 			"identifier": "utilitycraft:smelting_pickaxe"
 		},
 		"tags": [
-			"utility_table"
+			"crafting_table"
 		],
 		"result": [
 			{

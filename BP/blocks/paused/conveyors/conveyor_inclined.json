@@ -4,7 +4,7 @@
         "description": {
             "identifier": "utilitycraft:conveyor_inclined",
             "menu_category": {
-                "category": "construction"
+                "category": "none"
             },
             "traits": {
                 "minecraft:placement_direction": {
@@ -22,9 +22,6 @@
                     "render_method": "alpha_test"
                 }
             },
-            "minecraft:custom_components": [
-                "utilitycraft:conveyors"
-            ],
             "minecraft:tick": {
                 "interval_range": [
                     1,
