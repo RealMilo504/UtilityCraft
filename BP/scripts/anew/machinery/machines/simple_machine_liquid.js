@@ -129,22 +129,6 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
 
     onPlayerBreak(e) {
         Machine.onDestroy(e);
-    },
-
-    onPlayerInteract({ block, player }) {
-        const mainHand = player.getEquipment('Mainhand')
-        if (!mainHand) return
-
-        const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0]
-        if (!entity) return
-
-        const fluid = new FluidManager(entity, 0)
-        const insert = fluid.fluidItem(mainHand.typeId)
-        if (insert == false) return
-        if (!player.isInCreative()) {
-            player.changeItemAmount(player.selectedSlotIndex, -1)
-            if (insert != undefined) player.giveItem(insert)
-        }
     }
 });
 

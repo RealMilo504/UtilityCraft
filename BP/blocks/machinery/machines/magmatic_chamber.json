@@ -18,6 +18,7 @@
 			}
 		},
 		"components": {
+			"utilitycraft:fluid_container": {},
 			"utilitycraft:simple_machine_liquid": {
 				"entity": {
 					"fluid": true,
