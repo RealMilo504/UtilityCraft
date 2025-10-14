@@ -66,14 +66,13 @@ DoriosAPI.register.blockComponent('battery', {
         generator.on();
         generator.displayEnergy();
         generator.setLabel(`
-§r§eInformation
+§r§eEnergy Information
 
 §r§bCapacity §f${Math.floor(energy.getPercent())}%%
 §r§bStored §f${Energy.formatEnergyToText(current)} / ${Energy.formatEnergyToText(energy.cap)}
 
 §r§aInput §f${Energy.formatEnergyToText(input)}/t
 §r§cOutput §f${Energy.formatEnergyToText(output)}/t
-§r§bSpeed §f${Energy.formatEnergyToText(rate / 100)}/t
         `);
 
         entity.setDynamicProperty('lastEnergy', afterTransfer);

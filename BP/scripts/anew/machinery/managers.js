@@ -134,6 +134,52 @@ export class Generator {
         return generatorEntity;
     }
 
+    /**
+     * Handles generator destruction:
+     * - Drops inventory (excluding UI items).
+     * - Drops the generator block item with stored energy and liquid info in lore.
+     * - Removes the generator entity.
+     * - Skips drop if the player is in Creative mode.
+     *
+     * @param {{ block: Block, brokenBlockPermutation: BlockPermutationplayer: Player, dimension: Dimension }} e The event data object containing the dimension, block and player.
+     */
+    static onDestroy(e) {
+        const { block, brokenBlockPermutation, player, dimension: dim } = e;
+        const entity = dim.getEntitiesAtBlockLocation(block.location)[0];
+        if (!entity) return;
+
+        const energy = new Energy(entity);
+        const fluid = new FluidManager(entity)
+        const blockItemId = brokenBlockPermutation.type.id
+        const blockItem = new ItemStack(blockItemId);
+        const lore = [];
+
+        // Energy lore
+        if (energy.get() > 0) {
+            lore.push(`§r§7  Energy: ${Energy.formatEnergyToText(energy.get())}/${Energy.formatEnergyToText(energy.cap)}`);
+        }
+
+        if (fluid.type != 'empty') {
+            const liquidName = DoriosAPI.utils.capitalizeFirst(fluid.type)
+            lore.push(`§r§7  ${liquidName}: ${FluidManager.formatFluid(fluid.get())}/${FluidManager.formatFluid(fluid.cap)}`);
+        }
+
+        if (lore.length > 0) {
+            blockItem.setLore(lore);
+        }
+
+        // Drop item and cleanup
+        system.run(() => {
+            if (player.getGameMode() == "survival") {
+                dim.getEntities({ type: 'item', maxDistance: 3, location: block.center() }).find(item => {
+                    item.getComponent('minecraft:item')?.itemStack?.typeId == blockItemId
+                }).remove()
+            };
+            Machine.dropAllItems(entity);
+            entity.remove();
+            dim.spawnItem(blockItem, block.center());
+        });
+    }
 
     /**
      * Spawns a generator entity at the given block location with a name tag and energy settings.
@@ -147,10 +193,15 @@ export class Generator {
 
         const itemInfo = player.getComponent('equippable').getEquipment('Mainhand').getLore();
         let energy = 0;
-        if (itemInfo[0]) {
+        if (itemInfo[0] && itemInfo[0].includes('Energy')) {
             energy = Energy.getEnergyFromText(itemInfo[0]);
         }
 
+        let fluid = undefined
+        const nextLine = (energy > 0) ? itemInfo[1] : itemInfo[0]
+        if (nextLine) {
+            fluid = FluidManager.getFluidFromText(nextLine)
+        }
         system.run(() => {
             const entity = Generator.spawn(block, settings)
             Energy.initialize(entity)
@@ -162,6 +213,11 @@ export class Generator {
                 const fluidManager = new FluidManager(entity, 0)
                 fluidManager.setCap(settings.generator.fluid_cap)
                 fluidManager.display()
+
+                if (fluid && fluid.amount > 0) {
+                    fluidManager.setType(fluid.type)
+                    fluidManager.set(fluid.amount)
+                }
             }
             this.addNearbyMachines(entity)
             system.run(() => { if (callback) callback(entity) })
@@ -346,13 +402,19 @@ export class Machine {
         if (!entity) return;
 
         const energy = new Energy(entity);
+        const fluid = new FluidManager(entity)
         const blockItemId = brokenBlockPermutation.type.id
         const blockItem = new ItemStack(blockItemId);
         const lore = [];
 
         // Energy lore
         if (energy.get() > 0) {
-            lore.push(`§r§7  Stored Energy: ${Energy.formatEnergyToText(energy.get())}/${Energy.formatEnergyToText(energy.cap)}`);
+            lore.push(`§r§7  Energy: ${Energy.formatEnergyToText(energy.get())}/${Energy.formatEnergyToText(energy.cap)}`);
+        }
+
+        if (fluid.type != 'empty') {
+            const liquidName = DoriosAPI.utils.capitalizeFirst(fluid.type)
+            lore.push(`§r§7  ${liquidName}: ${FluidManager.formatFluid(fluid.get())}/${FluidManager.formatFluid(fluid.cap)}`);
         }
 
         if (lore.length > 0) {
@@ -388,17 +450,29 @@ export class Machine {
             energy = Energy.getEnergyFromText(itemInfo[0]);
         }
 
+        let fluid = undefined
+        const nextLine = (energy > 0) ? itemInfo[1] : itemInfo[0]
+        if (nextLine) {
+            fluid = FluidManager.getFluidFromText(nextLine)
+        }
         system.run(() => {
             const entity = Machine.spawn(block, settings)
+
             Energy.initialize(entity)
             const energyManager = new Energy(entity)
             energyManager.set(energy)
             energyManager.setCap(settings.machine.energy_cap)
             energyManager.display()
+
             if (settings.machine.fluid_cap) {
                 const fluidManager = new FluidManager(entity, 0)
                 fluidManager.setCap(settings.machine.fluid_cap)
                 fluidManager.display()
+
+                if (fluid && fluid.amount > 0) {
+                    fluidManager.setType(fluid.type)
+                    fluidManager.set(fluid.amount)
+                }
             }
             system.run(() => { if (callback) callback(entity) })
         });
@@ -813,13 +887,13 @@ export class Energy {
     /**
      * Parses a formatted energy string (with Minecraft color codes) and returns the numeric value in DE.
      * 
-     * @param {string} input The string with formatted energy (e.g., "§r§7  Stored Energy: 12.5 kDE / 256 kDE").
+     * @param {string} input The string with formatted energy (e.g., "§r§7  Energy: 12.5 kDE / 256 kDE").
      * @param {number} index Which value to extract: 0 = current, 1 = max.
      * @returns {number} The numeric value in base DE.
      *
      * @example
-     * parseFormattedEnergy("§r§7  Stored Energy: 12.5 kDE / 256 kDE", 0); // 12500
-     * parseFormattedEnergy("§r§7  Stored Energy: 12.5 kDE / 256 kDE", 1); // 256000
+     * parseFormattedEnergy("§r§7  Energy: 12.5 kDE / 256 kDE", 0); // 12500
+     * parseFormattedEnergy("§r§7  Energy: 12.5 kDE / 256 kDE", 1); // 256000
      */
     static getEnergyFromText(input, index = 0) {
         // Remove Minecraft formatting codes
@@ -1456,6 +1530,37 @@ export class FluidManager {
         }
         return `${value.toFixed(1)} ${unit}`;
     }
+
+    /**
+     * Extracts the fluid type and amount from a formatted text like:
+     * "§r§7  Lava: 52809 kB/ 64000 kB"
+     * or "§r§7  Water: 5000.0 mB/32000.0 mB"
+     *
+     * @param {string} input The lore line.
+     * @returns {{ type: string, amount: number }} The fluid type and its parsed numeric value.
+     */
+    static getFluidFromText(input) {
+        const cleaned = input.replace(/§./g, "").trim();
+
+        // Match without "Stored"
+        const match = cleaned.match(/(\w+):\s*([\d.]+)\s*(mB|kB|MB|B)/);
+        if (!match) return { type: "empty", amount: 0 };
+
+        const [, rawType, rawValue, unit] = match;
+
+        const multipliers = {
+            mB: 1,
+            B: 1000,
+            kB: 1000,
+            MB: 1_000_000
+        };
+
+        const amount = parseFloat(rawValue) * (multipliers[unit] ?? 1);
+        const type = rawType.toLowerCase();
+
+        return { type, amount };
+    }
+
 
     // --------------------------------------------------------------------------
     // Core operations
