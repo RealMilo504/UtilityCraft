@@ -12,6 +12,8 @@ import './machines/harvester.js'
 import './machines/way_center.js'
 import './machines/xp_condenser.js'
 
+import './hoppers/mech_hoppers.js'
+
 import './generators/furnator.js'
 import './generators/solar_panel.js'
 import './generators/magmator.js'

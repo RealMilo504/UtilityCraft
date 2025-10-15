@@ -569,6 +569,8 @@ globalThis.DoriosAPI = {
         getAllowedSlotRange(target) {
             if (!target) return [0, 0];
 
+            if (target.size) return [0, target.size - 1]
+
             const inv = target?.getComponent?.("minecraft:inventory")?.container;
             if (!inv) return [0, 0];
 

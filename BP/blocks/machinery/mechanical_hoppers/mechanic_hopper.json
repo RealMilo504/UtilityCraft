@@ -29,6 +29,7 @@
 		},
 		"components": {
 			"utilitycraft:upgradeable": {},
+			"utilitycraft:mechanic_hopper": {},
 			"minecraft:geometry": "geometry.utilitycraft_mechanical_hopper",
 			"minecraft:material_instances": {
 				"*": {

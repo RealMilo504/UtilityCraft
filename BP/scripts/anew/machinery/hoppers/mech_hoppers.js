@@ -9,24 +9,24 @@ DoriosAPI.register.blockComponent('mechanic_hopper', {
         const dir = hopper.permutation.getState("minecraft:block_face");
 
         let { x, y, z } = hopper.location;
-        let sourceLoc = { x, y, z };
-        let targetLoc = { x, y, z };
 
         const isHopper = id === "utilitycraft:mechanic_hopper";
         const isUpper = id === "utilitycraft:mechanic_upper";
 
-        if (isHopper) {
-            sourceLoc = { x, y: y + 1, z };
-            targetLoc = { x, y: y - 1, z };
-        } else if (isUpper) {
-            sourceLoc = { x, y: y - 1, z };
-            targetLoc = { x, y: y + 1, z };
+        const sourceLoc = isHopper ? { x, y: y + 1, z } : { x, y: y - 1, z };
+
+        // Destino según orientación
+        let targetLoc = { x, y, z };
+        if (dir === "up" || dir === "down") {
+            // Hopper vertical: deja abajo; Upper vertical: deja arriba
+            targetLoc = isHopper ? { x, y: y - 1, z } : { x, y: y + 1, z };
         } else {
+            // Horizontal: deja a los lados, misma Y
             switch (dir) {
-                case "north": sourceLoc = { x, y, z: z + 1 }; targetLoc = { x, y, z: z - 1 }; break;
-                case "south": sourceLoc = { x, y, z: z - 1 }; targetLoc = { x, y, z: z + 1 }; break;
-                case "east": sourceLoc = { x: x - 1, y, z }; targetLoc = { x: x + 1, y, z }; break;
-                case "west": sourceLoc = { x: x + 1, y, z }; targetLoc = { x: x - 1, y, z }; break;
+                case "south": targetLoc = { x, y, z: z - 1 }; break;
+                case "north": targetLoc = { x, y, z: z + 1 }; break;
+                case "west": targetLoc = { x: x + 1, y, z }; break;
+                case "east": targetLoc = { x: x - 1, y, z }; break;
             }
         }
 
@@ -40,7 +40,7 @@ DoriosAPI.register.blockComponent('mechanic_hopper', {
         const sourceInv = DoriosAPI.containers.getContainerAt(sourceLoc, dimension);
         if (sourceInv) {
             const sourceEntity = dimension.getEntitiesAtBlockLocation(sourceLoc)[0];
-            const [start, end] = DoriosAPI.containers.getAllowedSlotRange(sourceEntity ?? hopperEntity);
+            const [start, end] = DoriosAPI.containers.getAllowedSlotRange(sourceEntity ?? sourceInv);
 
             for (let i = start; i <= end; i++) {
                 const item = sourceInv.getItem(i);
