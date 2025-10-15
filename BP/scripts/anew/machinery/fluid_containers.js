@@ -30,7 +30,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
                 }
 
                 player.onScreenDisplay.setActionBar(
-                    `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidManager.formatFluid(amount)}§7 / §f${FluidManager.formatFluid(cap)} §8(${percent}%)`
+                    `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidManager.formatFluid(amount)}§7 / §f${FluidManager.formatFluid(cap)} §7(${percent}%)`
                 );
                 return;
             }
@@ -48,7 +48,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
                 }
 
                 player.onScreenDisplay.setActionBar(
-                    `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidManager.formatFluid(amount)}§7 / §f${FluidManager.formatFluid(cap)} §8(${percent}%)`
+                    `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidManager.formatFluid(amount)}§7 / §f${FluidManager.formatFluid(cap)} §7(${percent}%)`
                 );
             }
             return;
@@ -69,7 +69,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
             const percent = ((amount / cap) * 100).toFixed(2);
 
             player.onScreenDisplay.setActionBar(
-                `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidManager.formatFluid(amount)}§7 / §f${FluidManager.formatFluid(cap)} §8(${percent}%)`
+                `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidManager.formatFluid(amount)}§7 / §f${FluidManager.formatFluid(cap)} §7(${percent}%)`
             );
 
             if (!player.isInCreative()) {
@@ -96,7 +96,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
         const percent = ((amount / cap) * 100).toFixed(2);
 
         player.onScreenDisplay.setActionBar(
-            `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidManager.formatFluid(amount)}§7 / §f${FluidManager.formatFluid(cap)} §8(${percent}%)`
+            `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidManager.formatFluid(amount)}§7 / §f${FluidManager.formatFluid(cap)} §7(${percent}%)`
         );
 
         if (!player.isInCreative()) {

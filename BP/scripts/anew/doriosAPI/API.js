@@ -95,298 +95,511 @@ globalThis.DoriosAPI = {
             });
         }
     },
+
     /**
-     * This function was created by **Dorios Studios** to handle
-     * item insertions into inventories with compatibility for
-     * custom addons and containers.
+     * ==================================================
+     * DoriosAPI.containers
+     * ==================================================
      *
-     * ## Features
-     * - Works with **entities**, **blocks** and **containers** as parameters.
-     * - Automatically extracts `minecraft:inventory.container` if an
-     *   entity is passed instead of a container.
-     * - Compatible with multiple addons:
-     *   - **Storage Drawers (dustveyn:storage_drawers)**.
-     *   - **Dorios containers** (custom entities with inventories).
-     *   - **UtilityCraft machines** like Assemblers and Simple Inputs.
-     * - Additional compatibility will be added in the future.
-     *
-     * @function addItem
-     * @memberof DoriosAPI
-     * @param {Block | Entity | Container} target Target entity, block, or container.
-     * @param {ItemStack | String} itemStack Item to insert. Can be an ItemStack or an item identifier string.
-     * @param {number} [amount=1] Number of items to insert when `itemStack` is a string. Ignored if an ItemStack is provided.
-     * @returns {boolean} Whether the item was successfully added.
+     * Category: Container & Inventory Compatibility System
+     * 
+     * This namespace provides a unified interface for all
+     * container and inventory interactions in Dorios addons.
+     * 
+     * It ensures full cross-compatibility between:
+     * - Vanilla containers (chests, barrels, furnaces, etc.)
+     * - Dorios machines and generators
+     * - Custom entities with inventories (e.g., UtilityCraft systems)
+     * - Third-party containers (e.g., Dustveyn’s Storage Drawers)
+     * 
+     * ## Core Responsibilities
+     * - Add or insert items into compatible containers.
+     * - Transfer items between entities, blocks, or world locations.
+     * - Enforce slot restrictions based on type families (avoiding UI or logic slots).
+     * - Detect valid inventories at any given world position.
+     * 
+     * ## Design Notes
+     * All inventory operations (transfer, add, range checking)
+     * should go through this namespace to maintain consistency.
+     * 
+     * Functions within this category automatically handle:
+     * - Entity vs Block detection.
+     * - Family-based slot access rules.
+     * - Safe transfers respecting storage limits.
+     * - Future integration with fluid or energy container types.
+     * 
+     * @namespace DoriosAPI.containers
      */
-    addItem(target, itemStack, amount = 1) {
-        if (itemStack == undefined || target == undefined) return false;
 
-        // Resolve itemStack 
-        if (!(itemStack instanceof ItemStack) && typeof itemStack == 'string') itemStack = new ItemStack(itemStack, amount)
-        const itemId = itemStack.typeId
+    containers: {
+        /**
+         * This function was created by **Dorios Studios** to handle
+         * item insertions into inventories with compatibility for
+         * custom addons and containers.
+         *
+         * ## Features
+         * - Works with **entities**, **blocks** and **containers** as parameters.
+         * - Automatically extracts `minecraft:inventory.container` if an
+         *   entity is passed instead of a container.
+         * - Compatible with multiple addons:
+         *   - **Storage Drawers (dustveyn:storage_drawers)**.
+         *   - **Dorios containers** (custom entities with inventories).
+         *   - **UtilityCraft machines** like Assemblers and Simple Inputs.
+         * - Additional compatibility will be added in the future.
+         *
+         * @function addItem
+         * @memberof DoriosAPI
+         * @param {Block | Entity | Container} target Target entity, block, or container.
+         * @param {ItemStack | String} itemStack Item to insert. Can be an ItemStack or an item identifier string.
+         * @param {number} [amount=1] Number of items to insert when `itemStack` is a string. Ignored if an ItemStack is provided.
+         * @returns {boolean} Whether the item was successfully added.
+         */
+        addItem(target, itemStack, amount = 1) {
+            if (itemStack == undefined || target == undefined) return false;
 
-        // Containers
-        if (target.size) {
-            target.addItem(itemStack)
-            return true
-        }
+            // Resolve itemStack 
+            if (!(itemStack instanceof ItemStack) && typeof itemStack == 'string') itemStack = new ItemStack(itemStack, amount)
+            const itemId = itemStack.typeId
 
-        // Resolve target inventory
-        /** @type {import("@minecraft/server").Container} */
-        const targetInv = target?.getComponent?.("minecraft:inventory")?.container;
-        if (!targetInv || !target) return false;
+            // Containers
+            if (target.size) {
+                target.addItem(itemStack)
+                return true
+            }
 
-        // Blocks
-        if (target.permutation) {
-            if (this.constants.vanillaContainers.includes(target.typeId)) {
+            // Resolve target inventory
+            /** @type {import("@minecraft/server").Container} */
+            const targetInv = target?.getComponent?.("minecraft:inventory")?.container;
+            if (!targetInv || !target) return false;
+
+            // Blocks
+            if (target.permutation) {
+                if (DoriosAPI.constants.vanillaContainers.includes(target.typeId)) {
+                    targetInv.addItem(itemStack)
+                    return true
+                }
+            }
+
+            // Storage Drawers by Dustveyn
+            if (target?.typeId?.includes("dustveyn:storage_drawers")) {
+                const targetEnt = target.dimension.getEntitiesAtBlockLocation(target.location)[0];
+                if (!targetEnt?.hasTag(itemId)) return false;
+
+                const targetId = targetEnt.scoreboardIdentity;
+                let capacity = world.scoreboard.getObjective("capacity").getScore(targetId);
+                let max_capacity = world.scoreboard.getObjective("max_capacity").getScore(targetId);
+
+                if (capacity < max_capacity) {
+                    const insertAmount = Math.min(itemStack.amount, max_capacity - capacity);
+                    targetEnt.runCommandAsync(`scoreboard players add @s capacity ${insertAmount}`);
+                    return insertAmount;
+                }
+                return false;
+            }
+
+            const tf = target.getComponent("minecraft:type_family")
+            if (!tf) return false
+
+            // Entity with logic
+            if (tf.hasTypeFamily("dorios:simple_input")) {
+                const slotNext = targetInv.getItem(3);
+                if (!slotNext) {
+                    targetInv.setItem(3, itemStack);
+                    return true;
+                }
+                if (slotNext.typeId === itemId && slotNext.amount < slotNext.maxAmount) {
+                    const insertAmount = Math.min(itemStack.amount, slotNext.maxAmount - slotNext.amount);
+                    slotNext.amount += insertAmount;
+                    targetInv.setItem(3, slotNext);
+                    return insertAmount;
+                }
+                return false;
+            }
+
+            // Assemblers → require 2 empty slots
+            if (tf.hasTypeFamily("dorios:complex_input") && targetInv.emptySlotsCount >= 2) {
+                targetInv.addItem(itemStack)
+                return true
+            };
+
+            // Dorios Containers
+            if (tf.hasTypeFamily("dorios:container")) {
                 targetInv.addItem(itemStack)
                 return true
             }
-        }
 
-        // Storage Drawers by Dustveyn
-        if (target?.typeId?.includes("dustveyn:storage_drawers")) {
-            const targetEnt = target.dimension.getEntitiesAtBlockLocation(target.location)[0];
-            if (!targetEnt?.hasTag(itemId)) return false;
-
-            const targetId = targetEnt.scoreboardIdentity;
-            let capacity = world.scoreboard.getObjective("capacity").getScore(targetId);
-            let max_capacity = world.scoreboard.getObjective("max_capacity").getScore(targetId);
-
-            if (capacity < max_capacity) {
-                const insertAmount = Math.min(itemStack.amount, max_capacity - capacity);
-                targetEnt.runCommandAsync(`scoreboard players add @s capacity ${insertAmount}`);
-                return insertAmount;
-            }
             return false;
-        }
+        },
+        /**
+         * This function was created by **Dorios Studios** to handle
+         * item insertions at a specific location with compatibility for
+         * custom addons and containers.
+         *
+         * ## Features
+         * - Works with **entities**, **blocks** and **containers** as parameters.
+         * - Automatically extracts `minecraft:inventory.container` if an
+         *   entity is passed instead of a container.
+         * - Compatible with multiple addons:
+         *   - **Storage Drawers (dustveyn:storage_drawers)**.
+         *   - **Dorios containers** (custom entities with inventories).
+         *   - **UtilityCraft machines** like Assemblers and Simple Inputs.
+         * - Additional compatibility will be added in the future.
+         *
+         * @function addItem
+         * @memberof DoriosAPI
+         * @param {Vector3} loc World coordinates of the target.
+         * @param {Dimension} dim Dimension where the target exists.
+         * @param {ItemStack | String} itemStack Item to insert. Can be an ItemStack or an item identifier string.
+         * @param {number} [amount=1] Number of items to insert when `itemStack` is a string. Ignored if an ItemStack is provided.
+         * @returns {boolean} Whether the item was successfully added.
+         */
+        addItemAt(loc, dim, itemStack, amount = 1) {
+            if (!loc || !dim || !itemStack) return false
 
-        const tf = target.getComponent("minecraft:type_family")
-        if (!tf) return false
-
-        // Entity with logic
-        if (tf.hasTypeFamily("dorios:simple_input")) {
-            const slotNext = targetInv.getItem(3);
-            if (!slotNext) {
-                targetInv.setItem(3, itemStack);
-                return true;
+            let target = null
+            try {
+                const targetBlock = dim.getBlock(loc)
+                if (DoriosAPI.constants.vanillaContainers.includes(targetBlock?.typeId)) {
+                    target = targetBlock
+                } else {
+                    const targetEntity = dim.getEntitiesAtBlockLocation(loc)[0]
+                    if (targetEntity) target = targetEntity
+                }
+            } catch {
+                return false
             }
-            if (slotNext.typeId === itemId && slotNext.amount < slotNext.maxAmount) {
-                const insertAmount = Math.min(itemStack.amount, slotNext.maxAmount - slotNext.amount);
-                slotNext.amount += insertAmount;
-                targetInv.setItem(3, slotNext);
-                return insertAmount;
-            }
-            return false;
-        }
 
-        // Assemblers → require 2 empty slots
-        if (tf.hasTypeFamily("dorios:complex_input") && targetInv.emptySlotsCount >= 2) {
-            targetInv.addItem(itemStack)
-            return true
-        };
+            if (!target) return false
+            return this.addItem(target, itemStack, amount)
+        },
+        /**
+         * This function was created by **Dorios Studios** to handle
+         * item transfers between inventories in Minecraft Bedrock.
+         *
+         * ## Features
+         * - Works with both **entities** and **containers** as parameters.
+         * - Automatically extracts `minecraft:inventory.container` if an
+         *   entity is passed instead of a container.
+         * - Uses {@link addItemStack} for all target insertions, ensuring
+         *   compatibility with Dorios containers, Storage Drawers, and
+         *   UtilityCraft machines.
+         *
+         * ## Parameters
+         * - `initial` → Source entity or container.
+         * - `target` → Target entity or container.
+         * - `range` → Required. Either:
+         *   - A single slot number (e.g. `5`)
+         *   - An array with `[start, end]` indices (e.g. `[0, 5]`)
+         *
+         * @function transferItems
+         * @memberof DoriosAPI
+         * @param {Entity | Block | Container} initial Source entity or container.
+         * @param {Entity | Block | Container} target Target entity or container.
+         * @param {number | [number, number]} range Slot index or range of slots to transfer.
+         */
+        transferItems(initial, target, range) {
+            /** @type {Container} */
+            const sourceInv = initial?.getComponent?.("minecraft:inventory")?.container ?? initial;
+            if (!sourceInv) return;
 
-        // Dorios Containers
-        if (tf.hasTypeFamily("dorios:container")) {
-            targetInv.addItem(itemStack)
-            return true
-        }
-
-        return false;
-    },
-    /**
-     * This function was created by **Dorios Studios** to handle
-     * item insertions at a specific location with compatibility for
-     * custom addons and containers.
-     *
-     * ## Features
-     * - Works with **entities**, **blocks** and **containers** as parameters.
-     * - Automatically extracts `minecraft:inventory.container` if an
-     *   entity is passed instead of a container.
-     * - Compatible with multiple addons:
-     *   - **Storage Drawers (dustveyn:storage_drawers)**.
-     *   - **Dorios containers** (custom entities with inventories).
-     *   - **UtilityCraft machines** like Assemblers and Simple Inputs.
-     * - Additional compatibility will be added in the future.
-     *
-     * @function addItem
-     * @memberof DoriosAPI
-     * @param {Vector3} loc World coordinates of the target.
-     * @param {Dimension} dim Dimension where the target exists.
-     * @param {ItemStack | String} itemStack Item to insert. Can be an ItemStack or an item identifier string.
-     * @param {number} [amount=1] Number of items to insert when `itemStack` is a string. Ignored if an ItemStack is provided.
-     * @returns {boolean} Whether the item was successfully added.
-     */
-    addItemAt(loc, dim, itemStack, amount = 1) {
-        if (!loc || !dim || !itemStack) return false
-
-        let target = null
-        try {
-            const targetBlock = dim.getBlock(loc)
-            if (this.constants.vanillaContainers.includes(targetBlock?.typeId)) {
-                target = targetBlock
+            // Resolve range
+            let start, end;
+            if (typeof range === "number") {
+                start = end = range;
+            } else if (Array.isArray(range) && range.length === 2) {
+                [start, end] = range;
             } else {
-                const targetEntity = dim.getEntitiesAtBlockLocation(loc)[0]
-                if (targetEntity) target = targetEntity
-            }
-        } catch {
-            return false
-        }
-
-        if (!target) return false
-        return this.addItem(target, itemStack, amount)
-    },
-    /**
-     * This function was created by **Dorios Studios** to handle
-     * item transfers between inventories in Minecraft Bedrock.
-     *
-     * ## Features
-     * - Works with both **entities** and **containers** as parameters.
-     * - Automatically extracts `minecraft:inventory.container` if an
-     *   entity is passed instead of a container.
-     * - Uses {@link addItemStack} for all target insertions, ensuring
-     *   compatibility with Dorios containers, Storage Drawers, and
-     *   UtilityCraft machines.
-     *
-     * ## Parameters
-     * - `initial` → Source entity or container.
-     * - `target` → Target entity or container.
-     * - `range` → Required. Either:
-     *   - A single slot number (e.g. `5`)
-     *   - An array with `[start, end]` indices (e.g. `[0, 5]`)
-     *
-     * @function transferItems
-     * @memberof DoriosAPI
-     * @param {Entity | Block | Container} initial Source entity or container.
-     * @param {Entity | Block | Container} target Target entity or container.
-     * @param {number | [number, number]} range Slot index or range of slots to transfer.
-     */
-    transferItems(initial, target, range) {
-        /** @type {Container} */
-        const sourceInv = initial?.getComponent?.("minecraft:inventory")?.container ?? initial;
-        if (!sourceInv) return;
-
-        // Resolve range
-        let start, end;
-        if (typeof range === "number") {
-            start = end = range;
-        } else if (Array.isArray(range) && range.length === 2) {
-            [start, end] = range;
-        } else {
-            return; // invalid
-        }
-
-        /** @type {EntityTypeFamilyComponent} */
-        const tf = target?.getComponent("minecraft:type_family")
-        const isDoriosContainer = tf?.hasTypeFamily("dorios:container") && !tf?.hasTypeFamily("dorios:complex_input") && !tf?.hasTypeFamily("dorios:simple_input")
-
-        for (let slot = start; slot <= end; slot++) {
-            let itemToTransfer = sourceInv.getItem(slot);
-            if (!itemToTransfer) continue;
-
-            if (this.constants.vanillaContainers(target?.typeId) || isDoriosContainer) {
-                /** @type {Container} */
-                const targetInv = target.getComponent('inventory').container
-                sourceInv.transferItem(slot, targetInv)
-                continue
+                return; // invalid
             }
 
-            // Try to add to target using addItemStack
-            const added = this.addItem(target, itemToTransfer);
-            // If fully added → clear slot
-            if (added == true) {
-                sourceInv.setItem(slot,);
-            } else if (typeof added == 'number') {
-                itemToTransfer.amount = added
-                sourceInv.setItem(slot, itemToTransfer);
-                continue;
+            /** @type {EntityTypeFamilyComponent} */
+            const tf = target?.getComponent("minecraft:type_family")
+            const isDoriosContainer = tf?.hasTypeFamily("dorios:container") && !tf?.hasTypeFamily("dorios:complex_input") && !tf?.hasTypeFamily("dorios:simple_input")
+
+            for (let slot = start; slot <= end; slot++) {
+                let itemToTransfer = sourceInv.getItem(slot);
+                if (!itemToTransfer) continue;
+
+                if (DoriosAPI.constants.vanillaContainers(target?.typeId) || isDoriosContainer) {
+                    /** @type {Container} */
+                    const targetInv = target.getComponent('inventory').container
+                    sourceInv.transferItem(slot, targetInv)
+                    continue
+                }
+
+                // Try to add to target using addItemStack
+                const added = this.addItem(target, itemToTransfer);
+                // If fully added → clear slot
+                if (added == true) {
+                    sourceInv.setItem(slot,);
+                } else if (typeof added == 'number') {
+                    itemToTransfer.amount = added
+                    sourceInv.setItem(slot, itemToTransfer);
+                    continue;
+                }
             }
-        }
-    },
-    /**
-     * This function was created by **Dorios Studios** to handle
-     * item transfers between inventories in Minecraft Bedrock.
-     *
-     * ## Features
-     * - Works with both **entities** and **containers** as parameters.
-     * - Automatically extracts `minecraft:inventory.container` if an
-     *   entity is passed instead of a container.
-     * - Uses {@link addItemStack} for all target insertions, ensuring
-     *   compatibility with Dorios containers, Storage Drawers, and
-     *   UtilityCraft machines.
-     *
-     * ## Parameters
-     * - `initial` → Source entity or container.
-     * - `target` → Target entity or container.
-     * - `range` → Required. Either:
-     *   - A single slot number (e.g. `5`)
-     *   - An array with `[start, end]` indices (e.g. `[0, 5]`)
-     *
-     * @function transferItems
-     * @memberof DoriosAPI
-     * @param {Entity | Block | Container} initial Source entity or container.
-     * @param {Vector3} loc World coordinates of the target.
-     * @param {Dimension} dim Dimension where the target exists.
-     * @param {number | [number, number]} range Slot index or range of slots to transfer.
-     */
-    transferItemsAt(initial, loc, dim, range) {
-        if (!loc || !dim || !itemStack) return false
+        },
+        /**
+         * This function was created by **Dorios Studios** to handle
+         * item transfers between inventories in Minecraft Bedrock.
+         *
+         * ## Features
+         * - Works with both **entities** and **containers** as parameters.
+         * - Automatically extracts `minecraft:inventory.container` if an
+         *   entity is passed instead of a container.
+         * - Uses {@link addItemStack} for all target insertions, ensuring
+         *   compatibility with Dorios containers, Storage Drawers, and
+         *   UtilityCraft machines.
+         *
+         * ## Parameters
+         * - `initial` → Source entity or container.
+         * - `target` → Target entity or container.
+         * - `range` → Required. Either:
+         *   - A single slot number (e.g. `5`)
+         *   - An array with `[start, end]` indices (e.g. `[0, 5]`)
+         *
+         * @function transferItems
+         * @memberof DoriosAPI
+         * @param {Entity | Block | Container} initial Source entity or container.
+         * @param {Vector3} loc World coordinates of the target.
+         * @param {Dimension} dim Dimension where the target exists.
+         * @param {number | [number, number]} range Slot index or range of slots to transfer.
+         */
+        transferItemsAt(initial, loc, dim, range) {
+            /** @type {Container} */
+            const sourceInv = initial?.getComponent?.("minecraft:inventory")?.container ?? initial;
+            if (!sourceInv) return;
 
-        /** @type {Container} */
-        const sourceInv = initial?.getComponent?.("minecraft:inventory")?.container ?? initial;
-        if (!sourceInv) return;
+            let target = null
+            try {
+                const targetBlock = dim.getBlock(loc)
+                if (DoriosAPI.constants.vanillaContainers.includes(targetBlock?.typeId)) {
+                    target = targetBlock
+                } else {
+                    const targetEntity = dim.getEntitiesAtBlockLocation(loc)[0]
+                    if (targetEntity) target = targetEntity
+                }
+            } catch {
+                return false
+            }
 
-        let target = null
-        try {
-            const targetBlock = dim.getBlock(loc)
-            if (this.constants.vanillaContainers.includes(targetBlock?.typeId)) {
-                target = targetBlock
+            if (!target) return false
+
+            // Resolve range
+            let start, end;
+            if (typeof range === "number") {
+                start = end = range;
+            } else if (Array.isArray(range) && range.length === 2) {
+                [start, end] = range;
             } else {
-                const targetEntity = dim.getEntitiesAtBlockLocation(loc)[0]
-                if (targetEntity) target = targetEntity
-            }
-        } catch {
-            return false
-        }
-
-        if (!target) return false
-
-        // Resolve range
-        let start, end;
-        if (typeof range === "number") {
-            start = end = range;
-        } else if (Array.isArray(range) && range.length === 2) {
-            [start, end] = range;
-        } else {
-            return; // invalid
-        }
-
-        /** @type {EntityTypeFamilyComponent} */
-        const tf = target?.getComponent("minecraft:type_family")
-        const isDoriosContainer = tf?.hasTypeFamily("dorios:container") && !tf?.hasTypeFamily("dorios:complex_input") && !tf?.hasTypeFamily("dorios:simple_input")
-
-        for (let slot = start; slot <= end; slot++) {
-            let itemToTransfer = sourceInv.getItem(slot);
-            if (!itemToTransfer) continue;
-
-            if (this.constants.vanillaContainers(target?.typeId) || isDoriosContainer) {
-                /** @type {Container} */
-                const targetInv = target.getComponent('inventory').container
-                sourceInv.transferItem(slot, targetInv)
-                continue
+                return; // invalid
             }
 
-            // Try to add to target using addItemStack
-            const added = this.addItem(target, itemToTransfer);
-            // If fully added → clear slot
-            if (added == true) {
-                sourceInv.setItem(slot,);
-            } else if (typeof added == 'number') {
-                itemToTransfer.amount = added
-                sourceInv.setItem(slot, itemToTransfer);
-                continue;
+            /** @type {EntityTypeFamilyComponent} */
+            const tf = target?.getComponent("minecraft:type_family")
+            const isDoriosContainer = tf?.hasTypeFamily("dorios:container") && !tf?.hasTypeFamily("dorios:complex_input") && !tf?.hasTypeFamily("dorios:simple_input")
+
+            for (let slot = start; slot <= end; slot++) {
+                let itemToTransfer = sourceInv.getItem(slot);
+                if (!itemToTransfer) continue;
+
+                if (DoriosAPI.constants.vanillaContainers.includes(target?.typeId) || isDoriosContainer) {
+                    /** @type {Container} */
+                    const targetInv = target.getComponent('inventory').container
+                    sourceInv.transferItem(slot, targetInv)
+                    continue
+                }
+
+                // Try to add to target using addItemStack
+                const added = this.addItem(target, itemToTransfer);
+                // If fully added → clear slot
+                if (added == true) {
+                    sourceInv.setItem(slot,);
+                } else if (typeof added == 'number') {
+                    itemToTransfer.amount = added
+                    sourceInv.setItem(slot, itemToTransfer);
+                    continue;
+                }
             }
-        }
+        },
+        /**
+         * Transfers items between two world locations.
+         *
+         * ## Features
+         * - Works with both blocks and entities at the given positions.
+         * - Automatically detects valid inventories using `minecraft:inventory`.
+         * - Uses DoriosAPI.addItem() for full compatibility with Dorios containers and vanilla chests.
+         *
+         * @function transferItemsBetween
+         * @memberof DoriosAPI
+         * @param {Vector3} fromLoc The source location.
+         * @param {Vector3} toLoc The target location.
+         * @param {Dimension} dim The dimension where both locations exist.
+         * @param {number | [number, number]} range Slot index or range of slots to transfer.
+         * @returns {boolean} True if at least one item was transferred.
+         */
+        transferItemsBetween(fromLoc, toLoc, dim, range) {
+            if (!fromLoc || !toLoc || !dim) return false;
+
+            // --- Resolve source ---
+            let source = null;
+            try {
+                const fromBlock = dim.getBlock(fromLoc);
+                if (DoriosAPI.constants.vanillaContainers.includes(fromBlock?.typeId)) {
+                    source = fromBlock;
+                } else {
+                    const fromEntity = dim.getEntitiesAtBlockLocation(fromLoc)[0];
+                    if (fromEntity) source = fromEntity;
+                }
+            } catch {
+                return false;
+            }
+            if (!source) return false;
+
+            // --- Resolve target ---
+            let target = null;
+            try {
+                const toBlock = dim.getBlock(toLoc);
+                if (DoriosAPI.constants.vanillaContainers.includes(toBlock?.typeId)) {
+                    target = toBlock;
+                } else {
+                    const toEntity = dim.getEntitiesAtBlockLocation(toLoc)[0];
+                    if (toEntity) target = toEntity;
+                }
+            } catch {
+                return false;
+            }
+            if (!target) return false;
+
+            /** @type {Container} */
+            const sourceInv = source?.getComponent?.("minecraft:inventory")?.container ?? source;
+            if (!sourceInv) return false;
+
+            // Resolve range
+            let start, end;
+            if (typeof range === "number") {
+                start = end = range;
+            } else if (Array.isArray(range) && range.length === 2) {
+                [start, end] = range;
+            } else {
+                return false;
+            }
+
+            let transferred = false;
+
+            /** @type {EntityTypeFamilyComponent} */
+            const tf = target?.getComponent("minecraft:type_family");
+            const isDoriosContainer = tf?.hasTypeFamily("dorios:container")
+                && !tf?.hasTypeFamily("dorios:complex_input")
+                && !tf?.hasTypeFamily("dorios:simple_input");
+
+            for (let slot = start; slot <= end; slot++) {
+                const item = sourceInv.getItem(slot);
+                if (!item) continue;
+
+                if (DoriosAPI.constants.vanillaContainers.includes(target?.typeId) || isDoriosContainer) {
+                    const targetInv = target.getComponent("minecraft:inventory")?.container;
+                    if (targetInv) {
+                        sourceInv.transferItem(slot, targetInv);
+                        transferred = true;
+                        continue;
+                    }
+                }
+
+                // Fallback → use addItem for Dorios machines and others
+                const added = this.addItem(target, item);
+                if (added === true) {
+                    sourceInv.setItem(slot, undefined);
+                    transferred = true;
+                } else if (typeof added === "number" && added > 0) {
+                    item.amount = added;
+                    sourceInv.setItem(slot, item);
+                    transferred = true;
+                }
+            }
+
+            return transferred;
+        },
+        /**
+         * Returns a valid container at a specific world location.
+         *
+         * - Checks both blocks and entities at the given coordinates.
+         * - Works with vanilla containers, Dorios machines, and custom entities.
+         * - Returns the inventory container (`Container`) if found, otherwise `null`.
+         *
+         * @function getContainerAt
+         * @memberof DoriosAPI.containers
+         * @param {Vector3} loc World coordinates to check.
+         * @param {Dimension} dim Dimension where the location exists.
+         * @returns {import('@minecraft/server').Container|null} The container if found, or null.
+         */
+        getContainerAt(loc, dim) {
+            if (!loc || !dim) return null;
+
+            // Try block container
+            const block = dim.getBlock(loc);
+            const blockInv = block?.getComponent("minecraft:inventory")?.container;
+            if (blockInv) return blockInv;
+
+            // Try entity container
+            const ent = dim.getEntitiesAtBlockLocation(loc)[0];
+            const entInv = ent?.getComponent("minecraft:inventory")?.container;
+            if (entInv) return entInv;
+
+            return null;
+        },
+        /**
+         * Returns the allowed slot range for a container entity or block,
+         * based on its Dorios family classification.
+         *
+         * The function ensures transfer systems do not touch UI-only,
+         * energy, or progress slots of machines.
+         *
+         * Supports the following keywords in slot rules:
+         * - `"all"` → all slots available.
+         * - `"last"` → only the last slot.
+         * - `"last9"` → last 9 slots.
+         * - `[start, end]` → explicit numeric range.
+         *
+         * @function getAllowedSlotRange
+         * @memberof DoriosAPI.containers
+         * @param {import('@minecraft/server').Entity|import('@minecraft/server').Block} target Entity or block to analyze.
+         * @returns {[number, number]} The [start, end] slot range allowed for transfers.
+         */
+        getAllowedSlotRange(target) {
+            if (!target) return [0, 0];
+
+            const inv = target?.getComponent?.("minecraft:inventory")?.container;
+            if (!inv) return [0, 0];
+
+            const tf = target?.getComponent?.("minecraft:type_family");
+            if (!tf) return [0, inv.size - 1];
+
+            const families = tf.getTypeFamilies?.() ?? [];
+            let rule = null;
+
+            for (const fam of families) {
+                if (DoriosAPI.constants.slotRules?.[fam]) {
+                    rule = DoriosAPI.constants.slotRules[fam];
+                    break;
+                }
+            }
+
+            if (!rule || rule === "all") return [0, inv.size - 1];
+
+            if (Array.isArray(rule)) {
+                if (rule.length === 2 && typeof rule[0] === "number") return rule;
+                if (rule.length === 1) return [rule[0], rule[0]];
+            }
+
+            if (rule === "last") return [inv.size - 1, inv.size - 1];
+            if (rule === "last9") return [Math.max(0, inv.size - 9), inv.size - 1];
+
+            return [0, inv.size - 1];
+        },
     },
+
+
     /**
      * Utility functions provided by Dorios Studios
      * to simplify common development tasks within Minecraft addons.
@@ -961,7 +1174,22 @@ globalThis.DoriosAPI = {
             "minecraft:smoker",
             "minecraft:shulker",
             "minecraft:dropper"
-        ]
+        ],
+
+        /**
+         * Slot access rules for specific Dorios container families.
+         * Used by transfer systems to avoid writing into UI or logic slots.
+         *
+         * @constant
+         */
+        slotRules: {
+            "dorios:simple_input": [3, 3],     // Only slot 3
+            "dorios:simple_output": "last",     // Only last slot
+            "dorios:complex_input": [0, 8],    // First 9 slots
+            "dorios:complex_output": "last9",   // Last 9 slots
+            "dorios:container": "all"       // No restriction
+        },
+
     }
 }
 

@@ -13,6 +13,7 @@ import './blocks/xp_magnet.js'
 import './blocks/xp.js'
 import './blocks/mob_grinder.js'
 // import './blocks/pedestal.js'
+// item expoertes, fluid exporter, mech hopper,s end hopper, fan, vehicles
 
 import './items/durability.js'
 import './items/drill.js'
