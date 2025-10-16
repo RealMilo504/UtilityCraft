@@ -7,18 +7,18 @@ tile.utilitycraft:workbench.name=Mesa de Máquinas
 tile.utilitycraft:utility_table.name=Mesa Utility 
 
 - Machines = #Máquinas
-tile.utilitycraft:autosieve.name=Tamiz Automatico
-tile.utilitycraft:block_breaker.name=Rompe Bloques
+tile.utilitycraft:autosieve.name=Tamiz Automatico\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7
+tile.utilitycraft:block_breaker.name=Rompe Bloques\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7
 tile.utilitycraft:ender_hopper.name=Tolva del Ender
-tile.utilitycraft:crusher.name=Triturador
-tile.utilitycraft:harvester.name=Cosechador
+tile.utilitycraft:crusher.name=Triturador\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7
+tile.utilitycraft:harvester.name=Cosechador\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7, §9Alcance§7
 tile.utilitycraft:machine_case.name=Carcasa de Maquina
 tile.utilitycraft:sieve.name=Tamiz
 ## +
 tile.utilitycraft:fan.name=Ventilador
-tile.utilitycraft:mob_grinder.name=Triturador de Mobs
+tile.utilitycraft:mob_grinder.name=Triturador de Mobs\n§7- Acepta mejoras:\n §9Alcance§7, §cDano§7
 tile.utilitycraft:mob_trap.name=Trampa de Mobs
-tile.utilitycraft:xp_magnet.name=Iman de Experiencia
+tile.utilitycraft:xp_magnet.name=Iman de Experiencia\n§7- Acepta mejoras:\n §9Alcance§7
 tile.utilitycraft:xp_drain.name=Drenaje de Experiencia
 tile.utilitycraft:xp_spout.name=Chorro de Experiencia
 ## +
@@ -31,7 +31,7 @@ tile.utilitycraft:cobble_gen_5.name=Generador de Adoquín (§eNivel V§r) \n§7-
 tile.utilitycraft:conveyor_horizontal.name=Cinta Transportadora Horizontal
 tile.utilitycraft:conveyor_inclined.name=Cinta Transportadora Inclinada
 tile.utilitycraft:conveyor_declined.name=Cinta Transportadora Declinada
-tile.utilitycraft:mechanic_hopper.name=Tolva Mecánica
+tile.utilitycraft:mechanic_hopper.name=Tolva Mecánica\n§7- Acepta mejoras:\n §aVelocidad§7, §fFiltro§7
 tile.utilitycraft:mechanic_upper.name=Elevador Mecánico
 ## +
 tile.utilitycraft:basic_fluid_tank.name=§eTanque de Fluidos Básico
@@ -416,6 +416,7 @@ item.utilitycraft:quantity_upgrade=§3Mejora de Cantidad§r\n§7- Incrementa la 
 item.utilitycraft:ultimate_upgrade=§8Mejora Definitiva
 ## +
 item.utilitycraft:base_upgrade=Mejora Bae\n§7- Usada para craftear las mejoras de las Máquinas
+item.utilitycraft:damage_upgrade=Mejora de Daño\n§7- Incrementa el daño en el Triturador
 
 - Utility Items = ## Items Utilitarios
 item.utilitycraft:honey_ball=Bola de Miel

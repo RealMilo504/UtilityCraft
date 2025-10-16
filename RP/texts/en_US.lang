@@ -3,22 +3,22 @@
 - Bloques = ## Bloques
 
 - Tables = ## Mesas
-tile.utilitycraft:workbench.name=Workbench
-tile.utilitycraft:utility_table.name=Utility Table
+tile.utilitycraft:workbench.name=Workbench\n§7- Use to craft everything related to machines
+tile.utilitycraft:utility_table.name=Utility Table\n§7- Use to craft superior tools
 
 - Machines = ## Máquinas
-tile.utilitycraft:autosieve.name=Autosieve
-tile.utilitycraft:block_breaker.name=Block Breaker
-tile.utilitycraft:ender_hopper.name=Ender Hopper
-tile.utilitycraft:crusher.name=Crusher
-tile.utilitycraft:harvester.name=Harvester
+tile.utilitycraft:autosieve.name=Autosieve\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
+tile.utilitycraft:block_breaker.name=Block Breaker\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
+tile.utilitycraft:ender_hopper.name=Ender Hopper\n§7- Accepts upgrades:\n §9Range§7
+tile.utilitycraft:crusher.name=Crusher\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
+tile.utilitycraft:harvester.name=Harvester\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7, §9Range§7
 tile.utilitycraft:machine_case.name=Machine Case
-tile.utilitycraft:sieve.name=Sieve
+tile.utilitycraft:sieve.name=Sieve\n§7- Max multi-use: 5x5
 ## +
-tile.utilitycraft:fan.name=Fan
-tile.utilitycraft:mob_grinder.name=Mob Grinder
+tile.utilitycraft:fan.name=Fan\n§7- Accepts upgrades:\n §9Range§7
+tile.utilitycraft:mob_grinder.name=Mob Grinder\n§7- Accepts upgrades:\n §aSpeed§7, §bDamage§7
 tile.utilitycraft:mob_trap.name=Mob Trap
-tile.utilitycraft:xp_magnet.name=XP Magnet
+tile.utilitycraft:xp_magnet.name=XP Magnet\n§7- Accepts upgrades:\n §9Range§7
 tile.utilitycraft:xp_drain.name=XP Drain
 tile.utilitycraft:xp_spout.name=XP Spout
 ## +
@@ -31,9 +31,9 @@ tile.utilitycraft:cobble_gen_5.name=Cobblestone Generator (§8Tier 5§r) \n§7- 
 tile.utilitycraft:conveyor_horizontal.name=Horizontal Conveyor
 tile.utilitycraft:conveyor_inclined.name=Inclined Conveyor
 tile.utilitycraft:conveyor_declined.name=Declined Conveyor
-tile.utilitycraft:mechanic_hopper.name=Mechanic Hopper
-tile.utilitycraft:mechanic_upper.name=Mechanic Upper
-##+ 
+tile.utilitycraft:mechanic_hopper.name=Mechanic Hopper\n§7- Accepts upgrades:\n §aSpeed§7, §fFilter§7
+tile.utilitycraft:mechanic_upper.name=Mechanic Upper\n§7- Accepts upgrades:\n §aSpeed§7, §fFilter§7
+##+
 tile.utilitycraft:basic_fluid_tank.name=§eBasic Fluid Tank
 tile.utilitycraft:advanced_fluid_tank.name=§cAdvanced Fluid Tank
 tile.utilitycraft:expert_fluid_tank.name=§bExpert Fluid Tank
@@ -92,8 +92,25 @@ tile.utilitycraft:red_soil.name=§cRed Soil
 tile.utilitycraft:yellow_soil.name=§eYellow Soil
 
 - Mechanical Spawners = ## Invocadores Mecânicos
-tile.utilitycraft:mechanical_spawner.name=Mechanical Spawner
+tile.utilitycraft:mechanical_spawner.name=Mechanical Spawner\n§7- Accepts upgrades:\n §aSpeed§7, §3Quantity§7
 tile.utilitycraft:spawner_core.name=Spawner Core
+
+-- = ## Spawner Item
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_blaze.name=Mechanical Spawner: Blaze
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_chicken.name=Mechanical Spawner: Chicken
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_cow.name=Mechanical Spawner: Cow
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_creeper.name=Mechanical Spawner: Creeper
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_enderman.name=Mechanical Spawner: Enderman
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_hoglin.name=Mechanical Spawner: Hoglin
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_magma_cube.name=Mechanical Spawner: Magma Cube
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_mooshroom.name=Mechanical Spawner: Mooshroom
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_pig.name=Mechanical Spawner: Pig
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_sheep.name=Mechanical Spawner: Sheep
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_skeleton.name=Mechanical Spawner: Skeleton
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_slime.name=Mechanical Spawner: Slime
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_spider.name=Mechanical Spawner: Spider
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_witch.name=Mechanical Spawner: Witch
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_zombie.name=Mechanical Spawner: Zombie
 
 - Compressed Blocks = ## Blocos Comprimidos
 tile.utilitycraft:compressed_cobblestone.name=Compressed cobblestone
@@ -267,17 +284,8 @@ item.utilitycraft:compressed_coal_block_2=Double Compressed Coal Block
 item.utilitycraft:compressed_coal_block_3=Triple Compressed Coal Block
 item.utilitycraft:compressed_coal_block_4=Quadruple Compressed Coal Block
 
-## +
-tile.utilitycraft:compressed_sand.name=Compressed Sand
-tile.utilitycraft:compressed_dirt.name=Compressed Dirt
-tile.utilitycraft:compressed_gravel.name=Compressed Gravel
-tile.utilitycraft:compressed_netherrack.name=Compressed Netherrack
-tile.utilitycraft:compressed_diamond_block.name=Compressed Diamond Block
-tile.utilitycraft:compressed_coal_block.name=Compressed Coal Block
-tile.utilitycraft:compressed_iron_block.name=Compressed Iron Block
-
 - Utility Blocks = ## Blocks
-tile.utilitycraft:asphalt.name=Asphalt 
+tile.utilitycraft:asphalt.name=Asphalt\n§7- Increases movement speed\n when walking on it
 tile.utilitycraft:big_torch.name=Big Torch
 tile.utilitycraft:elevator.name=Elevator
 tile.utilitycraft:flint_block.name=Flint Block
@@ -295,8 +303,13 @@ tile.utilitycraft:crushed_cobbled_deepslate.name=Crushed Cobbled Deepslate
 
 
 - Actions = ## Ações/Interações
-action.hint.exit.utilitycraft:tractor=Tractor
-action.hint.exit.utilitycraft:drill=Drill
+action.hint.exit.utilitycraft:tractor=Exit Tractor
+action.hint.exit.utilitycraft:drill=Exit Drill
+
+- Placeholder Items = ## Preview Items
+item.utilitycraft:lucky_fishing_rod_item=§aLucky Fishing Rod\n§7Luck of the Sea V\nLure V
+item.utilitycraft:lucky_pickaxe_item=§aLucky Pickaxe\n§7Fortune V
+item.utilitycraft:lucky_sword_item=§aLucky Sword\n§7Looting V
 
 - Items = ## Itens
 
@@ -329,14 +342,14 @@ item.utilitycraft:stone_hammer=Stone Hammer
 item.utilitycraft:wooden_hammer=Wooden Hammer
 
 -- Special Tools = ## Ferramentas Especiais
-item.utilitycraft:lucky_pickaxe=Lucky Pickaxe
-item.utilitycraft:lucky_sword=Lucky Sword
-item.utilitycraft:smelting_pickaxe=Smelting Pickaxe
-item.utilitycraft:lucky_fishing_rod=Lucky Fishing Rod
+item.utilitycraft:lucky_pickaxe=§aLucky Pickaxe\n§7Fortune V
+item.utilitycraft:lucky_sword=§aLucky Sword\n§7Looting V
+item.utilitycraft:smelting_pickaxe=§6Smelting Pickaxe\n§7- Smelts ores when breaking them
+item.utilitycraft:lucky_fishing_rod=§aLucky Fishing Rod\n§7Luck of the Sea V\nLure V
 
 -- Drills = ## Brocas
-item.utilitycraft:drill=Drill
-item.utilitycraft:heavy_drill=Heavy Drill
+item.utilitycraft:drill=Drill\n§7- Mines in a 3x3 area
+item.utilitycraft:heavy_drill=Heavy Drill\n§7- Mines in a 5x5 area
 ## -------- Close Group <<<<<<<< ##
 
 - Seeds = ## Seeds
@@ -468,15 +481,12 @@ entity.utilitycraft:apple_tree.name=Apple Tree
 
 ## -------- Close Group <<<<<<<< ##
 
-#########################################################
-## Imma do my own thing YAAAAAAAAAA (im going insane.)
-#########################################################
-
 - Items 2 = ##| To format
 
-tile.utilitycraft:pedestal.name=Pedestal
-entity.utilitycraft:accelerator_clock.name=Accelerator Clock
-item.utilitycraft:accelerator_clock=Accelerator Clock
+tile.utilitycraft:pedestal.name=Pedestal\n§7- Used as a base for the Accelerator Clock
+entity.utilitycraft:accelerator_clock.name=Accelerator Clock\n§7- Speeds up the game
+item.utilitycraft:accelerator_clock=Accelerator Clock\n§7- Speeds up the game
+item.spawn_egg.entity.utilitycraft:accelerator_clock.name=Summon Accelerator Clock
 
 - Progress Bars = Barras de Progressão ##///////////////////////////////////////////////////////////////
 item.utilitycraft:energy_bar_0=Energy:
@@ -631,14 +641,14 @@ item.utilitycraft:iron_plate=Iron Plate
 item.utilitycraft:netherite_plate=Netherite Plate
 item.utilitycraft:netherite_nugget=Netherite Nugget
 
-tile.utilitycraft:electro_press.name=Electro Press
-tile.utilitycraft:block_placer.name=Block Placer
+tile.utilitycraft:electro_press.name=Electro Press\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
+tile.utilitycraft:block_placer.name=Block Placer\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
 tile.utilitycraft:xp_condenser.name=XP Condenser
-tile.utilitycraft:seed_synthesizer.name=Seed Synthetizer
-tile.utilitycraft:incinerator.name=Incinerator
-tile.utilitycraft:infuser.name=Infuser
-tile.utilitycraft:assembler.name=Assembler
-tile.utilitycraft:digitizer.name=Digitizer
+tile.utilitycraft:seed_synthesizer.name=Seed Synthesizer\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
+tile.utilitycraft:incinerator.name=Incinerator\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
+tile.utilitycraft:infuser.name=Infuser\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
+tile.utilitycraft:assembler.name=Assembler\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
+tile.utilitycraft:digitizer.name=Digitizer\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
 
 item.utilitycraft:arrow_indicator_90=Arrow Indicator
 < Stuff = ## Coisas Não-Categorizadas
@@ -665,10 +675,10 @@ dorios:itemGroup.name.hammers=Hammers
 
 tile.utilitycraft:induction_anvil.name=Induction Anvil
 tile.utilitycraft:crucible.name=Crucible
-tile.utilitycraft:magmatic_chamber.name=Magmatic Chamber
-tile.utilitycraft:mechanic_dropper.name=Mechanical Dropper
+tile.utilitycraft:magmatic_chamber.name=Magmatic Chamber\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
+tile.utilitycraft:mechanic_dropper.name=Mechanical Dropper\n§7- Accepts upgrades:\n §aSpeed§7, §fFilter§7
 
-tile.utilitycraft:fluid_pump.name=Fluid Pump
+tile.utilitycraft:fluid_pump.name=Fluid Pump\n§7- Accepts upgrades:\n §aSpeed§7
 
 
 
@@ -722,14 +732,14 @@ item.utilitycraft:tuff_pebble=Tuff Pebble
 item.utilitycraft:wither_skull_shard=Wither Skull Shard
 
 tile.utilitycraft:energy_cable.name=Energy Cable
-tile.utilitycraft:item_conduit.name=Item Conduit
-tile.utilitycraft:fluid_pipe.name=Fluid Pipe
+tile.utilitycraft:item_conduit.name=Item Conduit\n§7- Transports items
+tile.utilitycraft:fluid_pipe.name=Fluid Pipe\n§7- Transports liquids
 dorios:itemGroup.name.pipes=Pipes
-item.utilitycraft:flint_knife=Flint Knife
+item.utilitycraft:flint_knife=Flint Knife \n§7- Separates fiber from leaves
 item.utilitycraft:fiber=Fiber
-tile.utilitycraft:item_exporter.name=Item Exporter \n§7- Accepts speed and filter upgrades
+tile.utilitycraft:item_exporter.name=Item Exporter \n§7- Accepts upgrades:\n §aSpeed§7, §fFilter§7
 item.utilitycraft:mortar=Mortar
-tile.utilitycraft:fluid_extractor.name=Fluid Extractor \n§7- Accepts speed upgrades
+tile.utilitycraft:fluid_extractor.name=Fluid Extractor \n§7- Accepts upgrades:\n §aSpeed§7
 
 
 ## All the same

@@ -7,16 +7,16 @@ tile.utilitycraft:workbench.name=Mesa de Máquinas
 tile.utilitycraft:utility_table.name=Mesa Utility 
 
 - Machines = #Máquinas
-tile.utilitycraft:autosieve.name=Tamiz Automatico
-tile.utilitycraft:block_breaker.name=Rompe Bloques
-tile.utilitycraft:ender_hopper.name=Tolva del Ender
-tile.utilitycraft:crusher.name=Triturador
-tile.utilitycraft:harvester.name=Cosechador
+tile.utilitycraft:autosieve.name=Tamiz Automático\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7
+tile.utilitycraft:block_breaker.name=Rompebloques\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7
+tile.utilitycraft:ender_hopper.name=Tolva del Ender\n§7- Acepta mejoras:\n §9Alcance§7
+tile.utilitycraft:crusher.name=Triturador\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7
+tile.utilitycraft:harvester.name=Cosechador\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7, §9Alcance§7
 tile.utilitycraft:machine_case.name=Carcasa de Maquina
-tile.utilitycraft:sieve.name=Tamiz
+tile.utilitycraft:sieve.name=Tamiz\n§7- Uso múltiple máximo: 5x5
 ## +
-tile.utilitycraft:fan.name=Ventilador
-tile.utilitycraft:mob_grinder.name=Triturador de Mobs
+tile.utilitycraft:fan.name=Ventilador\n§7- Acepta mejoras:\n §9Alcance§7
+tile.utilitycraft:mob_grinder.name=Triturador de Mobs\n§7- Acepta mejoras:\n §aVelocidad§7, §bDaño§7
 tile.utilitycraft:mob_trap.name=Trampa de Mobs
 tile.utilitycraft:xp_magnet.name=Iman de Experiencia
 tile.utilitycraft:xp_drain.name=Drenaje de Experiencia
@@ -267,7 +267,7 @@ tile.utilitycraft:compressed_coal_block.name=Bloque de Carbón Comprimido
 tile.utilitycraft:compressed_iron_block.name=Bloque de Hierro Comprimido
 
 - Utility Blocks = ##Bloques
-tile.utilitycraft:asphalt.name=Asfalto
+tile.utilitycraft:asphalt.name=Asfalto\n§7- Aumenta la velocidad de movimiento\n al caminar sobre él
 tile.utilitycraft:big_torch.name=Antorcha Grande
 tile.utilitycraft:elevator.name=Elevador
 tile.utilitycraft:flint_block.name=Bloque de Pedernal
@@ -470,9 +470,10 @@ entity.utilitycraft:apple_tree.name=Arbol de Manzano
 
 - Items 2 = ##| Para el formato
 
-tile.utilitycraft:pedestal.name=Pedestal
-entity.utilitycraft:accelerator_clock.name=Reloj Acelerador
-item.utilitycraft:accelerator_clock=Reloj Acelerador
+tile.utilitycraft:pedestal.name=Pedestal\n§7- Usado como base para el Reloj Acelerador
+entity.utilitycraft:accelerator_clock.name=Reloj Acelerador\n§7- Acelera el juego
+item.utilitycraft:accelerator_clock=Reloj Acelerador\n§7- Acelera el juego
+item.spawn_egg.entity.utilitycraft:accelerator_clock.name=Invocar Reloj Acelerador
 
 - Progress Bars = Barras de Progresión ##///////////////////////////////////////////////////////////////
 item.utilitycraft:energy_bar_0=Energía:
@@ -661,7 +662,7 @@ tile.utilitycraft:crucible.name=Crisol
 tile.utilitycraft:magmatic_chamber.name=Cámara Magmática
 tile.utilitycraft:mechanic_dropper.name=Dispensador Mecánico
 
-tile.utilitycraft:fluid_pump.name=Bomba de Fluidos
+tile.utilitycraft:fluid_pump.name=Bomba de Fluidos\n§7- Acepta mejoras:\n §aVelocidad§7
 
 
 
@@ -715,14 +716,14 @@ item.utilitycraft:tuff_pebble=Guijarro de Toba
 item.utilitycraft:wither_skull_shard=Fragmento de Calavera de Wither
 
 tile.utilitycraft:energy_cable.name=Cable de Energía
-tile.utilitycraft:item_conduit.name=Conducto de Items
-tile.utilitycraft:fluid_pipe.name=Tubería de Fluidos
+tile.utilitycraft:item_conduit.name=Conducto de Ítems\n§7- Transporta ítems
+tile.utilitycraft:fluid_pipe.name=Tubería de Fluidos\n§7- Transporta líquidos
 dorios:itemGroup.name.pipes=Tuberías
 item.utilitycraft:flint_knife=Cuchillo de Pedernal
 item.utilitycraft:fiber=Fibra Vegetal
-tile.utilitycraft:item_exporter.name=Exportador de Objetos \n§7- Acepta mejoras de velocidad y filtro
+tile.utilitycraft:item_exporter.name=Exportador de Objetos \n§7- Acepta mejoras:\n §aVelocidad§7, §fFiltro§7
 item.utilitycraft:mortar=Mortero
-tile.utilitycraft:fluid_extractor.name=Extractor de Fluidos \n§7- Acepta mejoras de velocidad
+tile.utilitycraft:fluid_extractor.name=Extractor de Fluidos \n§7- Acepta mejoras:\n §aVelocidad§7
 
 item.utilitycraft:utility_book_0=Libro de UtilityCraft
 item.utilitycraft:utility_book_1=Libro de UtilityCraft

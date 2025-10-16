@@ -89,7 +89,6 @@ tile.utilitycraft:lava_crop.name=Plantação de Lava
 tile.utilitycraft:quartz_crop.name=Plantação de Quartzo
 tile.utilitycraft:redstone_crop.name=Plantação de Redstone
 tile.utilitycraft:slime_crop.name=Plantação de Slime
-
 -- Tier 3 =  ## Tier (Escalão) 3
 tile.utilitycraft:amethyst_crop.name=Plantação de Ametista
 tile.utilitycraft:blaze_crop.name=Plantação de Blaze
