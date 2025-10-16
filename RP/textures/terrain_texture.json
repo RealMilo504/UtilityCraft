@@ -16,19 +16,22 @@
 		"utilitycraft_lucky_pickaxe_item": {
 			"textures": "textures/blocks/Lucky Pickaxe"
 		},
-		"utilitycraft_cobble_gen_1": {
+		"utilitycraft_cobble_gen_copper": {
 			"textures": "textures/blocks/cobble_gen"
 		},
-		"utilitycraft_cobble_gen_2": {
+		"utilitycraft_cobble_gen_iron": {
+			"textures": "textures/blocks/cobble_gen"
+		},
+		"utilitycraft_cobble_gen_gold": {
 			"textures": "textures/blocks/cobble_gen_gold"
 		},
-		"utilitycraft_cobble_gen_3": {
+		"utilitycraft_cobble_gen_emerald": {
 			"textures": "textures/blocks/cobble_gen_emerald"
 		},
-		"utilitycraft_cobble_gen_4": {
+		"utilitycraft_cobble_gen_diamond": {
 			"textures": "textures/blocks/cobble_gen_diamond"
 		},
-		"utilitycraft_cobble_gen_5": {
+		"utilitycraft_cobble_gen_netherite": {
 			"textures": "textures/blocks/cobble_gen_netherite"
 		},
 		"utilitycraft_elevator": {

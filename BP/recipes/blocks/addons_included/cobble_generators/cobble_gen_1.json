@@ -8,53 +8,28 @@
 			"crafting_table"
 		],
 		"key": {
-			"C": {
-				"item": "glass"
-			},
-			"L": {
-				"item": "lava_bucket"
-			},
 			"M": {
 				"item": "iron_ingot"
 			},
-			"O": {
-				"item": "obsidian"
-			},
-			"W": {
-				"item": "water_bucket"
+			"G": {
+				"item": "utilitycraft:cobble_gen_0"
 			}
 		},
 		"pattern": [
-			"MOM",
-			"WCL",
-			"MOM"
+			"MMM",
+			"MGM",
+			"MMM"
 		],
-		"result": [
-			{
-				"item": "utilitycraft:cobble_gen_1"
-			},
-			{
-				"item": "bucket",
-				"count": 2
-			}
-		],
+		"result": {
+			"item": "utilitycraft:cobble_gen_1"
+		},
 		"unlock": [
 			{
-				"item": "minecraft:glass"
+				"item": "minecraft:gold_ingot"
 			},
 			{
-				"item": "minecraft:lava_bucket"
-			},
-			{
-				"item": "minecraft:iron_ingot"
-			},
-			{
-				"item": "minecraft:obsidian"
-			},
-			{
-				"item": "minecraft:water_bucket"
+				"item": "utilitycraft:cobble_gen_0"
 			}
-		],
-		"priority": 0
+		]
 	}
 }

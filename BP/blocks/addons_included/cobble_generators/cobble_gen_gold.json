@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "utilitycraft:cobble_gen_5",
+			"identifier": "utilitycraft:cobble_gen_2",
 			"traits": {
 				"minecraft:placement_direction": {
 					"enabled_states": [
@@ -46,7 +46,7 @@
 			"utilitycraft:cobble_generators": {},
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_cobble_gen_5",
+					"texture": "utilitycraft_cobble_gen_gold",
 					"render_method": "alpha_test"
 				}
 			},
@@ -60,8 +60,8 @@
 			},
 			"minecraft:tick": {
 				"interval_range": [
-					1,
-					1
+					20,
+					20
 				]
 			}
 		},

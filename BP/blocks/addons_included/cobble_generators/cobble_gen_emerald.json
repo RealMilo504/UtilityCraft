@@ -1,0 +1,131 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "utilitycraft:cobble_gen_3",
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": [
+						"minecraft:facing_direction"
+					]
+				}
+			},
+			"menu_category": {
+				"category": "construction"
+			},
+			"states": {
+				"utilitycraft:e0": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10
+				],
+				"utilitycraft:e1": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10
+				]
+			}
+		},
+		"components": {
+			"utilitycraft:cobble_generators": {},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "utilitycraft_cobble_gen_emerald",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:geometry": "geometry.utilitycraft_cobble_gen",
+			"minecraft:transformation": {
+				"rotation": [
+					0,
+					180,
+					0
+				]
+			},
+			"minecraft:tick": {
+				"interval_range": [
+					10,
+					10
+				]
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'up'",
+				"components": {
+					"minecraft:geometry": "geometry.utilitycraft_cobble_gen_down"
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'down' ",
+				"components": {
+					"minecraft:geometry": "geometry.utilitycraft_cobble_gen_up"
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'north' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'south' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'east' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'west' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-90,
+							0
+						]
+					}
+				}
+			}
+		]
+	}
+}
