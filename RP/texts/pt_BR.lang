@@ -31,7 +31,7 @@ tile.utilitycraft:incinerator.name=Incinerador\n§7- Aceita melhorias:\n §aVelo
 tile.utilitycraft:infuser.name=Infusor\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
 tile.utilitycraft:induction_anvil.name=Bigorna de Indução
 tile.utilitycraft:magmatic_chamber.name=Câmara Magmática\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
-tile.utilitycraft:mortar=Pilão
+item.utilitycraft:mortar=Pilão
 tile.utilitycraft:seed_synthesizer.name=Sintetizador de Sementes\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
 tile.utilitycraft:xp_condenser.name=Condensador de XP
 ## COBBLE GEN
@@ -788,6 +788,4 @@ entity.utilitycraft:fluid_tank_water.name=Tanque de Fluidos\n- §9Água
 entity.utilitycraft:fluid_tank_xp.name=Tanque de Fluidos\n- §aExperiência
 
 entity.utilitycraft:mechanic_hopper.name=Funil Mecânico
-item.utilitycraft:mortar=Pilão
-tile.utilitycraft:crucible.name=Crisol
 item.utilitycraft:wooden_hammer=Martelo de Madeira

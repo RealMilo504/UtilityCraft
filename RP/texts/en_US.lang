@@ -9,14 +9,14 @@ tile.utilitycraft:utility_table.name=Utility Table\n§7- Use to craft superior t
 - Machines = ## Máquinas
 tile.utilitycraft:autosieve.name=Autosieve\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
 tile.utilitycraft:block_breaker.name=Block Breaker\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
-tile.utilitycraft:ender_hopper.name=Ender Hopper\n§7- Accepts upgrades:\n §9Range§7
+tile.utilitycraft:ender_hopper.name=Ender Hopper\n§7- Accepts upgrades:\n §aSpeed§7, §9Range§7, §fFilter§7
 tile.utilitycraft:crusher.name=Crusher\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
 tile.utilitycraft:harvester.name=Harvester\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7, §9Range§7
 tile.utilitycraft:machine_case.name=Machine Case
 tile.utilitycraft:sieve.name=Sieve\n§7- Max multi-use: 5x5
 ## +
 tile.utilitycraft:fan.name=Fan\n§7- Accepts upgrades:\n §9Range§7
-tile.utilitycraft:mob_grinder.name=Mob Grinder\n§7- Accepts upgrades:\n §aSpeed§7, §bDamage§7
+tile.utilitycraft:mob_grinder.name=Mob Grinder\n§7- Accepts upgrades:\n §aSpeed§7, §cDamage§7
 tile.utilitycraft:mob_trap.name=Mob Trap
 tile.utilitycraft:xp_magnet.name=XP Magnet\n§7- Accepts upgrades:\n §9Range§7
 tile.utilitycraft:xp_drain.name=XP Drain
