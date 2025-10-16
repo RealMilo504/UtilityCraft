@@ -353,7 +353,7 @@ DoriosAPI.register.blockComponent('bonsai', {
                 if (Math.random() * 100 <= drop.prob) {
                     const amount = DoriosAPI.math.randomInterval(drop.min, drop.max)
                     try {
-                        DoriosAPI.addItemAt(loc, block.dimension, drop.item, amount * multi)
+                        DoriosAPI.containers.addItemAt(loc, block.dimension, drop.item, amount * multi)
                     } catch { }
                 }
             })

@@ -19,7 +19,7 @@ DoriosAPI.register.blockComponent("cobble_generators", {
         const e1 = block.getState("utilitycraft:e1")
         const quantity = e1 * 10 + e0
 
-        if (DoriosAPI.addItemAt({ x, y, z }, dimension, "minecraft:cobblestone", 1 + quantity)) {
+        if (DoriosAPI.containers.addItemAt({ x, y, z }, dimension, "minecraft:cobblestone", 1 + quantity)) {
             block.setState("utilitycraft:e0", 0)
             block.setState("utilitycraft:e1", 0)
             return
