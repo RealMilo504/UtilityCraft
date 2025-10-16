@@ -47,8 +47,9 @@ The meshes individual stats are:
 - Infuser
   - Increased process cost from 800 DE to 1.6 kDE
   - Increased base rate speed from 20 DE/t to 40 DE/t
-- Mechanical Hopper & Upper
+- Mechanical Hopper, Upper & Dropper
   - Now increases transfer speed instead of items per transfer.
+  > This change also affects the Ender Dropper.
 - Seed Synthesizer
   - Better soil no longer increases speed. It now multiplies the yield instead
 - Updated machines UI
