@@ -2,41 +2,54 @@ import { world, ItemStack, system } from '@minecraft/server'
 import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
 
 DoriosAPI.register.blockComponent('mechanic_hopper', {
-    onTick({ block: hopper, dimension }) {
-        if (!hopper.isValid || hopper.isAir) return;
+    onTick({ block, dimension }, { params }) {
+        if (!block.isValid || block.isAir) return;
 
-        const id = hopper.typeId;
-        const dir = hopper.permutation.getState("minecraft:block_face");
+        const dir = block.permutation.getState("minecraft:block_face");
+        const { x, y, z } = block.location;
 
-        let { x, y, z } = hopper.location;
+        const isHopper = params.type === "hopper";
+        const isUpper = params.type === "upper";
+        const isDropper = params.type === "dropper";
 
-        const isHopper = id === "utilitycraft:mechanic_hopper";
-        const isUpper = id === "utilitycraft:mechanic_upper";
+        /** @type {Entity} */
+        const entity = block.getEntity();
+        if (!entity) return;
 
-        const sourceLoc = isHopper ? { x, y: y + 1, z } : { x, y: y - 1, z };
+        const inv = entity.getComponent("minecraft:inventory")?.container;
+        if (!inv) return;
 
-        // Destino según orientación
+        const hasFilter = block.getState("utilitycraft:filter") == 1;
+        const whiteList = entity.getDynamicProperty("utilitycraft:whitelistOn");
+
+        // Define source and target positions depending on block type and direction
+        let sourceLoc = { x, y, z };
         let targetLoc = { x, y, z };
-        if (dir === "up" || dir === "down") {
-            // Hopper vertical: deja abajo; Upper vertical: deja arriba
-            targetLoc = isHopper ? { x, y: y - 1, z } : { x, y: y + 1, z };
+
+        if (isDropper) {
+            // Dropper only works vertically
+            sourceLoc = dir === "down" ? { x, y: y - 1, z } : { x, y: y + 1, z };
         } else {
-            // Horizontal: deja a los lados, misma Y
-            switch (dir) {
-                case "south": targetLoc = { x, y, z: z - 1 }; break;
-                case "north": targetLoc = { x, y, z: z + 1 }; break;
-                case "west": targetLoc = { x: x + 1, y, z }; break;
-                case "east": targetLoc = { x: x - 1, y, z }; break;
+            // Hopper and Upper logic
+            sourceLoc = isHopper ? { x, y: y + 1, z } : { x, y: y - 1, z };
+
+            if (dir === "up" || dir === "down") {
+                // Vertical output
+                targetLoc = isHopper
+                    ? { x, y: y - 1, z }
+                    : { x, y: y + 1, z };
+            } else {
+                // Horizontal output
+                switch (dir) {
+                    case "south": targetLoc = { x, y, z: z - 1 }; break;
+                    case "north": targetLoc = { x, y, z: z + 1 }; break;
+                    case "west": targetLoc = { x: x + 1, y, z }; break;
+                    case "east": targetLoc = { x: x - 1, y, z }; break;
+                }
             }
         }
 
-        /** @type {Entity} */
-        const hopperEntity = hopper.getEntity();
-
-        const hopperInv = hopperEntity?.getComponent("minecraft:inventory")?.container;
-        if (!hopperEntity || !hopperInv) return;
-
-        // Fuente → Hopper
+        // Pull items from the source container into the block
         const sourceInv = DoriosAPI.containers.getContainerAt(sourceLoc, dimension);
         if (sourceInv) {
             const sourceEntity = dimension.getEntitiesAtBlockLocation(sourceLoc)[0];
@@ -45,19 +58,40 @@ DoriosAPI.register.blockComponent('mechanic_hopper', {
             for (let i = start; i <= end; i++) {
                 const item = sourceInv.getItem(i);
                 if (!item) continue;
-                DoriosAPI.containers.transferItemsBetween(sourceLoc, hopper.location, dimension, i);
+
+                // Apply filter rules if enabled
+                if (hasFilter && whiteList != entity.hasTag(`${item.typeId}`)) continue;
+
+                DoriosAPI.containers.transferItemsBetween(sourceLoc, block.location, dimension, i);
                 break;
             }
         }
 
-
-        for (let i = 0; i < hopperInv.size; i++) {
-            const item = hopperInv.getItem(i);
+        // Handle output: transfer to container or drop into the world
+        for (let i = 0; i < inv.size; i++) {
+            const item = inv.getItem(i);
             if (!item) continue;
-            DoriosAPI.containers.transferItemsAt(hopperInv, targetLoc, dimension, i)
+
+            // Apply filter rules again before output
+            if (hasFilter && whiteList != entity.hasTag(`${item.typeId}`)) continue;
+
+            if (isDropper) {
+                // Dropper releases the item into the world
+                const spawnY = dir === "up" ? y + 1.2 : y - 0.2;
+                const pos = { x: x + 0.5, y: spawnY, z: z + 0.5 };
+
+                dimension.spawnItem(item, pos);
+                inv.setItem(i, undefined);
+            } else {
+                // Hopper and Upper push items into the target container
+                DoriosAPI.containers.transferItemsAt(inv, targetLoc, dimension, i);
+            }
+
+            // Limit to one transfer per tick
             break;
         }
     },
+
     beforeOnPlayerPlace(e) {
         const { block } = e
         let { x, y, z } = block.location
@@ -116,7 +150,7 @@ function openMenu({ x, y, z }, block, player) {
 
     if (acceptedItems) {
         for (let item of acceptedItems) {
-            menu.button(`${formatId(item)}`)
+            menu.button(`${DoriosAPI.utils.formatIdToText(item)}`)
         }
     }
 
@@ -141,16 +175,4 @@ function openMenu({ x, y, z }, block, player) {
             hopper.removeTag(`${acceptedItems[selection - 2]}`)
             openMenu({ x, y, z }, block, player)
         })
-}
-
-function formatId(id) {
-    // Elimina el prefijo (antes de los dos puntos)
-    const parts = id.split(':');
-    const name = parts[1] || parts[0]; // Por si no hay prefijo
-
-    // Reemplaza guiones bajos con espacios y capitaliza cada palabra
-    return name
-        .split('_')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
 }
