@@ -47,19 +47,21 @@ The meshes individual stats are:
 - Infuser
   - Increased process cost from 800 DE to 1.6 kDE
   - Increased base rate speed from 20 DE/t to 40 DE/t
+- Mechanical Hopper & Upper
+  - Now increases transfer speed instead of items per transfer.
 - Seed Synthesizer
   - Better soil no longer increases speed. It now multiplies the yield instead
 - Updated machines UI
   - Moved energy bar to the side
   - Added screen to display warnings and information
   - Added a side upgrades bar
-  - Upgrades are now added manually in the UI
 - General:
   - Updated breaking times for most blocks.
   - Proper tool requirements for breaking blocks applied (e.g., Compressed Dirt requires Shovel, Machines requires Pickaxe…).
   - Added descriptions for machines, listing supported upgrades.
   - Added descriptions for special blocks to improve understanding.
   - Updated display translations across multiple languages.
+  - Upgrades are now added manually in the UI
 
 ---
 ## ITEMS
