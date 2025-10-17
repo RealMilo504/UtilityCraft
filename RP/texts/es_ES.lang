@@ -22,11 +22,12 @@ tile.utilitycraft:xp_magnet.name=Iman de Experiencia
 tile.utilitycraft:xp_drain.name=Drenaje de Experiencia
 tile.utilitycraft:xp_spout.name=Chorro de Experiencia
 ## +
-tile.utilitycraft:cobble_gen_1.name=Generador de Adoquín (Nivel I) \n§7- Produce 0.5 por segundo
-tile.utilitycraft:cobble_gen_2.name=Generador de Adoquín (§eNivel II§r) \n§7- Produce 1 por segundo
-tile.utilitycraft:cobble_gen_3.name=Generador de Adoquín (§eNivel III§r) \n§7- Produce 2 por segundo
-tile.utilitycraft:cobble_gen_4.name=Generador de Adoquín (§eNivel IV§r) \n§7- Produce 4 por segundo
-tile.utilitycraft:cobble_gen_5.name=Generador de Adoquín (§eNivel V§r) \n§7- Produce 20 por segundo
+tile.utilitycraft:cobble_gen_0.name=Generador de Adoquín (Nivel I)\n§7- Produce 0.25 por segundo
+tile.utilitycraft:cobble_gen_1.name=Generador de Adoquín (Nivel II) \n§7- Produce 0.5 por segundo
+tile.utilitycraft:cobble_gen_2.name=Generador de Adoquín (§eNivel III§r) \n§7- Produce 1 por segundo
+tile.utilitycraft:cobble_gen_3.name=Generador de Adoquín (§eNivel IV§r) \n§7- Produce 2 por segundo
+tile.utilitycraft:cobble_gen_4.name=Generador de Adoquín (§eNivel V§r) \n§7- Produce 4 por segundo
+tile.utilitycraft:cobble_gen_5.name=Generador de Adoquín (§eNivel VI§r) \n§7- Produce 20 por segundo
 ## +
 tile.utilitycraft:conveyor_horizontal.name=Cinta Transportadora Horizontal
 tile.utilitycraft:conveyor_inclined.name=Cinta Transportadora Inclinada

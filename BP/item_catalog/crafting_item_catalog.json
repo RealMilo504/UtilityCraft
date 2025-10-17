@@ -319,6 +319,7 @@
                             "name": "dorios:itemGroup.name.cobble_gens"
                         },
                         "items": [
+                            "utilitycraft:cobble_gen_0",
                             "utilitycraft:cobble_gen_1",
                             "utilitycraft:cobble_gen_2",
                             "utilitycraft:cobble_gen_3",

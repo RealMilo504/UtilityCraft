@@ -22,24 +22,25 @@ tile.utilitycraft:autosieve.name=Peneirador\n§7- Aceita melhorias:\n §aVelocid
 tile.utilitycraft:assembler.name=Montador\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
 tile.utilitycraft:block_breaker.name=Quebrador\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
 tile.utilitycraft:block_placer.name=Colocador\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
-tile.utilitycraft:crucible=Crisol
+tile.utilitycraft:crucible.name=Crisol\n§7 - Usado para derreter pedra em lava
 tile.utilitycraft:crusher.name=Triturador\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
 tile.utilitycraft:digitizer.name=Digitalizadora\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
 tile.utilitycraft:electro_press.name=Prensa Elétrica\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
 tile.utilitycraft:ender_hopper.name=Funil do Fim \n§7- Aceita melhorias:\n §9Alcance§r
 tile.utilitycraft:incinerator.name=Incinerador\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
 tile.utilitycraft:infuser.name=Infusor\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
-tile.utilitycraft:induction_anvil.name=Bigorna de Indução
+tile.utilitycraft:induction_anvil.name=Bigorna de Indução\n§7- Repara itens usando energia
 tile.utilitycraft:magmatic_chamber.name=Câmara Magmática\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
 item.utilitycraft:mortar=Pilão
 tile.utilitycraft:seed_synthesizer.name=Sintetizador de Sementes\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
-tile.utilitycraft:xp_condenser.name=Condensador de XP
+tile.utilitycraft:xp_condenser.name=Condensador de XP\n§7- Armazena XP
 ## COBBLE GEN
-tile.utilitycraft:cobble_gen_1.name=Gerador de Pedregulho (Tier 1)\n§7- Gera 0.5 por segundo
-tile.utilitycraft:cobble_gen_2.name=Gerador de Pedregulho (§eTier 2§r)\n§7- Gera 1 por segundo
-tile.utilitycraft:cobble_gen_3.name=Gerador de Pedregulho (§aTier 3§r)\n§7- Gera 2 por segundo
-tile.utilitycraft:cobble_gen_4.name=Gerador de Pedregulho (§bTier 4§r)\n§7- Gera 4 por segundo
-tile.utilitycraft:cobble_gen_5.name=Gerador de Pedregulho (§8Tier 5§r)\n§7- Gera 20 por segundo
+tile.utilitycraft:cobble_gen_0.name=Gerador de Pedregulho (Tier I)\n§7- Gera 0.25 por segundo
+tile.utilitycraft:cobble_gen_1.name=Gerador de Pedregulho (Tier II)\n§7- Gera 0.5 por segundo
+tile.utilitycraft:cobble_gen_2.name=Gerador de Pedregulho (§eTier III§r)\n§7- Gera 1 por segundo
+tile.utilitycraft:cobble_gen_3.name=Gerador de Pedregulho (§aTier IV§r)\n§7- Gera 2 por segundo
+tile.utilitycraft:cobble_gen_4.name=Gerador de Pedregulho (§bTier V§r)\n§7- Gera 4 por segundo
+tile.utilitycraft:cobble_gen_5.name=Gerador de Pedregulho (§8Tier VI§r)\n§7- Gera 20 por segundo
 ## TRANSPORTATION
 tile.utilitycraft:conveyor_horizontal.name=Esteira horizontal
 tile.utilitycraft:conveyor_inclined.name=Esteira Inclinada §7(Pra cima)
@@ -52,13 +53,13 @@ tile.utilitycraft:mechanic_hopper.name=Funil Mecânico \n§7- Aceita melhorias:\
 tile.utilitycraft:mechanic_upper.name=Funil Mecânico Invertido \n§7- Aceita melhorias:\n §aVelocidade§7, §fFiltro§7
 entity.utilitycraft:mechanic_upper=Funil Mecânico Invertido \n§7- Aceita melhorias:\n §aVelocidade§7, §fFiltro§7
 ## MISC
-tile.utilitycraft:fan.name=Ventilador
+tile.utilitycraft:fan.name=Ventilador\n§7- Empurra itens e entidades
 tile.utilitycraft:harvester.name=Colheitadera \n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiência§7, §9Alcance§7
 tile.utilitycraft:machine_case.name=Chassi de Máquinas
-tile.utilitycraft:mob_grinder.name=Abatedor de Mobs
+tile.utilitycraft:mob_grinder.name=Abatedor de Mobs\n§7 Aceita melhorias:\n §cDano§7, §9Alcance§7
 tile.utilitycraft:mob_trap.name=Armadilha de Mobs
 tile.utilitycraft:sieve.name=Peneira\n§7- Multi-uso máximo: 5x5
-tile.utilitycraft:xp_magnet.name=Imã de XP
+tile.utilitycraft:xp_magnet.name=Imã de XP\n§7- Atrai orbes de XP
 
 - Bountiful Bonsais = ## Bonsais Abundantes
 tile.utilitycraft:bonsai.name=Bonsai
@@ -318,7 +319,7 @@ tile.utilitycraft:crushed_netherrack.name=Netherrack Triturada
 tile.utilitycraft:elevator.name=Elevador
 tile.utilitycraft:flint_block.name=Bloco de Sílex
 tile.utilitycraft:lantern.name=Lanterna Grande
-tile.utilitycraft:sink.name=Pia Sem-Fim
+tile.utilitycraft:sink.name=Pia Sem-Fim\n§7- Fornece água infinita
 ## +
 tile.utilitycraft:drill_placer.name=Escavadeira
 tile.utilitycraft:tractor_placer.name=Trator
@@ -352,6 +353,7 @@ item.utilitycraft:stone_paxel=Pacachado de Pedra
 item.utilitycraft:wooden_paxel=Pacachado de Madeira
 
 -- Hammers = ## Martelos
+item.utilitycraft:wooden_hammer=Martelo de Madeira
 item.utilitycraft:netherite_hammer=Martelo de Netherita
 item.utilitycraft:diamond_hammer=Martelo de Diamante
 item.utilitycraft:iron_hammer=Martelo de Ferro
@@ -466,6 +468,7 @@ item.utilitycraft:tuff_pebble=Gravilha de Tufo
 item.utilitycraft:wither_skull_shard=Fragmento de Crânio do Wither
 
 - Mesh = ## Malha
+item.utilitycraft:copper_mesh=Malha de Cobre
 item.utilitycraft:string_mesh=Malha de Linha
 item.utilitycraft:flint_mesh=Malha de Sílex
 item.utilitycraft:iron_mesh=Malha de Ferro
@@ -547,7 +550,7 @@ entity.utilitycraft:grenade.name=Granada
 entity.utilitycraft:bamboo.name=Bambu
 entity.utilitycraft:cactus.name=Cacto
 entity.utilitycraft:kelp.name=Alga
-entity.utilitycraft:mushroom.name=Cogumelo\n§7
+entity.utilitycraft:mushroom.name=Cogumelo
 entity.utilitycraft:sugarcane.name=Cana-de-Açúcar
 ## -------- Close Group <<<<<<<< ##
 
@@ -788,4 +791,3 @@ entity.utilitycraft:fluid_tank_water.name=Tanque de Fluidos\n- §9Água
 entity.utilitycraft:fluid_tank_xp.name=Tanque de Fluidos\n- §aExperiência
 
 entity.utilitycraft:mechanic_hopper.name=Funil Mecânico
-item.utilitycraft:wooden_hammer=Martelo de Madeira

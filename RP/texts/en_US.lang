@@ -22,11 +22,12 @@ tile.utilitycraft:xp_magnet.name=XP Magnet\n§7- Accepts upgrades:\n §9Range§7
 tile.utilitycraft:xp_drain.name=XP Drain
 tile.utilitycraft:xp_spout.name=XP Spout
 ## +
-tile.utilitycraft:cobble_gen_1.name=Cobblestone Generator (Tier 1) \n§7- Produces 0.5 per second
-tile.utilitycraft:cobble_gen_2.name=Cobblestone Generator (§eTier 2§r) \n§7- Produces 1 per second
-tile.utilitycraft:cobble_gen_3.name=Cobblestone Generator (§aTier 3§r) \n§7- Produces 2 per second
-tile.utilitycraft:cobble_gen_4.name=Cobblestone Generator (§bTier 4§r) \n§7- Produces 4 per second
-tile.utilitycraft:cobble_gen_5.name=Cobblestone Generator (§8Tier 5§r) \n§7- Produces 20 per second
+tile.utilitycraft:cobble_gen_0.name=Cobblestone Generator (Tier 1)\n§7- Produces 0.25 per second
+tile.utilitycraft:cobble_gen_1.name=Cobblestone Generator (Tier 2) \n§7- Produces 0.5 per second
+tile.utilitycraft:cobble_gen_2.name=Cobblestone Generator (§eTier 3§r) \n§7- Produces 1 per second
+tile.utilitycraft:cobble_gen_3.name=Cobblestone Generator (§aTier 4§r) \n§7- Produces 2 per second
+tile.utilitycraft:cobble_gen_4.name=Cobblestone Generator (§bTier 5§r) \n§7- Produces 4 per second
+tile.utilitycraft:cobble_gen_5.name=Cobblestone Generator (§8Tier 6§r) \n§7- Produces 20 per second
 ## +
 tile.utilitycraft:conveyor_horizontal.name=Horizontal Conveyor
 tile.utilitycraft:conveyor_inclined.name=Inclined Conveyor
