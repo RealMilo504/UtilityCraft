@@ -3,88 +3,88 @@
 	"texture_name": "atlas.items",
 	"texture_data": {
 		"utilitycraft_netherite_aiot": {
-			"textures": "textures/items/Netherite AIOT"
+			"textures": "textures/items/tools/netherite_aiot"
 		},
 		"utilitycraft_netherite_paxel": {
-			"textures": "textures/items/Netherite Paxel"
+			"textures": "textures/items/tools/netherite_paxel"
 		},
 		"utilitycraft_diamond_aiot": {
-			"textures": "textures/items/Diamond AIOT"
+			"textures": "textures/items/tools/diamond_aiot"
 		},
 		"utilitycraft_steel_aiot": {
-			"textures": "textures/items/tools/steel_paxel"
+			"textures": "textures/items/tools/steel_aiot"
 		},
 		"utilitycraft_iron_aiot": {
-			"textures": "textures/items/Iron AIOT"
+			"textures": "textures/items/tools/iron_aiot"
 		},
 		"utilitycraft_stone_aiot": {
-			"textures": "textures/items/Stone AIOT"
+			"textures": "textures/items/tools/stone_aiot"
 		},
 		"utilitycraft_wood_aiot": {
-			"textures": "textures/items/Wood AIOT"
+			"textures": "textures/items/tools/wooden_aiot"
 		},
 		"utilitycraft_diamond_paxel": {
-			"textures": "textures/items/Diamond Paxel"
+			"textures": "textures/items/tools/diamond_paxel"
 		},
 		"utilitycraft_steel_paxel": {
 			"textures": "textures/items/tools/steel_paxel"
 		},
 		"utilitycraft_iron_paxel": {
-			"textures": "textures/items/Iron Paxel"
+			"textures": "textures/items/tools/iron_paxel"
 		},
 		"utilitycraft_gold_aiot": {
-			"textures": "textures/items/Golden AIOT"
+			"textures": "textures/items/tools/golden_aiot"
 		},
 		"utilitycraft_gold_paxel": {
-			"textures": "textures/items/Gold Paxel"
+			"textures": "textures/items/tools/golden_paxel"
 		},
 		"utilitycraft_stone_paxel": {
-			"textures": "textures/items/Stone Paxel"
+			"textures": "textures/items/tools/stone_paxel"
 		},
 		"utilitycraft_wood_paxel": {
-			"textures": "textures/items/Wood Paxel"
+			"textures": "textures/items/tools/wooden_paxel"
 		},
 		"utilitycraft_advanced_netherite_axe": {
-			"textures": "textures/items/Advanced Netherite Axe"
+			"textures": "textures/items/old/Advanced Netherite Axe"
 		},
 		"utilitycraft_advanced_diamond_axe": {
-			"textures": "textures/items/Advanced Diamond Axe"
+			"textures": "textures/items/old/Advanced Diamond Axe"
 		},
 		"utilitycraft_advanced_iron_axe": {
-			"textures": "textures/items/Advanced Iron Axe"
+			"textures": "textures/items/old/Advanced Iron Axe"
 		},
 		"utilitycraft_advanced_netherite_pickaxe": {
-			"textures": "textures/items/Advanced Netherite Pickaxe"
+			"textures": "textures/items/old/Advanced Netherite Pickaxe"
 		},
 		"utilitycraft_advanced_diamond_pickaxe": {
-			"textures": "textures/items/Advanced Diamond Pickaxe"
+			"textures": "textures/items/old/Advanced Diamond Pickaxe"
 		},
 		"utilitycraft_advanced_iron_pickaxe": {
-			"textures": "textures/items/Advanced Iron Pickaxe"
+			"textures": "textures/items/old/Advanced Iron Pickaxe"
 		},
 		"utilitycraft_advanced_netherite_shovel": {
-			"textures": "textures/items/Advanced Netherite Shovel"
+			"textures": "textures/items/old/Advanced Netherite Shovel"
 		},
 		"utilitycraft_advanced_diamond_shovel": {
-			"textures": "textures/items/Advanced Diamond Shovel"
+			"textures": "textures/items/old/Advanced Diamond Shovel"
 		},
 		"utilitycraft_advanced_iron_shovel": {
-			"textures": "textures/items/Advanced Iron Shovel"
+			"textures": "textures/items/old/Advanced Iron Shovel"
 		},
 		"utilitycraft_netherite_hammer": {
-			"textures": "textures/items/Netherite Hammer"
+			"textures": "textures/items/tools/netherite_hammer"
 		},
 		"utilitycraft_diamond_hammer": {
-			"textures": "textures/items/Diamond Hammer"
+			"textures": "textures/items/tools/diamond_hammer"
 		},
 		"utilitycraft_steel_hammer": {
 			"textures": "textures/items/tools/steel_hammer"
 		},
 		"utilitycraft_iron_hammer": {
-			"textures": "textures/items/Iron Hammer"
+			"textures": "textures/items/tools/iron_hammer"
 		},
 		"utilitycraft_wooden_hammer": {
-			"textures": "textures/items/Wooden Hammer"
+			"textures": "textures/items/tools/wooden_hammer"
 		},
 		"utilitycraft_copper_hammer": {
 			"textures": "textures/items/tools/copper_hammer"
@@ -111,31 +111,31 @@
 			"textures": "textures/items/tools/steel_hoe"
 		},
 		"utilitycraft_smelting_pickaxe": {
-			"textures": "textures/items/Smelting Pickaxe"
+			"textures": "textures/items/tools/smelting_pickaxe"
 		},
 		"utilitycraft_lucky_pickaxe": {
-			"textures": "textures/items/Lucky Pickaxe"
+			"textures": "textures/items/tools/lucky_pickaxe"
 		},
 		"utilitycraft_lucky_pickaxe_item": {
-			"textures": "textures/items/Lucky Pickaxe"
+			"textures": "textures/items/tools/lucky_pickaxe"
 		},
 		"utilitycraft_advanced_drill": {
-			"textures": "textures/items/Advanced Drill"
+			"textures": "textures/items/tools/advanced_drill"
 		},
 		"utilitycraft_drill": {
-			"textures": "textures/items/Drill"
+			"textures": "textures/items/tools/drill"
 		},
 		"utilitycraft_clock": {
-			"textures": "textures/items/magic_clock"
+			"textures": "textures/items/old/magic_clock"
 		},
 		"utilitycraft_advanced_netherite_hoe": {
-			"textures": "textures/items/Advanced Netherite Hoe"
+			"textures": "textures/items/old/Advanced Netherite Hoe"
 		},
 		"utilitycraft_advanced_diamond_hoe": {
-			"textures": "textures/items/Advanced Diamond Hoe"
+			"textures": "textures/items/old/Advanced Diamond Hoe"
 		},
 		"utilitycraft_advanced_iron_hoe": {
-			"textures": "textures/items/Advanced Iron Hoe"
+			"textures": "textures/items/old/Advanced Iron Hoe"
 		},
 		"utilitycraft_base_seeds": {
 			"textures": "textures/items/seeds/base_seeds"
@@ -171,7 +171,7 @@
 			"textures": "textures/items/seeds/wither_seeds"
 		},
 		"utilitycraft_wrench": {
-			"textures": "textures/items/wrench"
+			"textures": "textures/items/tools/wrench"
 		},
 		"utilitycraft_nether_star_seeds": {
 			"textures": "textures/items/seeds/nether_star_seeds"
@@ -204,16 +204,16 @@
 			"textures": "textures/items/seeds/slime_seeds"
 		},
 		"utilitycraft_honey_ball": {
-			"textures": "textures/items/honeyball"
+			"textures": "textures/items/old/honeyball"
 		},
 		"utilitycraft_grenade": {
-			"textures": "textures/items/grenade"
+			"textures": "textures/items/tools/grenade"
 		},
 		"utilitycraft_bomb": {
-			"textures": "textures/items/bomb"
+			"textures": "textures/items/tools/bomb"
 		},
 		"utilitycraft_dynamite": {
-			"textures": "textures/items/dynamite"
+			"textures": "textures/items/tools/dynamite"
 		},
 		"utilitycraft_water_seeds": {
 			"textures": "textures/items/seeds/water_seeds"
@@ -231,25 +231,25 @@
 			"textures": "textures/items/seeds/glass_seeds"
 		},
 		"utilitycraft_lavaball": {
-			"textures": "textures/items/lavaball"
+			"textures": "textures/items/misc/lavaball"
 		},
 		"utilitycraft_waterball": {
-			"textures": "textures/items/waterball"
+			"textures": "textures/items/misc/waterball"
 		},
 		"utilitycraft_amogus": {
-			"textures": "textures/items/amogus"
+			"textures": "textures/items/misc/amogus"
 		},
 		"utilitycraft_string_mesh": {
-			"textures": "textures/items/string_mesh"
+			"textures": "textures/items/meshes/string_mesh"
 		},
 		"utilitycraft_iron_mesh": {
-			"textures": "textures/items/iron_mesh"
+			"textures": "textures/items/meshes/iron_mesh"
 		},
 		"utilitycraft_diamond_mesh": {
-			"textures": "textures/items/diamond_mesh"
+			"textures": "textures/items/meshes/diamond_mesh"
 		},
 		"utilitycraft_netherite_mesh": {
-			"textures": "textures/items/netherite_mesh"
+			"textures": "textures/items/meshes/netherite_mesh"
 		},
 		"utilitycraft_copper_seeds": {
 			"textures": "textures/items/seeds/copper_seeds"
@@ -267,145 +267,145 @@
 			"textures": "textures/items/seeds/wool_seeds"
 		},
 		"utilitycraft_apple_sapling": {
-			"textures": "textures/items/apple_tree"
+			"textures": "textures/items/misc/apple_tree"
 		},
 		"utilitycraft_gold_upgrade": {
-			"textures": "textures/items/gold_upgrade"
+			"textures": "textures/items/old/gold_upgrade"
 		},
 		"utilitycraft_emerald_upgrade": {
-			"textures": "textures/items/emerald_upgrade"
+			"textures": "textures/items/old/emerald_upgrade"
 		},
 		"utilitycraft_diamond_upgrade": {
-			"textures": "textures/items/diamond_upgrade"
+			"textures": "textures/items/old/diamond_upgrade"
 		},
 		"utilitycraft_lucky_sword": {
-			"textures": "textures/items/Lucky Sword"
+			"textures": "textures/items/tools/lucky_sword"
 		},
 		"utilitycraft_lucky_sword_item": {
-			"textures": "textures/items/Lucky Sword"
+			"textures": "textures/items/tools/lucky_sword"
 		},
 		"utilitycraft_stone_hammer": {
-			"textures": "textures/items/Stone Hammer"
+			"textures": "textures/items/tools/stone_hammer"
 		},
 		"utilitycraft_soul": {
-			"textures": "textures/items/soul"
+			"textures": "textures/items/old/soul"
 		},
 		"utilitycraft_soul_vessel": {
-			"textures": "textures/items/soul_vessel"
+			"textures": "textures/items/old/soul_vessel"
 		},
 		"utilitycraft_zombie_essence": {
-			"textures": "textures/items/zombie_essence"
+			"textures": "textures/items/essences/zombie_essence"
 		},
 		"utilitycraft_essence_vessel": {
-			"textures": "textures/items/essence_vessel"
+			"textures": "textures/items/essences/essence_vessel"
 		},
 		"utilitycraft_smeltflare": {
-			"textures": "textures/items/smeltflare"
+			"textures": "textures/items/misc/smeltflare"
 		},
 		"utilitycraft_skeleton_essence": {
-			"textures": "textures/items/skeleton_essence"
+			"textures": "textures/items/essences/skeleton_essence"
 		},
 		"utilitycraft_pig_essence": {
-			"textures": "textures/items/pig_essence"
+			"textures": "textures/items/essences/pig_essence"
 		},
 		"utilitycraft_creeper_essence": {
-			"textures": "textures/items/creeper_essence"
+			"textures": "textures/items/essences/creeper_essence"
 		},
 		"utilitycraft_spider_essence": {
-			"textures": "textures/items/spider_essence"
+			"textures": "textures/items/essences/spider_essence"
 		},
 		"utilitycraft_cow_essence": {
-			"textures": "textures/items/cow_essence"
+			"textures": "textures/items/essences/cow_essence"
 		},
 		"utilitycraft_sheep_essence": {
-			"textures": "textures/items/sheep_essence"
+			"textures": "textures/items/essences/sheep_essence"
 		},
 		"utilitycraft_slime_essence": {
-			"textures": "textures/items/slime_essence"
+			"textures": "textures/items/essences/slime_essence"
 		},
 		"utilitycraft_ore_igniter": {
-			"textures": "textures/items/ore_igniter"
+			"textures": "textures/items/old/ore_igniter"
 		},
 		"utilitycraft_dyes_seeds": {
 			"textures": "textures/items/seeds/dye_seeds"
 		},
 		"utilitycraft_infinite_enderpearl": {
-			"textures": "textures/items/infinite_enderpearl"
+			"textures": "textures/items/old/infinite_enderpearl"
 		},
 		"utilitycraft_black_amogus": {
-			"textures": "textures/items/black_amogus"
+			"textures": "textures/items/misc/black_amogus"
 		},
 		"utilitycraft_speed_upgrade": {
-			"textures": "textures/items/speed_upgrade"
+			"textures": "textures/items/machinery/speed_upgrade"
 		},
 		"utilitycraft_range_upgrade": {
-			"textures": "textures/items/range_upgrade"
+			"textures": "textures/items/machinery/range_upgrade"
 		},
 		"utilitycraft_steel": {
-			"textures": "textures/items/Steel_ingot"
+			"textures": "textures/items/ores/steel_ingot"
 		},
 		"utilitycraft_lucky_fishing_rod": {
-			"textures": "textures/items/fishing_rod_uncast"
+			"textures": "textures/items/tools/lucky_fishing_rod"
 		},
 		"utilitycraft_raw_leather": {
-			"textures": "textures/items/raw_leather"
+			"textures": "textures/items/misc/raw_leather"
 		},
 		"utilitycraft_blaze_essence": {
-			"textures": "textures/items/blaze_essence"
+			"textures": "textures/items/essences/blaze_essence"
 		},
 		"utilitycraft_chicken_essence": {
-			"textures": "textures/items/chicken_essence"
+			"textures": "textures/items/essences/chicken_essence"
 		},
 		"utilitycraft_enderman_essence": {
-			"textures": "textures/items/enderman_essence"
+			"textures": "textures/items/essences/enderman_essence"
 		},
 		"utilitycraft_hoglin_essence": {
-			"textures": "textures/items/hoglin_essence"
+			"textures": "textures/items/essences/hoglin_essence"
 		},
 		"utilitycraft_magma_cube_essence": {
-			"textures": "textures/items/magma_cube_essence"
+			"textures": "textures/items/essences/magma_cube_essence"
 		},
 		"utilitycraft_mooshroom_essence": {
-			"textures": "textures/items/mooshroom_essence"
+			"textures": "textures/items/essences/mooshroom_essence"
 		},
 		"utilitycraft_wither_skeleton_essence": {
-			"textures": "textures/items/wither_skeleton_essence"
+			"textures": "textures/items/essences/wither_skeleton_essence"
 		},
 		"utilitycraft_antidote_potion": {
-			"textures": "textures/items/antidote_potion"
+			"textures": "textures/items/misc/antidote_potion"
 		},
 		"utilitycraft_antidote_potion_splash": {
-			"textures": "textures/items/antidote_potion_splash"
+			"textures": "textures/items/misc/antidote_potion_splash"
 		},
 		"utilitycraft_quantity_upgrade": {
-			"textures": "textures/items/quantity_upgrade"
+			"textures": "textures/items/machinery/quantity_upgrade"
 		},
 		"utilitycraft_energy_upgrade": {
-			"textures": "textures/items/energy_upgrade"
+			"textures": "textures/items/machinery/energy_upgrade"
 		},
 		"utilitycraft_base_upgrade": {
-			"textures": "textures/items/base_upgrade"
+			"textures": "textures/items/machinery/base_upgrade"
 		},
 		"utilitycraft_ultimate_upgrade": {
-			"textures": "textures/items/ultimate_upgrade"
+			"textures": "textures/items/machinery/ultimate_upgrade"
 		},
 		"utilitycraft_damage_upgrade":{
-			"textures": "textures/items/damage_upgrade"
+			"textures": "textures/items/machinery/damage_upgrade"
 		},
 		"utilitycraft_accelerator_clock": {
-			"textures": "textures/items/accelerator_clock"
+			"textures": "textures/items/misc/accelerator_clock"
 		},
 		"utilitycraft_raw_steel": {
-			"textures": "textures/items/Raw_steel"
+			"textures": "textures/items/ores/raw_steel"
 		},
 		"utilitycraft_steel_dust": {
-			"textures": "textures/items/Steel_dust"
+			"textures": "textures/items/dusts/steel_dust"
 		},
 		"utilitycraft_steel_nugget": {
-			"textures": "textures/items/Steel_nugget"
+			"textures": "textures/items/ores/steel_nugget"
 		},
 		"utilitycraft_steel_plate": {
-			"textures": "textures/items/Steel_plate"
+			"textures": "textures/items/plates/steel_plate"
 		},
 		"utilitycraft_info": {
 			"textures": "textures/items/progress_bars/info"
@@ -1398,22 +1398,22 @@
 			"textures": "textures/items/fiber"
 		},
 		"utilitycraft_mortar": {
-			"textures": "textures/items/morter"
+			"textures": "textures/items/tools/morter"
 		},
 		"utilitycraft_utility_book": {
 			"textures": "textures/items/utility_book/dorios_book"
 		},
 		"utilitycraft_blueprint_paper": {
-			"textures": "textures/items/blueprint_paper"
+			"textures": "textures/items/machinery/blueprint_paper"
 		},
 		"utilitycraft_blueprint": {
-			"textures": "textures/items/blueprint_used"
+			"textures": "textures/items/machinery/blueprint_used"
 		},
 		"utilitycraft_crushed_kelp": {
-			"textures": "textures/items/crushed_kelp"
+			"textures": "textures/items/misc/crushed_kelp"
 		},
 		"utilitycraft_copper_mesh": {
-			"textures": "textures/items/copper_mesh"
+			"textures": "textures/items/meshes/copper_mesh"
 		}
 	}
 }
