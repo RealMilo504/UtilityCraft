@@ -17,28 +17,28 @@
 			"textures": "textures/blocks/Lucky Pickaxe"
 		},
 		"utilitycraft_cobble_gen_copper": {
-			"textures": "textures/blocks/cobble_gen_copper"
+			"textures": "textures/blocks/cobblestone_generators/cobble_gen_copper"
 		},
 		"utilitycraft_cobble_gen_iron": {
-			"textures": "textures/blocks/cobble_gen"
+			"textures": "textures/blocks/cobblestone_generators/cobble_gen"
 		},
 		"utilitycraft_cobble_gen_gold": {
-			"textures": "textures/blocks/cobble_gen_gold"
+			"textures": "textures/blocks/cobblestone_generators/cobble_gen_gold"
 		},
 		"utilitycraft_cobble_gen_emerald": {
-			"textures": "textures/blocks/cobble_gen_emerald"
+			"textures": "textures/blocks/cobblestone_generators/cobble_gen_emerald"
 		},
 		"utilitycraft_cobble_gen_diamond": {
-			"textures": "textures/blocks/cobble_gen_diamond"
+			"textures": "textures/blocks/cobblestone_generators/cobble_gen_diamond"
 		},
 		"utilitycraft_cobble_gen_netherite": {
-			"textures": "textures/blocks/cobble_gen_netherite"
+			"textures": "textures/blocks/cobblestone_generators/cobble_gen_netherite"
 		},
 		"utilitycraft_elevator": {
 			"textures": "textures/blocks/elevator"
 		},
 		"utilitycraft_blank_bonsai": {
-			"textures": "textures/blocks/bonsai"
+			"textures": "textures/blocks/bonsais/bonsai"
 		},
 		"utilitycraft_asphalt": {
 			"textures": "textures/blocks/asphalt"
@@ -47,7 +47,7 @@
 			"textures": "textures/blocks/Drill"
 		},
 		"utilitycraft_chunk_loader": {
-			"textures": "textures/blocks/chunk_loader"
+			"textures": "textures/blocks/cobblestone_generators/chunk_loader"
 		},
 		"utilitycraft_block_breaker": {
 			"textures": "textures/blocks/block_breaker/block_breaker"
@@ -668,67 +668,67 @@
 			"textures": "textures/blocks/Steel_block"
 		},
 		"utilitycraft_bonsai": {
-			"textures": "textures/blocks/bonsai"
+			"textures": "textures/blocks/bonsais/bonsai"
 		},
 		"utilitycraft_bonsai_sand": {
-			"textures": "textures/blocks/bonsai_sand"
+			"textures": "textures/blocks/bonsais/bonsai_sand"
 		},
 		"utilitycraft_bonsai_grass": {
-			"textures": "textures/blocks/bonsai_grass"
+			"textures": "textures/blocks/bonsais/bonsai_grass"
 		},
 		"utilitycraft_bonsai_crimson": {
-			"textures": "textures/blocks/bonsai_crimson"
+			"textures": "textures/blocks/bonsais/bonsai_crimson"
 		},
 		"utilitycraft_bonsai_warped": {
-			"textures": "textures/blocks/bonsai_warped"
+			"textures": "textures/blocks/bonsais/bonsai_warped"
 		},
 		"utilitycraft_bonsai_soulsand": {
-			"textures": "textures/blocks/bonsai_soulsand"
+			"textures": "textures/blocks/bonsais/bonsai_soulsand"
 		},
 		"utilitycraft_bonsai_endstone": {
-			"textures": "textures/blocks/bonsai_endstone"
+			"textures": "textures/blocks/bonsais/bonsai_endstone"
 		},
 		"utilitycraft_bonsai_redsand": {
-			"textures": "textures/blocks/bonsai_redsand"
+			"textures": "textures/blocks/bonsais/bonsai_redsand"
 		},
 		"utilitycraft_bonsai_dirt": {
-			"textures": "textures/blocks/bonsai_dirt"
+			"textures": "textures/blocks/bonsais/bonsai_dirt"
 		},
 		"utilitycraft_bonsai_sand_farm": {
-			"textures": "textures/blocks/bonsai_sand_farm"
+			"textures": "textures/blocks/bonsais/bonsai_sand_farm"
 		},
 		"utilitycraft_bonsai_grass_farm": {
-			"textures": "textures/blocks/bonsai_grass_farm"
+			"textures": "textures/blocks/bonsais/bonsai_grass_farm"
 		},
 		"utilitycraft_bonsai_crimson_farm": {
-			"textures": "textures/blocks/bonsai_crimson_farm"
+			"textures": "textures/blocks/bonsais/bonsai_crimson_farm"
 		},
 		"utilitycraft_bonsai_warped_farm": {
-			"textures": "textures/blocks/bonsai_warped_farm"
+			"textures": "textures/blocks/bonsais/bonsai_warped_farm"
 		},
 		"utilitycraft_bonsai_soulsand_farm": {
-			"textures": "textures/blocks/bonsai_soulsand_farm"
+			"textures": "textures/blocks/bonsais/bonsai_soulsand_farm"
 		},
 		"utilitycraft_bonsai_endstone_farm": {
-			"textures": "textures/blocks/bonsai_endstone_farm"
+			"textures": "textures/blocks/bonsais/bonsai_endstone_farm"
 		},
 		"utilitycraft_bonsai_redsand_farm": {
-			"textures": "textures/blocks/bonsai_redsand_farm"
+			"textures": "textures/blocks/bonsais/bonsai_redsand_farm"
 		},
 		"utilitycraft_bonsai_dirt_farm": {
-			"textures": "textures/blocks/bonsai_dirt_farm"
+			"textures": "textures/blocks/bonsais/bonsai_dirt_farm"
 		},
 		"utilitycraft_bonsai_soil_1": {
-			"textures": "textures/blocks/bonsai_soil_1"
+			"textures": "textures/blocks/bonsais/bonsai_soil_1"
 		},
 		"utilitycraft_bonsai_soil_2": {
-			"textures": "textures/blocks/bonsai_soil_2"
+			"textures": "textures/blocks/bonsais/bonsai_soil_2"
 		},
 		"utilitycraft_bonsai_soil_3": {
-			"textures": "textures/blocks/bonsai_soil_3"
+			"textures": "textures/blocks/bonsais/bonsai_soil_3"
 		},
 		"utilitycraft_bonsai_soil_4": {
-			"textures": "textures/blocks/bonsai_soil_4"
+			"textures": "textures/blocks/bonsais/bonsai_soil_4"
 		},
 		"utilitycraft_battery_basic_0": {
 			"textures": "textures/blocks/generators/battery_basic_0"
@@ -926,19 +926,19 @@
 			"textures": "textures/blocks/Block_of_raw_steel"
 		},
 		"utilitycraft_electro_press": {
-			"textures": "textures/blocks/Autocompacter_on"
+			"textures": "textures/blocks/Machines/Autocompacter_on"
 		},
 		"utilitycraft_block_placer": {
-			"textures": "textures/blocks/Block_placer_on"
+			"textures": "textures/blocks/Machines/Block_placer_on"
 		},
 		"utilitycraft_xp_condenser": {
 			"textures": "textures/blocks/XP_computer_full"
 		},
 		"utilitycraft_seed_synthesizer": {
-			"textures": "textures/blocks/Crop_synthesizer_on"
+			"textures": "textures/blocks/Machines/Crop_synthesizer_on"
 		},
 		"utilitycraft_incinerator": {
-			"textures": "textures/blocks/Incinerator_on"
+			"textures": "textures/blocks/Machines/Incinerator_on"
 		},
 		"utilitycraft_crusher_on": {
 			"textures": "textures/blocks/Machines/Crusher_on"
