@@ -428,7 +428,7 @@ globalThis.DoriosAPI = {
          * ## Features
          * - Works with both blocks and entities at the given positions.
          * - Automatically detects valid inventories using `minecraft:inventory`.
-         * - Uses DoriosAPI.addItem() for full compatibility with Dorios containers and vanilla chests.
+         * - Uses DoriosAPI.containers.addItem() for full compatibility with Dorios containers and vanilla chests.
          *
          * @function transferItemsBetween
          * @memberof DoriosAPI

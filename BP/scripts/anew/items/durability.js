@@ -2,7 +2,7 @@ import { world, ItemStack } from '@minecraft/server'
 
 world.afterEvents.playerBreakBlock.subscribe(({ itemStackAfterBreak, player }) => {
     if (!itemStackAfterBreak) return
-    if (!itemStackAfterBreak.typeId.startsWith('utilitycraft:')) return
+    if (!itemStackAfterBreak.typeId.startsWith('utilitycraft:') || itemStackAfterBreak.typeId.includes('mesh')) return
     if (!itemStackAfterBreak.getComponent('durability')) return
     if (itemStackAfterBreak.durability.damage()) {
         player.setEquipment("Mainhand", itemStackAfterBreak)
@@ -18,7 +18,7 @@ world.afterEvents.entityHitEntity.subscribe(({ damagingEntity }) => {
     /** @type {ItemStack} */
     const itemStack = player.getEquipment("Mainhand")
     if (!itemStack) return
-    if (!itemStack.typeId.startsWith('utilitycraft:')) return
+    if (!itemStack.typeId.startsWith('utilitycraft:') || itemStackAfterBreak.typeId.includes('mesh')) return
     if (!itemStack.getComponent('durability')) return
     if (itemStack.durability.damage()) {
         player.setEquipment("Mainhand", itemStack)
@@ -28,9 +28,3 @@ world.afterEvents.entityHitEntity.subscribe(({ damagingEntity }) => {
     }
 })
 
-// DoriosAPI.register.itemComponent('durability', {
-//     onMineBlock({ itemStack, source }) {
-//         itemStack.durability.damage(1, 1)
-//         source.setEquipment("Mainhand", itemStack)
-//     }
-// })
