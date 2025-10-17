@@ -2,7 +2,11 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "utilitycraft:diamond_seeds"
+			"identifier": "utilitycraft:diamond_seeds",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.seed"
+			}
 		},
 		"components": {
 			"minecraft:icon": "utilitycraft_diamond_seeds",

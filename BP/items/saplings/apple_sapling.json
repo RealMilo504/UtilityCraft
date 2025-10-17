@@ -4,7 +4,8 @@
     "description": {
       "identifier": "utilitycraft:apple_sapling",
       "menu_category": {
-        "category": "nature"
+        "category": "nature",
+        "group": "itemGroup.name.sapling"
       }
     },
     "components": {

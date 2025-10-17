@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "utilitycraft:chip",
 			"menu_category": {
-				"category": "nature"
+				"category": "items"
 			}
 		},
 		"components": {

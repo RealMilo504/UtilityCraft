@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "utilitycraft:copper_mesh",
 			"menu_category": {
-				"category": "nature"
+				"category": "construction"
 			}
 		},
 		"components": {

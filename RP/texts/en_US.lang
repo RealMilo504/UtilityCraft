@@ -412,13 +412,14 @@ item.utilitycraft:wither_seeds=Wither Seeds \n§8Tier 4
 ## -------- Close Group <<<<<<<< ##
 
 - Mesh = ## Meshs
-item.utilitycraft:string_mesh=String Mesh
-item.utilitycraft:flint_mesh=Flint Mesh
-item.utilitycraft:iron_mesh=Iron Mesh
-item.utilitycraft:golden_mesh=Golden Mesh
-item.utilitycraft:emerald_mesh=Emerald Mesh
-item.utilitycraft:diamond_mesh=Diamond Mesh
-item.utilitycraft:netherite_mesh=Netherite Mesh
+item.utilitycraft:string_mesh=String Mesh\n§7- Max Drop Tier: Coal
+item.utilitycraft:flint_mesh=§7Flint§r Mesh\n§7- Max Drop Tier: Iron
+item.utilitycraft:copper_mesh=§nCopper§r Mesh\n§7- Max Drop Tier: Gold
+item.utilitycraft:iron_mesh=§iIron§r Mesh\n§7- Max Drop Tier: Diamond
+item.utilitycraft:golden_mesh=§pGolden§r Mesh\n§7- Max Drop Tier: Diamond
+item.utilitycraft:emerald_mesh=§aEmerald§r Mesh\n§7- Max Drop Tier: Diamond
+item.utilitycraft:diamond_mesh=§bDiamond§r Mesh\n§7- Max Drop Tier: Diamond
+item.utilitycraft:netherite_mesh=§jNetherite§r Mesh\n§7- Max Drop Tier: Diamond\n- Does not drop flint
 
 - Essences = ## Essences
 item.utilitycraft:essence_vessel=Essence Vessel \n§7- Right click or interact with an entity\n- Kill mobs of that type to fill the essence
@@ -672,6 +673,10 @@ dorios:itemGroup.name.generators=Generators
 dorios:itemGroup.name.machines=Machines
 dorios:itemGroup.name.batteries=Batteries
 dorios:itemGroup.name.basics=Basics
+dorios:itemGroup.name.meshes=Meshes
+dorios:itemGroup.name.essences=Essences\n§7- Used in Mechanical Spawner
+dorios:itemGroup.name.upgrades=Machine Upgrades
+dorios:itemGroup.name.plates=Plates
 dorios:itemGroup.name.seeds=Seeds
 dorios:itemGroup.name.mob_grinding=Mob Grinding
 dorios:itemGroup.name.transportation=Item Transportation
@@ -804,4 +809,3 @@ entity.utilitycraft:solar_panel.name=Solar Panel
 entity.utilitycraft:thermo_generator.name=Thermo Generator
 tile.utilitycraft:blaze_block.name=Blaze Core
 item.utilitycraft:crushed_kelp=Crushed Kelp
-item.utilitycraft:copper_mesh=Copper Mesh

@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "utilitycraft:accelerator_clock",
 			"menu_category": {
-				"category": "nature"
+				"category": "equipment"
 			}
 		},
 		"components": {

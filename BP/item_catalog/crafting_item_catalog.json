@@ -109,6 +109,22 @@
                     },
                     {
                         "group_identifier": {
+                            "icon": "utilitycraft:netherite_mesh",
+                            "name": "dorios:itemGroup.name.meshes"
+                        },
+                        "items": [
+                            "utilitycraft:netherite_mesh",
+                            "utilitycraft:diamond_mesh",
+                            "utilitycraft:emerald_mesh",
+                            "utilitycraft:golden_mesh",
+                            "utilitycraft:iron_mesh",
+                            "utilitycraft:copper_mesh",
+                            "utilitycraft:flint_mesh",
+                            "utilitycraft:string_mesh"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
                             "icon": "utilitycraft:ultimate_fluid_tank",
                             "name": "dorios:itemGroup.name.tanks"
                         },
@@ -334,42 +350,31 @@
                 "groups": [
                     {
                         "group_identifier": {
-                            "icon": "utilitycraft:diamond_seeds",
-                            "name": "dorios:itemGroup.name.seeds"
+                            "icon": "utilitycraft:speed_upgrade",
+                            "name": "dorios:itemGroup.name.upgrades"
                         },
                         "items": [
-                            "utilitycraft:base_seeds",
-                            "utilitycraft:coal_seeds",
-                            "utilitycraft:copper_seeds",
-                            "utilitycraft:dyes_seeds",
-                            "utilitycraft:glass_seeds",
-                            "utilitycraft:gunpowder_seeds",
-                            "utilitycraft:iron_seeds",
-                            "utilitycraft:leather_seeds",
-                            "utilitycraft:prismarine_crystals_seeds",
-                            "utilitycraft:prismarine_shards_seeds",
-                            "utilitycraft:water_seeds",
-                            "utilitycraft:wool_seeds",
-                            "utilitycraft:ghast_seeds",
-                            "utilitycraft:glowstone_seeds",
-                            "utilitycraft:gold_seeds",
-                            "utilitycraft:honey_seeds",
-                            "utilitycraft:lapis_seeds",
-                            "utilitycraft:lava_seeds",
-                            "utilitycraft:quartz_seeds",
-                            "utilitycraft:redstone_seeds",
-                            "utilitycraft:slime_seeds",
-                            "utilitycraft:amethyst_seeds",
-                            "utilitycraft:blaze_seeds",
-                            "utilitycraft:diamond_seeds",
-                            "utilitycraft:emerald_seeds",
-                            "utilitycraft:enderpearl_seeds",
-                            "utilitycraft:obsidian_seeds",
-                            "utilitycraft:nether_star_seeds",
-                            "utilitycraft:netherite_seeds",
-                            "utilitycraft:shulker_seeds",
-                            "utilitycraft:totem_seeds",
-                            "utilitycraft:wither_seeds"
+                            "utilitycraft:speed_upgrade",
+                            "utilitycraft:quantity_upgrade",
+                            "utilitycraft:energy_upgrade",
+                            "utilitycraft:range_upgrade",
+                            "utilitycraft:base_upgrade",
+                            "utilitycraft:filter_upgrade",
+                            "utilitycraft:damage_upgrade"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "utilitycraft:netherite_plate",
+                            "name": "dorios:itemGroup.name.plates"
+                        },
+                        "items": [
+                            "utilitycraft:netherite_plate",
+                            "utilitycraft:energized_iron_plate",
+                            "utilitycraft:golden_plate",
+                            "utilitycraft:steel_plate",
+                            "utilitycraft:iron_plate",
+                            "utilitycraft:copper_plate"
                         ]
                     },
                     {
@@ -502,6 +507,35 @@
                             "utilitycraft:copper_hammer",
                             "utilitycraft:stone_hammer",
                             "utilitycraft:wooden_hammer"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "nature",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "utilitycraft:essence_vessel",
+                            "name": "dorios:itemGroup.name.essences"
+                        },
+                        "items": [
+                            "utilitycraft:essence_vessel",
+                            "utilitycraft:blaze_essence",
+                            "utilitycraft:chicken_essence",
+                            "utilitycraft:cow_essence",
+                            "utilitycraft:creeper_essence",
+                            "utilitycraft:enderman_essence",
+                            "utilitycraft:hoglin_essence",
+                            "utilitycraft:magma_cube_essence",
+                            "utilitycraft:mooshroom_essence",
+                            "utilitycraft:pig_essence",
+                            "utilitycraft:sheep_essence",
+                            "utilitycraft:skeleton_essence",
+                            "utilitycraft:slime_essence",
+                            "utilitycraft:spider_essence",
+                            "utilitycraft:wither_skeleton_essence",
+                            "utilitycraft:zombie_essence"
                         ]
                     }
                 ]

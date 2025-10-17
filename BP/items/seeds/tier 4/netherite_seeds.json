@@ -2,7 +2,11 @@
 	"format_version": "1.21.110",
 	"minecraft:item": {
 		"description": {
-			"identifier": "utilitycraft:netherite_seeds"
+			"identifier": "utilitycraft:netherite_seeds",
+			"menu_category": {
+				"category": "nature",
+				"group": "minecraft:itemGroup.name.seed"
+			}
 		},
 		"components": {
 			"minecraft:icon": "utilitycraft_netherite_seeds",

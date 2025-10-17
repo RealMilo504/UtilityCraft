@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "utilitycraft:diamond_mesh",
 			"menu_category": {
-				"category": "equipment"
+				"category": "construction"
 			}
 		},
 		"components": {

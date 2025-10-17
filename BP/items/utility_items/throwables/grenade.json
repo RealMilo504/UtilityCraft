@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "utilitycraft:grenade",
 			"menu_category": {
-				"category": "nature"
+				"category": "equipment"
 			}
 		},
 		"components": {

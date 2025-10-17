@@ -468,14 +468,14 @@ item.utilitycraft:tuff_pebble=Gravilha de Tufo
 item.utilitycraft:wither_skull_shard=Fragmento de Crânio do Wither
 
 - Mesh = ## Malha
-item.utilitycraft:copper_mesh=Malha de Cobre
-item.utilitycraft:string_mesh=Malha de Linha
-item.utilitycraft:flint_mesh=Malha de Sílex
-item.utilitycraft:iron_mesh=Malha de Ferro
-item.utilitycraft:golden_mesh=Malha de Ouro
-item.utilitycraft:emerald_mesh=Malha de Esmeralda
-item.utilitycraft:diamond_mesh=Malha de Diamante
-item.utilitycraft:netherite_mesh=Malha de Netherita
+item.utilitycraft:copper_mesh=Malha de §vCobre§r\n§7- Tier Máx: Ouro
+item.utilitycraft:string_mesh=Malha de Linha\n§7- Tier Máx: Carvão
+item.utilitycraft:flint_mesh=Malha de §7Sílex§r\n§7- Tier Máx: Ferro
+item.utilitycraft:iron_mesh=Malha de §iFerro§r\n§7- Tier Máx: Diamante
+item.utilitycraft:golden_mesh=Malha de §pOuro§r\n§7- Tier Máx: Diamante
+item.utilitycraft:emerald_mesh=Malha de §aEsmeralda§r\n§7- Tier Máx: Diamante
+item.utilitycraft:diamond_mesh=Malha de §bDiamante§r\n§7- Tier Máx: Diamante
+item.utilitycraft:netherite_mesh=Malha de §jNetherita§r\n§7- Tier Máx: Diamante\n- Não solta sílex
 
 - Essences = ## Essências
 item.utilitycraft:essence_vessel=Garrafa de Essência \n§7- Interaja com um mob para escolher\n- Mate mobs do mesmo tipo para preencher\n- Precisa estar na segunda mão

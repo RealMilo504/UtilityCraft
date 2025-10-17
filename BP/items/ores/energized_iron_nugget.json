@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "utilitycraft:energized_iron_nugget",
 			"menu_category": {
-				"category": "nature"
+				"category": "items"
 			}
 		},
 		"components": {
