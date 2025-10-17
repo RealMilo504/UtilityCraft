@@ -1,6 +1,8 @@
 # UtilityCraft
 UtilityCraft Minecraft Bedrock Add-On
 
+See the changelog [here](./changelog.md)
+
 See also UtilityCraft Expansions:
 
 - [Chiselling Project](https://github.com/Kauziin/UC-Extra-Content/tree/main/Chiseling%20Project)
