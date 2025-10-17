@@ -926,19 +926,19 @@
 			"textures": "textures/blocks/Block_of_raw_steel"
 		},
 		"utilitycraft_electro_press": {
-			"textures": "textures/blocks/Machines/Autocompacter_on"
+			"textures": "textures/blocks/Autocompacter_on"
 		},
 		"utilitycraft_block_placer": {
-			"textures": "textures/blocks/Machines/Block_placer_on"
+			"textures": "textures/blocks/Block_placer_on"
 		},
 		"utilitycraft_xp_condenser": {
 			"textures": "textures/blocks/XP_computer_full"
 		},
 		"utilitycraft_seed_synthesizer": {
-			"textures": "textures/blocks/Machines/Crop_synthesizer_on"
+			"textures": "textures/blocks/Crop_synthesizer_on"
 		},
 		"utilitycraft_incinerator": {
-			"textures": "textures/blocks/Machines/Incinerator_on"
+			"textures": "textures/blocks/Incinerator_on"
 		},
 		"utilitycraft_crusher_on": {
 			"textures": "textures/blocks/Machines/Crusher_on"

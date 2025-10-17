@@ -8,7 +8,7 @@
 			}
 		},
 		"components": {
-			"minecraft:icon": "utilitycraft_lucky_fishing_rod",
+			"minecraft:icon": "fishing_rod",
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:glint": true

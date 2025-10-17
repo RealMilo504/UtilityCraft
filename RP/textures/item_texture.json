@@ -1131,124 +1131,124 @@
 			"textures": "textures/ui/progress_bar/arrow_right_22"
 		},
 		"utilitycraft_way_chip": {
-			"textures": "textures/items/Way_Chip_Anchored_V2"
+			"textures": "textures/items/machinery/Way_Chip_Anchored_V2"
 		},
 		"utilitycraft_amethyst_dust": {
-			"textures": "textures/items/Amethyst_dust"
+			"textures": "textures/items/dusts/amethyst_dust"
 		},
 		"utilitycraft_diamond_dust": {
-			"textures": "textures/items/Diamond_dust"
+			"textures": "textures/items/dusts/diamond_dust"
 		},
 		"utilitycraft_emerald_dust": {
-			"textures": "textures/items/Emerald_dust"
+			"textures": "textures/items/dusts/emerald_dust"
 		},
 		"utilitycraft_obsidian_dust": {
-			"textures": "textures/items/Obsidian_dust"
+			"textures": "textures/items/dusts/obsidian_dust"
 		},
 		"utilitycraft_quartz_dust": {
-			"textures": "textures/items/Quartz_dust"
+			"textures": "textures/items/dusts/quartz_dust"
 		},
 		"utilitycraft_copper_dust": {
-			"textures": "textures/items/Copper_dust"
+			"textures": "textures/items/dusts/copper_dust"
 		},
 		"utilitycraft_gold_dust": {
-			"textures": "textures/items/Gold_dust"
+			"textures": "textures/items/dusts/gold_dust"
 		},
 		"utilitycraft_iron_dust": {
-			"textures": "textures/items/Iron_dust"
+			"textures": "textures/items/dusts/iron_dust"
 		},
 		"utilitycraft_netherite_dust": {
-			"textures": "textures/items/Netherite_dust"
+			"textures": "textures/items/dusts/netherite_dust"
 		},
 		"utilitycraft_netherite_scrap_dust": {
-			"textures": "textures/items/Netherite_scrap_dust"
+			"textures": "textures/items/dusts/netherite_scrap_dust"
 		},
 		"utilitycraft_charcoal_dust": {
-			"textures": "textures/items/Charcoal_dust"
+			"textures": "textures/items/dusts/charcoal_dust"
 		},
 		"utilitycraft_coal_dust": {
-			"textures": "textures/items/Coal_dust"
+			"textures": "textures/items/dusts/coal_dust"
 		},
 		"utilitycraft_crying_obsidian_dust": {
-			"textures": "textures/items/Crying_obsidian_powder"
+			"textures": "textures/items/dusts/crying_obsidian_dust"
 		},
 		"utilitycraft_refined_obsidian_dust": {
-			"textures": "textures/items/Refined_obsidian_powder"
+			"textures": "textures/items/dusts/refined_obsidian_dust"
 		},
 		"utilitycraft_filter_upgrade": {
-			"textures": "textures/items/filter_upgrade"
+			"textures": "textures/items/machinery/filter_upgrade"
 		},
 		"utilitycraft_raw_copper_dust": {
-			"textures": "textures/items/Raw_copper_dust"
+			"textures": "textures/items/dusts/raw_copper_dust"
 		},
 		"utilitycraft_raw_gold_dust": {
-			"textures": "textures/items/Raw_gold_dust"
+			"textures": "textures/items/dusts/raw_gold_dust"
 		},
 		"utilitycraft_raw_iron_dust": {
-			"textures": "textures/items/Raw_iron_dust"
+			"textures": "textures/items/dusts/raw_iron_dust"
 		},
 		"utilitycraft_chip": {
-			"textures": "textures/items/chip"
+			"textures": "textures/items/machinery/chip"
 		},
 		"utilitycraft_basic_chip": {
-			"textures": "textures/items/basic_chip"
+			"textures": "textures/items/machinery/basic_chip"
 		},
 		"utilitycraft_advanced_chip": {
-			"textures": "textures/items/advanced_chip"
+			"textures": "textures/items/machinery/advanced_chip"
 		},
 		"utilitycraft_expert_chip": {
-			"textures": "textures/items/expert_chip"
+			"textures": "textures/items/machinery/expert_chip"
 		},
 		"utilitycraft_ultimate_chip": {
-			"textures": "textures/items/ultimate_chip"
+			"textures": "textures/items/machinery/ultimate_chip"
 		},
 		"utilitycraft_energized_iron_ingot": {
-			"textures": "textures/items/Energized_iron_ingot"
+			"textures": "textures/items/ores/energized_iron_ingot"
 		},
 		"utilitycraft_energized_iron_dust": {
-			"textures": "textures/items/Energized_iron_dust"
+			"textures": "textures/items/dusts/energized_iron_dust"
 		},
 		"utilitycraft_energized_iron_nugget": {
-			"textures": "textures/items/Energized_iron_nugget"
+			"textures": "textures/items/ores/energized_iron_nugget"
 		},
 		"utilitycraft_energized_iron_plate": {
-			"textures": "textures/items/Energized_iron_plate"
+			"textures": "textures/items/plates/energized_iron_plate"
 		},
 		"utilitycraft_raw_energized_iron": {
-			"textures": "textures/items/Brute_energized_iron"
+			"textures": "textures/items/ores/brute_energized_iron"
 		},
 		"utilitycraft_energized_iron_block": {
-			"textures": "textures/items/Block_of_energized_iron"
+			"textures": "textures/blocks/Block_of_energized_iron"
 		},
 		"utilitycraft_copper_plate": {
-			"textures": "textures/items/Copper_plate"
+			"textures": "textures/items/plates/copper_plate"
 		},
 		"utilitycraft_gold_plate": {
-			"textures": "textures/items/Gold_plate"
+			"textures": "textures/items/plates/gold_plate"
 		},
 		"utilitycraft_iron_plate": {
-			"textures": "textures/items/Iron_plate"
+			"textures": "textures/items/plates/iron_plate"
 		},
 		"utilitycraft_netherite_nugget": {
-			"textures": "textures/items/Netherite_nugget"
+			"textures": "textures/items/ores/netherite_nugget"
 		},
 		"utilitycraft_netherite_plate": {
-			"textures": "textures/items/Netherite_plate"
+			"textures": "textures/items/plates/netherite_plate"
 		},
 		"utilitycraft_arrow_indicator_90": {
-			"textures": "textures/items/arrow_indicator_90"
+			"textures": "textures/items/misc/arrow_indicator_90"
 		},
 		"utilitycraft_ender_pearl_dust": {
-			"textures": "textures/items/Ender_pearl_dust"
+			"textures": "textures/items/dusts/ender_pearl_dust"
 		},
 		"utilitycraft_emerald_mesh": {
-			"textures": "textures/items/emerald_mesh"
+			"textures": "textures/items/meshes/emerald_mesh"
 		},
 		"utilitycraft_fint_mesh": {
-			"textures": "textures/items/flint_mesh"
+			"textures": "textures/items/meshes/flint_mesh"
 		},
 		"utilitycraft_golden_mesh": {
-			"textures": "textures/items/golden_mesh"
+			"textures": "textures/items/meshes/golden_mesh"
 		},
 		"utilitycraft_ancient_debris_chunk": {
 			"textures": "textures/items/pebbles/ancient_debris_chunk"
@@ -1392,10 +1392,10 @@
 			"textures": "textures/items/pebbles/wither_skull_shard"
 		},
 		"utilitycraft_flint_knife": {
-			"textures": "textures/items/flint_knife"
+			"textures": "textures/items/tools/flint_knife"
 		},
 		"utilitycraft_fiber": {
-			"textures": "textures/items/fiber"
+			"textures": "textures/items/misc/fiber"
 		},
 		"utilitycraft_mortar": {
 			"textures": "textures/items/tools/morter"
