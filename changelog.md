@@ -1,6 +1,18 @@
 # UtilityCraft 3.2 | Full Changelog
 ---
 ## BLOCKS
+### Generators
+- Furnator
+  - Furnator now shows remaining burn time for the current fuel
+  - Displays the total energy output of each fuel type
+- Solar Panel
+  - Displays the current in-game time  
+  - Generation is affected by efficiency  
+  - Operates from 23000(-1000) to 13000 ticks, peaking at 6000
+- Magmator
+  - Displays remaining fuel time
+- Thermo Generator
+  - Displays heat source multiplier
 ### Machines
 - Reworked Sieving System:
   - Added Mesh Tiers.
