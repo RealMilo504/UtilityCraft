@@ -1,0 +1,27 @@
+{
+    "format_version": "1.21.90",
+    "minecraft:item": {
+        "description": {
+            "identifier": "utilitycraft:steel_sword",
+            "menu_category": {
+                "category": "equipment",
+                "group": "minecraft:itemGroup.name.sword"
+            }
+        },
+        "components": {
+            "minecraft:icon": "utilitycraft_steel_sword",
+            "minecraft:max_stack_size": 1,
+            "minecraft:hand_equipped": true,
+            "minecraft:durability": {
+                "max_durability": 625
+            },
+            "minecraft:damage": {
+                "value": 6
+            },
+            "minecraft:enchantable": {
+                "slot": "sword",
+                "value": 10
+            }
+        }
+    }
+}

@@ -22,7 +22,7 @@ tile.utilitycraft:xp_magnet.name=XP Magnet\n§7- Accepts upgrades:\n §9Range§7
 tile.utilitycraft:xp_drain.name=XP Drain
 tile.utilitycraft:xp_spout.name=XP Spout
 ## +
-tile.utilitycraft:cobble_gen_0.name=Cobblestone Generator (Tier 1)\n§7- Produces 0.25 per second
+tile.utilitycraft:cobble_gen_0.name=Cobblestone Generator (§vTier 1§r)\n§7- Produces 0.25 per second
 tile.utilitycraft:cobble_gen_1.name=Cobblestone Generator (Tier 2) \n§7- Produces 0.5 per second
 tile.utilitycraft:cobble_gen_2.name=Cobblestone Generator (§eTier 3§r) \n§7- Produces 1 per second
 tile.utilitycraft:cobble_gen_3.name=Cobblestone Generator (§aTier 4§r) \n§7- Produces 2 per second
@@ -323,14 +323,18 @@ item.utilitycraft:lucky_sword_item=§aLucky Sword\n§7Looting V
 item.utilitycraft:netherite_aiot=Netherite AIOT
 item.utilitycraft:diamond_aiot=Diamond AIOT
 item.utilitycraft:golden_aiot=Golden AIOT
+item.utilitycraft:steel_aiot=Steel AIOT
 item.utilitycraft:iron_aiot=Iron AIOT
+item.utilitycraft:copper_aiot=Copper AIOT
 item.utilitycraft:stone_aiot=Stone AIOT
 item.utilitycraft:wooden_aiot=Wooden AIOT
 
 -- Paxels = ## Pacachados
 item.utilitycraft:netherite_paxel=Netherite Paxel
 item.utilitycraft:diamond_paxel=Diamond Paxel
+item.utilitycraft:steel_paxel=Steel Paxel
 item.utilitycraft:iron_paxel=Iron Paxel
+item.utilitycraft:copper_paxel=Copper Paxel
 item.utilitycraft:golden_paxel=Golden Paxel
 item.utilitycraft:stone_paxel=Stone Paxel
 item.utilitycraft:wooden_paxel=Wooden Paxel
@@ -338,9 +342,18 @@ item.utilitycraft:wooden_paxel=Wooden Paxel
 -- Hammers = ## Martelos
 item.utilitycraft:netherite_hammer=Netherite Hammer
 item.utilitycraft:diamond_hammer=Diamond Hammer
+item.utilitycraft:steel_hammer=Steel Hammer
 item.utilitycraft:iron_hammer=Iron Hammer
+item.utilitycraft:copper_hammer=Copper Hammer
 item.utilitycraft:stone_hammer=Stone Hammer
 item.utilitycraft:wooden_hammer=Wooden Hammer
+
+-- Steel = ## Aço
+item.utilitycraft:steel_sword=Steel Sword
+item.utilitycraft:steel_axe=Steel Axe
+item.utilitycraft:steel_pickaxe=Steel Pickaxe
+item.utilitycraft:steel_shovel=Steel Shovel
+item.utilitycraft:steel_hoe=Steel Hoe
 
 -- Special Tools = ## Ferramentas Especiais
 item.utilitycraft:lucky_pickaxe=§aLucky Pickaxe\n§7Fortune V

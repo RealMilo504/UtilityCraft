@@ -35,7 +35,7 @@ item.utilitycraft:mortar=Pilão
 tile.utilitycraft:seed_synthesizer.name=Sintetizador de Sementes\n§7- Aceita melhorias:\n §aVelocidade§7, §bEficiencia§7
 tile.utilitycraft:xp_condenser.name=Condensador de XP\n§7- Armazena XP
 ## COBBLE GEN
-tile.utilitycraft:cobble_gen_0.name=Gerador de Pedregulho (Tier I)\n§7- Gera 0.25 por segundo
+tile.utilitycraft:cobble_gen_0.name=Gerador de Pedregulho (§vTier I§r)\n§7- Gera 0.25 por segundo
 tile.utilitycraft:cobble_gen_1.name=Gerador de Pedregulho (Tier II)\n§7- Gera 0.5 por segundo
 tile.utilitycraft:cobble_gen_2.name=Gerador de Pedregulho (§eTier III§r)\n§7- Gera 1 por segundo
 tile.utilitycraft:cobble_gen_3.name=Gerador de Pedregulho (§aTier IV§r)\n§7- Gera 2 por segundo

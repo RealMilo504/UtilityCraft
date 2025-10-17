@@ -11,6 +11,9 @@
 		"utilitycraft_diamond_aiot": {
 			"textures": "textures/items/Diamond AIOT"
 		},
+		"utilitycraft_steel_aiot": {
+			"textures": "textures/items/tools/steel_paxel"
+		},
 		"utilitycraft_iron_aiot": {
 			"textures": "textures/items/Iron AIOT"
 		},
@@ -22,6 +25,9 @@
 		},
 		"utilitycraft_diamond_paxel": {
 			"textures": "textures/items/Diamond Paxel"
+		},
+		"utilitycraft_steel_paxel": {
+			"textures": "textures/items/tools/steel_paxel"
 		},
 		"utilitycraft_iron_paxel": {
 			"textures": "textures/items/Iron Paxel"
@@ -71,11 +77,38 @@
 		"utilitycraft_diamond_hammer": {
 			"textures": "textures/items/Diamond Hammer"
 		},
+		"utilitycraft_steel_hammer": {
+			"textures": "textures/items/tools/steel_hammer"
+		},
 		"utilitycraft_iron_hammer": {
 			"textures": "textures/items/Iron Hammer"
 		},
 		"utilitycraft_wooden_hammer": {
 			"textures": "textures/items/Wooden Hammer"
+		},
+		"utilitycraft_copper_hammer": {
+			"textures": "textures/items/tools/copper_hammer"
+		},
+		"utilitycraft_copper_aiot": {
+			"textures": "textures/items/tools/copper_aiot"
+		},
+		"utilitycraft_copper_paxel": {
+			"textures": "textures/items/tools/copper_paxel"
+		},
+		"utilitycraft_steel_sword": {
+			"textures": "textures/items/tools/steel_sword"
+		},
+		"utilitycraft_steel_shovel": {
+			"textures": "textures/items/tools/steel_shovel"
+		},
+		"utilitycraft_steel_pickaxe": {
+			"textures": "textures/items/tools/steel_pickaxe"
+		},
+		"utilitycraft_steel_axe": {
+			"textures": "textures/items/tools/steel_axe"
+		},
+		"utilitycraft_steel_hoe": {
+			"textures": "textures/items/tools/steel_hoe"
 		},
 		"utilitycraft_smelting_pickaxe": {
 			"textures": "textures/items/Smelting Pickaxe"
