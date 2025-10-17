@@ -28,11 +28,11 @@ DoriosAPI.register.blockComponent('battery', {
      * @param {{ params: GeneratorSettings }} ctx
      */
     onTick(e, { params }) {
+        if (!worldLoaded) return;
         const settings = {
             entity: entitySettings,
             generator: params
         }
-        if (!worldLoaded) return;
         const { block } = e;
         const generator = new Generator(block, settings);
         if (!generator.entity) return;

@@ -3,6 +3,7 @@ import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
 
 DoriosAPI.register.blockComponent('mechanic_hopper', {
     onTick({ block, dimension }, { params }) {
+        if (!worldLoaded) return;
         if (!block.isValid || block.isAir) return;
 
         const dir = block.permutation.getState("minecraft:block_face");

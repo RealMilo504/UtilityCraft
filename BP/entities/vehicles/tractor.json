@@ -13,40 +13,9 @@
 			},
 			"utilitycraft:hopper": {
 				"minecraft:item_hopper": {}
-			},
-			"utilitycraft:get_items": {
-				"minecraft:timer": {
-					"time": 0.05,
-					"looping": false,
-					"time_down_event": {
-						"event": "despawn"
-					}
-				}
 			}
 		},
 		"components": {
-			"minecraft:interact": {
-				"interactions": [
-					{
-						"on_interact": {
-							"filters": [
-								{
-									"all_of": [
-										{
-											"subject": "player",
-											"test": "has_equipment",
-											"domain": "hand",
-											"operator": "==",
-											"value": "utilitycraft:wrench"
-										}
-									]
-								}
-							],
-							"event": "set_timer"
-						}
-					}
-				]
-			},
 			"minecraft:physics": {},
 			"minecraft:rideable": {
 				"seat_count": 1,
@@ -81,7 +50,8 @@
 				"value": 0.1
 			},
 			"minecraft:nameable": {
-				"allow_name_tag_renaming": false
+				"allow_name_tag_renaming": false,
+				"always_show": false
 			},
 			"minecraft:type_family": {
 				"family": [
@@ -157,34 +127,6 @@
 						"despawn"
 					]
 				}
-			},
-			"set_timer": {
-				"sequence": [
-					{
-						"remove": {
-							"component_groups": [
-								"utilitycraft:hopper"
-							]
-						}
-					},
-					{
-						"add": {
-							"component_groups": [
-								"utilitycraft:get_items"
-							]
-						}
-					},
-					{
-						"queue_command": {
-							"command": "kill @e[type=utilitycraft:tractor, r= 0.1] "
-						}
-					},
-					{
-						"queue_command": {
-							"command": "execute positioned ~~~ run function tractor_remove"
-						}
-					}
-				]
 			},
 			"items": {
 				"queue_command": {

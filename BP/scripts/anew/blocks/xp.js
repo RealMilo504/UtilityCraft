@@ -11,6 +11,7 @@ DoriosAPI.register.blockComponent("xp", {
     },
 
     onTick({ block }) {
+        if (!worldLoaded) return;
         let { x, y, z } = block.location
 
         // ========== XP DRAIN ==========
@@ -42,7 +43,7 @@ DoriosAPI.register.blockComponent("xp", {
                     )
                     y -= 1
                     block.dimension.spawnEntity(`utilitycraft:fluid_tank_xp`, { x, y, z })
-                    block.dimension.runCommandAsync(
+                    block.dimension.runCommand(
                         `tag @e[type=utilitycraft:fluid_tank_xp] add tank`
                     )
 

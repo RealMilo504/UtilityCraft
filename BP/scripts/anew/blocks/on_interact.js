@@ -19,8 +19,9 @@ const interactHandlers = {
     'utilitycraft:drill_placer': (block, player) => {
         const { x, y, z } = block.location
         block.dimension.setBlockType({ x, y, z }, 'air')
-        block.dimension.spawnEntity('utilitycraft:drill', { x, y, z })
-        player.playSound('random.anvil_land')
+        const entity = block.dimension.spawnEntity('utilitycraft:drill', { x, y, z })
+        entity.nameTag = 'Drill'
+        player.playSound('random.anvil_land', { volume: 0.5 })
     },
 
     /**
@@ -35,8 +36,9 @@ const interactHandlers = {
     'utilitycraft:tractor_placer': (block, player) => {
         const { x, y, z } = block.location
         block.dimension.setBlockType({ x, y, z }, 'air')
-        block.dimension.spawnEntity('utilitycraft:tractor', { x, y, z })
-        player.playSound('random.anvil_land')
+        const entity = block.dimension.spawnEntity('utilitycraft:tractor', { x, y, z })
+        entity.nameTag = 'Tractor'
+        player.playSound('random.anvil_land', { volume: 0.5 })
     },
 
     /**
@@ -55,11 +57,12 @@ const interactHandlers = {
         if (!heldItem) return
 
         if (heldItem.typeId === 'minecraft:bucket') {
-            player.dimension.spawnItem(new ItemStack('minecraft:water_bucket', 1), player.location)
             player.runCommand('clear @s bucket 0 1')
+            player.giveItem('minecraft:water_bucket', 1)
             player.playSound('cauldron.fillwater')
         } else if (heldItem.typeId === 'minecraft:water_bucket') {
-            equipment.setEquipment('Mainhand', new ItemStack('minecraft:bucket', 1))
+            player.runCommand('clear @s water_bucket 0 1')
+            player.giveItem('minecraft:bucket', 1)
             player.playSound('cauldron.takewater')
         }
     },
@@ -109,16 +112,26 @@ const interactHandlers = {
                 if (existsNearby) return
 
                 dimension.spawnEntity('utilitycraft:accelerator_clock', { x, y, z })
-                player.runCommandAsync('clear @s utilitycraft:accelerator_clock 0 1')
+                player.runCommand('clear @s utilitycraft:accelerator_clock 0 1')
                 block.setPermutation(block.permutation.withState('utilitycraft:hasItem', 1))
             }
         }
     }
 }
 
-world.afterEvents.playerInteractWithBlock.subscribe(({ block, player }) => {
-    const handler = interactHandlers[block.typeId]
-    if (handler) {
-        handler(block, player)
+/**
+ * Register global interact component
+ */
+DoriosAPI.register.blockComponent('interact', {
+    /**
+     * Central interaction handler for all interactable blocks.
+     * Delegates behavior to the matching entry in `interactHandlers`.
+     * 
+     * @param {import('@minecraft/server').BlockComponentPlayerInteractEvent} e
+     */
+    onPlayerInteract(e) {
+        const { block, player } = e
+        const handler = interactHandlers[block.typeId]
+        if (handler) handler(block, player)
     }
 })

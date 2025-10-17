@@ -84,51 +84,6 @@ DoriosAPI.register.blockComponent("pedestal", {
     },
 
     /**
-     * Handles interaction to insert/remove the accelerator clock.
-     * @param {import("@minecraft/server").BlockComponentPlayerInteractEvent} e
-     */
-    onPlayerInteract(e) {
-        const { block, player } = e;
-        let { x, y, z } = block.location;
-
-        y += 1.2;
-        x += 0.5;
-        z += 0.5;
-
-        const dim = block.dimension;
-        const state = block.permutation.getState("utilitycraft:hasItem");
-        const mainhand = player.getComponent("equippable")?.getEquipment("Mainhand");
-        const itemId = mainhand?.typeId;
-
-        if (state === 1) {
-            const entity = dim.getEntities({
-                type: "utilitycraft:accelerator_clock",
-                maxDistance: 1,
-                location: { x, y, z },
-            })[0];
-
-            if (entity) entity.remove();
-            dim.spawnItem(new ItemStack("utilitycraft:accelerator_clock", 1), { x, y, z });
-            block.setPermutation(block.permutation.withState("utilitycraft:hasItem", 0));
-            return;
-        }
-
-        if (state === 0 && itemId === "utilitycraft:accelerator_clock") {
-            const existing = dim.getEntities({
-                type: "utilitycraft:accelerator_clock",
-                maxDistance: 5,
-                location: { x, y, z },
-            })[0];
-
-            if (existing) return;
-
-            dim.spawnEntity("utilitycraft:accelerator_clock", { x, y, z });
-            player.runCommandAsync("clear @s utilitycraft:accelerator_clock 0 1");
-            block.setPermutation(block.permutation.withState("utilitycraft:hasItem", 1));
-        }
-    },
-
-    /**
      * Drops the clock if the pedestal is destroyed.
      * @param {import("@minecraft/server").BlockComponentPlayerDestroyEvent} e
      */
