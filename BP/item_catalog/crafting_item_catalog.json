@@ -465,6 +465,7 @@
                         "items": [
                             "utilitycraft:netherite_aiot",
                             "utilitycraft:diamond_aiot",
+                            "utilitycraft:steel_aiot",
                             "utilitycraft:iron_aiot",
                             "utilitycraft:golden_aiot",
                             "utilitycraft:copper_aiot",
@@ -480,6 +481,7 @@
                         "items": [
                             "utilitycraft:netherite_paxel",
                             "utilitycraft:diamond_paxel",
+                            "utilitycraft:steel_paxel",
                             "utilitycraft:iron_paxel",
                             "utilitycraft:golden_paxel",
                             "utilitycraft:copper_paxel",
@@ -495,7 +497,9 @@
                         "items": [
                             "utilitycraft:netherite_hammer",
                             "utilitycraft:diamond_hammer",
+                            "utilitycraft:steel_hammer",
                             "utilitycraft:iron_hammer",
+                            "utilitycraft:copper_hammer",
                             "utilitycraft:stone_hammer",
                             "utilitycraft:wooden_hammer"
                         ]

@@ -2,24 +2,24 @@
     "format_version": "1.21.90",
     "minecraft:item": {
         "description": {
-            "identifier": "utilitycraft:steel_sword",
+            "identifier": "utilitycraft:steel_hoe",
             "menu_category": {
                 "category": "equipment",
-                "group": "minecraft:itemGroup.name.sword"
+                "group": "minecraft:itemGroup.name.hoe"
             }
         },
         "components": {
-            "minecraft:icon": "utilitycraft_steel_sword",
+            "minecraft:icon": "utilitycraft_steel_hoe",
             "minecraft:max_stack_size": 1,
             "minecraft:hand_equipped": true,
             "minecraft:durability": {
                 "max_durability": 750
             },
             "minecraft:damage": {
-                "value": 6
+                "value": 4
             },
             "minecraft:enchantable": {
-                "slot": "sword",
+                "slot": "hoe",
                 "value": 10
             },
             "minecraft:digger": {
@@ -27,11 +27,9 @@
                 "destroy_speeds": [
                     {
                         "speed": 15,
-                        "block": "minecraft:bamboo"
-                    },
-                    {
-                        "speed": 15,
-                        "block": "minecraft:web"
+                        "block": {
+                            "tags": "q.any_tag('minecraft:hoe_item_destructible')"
+                        }
                     }
                 ]
             }

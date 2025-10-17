@@ -55,6 +55,10 @@
 						"block": {
 							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'minecraft:is_shovel_item_destructible', 'minecraft:is_axe_item_destructible', 'minecraft:is_hoe_item_destructible')"
 						}
+					},
+					{
+						"speed": 30,
+						"block": "minecraft:web"
 					}
 				]
 			}
