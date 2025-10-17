@@ -1,6 +1,17 @@
 # UtilityCraft 3.2 | Full Changelog
 ---
 ## BLOCKS
+### General
+- Updated machines UI
+  - Moved energy bar to the side
+  - Added screen to display warnings and information
+  - Added a side upgrades bar
+- Updated breaking times for most blocks.
+- Proper tool requirements for breaking blocks applied (e.g., Compressed Dirt requires Shovel, Machines requires Pickaxe…).
+- Added descriptions for machines, listing supported upgrades.
+- Added descriptions for special blocks to improve understanding.
+- Updated display translations across multiple languages.
+- Upgrades are now added manually in the machine UI
 ### Generators
 - Furnator
   - Furnator now shows remaining burn time for the current fuel
@@ -52,37 +63,31 @@
   - Added a new Charcoal Block and four levels of Compressed Charcoal Blocks.
   - Updated Blaze Core format and mining properties.
   - Implemented fuel behavior for Coal, Charcoal and Blaze Core block family. These blocks can now be used in any furnace.
-### General
-- Updated machines UI
-  - Moved energy bar to the side
-  - Added screen to display warnings and information
-  - Added a side upgrades bar
-  - Updated breaking times for most blocks.
-  - Proper tool requirements for breaking blocks applied (e.g., Compressed Dirt requires Shovel, Machines requires Pickaxe…).
-  - Added descriptions for machines, listing supported upgrades.
-  - Added descriptions for special blocks to improve understanding.
-  - Updated display translations across multiple languages.
-  - Upgrades are now added manually in the machine UI
 
 ---
 ## ITEMS
-
-  - Added Steel tools, including AiOT, Hammer and Paxel
-  - Added Copper AiOT, Hammer and Paxel
-  - Added Copper Mesh
-  - Removed Copper Nugget
-  - Tools now correctly support durability.
+### General
+- Tools now correctly support durability.
+- Reorganized items in the Creative menu.
+### Tools
+- Added Steel tools, including AiOT, Hammer and Paxel
+- Added Copper AiOT, Hammer and Paxel
+### Items
+- Added Copper Mesh
+- Removed Copper Nugget
+### Misc
+-
 
 ---
 ## BUG FIXES
 
-  - Fixed AiOTs not being able to mine cobwebs properly
-  - Tools no longer get stuck after repaired in Induction Anvil
-  - Mangrove Sapling now drops correctly when sieving Dirt and Compressed Dirt.
-  - Compressed Dirt now drops a wider variety of saplings (previously limited to Oak and Cherry due to a bug).
-  - Slime Block recipe on the Electro Press fixed.
-  - Some missing translations now display correctly in Spanish and Portuguese.
-  - Corrected missing item and block names.
+- Fixed AiOTs not being able to mine cobwebs properly.  
+- Fixed a bug that caused repaired tools to get stuck after being repaired in the Induction Anvil.  
+- Fixed Mangrove Saplings not dropping correctly when sieving Dirt or Compressed Dirt.  
+- Fixed Compressed Dirt dropping only Oak and Cherry Saplings.  
+- Fixed the Slime Block recipe in the Electro Press.  
+- Fixed missing translations in Spanish and Portuguese.  
+- Fixed missing item and block names.
 
 ---
 ## TECHNICAL CHANGES
