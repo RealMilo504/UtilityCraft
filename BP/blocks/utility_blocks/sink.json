@@ -15,6 +15,7 @@
             }
         },
         "components": {
+            "utilitycraft:interact": {},
             "minecraft:geometry": "geometry.utilitycraft_infinite_water_block",
             "minecraft:material_instances": {
                 "*": {

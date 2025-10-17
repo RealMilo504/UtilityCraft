@@ -65,6 +65,7 @@
 			}
 		],
 		"components": {
+            "utilitycraft:interact": {},
 			"minecraft:geometry": "geometry.utilitycraft_drill_place",
 			"minecraft:material_instances": {
 				"*": {

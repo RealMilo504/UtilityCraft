@@ -15,6 +15,7 @@
 			}
 		},
 		"components": {
+			"utilitycraft:interact": {},
 			"minecraft:geometry": "geometry.utilitycraft_tractor_placer",
 			"minecraft:material_instances": {
 				"*": {
