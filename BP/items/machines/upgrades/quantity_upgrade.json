@@ -2,10 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "utilitycraft:quantity_upgrade",
-			"menu_category": {
-				"category": "nature"
-			}
+			"identifier": "utilitycraft:quantity_upgrade"
 		},
 		"components": {
 			"minecraft:icon": "utilitycraft_quantity_upgrade"
