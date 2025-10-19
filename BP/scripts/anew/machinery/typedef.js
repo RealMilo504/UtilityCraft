@@ -21,6 +21,9 @@
  * 
  * @global
  * @typedef {Object} MachineSettings
+ * 
+ * @property {string} rotation Block rotation type.
+ * 
  * @property {Object} entity Entity configuration of the machine.
  * @property {string} entity.name Internal machine name (e.g., "crusher").
  * @property {string} entity.input_type Type of input (e.g., "simple").

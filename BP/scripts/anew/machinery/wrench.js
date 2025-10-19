@@ -1,7 +1,6 @@
-import { world, ItemStack } from "@minecraft/server";
+import { world, ItemStack, system, BlockType } from "@minecraft/server";
+import { Rotation } from './managers.js'
 
-const FACING = ["up", "down", "north", "south", "east", "west"];
-const CARDINAL = ["north", "south", "east", "west"];
 
 // Nombres de entidades removibles
 const REMOVABLE_ENTITIES = [
@@ -11,32 +10,13 @@ const REMOVABLE_ENTITIES = [
 
 // --- REGISTRO DEL COMPONENTE ---
 DoriosAPI.register.itemComponent("wrench", {
+    /**
+     * Se ejecuta cuando el jugador usa la wrench sobre un bloque.
+     * Soporta tanto rotaciones vanilla como el sistema de 24 rotaciones de UtilityCraft.
+     */
     onUseOn(e) {
-        const { source: player, itemStack, block } = e;
-        // Si hay bloque apuntado y tiene dirección
-        if (block && itemStack?.typeId === "utilitycraft:wrench") {
-            try {
-                const facingDir = block.permutation.getState("minecraft:facing_direction");
-                if (facingDir !== undefined) {
-                    const index = FACING.indexOf(facingDir);
-                    const next = (index + 1) % FACING.length;
-                    block.setPermutation(block.permutation.withState("minecraft:facing_direction", FACING[next]));
-                    player.playSound("random.click");
-                    return;
-                }
-            } catch { }
-
-            try {
-                const cardDir = block.permutation.getState("minecraft:cardinal_direction");
-                if (cardDir !== undefined) {
-                    const index = CARDINAL.indexOf(cardDir);
-                    const next = (index + 1) % CARDINAL.length;
-                    block.setPermutation(block.permutation.withState("minecraft:cardinal_direction", CARDINAL[next]));
-                    player.playSound("random.click");
-                    return;
-                }
-            } catch { }
-        }
+        const { source, block, blockFace } = e;
+        Rotation.handleRotation(block, blockFace)
     },
 });
 

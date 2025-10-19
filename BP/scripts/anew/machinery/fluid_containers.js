@@ -1,10 +1,16 @@
-import { FluidManager } from './managers.js'
+import { FluidManager, Rotation } from './managers.js'
 import { system, ItemStack } from '@minecraft/server'
 
 DoriosAPI.register.blockComponent("fluid_container", {
-    onPlayerInteract({ block, player }) {
+    onPlayerInteract({ block, player, face }) {
         /** @type {ItemStack} */
         const mainHand = player.getEquipment('Mainhand');
+
+        if (mainHand?.typeId?.includes('wrench')) {
+            Rotation.handleRotation(block, face)
+            return
+        }
+
         const dim = block.dimension;
         const entity = dim.getEntitiesAtBlockLocation(block.location)[0];
         const isTank = block.typeId.includes('fluid_tank');
