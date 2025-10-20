@@ -249,6 +249,10 @@ export const crafterRecipes = {
         output: "utilitycraft:speed_upgrade",
         amount: 1
     },
+    "steel_plate,iron_sword,steel_plate,energized_iron_dust,base_upgrade,energized_iron_dust,steel_plate,redstone_block,steel_plate": {
+        output: "utilitycraft:damage_upgrade",
+        amount: 1
+    },
     // Other Stuff
     "air,ender_eye,air,steel_plate,expert_chip,steel_plate,air,air,air": {
         output: "utilitycraft:waycarpet",
