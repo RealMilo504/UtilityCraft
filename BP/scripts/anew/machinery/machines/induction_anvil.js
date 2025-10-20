@@ -14,7 +14,6 @@ DoriosAPI.register.blockComponent('induction_anvil', {
             const machine = new Machine(e.block, settings);
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.entity.setItem(2, 'utilitycraft:arrow_right_0');
-            machine.energy.add(10000)
         });
     },
 

@@ -23,7 +23,6 @@ DoriosAPI.register.blockComponent('assembler', {
             machine.displayProgress();
             // Visual filler slot (optional, same as autosieve)
             machine.entity.setItem(1, 'utilitycraft:arrow_right_0');
-            machine.energy.set(100000);
         });
     },
 

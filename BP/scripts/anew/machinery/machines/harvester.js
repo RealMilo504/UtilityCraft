@@ -17,7 +17,6 @@ DoriosAPI.register.blockComponent("harvester", {
         Machine.spawnMachineEntity(e, settings, () => {
             const machine = new Machine(e.block, settings);
             machine.displayEnergy();
-            machine.energy.set(32_000)
         });
     },
 

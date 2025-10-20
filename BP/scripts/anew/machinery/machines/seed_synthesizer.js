@@ -32,7 +32,6 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
             machine.displayProgress()
             // Fill Slot to avoid issues
             machine.entity.setItem(1, 'utilitycraft:arrow_right_0')
-            machine.energy.set(1000000)
         });
     },
 

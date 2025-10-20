@@ -22,7 +22,6 @@ DoriosAPI.register.blockComponent('digitizer', {
             machine.displayProgress();
             machine.entity.setItem(1, 'utilitycraft:arrow_right_0');
             machine.entity.setDynamicProperty('crafting', false);
-            machine.energy.set(8000);
         });
     },
 

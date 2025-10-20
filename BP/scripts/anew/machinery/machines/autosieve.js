@@ -17,7 +17,6 @@ DoriosAPI.register.blockComponent('autosieve', {
             machine.displayProgress()
             // Fill Slot to avoid issues
             machine.entity.setItem(1, 'utilitycraft:arrow_right_0')
-            machine.energy.set(100000)
         });
     },
 
