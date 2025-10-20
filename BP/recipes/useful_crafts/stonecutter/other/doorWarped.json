@@ -2,7 +2,7 @@
   "format_version": "1.21.50",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:sc-warped_door"
+      "identifier": "utilitycraft:sc-warped_door"
     },
     "tags": [
       "stonecutter"

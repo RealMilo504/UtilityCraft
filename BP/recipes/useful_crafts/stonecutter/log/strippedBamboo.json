@@ -2,7 +2,7 @@
   "format_version": "1.21.50",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:sc-stripped_bamboo_block"
+      "identifier": "utilitycraft:sc-stripped_bamboo_block"
     },
     "tags": [
       "stonecutter"

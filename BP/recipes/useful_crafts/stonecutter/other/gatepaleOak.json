@@ -2,7 +2,7 @@
   "format_version": "1.21.50",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:sc-pale_oak_fence_gate"
+      "identifier": "utilitycraft:sc-pale_oak_fence_gate"
     },
     "tags": [
       "stonecutter"

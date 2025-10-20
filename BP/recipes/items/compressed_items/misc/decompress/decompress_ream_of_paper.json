@@ -2,14 +2,14 @@
   "format_version": "1.20.80",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:ream_of_paper_decompressed"
+      "identifier": "utilitycraft:ream_of_paper_decompressed"
     },
     "tags": [
       "crafting_table"
     ],
     "ingredients": [
       {
-        "item": "twm:ream_of_paper"
+        "item": "utilitycraft:ream_of_paper"
       }
     ],
     "result": {
@@ -18,7 +18,7 @@
     },
     "unlock": [
       {
-        "item": "twm:ream_of_paper"
+        "item": "utilitycraft:ream_of_paper"
       }
     ]
   }

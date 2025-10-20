@@ -1412,121 +1412,121 @@
 		"utilitycraft_copper_mesh": {
 			"textures": "textures/items/meshes/copper_mesh"
 		},
-		"twm_bag_of_beetroot_seeds": {
+		"utilitycraft_bag_of_beetroot_seeds": {
 			"textures": "textures/items/compressed_items/bag_of_beetroot_seeds"
 		},
-		"twm_bag_of_black_dye": {
+		"utilitycraft_bag_of_black_dye": {
 			"textures": "textures/items/compressed_items/bag_of_black_dye"
 		},
-		"twm_bag_of_blaze_powder": {
+		"utilitycraft_bag_of_blaze_powder": {
 			"textures": "textures/items/compressed_items/bag_of_blaze_powder"
 		},
-		"twm_bag_of_blue_dye": {
+		"utilitycraft_bag_of_blue_dye": {
 			"textures": "textures/items/compressed_items/bag_of_blue_dye"
 		},
-		"twm_bag_of_brown_dye": {
+		"utilitycraft_bag_of_brown_dye": {
 			"textures": "textures/items/compressed_items/bag_of_brown_dye"
 		},
-		"twm_bag_of_cocoa_beans": {
+		"utilitycraft_bag_of_cocoa_beans": {
 			"textures": "textures/items/compressed_items/bag_of_cocoa_beans"
 		},
-		"twm_bag_of_cyan_dye": {
+		"utilitycraft_bag_of_cyan_dye": {
 			"textures": "textures/items/compressed_items/bag_of_cyan_dye"
 		},
-		"twm_bag_of_feathers": {
+		"utilitycraft_bag_of_feathers": {
 			"textures": "textures/items/compressed_items/bag_of_feathers"
 		},
-		"twm_bag_of_magenta_dye": {
+		"utilitycraft_bag_of_magenta_dye": {
 			"textures": "textures/items/compressed_items/bag_of_magenta_dye"
 		},
-		"twm_bag_of_glowstone_dust": {
+		"utilitycraft_bag_of_glowstone_dust": {
 			"textures": "textures/items/compressed_items/bag_of_glowstone_dust"
 		},
-		"twm_bag_of_gray_dye": {
+		"utilitycraft_bag_of_gray_dye": {
 			"textures": "textures/items/compressed_items/bag_of_gray_dye"
 		},
-		"twm_bag_of_green_dye": {
+		"utilitycraft_bag_of_green_dye": {
 			"textures": "textures/items/compressed_items/bag_of_green_dye"
 		},
-		"twm_bag_of_gunpowder": {
+		"utilitycraft_bag_of_gunpowder": {
 			"textures": "textures/items/compressed_items/bag_of_gunpowder"
 		},
-		"twm_bag_of_light_blue_dye": {
+		"utilitycraft_bag_of_light_blue_dye": {
 			"textures": "textures/items/compressed_items/bag_of_light_blue_dye"
 		},
-		"twm_bag_of_light_gray_dye": {
+		"utilitycraft_bag_of_light_gray_dye": {
 			"textures": "textures/items/compressed_items/bag_of_light_gray_dye"
 		},
-		"twm_bag_of_lime_dye": {
+		"utilitycraft_bag_of_lime_dye": {
 			"textures": "textures/items/compressed_items/bag_of_lime_dye"
 		},
-		"twm_bag_of_orange_dye": {
+		"utilitycraft_bag_of_orange_dye": {
 			"textures": "textures/items/compressed_items/bag_of_orange_dye"
 		},
-		"twm_bag_of_pink_dye": {
+		"utilitycraft_bag_of_pink_dye": {
 			"textures": "textures/items/compressed_items/bag_of_pink_dye"
 		},
-		"twm_bag_of_pitcher_pod": {
+		"utilitycraft_bag_of_pitcher_pod": {
 			"textures": "textures/items/compressed_items/bag_of_pitcher_pod"
 		},
-		"twm_bag_of_pumpkin_seeds": {
+		"utilitycraft_bag_of_pumpkin_seeds": {
 			"textures": "textures/items/compressed_items/bag_of_pumpkin_seeds"
 		},
-		"twm_bag_of_purple_dye": {
+		"utilitycraft_bag_of_purple_dye": {
 			"textures": "textures/items/compressed_items/bag_of_purple_dye"
 		},
-		"twm_bag_of_red_dye": {
+		"utilitycraft_bag_of_red_dye": {
 			"textures": "textures/items/compressed_items/bag_of_red_dye"
 		},
-		"twm_bag_of_sugar": {
+		"utilitycraft_bag_of_sugar": {
 			"textures": "textures/items/compressed_items/bag_of_sugar"
 		},
-		"twm_bag_of_torchflower_seeds": {
+		"utilitycraft_bag_of_torchflower_seeds": {
 			"textures": "textures/items/compressed_items/bag_of_torchflower_seeds"
 		},
-		"twm_bag_of_melon_seeds": {
+		"utilitycraft_bag_of_melon_seeds": {
 			"textures": "textures/items/compressed_items/bag_of_melon_seeds"
 		},
-		"twm_bag_of_wheat_seeds": {
+		"utilitycraft_bag_of_wheat_seeds": {
 			"textures": "textures/items/compressed_items/bag_of_wheat_seeds"
 		},
-		"twm_bag_of_white_dye": {
+		"utilitycraft_bag_of_white_dye": {
 			"textures": "textures/items/compressed_items/bag_of_white_dye"
 		},
-		"twm_bag_of_yellow_dye": {
+		"utilitycraft_bag_of_yellow_dye": {
 			"textures": "textures/items/compressed_items/bag_of_yellow_dye"
 		},
-		"twm_bundle_of_blaze_rods": {
+		"utilitycraft_bundle_of_blaze_rods": {
 			"textures": "textures/items/compressed_items/bundle_of_blaze_rods"
 		},
-		"twm_bundle_of_breeze_rods": {
+		"utilitycraft_bundle_of_breeze_rods": {
 			"textures": "textures/items/compressed_items/bundle_of_breeze_rods"
 		},
-		"twm_bundle_of_sticks": {
+		"utilitycraft_bundle_of_sticks": {
 			"textures": "textures/items/compressed_items/bundle_of_sticks"
 		},
-		"twm_jar_of_cookies": {
+		"utilitycraft_jar_of_cookies": {
 			"textures": "textures/items/compressed_items/jar_of_cookies"
 		},
-		"twm_jar_of_ghast_tears": {
+		"utilitycraft_jar_of_ghast_tears": {
 			"textures": "textures/items/compressed_items/jar_of_ghast_tears"
 		},
-		"twm_jar_of_glow_ink": {
+		"utilitycraft_jar_of_glow_ink": {
 			"textures": "textures/items/compressed_items/jar_of_glow_ink"
 		},
-		"twm_jar_of_ink": {
+		"utilitycraft_jar_of_ink": {
 			"textures": "textures/items/compressed_items/jar_of_ink"
 		},
-		"twm_ream_of_paper": {
+		"utilitycraft_ream_of_paper": {
 			"textures": "textures/items/compressed_items/ream_of_paper"
 		},
-		"twm_spool_of_strings": {
+		"utilitycraft_spool_of_strings": {
 			"textures": "textures/items/compressed_items/spool_of_strings"
 		},
-		"twm_vase_of_fermented_spider_eyes": {
+		"utilitycraft_vase_of_fermented_spider_eyes": {
 			"textures": "textures/items/compressed_items/vase_of_fermented_spider_eyes"
 		},
-		"twm_vase_of_spider_eye": {
+		"utilitycraft_vase_of_spider_eye": {
 			"textures": "textures/items/compressed_items/vase_of_spider_eye"
 		}
 	}

@@ -2,7 +2,7 @@
   "format_version": "1.21.50",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:sc-oak_chest"
+      "identifier": "utilitycraft:sc-oak_chest"
     },
     "tags": [
       "stonecutter"

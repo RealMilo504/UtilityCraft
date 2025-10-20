@@ -2,7 +2,7 @@
     "format_version": "1.20.0",
     "minecraft:item": {
         "description": {
-            "identifier": "twm:vase_of_fermented_spider_eyes",
+            "identifier": "utilitycraft:vase_of_fermented_spider_eyes",
             "category": "Nature",
             "menu_category": {
                 "category": "nature",
@@ -11,7 +11,7 @@
         },
         "components": {
             "minecraft:icon": {
-                "texture": "twm_vase_of_fermented_spider_eyes"
+                "texture": "utilitycraft_vase_of_fermented_spider_eyes"
             },
             "minecraft:max_stack_size": 64,
             "minecraft:use_duration": 0,

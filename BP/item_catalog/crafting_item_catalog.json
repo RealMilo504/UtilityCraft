@@ -540,70 +540,70 @@
                     },
                     {
                         "group_identifier": {
-                            "icon": "twm:bag_of_beetroot_seeds",
+                            "icon": "utilitycraft:bag_of_beetroot_seeds",
                             "name": "dorios:itemGroup.name.bags"
                         },
                         "items": [
-                            "twm:bag_of_beetroot_seeds",
-                            "twm:bag_of_black_dye",
-                            "twm:bag_of_blaze_powder",
-                            "twm:bag_of_blue_dye",
-                            "twm:bag_of_brown_dye",
-                            "twm:bag_of_cocoa_beans",
-                            "twm:bag_of_cyan_dye",
-                            "twm:bag_of_feathers",
-                            "twm:bag_of_magenta_dye",
-                            "twm:bag_of_glowstone_dust",
-                            "twm:bag_of_green_dye",
-                            "twm:bag_of_gunpowder",
-                            "twm:bag_of_light_blue_dye",
-                            "twm:bag_of_light_gray_dye",
-                            "twm:bag_of_lime_dye",
-                            "twm:bag_of_orange_dye",
-                            "twm:bag_of_pink_dye",
-                            "twm:bag_of_pitcher_pod",
-                            "twm:bag_of_pumpkin_seeds",
-                            "twm:bag_of_purple_dye",
-                            "twm:bag_of_red_dye",
-                            "twm:bag_of_sugar",
-                            "twm:bag_of_torchflower_seeds",
-                            "twm:bag_of_melon_seeds",
-                            "twm:bag_of_wheat_seeds",
-                            "twm:bag_of_white_dye",
-                            "twm:bag_of_yellow_dye"
+                            "utilitycraft:bag_of_beetroot_seeds",
+                            "utilitycraft:bag_of_black_dye",
+                            "utilitycraft:bag_of_blaze_powder",
+                            "utilitycraft:bag_of_blue_dye",
+                            "utilitycraft:bag_of_brown_dye",
+                            "utilitycraft:bag_of_cocoa_beans",
+                            "utilitycraft:bag_of_cyan_dye",
+                            "utilitycraft:bag_of_feathers",
+                            "utilitycraft:bag_of_magenta_dye",
+                            "utilitycraft:bag_of_glowstone_dust",
+                            "utilitycraft:bag_of_green_dye",
+                            "utilitycraft:bag_of_gunpowder",
+                            "utilitycraft:bag_of_light_blue_dye",
+                            "utilitycraft:bag_of_light_gray_dye",
+                            "utilitycraft:bag_of_lime_dye",
+                            "utilitycraft:bag_of_orange_dye",
+                            "utilitycraft:bag_of_pink_dye",
+                            "utilitycraft:bag_of_pitcher_pod",
+                            "utilitycraft:bag_of_pumpkin_seeds",
+                            "utilitycraft:bag_of_purple_dye",
+                            "utilitycraft:bag_of_red_dye",
+                            "utilitycraft:bag_of_sugar",
+                            "utilitycraft:bag_of_torchflower_seeds",
+                            "utilitycraft:bag_of_melon_seeds",
+                            "utilitycraft:bag_of_wheat_seeds",
+                            "utilitycraft:bag_of_white_dye",
+                            "utilitycraft:bag_of_yellow_dye"
                         ]
                     },
                     {
                         "group_identifier": {
-                            "icon": "twm:bundle_of_blaze_rods",
+                            "icon": "utilitycraft:bundle_of_blaze_rods",
                             "name": "dorios:itemGroup.name.bundles"
                         },
                         "items": [
-                            "twm:bundle_of_blaze_rods",
-                            "twm:bundle_of_breeze_rods",
-                            "twm:bundle_of_sticks"
+                            "utilitycraft:bundle_of_blaze_rods",
+                            "utilitycraft:bundle_of_breeze_rods",
+                            "utilitycraft:bundle_of_sticks"
                         ]
                     },
                     {
                         "group_identifier": {
-                            "icon": "twm:vase_of_fermented_spider_eyes",
+                            "icon": "utilitycraft:vase_of_fermented_spider_eyes",
                             "name": "dorios:itemGroup.name.vases"
                         },
                         "items": [
-                            "twm:vase_of_fermented_spider_eyes",
-                            "twm:vase_of_spider_eye"
+                            "utilitycraft:vase_of_fermented_spider_eyes",
+                            "utilitycraft:vase_of_spider_eye"
                         ]
                     },
                     {
                         "group_identifier": {
-                            "icon": "twm:jar_of_cookies",
+                            "icon": "utilitycraft:jar_of_cookies",
                             "name": "dorios:itemGroup.name.jars"
                         },
                         "items": [
-                            "twm:jar_of_cookies",
-                            "twm:jar_of_ghast_tears",
-                            "twm:jar_of_glow_ink",
-                            "twm:jar_of_ink"
+                            "utilitycraft:jar_of_cookies",
+                            "utilitycraft:jar_of_ghast_tears",
+                            "utilitycraft:jar_of_glow_ink",
+                            "utilitycraft:jar_of_ink"
                         ]
                     }
                 ]

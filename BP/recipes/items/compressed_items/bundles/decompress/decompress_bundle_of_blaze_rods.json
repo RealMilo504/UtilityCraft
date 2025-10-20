@@ -2,14 +2,14 @@
   "format_version": "1.20.80",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:bundle_of_blaze_rods_decompressed"
+      "identifier": "utilitycraft:bundle_of_blaze_rods_decompressed"
     },
     "tags": [
       "crafting_table"
     ],
     "ingredients": [
       {
-        "item": "twm:bundle_of_blaze_rods"
+        "item": "utilitycraft:bundle_of_blaze_rods"
       }
     ],
     "result": {
@@ -18,7 +18,7 @@
     },
     "unlock": [
       {
-        "item": "twm:bundle_of_blaze_rods"
+        "item": "utilitycraft:bundle_of_blaze_rods"
       }
     ]
   }

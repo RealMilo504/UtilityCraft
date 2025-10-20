@@ -2,14 +2,14 @@
   "format_version": "1.20.80",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:jar_of_glow_ink_decompressed"
+      "identifier": "utilitycraft:jar_of_glow_ink_decompressed"
     },
     "tags": [
       "crafting_table"
     ],
     "ingredients": [
       {
-        "item": "twm:jar_of_glow_ink"
+        "item": "utilitycraft:jar_of_glow_ink"
       }
     ],
     "result": {
@@ -18,7 +18,7 @@
     },
     "unlock": [
       {
-        "item": "twm:jar_of_glow_ink"
+        "item": "utilitycraft:jar_of_glow_ink"
       }
     ]
   }

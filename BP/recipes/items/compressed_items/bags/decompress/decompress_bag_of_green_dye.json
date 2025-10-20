@@ -2,14 +2,14 @@
   "format_version": "1.20.80",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:bag_of_green_dye_decompressed"
+      "identifier": "utilitycraft:bag_of_green_dye_decompressed"
     },
     "tags": [
       "crafting_table"
     ],
     "ingredients": [
       {
-        "item": "twm:bag_of_green_dye"
+        "item": "utilitycraft:bag_of_green_dye"
       }
     ],
     "result": {
@@ -18,7 +18,7 @@
     },
     "unlock": [
       {
-        "item": "twm:bag_of_green_dye"
+        "item": "utilitycraft:bag_of_green_dye"
       }
     ]
   }

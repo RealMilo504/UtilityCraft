@@ -2,7 +2,7 @@
   "format_version": "1.21.50",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:sc-mangrove_stairs"
+      "identifier": "utilitycraft:sc-mangrove_stairs"
     },
     "tags": [
       "stonecutter"

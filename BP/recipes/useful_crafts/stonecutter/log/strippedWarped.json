@@ -2,7 +2,7 @@
   "format_version": "1.21.50",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:sc-warped_stripped_stem"
+      "identifier": "utilitycraft:sc-warped_stripped_stem"
     },
     "tags": [
       "stonecutter"

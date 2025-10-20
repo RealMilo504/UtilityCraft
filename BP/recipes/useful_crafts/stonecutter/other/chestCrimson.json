@@ -2,7 +2,7 @@
   "format_version": "1.21.50",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:sc-crimson_chest"
+      "identifier": "utilitycraft:sc-crimson_chest"
     },
     "tags": [
       "stonecutter"

@@ -2,14 +2,14 @@
   "format_version": "1.20.80",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "twm:bag_of_pitcher_pod_decompressed"
+      "identifier": "utilitycraft:bag_of_pitcher_pod_decompressed"
     },
     "tags": [
       "crafting_table"
     ],
     "ingredients": [
       {
-        "item": "twm:bag_of_pitcher_pod"
+        "item": "utilitycraft:bag_of_pitcher_pod"
       }
     ],
     "result": {
@@ -18,7 +18,7 @@
     },
     "unlock": [
       {
-        "item": "twm:bag_of_pitcher_pod"
+        "item": "utilitycraft:bag_of_pitcher_pod"
       }
     ]
   }
