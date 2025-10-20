@@ -74,13 +74,17 @@
 - Added Copper AiOT, Hammer and Paxel
 ### Items
 - Added Copper Mesh
-- Removed Copper Nugget
+- Added Compressed Items
+- Removed (Custom) Copper Nugget
 ### Misc
--
+- Wrench
+  - Now rotates around its current facing instead of switching it (from 6 to 24 orientations)
 
 ---
 ## BUG FIXES
 
+- Fixed item conduit recipe
+- Fixed being able to compress Stone using Andesite, Diorite, or Granite.
 - Fixed AiOTs not being able to mine cobwebs properly.  
 - Fixed a bug that caused repaired tools to get stuck after being repaired in the Induction Anvil.  
 - Fixed Mangrove Saplings not dropping correctly when sieving Dirt or Compressed Dirt.  
