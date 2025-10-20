@@ -29,6 +29,7 @@
 		},
 		"components": {
 			"utilitycraft:simple_machine": {
+				"rotation": "facing",
 				"entity": {
 					"input_type": "simple",
 					"output_type": "simple"

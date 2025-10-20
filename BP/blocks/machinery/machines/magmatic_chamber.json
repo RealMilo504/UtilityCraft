@@ -27,6 +27,7 @@
 		"components": {
 			"utilitycraft:fluid_container": {},
 			"utilitycraft:simple_machine_liquid": {
+				"rotation": "facing",
 				"entity": {
 					"fluid": true,
 					"input_type": "simple",

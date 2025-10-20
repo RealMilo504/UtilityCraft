@@ -29,6 +29,7 @@
 		},
 		"components": {
 			"utilitycraft:block_placer": {
+				"rotation": "facing",
 				"entity": {
 					"inventory_size": 6
 				},

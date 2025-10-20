@@ -29,6 +29,7 @@
 		},
 		"components": {
 			"utilitycraft:harvester": {
+				"rotation": "facing",
 				"entity": {
 					"inventory_size": 5
 				},

@@ -29,6 +29,7 @@
 		},
 		"components": {
 			"utilitycraft:seed_synthesizer": {
+				"rotation": "facing",
 				"entity": {
 					"input_type": "simple",
 					"output_type": "complex",

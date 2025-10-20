@@ -7,18 +7,33 @@ tile.utilitycraft:workbench.name=Workbench\n§7- Use to craft everything related
 tile.utilitycraft:utility_table.name=Utility Table\n§7- Use to craft superior tools
 
 - Machines = ## Máquinas
-tile.utilitycraft:autosieve.name=Autosieve\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
-tile.utilitycraft:block_breaker.name=Block Breaker\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
-tile.utilitycraft:ender_hopper.name=Ender Hopper\n§7- Accepts upgrades:\n §aSpeed§7, §9Range§7, §fFilter§7
-tile.utilitycraft:crusher.name=Crusher\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
-tile.utilitycraft:harvester.name=Harvester\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7, §9Range§7
+tile.utilitycraft:autosieve.name=Autosieve\n§7- Accepted upgrades:\n   §a§7 §b§7
+tile.utilitycraft:block_breaker.name=Block Breaker\n§7- Accepted upgrades:\n   §a§7 §b§7
+tile.utilitycraft:ender_hopper.name=Ender Hopper\n§7- Accepted upgrades:\n   §a§7 §9§7 §f§7
+tile.utilitycraft:crusher.name=Crusher\n§7- Accepted upgrades:\n   §a§7 §b§7
+tile.utilitycraft:harvester.name=Harvester\n§7- Accepted upgrades:\n   §a§7 §b§7 §9§7
+tile.utilitycraft:electro_press.name=Electro Press\n§7- Accepted upgrades:\n   §a§7 §b§7
+tile.utilitycraft:block_placer.name=Block Placer\n§7- Accepted upgrades:\n   §a§7 §b§7
+tile.utilitycraft:seed_synthesizer.name=Seed Synthesizer\n§7- Accepted upgrades:\n   §a§7 §b§7
+tile.utilitycraft:incinerator.name=Incinerator\n§7- Accepted upgrades:\n   §a§7 §b§7
+tile.utilitycraft:infuser.name=Infuser\n§7- Accepted upgrades:\n   §a§7 §b§7
+tile.utilitycraft:assembler.name=Assembler\n§7- Accepted upgrades:\n   §a§7 §b§7
+tile.utilitycraft:digitizer.name=Digitizer\n§7- Accepted upgrades:\n   §a§7 §b§7
+tile.utilitycraft:induction_anvil.name=Induction Anvil\n§7- Accepted upgrades:\n   §a§7 §b§7
+tile.utilitycraft:magmatic_chamber.name=Magmatic Chamber\n§7- Accepted upgrades:\n   §a§7 §b§7
+tile.utilitycraft:mechanic_dropper.name=Mechanical Dropper\n§7- Accepted upgrades:\n   §a§7 §f§7
+
+tile.utilitycraft:fluid_pump.name=Fluid Pump\n§7- Accepted upgrades:\n   §a§7
+
 tile.utilitycraft:machine_case.name=Machine Case
+tile.utilitycraft:xp_condenser.name=XP Condenser
 tile.utilitycraft:sieve.name=Sieve\n§7- Max multi-use: 5x5
+tile.utilitycraft:crucible.name=Crucible
 ## +
-tile.utilitycraft:fan.name=Fan\n§7- Accepts upgrades:\n §9Range§7
-tile.utilitycraft:mob_grinder.name=Mob Grinder\n§7- Accepts upgrades:\n §aSpeed§7, §cDamage§7
+tile.utilitycraft:fan.name=Fan\n§7- Accepted upgrades:\n   §9§7
+tile.utilitycraft:mob_grinder.name=Mob Grinder\n§7- Accepted upgrades:\n   §7 §c§7
 tile.utilitycraft:mob_trap.name=Mob Trap
-tile.utilitycraft:xp_magnet.name=XP Magnet\n§7- Accepts upgrades:\n §9Range§7
+tile.utilitycraft:xp_magnet.name=XP Magnet\n§7- Accepted upgrades:\n   §9§7
 tile.utilitycraft:xp_drain.name=XP Drain
 tile.utilitycraft:xp_spout.name=XP Spout
 ## +
@@ -32,8 +47,8 @@ tile.utilitycraft:cobble_gen_5.name=Cobblestone Generator (§8Tier 6§r) \n§7- 
 tile.utilitycraft:conveyor_horizontal.name=Horizontal Conveyor
 tile.utilitycraft:conveyor_inclined.name=Inclined Conveyor
 tile.utilitycraft:conveyor_declined.name=Declined Conveyor
-tile.utilitycraft:mechanic_hopper.name=Mechanic Hopper\n§7- Accepts upgrades:\n §aSpeed§7, §fFilter§7
-tile.utilitycraft:mechanic_upper.name=Mechanic Upper\n§7- Accepts upgrades:\n §aSpeed§7, §fFilter§7
+tile.utilitycraft:mechanic_hopper.name=Mechanic Hopper\n§7- Accepted upgrades:\n §7, §fFilter§7
+tile.utilitycraft:mechanic_upper.name=Mechanic Upper\n§7- Accepted upgrades:\n §7, §fFilter§7
 ##+
 tile.utilitycraft:basic_fluid_tank.name=§eBasic Fluid Tank
 tile.utilitycraft:advanced_fluid_tank.name=§cAdvanced Fluid Tank
@@ -93,7 +108,7 @@ tile.utilitycraft:red_soil.name=§cRed Soil
 tile.utilitycraft:yellow_soil.name=§eYellow Soil
 
 - Mechanical Spawners = ## Invocadores Mecânicos
-tile.utilitycraft:mechanical_spawner.name=Mechanical Spawner\n§7- Accepts upgrades:\n §aSpeed§7, §3Quantity§7
+tile.utilitycraft:mechanical_spawner.name=Mechanical Spawner\n§7- Accepted upgrades:\n   §a§7 §3§7
 tile.utilitycraft:spawner_core.name=Spawner Core
 
 -- = ## Spawner Item
@@ -544,74 +559,6 @@ item.utilitycraft:accelerator_clock=Accelerator Clock\n§7- Speeds up the game
 item.spawn_egg.entity.utilitycraft:accelerator_clock.name=Summon Accelerator Clock
 
 - Progress Bars = Barras de Progressão ##///////////////////////////////////////////////////////////////
-item.utilitycraft:energy_bar_0=Energy:
-item.utilitycraft:energy_bar_1=Energy:
-item.utilitycraft:energy_bar_2=Energy:
-item.utilitycraft:energy_bar_3=Energy:
-item.utilitycraft:energy_bar_4=Energy:
-item.utilitycraft:energy_bar_5=Energy:
-item.utilitycraft:energy_bar_6=Energy:
-item.utilitycraft:energy_bar_7=Energy:
-item.utilitycraft:energy_bar_8=Energy:
-item.utilitycraft:energy_bar_9=Energy:
-item.utilitycraft:energy_bar_10=Energy:
-item.utilitycraft:energy_bar_11=Energy:
-item.utilitycraft:energy_bar_12=Energy:
-item.utilitycraft:energy_bar_13=Energy:
-item.utilitycraft:energy_bar_14=Energy:
-item.utilitycraft:energy_bar_15=Energy:
-item.utilitycraft:energy_bar_16=Energy:
-item.utilitycraft:fuel_bar_0=Fuel: 
-item.utilitycraft:fuel_bar_1=Fuel:
-item.utilitycraft:fuel_bar_2=Fuel:
-item.utilitycraft:fuel_bar_3=Fuel:
-item.utilitycraft:fuel_bar_4=Fuel:
-item.utilitycraft:fuel_bar_5=Fuel:
-item.utilitycraft:fuel_bar_6=Fuel:
-item.utilitycraft:fuel_bar_7=Fuel:
-item.utilitycraft:fuel_bar_8=Fuel:
-item.utilitycraft:fuel_bar_9=Fuel:
-item.utilitycraft:fuel_bar_10=Fuel:
-item.utilitycraft:fuel_bar_11=Fuel:
-item.utilitycraft:fuel_bar_12=Fuel:
-item.utilitycraft:fuel_bar_13=Fuel:
-item.utilitycraft:fuel_bar_14=Fuel:
-item.utilitycraft:fuel_bar_15=Fuel:
-item.utilitycraft:fuel_bar_16=Fuel:
-item.utilitycraft:lava_bar_0=Lava:
-item.utilitycraft:lava_bar_1=Lava:
-item.utilitycraft:lava_bar_2=Lava:
-item.utilitycraft:lava_bar_3=Lava:
-item.utilitycraft:lava_bar_4=Lava:
-item.utilitycraft:lava_bar_5=Lava:
-item.utilitycraft:lava_bar_6=Lava:
-item.utilitycraft:lava_bar_7=Lava:
-item.utilitycraft:lava_bar_8=Lava:
-item.utilitycraft:lava_bar_9=Lava:
-item.utilitycraft:lava_bar_10=Lava:
-item.utilitycraft:lava_bar_11=Lava:
-item.utilitycraft:lava_bar_12=Lava:
-item.utilitycraft:lava_bar_13=Lava:
-item.utilitycraft:lava_bar_14=Lava:
-item.utilitycraft:lava_bar_15=Lava:
-item.utilitycraft:lava_bar_16=Lava:
-item.utilitycraft:water_bar_0=Water:
-item.utilitycraft:water_bar_1=Water:
-item.utilitycraft:water_bar_2=Water:
-item.utilitycraft:water_bar_3=Water:
-item.utilitycraft:water_bar_4=Water:
-item.utilitycraft:water_bar_5=Water:
-item.utilitycraft:water_bar_6=Water:
-item.utilitycraft:water_bar_7=Water:
-item.utilitycraft:water_bar_8=Water:
-item.utilitycraft:water_bar_9=Water:
-item.utilitycraft:water_bar_10=Water:
-item.utilitycraft:water_bar_11=Water:
-item.utilitycraft:water_bar_12=Water:
-item.utilitycraft:water_bar_13=Water:
-item.utilitycraft:water_bar_14=Water:
-item.utilitycraft:water_bar_15=Water:
-item.utilitycraft:water_bar_16=Water:
 item.utilitycraft:empty_liquid_bar=Empty
 item.utilitycraft:arrow_indicator=Arrow Indicator
 item.utilitycraft:info=Informações:
@@ -696,15 +643,6 @@ item.utilitycraft:iron_plate=Iron Plate
 item.utilitycraft:netherite_plate=Netherite Plate
 item.utilitycraft:netherite_nugget=Netherite Nugget
 
-tile.utilitycraft:electro_press.name=Electro Press\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
-tile.utilitycraft:block_placer.name=Block Placer\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
-tile.utilitycraft:xp_condenser.name=XP Condenser
-tile.utilitycraft:seed_synthesizer.name=Seed Synthesizer\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
-tile.utilitycraft:incinerator.name=Incinerator\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
-tile.utilitycraft:infuser.name=Infuser\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
-tile.utilitycraft:assembler.name=Assembler\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
-tile.utilitycraft:digitizer.name=Digitizer\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
-
 item.utilitycraft:arrow_indicator_90=Arrow Indicator
 < Stuff = ## Coisas Não-Categorizadas
 
@@ -735,15 +673,6 @@ dorios:itemGroup.name.paxels=Paxels
 dorios:itemGroup.name.hammers=Hammers
 
 ## < Categories
-
-tile.utilitycraft:induction_anvil.name=Induction Anvil
-tile.utilitycraft:crucible.name=Crucible
-tile.utilitycraft:magmatic_chamber.name=Magmatic Chamber\n§7- Accepts upgrades:\n §aSpeed§7, §bEfficiency§7
-tile.utilitycraft:mechanic_dropper.name=Mechanical Dropper\n§7- Accepts upgrades:\n §aSpeed§7, §fFilter§7
-
-tile.utilitycraft:fluid_pump.name=Fluid Pump\n§7- Accepts upgrades:\n §aSpeed§7
-
-
 
 dorios:itemGroup.name.pebbles=Pebbles
 item.utilitycraft:ancient_debris_chunk=Ancient Debris Chunk
@@ -800,9 +729,9 @@ tile.utilitycraft:fluid_pipe.name=Fluid Pipe\n§7- Transports liquids
 dorios:itemGroup.name.pipes=Pipes
 item.utilitycraft:flint_knife=Flint Knife \n§7- Separates fiber from leaves
 item.utilitycraft:fiber=Fiber
-tile.utilitycraft:item_exporter.name=Item Exporter \n§7- Accepts upgrades:\n §aSpeed§7, §fFilter§7
+tile.utilitycraft:item_exporter.name=Item Exporter \n§7- Accepted upgrades:\n   §a§7 §f§7
 item.utilitycraft:mortar=Mortar
-tile.utilitycraft:fluid_extractor.name=Fluid Extractor \n§7- Accepts upgrades:\n §aSpeed§7
+tile.utilitycraft:fluid_extractor.name=Fluid Extractor \n§7- Accepted upgrades:\n   §a§7
 
 
 ## All the same

@@ -29,6 +29,7 @@
 		},
 		"components": {
 			"utilitycraft:block_breaker": {
+				"rotation": "facing",
 				"entity": {
 					"inventory_size": 4
 				},
