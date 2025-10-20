@@ -1,5 +1,6 @@
 import { world, ItemStack } from '@minecraft/server'
 import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
+import { FluidManager } from '../managers.js'
 
 const tankCaps = {
     'utilitycraft:basic_fluid_tank': 8000,
@@ -37,17 +38,13 @@ function fillTank(entity, pos, xpAmount) {
     if (item.getLore().length == 0) {
         if (xpAmount < capacity) {
             item.setLore([
-                `§r§7  Liquid: Xp`,
-                `§r§7  Amount: ${xpAmount}mB`,
-                `§r§7  Capacity: ${((xpAmount / capacity) * 100).toFixed(2)}% of ${capacity}mB`
+                `§r§7  Xp: ${FluidManager.formatFluid(xpAmount)}/${FluidManager.formatFluid(capacity)}`
             ])
             entityInv.setItem(pos, item)
             return xpAmount;
         } else {
             item.setLore([
-                `§r§7  Liquid: Xp`,
-                `§r§7  Amount: ${capacity}mB`,
-                `§r§7  Capacity: ${((capacity / capacity) * 100).toFixed(2)}% of ${capacity}mB`
+                `§r§7  Xp: ${FluidManager.formatFluid(capacity)}/${FluidManager.formatFluid(capacity)}`
             ])
             entityInv.setItem(pos, item)
             return capacity;
@@ -59,17 +56,13 @@ function fillTank(entity, pos, xpAmount) {
         }
         if (xpAmount <= capacity - storedXp) {
             item.setLore([
-                `§r§7  Liquid: Xp`,
-                `§r§7  Amount: ${xpAmount + storedXp}mB`,
-                `§r§7  Capacity: ${(((xpAmount + storedXp) / capacity) * 100).toFixed(2)}% of ${capacity}mB`
+                `§r§7  Xp: ${FluidManager.formatFluid(xpAmount + storedXp)}/${FluidManager.formatFluid(capacity)}`
             ])
             entityInv.setItem(pos, item)
             return xpAmount;
         } else {
             item.setLore([
-                `§r§7  Liquid: Xp`,
-                `§r§7  Amount: ${capacity}mB`,
-                `§r§7  Capacity: ${((capacity / capacity) * 100).toFixed(2)}% of ${capacity}mB`
+                `§r§7  Xp: ${FluidManager.formatFluid(capacity)}/${FluidManager.formatFluid(capacity)}`
             ])
             entityInv.setItem(pos, item)
             return capacity - storedXp;
@@ -86,17 +79,13 @@ function emptyTank(entity, pos, xpAmount) {
     if (storedXp == 0) return 0;
     if (storedXp < xpAmount) {
         item.setLore([
-            `§r§7  Liquid: Xp`,
-            `§r§7  Amount: 0mB`,
-            `§r§7  Capacity: 0% of ${capacity}mB`
+            `§r§7  Xp: ${FluidManager.formatFluid(0)}/${FluidManager.formatFluid(capacity)}`
         ])
         entityInv.setItem(pos, item)
         return storedXp;
     } else {
         item.setLore([
-            `§r§7  Liquid: Xp`,
-            `§r§7  Amount: ${storedXp - xpAmount}mB`,
-            `§r§7  Capacity: ${(((storedXp - xpAmount) / capacity) * 100).toFixed(2)}% of ${capacity}mB`
+            `§r§7  Xp: ${FluidManager.formatFluid(storedXp - xpAmount)}/${FluidManager.formatFluid(capacity)}`
         ])
         entityInv.setItem(pos, item)
         return xpAmount;
@@ -112,7 +101,7 @@ function openMenu(player, entity) {
     let storedXp = 0;
     for (let i = 0; i < entityInv.size; i++) {
         capacity += tankCaps[entityInv.getItem(i)?.typeId] || 0
-        storedXp += parseInt(entityInv.getItem(i)?.getLore()[1]?.split(': ')[1].split('mB')[0]) || 0
+        storedXp += FluidManager.getFluidFromText(entityInv.getItem(i)?.getLore()?.[0] ?? "").amount
     }
     menu.title('Xp Storage')
     menu.body(`${storedXp} `)
@@ -136,7 +125,7 @@ function openMenu(player, entity) {
                     for (let i = 0; i < entityInv.size; i++) {
                         if (entityInv.getItem(i)?.getLore()[0]) {
                             let item = entityInv.getItem(i)
-                            player.runCommand(`xp ${parseInt(entityInv.getItem(i)?.getLore()[1]?.split(': ')[1].split('mB')[0]) || 0}`)
+                            player.runCommand(`xp ${FluidManager.getFluidFromText(entityInv.getItem(i)?.getLore()?.[0] ?? "").amount}`)
                             entityInv.setItem(i, new ItemStack(item.typeId))
                         }
                     }
@@ -212,7 +201,7 @@ function tankMenu(player, entity) {
     menu.title('Tanks')
     for (let i = 0; i < entityInv.size; i++) {
         if (entityInv.getItem(i)) {
-            menu.button(`§§${entityInv.getItem(i).getLore()[1]?.split('§r§7')[1] || 'Amount: 0'}`/*, 'textures/ui/milo.png'*/)
+            menu.button(`Amount: ${FluidManager.getFluidFromText(entityInv.getItem(i)?.getLore()?.[0] ?? "").amount}`/*, 'textures/ui/milo.png'*/)
         } else {
             menu.button('Empty')
         }
@@ -245,8 +234,8 @@ DoriosAPI.register.blockComponent('xp_condenser', {
         if (item?.typeId.endsWith('fluid_tank')) {
             let item = player.getComponent('equippable').getEquipment('Mainhand')
             let lores = item.getLore()
-
-            if (lores.length == 0 || lores[0].split(': ')[1] == "Xp") {
+            const fluid = FluidManager.getFluidFromText(item?.getLore()?.[0] ?? "")
+            if (fluid.type == 'xp') {
                 let newItem = player.getComponent('equippable').getEquipment('Mainhand')
                 newItem.amount = 1
                 for (let i = 0; i < entity.getComponent('inventory').container.size; i++) {

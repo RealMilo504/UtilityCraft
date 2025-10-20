@@ -378,6 +378,7 @@ export class Generator {
         this.dim = block.dimension
         this.block = block
         this.entity = this.dim.getEntitiesAtBlockLocation(block.location)[0]
+        if (!this.entity) return
         this.inv = this.entity?.getComponent('inventory')?.container
         this.energy = new Energy(this.entity)
         this.rate = settings.generator.rate_speed_base
@@ -1793,7 +1794,9 @@ export class FluidManager {
         'minecraft:lava_bucket': { amount: 1000, type: 'lava', output: 'minecraft:bucket' },
         'utilitycraft:lava_ball': { amount: 1000, type: 'lava' },
         'minecraft:water_bucket': { amount: 1000, type: 'water', output: 'minecraft:bucket' },
-        'utilitycraft:water_ball': { amount: 1000, type: 'water' }
+        'utilitycraft:water_ball': { amount: 1000, type: 'water' },
+        'minecraft:experience_bottle': { amount: 8, type: 'xp', output: 'minecraft:glass_bottle' },
+        'minecraft:milk_bucket': { amount: 1000, type: 'milk', output: 'minecraft:bucket' },
     };
 
 
@@ -2197,7 +2200,7 @@ export class FluidManager {
      * @param {Block} block The block representing the tank.
      * @param {string} type The type of fluid to insert.
      * @param {number} amount Amount of fluid to insert in mB.
-     * @returns {boolean} True if insertion was successful.
+     * @returns {Entity} entity if insertion was successful.
      */
     static addfluidToTank(block, type, amount) {
         const dim = block.dimension;
@@ -2219,7 +2222,7 @@ export class FluidManager {
         system.run(() => {
             entity.setHealth(tank.get())
         })
-        return true;
+        return entity;
     }
 
     /**

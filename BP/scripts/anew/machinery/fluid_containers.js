@@ -63,7 +63,14 @@ DoriosAPI.register.blockComponent("fluid_container", {
         // ─── Interacción con tanques ─────────────────────────
         if (isTank) {
             let tankEntity = dim.getEntitiesAtBlockLocation(block.location)[0];
-            if (!tankEntity) return;
+
+            // Si no existe la entidad, obtener el tipo del ítem antes de spawnearla
+            if (!tankEntity) {
+                const insertData = FluidManager.itemFluidContainers?.[mainHand.typeId];
+                const fluidType = insertData ? insertData.type : "empty";
+                if (fluidType == 'empty') return
+                tankEntity = FluidManager.addfluidToTank(block, fluidType, 0);
+            }
 
             const fluid = new FluidManager(tankEntity, 0);
             const result = fluid.fluidItem(mainHand.typeId);
@@ -83,11 +90,15 @@ DoriosAPI.register.blockComponent("fluid_container", {
                 if (result) player.giveItem(result);
             }
 
-            system.run(() => {
-                tankEntity.setHealth(fluid.get())
-            })
+
+            if (fluid.get() <= 0) { tankEntity.remove() } else {
+                tankEntity.setHealth(fluid.get());
+            }
+
             return;
         }
+
+
 
         // ─── Interacción con máquinas ─────────────────────────
         if (!entity) return;
@@ -151,7 +162,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
 
         // Drop item and cleanup
         system.run(() => {
-            if (player.getGameMode() === "survival") {
+            if (!player.isInCreative()) {
                 dim.getEntities({ type: 'item', maxDistance: 3, location: block.center() })
                     .find(item => item.getComponent('minecraft:item')?.itemStack?.typeId === blockItemId)
                     ?.remove();
