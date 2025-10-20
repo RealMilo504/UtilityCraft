@@ -1,173 +1,119 @@
-import { system, ItemStack } from "@minecraft/server"
+import { system, ItemStack, world } from "@minecraft/server";
+import { FluidManager } from "../machinery/managers.js";
+
 
 DoriosAPI.register.blockComponent("xp", {
     onPlayerInteract({ block }) {
-        if (block.typeId !== "utilitycraft:xp_spout") return
-
-        const isOpen = block.permutation.getState("utilitycraft:isOpen")
-        block.setPermutation(
-            block.permutation.withState("utilitycraft:isOpen", !isOpen)
-        )
+        if (block.typeId !== "utilitycraft:xp_spout") return;
+        const isOpen = block.permutation.getState("utilitycraft:isOpen");
+        block.setPermutation(block.permutation.withState("utilitycraft:isOpen", !isOpen));
     },
 
     onTick({ block }) {
         if (!worldLoaded) return;
-        let { x, y, z } = block.location
+        const dim = block.dimension;
+        let { x, y, z } = block.location;
 
-        // ========== XP DRAIN ==========
+        // ─── XP DRAIN ───────────────────────────────────────────────
         if (block.typeId === "utilitycraft:xp_drain") {
-            x += 0.5
-            z += 0.5
-
-            const player = block.dimension.getPlayers({
-                location: { x, y, z },
+            const player = dim.getPlayers({
+                location: { x: x + 0.5, y, z: z + 0.5 },
                 maxDistance: 0.8
-            })[0]
+            })[0];
 
-            const tankEntity = block.dimension.getEntities({
-                tags: ["tank"],
-                location: { x, y: y - 1, z },
-                maxDistance: 0.1
-            })[0]
+            const tankBlock = block.below(1);
+            if (!player || !tankBlock || !tankBlock.typeId.includes("fluid_tank")) return;
 
-            const tank = block.below(1)
+            // Obtener o crear entidad del tanque si el jugador tiene XP
+            let tankEntity = dim.getEntitiesAtBlockLocation(tankBlock.location)[0];
+            if (!tankEntity && player.getTotalXp() > 0) {
+                tankEntity = FluidManager.addfluidToTank(tankBlock, "xp", 0);
+            }
+            if (!tankEntity) return;
 
-            if (
-                player &&
-                !tankEntity &&
-                tank.permutation.getState("utilitycraft:hasliquid") === false
-            ) {
-                if (player.getTotalXp() > 0) {
-                    tank.setPermutation(
-                        tank.permutation.withState("utilitycraft:hasliquid", true)
-                    )
-                    y -= 1
-                    block.dimension.spawnEntity(`utilitycraft:fluid_tank_xp`, { x, y, z })
-                    block.dimension.runCommand(
-                        `tag @e[type=utilitycraft:fluid_tank_xp] add tank`
-                    )
+            const tank = new FluidManager(tankEntity, 0);
+            if (tank.isFull()) return;
 
-                    system.run(() => {
-                        const entityTank =
-                            block.dimension.getEntitiesAtBlockLocation(
-                                block.below(1).location
-                            )[0]
-                        entityTank.addTag(`${tank.typeId}`)
-                        const tankCap = entityTank.getComponent("minecraft:health")
-                        entityTank.setDynamicProperty("utilitycraft:liquid", 1)
-                        tankCap.setCurrentValue(1)
-                    })
+            // Valor base por tick
+            const baseDrain = 10;
+            let xpToDrain = Math.min(baseDrain, player.xpEarnedAtCurrentLevel);
 
-                    if (player.xpEarnedAtCurrentLevel === 0) {
-                        player.addLevels(-1)
-                        player.addExperience(player.totalXpNeededForNextLevel - 1)
-                    } else {
-                        player.addExperience(-1)
-                    }
-                }
+            // Si no tiene XP en el nivel actual, bajar uno
+            if (player.xpEarnedAtCurrentLevel === 0 && player.getTotalXp() > 0) {
+                player.addLevels(-1);
+                // recalcula el valor real tras bajar un nivel
+                xpToDrain = Math.min(baseDrain, player.totalXpNeededForNextLevel);
+                player.addExperience(player.totalXpNeededForNextLevel - xpToDrain);
+            } else {
+                player.addExperience(-xpToDrain);
             }
 
-            if (
-                player &&
-                tankEntity &&
-                tank.permutation.getState("utilitycraft:hasliquid") === true
-            ) {
-                const tankCap = tankEntity.getComponent("minecraft:health")
-                const actualXp = tankEntity.getDynamicProperty("utilitycraft:liquid")
-
-                if (player.getTotalXp() > 0 && actualXp < tankCap.effectiveMax) {
-                    y -= 1
-                    if (player.xpEarnedAtCurrentLevel === 0) {
-                        player.addLevels(-1)
-                        player.addExperience(player.totalXpNeededForNextLevel - 1)
-                        tankCap.setCurrentValue(actualXp + 1)
-                        tankEntity.setDynamicProperty(
-                            "utilitycraft:liquid",
-                            actualXp + 1
-                        )
-                    } else {
-                        const amount =
-                            player.xpEarnedAtCurrentLevel >= 10
-                                ? 10
-                                : player.xpEarnedAtCurrentLevel
-                        player.addExperience(-amount)
-                        tankCap.setCurrentValue(actualXp + amount)
-                        tankEntity.setDynamicProperty(
-                            "utilitycraft:liquid",
-                            actualXp + amount
-                        )
-                    }
-                }
+            // Insertar en tanque
+            const inserted = tank.tryInsert("xp", xpToDrain);
+            if (inserted) {
+                tankEntity.setHealth(tank.get());
             }
         }
 
-        // ========== XP SPOUT ==========
-        if (
-            block.typeId === "utilitycraft:xp_spout" &&
-            block.permutation.getState("utilitycraft:isOpen") === true
-        ) {
-            let xs = 0,
-                zs = 0
-            let tank = undefined
-            switch (block.permutation.getState("minecraft:block_face")) {
+
+        // ─── XP SPOUT ───────────────────────────────────────────────
+        if (block.typeId === "utilitycraft:xp_spout" && block.permutation.getState("utilitycraft:isOpen")) {
+            const facing = block.permutation.getState("minecraft:block_face");
+            let targetBlock;
+            let orbOffset = { x: 0.5, y: 0.5, z: 0.5 };
+
+            switch (facing) {
                 case "north":
-                    tank = block.south(1)
-                    z += 1
-                    zs = 0.8
-                    xs = 0.4
-                    break
+                    targetBlock = block.south(1);
+                    orbOffset = { x: 0.5, y: 0.5, z: 0.8 };
+                    break;
                 case "south":
-                    tank = block.north(1)
-                    z -= 1
-                    zs = 0.2
-                    xs = 0.4
-                    break
+                    targetBlock = block.north(1);
+                    orbOffset = { x: 0.5, y: 0.5, z: 0.2 };
+                    break;
                 case "west":
-                    tank = block.east(1)
-                    x += 1
-                    xs = 0.6
-                    zs = 0.5
-                    break
+                    targetBlock = block.east(1);
+                    orbOffset = { x: 0.6, y: 0.5, z: 0.5 };
+                    break;
                 case "east":
-                    tank = block.west(1)
-                    x -= 1
-                    xs = 0.1
-                    zs = 0.5
-                    break
+                    targetBlock = block.west(1);
+                    orbOffset = { x: 0.2, y: 0.5, z: 0.5 };
+                    break;
             }
-            x += 0.5
-            z += 0.5
 
-            const tankEntity = block.dimension.getEntities({
-                families: ["tank"],
-                location: { x, y, z },
-                maxDistance: 0.1
-            })[0]
+            if (!targetBlock || !targetBlock.typeId.includes("fluid_tank")) return;
 
-            if (tankEntity && tankEntity.typeId === "utilitycraft:fluid_tank_xp") {
-                const tankCap = tankEntity.getDynamicProperty("utilitycraft:liquid")
-                if (tankCap > 1) {
-                    tankEntity.setDynamicProperty("utilitycraft:liquid", tankCap - 1)
-                    tankEntity.getComponent("minecraft:health").setCurrentValue(
-                        tankCap - 1
-                    )
-                    block.dimension.spawnEntity("xp_orb", {
-                        x: block.location.x + xs,
-                        y: block.location.y + 0.5,
-                        z: block.location.z + zs
-                    })
-                } else {
-                    tankEntity.remove()
-                    block.dimension.spawnEntity("xp_orb", {
-                        x: block.location.x + xs,
-                        y: block.location.y + 0.5,
-                        z: block.location.z + zs
-                    })
-                    tank.setPermutation(
-                        tank.permutation.withState("utilitycraft:hasliquid", false)
-                    )
-                }
+            const tankEntity = dim.getEntitiesAtBlockLocation(targetBlock.location)[0];
+            if (!tankEntity) return;
+
+            const tank = new FluidManager(tankEntity, 0);
+
+            // Solo emitir XP si el tanque contiene líquido tipo xp
+            if (tank.getType() !== "xp" || tank.get() <= 0) return;
+
+            // Cuánto XP sacar (máx 5)
+            const drainAmount = Math.min(5, tank.get());
+
+            // Drenar líquido del tanque
+            tank.consume(drainAmount);
+            tankEntity.setHealth(tank.get());
+
+            // Generar orbes según la cantidad drenada
+            for (let i = 0; i < drainAmount; i++) {
+                dim.spawnEntity("xp_orb", {
+                    x: block.location.x + orbOffset.x,
+                    y: block.location.y + orbOffset.y,
+                    z: block.location.z + orbOffset.z
+                });
+            }
+
+            // Si el tanque quedó vacío → eliminar entidad y restaurar bloque
+            if (tank.get() <= 0) {
+                tankEntity.remove();
+                const emptyBlock = targetBlock.typeId.replace(/_xp$/, "");
+                targetBlock.setType(emptyBlock);
             }
         }
+
     }
-})
+});
