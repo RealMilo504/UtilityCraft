@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:bag_of_melon_seeds"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:melon_seeds",
+        "count": 9
+      }
+    ],
+    "result": {
+      "item": "twm:bag_of_melon_seeds"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:melon_seeds"
+      }
+    ]
+  }
+}

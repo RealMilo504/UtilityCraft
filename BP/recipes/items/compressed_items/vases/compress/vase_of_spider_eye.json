@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:vase_of_spider_eye"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:spider_eye",
+        "count": 9
+      }
+    ],
+    "result": {
+      "item": "twm:vase_of_spider_eye"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:spider_eye"
+      }
+    ]
+  }
+}

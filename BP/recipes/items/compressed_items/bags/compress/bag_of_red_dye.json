@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:bag_of_red_dye"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:red_dye",
+        "count": 9
+      }
+    ],
+    "result": {
+      "item": "twm:bag_of_red_dye"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:red_dye"
+      }
+    ]
+  }
+}

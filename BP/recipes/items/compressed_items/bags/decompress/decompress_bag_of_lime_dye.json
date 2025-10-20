@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:bag_of_lime_dye_decompressed"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "twm:bag_of_lime_dye"
+      }
+    ],
+    "result": {
+      "item": "minecraft:lime_dye",
+      "count": 9
+    },
+    "unlock": [
+      {
+        "item": "twm:bag_of_lime_dye"
+      }
+    ]
+  }
+}

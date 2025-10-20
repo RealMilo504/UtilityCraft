@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:bag_of_beetroot_seeds_decompressed"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "twm:bag_of_beetroot_seeds"
+      }
+    ],
+    "result": {
+      "item": "minecraft:beetroot_seeds",
+      "count": 9
+    },
+    "unlock": [
+      {
+        "item": "twm:bag_of_beetroot_seeds"
+      }
+    ]
+  }
+}

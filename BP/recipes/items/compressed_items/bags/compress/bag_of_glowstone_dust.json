@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:bag_of_glowstone_dust"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:glowstone_dust",
+        "count": 9
+      }
+    ],
+    "result": {
+      "item": "twm:bag_of_glowstone_dust"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:glowstone_dust"
+      }
+    ]
+  }
+}

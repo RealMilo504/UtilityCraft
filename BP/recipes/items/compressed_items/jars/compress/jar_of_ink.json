@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "twm:jar_of_ink"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:ink_sac",
+        "count": 9
+      }
+    ],
+    "result": {
+      "item": "twm:jar_of_ink"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:ink_sac"
+      }
+    ]
+  }
+}
