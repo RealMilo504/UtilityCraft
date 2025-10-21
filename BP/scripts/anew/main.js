@@ -24,6 +24,7 @@ import './items/smelting.js'
 import './items/potion.js'
 import './items/hoe.js'
 import './items/essences.js'
+import './items/arm.js'
 
 import './guide.js'
 import './stack_refill.js'

@@ -414,6 +414,7 @@ item.utilitycraft:steel_hoe=Steel Hoe
 item.utilitycraft:lucky_pickaxe=§aLucky Pickaxe\n§7Fortune V
 item.utilitycraft:lucky_sword=§aLucky Sword\n§7Looting V
 item.utilitycraft:smelting_pickaxe=§6Smelting Pickaxe\n§7- Smelts ores when breaking them
+item.utilitycraft:bionic_arm=Bionic Arm (Test)
 item.utilitycraft:lucky_fishing_rod=§aLucky Fishing Rod\n§7Luck of the Sea V\nLure V
 
 -- Drills = ## Brocas
