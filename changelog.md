@@ -117,3 +117,8 @@
   - Incinerator code reworked.
   - Block Breaker/Placer codes reworked.
   > Honestly, everything was reworked since we moved from Old Custom Components to Custom Components V2.
+
+---
+## TEXTURES
+
+  - Changed AIOTs Item textures
