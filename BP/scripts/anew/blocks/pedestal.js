@@ -47,10 +47,12 @@ function tryGrowCrop(block, baseChance, globalMultiplier) {
     if (modded !== undefined && modded < 5) {
         if (Math.random() < finalChance) {
             block.setPermutation(block.permutation.withState("utilitycraft:age", modded + 1));
+            if (Math.random() <= 0.25) block.dimension.spawnParticle('minecraft:crop_growth_emitter', block.center())
         }
     } else if (vanilla !== undefined && vanilla < 7) {
         if (Math.random() < finalChance) {
             block.setPermutation(block.permutation.withState("growth", vanilla + 1));
+            if (Math.random() <= 0.25) block.dimension.spawnParticle('minecraft:crop_growth_emitter', block.center())
         }
     }
 }
