@@ -45,6 +45,7 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
         if (!worldLoaded) return;
         const { block } = e;
         const machine = new Machine(block, settings);
+        machine.transferItems()
 
         const inv = machine.inv;
 

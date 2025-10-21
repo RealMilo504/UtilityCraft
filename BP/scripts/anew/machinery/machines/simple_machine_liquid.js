@@ -34,6 +34,7 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
 
         /** @type {FluidManager} */
         const liquid = FluidManager.initializeSingle(machine.entity);
+        liquid.transferFluids(block)
 
         const inv = machine.inv;
 

@@ -781,6 +781,64 @@ export class Machine {
     }
 
     /**
+     * Transfers items from this machine toward the opposite direction
+     * of its current facing axis (`utilitycraft:axis`).
+     *
+     * ## Behavior
+     * - Reads `utilitycraft:axis` from the block permutation.
+     * - Determines the **opposite direction vector** (e.g. east → west).
+     * - Finds the block located in that opposite direction.
+     * - Calls {@link DoriosAPI.containers.transferItemsAt} to move items to the target container.
+     *
+     * Compatible with:
+     * - Vanilla containers (chests, barrels, hoppers, etc.)
+     * - Dorios containers and machines with inventories
+     *
+     * @param {"simple" | "complex"} [type="simple"]
+     * Determines which slots to transfer:
+     * - `"simple"` → transfers only the **last slot** (output).
+     * - `"complex"` → transfers the **last 9 slots** (outputs).
+     *
+     * @returns {boolean} True if the transfer was attempted, false otherwise.
+     */
+    transferItems(type = this.settings.entity.output_type ?? "simple") {
+        const facing = this.block.getState("utilitycraft:axis");
+        if (!facing) return false;
+
+        // Opposite direction vectors
+        const opposites = {
+            east: [-1, 0, 0],
+            west: [1, 0, 0],
+            north: [0, 0, 1],
+            south: [0, 0, -1],
+            up: [0, -1, 0],
+            down: [0, 1, 0]
+        };
+
+        const offset = opposites[facing];
+        if (!offset) return false;
+
+        const { x, y, z } = this.block.location;
+        const targetLoc = { x: x + offset[0], y: y + offset[1], z: z + offset[2] };
+
+        // Determine slot range based on type
+        let range;
+        if (type === "complex") {
+            const end = this.inv.size - 1;
+            const start = Math.max(0, end - 8);
+            range = [start, end];
+        } else {
+            range = this.inv.size - 1; // last slot only
+        }
+
+        // Execute transfer using DoriosAPI
+        DoriosAPI.containers.transferItemsAt(this.inv, targetLoc, this.dim, range);
+        return true;
+    }
+
+
+
+    /**
      * Sets a label in the machine inventory using a fixed item as placeholder.
      *
      * The label is displayed by overriding the item's `nameTag` with custom text.
@@ -1932,6 +1990,91 @@ export class FluidManager {
             }
         }
         return false;
+    }
+
+    /**
+     * Transfers fluid from this tank or machine toward the opposite
+     * direction of its facing axis (`utilitycraft:axis`).
+     *
+     * ## Behavior
+     * - Reads `utilitycraft:axis` from the source block.
+     * - Determines the **opposite direction vector** (e.g. east → west).
+     * - Locates the target block in that opposite direction.
+     * - If the target has the tag `"dorios:fluid"`, tries to transfer fluid to it.
+     * - If the target is a UtilityCraft fluid tank:
+     *   - Uses {@link FluidManager.addfluidToTank} to insert liquid.
+     *   - Removes its entity if emptied, or updates health otherwise.
+     * - If the target is a machine with a fluid entity, uses {@link FluidManager.transferTo}.
+     *
+     * @param {Block} block The source block associated with this fluid entity.
+     * @param {number} [amount=100] Maximum amount to transfer (in mB).
+     * @returns {boolean} True if a valid transfer occurred, false otherwise.
+     */
+    transferFluids(block, amount = 100) {
+        if (!block || !this.entity?.isValid) return false;
+
+        const facing = block.getState("utilitycraft:axis");
+        if (!facing) return false;
+
+        // Opposite direction vectors
+        const opposites = {
+            east: [-1, 0, 0],
+            west: [1, 0, 0],
+            north: [0, 0, 1],
+            south: [0, 0, -1],
+            up: [0, -1, 0],
+            down: [0, 1, 0]
+        };
+
+        const offset = opposites[facing];
+        if (!offset) return false;
+
+        const { x, y, z } = block.location;
+        const targetLoc = { x: x + offset[0], y: y + offset[1], z: z + offset[2] };
+
+        const dim = block.dimension;
+        const targetBlock = dim.getBlock(targetLoc);
+        if (!targetBlock) return false;
+
+        // ✅ Only proceed if the target block supports fluids
+        if (!targetBlock.hasTag("dorios:fluid")) return false;
+
+        // ──────────────────────────────────────────────
+        // Case 1: Target is a UtilityCraft fluid tank
+        // ──────────────────────────────────────────────
+        if (targetBlock.typeId.includes("utilitycraft:") && targetBlock.typeId.includes("fluid_tank")) {
+            const transferable = Math.min(amount, this.get());
+            if (transferable <= 0) return false;
+
+            const success = FluidManager.addfluidToTank(targetBlock, this.getType(), transferable);
+            if (success) {
+                this.add(-transferable);
+
+                const tankEntity = dim.getEntitiesAtBlockLocation(targetBlock.location)[0];
+                if (tankEntity) {
+                    const fluid = new FluidManager(tankEntity, 0);
+                    if (fluid.get() <= 0) {
+                        tankEntity.remove();
+                    } else {
+                        tankEntity.setHealth(fluid.get());
+                    }
+                }
+            }
+
+            return success;
+        }
+
+        // ──────────────────────────────────────────────
+        // Case 2: Target is another fluid-capable machine
+        // ──────────────────────────────────────────────
+        const targetEntity = dim.getEntitiesAtBlockLocation(targetLoc)[0];
+        if (!targetEntity) return false;
+
+        const targetFluid = new FluidManager(targetEntity, this.index);
+        if (!targetFluid || targetFluid.getCap() <= 0) return false;
+
+        const transferred = this.transferTo(targetFluid, amount);
+        return transferred > 0;
     }
 
 

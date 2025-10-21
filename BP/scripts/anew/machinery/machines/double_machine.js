@@ -32,7 +32,8 @@ DoriosAPI.register.blockComponent('double_machine', {
         const { block } = e;
         const machine = new Machine(block, settings);
         if (!machine.entity) return
-        settings
+        machine.transferItems()
+
         const inv = machine.inv;
         const OUTPUTSLOT = inv.size - 1
 

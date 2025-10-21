@@ -40,6 +40,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
         const { block } = e;
         const machine = new Machine(block, settings);
         if (!machine.entity) return
+        machine.transferItems()
 
         const inv = machine.inv;
 

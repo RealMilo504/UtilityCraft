@@ -37,6 +37,7 @@ DoriosAPI.register.blockComponent('assembler', {
 
         const { block } = e;
         const machine = new Machine(block, settings);
+        machine.transferItems()
         const inv = machine.inv;
 
         const size = inv.size;

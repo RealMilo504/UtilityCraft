@@ -1,5 +1,5 @@
 
-/**
+/** 
  * @global
  * @typedef {import("@minecraft/server").ItemStack} ItemStack
  * @typedef {import("@minecraft/server").Container} Container
