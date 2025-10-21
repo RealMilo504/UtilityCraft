@@ -14,6 +14,8 @@
 			}
 		},
 		"components": {
+			"utilitycraft:interact": {},
+			"utilitycraft:pedestal": {},
 			"minecraft:geometry": "geometry.utilitycraft_pedestal",
 			"minecraft:material_instances": {
 				"*": {

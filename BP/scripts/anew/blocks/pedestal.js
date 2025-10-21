@@ -5,8 +5,8 @@ import { system, ItemStack } from "@minecraft/server";
  */
 const pedestalSettings = {
     radius: 4,            // Radio de acción (4 = 9x9)
-    cropsPerCycle: 16,    // Cuántos cultivos intenta procesar por ciclo
-    baseChance: 0.25,     // Probabilidad base de crecimiento
+    cropsPerCycle: 27,    // Cuántos cultivos intenta procesar por ciclo
+    baseChance: 0.80,     // Probabilidad base de crecimiento
 };
 
 /**
@@ -15,10 +15,10 @@ const pedestalSettings = {
  */
 const cropTierChances = {
     0: 1.0,  // Normal crops
-    1: 0.9,  // Slightly slower
-    2: 0.75, // Noticeably slower
-    3: 0.6,  // Hard to grow
-    4: 0.4,  // Very slow growth (top-tier / rare)
+    1: 0.80,  // Slightly slower
+    2: 0.60, // Noticeably slower
+    3: 0.10,  // Hard to grow
+    4: 0.05,  // Very slow growth (top-tier / rare)
 };
 
 /**
@@ -79,7 +79,7 @@ DoriosAPI.register.blockComponent("pedestal", {
             const crop = dim.getBlock(pos);
             tryGrowCrop(crop, baseChance, multiplier);
 
-            await system.sleep(1);
+            await system.waitTicks(1);
         }
     },
 
