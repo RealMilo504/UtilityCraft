@@ -54,6 +54,10 @@ DoriosAPI.register.blockComponent('block_breaker', {
                         `fill ${x} ${y} ${z} ${x} ${y} ${z} air destroy`
                     );
                     // Reset progress after operation
+                    machine.on();
+                    DoriosAPI.utils.waitSeconds(1, () => {
+                        machine.off()
+                    })
                     machine.setProgress(0, undefined, undefined, false);
                 } else {
                     machine.showWarning('Nothing to Break', false);
@@ -64,12 +68,13 @@ DoriosAPI.register.blockComponent('block_breaker', {
         } else {
             // Charge up progress
             const energyToConsume = Math.min(machine.energy.get(), machine.rate, energyCost - progress);
+            machine.off()
             machine.energy.consume(energyToConsume);
             machine.addProgress(energyToConsume);
         }
 
         // Update visuals
-        machine.on();
+
         machine.displayEnergy();
         machine.showStatus('Running');
     },

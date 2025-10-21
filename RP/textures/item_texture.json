@@ -902,6 +902,300 @@
 		"utilitycraft:water_48": {
 			"textures": "textures/ui/water_bar/water_frame_48"
 		},
+		"utilitycraft:xp_00": {
+			"textures": "textures/ui/xp_bar/xp_frame_00"
+		},
+		"utilitycraft:xp_01": {
+			"textures": "textures/ui/xp_bar/xp_frame_01"
+		},
+		"utilitycraft:xp_02": {
+			"textures": "textures/ui/xp_bar/xp_frame_02"
+		},
+		"utilitycraft:xp_03": {
+			"textures": "textures/ui/xp_bar/xp_frame_03"
+		},
+		"utilitycraft:xp_04": {
+			"textures": "textures/ui/xp_bar/xp_frame_04"
+		},
+		"utilitycraft:xp_05": {
+			"textures": "textures/ui/xp_bar/xp_frame_05"
+		},
+		"utilitycraft:xp_06": {
+			"textures": "textures/ui/xp_bar/xp_frame_06"
+		},
+		"utilitycraft:xp_07": {
+			"textures": "textures/ui/xp_bar/xp_frame_07"
+		},
+		"utilitycraft:xp_08": {
+			"textures": "textures/ui/xp_bar/xp_frame_08"
+		},
+		"utilitycraft:xp_09": {
+			"textures": "textures/ui/xp_bar/xp_frame_09"
+		},
+		"utilitycraft:xp_10": {
+			"textures": "textures/ui/xp_bar/xp_frame_10"
+		},
+		"utilitycraft:xp_11": {
+			"textures": "textures/ui/xp_bar/xp_frame_11"
+		},
+		"utilitycraft:xp_12": {
+			"textures": "textures/ui/xp_bar/xp_frame_12"
+		},
+		"utilitycraft:xp_13": {
+			"textures": "textures/ui/xp_bar/xp_frame_13"
+		},
+		"utilitycraft:xp_14": {
+			"textures": "textures/ui/xp_bar/xp_frame_14"
+		},
+		"utilitycraft:xp_15": {
+			"textures": "textures/ui/xp_bar/xp_frame_15"
+		},
+		"utilitycraft:xp_16": {
+			"textures": "textures/ui/xp_bar/xp_frame_16"
+		},
+		"utilitycraft:xp_17": {
+			"textures": "textures/ui/xp_bar/xp_frame_17"
+		},
+		"utilitycraft:xp_18": {
+			"textures": "textures/ui/xp_bar/xp_frame_18"
+		},
+		"utilitycraft:xp_19": {
+			"textures": "textures/ui/xp_bar/xp_frame_19"
+		},
+		"utilitycraft:xp_20": {
+			"textures": "textures/ui/xp_bar/xp_frame_20"
+		},
+		"utilitycraft:xp_21": {
+			"textures": "textures/ui/xp_bar/xp_frame_21"
+		},
+		"utilitycraft:xp_22": {
+			"textures": "textures/ui/xp_bar/xp_frame_22"
+		},
+		"utilitycraft:xp_23": {
+			"textures": "textures/ui/xp_bar/xp_frame_23"
+		},
+		"utilitycraft:xp_24": {
+			"textures": "textures/ui/xp_bar/xp_frame_24"
+		},
+		"utilitycraft:xp_25": {
+			"textures": "textures/ui/xp_bar/xp_frame_25"
+		},
+		"utilitycraft:xp_26": {
+			"textures": "textures/ui/xp_bar/xp_frame_26"
+		},
+		"utilitycraft:xp_27": {
+			"textures": "textures/ui/xp_bar/xp_frame_27"
+		},
+		"utilitycraft:xp_28": {
+			"textures": "textures/ui/xp_bar/xp_frame_28"
+		},
+		"utilitycraft:xp_29": {
+			"textures": "textures/ui/xp_bar/xp_frame_29"
+		},
+		"utilitycraft:xp_30": {
+			"textures": "textures/ui/xp_bar/xp_frame_30"
+		},
+		"utilitycraft:xp_31": {
+			"textures": "textures/ui/xp_bar/xp_frame_31"
+		},
+		"utilitycraft:xp_32": {
+			"textures": "textures/ui/xp_bar/xp_frame_32"
+		},
+		"utilitycraft:xp_33": {
+			"textures": "textures/ui/xp_bar/xp_frame_33"
+		},
+		"utilitycraft:xp_34": {
+			"textures": "textures/ui/xp_bar/xp_frame_34"
+		},
+		"utilitycraft:xp_35": {
+			"textures": "textures/ui/xp_bar/xp_frame_35"
+		},
+		"utilitycraft:xp_36": {
+			"textures": "textures/ui/xp_bar/xp_frame_36"
+		},
+		"utilitycraft:xp_37": {
+			"textures": "textures/ui/xp_bar/xp_frame_37"
+		},
+		"utilitycraft:xp_38": {
+			"textures": "textures/ui/xp_bar/xp_frame_38"
+		},
+		"utilitycraft:xp_39": {
+			"textures": "textures/ui/xp_bar/xp_frame_39"
+		},
+		"utilitycraft:xp_40": {
+			"textures": "textures/ui/xp_bar/xp_frame_40"
+		},
+		"utilitycraft:xp_41": {
+			"textures": "textures/ui/xp_bar/xp_frame_41"
+		},
+		"utilitycraft:xp_42": {
+			"textures": "textures/ui/xp_bar/xp_frame_42"
+		},
+		"utilitycraft:xp_43": {
+			"textures": "textures/ui/xp_bar/xp_frame_43"
+		},
+		"utilitycraft:xp_44": {
+			"textures": "textures/ui/xp_bar/xp_frame_44"
+		},
+		"utilitycraft:xp_45": {
+			"textures": "textures/ui/xp_bar/xp_frame_45"
+		},
+		"utilitycraft:xp_46": {
+			"textures": "textures/ui/xp_bar/xp_frame_46"
+		},
+		"utilitycraft:xp_47": {
+			"textures": "textures/ui/xp_bar/xp_frame_47"
+		},
+		"utilitycraft:xp_48": {
+			"textures": "textures/ui/xp_bar/xp_frame_48"
+		},
+		"utilitycraft:milk_00": {
+			"textures": "textures/ui/milk_bar/milk_frame_00"
+		},
+		"utilitycraft:milk_01": {
+			"textures": "textures/ui/milk_bar/milk_frame_01"
+		},
+		"utilitycraft:milk_02": {
+			"textures": "textures/ui/milk_bar/milk_frame_02"
+		},
+		"utilitycraft:milk_03": {
+			"textures": "textures/ui/milk_bar/milk_frame_03"
+		},
+		"utilitycraft:milk_04": {
+			"textures": "textures/ui/milk_bar/milk_frame_04"
+		},
+		"utilitycraft:milk_05": {
+			"textures": "textures/ui/milk_bar/milk_frame_05"
+		},
+		"utilitycraft:milk_06": {
+			"textures": "textures/ui/milk_bar/milk_frame_06"
+		},
+		"utilitycraft:milk_07": {
+			"textures": "textures/ui/milk_bar/milk_frame_07"
+		},
+		"utilitycraft:milk_08": {
+			"textures": "textures/ui/milk_bar/milk_frame_08"
+		},
+		"utilitycraft:milk_09": {
+			"textures": "textures/ui/milk_bar/milk_frame_09"
+		},
+		"utilitycraft:milk_10": {
+			"textures": "textures/ui/milk_bar/milk_frame_10"
+		},
+		"utilitycraft:milk_11": {
+			"textures": "textures/ui/milk_bar/milk_frame_11"
+		},
+		"utilitycraft:milk_12": {
+			"textures": "textures/ui/milk_bar/milk_frame_12"
+		},
+		"utilitycraft:milk_13": {
+			"textures": "textures/ui/milk_bar/milk_frame_13"
+		},
+		"utilitycraft:milk_14": {
+			"textures": "textures/ui/milk_bar/milk_frame_14"
+		},
+		"utilitycraft:milk_15": {
+			"textures": "textures/ui/milk_bar/milk_frame_15"
+		},
+		"utilitycraft:milk_16": {
+			"textures": "textures/ui/milk_bar/milk_frame_16"
+		},
+		"utilitycraft:milk_17": {
+			"textures": "textures/ui/milk_bar/milk_frame_17"
+		},
+		"utilitycraft:milk_18": {
+			"textures": "textures/ui/milk_bar/milk_frame_18"
+		},
+		"utilitycraft:milk_19": {
+			"textures": "textures/ui/milk_bar/milk_frame_19"
+		},
+		"utilitycraft:milk_20": {
+			"textures": "textures/ui/milk_bar/milk_frame_20"
+		},
+		"utilitycraft:milk_21": {
+			"textures": "textures/ui/milk_bar/milk_frame_21"
+		},
+		"utilitycraft:milk_22": {
+			"textures": "textures/ui/milk_bar/milk_frame_22"
+		},
+		"utilitycraft:milk_23": {
+			"textures": "textures/ui/milk_bar/milk_frame_23"
+		},
+		"utilitycraft:milk_24": {
+			"textures": "textures/ui/milk_bar/milk_frame_24"
+		},
+		"utilitycraft:milk_25": {
+			"textures": "textures/ui/milk_bar/milk_frame_25"
+		},
+		"utilitycraft:milk_26": {
+			"textures": "textures/ui/milk_bar/milk_frame_26"
+		},
+		"utilitycraft:milk_27": {
+			"textures": "textures/ui/milk_bar/milk_frame_27"
+		},
+		"utilitycraft:milk_28": {
+			"textures": "textures/ui/milk_bar/milk_frame_28"
+		},
+		"utilitycraft:milk_29": {
+			"textures": "textures/ui/milk_bar/milk_frame_29"
+		},
+		"utilitycraft:milk_30": {
+			"textures": "textures/ui/milk_bar/milk_frame_30"
+		},
+		"utilitycraft:milk_31": {
+			"textures": "textures/ui/milk_bar/milk_frame_31"
+		},
+		"utilitycraft:milk_32": {
+			"textures": "textures/ui/milk_bar/milk_frame_32"
+		},
+		"utilitycraft:milk_33": {
+			"textures": "textures/ui/milk_bar/milk_frame_33"
+		},
+		"utilitycraft:milk_34": {
+			"textures": "textures/ui/milk_bar/milk_frame_34"
+		},
+		"utilitycraft:milk_35": {
+			"textures": "textures/ui/milk_bar/milk_frame_35"
+		},
+		"utilitycraft:milk_36": {
+			"textures": "textures/ui/milk_bar/milk_frame_36"
+		},
+		"utilitycraft:milk_37": {
+			"textures": "textures/ui/milk_bar/milk_frame_37"
+		},
+		"utilitycraft:milk_38": {
+			"textures": "textures/ui/milk_bar/milk_frame_38"
+		},
+		"utilitycraft:milk_39": {
+			"textures": "textures/ui/milk_bar/milk_frame_39"
+		},
+		"utilitycraft:milk_40": {
+			"textures": "textures/ui/milk_bar/milk_frame_40"
+		},
+		"utilitycraft:milk_41": {
+			"textures": "textures/ui/milk_bar/milk_frame_41"
+		},
+		"utilitycraft:milk_42": {
+			"textures": "textures/ui/milk_bar/milk_frame_42"
+		},
+		"utilitycraft:milk_43": {
+			"textures": "textures/ui/milk_bar/milk_frame_43"
+		},
+		"utilitycraft:milk_44": {
+			"textures": "textures/ui/milk_bar/milk_frame_44"
+		},
+		"utilitycraft:milk_45": {
+			"textures": "textures/ui/milk_bar/milk_frame_45"
+		},
+		"utilitycraft:milk_46": {
+			"textures": "textures/ui/milk_bar/milk_frame_46"
+		},
+		"utilitycraft:milk_47": {
+			"textures": "textures/ui/milk_bar/milk_frame_47"
+		},
+		"utilitycraft:milk_48": {
+			"textures": "textures/ui/milk_bar/milk_frame_48"
+		},
 		"utilitycraft_fuel_bar_0": {
 			"textures": "textures/items/progress_bars/flame_0"
 		},

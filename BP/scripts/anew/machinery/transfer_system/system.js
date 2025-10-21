@@ -350,6 +350,17 @@ function searchEnergyContainers(startQueue, gen) {
 }
 //#endregion
 
+//#region Items
+
+//#endregion
+
+//#region Fluids
+
+//#endregion
+
+
+
+
 system.afterEvents.scriptEventReceive.subscribe(e => {
     const { id, message, sourceEntity } = e
 

@@ -209,6 +209,7 @@ export class Rotation {
         // ───── Place the block manually with the axis applied
         system.run(() => {
             try {
+                player.playSound('place.iron')
                 dim.runCommand(`setblock ${x} ${y} ${z} ${typeId} ["utilitycraft:axis"="${axis}"]`);
             } catch { }
         })
@@ -1967,6 +1968,63 @@ export class FluidManager {
     }
 
     /**
+     * Transfers fluid between two world locations.
+     *
+     * ## Behavior
+     * - Both source and target blocks must have the tag `"dorios:fluid"`.
+     * - If the target is a fluid tank without an entity, one is spawned empty first.
+     * - Fluid is transferred between entities using {@link FluidManager.transferTo}.
+     * - The {@link FluidManager.add} method automatically handles visual updates.
+     *
+     * Works with:
+     * - Fluid tanks (auto-spawns empty entity if missing)
+     * - Machines with internal fluid storage
+     *
+     * @param {Dimension} dim The dimension where both positions exist.
+     * @param {{x:number, y:number, z:number}} sourceLoc Source block coordinates.
+     * @param {{x:number, y:number, z:number}} targetLoc Target block coordinates.
+     * @param {number} [amount=100] Maximum amount to transfer (in mB).
+     * @returns {boolean} True if a valid transfer occurred, false otherwise.
+     */
+    static transferBetween(dim, sourceLoc, targetLoc, amount = 100) {
+        if (!dim || !sourceLoc || !targetLoc) return false;
+
+        const sourceBlock = dim.getBlock(sourceLoc);
+        const targetBlock = dim.getBlock(targetLoc);
+
+        // Validate both endpoints
+        if (!sourceBlock?.hasTag("dorios:fluid")) return false;
+        if (!targetBlock?.hasTag("dorios:fluid")) return false;
+
+        // ─── Source entity check ───────────────────────────────
+        const sourceEntity = dim.getEntitiesAtBlockLocation(sourceLoc)[0];
+        if (!sourceEntity) return false;
+
+        const sourceFluid = new FluidManager(sourceEntity, 0);
+        if (!sourceFluid || sourceFluid.get() <= 0) return false;
+
+        // ─── Target entity handling ───────────────────────────────
+        let targetEntity = dim.getEntitiesAtBlockLocation(targetLoc)[0];
+
+        // If target is a tank and has no entity → spawn an empty one
+        if (!targetEntity && targetBlock.typeId.includes("fluid_tank")) {
+            const type = sourceFluid.getType();
+            if (type == 'empty') return false
+            targetEntity = FluidManager.addfluidToTank(targetBlock, type, 0);
+        }
+
+        // If still no entity (non-tank machine), stop
+        if (!targetEntity) return false;
+
+        // ─── Perform fluid transfer ───────────────────────────────
+        const targetFluid = new FluidManager(targetEntity, 0);
+        if (!targetFluid || targetFluid.getCap() <= 0) return false;
+
+        const transferred = sourceFluid.transferTo(targetFluid, amount);
+        return transferred > 0;
+    }
+
+    /**
      * Attempts to insert a given liquid type and amount into the tank.
      *
      * The insertion will only succeed if:
@@ -1991,92 +2049,6 @@ export class FluidManager {
         }
         return false;
     }
-
-    /**
-     * Transfers fluid from this tank or machine toward the opposite
-     * direction of its facing axis (`utilitycraft:axis`).
-     *
-     * ## Behavior
-     * - Reads `utilitycraft:axis` from the source block.
-     * - Determines the **opposite direction vector** (e.g. east → west).
-     * - Locates the target block in that opposite direction.
-     * - If the target has the tag `"dorios:fluid"`, tries to transfer fluid to it.
-     * - If the target is a UtilityCraft fluid tank:
-     *   - Uses {@link FluidManager.addfluidToTank} to insert liquid.
-     *   - Removes its entity if emptied, or updates health otherwise.
-     * - If the target is a machine with a fluid entity, uses {@link FluidManager.transferTo}.
-     *
-     * @param {Block} block The source block associated with this fluid entity.
-     * @param {number} [amount=100] Maximum amount to transfer (in mB).
-     * @returns {boolean} True if a valid transfer occurred, false otherwise.
-     */
-    transferFluids(block, amount = 100) {
-        if (!block || !this.entity?.isValid) return false;
-
-        const facing = block.getState("utilitycraft:axis");
-        if (!facing) return false;
-
-        // Opposite direction vectors
-        const opposites = {
-            east: [-1, 0, 0],
-            west: [1, 0, 0],
-            north: [0, 0, 1],
-            south: [0, 0, -1],
-            up: [0, -1, 0],
-            down: [0, 1, 0]
-        };
-
-        const offset = opposites[facing];
-        if (!offset) return false;
-
-        const { x, y, z } = block.location;
-        const targetLoc = { x: x + offset[0], y: y + offset[1], z: z + offset[2] };
-
-        const dim = block.dimension;
-        const targetBlock = dim.getBlock(targetLoc);
-        if (!targetBlock) return false;
-
-        // ✅ Only proceed if the target block supports fluids
-        if (!targetBlock.hasTag("dorios:fluid")) return false;
-
-        // ──────────────────────────────────────────────
-        // Case 1: Target is a UtilityCraft fluid tank
-        // ──────────────────────────────────────────────
-        if (targetBlock.typeId.includes("utilitycraft:") && targetBlock.typeId.includes("fluid_tank")) {
-            const transferable = Math.min(amount, this.get());
-            if (transferable <= 0) return false;
-
-            const success = FluidManager.addfluidToTank(targetBlock, this.getType(), transferable);
-            if (success) {
-                this.add(-transferable);
-
-                const tankEntity = dim.getEntitiesAtBlockLocation(targetBlock.location)[0];
-                if (tankEntity) {
-                    const fluid = new FluidManager(tankEntity, 0);
-                    if (fluid.get() <= 0) {
-                        tankEntity.remove();
-                    } else {
-                        tankEntity.setHealth(fluid.get());
-                    }
-                }
-            }
-
-            return success;
-        }
-
-        // ──────────────────────────────────────────────
-        // Case 2: Target is another fluid-capable machine
-        // ──────────────────────────────────────────────
-        const targetEntity = dim.getEntitiesAtBlockLocation(targetLoc)[0];
-        if (!targetEntity) return false;
-
-        const targetFluid = new FluidManager(targetEntity, this.index);
-        if (!targetFluid || targetFluid.getCap() <= 0) return false;
-
-        const transferred = this.transferTo(targetFluid, amount);
-        return transferred > 0;
-    }
-
 
     /**
      * Handles item-to-fluid interactions for machines or fluid tanks.
@@ -2158,6 +2130,9 @@ export class FluidManager {
         const { value, exp } = FluidManager.normalizeValue(amount);
         this.scores.fluid.setScore(this.scoreId, value);
         this.scores.fluidExp.setScore(this.scoreId, exp);
+        if (this.entity?.typeId?.startsWith("utilitycraft:fluid_tank")) {
+            this.entity.setHealth(amount);
+        }
     }
 
     /**
@@ -2174,17 +2149,51 @@ export class FluidManager {
     /**
      * Adds or subtracts a specific amount of fluid.
      *
-     * Automatically clamps to the tank capacity.
+     * Uses scoreboard-safe addition logic.
+     * Automatically clamps to tank capacity and updates visible
+     * health if the entity is a UtilityCraft fluid tank.
      *
      * @param {number} amount Amount to add (negative values subtract).
      * @returns {number} Actual amount added or removed.
      */
     add(amount) {
-        const current = this.get();
-        const newValue = Math.max(0, Math.min(current + amount, this.getCap()));
-        this.set(newValue);
-        return newValue - current;
+        if (amount === 0) return 0;
+
+        // Clamp amount to valid range
+        const free = this.getFreeSpace();
+        if (amount > 0 && free <= 0) return 0;
+        if (amount > free) amount = free;
+
+        // Get current mantissa & exponent
+        let value = this.scores.fluid.getScore(this.scoreId) || 0;
+        let exp = this.scores.fluidExp.getScore(this.scoreId) || 0;
+        const multi = 10 ** exp;
+
+        // Convert to current exponent scale
+        const normalizedAdd = Math.floor(amount / multi);
+
+        // Apply add directly if safe
+        let newValue = value + normalizedAdd;
+        if (Math.abs(newValue) <= 1e9) {
+            this.scores.fluid.addScore(this.scoreId, normalizedAdd);
+
+            if (exp > 0 && value < 1e6) {
+                this.set(this.get() + amount);
+            }
+        } else {
+            this.set(this.get() + amount);
+        }
+
+        if (this.entity?.typeId?.startsWith("utilitycraft:fluid_tank")) {
+            const amountCurrent = this.get()
+            if (amountCurrent > 0) {
+                this.entity.setHealth(amountCurrent);
+            } else { this.entity.remove() }
+        }
+
+        return amount;
     }
+
 
     /**
      * Consumes a specific amount of fluid if available.
@@ -2261,6 +2270,69 @@ export class FluidManager {
     // --------------------------------------------------------------------------
     // Transfer operations
     // --------------------------------------------------------------------------
+
+    /**
+     * Transfers fluid from this tank or machine toward the opposite
+     * direction of its facing axis (`utilitycraft:axis`).
+     *
+     * ## Behavior
+     * - Reads `utilitycraft:axis` from the source block.
+     * - Determines the **opposite direction vector** (e.g. east → west).
+     * - Locates the target block in that opposite direction.
+     * - If the target has the tag `"dorios:fluid"`, tries to transfer fluid to it.
+     * - If the target is a fluid tank with no entity, one is spawned empty first.
+     * - Uses {@link FluidManager.transferTo} to handle transfer and visual updates.
+     *
+     * @param {Block} block The source block associated with this fluid entity.
+     * @param {number} [amount=100] Maximum amount to transfer (in mB).
+     * @returns {boolean} True if a valid transfer occurred, false otherwise.
+     */
+    transferFluids(block, amount = 100) {
+        if (!block || !this.entity?.isValid) return false;
+
+        const facing = block.getState("utilitycraft:axis");
+        if (!facing) return false;
+
+        // Opposite direction vectors
+        const opposites = {
+            east: [-1, 0, 0],
+            west: [1, 0, 0],
+            north: [0, 0, 1],
+            south: [0, 0, -1],
+            up: [0, -1, 0],
+            down: [0, 1, 0]
+        };
+
+        const offset = opposites[facing];
+        if (!offset) return false;
+
+        const { x, y, z } = block.location;
+        const targetLoc = { x: x + offset[0], y: y + offset[1], z: z + offset[2] };
+        const dim = block.dimension;
+        const targetBlock = dim.getBlock(targetLoc);
+        if (!targetBlock) return false;
+
+        // Only proceed if the target block supports fluids
+        if (!targetBlock.hasTag("dorios:fluid")) return false;
+
+        let targetEntity = dim.getEntitiesAtBlockLocation(targetLoc)[0];
+
+        // If target is a tank and has no entity, spawn an empty one
+        if (!targetEntity && targetBlock.typeId.includes("fluid_tank")) {
+            const type = this.getType();
+            if (type == 'empty') return
+            FluidManager.addfluidToTank(targetBlock, type, 0);
+            targetEntity = dim.getEntitiesAtBlockLocation(targetLoc)[0];
+        }
+
+        if (!targetEntity) return false;
+
+        const targetFluid = new FluidManager(targetEntity, 0);
+        if (!targetFluid || targetFluid.getCap() <= 0) return false;
+
+        const transferred = this.transferTo(targetFluid, amount);
+        return transferred > 0;
+    }
 
     /**
      * Transfers a specific amount of fluid from this tank to another.
@@ -2362,9 +2434,6 @@ export class FluidManager {
         tank.setCap(FluidManager.getTankCapacity(block.typeId));
         tank.setType(type);
         tank.add(amount);
-        system.run(() => {
-            entity.setHealth(tank.get())
-        })
         return entity;
     }
 
