@@ -3,6 +3,7 @@ const COLORS = DoriosAPI.constants.textColors
 
 globalThis.worldLoaded = false;
 
+//#region Rotation
 
 const FACING = ["up", "down", "north", "south", "east", "west"];
 const CARDINAL = ["north", "south", "east", "west"];
@@ -299,7 +300,7 @@ export class Rotation {
     }
 }
 
-
+//endregion
 
 //#region Scoreboards
 
@@ -600,7 +601,7 @@ export class Generator {
     }
 }
 
-
+//#region Machine
 
 export class Machine {
     /**
@@ -1143,9 +1144,10 @@ export class Machine {
     }
 }
 
+//#endregion
 
 
-
+//#region Energy
 /**
  * Utility class to manage scoreboard-based energy values for entities.
  */
@@ -1644,19 +1646,25 @@ export class Energy {
     //#endregion
 
     /**
-     * Transfers energy from this entity to connected energy containers.
+     * Transfers energy from this entity to connected energy containers in its network.
      *
-     * Modes:
-     * - "nearest": Transfers starting from the closest targets first.
-     * - "farthest": Transfers starting from the farthest targets first.
-     * - "round": Distributes energy evenly among all valid targets.
+     * ## Behavior
+     * - Reads network nodes from a cached dynamic property (`dorios:energy_nodes`).
+     * - If the property doesn't exist or the entity has the `updateNetwork` tag,
+     *   rebuilds the node list from its `pos:[x,y,z]` or `net:[x,y,z]` tags.
+     * - Caches the list sorted by distance for performance.
+     *
+     * ## Transfer Modes
+     * - `"nearest"` → Transfers to the closest valid target first.
+     * - `"farthest"` → Transfers starting from the farthest target first.
+     * - `"round"` → Distributes energy evenly among all valid targets.
      *
      * @param {number} speed Total transfer speed limit (DE/tick).
      * @param {"nearest"|"farthest"|"round"} [mode="nearest"] Transfer mode.
-     * @returns {number} Total amount of energy transferred.
+     * @returns {number} Total amount of energy transferred (in DE).
      */
     transferToNetwork(speed, mode = "nearest") {
-        if (!this.entity) return 0;
+        if (!this.entity?.isValid) return 0;
 
         let available = this.get();
         if (available <= 0 || speed <= 0) return 0;
@@ -1666,65 +1674,105 @@ export class Energy {
         const isBattery = this.entity.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:battery");
         let transferred = 0;
 
-        // Obtener posiciones desde los tags
-        const positions = this.entity.getTags()
-            .filter(tag => tag.startsWith("pos:[") || tag.startsWith("net:["))
-            .map(tag => {
-                const [x, y, z] = tag.slice(5, -1).split(",").map(Number);
-                return { x, y, z };
-            });
+        // ──────────────────────────────────────────────
+        // Retrieve or rebuild cached network nodes
+        // ──────────────────────────────────────────────
+        let nodes = this.entity.getDynamicProperty("dorios:energy_nodes");
+        const needsUpdate = this.entity.hasTag("updateNetwork");
 
-        // Recolectar contenedores válidos
-        const targets = [];
-        for (const loc of positions) {
-            const [target] = dim.getEntitiesAtBlockLocation(loc);
-            if (!target) continue;
-            const tf = target.getComponent("minecraft:type_family");
-            if (!tf?.hasTypeFamily("dorios:energy_container")) continue;
-            if (isBattery && tf.hasTypeFamily("dorios:battery")) continue;
+        if (!nodes || needsUpdate) {
+            const positions = this.entity.getTags()
+                .filter(tag => tag.startsWith("pos:[") || tag.startsWith("net:["))
+                .map(tag => {
+                    const [x, y, z] = tag.slice(5, -1).split(",").map(Number);
+                    return { x, y, z };
+                })
+                .sort((a, b) =>
+                    DoriosAPI.math.distanceBetween(pos, a) -
+                    DoriosAPI.math.distanceBetween(pos, b)
+                );
 
-            targets.push({ entity: target, dist: DoriosAPI.math.distanceBetween(pos, loc) });
+            this.entity.setDynamicProperty("dorios:energy_nodes", JSON.stringify(positions));
+            this.entity.removeTag("updateNetwork");
+            nodes = JSON.stringify(positions);
         }
 
+        const targets = JSON.parse(nodes);
         if (targets.length === 0) return 0;
 
-        // Ordenar por modo
-        if (mode === "nearest") targets.sort((a, b) => a.dist - b.dist);
-        else if (mode === "farthest") targets.sort((a, b) => b.dist - a.dist);
+        // ──────────────────────────────────────────────
+        // Select order based on transfer mode
+        // ──────────────────────────────────────────────
+        let orderedTargets = [...targets];
+        if (mode === "farthest") orderedTargets.reverse();
 
-        // Distribución
+        // ──────────────────────────────────────────────
+        // Process transfers
+        // ──────────────────────────────────────────────
         if (mode === "round") {
-            // Dividir equitativamente el total speed
-            const share = Math.floor(speed / targets.length);
-            for (const { entity } of targets) {
+            const share = Math.floor(speed / orderedTargets.length);
+
+            for (const loc of orderedTargets) {
                 if (available <= 0 || speed <= 0) break;
-                const energy = new Energy(entity);
-                const added = energy.add(Math.min(share, energy.getFreeSpace(), available, speed));
-                available -= added;
-                speed -= added;
-                transferred += added;
-            }
-        } else {
-            // Transferencia secuencial
-            for (const { entity } of targets) {
-                if (available <= 0 || speed <= 0) break;
-                const energy = new Energy(entity);
+
+                const [target] = dim.getEntitiesAtBlockLocation(loc);
+                if (!target) continue;
+
+                const tf = target.getComponent("minecraft:type_family");
+                if (!tf?.hasTypeFamily("dorios:energy_container")) continue;
+                if (isBattery && tf.hasTypeFamily("dorios:battery")) continue;
+
+                const energy = new Energy(target);
                 const space = energy.getFreeSpace();
                 if (space <= 0) continue;
+
+                const amount = Math.min(share, space, available, speed);
+                const added = energy.add(amount);
+                if (added > 0) {
+                    available -= added;
+                    speed -= added;
+                    transferred += added;
+                }
+            }
+        } else {
+            // Sequential transfer (nearest/farthest)
+            for (const loc of orderedTargets) {
+                if (available <= 0 || speed <= 0) break;
+
+                const [target] = dim.getEntitiesAtBlockLocation(loc);
+                if (!target) continue;
+
+                const tf = target.getComponent("minecraft:type_family");
+                if (!tf?.hasTypeFamily("dorios:energy_container")) continue;
+                if (isBattery && tf.hasTypeFamily("dorios:battery")) continue;
+
+                const energy = new Energy(target);
+                const space = energy.getFreeSpace();
+                if (space <= 0) continue;
+
                 const amount = Math.min(space, available, speed);
                 const added = energy.add(amount);
-                available -= added;
-                speed -= added;
-                transferred += added;
+                if (added > 0) {
+                    available -= added;
+                    speed -= added;
+                    transferred += added;
+
+                    if (mode === "nearest") break; // Stop on first successful transfer
+                }
             }
         }
 
+        // ──────────────────────────────────────────────
+        // 4️⃣ Consume total transferred amount
+        // ──────────────────────────────────────────────
         if (transferred > 0) this.consume(transferred);
+
         return transferred;
     }
 
-
 }
+//#endregion
+
 
 
 /**
@@ -2270,6 +2318,143 @@ export class FluidManager {
     // --------------------------------------------------------------------------
     // Transfer operations
     // --------------------------------------------------------------------------
+
+    /**
+     * Transfers fluid from this entity to connected fluid containers in its network.
+     *
+     * ## Behavior
+     * - Reads network positions from a cached dynamic property (`dorios:fluid_nodes`)
+     *   for high performance.
+     * - If the property doesn't exist or the entity has the `updateNetwork` tag,
+     *   rebuilds the array from its `pos:[x,y,z]` or `net:[x,y,z]` tags.
+     * - The resulting node list is stored sorted by distance for later use.
+     *
+     * ## Transfer Modes
+     * - `"nearest"` → Starts from the closest node that accepts fluid.
+     * - `"farthest"` → Starts from the farthest node first.
+     * - `"round"` → Distributes fluid evenly across all valid targets.
+     *
+     * @param {number} speed Total transfer speed limit (mB/tick).
+     * @param {"nearest"|"farthest"|"round"} [mode="nearest"] Transfer mode.
+     * @returns {number} Total amount of fluid transferred (in mB).
+     */
+    transferToNetwork(speed, mode = "nearest") {
+        const dim = this.entity.dimension;
+        const pos = this.entity.location;
+        let available = this.get();
+        if (available <= 0 || speed <= 0) return 0;
+
+        let transferred = 0;
+
+        // ──────────────────────────────────────────────
+        // Retrieve or rebuild cached network nodes
+        // ──────────────────────────────────────────────
+        let nodes = this.entity.getDynamicProperty("dorios:fluid_nodes");
+        const needsUpdate = this.entity.hasTag("updateNetwork");
+
+        if (!nodes || needsUpdate) {
+            const positions = this.entity.getTags()
+                .filter(tag => tag.startsWith("pos:[") || tag.startsWith("net:["))
+                .map(tag => {
+                    const [x, y, z] = tag.slice(5, -1).split(",").map(Number);
+                    return { x, y, z };
+                })
+                .sort((a, b) =>
+                    DoriosAPI.math.distanceBetween(pos, a) -
+                    DoriosAPI.math.distanceBetween(pos, b)
+                );
+
+            this.entity.setDynamicProperty("dorios:fluid_nodes", JSON.stringify(positions));
+            this.entity.removeTag("updateNetwork");
+            nodes = JSON.stringify(positions);
+        }
+
+        const targets = JSON.parse(nodes);
+        if (targets.length === 0) return 0;
+
+        // ──────────────────────────────────────────────
+        // Select order based on transfer mode
+        // ──────────────────────────────────────────────
+        let orderedTargets = [...targets];
+        if (mode === "farthest") orderedTargets.reverse();
+
+        // ──────────────────────────────────────────────
+        // Process transfers
+        // ──────────────────────────────────────────────
+        if (mode === "round") {
+            // Divide total speed evenly among all valid targets
+            const share = Math.floor(speed / orderedTargets.length);
+
+            for (const loc of orderedTargets) {
+                if (available <= 0 || speed <= 0) break;
+
+                const targetBlock = dim.getBlock(loc);
+                if (!targetBlock?.hasTag("dorios:fluid")) continue;
+
+                // Ensure target entity exists (spawn if tank)
+                let targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
+                if (!targetEntity && targetBlock.typeId.includes("fluid_tank")) {
+                    const type = this.getType()
+                    if (type == 'empty') return
+                    FluidManager.addfluidToTank(targetBlock, type, 0);
+                    targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
+                }
+                if (!targetEntity) continue;
+
+                const target = new FluidManager(targetEntity, 0);
+                const space = target.getFreeSpace();
+                if (space <= 0) continue;
+
+                const amount = Math.min(share, space, available, speed);
+                const added = target.add(amount);
+                if (added > 0) {
+                    available -= added;
+                    speed -= added;
+                    transferred += added;
+                }
+            }
+        } else {
+            // Sequential transfer (nearest/farthest)
+            for (const loc of orderedTargets) {
+                if (available <= 0 || speed <= 0) break;
+
+                const targetBlock = dim.getBlock(loc);
+                if (!targetBlock?.hasTag("dorios:fluid")) continue;
+
+                // Ensure target entity exists (spawn if tank)
+                let targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
+                if (!targetEntity && targetBlock.typeId.includes("fluid_tank")) {
+                    const type = this.getType() || "empty";
+                    FluidManager.addfluidToTank(targetBlock, type, 0);
+                    targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
+                }
+                if (!targetEntity) continue;
+
+                const target = new FluidManager(targetEntity, 0);
+                const space = target.getFreeSpace();
+                if (space <= 0) continue;
+
+                const amount = Math.min(space, available, speed);
+                const added = target.add(amount);
+                if (added > 0) {
+                    available -= added;
+                    speed -= added;
+                    transferred += added;
+
+                    // "nearest" → stop at first successful transfer
+                    if (mode === "nearest") break;
+                }
+            }
+        }
+
+        // ──────────────────────────────────────────────
+        // 4️⃣ Subtract total transferred amount
+        // ──────────────────────────────────────────────
+        if (transferred > 0) this.add(-transferred);
+
+        return transferred;
+    }
+
 
     /**
      * Transfers fluid from this tank or machine toward the opposite
