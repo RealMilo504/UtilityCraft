@@ -57,7 +57,6 @@
   - Added Range Upgrade to extened the grinder's area of effect
   - Added ability to toggle the block on/off
   - It can no longer incflict damage on inanimate entities
-  - Changed its texture for better representation
 ### Misc
 - Reworked Coal Blocks:
   - Added a new Charcoal Block and four levels of Compressed Charcoal Blocks.
@@ -111,7 +110,6 @@
   - Essences (Refill) system reworked.
   - XP Magnet code reworked.
   - XP Spout & Drain reworked.
-    > (requires testing, no tank support yet).
   - Crusher code reworked.
   - Electro Press code reworked.
   - Incinerator code reworked.
@@ -121,4 +119,6 @@
 ---
 ## TEXTURES
 
-  - Changed AIOTs Item textures
+- Changed AIOTs Item textures.
+- Changed the texture of the Mob Grinder from a flat gray to a vibrant Gray with Red; Also added blades to it.
+- Changed Copper tools textures. 
