@@ -25,8 +25,8 @@
 					"type": "passive"
 				},
 				"generator": {
-					"energy_cap": 32000,
-					"rate_speed_base": 20
+					"energy_cap": 256000,
+					"rate_speed_base": 36
 				}
 			},
 			"minecraft:geometry": "geometry.utilitycraft_wind_turbine",

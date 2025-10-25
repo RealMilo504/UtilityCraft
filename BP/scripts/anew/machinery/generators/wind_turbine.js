@@ -3,7 +3,7 @@ import { Generator, Energy } from '../managers.js'
 const BASE_ALTITUDE = 60
 const ALTITUDE_BONUS_STEP = 20
 const ALTITUDE_PENALTY_STEP = 8
-const ALTITUDE_STEP_RATIO = 0.5
+const ALTITUDE_STEP_RATIO = 0.2
 const MIN_ALTITUDE = 20
 const MAX_ALTITUDE_MULTIPLIER = 4
 const WEATHER_MULTIPLIERS = {
