@@ -15,6 +15,7 @@
         "ui/machineryCommon.json",
         "ui/harvester.json",
         "ui/one_slot.json",
-        "ui/solar_panel.json"
+        "ui/solar_panel.json",
+        "ui/wind_turbine.json"
     ]
 }

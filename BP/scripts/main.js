@@ -36,7 +36,7 @@ import './items/tools/hammer.js'
 import './items/tools/hoe.js'
 import './items/tools/vein.js'
 import './items/tools/potion.js'
-import './items/tools/smelting.js'
+// import './items/tools/smelting.js'
 
 //Others
 

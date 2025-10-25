@@ -39,6 +39,10 @@ tile.utilitycraft:basic_fluid_tank.name=§eTanque de Fluidos Básico
 tile.utilitycraft:advanced_fluid_tank.name=§cTanque de Fluidos Avanzado
 tile.utilitycraft:expert_fluid_tank.name=§bTanque de Fluidos Maestro
 tile.utilitycraft:ultimate_fluid_tank.name=§8Tanque de Fluidos Definitivo
+tile.utilitycraft:basic_wind_turbine.name=§eTurbina Eólica Básica
+tile.utilitycraft:advanced_wind_turbine.name=§cTurbina Eólica Avanzada
+tile.utilitycraft:expert_wind_turbine.name=§bTurbina Eólica Experta
+tile.utilitycraft:ultimate_wind_turbine.name=§8Turbina Eólica Definitiva
 
 - Bountiful Bonsais = ## Bonsais Abundantes
 tile.utilitycraft:bonsai.name=Bonsai

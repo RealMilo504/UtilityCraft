@@ -26,7 +26,11 @@
                             "utilitycraft:basic_solar_panel",
                             "utilitycraft:advanced_solar_panel",
                             "utilitycraft:expert_solar_panel",
-                            "utilitycraft:ultimate_solar_panel"
+                            "utilitycraft:ultimate_solar_panel",
+                            "utilitycraft:basic_wind_turbine",
+                            "utilitycraft:advanced_wind_turbine",
+                            "utilitycraft:expert_wind_turbine",
+                            "utilitycraft:ultimate_wind_turbine"
                         ]
                     },
                     {

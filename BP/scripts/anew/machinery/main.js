@@ -16,6 +16,7 @@ import './hoppers/mech_hoppers.js'
 
 import './generators/furnator.js'
 import './generators/solar_panel.js'
+import './generators/wind_turbine.js'
 import './generators/magmator.js'
 import './generators/thermo_generator.js'
 import './generators/battery.js'

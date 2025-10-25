@@ -54,6 +54,10 @@ tile.utilitycraft:basic_fluid_tank.name=§eBasic Fluid Tank
 tile.utilitycraft:advanced_fluid_tank.name=§cAdvanced Fluid Tank
 tile.utilitycraft:expert_fluid_tank.name=§bExpert Fluid Tank
 tile.utilitycraft:ultimate_fluid_tank.name=§8Ultimate Fluid Tank
+tile.utilitycraft:basic_wind_turbine.name=§eBasic Wind Turbine
+tile.utilitycraft:advanced_wind_turbine.name=§cAdvanced Wind Turbine
+tile.utilitycraft:expert_wind_turbine.name=§bExpert Wind Turbine
+tile.utilitycraft:ultimate_wind_turbine.name=§8Ultimate Wind Turbine
 
 - Bountiful Bonsais = ## Bonsais Abundantes
 tile.utilitycraft:bonsai.name=Bonsai
@@ -572,6 +576,7 @@ tile.utilitycraft:basic_thermo_generator.name=§eBasic Thermo Generator \n §7 R
 tile.utilitycraft:basic_battery.name=§eBasic Battery \n §7 Rate: 100 DE/t
 tile.utilitycraft:basic_solar_panel.name=§eBasic Solar Panel \n §7 Rate: 8 DE/t
 
+
 tile.utilitycraft:advanced_furnator.name=§cAdvanced Furnator \n §7 Rate: 160 DE/t
 tile.utilitycraft:advanced_magmator.name=§cAdvanced Magmator \n §7 Rate: 200 DE/t
 tile.utilitycraft:advanced_thermo_generator.name=§cAdvanced Thermo Generator \n §7 Rate: 80 DE/t
@@ -781,5 +786,6 @@ entity.utilitycraft:furnator.name=Furnator
 entity.utilitycraft:magmator.name=Magmator
 entity.utilitycraft:solar_panel.name=Solar Panel
 entity.utilitycraft:thermo_generator.name=Thermo Generator
+entity.utilitycraft:wind_turbine.name=Wind Turbine
 tile.utilitycraft:blaze_block.name=Blaze Core
 item.utilitycraft:crushed_kelp=Crushed Kelp

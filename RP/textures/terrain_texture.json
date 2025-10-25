@@ -862,6 +862,30 @@
 		"utilitycraft_ultimate_furnator_off": {
 			"textures": "textures/blocks/generators/ultimate_furnator_off"
 		},
+		"utilitycraft_basic_wind_turbine_on": {
+			"textures": "textures/blocks/generators/basic_wind_turbine_on"
+		},
+		"utilitycraft_basic_wind_turbine_off": {
+			"textures": "textures/blocks/generators/basic_wind_turbine_off"
+		},
+		"utilitycraft_advanced_wind_turbine_on": {
+			"textures": "textures/blocks/generators/advanced_wind_turbine_on"
+		},
+		"utilitycraft_advanced_wind_turbine_off": {
+			"textures": "textures/blocks/generators/advanced_wind_turbine_off"
+		},
+		"utilitycraft_expert_wind_turbine_on": {
+			"textures": "textures/blocks/generators/expert_wind_turbine_on"
+		},
+		"utilitycraft_expert_wind_turbine_off": {
+			"textures": "textures/blocks/generators/expert_wind_turbine_off"
+		},
+		"utilitycraft_ultimate_wind_turbine_on": {
+			"textures": "textures/blocks/generators/ultimate_wind_turbine_on"
+		},
+		"utilitycraft_ultimate_wind_turbine_off": {
+			"textures": "textures/blocks/generators/ultimate_wind_turbine_off"
+		},
 		"utilitycraft_basic_thermo_generator_on": {
 			"textures": "textures/blocks/generators/basic_thermo_generator_on"
 		},

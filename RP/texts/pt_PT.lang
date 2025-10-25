@@ -13,6 +13,10 @@ tile.utilitycraft:basic_fluid_tank.name=Tanque de Fluido §eBásico
 tile.utilitycraft:advanced_fluid_tank.name=Tanque de Fluido §cAvançado
 tile.utilitycraft:expert_fluid_tank.name=Tanque de Fluido §3Expert
 tile.utilitycraft:ultimate_fluid_tank.name=Tanque de Fluido §8Supremo
+tile.utilitycraft:basic_wind_turbine.name=Turbina Eólica §eBásica
+tile.utilitycraft:advanced_wind_turbine.name=Turbina Eólica §cAvançada
+tile.utilitycraft:expert_wind_turbine.name=Turbina Eólica §3Expert
+tile.utilitycraft:ultimate_wind_turbine.name=Turbina Eólica §8Suprema
 tite.utilitycraft:fluid_pump=Bomba \n§7- Extrai líquidos do solo ou de outras máquinas
 tite.utilitycraft:fluid_pipe=Cano \n§7- Transporta líquidos
 
