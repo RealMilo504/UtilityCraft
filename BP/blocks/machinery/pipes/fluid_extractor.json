@@ -45,6 +45,7 @@
 			}
 		},
 		"components": {
+			"utilitycraft:fluid_extractor": {},
 			"utilitycraft:upgradeable": {},
 			"minecraft:geometry": {
 				"identifier": "geometry.fluid_extractor",
@@ -99,7 +100,7 @@
 			"tag:dorios:fluid": {},
 			"tag:dorios:isTube": {},
 			"tag:dorios:isExporter": {},
-            "tag:minecraft:is_pickaxe_item_destructible": {}
+			"tag:minecraft:is_pickaxe_item_destructible": {}
 		},
 		"permutations": [
 			{

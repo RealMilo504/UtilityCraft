@@ -313,32 +313,43 @@ globalThis.DoriosAPI = {
             }
 
             /** @type {EntityTypeFamilyComponent} */
-            const tf = target?.getComponent("minecraft:type_family")
-            const isDoriosContainer = tf?.hasTypeFamily("dorios:container") && !tf?.hasTypeFamily("dorios:complex_input") && !tf?.hasTypeFamily("dorios:simple_input")
+            const tf = target?.getComponent("minecraft:type_family");
+            const isDoriosContainer =
+                tf?.hasTypeFamily("dorios:container") &&
+                !tf?.hasTypeFamily("dorios:complex_input") &&
+                !tf?.hasTypeFamily("dorios:simple_input");
 
             for (let slot = start; slot <= end; slot++) {
                 let itemToTransfer = sourceInv.getItem(slot);
                 if (!itemToTransfer) continue;
 
-                if (DoriosAPI.constants.vanillaContainers(target?.typeId) || isDoriosContainer) {
+                // Vanilla or Dorios container → direct transfer
+                if (DoriosAPI.constants.vanillaContainers.includes(target?.typeId) || isDoriosContainer) {
                     /** @type {Container} */
-                    const targetInv = target.getComponent('inventory').container
-                    sourceInv.transferItem(slot, targetInv)
-                    continue
+                    const targetInv = target.getComponent("inventory").container;
+                    sourceInv.transferItem(slot, targetInv);
+                    continue;
                 }
 
                 // Try to add to target using addItemStack
                 const added = this.addItem(target, itemToTransfer);
-                // If fully added → clear slot
-                if (added == true) {
-                    sourceInv.setItem(slot,);
-                } else if (typeof added == 'number') {
-                    itemToTransfer.amount = added
-                    sourceInv.setItem(slot, itemToTransfer);
-                    continue;
+
+                if (added === true) {
+                    // Fully transferred → clear slot
+                    sourceInv.setItem(slot, undefined);
+                } else if (typeof added === "number") {
+                    // Partially transferred → reduce stack amount
+                    const newAmount = itemToTransfer.amount - added;
+                    if (newAmount > 0) {
+                        itemToTransfer.amount = newAmount;
+                        sourceInv.setItem(slot, itemToTransfer);
+                    } else {
+                        sourceInv.setItem(slot, undefined);
+                    }
                 }
             }
         },
+
         /**
          * This function was created by **Dorios Studios** to handle
          * item transfers between inventories in Minecraft Bedrock.
@@ -405,22 +416,29 @@ globalThis.DoriosAPI = {
 
                 if (DoriosAPI.constants.vanillaContainers.includes(target?.typeId) || isDoriosContainer) {
                     /** @type {Container} */
-                    const targetInv = target.getComponent('inventory').container
-                    sourceInv.transferItem(slot, targetInv)
-                    continue
+                    const targetInv = target.getComponent('inventory').container;
+                    sourceInv.transferItem(slot, targetInv);
+                    continue;
                 }
 
                 // Try to add to target using addItemStack
                 const added = this.addItem(target, itemToTransfer);
-                // If fully added → clear slot
-                if (added == true) {
-                    sourceInv.setItem(slot,);
-                } else if (typeof added == 'number') {
-                    itemToTransfer.amount = added
-                    sourceInv.setItem(slot, itemToTransfer);
-                    continue;
+
+                if (added === true) {
+                    // Fully transferred → clear the slot
+                    sourceInv.setItem(slot, undefined);
+                } else if (typeof added === 'number') {
+                    // Partially transferred → reduce stack amount
+                    const newAmount = itemToTransfer.amount - added;
+                    if (newAmount > 0) {
+                        itemToTransfer.amount = newAmount;
+                        sourceInv.setItem(slot, itemToTransfer);
+                    } else {
+                        sourceInv.setItem(slot, undefined);
+                    }
                 }
             }
+
         },
         /**
          * Transfers items between two world locations.
@@ -534,8 +552,6 @@ globalThis.DoriosAPI = {
          * @returns {import('@minecraft/server').Container|null} The container if found, or null.
          */
         getContainerAt(loc, dim) {
-            if (!loc || !dim) return null;
-
             // Try block container
             const block = dim.getBlock(loc);
             const blockInv = block?.getComponent("minecraft:inventory")?.container;
@@ -543,6 +559,9 @@ globalThis.DoriosAPI = {
 
             // Try entity container
             const ent = dim.getEntitiesAtBlockLocation(loc)[0];
+            const tf = ent?.getComponent?.("minecraft:type_family");
+            if (!tf?.hasTypeFamily("dorios:container")) return null
+
             const entInv = ent?.getComponent("minecraft:inventory")?.container;
             if (entInv) return entInv;
 
@@ -575,8 +594,12 @@ globalThis.DoriosAPI = {
             if (!inv) return [0, 0];
 
             const tf = target?.getComponent?.("minecraft:type_family");
+
             if (!tf) return [0, inv.size - 1];
 
+            if (!tf.hasTypeFamily("dorios:container")) {
+                return [0, 0]
+            }
             const families = tf.getTypeFamilies?.() ?? [];
             let rule = null;
 
@@ -586,7 +609,6 @@ globalThis.DoriosAPI = {
                     break;
                 }
             }
-
             if (!rule || rule === "all") return [0, inv.size - 1];
 
             if (Array.isArray(rule)) {

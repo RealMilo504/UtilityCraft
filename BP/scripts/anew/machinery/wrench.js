@@ -16,6 +16,7 @@ DoriosAPI.register.itemComponent("wrench", {
      */
     onUseOn(e) {
         const { source, block, blockFace } = e;
+        if (!source.isSneaking) return
         Rotation.handleRotation(block, blockFace)
     },
 });

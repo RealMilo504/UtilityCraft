@@ -7,6 +7,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
         const mainHand = player.getEquipment('Mainhand');
 
         if (mainHand?.typeId?.includes('wrench')) {
+            if (!player.isSneaking) return
             Rotation.handleRotation(block, face)
             return
         }

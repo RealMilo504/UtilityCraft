@@ -8,7 +8,12 @@
 			}
 		},
 		"components": {
-			"minecraft:icon": "utilitycraft_fuel_bar_13"
+			"minecraft:icon": "utilitycraft_fuel_bar_13",
+			"minecraft:tags": {
+				"tags": [
+					"utilitycraft:ui_element"
+				]
+			}
 		}
 	}
 }

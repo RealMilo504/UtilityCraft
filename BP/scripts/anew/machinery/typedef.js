@@ -5,6 +5,7 @@
  * @typedef {import("@minecraft/server").Container} Container
  * @typedef {import("@minecraft/server").Block} Block
  * @typedef {import("@minecraft/server").Entity} Entity
+ * @typedef {import("@minecraft/server").Player} Player
  * @typedef {import("@minecraft/server").EntityTypeFamilyComponent} EntityTypeFamilyComponent
  * @typedef {import("@minecraft/server").ScoreboardObjective} ScoreboardObjective
  * @typedef {import("@minecraft/server").Vector3} Vector3

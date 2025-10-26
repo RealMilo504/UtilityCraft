@@ -8,7 +8,12 @@
 			}
 		},
 		"components": {
-			"minecraft:icon": "utilitycraft_arrow_indicator"
+			"minecraft:icon": "utilitycraft_arrow_indicator",
+			"minecraft:tags": {
+				"tags": [
+					"utilitycraft:ui_element"
+				]
+			}
 		}
 	}
 }

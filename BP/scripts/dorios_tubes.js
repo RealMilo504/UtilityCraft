@@ -244,25 +244,6 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
     })
 })
 
-const caps = {
-    'utilitycraft:basic_fluid_tank': 8000,
-    'utilitycraft:advanced_fluid_tank': 32000,
-    'utilitycraft:expert_fluid_tank': 128000,
-    'utilitycraft:ultimate_fluid_tank': 512000,
-    'utilitycraft:basic_magmator': 8000 * 1,
-    'utilitycraft:advanced_magmator': 8000 * 4,
-    'utilitycraft:expert_magmator': 8000 * 16,
-    'utilitycraft:ultimate_magmator': 8000 * 100,
-    'utilitycraft:basic_thermo_generator': 2000 * 1,
-    'utilitycraft:advanced_thermo_generator': 2000 * 4,
-    'utilitycraft:expert_thermo_generator': 2000 * 16,
-    'utilitycraft:ultimate_thermo_generator': 2000 * 100,
-    'utilitycraft:magmatic_chamber': 16000
-};
-const liquids = {
-    'minecraft:water': 'water',
-    'minecraft:lava': 'lava'
-}
 world.beforeEvents.worldInitialize.subscribe(eventData => {
     eventData.blockComponentRegistry.registerCustomComponent('utilitycraft:extractor', {
         beforeOnPlayerPlace(e) {
@@ -551,17 +532,18 @@ function updatePipes(block, tag, rescanFunction) {
 }
 
 world.afterEvents.playerBreakBlock.subscribe(e => {
-    const { block, brokenBlockPermutation } = e;
+    const { block, brokenBlockPermutation: perm } = e;
+    const id = perm.type.id
     system.run(() => {
-        if (brokenBlockPermutation.hasTag('dorios:energy')) {
+        if (perm.hasTag('dorios:energy')) {
             updatePipes(block, 'dorios:energy', startRescanEnergy);
         }
 
-        if (brokenBlockPermutation.hasTag('dorios:item') || vanillaContainers.includes(brokenBlockPermutation.type.id) /*Borrar*/ || brokenBlockPermutation.type.id.includes('dustveyn:storage_drawers')/*Borrar*/) {
+        if (perm.hasTag('dorios:item') || DoriosAPI.constants.vanillaContainers.includes(id) /*Borrar*/ || id.includes('dustveyn:storage_drawers')/*Borrar*/) {
             updatePipes(block, 'dorios:item', startRescanItem);
         }
 
-        if (brokenBlockPermutation.hasTag('dorios:fluid')) {
+        if (perm.hasTag('dorios:fluid')) {
             updatePipes(block, 'dorios:fluid', startRescanFluid);
         }
     })
@@ -574,7 +556,7 @@ world.afterEvents.playerPlaceBlock.subscribe(e => {
             updatePipes(block, 'dorios:energy', startRescanEnergy);
         }
 
-        if (block.hasTag('dorios:item') || vanillaContainers.includes(block.typeId)) {
+        if (block.hasTag('dorios:item') || DoriosAPI.constants.vanillaContainers.includes(block.typeId)) {
             updatePipes(block, 'dorios:item', startRescanItem);
         }
 

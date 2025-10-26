@@ -1,4 +1,5 @@
-import { system, world, ItemStack } from '@minecraft/server'
+import { system, world, ItemStack, BlockPermutation } from '@minecraft/server'
+import { updatePipes } from './transfer_system/system.js'
 const COLORS = DoriosAPI.constants.textColors
 
 globalThis.worldLoaded = false;
@@ -190,9 +191,9 @@ export class Rotation {
      *
      * @param {Player} player The player placing the block.
      * @param {Block} block The block reference (for position).
-     * @param {string} typeId The block identifier to place.
+     * @param {BlockPermutation} perm The block perm to place.
      */
-    static facing(player, block, typeId) {
+    static facing(player, block, perm) {
         const { x, y, z } = block.location;
         const dim = block.dimension;
 
@@ -209,10 +210,21 @@ export class Rotation {
         }
         // ───── Place the block manually with the axis applied
         system.run(() => {
-            try {
-                player.playSound('place.iron')
-                dim.runCommand(`setblock ${x} ${y} ${z} ${typeId} ["utilitycraft:axis"="${axis}"]`);
-            } catch { }
+            player.playSound('place.iron')
+            dim.runCommand(`setblock ${x} ${y} ${z} ${perm.type.id} ["utilitycraft:axis"="${axis}"]`);
+            system.run(() => {
+                if (perm.hasTag('dorios:energy')) {
+                    updatePipes(block, 'energy');
+                }
+
+                if (perm.hasTag('dorios:item') || DoriosAPI.constants.vanillaContainers.includes(block.typeId)) {
+                    updatePipes(block, 'item');
+                }
+
+                if (perm.hasTag('dorios:fluid')) {
+                    updatePipes(block, 'fluid');
+                }
+            })
         })
     }
 
@@ -744,13 +756,13 @@ export class Machine {
         const { block, player, permutationToPlace } = e
         if (settings.rotation) {
             e.cancel = true
-            Rotation.facing(player, block, permutationToPlace.type.id)
+            Rotation.facing(player, block, permutationToPlace)
 
         }
 
         const itemInfo = player.getComponent('equippable').getEquipment('Mainhand').getLore();
         let energy = 0;
-        if (itemInfo[0]) {
+        if (itemInfo[0] && itemInfo[0].includes('Energy')) {
             energy = Energy.getEnergyFromText(itemInfo[0]);
         }
 
@@ -1664,8 +1676,6 @@ export class Energy {
      * @returns {number} Total amount of energy transferred (in DE).
      */
     transferToNetwork(speed, mode = "nearest") {
-        if (!this.entity?.isValid) return 0;
-
         let available = this.get();
         if (available <= 0 || speed <= 0) return 0;
 
@@ -2320,136 +2330,93 @@ export class FluidManager {
     // --------------------------------------------------------------------------
 
     /**
-     * Transfers fluid from this entity to connected fluid containers in its network.
-     *
-     * ## Behavior
-     * - Reads network positions from a cached dynamic property (`dorios:fluid_nodes`)
-     *   for high performance.
-     * - If the property doesn't exist or the entity has the `updateNetwork` tag,
-     *   rebuilds the array from its `pos:[x,y,z]` or `net:[x,y,z]` tags.
-     * - The resulting node list is stored sorted by distance for later use.
-     *
-     * ## Transfer Modes
-     * - `"nearest"` → Starts from the closest node that accepts fluid.
-     * - `"farthest"` → Starts from the farthest node first.
-     * - `"round"` → Distributes fluid evenly across all valid targets.
-     *
-     * @param {number} speed Total transfer speed limit (mB/tick).
-     * @param {"nearest"|"farthest"|"round"} [mode="nearest"] Transfer mode.
-     * @returns {number} Total amount of fluid transferred (in mB).
-     */
-    transferToNetwork(speed, mode = "nearest") {
+   * Transfers fluid from this entity to connected fluid containers in its network.
+   *
+   * ## Behavior
+   * - Uses the provided `nodes` array to determine valid transfer targets.
+   * - Automatically creates entities for target fluid tanks if they are empty (no entity).
+   * - If no `nodes` are provided, the method immediately returns 0.
+   *
+   * ## Transfer Modes
+   * - `"nearest"` → Starts from the closest node that accepts fluid.
+   * - `"farthest"` → Starts from the farthest node first.
+   * - `"round"` → Distributes fluid evenly across all valid targets.
+   *
+   * @param {number} speed Total transfer speed limit (mB/tick).
+   * @param {"nearest"|"farthest"|"round"} [mode="nearest"] Transfer mode.
+   * @param {Array<{x:number, y:number, z:number}>} nodes Precomputed network node positions.
+   * @returns {number} Total amount of fluid transferred (in mB).
+   */
+    transferToNetwork(speed, mode = "nearest", nodes) {
+        if (!Array.isArray(nodes) || nodes.length === 0) return 0;
+
         const dim = this.entity.dimension;
         const pos = this.entity.location;
         let available = this.get();
         if (available <= 0 || speed <= 0) return 0;
 
         let transferred = 0;
+        const type = this.getType();
+        if (!type || type === "empty") return 0;
 
-        // ──────────────────────────────────────────────
-        // Retrieve or rebuild cached network nodes
-        // ──────────────────────────────────────────────
-        let nodes = this.entity.getDynamicProperty("dorios:fluid_nodes");
-        const needsUpdate = this.entity.hasTag("updateNetwork");
-
-        if (!nodes || needsUpdate) {
-            const positions = this.entity.getTags()
-                .filter(tag => tag.startsWith("pos:[") || tag.startsWith("net:["))
-                .map(tag => {
-                    const [x, y, z] = tag.slice(5, -1).split(",").map(Number);
-                    return { x, y, z };
-                })
-                .sort((a, b) =>
-                    DoriosAPI.math.distanceBetween(pos, a) -
-                    DoriosAPI.math.distanceBetween(pos, b)
-                );
-
-            this.entity.setDynamicProperty("dorios:fluid_nodes", JSON.stringify(positions));
-            this.entity.removeTag("updateNetwork");
-            nodes = JSON.stringify(positions);
-        }
-
-        const targets = JSON.parse(nodes);
-        if (targets.length === 0) return 0;
-
-        // ──────────────────────────────────────────────
-        // Select order based on transfer mode
-        // ──────────────────────────────────────────────
-        let orderedTargets = [...targets];
+        // Select order based on mode
+        let orderedTargets = [...nodes];
         if (mode === "farthest") orderedTargets.reverse();
 
         // ──────────────────────────────────────────────
         // Process transfers
         // ──────────────────────────────────────────────
-        if (mode === "round") {
-            // Divide total speed evenly among all valid targets
-            const share = Math.floor(speed / orderedTargets.length);
+        const processTarget = (loc, share = null) => {
+            const targetBlock = dim.getBlock(loc);
+            if (!targetBlock?.hasTag("dorios:fluid")) return 0;
 
+            // If the target is a tank with no entity, create one to store the fluid
+            let targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
+            if (!targetEntity && targetBlock.typeId.includes("fluid_tank")) {
+                FluidManager.addfluidToTank(targetBlock, type, 0);
+                targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
+            }
+            if (!targetEntity) return 0;
+
+            const target = new FluidManager(targetEntity, 0);
+            const targetType = target.getType();
+            const space = target.getFreeSpace();
+
+            // Skip incompatible fluids
+            if (targetType !== "empty" && targetType !== type) return 0;
+            if (space <= 0) return 0;
+
+            // Assign fluid type if empty
+            if (targetType === "empty") target.setType(type);
+
+            const amount = share ? Math.min(share, space, available, speed) : Math.min(space, available, speed);
+            const added = target.add(amount);
+
+            if (added > 0) {
+                available -= added;
+                speed -= added;
+                transferred += added;
+            }
+
+            return added;
+        };
+
+        if (mode === "round") {
+            const share = Math.floor(speed / orderedTargets.length);
             for (const loc of orderedTargets) {
                 if (available <= 0 || speed <= 0) break;
-
-                const targetBlock = dim.getBlock(loc);
-                if (!targetBlock?.hasTag("dorios:fluid")) continue;
-
-                // Ensure target entity exists (spawn if tank)
-                let targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
-                if (!targetEntity && targetBlock.typeId.includes("fluid_tank")) {
-                    const type = this.getType()
-                    if (type == 'empty') return
-                    FluidManager.addfluidToTank(targetBlock, type, 0);
-                    targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
-                }
-                if (!targetEntity) continue;
-
-                const target = new FluidManager(targetEntity, 0);
-                const space = target.getFreeSpace();
-                if (space <= 0) continue;
-
-                const amount = Math.min(share, space, available, speed);
-                const added = target.add(amount);
-                if (added > 0) {
-                    available -= added;
-                    speed -= added;
-                    transferred += added;
-                }
+                processTarget(loc, share);
             }
         } else {
             // Sequential transfer (nearest/farthest)
             for (const loc of orderedTargets) {
                 if (available <= 0 || speed <= 0) break;
-
-                const targetBlock = dim.getBlock(loc);
-                if (!targetBlock?.hasTag("dorios:fluid")) continue;
-
-                // Ensure target entity exists (spawn if tank)
-                let targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
-                if (!targetEntity && targetBlock.typeId.includes("fluid_tank")) {
-                    const type = this.getType() || "empty";
-                    FluidManager.addfluidToTank(targetBlock, type, 0);
-                    targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
-                }
-                if (!targetEntity) continue;
-
-                const target = new FluidManager(targetEntity, 0);
-                const space = target.getFreeSpace();
-                if (space <= 0) continue;
-
-                const amount = Math.min(space, available, speed);
-                const added = target.add(amount);
-                if (added > 0) {
-                    available -= added;
-                    speed -= added;
-                    transferred += added;
-
-                    // "nearest" → stop at first successful transfer
-                    if (mode === "nearest") break;
-                }
+                const added = processTarget(loc);
+                if (mode === "nearest" && added > 0) break;
             }
         }
 
-        // ──────────────────────────────────────────────
-        // 4️⃣ Subtract total transferred amount
-        // ──────────────────────────────────────────────
+        // Subtract total transferred
         if (transferred > 0) this.add(-transferred);
 
         return transferred;

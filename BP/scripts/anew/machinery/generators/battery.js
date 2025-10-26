@@ -38,6 +38,7 @@ DoriosAPI.register.blockComponent('battery', {
         if (!generator.entity) return;
 
         const { energy, rate, entity } = generator;
+        generator.energy.transferToNetwork(rate * 4)
         const current = energy.get();
 
         const lastEnergy = entity.getDynamicProperty('lastEnergy') ?? current;
