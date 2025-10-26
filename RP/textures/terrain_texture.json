@@ -862,6 +862,12 @@
 		"utilitycraft_ultimate_furnator_off": {
 			"textures": "textures/blocks/generators/ultimate_furnator_off"
 		},
+		"utilitycraft_wind_turbine": {
+			"textures": "textures/blocks/generators/wind_turbine_aspas"
+		},
+		"utilitycraft_wind_turbine_still": {
+			"textures": "textures/blocks/generators/wind_turbine_aspas_still"
+		},
 		"utilitycraft_basic_wind_turbine_on": {
 			"textures": "textures/blocks/generators/basic_wind_turbine_on"
 		},

@@ -8,5 +8,10 @@
         "flipbook_texture": "textures/blocks/ender_hopper/ender_hopper_animated",
         "atlas_tile": "utilitycraft_ender_hopper_animated",
         "ticks_per_frame": 5
+    },
+    {
+        "flipbook_texture": "textures/blocks/generators/wind_turbine_aspas",
+        "atlas_tile": "utilitycraft_wind_turbine",
+        "ticks_per_frame": 1
     }
 ]

@@ -267,34 +267,34 @@
 		"textures": "utilitycraft_raw_steel_block"
 	},
 	"utilitycraft:electro_press": {
-		"sound": "stone"
+		"sound": "metal"
 	},
 	"utilitycraft:block_placer": {
-		"sound": "stone"
+		"sound": "metal"
 	},
 	"utilitycraft:xp_condenser": {
-		"sound": "stone"
+		"sound": "metal"
 	},
 	"utilitycraft:seed_synthesizer": {
-		"sound": "stone"
+		"sound": "metal"
 	},
 	"utilitycraft:incinerator": {
-		"sound": "stone"
+		"sound": "metal"
 	},
 	"utilitycraft:induction_anvil": {
-		"sound": "stone"
+		"sound": "metal"
 	},
 	"utilitycraft:crucible": {
-		"sound": "stone"
+		"sound": "metal"
 	},
 	"utilitycraft:magmatic_chamber": {
-		"sound": "stone"
+		"sound": "metal"
 	},
 	"utilitycraft:mechanic_dropper": {
-		"sound": "stone"
+		"sound": "metal"
 	},
 	"utilitycraft:crushed_endstone": {
-		"sound": "stone",
+		"sound": "metal",
 		"textures": "utilitycraft_crushed_endstone"
 	},
 	"utilitycraft:crushed_cobbled_deepslate": {
@@ -302,24 +302,24 @@
 		"textures": "utilitycraft_crushed_cobbled_deepslate"
 	},
 	"utilitycraft:fluid_pump": {
-		"sound": "stone"
+		"sound": "metal"
 	},
 	"utilitycraft:energy_cable": {
-		"sound": "stone"
+		"sound": "metal"
 	},
 	"utilitycraft:item_conduit": {
-		"sound": "stone"
+		"sound": "metal"
 	},
 	"utilitycraft:fluid_pipe": {
-		"sound": "stone"
+		"sound": "metal"
 	},
 	"utilitycraft:item_exporter": {
-		"sound": "stone"
+		"sound": "metal"
 	},
 	"utilitycraft:fluid_extractor": {
-		"sound": "stone"
+		"sound": "metal"
 	},
 	"utilitycraft:blaze_block": {
-		"sound": "stone"
+		"sound": "metal"
 	}
 }

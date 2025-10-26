@@ -31,6 +31,10 @@
 			},
 			"minecraft:geometry": "geometry.utilitycraft_wind_turbine",
 			"minecraft:material_instances": {
+						"aspas": {
+							"texture": "utilitycraft_wind_turbine_still",
+							"render_method": "alpha_test"
+						},
 				"*": {
 					"texture": "utilitycraft_expert_wind_turbine_off",
 					"render_method": "alpha_test"
@@ -126,6 +130,10 @@
 				"condition": "q.block_state('utilitycraft:on') == true ",
 				"components": {
 					"minecraft:material_instances": {
+						"aspas": {
+							"texture": "utilitycraft_wind_turbine",
+							"render_method": "alpha_test"
+						},
 						"*": {
 							"texture": "utilitycraft_expert_wind_turbine_on",
 							"render_method": "alpha_test"
