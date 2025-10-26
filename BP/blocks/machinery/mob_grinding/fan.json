@@ -43,6 +43,7 @@
 		},
 		"components": {
 			"utilitycraft:upgradeable": {},
+			"utilitycraft:fan": {},
 			"minecraft:geometry": "geometry.utilitycraft_fan",
 			"minecraft:material_instances": {
 				"north": {
