@@ -30,6 +30,8 @@ DoriosAPI.register.blockComponent('autosieve', {
         if (!worldLoaded) return;
         const { block } = e;
         const machine = new Machine(block, settings);
+        if (!machine.valid) return
+
         machine.transferItems()
 
         const inv = machine.inv;

@@ -1,0 +1,1 @@
+globalThis.tickSpeed = 40

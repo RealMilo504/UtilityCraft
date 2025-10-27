@@ -35,7 +35,7 @@ DoriosAPI.register.blockComponent('battery', {
         }
         const { block } = e;
         const generator = new Generator(block, settings);
-        if (!generator.entity) return;
+        if (!generator.valid) return
 
         const { energy, rate, entity } = generator;
         generator.energy.transferToNetwork(rate * 4)

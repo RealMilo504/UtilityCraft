@@ -33,7 +33,8 @@ DoriosAPI.register.blockComponent('wind_turbine', {
 
         const { block } = e
         const generator = new Generator(block, settings)
-        if (!generator.entity) return
+        if (!generator.valid) return
+
         generator.energy.transferToNetwork(generator.rate * 4)
 
         const { energy } = generator
@@ -76,7 +77,7 @@ DoriosAPI.register.blockComponent('wind_turbine', {
 
         generator.on()
         generator.displayEnergy()
-        generator.setLabel(buildStatusLabel('Running', 'a', efficiency, energy.getPercent(), altitude, produced))
+        generator.setLabel(buildStatusLabel('Running', 'a', efficiency, energy.getPercent(), altitude, generator.baseRate * efficiency / 100))
     },
 
     onPlayerBreak(e) {

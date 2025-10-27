@@ -27,7 +27,7 @@ DoriosAPI.register.blockComponent('induction_anvil', {
         if (!worldLoaded) return;
         const { block } = e;
         const machine = new Machine(block, settings);
-        if (!machine.entity) return;
+        if (!machine.valid) return
 
         const progress = machine.getProgress();
         const energyCost = settings.machine.energy_cost;

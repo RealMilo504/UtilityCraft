@@ -34,7 +34,7 @@ DoriosAPI.register.blockComponent("harvester", {
         if (!block || block.typeId === "minecraft:air") return;
 
         const machine = new Machine(block, settings);
-        if (!machine.entity) return;
+        if (!machine.valid) return
 
         // --- Machine parameters ---
         const range = machine.upgrades.range

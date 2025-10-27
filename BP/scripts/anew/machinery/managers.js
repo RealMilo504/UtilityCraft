@@ -5,6 +5,12 @@ import { updatePipes } from './transfer_system/system.js'
 const COLORS = DoriosAPI.constants.textColors
 
 globalThis.worldLoaded = false;
+globalThis.tickCount = 0;
+
+system.runInterval(() => {
+    globalThis.tickCount += 2
+    if (globalThis.tickCount == 1000) globalThis.tickCount = 0
+}, 2)
 
 //#region Rotation
 
@@ -384,20 +390,28 @@ world.afterEvents.worldLoad.subscribe(() => {
 
 export class Generator {
     /**
-    * Creates a new Generator instance.
-    * 
-    * @param {Block} block The block representing the generator.
-    * @param {GeneratorSettings} settings generator's settings.
-    */
-    constructor(block, settings) {
+     * Creates a new Generator instance.
+     * 
+     * @param {Block} block The block representing the generator.
+     * @param {GeneratorSettings} settings generator's settings.
+     */
+    constructor(block, settings, ignoreTick = false) {
+        this.valid = true
+
+        // world.sendMessage(`${globalThis.tickCount} y ${globalThis.tickSpeed}`)
+        if (globalThis.tickCount % globalThis.tickSpeed != 0 && !ignoreTick) {
+            this.valid = false
+            return
+        }
         this.settings = settings
         this.dim = block.dimension
         this.block = block
         this.entity = this.dim.getEntitiesAtBlockLocation(block.location)[0]
-        if (!this.entity) return
+        if (!this.entity) return null
         this.inv = this.entity?.getComponent('inventory')?.container
         this.energy = new Energy(this.entity)
-        this.rate = settings.generator.rate_speed_base
+        this.baseRate = settings.generator.rate_speed_base
+        this.rate = this.baseRate * tickSpeed
     }
 
     /**
@@ -553,7 +567,6 @@ export class Generator {
         });
     }
 
-
     /**
      * Adds tags to the entity for all adjacent blocks (6 directions) around it.
      * 
@@ -648,7 +661,6 @@ export class Generator {
         this.block.setState('utilitycraft:on', false)
     }
 
-
     /**
      * Displays the current energy of the generator in the specified inventory slot.
      *
@@ -670,17 +682,23 @@ export class Machine {
      * @param {Block} block The block representing the machine.
      * @param {MachineSettings} settings Machine's settings.
      */
-    constructor(block, settings) {
+    constructor(block, settings, ignoreTick = false) {
+        this.valid = true
+        if (globalThis.tickCount % globalThis.tickSpeed != 0 && !ignoreTick) {
+            this.valid = false
+            return
+        }
         this.settings = settings
         this.dim = block.dimension
         this.block = block
         this.entity = this.dim.getEntitiesAtBlockLocation(block.location)[0]
-        if (!this.entity) return
+        if (!this.entity) return null
         this.inv = this.entity?.getComponent('inventory')?.container
         this.energy = new Energy(this.entity)
         this.upgrades = this.getUpgradeLevels(settings.machine.upgrades)
         this.boosts = this.calculateBoosts(this.upgrades)
-        this.rate = settings.machine.rate_speed_base * this.boosts.speed * this.boosts.consumption
+        this.baseRate = settings.machine.rate_speed_base
+        this.rate = this.baseRate * this.boosts.speed * this.boosts.consumption * tickSpeed
     }
 
     /**
@@ -898,8 +916,6 @@ export class Machine {
         return true;
     }
 
-
-
     /**
      * Sets a label in the machine inventory using a fixed item as placeholder.
      *
@@ -1039,7 +1055,7 @@ export class Machine {
 §r${COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
 §r${COLORS.green}Cost ---
 
-§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(this.rate))}/t
+§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(this.baseRate))}/t
     `);
     }
 
@@ -1060,7 +1076,7 @@ export class Machine {
 §r${COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
 §r${COLORS.green}Cost ${Energy.formatEnergyToText(this.getEnergyCost() * this.boosts.consumption)}
 
-§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(this.rate))}/t
+§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(this.baseRate))}/t
     `);
     }
 

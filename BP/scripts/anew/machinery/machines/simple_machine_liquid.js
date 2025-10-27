@@ -30,7 +30,7 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
         if (!worldLoaded) return;
         const { block } = e;
         const machine = new Machine(block, settings);
-        if (!machine.entity) return
+        if (!machine.valid) return
 
         /** @type {FluidManager} */
         const liquid = FluidManager.initializeSingle(machine.entity);

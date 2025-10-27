@@ -25,12 +25,12 @@ DoriosAPI.register.blockComponent('magmator', {
         if (!worldLoaded) return;
         const { block } = e;
         const generator = new Generator(block, settings);
-        if (!generator.entity) return
+        if (!generator.valid) return
         const { entity, energy, rate } = generator
         generator.energy.transferToNetwork(rate * 4)
 
         /** @type {FluidManager} */
-        const fluid = FluidManager.initializeSingle(generator.entity);
+        const fluid = FluidManager.initializeSingle(entity);
 
         if (fluid.type == 'empty') {
             generator.displayEnergy();
@@ -44,7 +44,7 @@ DoriosAPI.register.blockComponent('magmator', {
  §eValue: §f---
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.rate)}/t
+§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
                     `)
             return
         }
@@ -61,7 +61,7 @@ DoriosAPI.register.blockComponent('magmator', {
  §eValue: §f---
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.rate)}/t
+§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
                     `)
             return
         }
@@ -79,7 +79,7 @@ DoriosAPI.register.blockComponent('magmator', {
  §eValue: §f${Energy.formatEnergyToText(fluid.get() * ENERGY_PER_LAVA_MB)}
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.rate)}/t
+§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
                     `)
             return
         }
@@ -105,7 +105,7 @@ DoriosAPI.register.blockComponent('magmator', {
  §eValue: §f${Energy.formatEnergyToText(fluid.get() * ENERGY_PER_LAVA_MB)}
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.rate)}/t
+§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
                     `)
     },
 

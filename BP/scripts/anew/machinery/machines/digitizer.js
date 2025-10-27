@@ -36,6 +36,8 @@ DoriosAPI.register.blockComponent('digitizer', {
 
         const { block } = e;
         const machine = new Machine(block, settings);
+        if (!machine.valid) return
+
         const inv = machine.inv;
 
         const size = inv.size;

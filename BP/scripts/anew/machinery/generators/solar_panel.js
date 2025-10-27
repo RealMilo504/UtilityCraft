@@ -22,7 +22,7 @@ DoriosAPI.register.blockComponent('solar_panel', {
         if (!worldLoaded) return;
         const { block } = e;
         const generator = new Generator(block, settings);
-        if (!generator.entity) return
+        if (!generator.valid) return
 
         const { energy, rate } = generator
         generator.energy.transferToNetwork(rate * 4)
@@ -49,7 +49,7 @@ DoriosAPI.register.blockComponent('solar_panel', {
  §r§aEfficiency §f${Math.floor(efficiency * 100)}%% 
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.rate * efficiency)}/t
+§r§cRate ${Energy.formatEnergyToText(generator.baseRate * efficiency)}/t
                     `)
             return
         }
@@ -65,7 +65,7 @@ DoriosAPI.register.blockComponent('solar_panel', {
  §r§aEfficiency §f${Math.floor(efficiency * 100)}%% 
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.rate * efficiency)}/t
+§r§cRate ${Energy.formatEnergyToText(generator.baseRate * efficiency)}/t
                     `)
             return
         }
@@ -85,7 +85,7 @@ DoriosAPI.register.blockComponent('solar_panel', {
  §r§aEfficiency §f${Math.floor(efficiency * 100)}%% 
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.rate * efficiency)}/t
+§r§cRate ${Energy.formatEnergyToText(generator.baseRate * efficiency)}/t
                     `)
     },
 

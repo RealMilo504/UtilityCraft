@@ -21,7 +21,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
      */
     beforeOnPlayerPlace(e, { params: settings }) {
         Machine.spawnMachineEntity(e, settings, () => {
-            const machine = new Machine(e.block, settings);
+            const machine = new Machine(e.block, settings, true);
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress()
             // Fill Slot to avoid issues
@@ -39,7 +39,8 @@ DoriosAPI.register.blockComponent('simple_machine', {
         if (!worldLoaded) return;
         const { block } = e;
         const machine = new Machine(block, settings);
-        if (!machine.entity) return
+        if (!machine.valid) return
+
         machine.transferItems()
 
         const inv = machine.inv;

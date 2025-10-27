@@ -31,7 +31,8 @@ DoriosAPI.register.blockComponent('double_machine', {
         if (!worldLoaded) return;
         const { block } = e;
         const machine = new Machine(block, settings);
-        if (!machine.entity) return
+        if (!machine.valid) return
+
         machine.transferItems()
 
         const inv = machine.inv;

@@ -25,7 +25,7 @@ DoriosAPI.register.blockComponent('furnator', {
         if (!worldLoaded) return;
         const { block } = e;
         const generator = new Generator(block, settings);
-        if (!generator.entity) return
+        if (!generator.valid) return
         const { entity, energy, rate } = generator
         generator.energy.transferToNetwork(rate * 4)
 
@@ -59,7 +59,7 @@ DoriosAPI.register.blockComponent('furnator', {
  §eValue: §f---
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.rate)}/t
+§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
                     `)
                     generator.off()
                     generator.displayEnergy()
@@ -75,7 +75,7 @@ DoriosAPI.register.blockComponent('furnator', {
  §eValue: §f---
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.rate)}/t
+§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
                     `)
                     generator.off()
                     generator.displayEnergy()
@@ -104,7 +104,7 @@ DoriosAPI.register.blockComponent('furnator', {
  §eValue: §f${Energy.formatEnergyToText(energyF)}
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.rate)}/t
+§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
                     `)
             return
         }
@@ -122,7 +122,7 @@ DoriosAPI.register.blockComponent('furnator', {
  §eValue: §f${Energy.formatEnergyToText(energyF)}
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.rate)}/t
+§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
                     `)
     },
 
