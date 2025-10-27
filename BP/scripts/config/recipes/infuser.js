@@ -163,80 +163,27 @@ export const infuserRecipes = {
     // Future recipes can be added here
 };
 
-import { system } from "@minecraft/server";
-
 /**
- * Represents a solid fuel entry for the Furnator.
+ * ScriptEvent receiver: "utilitycraft:register_infuser_recipe"
  *
- * @typedef {Object} SolidFuel
- * @property {string} id  The item identifier or keyword (e.g. "coal", "plank").
- * @property {number} de  Dorios Energy (DE) produced when consumed.
- */
-
-/**
- * Solid fuels used by the Furnator generator.
- * Each entry defines the item ID (or pattern) and the energy produced (in DE).
- *
- * @constant
- * @type {SolidFuel[]}
- */
-export const solidFuels = [
-    { id: "compressed_charcoal_block_2", de: 8000000 },
-    { id: "compressed_charcoal_block_3", de: 80000000 },
-    { id: "compressed_charcoal_block_4", de: 800000000 },
-    { id: "compressed_charcoal_block", de: 800000 },
-    { id: "charcoal_block", de: 80000 },
-    { id: "charcoal", de: 8000 },
-    { id: "compressed_coal_block_3", de: 80000000 },
-    { id: "compressed_coal_block_2", de: 8000000 },
-    { id: "compressed_coal_block_4", de: 800000000 },
-    { id: "compressed_coal_block", de: 800000 },
-    { id: "coal_block", de: 80000 },
-    { id: "coal", de: 8000 },
-    { id: "plank", de: 1500 },
-    { id: "stair", de: 1500 },
-    { id: "fence", de: 1500 },
-    { id: "stick", de: 500 },
-    { id: "door", de: 1000 },
-    { id: "ladder", de: 750 },
-    { id: "scaffolding", de: 250 },
-    { id: "log", de: 1500 },
-    { id: "_wood", de: 1500 },
-    { id: "stem", de: 1500 },
-    { id: "hyphae", de: 1500 },
-    { id: "sapling", de: 500 },
-    { id: "dried_kelp_block", de: 20000 },
-    { id: "lava_ball", de: 100000 },
-    { id: "blaze_rod", de: 12000 },
-    { id: "boat", de: 6000 },
-    { id: "button", de: 500 },
-    { id: "wooden", de: 1000 },
-    { id: "banner", de: 1500 },
-    { id: "chest", de: 3000 },
-    { id: "leaves", de: 500 }
-];
-
-/**
- * ScriptEvent receiver: "utilitycraft:register_fuel"
- *
- * Allows other addons or scripts to dynamically add or replace solid fuels.
- * If a fuel with the same ID already exists, it will be replaced.
+ * Allows other addons or scripts to dynamically add or replace Infuser recipes.
+ * The key must be in `"catalyst|input"` format.
  *
  * Expected payload format (JSON):
  * ```json
  * {
- *   "custom_fuel_1": 50000,
- *   "minecraft:apple": 1000
+ *   "minecraft:redstone|minecraft:iron_ingot": { "output": "utilitycraft:energized_iron_ingot", "required": 4 },
+ *   "minecraft:coal|minecraft:iron_ingot": { "output": "utilitycraft:steel_ingot" }
  * }
  * ```
  *
  * Behavior:
- * - New fuels are added automatically if missing.
- * - Existing fuels are replaced and logged individually.
+ * - New recipes are created automatically if missing.
+ * - Existing recipes are replaced and logged individually.
  * - Only a summary log is printed when finished.
  */
 system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
-    if (id !== "utilitycraft:register_fuel") return;
+    if (id !== "utilitycraft:register_infuser_recipe") return;
 
     try {
         const payload = JSON.parse(message);
@@ -245,48 +192,51 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
         let added = 0;
         let replaced = 0;
 
-        for (const [fuelId, de] of Object.entries(payload)) {
-            if (typeof de !== "number") continue;
+        for (const [recipeKey, data] of Object.entries(payload)) {
+            if (!data.output || typeof data.output !== "string") continue;
+            if (!recipeKey.includes("|")) {
+                console.warn(`[UtilityCraft] Invalid infuser key '${recipeKey}', expected "catalyst|input" format.`);
+                continue;
+            }
 
-            const existing = solidFuels.find(f => f.id === fuelId);
-            if (existing) {
-                existing.de = de;
-                console.warn(`[UtilityCraft] Replaced existing fuel '${fuelId}' with ${de} DE.`);
+            if (infuserRecipes[recipeKey]) {
+                console.warn(`[UtilityCraft] Replaced existing infuser recipe for '${recipeKey}'.`);
                 replaced++;
             } else {
-                solidFuels.push({ id: fuelId, de });
                 added++;
             }
+
+            infuserRecipes[recipeKey] = data;
         }
 
-        console.warn(`[UtilityCraft] Registered ${added} new and replaced ${replaced} fuels.`);
+        console.warn(`[UtilityCraft] Registered ${added} new and replaced ${replaced} infuser recipes.`);
     } catch (err) {
-        console.warn("[UtilityCraft] Failed to parse fuel registration payload:", err);
+        console.warn("[UtilityCraft] Failed to parse infuser registration payload:", err);
     }
 });
 
 // ==================================================
-// EXAMPLES – How to register custom Furnator fuels
+// EXAMPLES – How to register custom Infuser recipes
 // ==================================================
 /*
 import { system, world } from "@minecraft/server";
 
 world.afterEvents.worldLoad.subscribe(() => {
-    // Add or replace solid fuels dynamically
-    const newFuels = {
-        "utilitycraft:bio_fuel": 12000,
-        "minecraft:bamboo_block": 4000,
-        // This one replaces an existing entry
-        "minecraft:coal": 10000
+    // Add or replace infuser recipes dynamically
+    const newRecipes = {
+        "minecraft:redstone|minecraft:copper_ingot": { output: "utilitycraft:charged_copper_ingot", required: 2 },
+        "minecraft:coal|minecraft:iron_ingot": { output: "utilitycraft:steel_ingot" },
+        // This one replaces an existing recipe
+        "minecraft:redstone|minecraft:iron_ingot": { output: "utilitycraft:energized_iron_ingot", required: 2 }
     };
 
-    // Send the event to the Furnator script
-    system.sendScriptEvent("utilitycraft:register_fuel", JSON.stringify(newFuels));
+    // Send the event to the Infuser script
+    system.sendScriptEvent("utilitycraft:register_infuser_recipe", JSON.stringify(newRecipes));
 
-    console.warn("[Addon] Custom Furnator fuels registered via system event.");
+    console.warn("[Addon] Custom infuser recipes registered via system event.");
 });
 
 // You can also do this directly with a command inside Minecraft:
 Command:
-/scriptevent utilitycraft:register_fuel {"utilitycraft:bio_fuel":12000,"minecraft:coal":10000}
+/scriptevent utilitycraft:register_infuser_recipe {"minecraft:redstone|minecraft:copper_ingot":{"output":"utilitycraft:charged_copper_ingot","required":2},"minecraft:coal|minecraft:iron_ingot":{"output":"utilitycraft:steel_ingot"}}
 */
