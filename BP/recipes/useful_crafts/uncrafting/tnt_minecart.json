@@ -1,0 +1,31 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "utilitycraft:tnt_minecart_uncraft"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "minecraft:tnt_minecart"
+			}
+		],
+		"result": [
+			{
+				"item": "minecraft:minecart",
+				"count": 1
+			},
+			{
+				"item": "minecraft:tnt",
+				"count": 1
+			}
+		]
+	},
+	"unlock": [
+		{
+			"item": "minecraft:tnt_minecart"
+		}
+	]
+}
