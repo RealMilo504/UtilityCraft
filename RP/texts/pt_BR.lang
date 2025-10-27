@@ -413,11 +413,11 @@ item.utilitycraft:copper_hammer=Martelo de Cobre
 item.utilitycraft:stone_hammer=Martelo de Pedra
 
 -- Special Tools = ## Ferramentas Especiais
-item.utilitycraft:lucky_pickaxe=§aPicareta da Sorte\n§7Fortuna V
-item.utilitycraft:lucky_sword=§aEspada da Sorte\n§7Pilhagem V
+item.utilitycraft:lucky_pickaxe=§aPicareta da Sorte
+item.utilitycraft:lucky_sword=§aEspada da Sorte
 item.utilitycraft:smelting_pickaxe=§6Picareta de Fusão\n§7- Derrete os minérios ao quebrá-los
 item.utilitycraft:bionic_arm=Braço Biônico (Teste)
-item.utilitycraft:lucky_fishing_rod=§aVara de Pesca da Sorte\n§7Sorte do Mar V\nIsca V
+item.utilitycraft:lucky_fishing_rod=§aVara de Pesca da Sorte
 item.utilitycraft:flint_knife=Faca de Sílex \n§7- Separa a fibra das folhas
 
 

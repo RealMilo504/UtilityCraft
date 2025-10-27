@@ -359,10 +359,14 @@ item.utilitycraft:stone_hammer=Martillo de Piedra
 item.utilitycraft:wooden_hammer=Martillo de Madera
 
 -- Special Tools = ##Herramientas Especiales
-item.utilitycraft:lucky_pickaxe=Pico de la Suerte\n§7Fortuna V
-item.utilitycraft:lucky_sword=Espada de la Suerte\n§7Saqueo V
-item.utilitycraft:smelting_pickaxe=Pico Fundidor\n§7Los minerales soltarán lingotes
-item.utilitycraft:lucky_fishing_rod=Caña de Pescar de la Suerte\n§7Suerte Marina V\n§7Atracción V
+item.utilitycraft:lucky_pickaxe=§aPico de la Suerte
+item.utilitycraft:lucky_sword=§aEspada de la Suerte
+item.utilitycraft:smelting_pickaxe=§6Pico Fundidor\n§7Los minerales soltarán lingotes
+item.utilitycraft:lucky_fishing_rod=§aCaña de Pescar de la Suerte
+
+item.utilitycraft:lucky_pickaxe_item=§aPico de la Suerte\n§7Fortuna V
+item.utilitycraft:lucky_sword_item=§aEspada de la Suerte\n§7Saqueo V
+item.utilitycraft:lucky_fishing_rod_item=§aCaña de Pescar de la Suerte\n§7Suerte Marina V\n§7Atracción V
 
 -- Drills = ## Taladros
 item.utilitycraft:drill=Taladro de Mano\n§7Mina en un área de 3x3 enfrente de ti

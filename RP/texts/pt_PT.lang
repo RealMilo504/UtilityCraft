@@ -355,9 +355,9 @@ action.hint.exit.utilitycraft:tractor=Sair do Trator
 action.hint.exit.utilitycraft:drill=Sair da Escavadeira
 
 - Placeholder Items = ## Itens de Pré-vizualização
-item.utilitycraft:lucky_fishing_rod_item=§aVara de Pesca da Sorte
-item.utilitycraft:lucky_pickaxe_item=§aPicareta da Sorte
-item.utilitycraft:lucky_sword_item=§aEspada da Sorte
+item.utilitycraft:lucky_fishing_rod_item=§aVara de Pesca da Sorte\n§7Sorte do Mar V\nIsca V
+item.utilitycraft:lucky_pickaxe_item=§aPicareta da Sorte\n§7Fortuna V
+item.utilitycraft:lucky_sword_item=§aEspada da Sorte\n§7Pilhagem V
 
 - Tools = ## Ferramentas 
 ## >>>>>>>> Open Group -------- ##
@@ -385,7 +385,7 @@ item.utilitycraft:iron_hammer=Martelo de Ferro
 item.utilitycraft:stone_hammer=Martelo de Pedra
 
 -- Special Tools = ## Ferramentas Especiais
-item.utilitycraft:lucky_pickaxe=§aPicareta da Sorte ## My beloved
+item.utilitycraft:lucky_pickaxe=§aPicareta da Sorte
 item.utilitycraft:lucky_sword=§aEspada da Sorte
 item.utilitycraft:smelting_pickaxe=§6Picareta de Fusão\n§7- Derrete os minérios ao quebrá-los
 item.utilitycraft:lucky_fishing_rod=§aVara de Pesca da Sorte

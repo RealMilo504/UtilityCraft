@@ -410,11 +410,11 @@ item.utilitycraft:steel_shovel=Steel Shovel
 item.utilitycraft:steel_hoe=Steel Hoe
 
 -- Special Tools = ## Ferramentas Especiais
-item.utilitycraft:lucky_pickaxe=§aLucky Pickaxe\n§7Fortune V
-item.utilitycraft:lucky_sword=§aLucky Sword\n§7Looting V
+item.utilitycraft:lucky_pickaxe=§aLucky Pickaxe
+item.utilitycraft:lucky_sword=§aLucky Sword
 item.utilitycraft:smelting_pickaxe=§6Smelting Pickaxe\n§7- Smelts ores when breaking them
 item.utilitycraft:bionic_arm=Bionic Arm (Test)
-item.utilitycraft:lucky_fishing_rod=§aLucky Fishing Rod\n§7Luck of the Sea V\nLure V
+item.utilitycraft:lucky_fishing_rod=§aLucky Fishing Rod
 
 -- Drills = ## Brocas
 item.utilitycraft:drill=Drill\n§7- Mines in a 3x3 area
