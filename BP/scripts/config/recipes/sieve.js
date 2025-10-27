@@ -13,6 +13,30 @@ DoriosAPI.register.itemComponent('mesh', {})
  */
 
 /**
+ * Blocks accepted by the **Basic Sieve**.
+ * Any blocks not listed here will be ignored when using
+ * the Basic Sieve (tier 0), even if they have recipes.
+ *
+ * @type {string[]}
+ */
+export const acceptedBlocks = [
+    "minecraft:gravel",
+    "minecraft:dirt",
+    "minecraft:grass",
+    "minecraft:sand",
+    "minecraft:soul_sand",
+    "utilitycraft:crushed_netherrack",
+    "utilitycraft:crushed_endstone",
+    "utilitycraft:crushed_cobbled_deepslate",
+    "utilitycraft:compressed_gravel",
+    "utilitycraft:compressed_dirt",
+    "utilitycraft:compressed_sand",
+    "utilitycraft:compressed_crushed_netherrack",
+    "utilitycraft:compressed_crushed_cobbled_deepslate",
+    "utilitycraft:compressed_crushed_endstone"
+];
+
+/**
  * Recipes for the Sieve machine.
  * Each key is the input block/item, and the value is an array of possible loot.
  *
@@ -202,41 +226,70 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
 
     try {
         const payload = JSON.parse(message);
-
         if (!payload || typeof payload !== "object") {
-            console.warn("[UtilityCraft] Invalid payload format:", message);
+            console.warn("[UtilityCraft] Invalid payload format received.");
             return;
         }
 
-        for (const [blockId, drops] of Object.entries(payload)) {
-            if (!sieveRecipes[blockId]) {
-                console.warn(`[UtilityCraft] Block '${blockId}' not registered. Cannot add new blocks.`);
-                continue;
-            }
+        let addedBlocks = 0;
+        let addedDrops = 0;
 
-            if (!Array.isArray(drops)) {
-                console.warn(`[UtilityCraft] Drops for '${blockId}' must be an array.`);
-                continue;
+        for (const [blockId, drops] of Object.entries(payload)) {
+            if (!Array.isArray(drops)) continue;
+
+            // Si el bloque no existía, se crea una nueva entrada
+            if (!sieveRecipes[blockId]) {
+                sieveRecipes[blockId] = [];
+                addedBlocks++;
             }
 
             for (const drop of drops) {
-                if (!drop.item || typeof drop.item !== "string") {
-                    console.warn(`[UtilityCraft] Invalid drop for '${blockId}':`, drop);
-                    continue;
-                }
+                if (!drop.item || typeof drop.item !== "string") continue;
 
-                // Ensure safe defaults
-                const safeDrop = {
+                sieveRecipes[blockId].push({
                     item: drop.item,
                     amount: drop.amount ?? 1,
-                    chance: drop.chance ?? 0.1
-                };
+                    chance: drop.chance ?? 0.1,
+                    tier: drop.tier ?? 0
+                });
 
-                sieveRecipes[blockId].push(safeDrop);
-                console.warn(`[UtilityCraft] Added drop to '${blockId}':`, safeDrop);
+                addedDrops++;
             }
         }
-    } catch (err) {
-        console.warn("[UtilityCraft] JSON parse failed:", err, message);
+    } catch {
     }
 });
+
+// ==================================================
+// EXAMPLES – How to register custom sieve drops
+// ==================================================
+/*
+import { system, world } from "@minecraft/server";
+
+world.afterEvents.worldLoad.subscribe(() => {
+    // Add new custom drops for blocks
+    // You can add drops to existing blocks (like gravel)
+    // or define completely new ones that didn’t exist before.
+    const newDrops = {
+        "utilitycraft:crushed_basalt": [
+            { item: "minecraft:blackstone", amount: 1, chance: 0.3, tier: 1 },
+            { item: "minecraft:basalt", amount: 1, chance: 0.15, tier: 1 },
+            { item: "minecraft:coal", amount: 1, chance: 0.1, tier: 2 }
+        ],
+        "minecraft:gravel": [
+            { item: "minecraft:string", amount: 1, chance: 0.05 },
+            { item: "minecraft:bone_meal", amount: 1, chance: 0.15 }
+        ]
+    };
+
+    // Send the event to the sieve script
+    // This tells UtilityCraft to register your new drops dynamically.
+    system.sendScriptEvent("utilitycraft:register_sieve_drop", JSON.stringify(newDrops));
+
+    console.warn("[Addon] Custom sieve drops registered via system event.");
+});
+
+// You can also do this directly with a command inside Minecraft:
+Command:
+/scriptevent utilitycraft:register_sieve_drop {"utilitycraft:crushed_endstone":[{"item":"minecraft:dragon_breath","amount":1,"chance":0.05,"tier":5}]}
+*/

@@ -91,6 +91,7 @@
  * @property {string} output The resulting item identifier.
  * @property {number} [required=1] Number of input items required per operation (defaults to 1).
  * @property {number} [amount=1] Number of output items produced (defaults to 1).
+ * @property {number} [cost=800] Energy cost to process the item (defaults to 800).
  */
 
 /**

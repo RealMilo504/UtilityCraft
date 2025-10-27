@@ -1,3 +1,4 @@
+import { system } from "@minecraft/server";
 
 /**
  * Recipes for the Crusher machine.
@@ -11,52 +12,55 @@
 export const crusherRecipes = {
     // ========== COBBLESTONE ==========
     "minecraft:cobblestone": { output: "minecraft:gravel", amount: 1, tier: 0 },
-    "utilitycraft:compressed_cobblestone": { output: "utilitycraft:compressed_gravel", amount: 1, tier: 1 },
-    "utilitycraft:double_compressed_cobblestone": { output: "utilitycraft:compressed_gravel_2", amount: 1, tier: 2 },
-    "utilitycraft:triple_compressed_cobblestone": { output: "utilitycraft:compressed_gravel_3", amount: 1, tier: 3 },
-    "utilitycraft:quadruple_compressed_cobblestone": { output: "utilitycraft:compressed_gravel_4", amount: 1, tier: 4 },
+    "utilitycraft:compressed_cobblestone": { output: "utilitycraft:compressed_gravel", amount: 1, cost: 7200, tier: 1 },
+    "utilitycraft:double_compressed_cobblestone": { output: "utilitycraft:compressed_gravel_2", amount: 1, cost: 64800, tier: 2 },
+    "utilitycraft:triple_compressed_cobblestone": { output: "utilitycraft:compressed_gravel_3", amount: 1, cost: 583200, tier: 3 },
+    "utilitycraft:quadruple_compressed_cobblestone": { output: "utilitycraft:compressed_gravel_4", amount: 1, cost: 5248800, tier: 4 },
 
     // ========== GRAVEL ==========
     "minecraft:gravel": { output: "minecraft:dirt", amount: 1, tier: 0 },
-    "utilitycraft:compressed_gravel": { output: "utilitycraft:compressed_dirt", amount: 1, tier: 1 },
-    "utilitycraft:compressed_gravel_2": { output: "utilitycraft:compressed_dirt_2", amount: 1, tier: 2 },
-    "utilitycraft:compressed_gravel_3": { output: "utilitycraft:compressed_dirt_3", amount: 1, tier: 3 },
-    "utilitycraft:compressed_gravel_4": { output: "utilitycraft:compressed_dirt_4", amount: 1, tier: 4 },
+    "utilitycraft:compressed_gravel": { output: "utilitycraft:compressed_dirt", amount: 1, cost: 7200, tier: 1 },
+    "utilitycraft:compressed_gravel_2": { output: "utilitycraft:compressed_dirt_2", amount: 1, cost: 64800, tier: 2 },
+    "utilitycraft:compressed_gravel_3": { output: "utilitycraft:compressed_dirt_3", amount: 1, cost: 583200, tier: 3 },
+    "utilitycraft:compressed_gravel_4": { output: "utilitycraft:compressed_dirt_4", amount: 1, cost: 5248800, tier: 4 },
 
     // ========== DIRT ==========
     "minecraft:dirt": { output: "minecraft:sand", amount: 1, tier: 0 },
-    "utilitycraft:compressed_dirt": { output: "utilitycraft:compressed_sand", amount: 1, tier: 1 },
-    "utilitycraft:compressed_dirt_2": { output: "utilitycraft:compressed_sand_2", amount: 1, tier: 2 },
-    "utilitycraft:compressed_dirt_3": { output: "utilitycraft:compressed_sand_3", amount: 1, tier: 3 },
-    "utilitycraft:compressed_dirt_4": { output: "utilitycraft:compressed_sand_4", amount: 1, tier: 4 },
+    "utilitycraft:compressed_dirt": { output: "utilitycraft:compressed_sand", amount: 1, cost: 7200, tier: 1 },
+    "utilitycraft:compressed_dirt_2": { output: "utilitycraft:compressed_sand_2", amount: 1, cost: 64800, tier: 2 },
+    "utilitycraft:compressed_dirt_3": { output: "utilitycraft:compressed_sand_3", amount: 1, cost: 583200, tier: 3 },
+    "utilitycraft:compressed_dirt_4": { output: "utilitycraft:compressed_sand_4", amount: 1, cost: 5248800, tier: 4 },
 
     // ========== NETHERRACK ==========
     "minecraft:netherrack": { output: "utilitycraft:crushed_netherrack", amount: 1, tier: 0 },
-    "utilitycraft:compressed_netherrack": { output: "utilitycraft:compressed_crushed_netherrack", amount: 1, tier: 1 },
-    "utilitycraft:compressed_netherrack_2": { output: "utilitycraft:compressed_crushed_netherrack_2", amount: 1, tier: 2 },
-    "utilitycraft:compressed_netherrack_3": { output: "utilitycraft:compressed_crushed_netherrack_3", amount: 1, tier: 3 },
-    "utilitycraft:compressed_netherrack_4": { output: "utilitycraft:compressed_crushed_netherrack_4", amount: 1, tier: 4 },
+    "utilitycraft:compressed_netherrack": { output: "utilitycraft:compressed_crushed_netherrack", amount: 1, cost: 7200, tier: 1 },
+    "utilitycraft:compressed_netherrack_2": { output: "utilitycraft:compressed_crushed_netherrack_2", amount: 1, cost: 64800, tier: 2 },
+    "utilitycraft:compressed_netherrack_3": { output: "utilitycraft:compressed_crushed_netherrack_3", amount: 1, cost: 583200, tier: 3 },
+    "utilitycraft:compressed_netherrack_4": { output: "utilitycraft:compressed_crushed_netherrack_4", amount: 1, cost: 5248800, tier: 4 },
 
     // ========== COBBLED DEEPSLATE ==========
     "minecraft:cobbled_deepslate": { output: "utilitycraft:crushed_cobbled_deepslate", amount: 1, tier: 0 },
-    "utilitycraft:compressed_cobbled_deepslate": { output: "utilitycraft:compressed_crushed_cobbled_deepslate", amount: 1, tier: 1 },
-    "utilitycraft:compressed_cobbled_deepslate_2": { output: "utilitycraft:compressed_crushed_cobbled_deepslate_2", amount: 1, tier: 2 },
-    "utilitycraft:compressed_cobbled_deepslate_3": { output: "utilitycraft:compressed_crushed_cobbled_deepslate_3", amount: 1, tier: 3 },
-    "utilitycraft:compressed_cobbled_deepslate_4": { output: "utilitycraft:compressed_crushed_cobbled_deepslate_4", amount: 1, tier: 4 },
+    "utilitycraft:compressed_cobbled_deepslate": { output: "utilitycraft:compressed_crushed_cobbled_deepslate", amount: 1, cost: 7200, tier: 1 },
+    "utilitycraft:compressed_cobbled_deepslate_2": { output: "utilitycraft:compressed_crushed_cobbled_deepslate_2", amount: 1, cost: 64800, tier: 2 },
+    "utilitycraft:compressed_cobbled_deepslate_3": { output: "utilitycraft:compressed_crushed_cobbled_deepslate_3", amount: 1, cost: 583200, tier: 3 },
+    "utilitycraft:compressed_cobbled_deepslate_4": { output: "utilitycraft:compressed_crushed_cobbled_deepslate_4", amount: 1, cost: 5248800, tier: 4 },
 
     // ========== DEEPSLATE ==========
     "minecraft:deepslate": { output: "minecraft:cobbled_deepslate", amount: 1, tier: 0 },
-    "utilitycraft:compressed_deepslate": { output: "utilitycraft:compressed_cobbled_deepslate", amount: 1, tier: 1 },
-    "utilitycraft:compressed_deepslate_2": { output: "utilitycraft:compressed_cobbled_deepslate_2", amount: 1, tier: 2 },
-    "utilitycraft:compressed_deepslate_3": { output: "utilitycraft:compressed_cobbled_deepslate_3", amount: 1, tier: 3 },
-    "utilitycraft:compressed_deepslate_4": { output: "utilitycraft:compressed_cobbled_deepslate_4", amount: 1, tier: 4 },
+    "utilitycraft:compressed_deepslate": { output: "utilitycraft:compressed_cobbled_deepslate", amount: 1, cost: 7200, tier: 1 },
+    "utilitycraft:compressed_deepslate_2": { output: "utilitycraft:compressed_cobbled_deepslate_2", amount: 1, cost: 64800, tier: 2 },
+    "utilitycraft:compressed_deepslate_3": { output: "utilitycraft:compressed_cobbled_deepslate_3", amount: 1, cost: 583200, tier: 3 },
+    "utilitycraft:compressed_deepslate_4": { output: "utilitycraft:compressed_cobbled_deepslate_4", amount: 1, cost: 5248800, tier: 4 },
 
-    // ========== DEEPSLATE ==========
-    "minecraft:deepslate": { output: "minecraft:cobbled_deepslate", amount: 1 },
-    "utilitycraft:compressed_deepslate": { output: "utilitycraft:compressed_cobbled_deepslate", amount: 1 },
-    "utilitycraft:compressed_deepslate_2": { output: "utilitycraft:compressed_cobbled_deepslate_2", amount: 1 },
-    "utilitycraft:compressed_deepslate_3": { output: "utilitycraft:compressed_cobbled_deepslate_3", amount: 1 },
-    "utilitycraft:compressed_deepslate_4": { output: "utilitycraft:compressed_cobbled_deepslate_4", amount: 1 },
+    // ========== ORE BLOCKS (Partial Dust Yield) ==========
+    // Crushing full metal blocks yields dusts with partial recovery (~80% efficiency)
+
+    "minecraft:iron_block": { output: "utilitycraft:iron_dust", amount: 6 },
+    "minecraft:gold_block": { output: "utilitycraft:gold_dust", amount: 6 },
+    "minecraft:copper_block": { output: "utilitycraft:copper_dust", amount: 6 },
+    "utilitycraft:energized_iron_block": { output: "utilitycraft:energized_iron_dust", amount: 6 },
+    "utilitycraft:steel_block": { output: "utilitycraft:steel_dust", amount: 6 },
+    "minecraft:netherite_block": { output: "utilitycraft:netherite_dust", amount: 6 },
 
     // Normal Chunks
     "utilitycraft:copper_chunk": { output: "minecraft:raw_copper", amount: 1 },
@@ -145,3 +149,79 @@ export const crusherRecipes = {
     "ae2be:fluix_crystal": { output: "ae2be:fluix_dust", amount: 1 },
     "ae2be:sky_stone": { output: "ae2be:sky_stone_dust", amount: 1 }
 }
+
+/**
+ * ScriptEvent receiver: "utilitycraft:register_crusher_recipe"
+ *
+ * Allows other addons or scripts to dynamically add or replace crusher recipes.
+ * If the item already exists in `crusherRecipes`, it will be replaced.
+ *
+ * Expected payload format (JSON):
+ * ```json
+ * {
+ *   "minecraft:stone": { "output": "minecraft:cobblestone", "amount": 1, "cost": 1000, "tier": 1 },
+ *   "minecraft:bone_block": { "output": "minecraft:bone_meal", "amount": 9 }
+ * }
+ * ```
+ *
+ * Behavior:
+ * - New items are created automatically if missing.
+ * - Existing items are replaced and logged individually.
+ * - Only a summary log is printed when finished.
+ */
+system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
+    if (id !== "utilitycraft:register_crusher_recipe") return;
+
+    try {
+        const payload = JSON.parse(message);
+        if (!payload || typeof payload !== "object") return;
+
+        let added = 0;
+        let replaced = 0;
+
+        for (const [inputId, data] of Object.entries(payload)) {
+            if (!data.output || typeof data.output !== "string") continue;
+
+            if (crusherRecipes[inputId]) {
+                console.warn(`[UtilityCraft] Replaced existing crusher recipe for '${inputId}'.`);
+                replaced++;
+            } else {
+                added++;
+            }
+
+            // Directly assign; machine will handle defaults
+            crusherRecipes[inputId] = data;
+        }
+
+        console.warn(`[UtilityCraft] Registered ${added} new and replaced ${replaced} crusher recipes.`);
+    } catch (err) {
+        console.warn("[UtilityCraft] Failed to parse crusher registration payload:", err);
+    }
+});
+
+// ==================================================
+// EXAMPLES – How to register custom crusher recipes
+// ==================================================
+/*
+import { system, world } from "@minecraft/server";
+
+world.afterEvents.worldLoad.subscribe(() => {
+    // Add or replace crusher recipes dynamically
+    const newRecipes = {
+        "minecraft:stone": { output: "minecraft:cobblestone", amount: 1, cost: 1000, tier: 1 },
+        "minecraft:clay": { output: "minecraft:clay_ball", amount: 4 },
+        "minecraft:sponge": { output: "minecraft:string", amount: 2, cost: 1600 },
+        // This one replaces an existing recipe
+        "minecraft:cobblestone": { output: "minecraft:sand", amount: 1, cost: 1200 }
+    };
+
+    // Send the event to the crusher script
+    system.sendScriptEvent("utilitycraft:register_crusher_recipe", JSON.stringify(newRecipes));
+
+    console.warn("[Addon] Custom crusher recipes registered via system event.");
+});
+
+// You can also do this directly with a command inside Minecraft:
+Command:
+/scriptevent utilitycraft:register_crusher_recipe {"minecraft:stone":{"output":"minecraft:cobblestone","amount":1,"cost":1000,"tier":1},"minecraft:cobblestone":{"output":"minecraft:sand","amount":1,"cost":1200}}
+*/

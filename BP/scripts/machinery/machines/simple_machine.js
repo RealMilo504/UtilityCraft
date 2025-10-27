@@ -72,8 +72,8 @@ DoriosAPI.register.blockComponent('simple_machine', {
             machine.showWarning('Invalid Recipe');
             return;
         }
-        const energyCost = settings.machine.energy_cost;
-        // machine.setEnergyCost(energyCost)
+        const energyCost = recipe.cost ?? settings.machine.energy_cost;
+        machine.setEnergyCost(energyCost)
 
 
         // Get the output slot (usually the last one)

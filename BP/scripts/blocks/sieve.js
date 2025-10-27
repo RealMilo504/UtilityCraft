@@ -1,5 +1,5 @@
 import { ItemStack, world } from "@minecraft/server"
-import { sieveRecipes } from "../config/recipes/sieve.js"
+import { sieveRecipes, acceptedBlocks } from "../config/recipes/sieve.js"
 
 /**
  * Represents a single sieve block with utility methods.
@@ -61,7 +61,7 @@ class Sieve {
 
     insertBlock(player, mainHand) {
         if (this.mesh === "empty" || this.blockType !== "empty" || this.stage !== 0) return false
-        if (!sieveRecipes[mainHand.typeId]) return false
+        if (!sieveRecipes[mainHand.typeId] || !acceptedBlocks.includes(mainHand.typeId)) return false
 
         this.block.setState("utilitycraft:block", mainHand.typeId)
         this.block.setState("utilitycraft:state", 4)
