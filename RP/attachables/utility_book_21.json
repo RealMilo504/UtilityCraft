@@ -2,12 +2,12 @@
 	"format_version": "1.19.0",
 	"minecraft:attachable": {
 		"description": {
-			"identifier": "utilitycraft:utility_book_10",
+			"identifier": "utilitycraft:utility_book_21",
 			"materials": {
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"default": "textures/items/utility_book/first_guide_book_page_10"
+				"default": "textures/items/utility_book/first_guide_book_page_21"
 			},
 			"geometry": {
 				"default": "geometry.dorios_wiki_book"

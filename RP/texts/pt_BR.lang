@@ -803,25 +803,6 @@ dorios:itemGroup.name.upgrades=Módulos de Melhoria
 ## < Categories
 
 ## All the same
-item.utilitycraft:utility_book_0=Manual do UtilityCraft
-item.utilitycraft:utility_book_1=Manual do UtilityCraft
-item.utilitycraft:utility_book_2=Manual do UtilityCraft
-item.utilitycraft:utility_book_3=Manual do UtilityCraft
-item.utilitycraft:utility_book_4=Manual do UtilityCraft
-item.utilitycraft:utility_book_5=Manual do UtilityCraft
-item.utilitycraft:utility_book_6=Manual do UtilityCraft
-item.utilitycraft:utility_book_7=Manual do UtilityCraft
-item.utilitycraft:utility_book_8=Manual do UtilityCraft
-item.utilitycraft:utility_book_9=Manual do UtilityCraft
-item.utilitycraft:utility_book_10=Manual do UtilityCraft
-item.utilitycraft:utility_book_11=Manual do UtilityCraft
-item.utilitycraft:utility_book_12=Manual do UtilityCraft
-item.utilitycraft:utility_book_13=Manual do UtilityCraft
-item.utilitycraft:utility_book_14=Manual do UtilityCraft
-item.utilitycraft:utility_book_15=Manual do UtilityCraft
-item.utilitycraft:utility_book_16=Manual do UtilityCraft
-item.utilitycraft:utility_book_17=Manual do UtilityCraft
-item.utilitycraft:utility_book_18=Manual do UtilityCraft
 
 ## Machines Entities
 entity.utilitycraft:assembler.name=Montador
@@ -853,3 +834,26 @@ entity.utilitycraft:fluid_tank_water.name=Tanque de Fluidos\n- §9Água
 entity.utilitycraft:fluid_tank_xp.name=Tanque de Fluidos\n- §aExperiência
 
 entity.utilitycraft:mechanic_hopper.name=Funil Mecânico
+item.utilitycraft:utility_book_1=Manual do UtilityCraft
+item.utilitycraft:utility_book_2=Manual do UtilityCraft
+item.utilitycraft:utility_book_3=Manual do UtilityCraft
+item.utilitycraft:utility_book_4=Manual do UtilityCraft
+item.utilitycraft:utility_book_5=Manual do UtilityCraft
+item.utilitycraft:utility_book_6=Manual do UtilityCraft
+item.utilitycraft:utility_book_7=Manual do UtilityCraft
+item.utilitycraft:utility_book_8=Manual do UtilityCraft
+item.utilitycraft:utility_book_9=Manual do UtilityCraft
+item.utilitycraft:utility_book_10=Manual do UtilityCraft
+item.utilitycraft:utility_book_11=Manual do UtilityCraft
+item.utilitycraft:utility_book_12=Manual do UtilityCraft
+item.utilitycraft:utility_book_13=Manual do UtilityCraft
+item.utilitycraft:utility_book_14=Manual do UtilityCraft
+item.utilitycraft:utility_book_15=Manual do UtilityCraft
+item.utilitycraft:utility_book_16=Manual do UtilityCraft
+item.utilitycraft:utility_book_17=Manual do UtilityCraft
+item.utilitycraft:utility_book_18=Manual do UtilityCraft
+item.utilitycraft:utility_book_19=Manual do UtilityCraft
+item.utilitycraft:utility_book_20=Manual do UtilityCraft
+item.utilitycraft:utility_book_21=Manual do UtilityCraft
+item.utilitycraft:utility_book_22=Manual do UtilityCraft
+item.utilitycraft:utility_book_23=Manual do UtilityCraft

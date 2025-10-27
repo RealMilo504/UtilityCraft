@@ -2,9 +2,9 @@
         "format_version": "1.21.70",
         "minecraft:item": {
                 "description": {
-                        "identifier": "utilitycraft:utility_book_1",
+                        "identifier": "utilitycraft:utility_book_19",
                         "menu_category": {
-                                "category": "equipment"
+                                "category": "none"
                         }
                 },
                 "components": {
