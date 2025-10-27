@@ -14,7 +14,7 @@ import './blocks/xp.js'
 import './blocks/mob_grinder.js'
 import './blocks/pedestal.js'
 import './blocks/fan.js'
-//fan, mech spawners
+import './blocks/mech_spawners.js'
 
 import './items/durability.js'
 import './items/drill.js'

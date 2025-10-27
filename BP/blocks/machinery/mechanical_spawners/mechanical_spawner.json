@@ -46,6 +46,7 @@
 			}
 		},
 		"components": {
+			"utilitycraft:mech_spawner": {},
 			"minecraft:geometry": "geometry.utilitycraft_mechanical_spawner",
 			"minecraft:material_instances": {
 				"*": {
@@ -65,6 +66,7 @@
 				"condition": "q.block_state('utilitycraft:spawnerTypes') != 0",
 				"components": {
 					"utilitycraft:upgradeable": {},
+					"utilitycraft:mech_spawner": {},
 					"minecraft:material_instances": {
 						"*": {
 							"texture": "utilitycraft_mechanical_spawner",
