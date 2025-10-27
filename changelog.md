@@ -8,6 +8,10 @@
   - Added a side upgrades bar
 - Updated breaking times for most blocks.
 - Proper tool requirements for breaking blocks applied (e.g., Compressed Dirt requires Shovel, Machines requires Pickaxe…).
+- Machines and Conduits now have three ways to transfer items:
+  - Closest: Feeds the closest machine first
+  - Farthest: Feed the farthest machine first
+  - Rounded: Equally distributes full stacks between the machines
 - Added descriptions for machines, listing supported upgrades.
 - Added descriptions for special blocks to improve understanding.
 - Updated display translations across multiple languages.
@@ -39,8 +43,7 @@
   - Netherite Mesh no longer drops Flint.
   - Updated mesh multipliers for balance purposes.
   - Added the `utilitycraft:mesh` component to items to create custom meshes
-> [!NOTE]
-> Custom meshes won't work with the basic sieve
+> Note: Custom meshes won't work with the basic sieve
 - Added Copper Cobblestone Generator
   - Produces 1 cobblestone every 4 seconds (0.25/s)
   - It is now the first tier of Cobblestone Generator. Cobble Gens now have 6 tiers.
