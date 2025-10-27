@@ -121,6 +121,12 @@
 		"utilitycraft_mob_grinder": {
 			"textures": "textures/blocks/mob_grinder"
 		},
+		"utilitycraft_mob_grinder_aspas": {
+			"textures": "textures/blocks/mob_grinding_aspas"
+		},
+		"utilitycraft_mob_grinder_aspas_still": {
+			"textures": "textures/blocks/mob_grinding_aspas_still"
+		},
 		"utilitycraft_mob_trap": {
 			"textures": "textures/blocks/mob_trap_1"
 		},

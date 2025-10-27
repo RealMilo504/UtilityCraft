@@ -20,18 +20,10 @@ DoriosAPI.register.blockComponent("mob_grinder", {
         const { x, y, z } = grinder.location;
         const id = `mob_grinder_${x}_${y}_${z}`;
 
-        // // isOn pode vir como boolean ou string "true"
-        // const isOnState = world.getDynamicProperty(`${id}_isOn`);
-        // const isOn = isOnState === true || isOnState === "true";
-        // if (!isOn) return
-
-        // let current = grinder.permutation.getState("utilitycraft:frame")
-        // // soma +1; se chegar em 7, volta a 0
-        // const nextFrame = (current + 1) % 8;
-        // grinder.setPermutation(grinder.permutation.withState("utilitycraft:frame", nextFrame));
-
-        // if (GLOBAL_TICK % 5 !== 0) return;
-
+        // isOn pode vir como boolean ou string "true"
+        const isOnState = grinder.getState('utilitycraft:isOn');
+        const isOn = isOnState === true || isOnState === "true";
+        if (!isOn) return
 
         // Limit
         let rangeUpgrade = Number(grinder.permutation.getState("utilitycraft:range"));
@@ -73,7 +65,7 @@ DoriosAPI.register.blockComponent("mob_grinder", {
 
         // Only open menu if empty-handed and not sneaking
         if (!hand) {
-            let isOn = world.getDynamicProperty(`${id}_isOn`);
+            let isOn = block.getState('utilitycraft:isOn')
 
             // teto (upgrades)
             let rangeUpgrade = Number(block.permutation.getState("utilitycraft:range"));
@@ -110,7 +102,7 @@ DoriosAPI.register.blockComponent("mob_grinder", {
                     const [newOn, newRangeSelected, newDamageSelected] = formData.formValues;
 
                     // salva apenas os valores selecionados — não sobrescreve os tetos (upgrades)
-                    world.setDynamicProperty(`${id}_isOn`, newOn);
+                    block.setState('utilitycraft:isOn', newOn)
                     world.setDynamicProperty(`${id}_rangeSelected`, newRangeSelected);
                     world.setDynamicProperty(`${id}_damageSelected`, newDamageSelected);
                 }

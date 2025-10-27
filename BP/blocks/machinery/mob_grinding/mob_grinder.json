@@ -7,6 +7,10 @@
 				"category": "construction"
 			},
 			"states": {
+				"utilitycraft:isOn": [
+					false,
+					true
+				],
 				"utilitycraft:range": [
 					0,
 					1,
@@ -15,6 +19,7 @@
 					4
 				],
 				"utilitycraft:damage": [
+					0,
 					1,
 					2,
 					3,
@@ -24,33 +29,17 @@
 					7,
 					8
 				]
-				// "utilitycraft:frame": [
-				// 	0,
-				// 	1,
-				// 	2,
-				// 	3,
-				// 	4,
-				// 	5,
-				// 	6,
-				// 	7
-				// ]
 			}
 		},
 		"components": {
 			"minecraft:geometry": {
-				"identifier": "geometry.utilitycraft_mob_grinder",
-				"bone_visibility": {
-					"frame_0": "1",
-					"frame_1": "0",
-					"frame_2": "0",
-					"frame_3": "0",
-					"frame_4": "0",
-					"frame_5": "0",
-					"frame_6": "0",
-					"frame_7": "0"
-				}
+				"identifier": "geometry.utilitycraft_mob_grinder"
 			},
 			"minecraft:material_instances": {
+				"aspas": {
+					"texture": "utilitycraft_mob_grinder_aspas_still",
+					"render_method": "alpha_test"
+				},
 				"*": {
 					"texture": "utilitycraft_mob_grinder",
 					"render_method": "alpha_test"
@@ -88,6 +77,23 @@
 					5
 				]
 			}
-		}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('utilitycraft:isOn') == true",
+				"components": {
+					"minecraft:material_instances": {
+						"aspas": {
+							"texture": "utilitycraft_mob_grinder_aspas",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mob_grinder",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			}
+		]
 	}
 }

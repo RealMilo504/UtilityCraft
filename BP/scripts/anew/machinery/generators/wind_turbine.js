@@ -34,6 +34,7 @@ DoriosAPI.register.blockComponent('wind_turbine', {
         const { block } = e
         const generator = new Generator(block, settings)
         if (!generator.entity) return
+        generator.energy.transferToNetwork(generator.rate * 4)
 
         const { energy } = generator
 
@@ -49,7 +50,7 @@ DoriosAPI.register.blockComponent('wind_turbine', {
             generator.off()
             generator.displayEnergy()
             generator.energy.transferToNetwork(0)
-            generator.setLabel(buildStatusLabel('Low Altitude', 'e', efficiency, energy.getPercent(), energy.cap, 0))
+            generator.setLabel(buildStatusLabel('Low Altitude', 'e', efficiency, energy.getPercent(), altitude, 0))
             return
         }
 
@@ -57,7 +58,7 @@ DoriosAPI.register.blockComponent('wind_turbine', {
             generator.off()
             generator.displayEnergy()
             generator.energy.transferToNetwork(0)
-            generator.setLabel(buildStatusLabel('Calm Winds', 'e', efficiency, energy.getPercent(), energy.cap, 0))
+            generator.setLabel(buildStatusLabel('Calm Winds', 'e', efficiency, energy.getPercent(), altitude, 0))
             return
         }
 
@@ -65,7 +66,7 @@ DoriosAPI.register.blockComponent('wind_turbine', {
             generator.off()
             generator.displayEnergy()
             generator.energy.transferToNetwork(0)
-            generator.setLabel(buildStatusLabel('Energy Full', 'e', efficiency, energy.getPercent(), energy.cap, 0))
+            generator.setLabel(buildStatusLabel('Energy Full', 'e', efficiency, energy.getPercent(), altitude, 0))
             return
         }
 
@@ -75,7 +76,7 @@ DoriosAPI.register.blockComponent('wind_turbine', {
 
         generator.on()
         generator.displayEnergy()
-        generator.setLabel(buildStatusLabel('Running', 'a', efficiency, energy.getPercent(), energy.cap, produced))
+        generator.setLabel(buildStatusLabel('Running', 'a', efficiency, energy.getPercent(), altitude, produced))
     },
 
     onPlayerBreak(e) {
@@ -130,16 +131,16 @@ function applyWeather(rate, weather) {
  * @param {number} rate
  * @returns {string}
  */
-function buildStatusLabel(status, color, efficiency, percent, cap, transferRate = 0) {
+function buildStatusLabel(status, color, efficiency, percent, altitude, transferRate = 0) {
     const clampedEfficiency = Math.max(0, Math.min(360, efficiency))
     const transferText = transferRate > 0 ? Energy.formatEnergyToText(transferRate) : '0 DE'
-    const capacityLine = cap ? `\n §r§7Capacity §f${Energy.formatEnergyToText(cap)}` : ''
 
     return `
 §r§${color ?? 'e'}${status}
 
 §r§eInformation
- §r§aEfficiency §f${clampedEfficiency}%%${capacityLine}
+ §r§eAltitude §f${altitude}
+ §r§aEfficiency §f${clampedEfficiency}%%
  
 §r§bEnergy at ${Math.floor(percent)}%%
 §r§cRate ${transferText}/t

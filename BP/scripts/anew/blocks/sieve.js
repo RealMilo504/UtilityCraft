@@ -102,12 +102,13 @@ class Sieve {
                     : loot.amount;
 
                 if (meshData.amount_multiplier) qty * meshData.amount_multiplier
-
-                this.block.dimension.spawnItem(new ItemStack(loot.item, qty), {
-                    x: x + 0.25 + Math.random() / 2,
-                    y: y + 0.75,
-                    z: z + 0.25 + Math.random() / 2
-                })
+                try {
+                    this.block.dimension.spawnItem(new ItemStack(loot.item, qty), {
+                        x: x + 0.25 + Math.random() / 2,
+                        y: y + 0.75,
+                        z: z + 0.25 + Math.random() / 2
+                    })
+                } catch { }
             }
         })
 

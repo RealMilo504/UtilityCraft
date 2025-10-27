@@ -13,5 +13,10 @@
         "flipbook_texture": "textures/blocks/generators/wind_turbine_aspas",
         "atlas_tile": "utilitycraft_wind_turbine",
         "ticks_per_frame": 1
+    },
+    {
+        "flipbook_texture": "textures/blocks/mob_grinding_aspas",
+        "atlas_tile": "utilitycraft_mob_grinder_aspas",
+        "ticks_per_frame": 1
     }
 ]
