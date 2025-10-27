@@ -375,6 +375,7 @@ function loadObjectives(definitions) {
  */
 let objectives = null;
 
+// --- Al cargar el mundo ---
 world.afterEvents.worldLoad.subscribe(() => {
     objectives = loadObjectives([
         ["energy", "Energy"],
@@ -382,10 +383,34 @@ world.afterEvents.worldLoad.subscribe(() => {
         ["energyCap", "Energy Max Capacity"],
         ["energyCapExp", "Energy Max Capacity Exp"],
     ]);
-    system.runTimeout(() => {
+
+    // Inicializar la propiedad si no existe
+    if (world.getDynamicProperty("loaded") === undefined) {
+        world.setDynamicProperty("loaded", false);
+    }
+
+    worldLoaded = world.getDynamicProperty("loaded");
+
+    if (world.getDimension('overworld').getEntities()[0]) {
+        world.setDynamicProperty("loaded", true);
         worldLoaded = true;
-    }, 50)
+    }
 });
+
+// --- Al primer spawn del jugador ---
+world.afterEvents.playerSpawn.subscribe(({ initialSpawn }) => {
+    if (!initialSpawn) return;
+    world.setDynamicProperty("loaded", true);
+    worldLoaded = true;
+});
+
+// --- Al apagar el mundo ---
+system.beforeEvents.shutdown.subscribe(() => {
+    try {
+        world.setDynamicProperty("loaded", false);
+    } catch { }
+});
+
 //#endregion
 
 export class Generator {
