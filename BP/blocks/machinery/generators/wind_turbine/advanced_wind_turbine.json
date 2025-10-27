@@ -26,7 +26,7 @@
 				},
 				"generator": {
 					"energy_cap": 256000,
-					"rate_speed_base": 36
+					"rate_speed_base": 32
 				}
 			},
 			"minecraft:geometry": "geometry.utilitycraft_wind_turbine",

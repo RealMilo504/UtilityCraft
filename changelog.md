@@ -12,6 +12,8 @@
 - Added descriptions for special blocks to improve understanding.
 - Updated display translations across multiple languages.
 - Upgrades are now added manually in the machine UI
+- Improved menu of Fluid Extractors and Item Exporters
+- Added liquid bars to XP and Milk
 ### Generators 
 - Added Wind Turbine
   - It's a passive generator
@@ -32,6 +34,8 @@
   - Displays remaining fuel time
 - Thermo Generator
   - Displays heat source multiplier
+- Added Transfer methods to Energy, Items and Fluids (Farthest, Nearest, Round)
+- Use Wrench to open the Transfer Menu
 ### Machines
 - Reworked Sieving System:
   - Added Mesh Tiers.
@@ -123,6 +127,13 @@
   - Electro Press code reworked.
   - Incinerator code reworked.
   - Block Breaker/Placer codes reworked.
+  - Changed Rate Speed Settings of the Addon:
+    - Super Fast → 2 ticks
+    - Fast → 4 ticks
+    - Normal → 10 ticks
+    - Slow → 20 ticks
+    - Super Slow → 40 ticks
+    - Default → 20 ticks
   > Honestly, everything was reworked since we moved from Old Custom Components to Custom Components V2.
 
 ---
