@@ -1,15 +1,15 @@
 import { world, system, ItemStack } from '@minecraft/server'
 
 const BOOK_PREFIX = 'utilitycraft:utility_book'
-const MAX_PAGE = 18
+const MAX_PAGE = 23
 
 world.afterEvents.playerJoin.subscribe(() => {
     system.runTimeout(() => {
         const overworld = world.getDimension('overworld')
-        overworld.runCommand(`give @a[tag =! guideUC] ${BOOK_PREFIX}_0`)
+        overworld.runCommand(`give @a[tag =! guideUC] ${BOOK_PREFIX}_1`)
         overworld.runCommand('tag @a add guideUC')
         system.runTimeout(() => {
-            overworld.runCommand(`give @a[tag =! guideUC] ${BOOK_PREFIX}_0`)
+            overworld.runCommand(`give @a[tag =! guideUC] ${BOOK_PREFIX}_1`)
             overworld.runCommand('tag @a add guideUC')
         }, 250)
     }, 100)
@@ -43,7 +43,7 @@ world.afterEvents.itemUse.subscribe((event) => {
         return
     }
 
-    if (source.isSneaking && page > 0) {
+    if (source.isSneaking && page > 1) {
         inventory.setItem(slot, new ItemStack(`${identifier}_${page - 1}`, 1))
         source.playSound('item.book.page_turn', location)
     }
