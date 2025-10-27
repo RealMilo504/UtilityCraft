@@ -7,11 +7,7 @@
   - Added screen to display warnings and information
   - Added a side upgrades bar
 - Updated breaking times for most blocks.
-- Proper tool requirements for breaking blocks applied (e.g., Compressed Dirt requires Shovel, Machines requires Pickaxe…).
-- Machines and Conduits now have three ways to transfer items:
-  - Closest: Feeds the closest machine first
-  - Farthest: Feed the farthest machine first
-  - Rounded: Equally distributes full stacks between the machines
+- Proper tool requirements for breaking blocks applied (e.g., Compressed Dirt requires Shovel, Machines requires Pickaxe…)
 - Added descriptions for machines, listing supported upgrades.
 - Added descriptions for special blocks to improve understanding.
 - Updated display translations across multiple languages.
@@ -34,6 +30,7 @@
   - Displays the current in-game time  
   - Generation is affected by efficiency  
   - Operates from 23000(-1000) to 13000 ticks, peaking at 6000
+  - Its rate was reduced by 40%
 - Magmator
   - Displays remaining fuel time
 - Thermo Generator
@@ -69,9 +66,9 @@
 - Reworked Mob Grinder
   - Mob Grinders can now be upgraded
   - Added Damage Upgrade to increased the inflicted damage
-  - Added Range Upgrade to extened the grinder's area of effect
+  - Added Range Upgrade to extend the grinder's area of effect
   - Added ability to toggle the block on/off
-  - It can no longer incflict damage on inanimate entities
+  - It can no longer inflict damage on inanimate entities
 ### Misc
 - Reworked Coal Blocks:
   - Added a new Charcoal Block and four levels of Compressed Charcoal Blocks.
@@ -93,11 +90,12 @@
 ### Misc
 - Wrench
   - Now rotates around its current facing instead of switching it (from 6 to 24 orientations)
+- Minecarts with blocks (TNT, Chest, Hopper) can now be uncrafted
 
 ---
 ## BUG FIXES
 
-- Fixed Sand getting stuck while multi-sieving
+- Fixed sand getting stuck while multi-sieving
 - Fixed item conduit recipe
 - Fixed being able to compress Stone using Andesite, Diorite, or Granite.
 - Fixed AiOTs not being able to mine cobwebs properly.  
@@ -137,7 +135,6 @@
     - Slow → 20 ticks
     - Super Slow → 40 ticks
     - Default → 20 ticks
-  > Honestly, everything was reworked since we moved from Old Custom Components to Custom Components V2.
 
 ---
 ## TEXTURES
