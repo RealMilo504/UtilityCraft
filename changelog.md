@@ -91,6 +91,7 @@
 - Added Compressed Items
 - Removed (Custom) Copper Nugget
 ### Misc
+- Accelerator Clock speed was drastically increased
 - Wrench
   - Now rotates around its current facing instead of switching it (from 6 to 24 orientations)
 
@@ -107,6 +108,7 @@
 - Fixed the Slime Block recipe in the Electro Press.  
 - Fixed missing translations in Spanish and Portuguese.  
 - Fixed missing item and block names.
+- Fixed block breaker not working properly.
 
 ---
 ## TECHNICAL CHANGES
