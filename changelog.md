@@ -43,7 +43,6 @@
   - Sieve Drops now scale by tier (e.g., Diamond requires at least Iron Mesh).
   - Netherite Mesh no longer drops Flint.
   - Updated mesh multipliers for balance purposes.
-> Note: Custom meshes won't work with the basic sieve
 - Added Copper Cobblestone Generator
   - Produces 1 cobblestone every 4 seconds (0.25/s)
   - It is now the first tier of Cobblestone Generator. Cobble Gens now have 6 tiers.
@@ -62,6 +61,16 @@
   - Increased base rate speed from 20 DE/t to 40 DE/t
 - Seed Synthesizer
   - Better soil no longer increases speed. It now multiplies the yield instead
+- Crusher
+  - Rebalanced energy costs for compressed materials:
+    - **Compressed Cobblestone**, **Gravel**, **Dirt**, **Deepslate**, and **Netherrack** now scale energy cost exponentially with compression level.
+      - Compressed Tier 1 → 7.2 kDE  
+      - Compressed Tier 2 → 64.8 kDE  
+      - Compressed Tier 3 → 583.2 kDE  
+      - Compressed Tier 4 → 5.24 MDE
+  - Added support for ore block crushing:
+    - **Ore Blocks** (e.g., Iron Block, Diamond Block, Gold Block, etc.) can now be crushed into their respective dusts.
+    - Crushing ore blocks yields dust at a reduced efficiency (around 75–80%) compared to gems or ingots, introducing material loss to balance automation setups.
 ### Transportation
 - Mechanical Hopper, Upper & Dropper
   - Now increases transfer speed instead of items per transfer.
