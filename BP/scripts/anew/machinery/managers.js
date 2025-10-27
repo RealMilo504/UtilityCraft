@@ -1,4 +1,6 @@
 import { system, world, ItemStack, BlockPermutation } from '@minecraft/server'
+import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
+
 import { updatePipes } from './transfer_system/system.js'
 const COLORS = DoriosAPI.constants.textColors
 
@@ -565,6 +567,39 @@ export class Generator {
             const zf = z + dz;
             entity.addTag(`pos:[${xf},${yf},${zf}]`);
         }
+    }
+    /**
+     * Opens a modal form for selecting transfer mode.
+     *
+     * Modes:
+     *  - nearest → send energy/fluid to closest target first.
+     *  - farthest → send to farthest target first.
+     *  - round → distribute evenly across all connected targets.
+     *
+     * @param {Entity} entity The generator entity.
+     * @param {Player} player The interacting player.
+     */
+    static openGeneratorTransferModeMenu(entity, player) {
+        if (!entity || !player) return;
+
+        const mode = entity.getDynamicProperty('transferMode') ?? 'nearest';
+        const modes = ['Nearest', 'Farthest', 'Round'];
+        const currentIndex = modes.findIndex(m => m.toLowerCase() === mode);
+        const defaultIndex = currentIndex >= 0 ? currentIndex : 0;
+
+        const modal = new ModalFormData()
+            .title('Generator Transfer Mode')
+            .dropdown('Select how this generator distributes its output:', modes, { defaultValueIndex: defaultIndex });
+
+        modal.show(player).then(result => {
+            if (result.canceled) return;
+
+            const [selection] = result.formValues;
+            const newMode = modes[selection]?.toLowerCase() ?? 'nearest';
+
+            entity.setDynamicProperty('transferMode', newMode);
+            player.onScreenDisplay.setActionBar(`§7Transfer mode set to: §e${DoriosAPI.utils.capitalizeFirst(newMode)}`);
+        });
     }
 
     /**
@@ -1669,14 +1704,16 @@ export class Energy {
      * ## Transfer Modes
      * - `"nearest"` → Transfers to the closest valid target first.
      * - `"farthest"` → Transfers starting from the farthest target first.
-     * - `"round"` → Distributes energy evenly among all valid targets.
+     * - `"round"` → Checks 10 targets per tick, giving energy evenly to all valid ones.
      *
      * @param {number} speed Total transfer speed limit (DE/tick).
      * @param {"nearest"|"farthest"|"round"} [mode="nearest"] Transfer mode.
      * @returns {number} Total amount of energy transferred (in DE).
      */
-    transferToNetwork(speed, mode = "nearest") {
+    transferToNetwork(speed, mode) {
+        mode = mode ?? this.entity.getDynamicProperty('transferMode');
         let available = this.get();
+        speed = Math.min(available, speed)
         if (available <= 0 || speed <= 0) return 0;
 
         const dim = this.entity.dimension;
@@ -1707,6 +1744,7 @@ export class Energy {
             nodes = JSON.stringify(positions);
         }
 
+        /** @type {{x:number,y:number,z:number}[]} */
         const targets = JSON.parse(nodes);
         if (targets.length === 0) return 0;
 
@@ -1717,14 +1755,23 @@ export class Energy {
         if (mode === "farthest") orderedTargets.reverse();
 
         // ──────────────────────────────────────────────
-        // Process transfers
+        // ROUND MODE: check 10 nodes per tick
         // ──────────────────────────────────────────────
         if (mode === "round") {
-            const share = Math.floor(speed / orderedTargets.length);
+            // let idx = Number(this.entity.getDynamicProperty("dorios:energy_round_idx") || 0);
 
+            // // Selecciona un grupo de 10 posiciones
+            // const batch = orderedTargets.slice(idx, idx + 10);
+            // if (batch.length === 0) {
+            //     // si llegó al final, reinicia
+            //     idx = 0;
+            //     this.entity.setDynamicProperty("dorios:energy_round_idx", 0);
+            //     return 0;
+            // }
+
+            // Filtrar entidades válidas
+            const validEntities = [];
             for (const loc of orderedTargets) {
-                if (available <= 0 || speed <= 0) break;
-
                 const [target] = dim.getEntitiesAtBlockLocation(loc);
                 if (!target) continue;
 
@@ -1733,10 +1780,25 @@ export class Energy {
                 if (isBattery && tf.hasTypeFamily("dorios:battery")) continue;
 
                 const energy = new Energy(target);
+                if (energy.getFreeSpace() > 0) validEntities.push(energy);
+            }
+
+            if (validEntities.length === 0) {
+                // avanzar igual aunque no haya válidos
+                // this.entity.setDynamicProperty("dorios:energy_round_idx", (idx + 10) % orderedTargets.length);
+                return 0;
+            }
+
+            // Dividir la energía entre los válidos del grupo actual
+            const share = Math.floor(Math.min(speed, available) / validEntities.length);
+            // world.sendMessage(`${share}, ${validEntities.length}`)
+            for (const energy of validEntities) {
+                if (available <= 0 || speed <= 0) break;
+
                 const space = energy.getFreeSpace();
                 if (space <= 0) continue;
 
-                const amount = Math.min(share, space, available, speed);
+                const amount = Math.min(share, space);
                 const added = energy.add(amount);
                 if (added > 0) {
                     available -= added;
@@ -1744,8 +1806,18 @@ export class Energy {
                     transferred += added;
                 }
             }
-        } else {
-            // Sequential transfer (nearest/farthest)
+
+            // // Avanza al siguiente grupo (10 por tick)
+            // this.entity.setDynamicProperty(
+            //     "dorios:energy_round_idx",
+            //     (idx + 10) % orderedTargets.length
+            // );
+        }
+
+        // ──────────────────────────────────────────────
+        // NEAREST / FARTHEST modes (Sequential)
+        // ──────────────────────────────────────────────
+        else {
             for (const loc of orderedTargets) {
                 if (available <= 0 || speed <= 0) break;
 
@@ -1766,14 +1838,12 @@ export class Energy {
                     available -= added;
                     speed -= added;
                     transferred += added;
-
-                    if (mode === "nearest") break; // Stop on first successful transfer
                 }
             }
         }
 
         // ──────────────────────────────────────────────
-        // 4️⃣ Consume total transferred amount
+        // Apply total energy consumption
         // ──────────────────────────────────────────────
         if (transferred > 0) this.consume(transferred);
 

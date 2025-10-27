@@ -339,7 +339,6 @@ function searchEnergyContainers(startQueue, gen) {
         if (block?.hasTag('dorios:energy') && block?.hasTag('dorios:port')) {
             entity = dimension.getEntities({ tags: [`input:[${pos.x},${pos.y},${pos.z}]`] })[0]
             if (entity) machines.push(entity.location);
-            world.sendMessage(`${gen.typeId}: ${entity.typeId}`)
             continue
         }
         if (entity?.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:energy_container")) machines.push(pos)

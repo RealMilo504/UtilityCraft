@@ -1,5 +1,5 @@
 import { world, ItemStack, system, BlockType } from "@minecraft/server";
-import { Rotation } from './managers.js'
+import { Rotation, Generator } from './managers.js'
 
 
 // Nombres de entidades removibles
@@ -16,16 +16,25 @@ DoriosAPI.register.itemComponent("wrench", {
      */
     onUseOn(e) {
         const { source, block, blockFace } = e;
-        if (!source.isSneaking) return
+        if (!source.isSneaking) {
+            if (!block.hasTag('dorios:energy')) return
+            const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0]
+            if (!entity || !entity.getComponent('type_family').hasTypeFamily('dorios:energy_source')) return
+            Generator.openGeneratorTransferModeMenu(entity, source)
+            return
+        }
         Rotation.handleRotation(block, blockFace)
     },
 });
 
 world.afterEvents.playerInteractWithEntity.subscribe(({ player, target, itemStack }) => {
     if (!itemStack || itemStack.typeId != 'utilitycraft:wrench') return
-    if (!player.isSneaking) return
+    if (!player.isSneaking) {
+        // if (!target.getComponent('type_family').hasTypeFamily('dorios:energy_source')) return
+        // Generator.openGeneratorTransferModeMenu(target, player)
+        // return
+    }
     const dim = player.dimension
-    world.sendMessage(`${REMOVABLE_ENTITIES.includes(target.typeId)}`)
     if (target && REMOVABLE_ENTITIES.includes(target.typeId)) {
         // --- DROPEAR INVENTARIO ---
         target.dropAllItems();
