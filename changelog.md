@@ -17,7 +17,7 @@
 ### Generators 
 - Added Wind Turbine
   - It's a passive generator
-  - Its base speed is 8 DE/t (compared to the Solar Panel, which has 20 DE/t)
+  - Its base speed is 8 DE/t (compared to the Solar Panel, which has 12 DE/t)
   - The Wind Turbine gets stronger or weaker depending on the height.
   - The base height is 64 (sea level)
     - Every 10 blocks above y64, the Wind Turbine becomes 10% more efficient.
