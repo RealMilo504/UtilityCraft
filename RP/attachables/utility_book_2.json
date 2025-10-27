@@ -7,7 +7,7 @@
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"default": "textures/items/utility_book/utility_book_1-2"
+				"default": "textures/items/utility_book/first_guide_book_page_2"
 			},
 			"geometry": {
 				"default": "geometry.dorios_wiki_book"
