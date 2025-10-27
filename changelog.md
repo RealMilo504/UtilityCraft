@@ -47,8 +47,14 @@
 - Added Copper Cobblestone Generator
   - Produces 1 cobblestone every 4 seconds (0.25/s)
   - It is now the first tier of Cobblestone Generator. Cobble Gens now have 6 tiers.
+- Assembler
+  - The Assembler now reserves 1 of each required material in its inventory, ensuring recipes always need 1 extra item to keep a leftover
 - Autosieve
   - Increased autosieve process cost from 3.2 kDE to 6.4 kDE
+- Digitizer
+  - Increased energy cap to 32 kDE
+   - Increased energy cost to 400 DE
+   - Increased rate speed to 20 DE / t
 - Induction Anvil
   - Increased rate speed to 25 DE/t
 - Infuser
@@ -60,7 +66,8 @@
 - Mechanical Hopper, Upper & Dropper
   - Now increases transfer speed instead of items per transfer.
 - Ender Hopper
-  - Now accepts Speed and Filter upgrades.
+  - Now accepts Speed and Filter upgrades. 
+- Conveyors were temporarily removed
 ### Mob Grinding
 - Reworked Mob Grinder
   - Mob Grinders can now be upgraded
@@ -89,7 +96,7 @@
 ### Misc
 - Accelerator Clock speed was drastically increased
 - Wrench
-  - Now rotates around its current facing instead of switching it (from 6 to 24 orientations)
+  - Now rotates machines around its current facing instead of switching it (from 6 to 24 orientations)
 - Minecarts with blocks (TNT, Chest, Hopper) can now be uncrafted
 
 ---
@@ -108,41 +115,49 @@
 - Fixed block breaker not working properly.
 
 ---
-## TECHNICAL CHANGES
-
-  - Smelting Pickaxe code reworked.
-  - AiOTs code reworked.
-  - Dig Pebbles feature reworked.
-  - Stack Refill feature reworked.
-  - Bountiful Crops and Bonsais reworked.
-  - Crucible code reworked.
-  - Cobblestone Generators code reworked.
-  - Antidote Potion reworked.
-  - Guide Book improvements (still pending optimization).
-  - Lantern and Big Torch code reworked.
-  - Reworked the following "On Interact" Blocks: Tractor, Drill, Sink, Pedestal.
-  - Asphalt and Elevator code reworked.
-  - Essences (Refill) system reworked.
-  - XP Magnet code reworked.
-  - XP Spout & Drain reworked.
-  - Crusher code reworked.
-  - Electro Press code reworked.
-  - Incinerator code reworked.
-  - Block Breaker/Placer codes reworked.
-  - Changed Rate Speed Settings of the Addon:
-    - Super Fast → 2 ticks
-    - Fast → 4 ticks
-    - Normal → 10 ticks
-    - Slow → 20 ticks
-    - Super Slow → 40 ticks
-    - Default → 20 ticks
-
----
 ## TEXTURES
 
 - Changed AIOTs Item textures.
 - Changed the texture of the Mob Grinder from a flat gray to a vibrant Gray with Red; Also added blades to it.
 - Changed Copper tools textures. 
+
+---
+## TECHNICAL CHANGES
+
+- Smelting Pickaxe code reworked.
+- Drills
+  - Added the "utilitycraft:drill" component to items
+- Knife code reworked
+  - Added the "utilitycraft:block_loot" component to items, allows to add extra loot to any block using this item component
+- Hammer code reworked
+  - Added "utilitycraft:hammer" component to items
+- Sieving System
+- Added the `utilitycraft:mesh` component to items to create custom meshes.
+- AiOTs code reworked.
+- Dig Pebbles feature reworked.
+- Stack Refill feature reworked.
+- Bountiful Crops and Bonsais reworked.
+- Crucible code reworked.
+- Cobblestone Generators code reworked.
+- Antidote Potion reworked.
+- Guide Book improvements (still pending optimization).
+- Lantern and Big Torch code reworked.
+- Reworked the following "On Interact" Blocks: Tractor, Drill, Sink, Pedestal.
+- Asphalt and Elevator code reworked.
+- Essences (Refill) system reworked.
+- XP Magnet code reworked.
+- XP Spout & Drain reworked.
+- Crusher code reworked.
+- Electro Press code reworked.
+- Incinerator code reworked.
+- Block Breaker/Placer codes reworked.
+- Changed Rate Speed Settings of the Addon:
+  - Super Fast → 2 ticks
+  - Fast → 4 ticks
+  - Normal → 10 ticks
+  - Slow → 20 ticks
+  - Super Slow → 40 ticks
+  - Default → 20 ticks
 
 ---
 ## THIRD-PARTY COMPATIBILITY
