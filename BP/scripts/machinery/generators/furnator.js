@@ -11,7 +11,7 @@ DoriosAPI.register.blockComponent('furnator', {
      */
     beforeOnPlayerPlace(e, { params: settings }) {
         Generator.spawnGeneratorEntity(e, settings, (entity) => {
-            entity.setItem(2, "utilitycraft:fuel_bar_0")
+            entity.setItem(2, "utilitycraft:fuel_bar_0", 1, "")
         });
     },
 

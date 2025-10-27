@@ -9,7 +9,7 @@ DoriosAPI.register.blockComponent('block_breaker', {
      */
     beforeOnPlayerPlace(e, { params: settings }) {
         Machine.spawnMachineEntity(e, settings, () => {
-            const machine = new Machine(e.block, settings);
+            const machine = new Machine(e.block, settings, true);
             machine.setEnergyCost(settings.machine.energy_cost);
         });
     },

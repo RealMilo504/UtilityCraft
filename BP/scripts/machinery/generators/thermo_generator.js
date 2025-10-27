@@ -22,7 +22,7 @@ DoriosAPI.register.blockComponent('thermo_generator', {
      */
     beforeOnPlayerPlace(e, { params: settings }) {
         Generator.spawnGeneratorEntity(e, settings, (entity) => {
-            entity.setItem(1, 'utilitycraft:arrow_right_0')
+            entity.setItem(1, 'utilitycraft:arrow_right_0', 1, "")
         });
     },
 

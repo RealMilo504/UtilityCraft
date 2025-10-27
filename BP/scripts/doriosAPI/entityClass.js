@@ -72,9 +72,10 @@ const entityExtensions = {
      * @param {number} slot The inventory slot index to set.
      * @param {ItemStack|string} item The item to place (ItemStack or item ID string).
      * @param {number} [amount=1] Amount if item is a string. Ignored for ItemStack.
+     * @param {string} [name] Name for the itemStack.
      * @returns {boolean} Whether the operation was successful.
      */
-    setItem(slot, item, amount = 1) {
+    setItem(slot, item, amount = 1, name) {
         const inventory = this.getComponent('inventory');
         if (!inventory) return false;
 
@@ -83,7 +84,7 @@ const entityExtensions = {
         const itemStack = typeof item === 'string'
             ? new ItemStack(item, amount)
             : item;
-
+        if (name) itemStack.nameTag = name
         try {
             inv.setItem(slot, itemStack);
             return true;

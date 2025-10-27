@@ -11,9 +11,9 @@ DoriosAPI.register.blockComponent('induction_anvil', {
      */
     beforeOnPlayerPlace(e, { params: settings }) {
         Machine.spawnMachineEntity(e, settings, () => {
-            const machine = new Machine(e.block, settings);
+            const machine = new Machine(e.block, settings, true);
             machine.setEnergyCost(settings.machine.energy_cost);
-            machine.entity.setItem(2, 'utilitycraft:arrow_right_0');
+            machine.entity.setItem(2, 'utilitycraft:arrow_right_0', 1, "");
         });
     },
 
