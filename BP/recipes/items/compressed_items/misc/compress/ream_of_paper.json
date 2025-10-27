@@ -7,19 +7,26 @@
     "tags": [
       "crafting_table"
     ],
-    "ingredients": [
-      {
-        "item": "minecraft:paper",
-        "count": 9
-      }
-    ],
-    "result": {
-      "item": "utilitycraft:ream_of_paper"
-    },
-    "unlock": [
-      {
+    "key": {
+      "P": {
         "item": "minecraft:paper"
-      }
-    ]
+      },
+      "S": {
+        "item": "minecraft:string"
+      },
+      "pattern": [
+        "PPP",
+        "PSP",
+        "PPP"
+      ],
+      "result": {
+        "item": "utilitycraft:ream_of_paper"
+      },
+      "unlock": [
+        {
+          "item": "minecraft:paper"
+        }
+      ]
+    }
   }
 }
