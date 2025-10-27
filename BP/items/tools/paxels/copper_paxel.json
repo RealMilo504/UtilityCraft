@@ -16,10 +16,10 @@
 			"minecraft:durability": {
 				"max_durability": 573
 			},
-			"minecraft:damage": 5,
+			"minecraft:damage": 6,
 			"minecraft:icon": "utilitycraft_copper_paxel",
 			"minecraft:enchantable": {
-				"value": 13,
+				"value": 14,
 				"slot": "axe"
 			},
 			"minecraft:repairable": {

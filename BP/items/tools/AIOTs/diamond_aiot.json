@@ -26,7 +26,7 @@
 			},
 			"minecraft:damage": 8,
 			"minecraft:enchantable": {
-				"value": 15,
+				"value": 13,
 				"slot": "axe"
 			},
 			"minecraft:repairable": {

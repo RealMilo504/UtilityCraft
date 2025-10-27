@@ -52,7 +52,7 @@ DoriosAPI.register.blockComponent("mob_grinder", {
         const damageAmount = Math.max(0, Math.floor(damageSelected));
 
         dimension.runCommand(
-            `damage @e[r=${trueRange}, type=!item, family=!inanimate, x=${x + 0.5}, y=${y}, z=${z + 0.5}] ${damageAmount} none entity @p`
+            `damage @e[r=${trueRange}, type=!item, type=!player, family=!inanimate, x=${x + 0.5}, y=${y}, z=${z + 0.5}] ${damageAmount} none entity @p`
         );
     },
 

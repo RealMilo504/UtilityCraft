@@ -28,7 +28,7 @@
 			"minecraft:damage": 9,
 			"minecraft:icon": "utilitycraft_netherite_aiot",
 			"minecraft:enchantable": {
-				"value": 15,
+				"value": 18,
 				"slot": "axe"
 			},
 			"minecraft:repairable": {

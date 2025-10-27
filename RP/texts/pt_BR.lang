@@ -9,10 +9,10 @@ tile.utilitycraft:utility_table.name=Bancada de Ferramentas Avançada\n§7- Use 
 
 - Fluid Stuff = ## Gerenciadores de Fluidos
 
-tile.utilitycraft:basic_fluid_tank.name=Tanque de Fluidos §eBásico
-tile.utilitycraft:advanced_fluid_tank.name=Tanque de Fluidos §cAvançado
-tile.utilitycraft:expert_fluid_tank.name=Tanque de Fluidos §3Expert
-tile.utilitycraft:ultimate_fluid_tank.name=Tanque de Fluidos §8Supremo
+tile.utilitycraft:basic_fluid_tank.name=Tanque de Fluidos §eBásico§7\n Capacidade: 8000mB
+tile.utilitycraft:advanced_fluid_tank.name=Tanque de Fluidos §cAvançado§7\n Capacidade: 32000mB
+tile.utilitycraft:expert_fluid_tank.name=Tanque de Fluidos §3Expert§7\n Capacidade: 128000mB
+tile.utilitycraft:ultimate_fluid_tank.name=Tanque de Fluidos §8Supremo§7\n Capacidade: 512000mB
 tile.utilitycraft:fluid_pipe.name=Cano \n§7- Transporta líquidos
 tile.utilitycraft:fluid_extractor.name=Extrator de Fluidos \n§7- Aceita melhorias:\n §a§7
 tile.utilitycraft:fluid_pump.name=Bomba\n§7- Aceita melhorias:\n §a§7
@@ -376,19 +376,30 @@ item.utilitycraft:lucky_sword_item=§aEspada da Sorte\n§7Pilhagem V
 - Tools = ## Ferramentas 
 ## >>>>>>>> Open Group -------- ##
 
+-- Aço = ## Steel
+item.utilitycraft:steel_sword=Espada de Aço
+item.utilitycraft:steel_axe=Machado de Aço
+item.utilitycraft:steel_pickaxe=Picareta de Aço
+item.utilitycraft:steel_shovel=Pá de Aço
+item.utilitycraft:steel_hoe=Enxada de Aço
+
 -- AIOTs = ## AIOTs
 item.utilitycraft:netherite_aiot=AIOT de Netherita
 item.utilitycraft:diamond_aiot=AIOT de Diamante
+item.utilitycraft:steel_aiot=AIOT de Aço
 item.utilitycraft:golden_aiot=AIOT de Ouro
 item.utilitycraft:iron_aiot=AIOT de Ferro
+item.utilitycraft:copper_aiot=AIOT de Cobre
 item.utilitycraft:stone_aiot=AIOT de Pedra
 item.utilitycraft:wooden_aiot=AIOT de Madeira
 
 -- Paxels = ## Pacachados
 item.utilitycraft:diamond_paxel=Pacachado de Diamante
 item.utilitycraft:netherite_paxel=Pacachado de Netherita
+item.utilitycraft:steel_paxel=Pacachado de Aço
 item.utilitycraft:iron_paxel=Pacachado de Ferro
 item.utilitycraft:golden_paxel=Pacachado de Ouro
+item.utilitycraft:copper_paxel=Pacachado de Cobre
 item.utilitycraft:stone_paxel=Pacachado de Pedra
 item.utilitycraft:wooden_paxel=Pacachado de Madeira
 
@@ -396,7 +407,9 @@ item.utilitycraft:wooden_paxel=Pacachado de Madeira
 item.utilitycraft:wooden_hammer=Martelo de Madeira
 item.utilitycraft:netherite_hammer=Martelo de Netherita
 item.utilitycraft:diamond_hammer=Martelo de Diamante
+item.utilitycraft:steel_hammer=Martelo de Aço
 item.utilitycraft:iron_hammer=Martelo de Ferro
+item.utilitycraft:copper_hammer=Martelo de Cobre
 item.utilitycraft:stone_hammer=Martelo de Pedra
 
 -- Special Tools = ## Ferramentas Especiais
@@ -688,28 +701,28 @@ tile.utilitycraft:basic_magmator.name=§eMagmador Básico\n §7 Velocidade: 50 D
 tile.utilitycraft:basic_thermo_generator.name=§eGerador Térmico Básico \n §7 Velocidade: 20 DE/t
 tile.utilitycraft:basic_battery.name=§eBateria Básica\n §7 Velocidade: 100 DE/t
 tile.utilitycraft:basic_solar_panel.name=§ePainel Solar Básico\n §7 Velocidade: 12 DE/t
-tile.utilitycraft:basic_wind_turbine.name=§eTurbina Eólica Básica\n §7 Velocidade Base: 8 DE/t\n Multiplicador de Altura Máximo: 360%\n Não funciona abaixo de y20
+tile.utilitycraft:basic_wind_turbine.name=§eTurbina Eólica Básica\n §7 Velocidade Base: 8 DE/t\n  Multiplicador de Altura Máximo: 360%\n  Não funciona abaixo de y20
 
 tile.utilitycraft:advanced_furnator.name=§cForgerador Avançado\n §7 Velocidade: 160 DE/t
 tile.utilitycraft:advanced_magmator.name=§cMagmador Avançado\n §7 Velocidade: 200 DE/t
 tile.utilitycraft:advanced_thermo_generator.name=§cGerador Térmico Avançado \n §7 Velocidade: 80 DE/t
 tile.utilitycraft:advanced_battery.name=§cBateria Avançada \n §7 Velocidade: 800 DE/t
 tile.utilitycraft:advanced_solar_panel.name=§cPainel Solar Avançado\n §7 Velocidade: 48 DE/t
-tile.utilitycraft:advanced_wind_turbine.name=§cTurbina Eólica Avançada\n §7 Velocidade Base: 32 DE/t\n Multiplicador de Altura Máximo: 360%\n Não funciona abaixo de y20
+tile.utilitycraft:advanced_wind_turbine.name=§cTurbina Eólica Avançada\n §7 Velocidade Base: 32 DE/t\n  Multiplicador de Altura Máximo: 360%\n  Não funciona abaixo de y20
 
 tile.utilitycraft:expert_furnator.name=§3Forgerador Expert \n §7 Velocidade: 640 DE/t
 tile.utilitycraft:expert_magmator.name=§3Magmador Expert \n §7 Velocidade: 800 DE/t
 tile.utilitycraft:expert_thermo_generator.name=§3Gerador Térmico Expert\n §7 Velocidade: 320 DE/t
 tile.utilitycraft:expert_battery.name=§3Bateria Expert \n §7 Velocidade: 1.6 kDE/t
 tile.utilitycraft:expert_solar_panel.name=§3Painel Solar Expert \n §7 Velocidade: 192 DE/t
-tile.utilitycraft:expert_wind_turbine.name=§3Turbina Eólica Expert\n §7 Velocidade Base: 128 DE/t\n Multiplicador de Altura Máximo: 360%\n Não funciona abaixo de y20
+tile.utilitycraft:expert_wind_turbine.name=§3Turbina Eólica Expert\n §7 Velocidade Base: 128 DE/t\n  Multiplicador de Altura Máximo: 360%\n  Não funciona abaixo de y20
 
 tile.utilitycraft:ultimate_furnator.name=§8Forgerador Supremo \n §7 Velocidade: 4 kDE/t
 tile.utilitycraft:ultimate_magmator.name=§8Magmador Supremo\n §7 Velocidade: 5 kDE/t
 tile.utilitycraft:ultimate_thermo_generator.name=§8Gerador Térmico Supremo \n §7 Velocidade: 2 kDE/t
 tile.utilitycraft:ultimate_battery.name=§8Bateria Suprema\n §7 Velocidade: 10 kDE/t
 tile.utilitycraft:ultimate_solar_panel.name=§8Painel Solar Supremo \n §7 Velocidade: 1200 DE/t
-tile.utilitycraft:ultimate_wind_turbine.name=§8Turbina Eólica Básica\n §7 Velocidade Base: 800 DE/t\n Multiplicador de Altura Máximo: 360%\n Não funciona abaixo de y20
+tile.utilitycraft:ultimate_wind_turbine.name=§8Turbina Eólica Básica\n §7 Velocidade Base: 800 DE/t\n  Multiplicador de Altura Máximo: 360%\n  Não funciona abaixo de y20
 < Energy Generators = Geradores de Energia 
 ##///////////////////////////////////////////////////////////////
 
@@ -783,6 +796,10 @@ dorios:itemGroup.name.basics=Básicos
 dorios:itemGroup.name.mob_grinding=Gerenciamento de Criaturas
 dorios:itemGroup.name.hammers=Martelos
 dorios:itemGroup.name.paxels=Pacachados
+dorios:itemGroup.name.meshes=Malhas
+dorios:itemGroup.name.essences=Essências\n§7- Usado no Invocador Mecânico
+dorios:itemGroup.name.plates=Placas
+dorios:itemGroup.name.upgrades=Módulos de Melhoria
 ## < Categories
 
 ## All the same

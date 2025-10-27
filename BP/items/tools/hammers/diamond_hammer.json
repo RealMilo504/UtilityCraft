@@ -19,10 +19,10 @@
 			"minecraft:durability": {
 				"max_durability": 1561
 			},
-			"minecraft:damage": 6,
+			"minecraft:damage": 7,
 			"minecraft:icon": "utilitycraft_diamond_hammer",
 			"minecraft:enchantable": {
-				"value": 15,
+				"value": 12,
 				"slot": "pickaxe"
 			},
 			"minecraft:repairable": {
