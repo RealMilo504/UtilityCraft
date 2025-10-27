@@ -17,10 +17,10 @@
 			"minecraft:fire_resistant": {
 				"value": true
 			},
-			"minecraft:damage": 6,
+			"minecraft:damage": 7,
 			"minecraft:icon": "utilitycraft_netherite_hammer",
 			"minecraft:enchantable": {
-				"value": 15,
+				"value": 17,
 				"slot": "pickaxe"
 			},
 			"minecraft:repairable": {
