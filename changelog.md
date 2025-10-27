@@ -12,7 +12,15 @@
 - Added descriptions for special blocks to improve understanding.
 - Updated display translations across multiple languages.
 - Upgrades are now added manually in the machine UI
-### Generators
+### Generators 
+- Added Wind Turbine
+  - It's a passive generator
+  - Its base speed is 8 DE/t (compared to the Solar Panel, which has 20 DE/t)
+  - The Wind Turbine gets stronger or weaker depending on the height.
+  - The base height is 64 (sea level)
+    - Every 10 blocks above y64, the Wind Turbine becomes 10% more efficient.
+    - Every 8 blocks below y64, the Wind Turbine becomes 20% less efficient, ceasing to function completely at y20
+    - All versions of the Wind Turbine have twice the capacity of a Solar Panel of the same level. 
 - Furnator
   - Furnator now shows remaining burn time for the current fuel
   - Displays the total energy output of each fuel type
@@ -82,6 +90,7 @@
 ---
 ## BUG FIXES
 
+- Fixed Sand getting stuck while multi-sieving
 - Fixed item conduit recipe
 - Fixed being able to compress Stone using Andesite, Diorite, or Granite.
 - Fixed AiOTs not being able to mine cobwebs properly.  
