@@ -1,5 +1,21 @@
-import { world, ItemStack } from '@minecraft/server'
+import { ItemStack } from '@minecraft/server'
 
+/**
+ * Crucible Block Component
+ * ------------------------
+ * - Accepts cobblestone-like blocks to smelt into lava.
+ * - Requires a heat source beneath the block.
+ * - Produces lava in increments of 250mB.
+ * - Interacts with buckets for inserting/removing lava.
+ * 
+ * States used:
+ * - utilitycraft:cobble    (number, cobble units queued for smelting)
+ * - utilitycraft:lava      (number, lava level in steps of 250mB, max 4)
+ * - utilitycraft:smelting  (number, current heat progress)
+ */
+
+
+/** Items accepted by the crucible (ID → cobble units). */
 const acceptedItems = {
     'minecraft:cobblestone': 1,
     'minecraft:stone': 1,
@@ -9,6 +25,7 @@ const acceptedItems = {
     'minecraft:netherrack': 4
 }
 
+/** Heat sources (block ID → heat value per tick). */
 const heatSources = {
     'utilitycraft:blaze_block': 6,
     'minecraft:lava': 4,
@@ -22,90 +39,78 @@ const heatSources = {
     'minecraft:torch': 1
 }
 
-//Give item to the player if not spawn it on the block
-function giveItem(player, block, itemId) {
-    let { x, y, z } = block.location
-    x += 0.5; y += 1; z += 0.5
-    let slots = player.getComponent('inventory').container.emptySlotsCount
-    if (slots == 0) {
-        block.dimension.spawnItem(new ItemStack(`${itemId}`, 1), { x, y, z })
-    } else {
-        player.getComponent('inventory').container.addItem(new ItemStack(`${itemId}`, 1))
-    }
-}
+DoriosAPI.register.blockComponent('crucible', {
+    /**
+     * Handles player interaction with the crucible.
+     */
+    onPlayerInteract({ player, block }) {
+        const { x, y, z } = block.location
+        const pos = { x: x + 0.5, y: y + 1, z: z + 0.5 }
 
-//Here inicializes the custom components
-world.beforeEvents.worldInitialize.subscribe(e => {
-    e.blockComponentRegistry.registerCustomComponent('utilitycraft:crucible', {
-        onPlayerInteract(e) {
-            const { player, block } = e
-            //Gets the item on the main hand of the player
-            let { x, y, z } = block.location
-            x += 0.5; y += 1; z += 0.5
+        const mainhand = player.getComponent('equippable').getEquipment('Mainhand')
+        let cobble = block.getState('utilitycraft:cobble')
+        let lava = block.getState('utilitycraft:lava')
 
-            let mainhand = player.getComponent('equippable').getEquipment('Mainhand')
-
-            let cobble = block.permutation.getState('utilitycraft:cobble')
-            let lava = block.permutation.getState('utilitycraft:lava')
-
-            let item = acceptedItems[mainhand?.typeId]
-
-            if (item) {
-                if (cobble < 4 && lava < 4 && cobble + lava < 4) {
-                    cobble += item
-                    player.runCommand(`clear @s ${mainhand?.typeId} 0 1`)
-                }
-            } else {
-                if (mainhand?.typeId == 'minecraft:bucket' && lava == 4) {
-                    player.runCommand(`clear @s ${mainhand?.typeId} 0 1`)
-                    giveItem(player, block, 'minecraft:lava_bucket')
-                    lava = 0
-                } else {
-                    if (mainhand?.typeId == 'minecraft:water_bucket' && lava == 4) {
-                        player.runCommand(`clear @s ${mainhand?.typeId} 0 1`)
-                        giveItem(player, block, 'minecraft:bucket')
-                        block.dimension.spawnItem(new ItemStack('minecraft:obsidian', 1), { x, y, z })
-                        lava = 0
-                    }
-                    if (mainhand?.typeId == 'minecraft:lava_bucket' && lava == 0 && cobble == 0) {
-                        player.runCommand(`clear @s ${mainhand?.typeId} 0 1`)
-                        giveItem(player, block, 'minecraft:bucket')
-                        lava = 4
-                    }
-                }
+        // Add cobble-like blocks
+        const cobbleUnits = acceptedItems[mainhand?.typeId]
+        if (cobbleUnits) {
+            if (cobble < 4 && lava < 4 && cobble + lava < 4) {
+                cobble += cobbleUnits
+                player.runCommand(`clear @s ${mainhand.typeId} 0 1`)
             }
-
-
-
-            player.onScreenDisplay.setActionBar(`   Cobble: ${cobble * 1000}mB   Lava: ${lava * 250}mB   `)
-
-            block.setPermutation(block.permutation.withState('utilitycraft:cobble', cobble))
-            block.setPermutation(block.permutation.withState('utilitycraft:lava', lava))
-
-        },
-        //Every time the function tick on the block executes it executes this
-        onTick(e) {
-            const { block } = e
-
-            const heatSource = heatSources[block.below(1)?.typeId]
-            let smelt = block.permutation.getState('utilitycraft:smelting')
-            let cobble = block.permutation.getState('utilitycraft:cobble')
-            let lava = block.permutation.getState('utilitycraft:lava')
-
-            if (!heatSource || cobble == 0 || lava == 4) {
-                block.setPermutation(block.permutation.withState('utilitycraft:smelting', 0))
-                return
+        } else {
+            // Bucket interactions
+            if (mainhand?.typeId === 'minecraft:bucket' && lava === 4) {
+                // Collect lava
+                player.runCommand(`clear @s ${mainhand.typeId} 0 1`)
+                player.giveItem('minecraft:lava_bucket')
+                lava = 0
+            } else if (mainhand?.typeId === 'minecraft:water_bucket' && lava === 4) {
+                // Water + lava → obsidian
+                player.runCommand(`clear @s ${mainhand.typeId} 0 1`)
+                player.giveItem('minecraft:bucket')
+                block.dimension.spawnItem(new ItemStack('minecraft:obsidian', 1), pos)
+                lava = 0
+            } else if (mainhand?.typeId === 'minecraft:lava_bucket' && lava === 0 && cobble === 0) {
+                // Insert lava
+                player.runCommand(`clear @s ${mainhand.typeId} 0 1`)
+                player.giveItem('minecraft:bucket')
+                lava = 4
             }
-
-            smelt += heatSource
-
-            if (smelt > 15) {
-                block.setPermutation(block.permutation.withState('utilitycraft:cobble', cobble - 1))
-                block.setPermutation(block.permutation.withState('utilitycraft:lava', lava + 1))
-                smelt = 0
-            }
-
-            block.setPermutation(block.permutation.withState('utilitycraft:smelting', smelt))
         }
-    })
+
+        // Update action bar
+        player.onScreenDisplay.setActionBar(`   Cobble: ${cobble * 1000}mB   Lava: ${lava * 250}mB   `)
+
+        // Update states
+        block.setState('utilitycraft:cobble', cobble)
+        block.setState('utilitycraft:lava', lava)
+    },
+
+    /**
+     * Smelting tick logic (turns cobble into lava if heated).
+     */
+    onTick({ block }) {
+        const heat = heatSources[block.below(1)?.typeId]
+        let smelt = block.getState('utilitycraft:smelting')
+        let cobble = block.getState('utilitycraft:cobble')
+        let lava = block.getState('utilitycraft:lava')
+
+        if (!heat || cobble === 0 || lava === 4) {
+            block.setState('utilitycraft:smelting', 0)
+            return
+        }
+
+        smelt += heat
+
+        if (smelt > 15) {
+            cobble -= 1
+            lava += 1
+            smelt = 0
+        }
+
+        block.setState('utilitycraft:cobble', cobble)
+        block.setState('utilitycraft:lava', lava)
+        block.setState('utilitycraft:smelting', smelt)
+    }
 })

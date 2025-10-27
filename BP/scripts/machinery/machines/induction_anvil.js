@@ -1,29 +1,88 @@
-import * as doriosAPI from '../../doriosAPI.js'
-import { Machine, settings } from '../machines_class.js'
+import { Machine } from '../managers.js'
 
-doriosAPI.register.OldBlockComponent('utilitycraft:induction_anvil', {
-    beforeOnPlayerPlace(e) {
-        Machine.spawnMachineEntity(e, settings.inductionAnvil);
-        e.block.dimension.playSound('random.anvil_land', e.block.location)
+const INPUTSLOT = 3
+
+DoriosAPI.register.blockComponent('induction_anvil', {
+    /**
+     * Runs before the machine is placed by the player.
+     * 
+     * @param {BlockComponentPlayerPlaceBeforeEvent} e
+     * @param {{ params: MachineSettings }} ctx
+     */
+    beforeOnPlayerPlace(e, { params: settings }) {
+        Machine.spawnMachineEntity(e, settings, () => {
+            const machine = new Machine(e.block, settings);
+            machine.setEnergyCost(settings.machine.energy_cost);
+            machine.entity.setItem(2, 'utilitycraft:arrow_right_0');
+        });
     },
-    onTick(e) {
-        const machine = new Machine(e.block, settings.inductionAnvil)
-        Machine.tick(() => {
-            machine.displayEnergy()
-            let item = machine.inv?.getItem(3)
-            if (!item) return
-            let rateSpeed = settings.inductionAnvil.rateSpeedBase * Math.pow(2, e.block.permutation.getState('utilitycraft:speed'));
-            rateSpeed *= e.block.permutation.getState('utilitycraft:refreshSpeed')
-            const per = doriosAPI.items.getDamage(item)
-            if (item && per > 0 && machine.energy.value >= rateSpeed) {
-                let newItem = doriosAPI.items.repair(item, rateSpeed)
-                machine.inv.setItem(3, newItem)
-                machine.energy.add(-rateSpeed)
+
+    /**
+     * Executes each tick for the machine.
+     * 
+     * @param {BlockComponentTickEvent} e
+     * @param {{ params: MachineSettings }} ctx
+     */
+    onTick(e, { params: settings }) {
+        if (!worldLoaded) return;
+        const { block } = e;
+        const machine = new Machine(block, settings);
+        if (!machine.valid) return
+
+        const progress = machine.getProgress();
+        const energyCost = settings.machine.energy_cost;
+        const inv = machine.inv;
+
+        // Check energy availability
+        if (machine.energy.get() <= 0) {
+            machine.showWarning('No Energy', false);
+            return;
+        }
+
+        if (progress >= energyCost) {
+            const stack = inv.getItem(INPUTSLOT);
+            if (!stack) {
+                machine.showWarning('No Item', false);
+                return;
             }
-        })
 
+            const remaining = stack.durability.getRemaining()
+            // Si ya está full reparado
+            if (remaining === 0) {
+                machine.showWarning('Fully Repaired', false);
+                machine.setProgress(0, undefined, undefined, false);
+                return;
+            }
+
+            try {
+                const repairAmount = Math.min(remaining, energyCost / 10)
+                machine.dim.runCommand('say hola')
+                stack.durability.repair(repairAmount);
+                inv.setItem(INPUTSLOT, stack);
+                machine.addProgress(-repairAmount * 10)
+            } catch {
+                machine.showWarning('Invalid Item', false);
+                return;
+            }
+
+        } else {
+            // Charge up progress
+            const energyToConsume = Math.min(
+                machine.energy.get(),
+                machine.rate,
+                energyCost - progress
+            );
+            machine.energy.consume(energyToConsume);
+            machine.addProgress(energyToConsume / machine.boosts.consumption);
+        }
+
+        // Update visuals
+        machine.on();
+        machine.displayEnergy();
+        machine.showStatus('Running');
     },
-    onPlayerDestroy(e) {
-        Machine.onDestroy(e)
+
+    onPlayerBreak(e) {
+        Machine.onDestroy(e);
     }
-})
+});

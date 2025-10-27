@@ -1,48 +1,85 @@
-import * as doriosAPI from '../../doriosAPI.js'
-import { Machine, settings } from '../machines_class.js'
-import { system } from '@minecraft/server'
+import { Machine } from '../managers.js'
 
-doriosAPI.register.OldBlockComponent('utilitycraft:block_breaker', {
-    beforeOnPlayerPlace(e) {
-        Machine.spawnMachineEntity(e, settings.blockBreaker);
-        system.runTimeout(() => {
-            const machine = new Machine(e.block, settings.blockBreaker)
-            machine.displayEnergy()
-        }, 10)
+DoriosAPI.register.blockComponent('block_breaker', {
+    /**
+     * Runs before the machine is placed by the player.
+     * 
+     * @param {import('@minecraft/server').BlockComponentPlayerPlaceBeforeEvent} e
+     * @param {{ params: MachineSettings }} ctx
+     */
+    beforeOnPlayerPlace(e, { params: settings }) {
+        Machine.spawnMachineEntity(e, settings, () => {
+            const machine = new Machine(e.block, settings);
+            machine.setEnergyCost(settings.machine.energy_cost);
+        });
     },
-    onTick(e) {
-        const machine = new Machine(e.block, settings.blockBreaker)
 
-        const realEnergyCost = Math.ceil(settings.blockBreaker.energyCost * (1 - 0.2 * e.block.permutation.getState('utilitycraft:energy')))
+    /**
+     * Executes each tick for the machine.
+     * 
+     * @param {import('@minecraft/server').BlockComponentTickEvent} e
+     * @param {{ params: MachineSettings }} ctx
+     */
+    onTick(e, { params: settings }) {
+        if (!worldLoaded) return;
+        const { block, dimension } = e;
+        const machine = new Machine(block, settings);
+        if (!machine.valid) return
 
-        // If theres no energy, return
-        if (machine.energy.get() < realEnergyCost) {
-            machine.turnOff()
-            machine.displayEnergy()
-            return
+        const progress = machine.getProgress();
+        const energyCost = settings.machine.energy_cost;
+
+        // Check energy availability
+        if (machine.energy.get() <= 0) {
+            machine.showWarning('No Energy');
+            return;
         }
 
-        // Facing direction
-        let { x, y, z } = e.block.location
-        const facingOffsets = { up: [0, -1, 0], down: [0, 1, 0], north: [0, 0, 1], south: [0, 0, -1], west: [1, 0, 0], east: [-1, 0, 0] };
-        const facing = facingOffsets[e.block.permutation.getState('minecraft:facing_direction')];
-        if (facing) [x, y, z] = [x + facing[0], y + facing[1], z + facing[2]];
+        if (progress >= energyCost) {
+            // Block in front
+            /**
+             * @type {Block}
+             */
+            const facing = machine.block.getFacingBlock();
+            if (facing) {
+                // Conditions: not unbreakable, not air, not fluid
+                if (
+                    !DoriosAPI.constants.unbreakableBlocks.includes(facing.typeId) &&
+                    !facing.isAir &&
+                    !facing.isLiquid
+                ) {
+                    // Break with fill command (air destroy)
+                    const { x, y, z } = facing.location;
+                    dimension.runCommand(
+                        `fill ${x} ${y} ${z} ${x} ${y} ${z} air destroy`
+                    );
+                    // Reset progress after operation
+                    machine.on();
+                    DoriosAPI.utils.waitSeconds(1, () => {
+                        machine.off()
+                    })
+                    machine.setProgress(0, undefined, undefined, false);
+                } else {
+                    machine.showWarning('Nothing to Break', false);
+                    return;
+                }
+            }
 
-        const blockNext = e.block.dimension.getBlock({ x, y, z })
-        // If the next block isnt air, return
-        if (blockNext?.typeId == 'minecraft:air') {
-            machine.turnOff()
-            machine.displayEnergy()
-            machine.displayInformationBasic(3, realEnergyCost)
-            return
+        } else {
+            // Charge up progress
+            const energyToConsume = Math.min(machine.energy.get(), machine.rate, energyCost - progress);
+            machine.off()
+            machine.energy.consume(energyToConsume);
+            machine.addProgress(energyToConsume);
         }
 
-        e.block.dimension.runCommand(`execute unless block ${x} ${y} ${z} bedrock unless block ${x} ${y} ${z} end_portal_frame unless block ${x} ${y} ${z} end_portal unless block ${x} ${y} ${z} portal unless block ${x} ${y} ${z} reinforced_deepslate unless block ${x} ${y} ${z} command_block unless block ${x} ${y} ${z} chain_command_block unless block ${x} ${y} ${z} repeating_command_block run setblock ${x} ${y} ${z} air destroy`)
-        machine.energy.add(-realEnergyCost)
-        machine.displayEnergy()
-        machine.turnOn()
+        // Update visuals
+
+        machine.displayEnergy();
+        machine.showStatus('Running');
     },
-    onPlayerDestroy(e) {
-        Machine.onDestroy(e)
+
+    onPlayerBreak(e) {
+        Machine.onDestroy(e);
     }
-})
+});

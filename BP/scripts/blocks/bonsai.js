@@ -1,32 +1,56 @@
-import { world, ItemStack } from '@minecraft/server'
+import { ItemStack, world } from '@minecraft/server'
 
-//To add a new soil you need to add it on the bonsai block first as a state, if the block reduce time growth, its defined in bonus
 
-let soils = [
-    { soil: 'minecraft:dirt' },
-    { soil: 'minecraft:grass_block', bonus: 10 },
-    { soil: 'minecraft:sand' },
-    { soil: 'minecraft:red_sand', bonus: 10 },
-    { soil: 'minecraft:crimson_nylium' },
-    { soil: 'minecraft:warped_nylium' },
-    { soil: 'minecraft:soul_sand' },
-    { soil: 'minecraft:end_stone' },
-    { soil: 'utilitycraft:yellow_soil', bonus: 15 },
-    { soil: 'utilitycraft:red_soil', bonus: 30 },
-    { soil: 'utilitycraft:blue_soil', bonus: 30, multi: 2 }, // Double loot
-    { soil: 'utilitycraft:black_soil', bonus: 50, multi: 4 } // Quadruple loot1
+
+/**
+ * Bonsai Block Component
+ * ----------------------
+ * This component powers UtilityCraft's Bonsai automation block.
+ * - Players can insert/remove soils and saplings.
+ * - Soils adjust growth speed and loot multiplier.
+ * - Saplings spawn bonsai entities that grow and drop resources.
+ * - Harvested drops are pushed into inventories below or nearby containers.
+ * 
+ * States used:
+ * - utilitycraft:soil        (string: soil ID or 'empty')
+ * - utilitycraft:hasBonsai   (boolean)
+ * - utilitycraft:isFarm      (boolean, farmed with hoe for growth bonus)
+ * - utilitycraft:isSlimed    (boolean, slows growth when true)
+ */
+
+
+/** Growth base time (in ticks) */
+const BASETIMEGROWTH = 60
+
+/** Soils hash map (ID → modifiers) */
+const soils = {
+    "minecraft:dirt": {},
+    "minecraft:grass_block": { bonus: 10 },
+    "minecraft:sand": {},
+    "minecraft:red_sand": { bonus: 10 },
+    "minecraft:crimson_nylium": {},
+    "minecraft:warped_nylium": {},
+    "minecraft:soul_sand": {},
+    "minecraft:end_stone": {},
+    "utilitycraft:yellow_soil": { bonus: 15 },
+    "utilitycraft:red_soil": { bonus: 30 },
+    "utilitycraft:blue_soil": { bonus: 30, multi: 2 },
+    "utilitycraft:black_soil": { bonus: 50, multi: 4 }
+}
+
+/** Special soils cannot be farmed and apply stronger bonuses */
+const specialSoils = [
+    "utilitycraft:yellow_soil",
+    "utilitycraft:red_soil",
+    "utilitycraft:blue_soil",
+    "utilitycraft:black_soil"
 ]
 
-const specialSoils = ["utilitycraft:yellow_soil", "utilitycraft:red_soil", "utilitycraft:blue_soil", "utilitycraft:black_soil"]
-// Base time growth of the bonsai
-const timeGrowthBase = 60
-
-//Here you neede to add the trees that you wanna add in the next order
-//Sapling: the item used to plant the tree on the bonsai
-//Allowed: In which of the soils defined previously is this tree supposed to grow on
-//Entity: Its the entity it summons that has the appearance of the tree planted
-//Loot: The name loot table on the folder 'bonsaiDrops' that the tree uses 
-let bonsaiItems = [
+/**
+ * Sapling → Bonsai entity definitions
+ * Each entry defines: sapling item, valid soils, entity spawned, and loot table.
+ */
+const bonsaiItems = [
     { sapling: 'minecraft:acacia_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:acacia_tree', loot: 'acacia' },
     { sapling: 'utilitycraft:apple_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:apple_tree', loot: 'apple_tree' },
     { sapling: 'minecraft:bamboo', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:bamboo', loot: 'bamboo' },
@@ -55,14 +79,12 @@ let bonsaiItems = [
     { sapling: 'minecraft:warped_fungus', allowed: ['warped_nylium'], entity: 'utilitycraft:warped_tree', loot: 'warped' },
     { sapling: 'minecraft:wheat_seeds', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:wheat', loot: 'wheat' }
 ]
-
-function randomInterval(min, max) {
-    const minCeiled = Math.ceil(min)
-    const maxFloored = Math.floor(max)
-    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
-}
-
-let bonsaiDrops = {
+/**
+ * Loot table definitions (unchanged, keyed by loot ID).
+ * Example:
+ * bonsaiDrops['acacia'] → list of drop objects.
+ */
+const bonsaiDrops = {
     'acacia': [
         { item: 'minecraft:acacia_log', min: 6, max: 10, prob: 100 },
         { item: 'minecraft:leaves2', min: 0, max: 4, prob: 100 },
@@ -192,219 +214,170 @@ let bonsaiDrops = {
 
 }
 
-//This function makes the code a little bit cleaner by allowing to set the state in a simpler manner
-function setState(block, state, perm) {
-    block.setPermutation(block.permutation.withState(state, perm))
-}
+DoriosAPI.register.blockComponent('bonsai', {
+    /**
+     * Handles player interaction (planting, removing, farming, shearing).
+     */
+    onPlayerInteract({ player, block }) {
+        const { x, y, z } = block.location
+        const pos = { x: x + 0.5, y: y + 0.172, z: z + 0.5 }
+        const equipment = player.getComponent('equippable')
+        const equipmentItem = equipment.getEquipment('Mainhand')
 
-//Same as last function this is mostly esthetic and this returns the state you call for a block 
-function getState(block, state) {
-    return block.permutation.getState(state)
-}
-
-//Here inicializes the custom components
-world.beforeEvents.worldInitialize.subscribe(e => {
-    e.blockComponentRegistry.registerCustomComponent('utilitycraft:newBonsais', {
-        onPlayerInteract(e) {
-
-
-            const { player, block } = e
-
-            let { x, y, z } = block.location
-            y += 0.172, x += 0.5, z += 0.5
-            //Gets the item on the main hand of the player
-            let equipment = player.getComponent('equippable')
-            let equipmentItem = equipment.getEquipment('Mainhand')
-
-            //If the item is undefined aka the bare hand
-            if (player.isSneaking && !equipmentItem) {
-                //Gets the entity on top of the block
-                const entity = block.dimension.getEntities({ tags: ["bonsai"], maxDistance: 0.1, location: { x, y, z } })[0]
-                //If entity is defined it enters
-                if (entity) {
-                    //Finds the entity on the 'bonsaiItems' array and returns the object
-                    //This allows us to remove the sapling on the bonsai and droping it
-                    let bonsaiEntity = bonsaiItems.find(item => item.entity == entity.typeId)
-                    entity.addTag('despawn')
-                    //block.dimension.runCommandAsync(`tag @e[x=${x},y=${y},z=${z},r=0.5] add despawn`)
-                    block.dimension.spawnItem(new ItemStack(bonsaiEntity.sapling), { x, y, z })
-                }
-                if (getState(block, 'utilitycraft:soil') != 'empty') {
-                    //This functions similar to the one before but this one also removes the soil
-                    //on the bonsai
-                    block.dimension.spawnItem(new ItemStack(getState(block, 'utilitycraft:soil')), { x, y, z })
-                    setState(block, 'utilitycraft:soil', 'empty')
-                    setState(block, "utilitycraft:isFarm", false)
-                }
-                setState(block, "utilitycraft:hasBonsai", false)
-                setState(block, "utilitycraft:isSlimed", false)
-
-                return;
-            }
-
-            if (!equipmentItem) return;
-
-            //If the item isnt undefined it gets the id of the item
-            let itemId = equipmentItem.typeId
-
-            // Remove the sapling when using shears
-            if (itemId == 'minecraft:shears') {
-                //Gets the entity on top of the block
-                const entity = block.dimension.getEntities({ tags: ["bonsai"], maxDistance: 0.1, location: { x, y, z } })[0]
-                //If entity is defined it enters
-                if (entity) {
-                    //Finds the entity on the 'bonsaiItems' array and returns the object
-                    //This allows us to remove the sapling on the bonsai and droping it
-                    let bonsaiEntity = bonsaiItems.find(item => item.entity == entity.typeId)
-                    entity.addTag('despawn')
-                    //block.dimension.runCommandAsync(`tag @e[x=${x},y=${y},z=${z},r=0.5] add despawn`)
-                    block.dimension.spawnItem(new ItemStack(bonsaiEntity.sapling), { x, y, z })
-                    setState(block, "utilitycraft:hasBonsai", false)
-                    setState(block, "utilitycraft:isSlimed", false)
-                    player.playSound('mob.sheep.shear')
-                }
-                return;
-            }
-            if (itemId == 'minecraft:slime_ball') {
-                const entity = block.dimension.getEntities({ tags: ["bonsai"], maxDistance: 0.1, location: { x, y, z } })[0]
-                if (!entity) return;
-                setState(block, 'utilitycraft:isSlimed', !getState(block, 'utilitycraft:isSlimed'))
-                if (getState(block, 'utilitycraft:isSlimed')) {
-                    entity.triggerEvent('normal')
-                } else {
-                    entity.triggerEvent('small')
-                }
-            }
-
-            //Checks if the item is any kind of hoe, then gets the unbreaking enchantment level
-            //to test if it should damage or not the hoe whenever you make the bonsai 'farmed'
-            if (itemId.includes('hoe')) {
-                let itemEnchantable = equipmentItem.getComponent('minecraft:enchantable')
-                let unbreakingLvl = 0
-                if (itemEnchantable.hasEnchantment('unbreaking')) {
-                    unbreakingLvl = itemEnchantable.getEnchantment('unbreaking').level
-                }
-                if (!getState(block, 'utilitycraft:isFarm') && getState(block, 'utilitycraft:soil') != 'empty') {
-                    setState(block, 'utilitycraft:isFarm', true)
-                    let durability = equipmentItem.getComponent('minecraft:durability')
-                    if ((100 / (unbreakingLvl + 1) / 100) >= Math.random()) {
-                        if (equipmentItem.hasComponent('minecraft:durability') && durability.damage != durability.maxDurability) {
-                            durability.damage = Math.max(durability.damage + 1)
-                            equipment.setEquipment('Mainhand', equipmentItem)
-                            block.dimension.playSound('step.gravel', { x, y, z })
-                        } else if (durability.damage == durability.maxDurability) {
-                            equipment.setEquipment('Mainhand')
-                            player.playSound('random.break')
-                        }
-                    }
-                }
-                return;
-            }
-
-            //If the item isnt a hoe it checks if its on the bonsaiItems as a 'sapling' defined previously
-            //then if it matches it summons the entity defined on the object where the sapling was found
-            //and clears the item on the players hand, it also checks if the bonsai has or not another
-            //bonsai by checking the state 'hasBonsai' defined on the block and checks if the bonsai has
-            //the allowed soil thats defined on the start
-            const bonsai = bonsaiItems.find(item => item.sapling == itemId)
-            if (bonsai) {
-                if ((specialSoils.includes(getState(block, 'utilitycraft:soil')) || bonsai.allowed.includes(getState(block, 'utilitycraft:soil').split(':')[1])) && !getState(block, 'utilitycraft:hasBonsai')) {
-                    setState(block, "utilitycraft:hasBonsai", true)
-                    const bonsaiEntity = block.dimension.spawnEntity(bonsai.entity, { x, y, z })
-                    bonsaiEntity.addTag('bonsai')
-
-                    // block.dimension.runCommandAsync(`tag @e[x=${x},y=${y},z=${z},r=0.5,type=!player] add bonsai`)
-                    if (player.getGameMode() != 'creative') {
-                        player.runCommand(`clear @s ${bonsai.sapling} 0 1`)
-                    }
-                }
-                return;
-            }
-
-            //Same as the last one but with soils, this checks the soils array defined at the start
-            const soil = soils.find(block => block.soil == itemId)
-            if (soil) {
-                let bonsaiSoil = getState(block, 'utilitycraft:soil')
-                if (!bonsaiSoil) return;
-                if (bonsaiSoil == 'empty') {
-                    let newSoil = itemId
-                    setState(block, 'utilitycraft:soil', newSoil)
-                    if (player.getGameMode() != 'creative') {
-                        player.runCommand(`clear @s ${itemId} 0 1`)
-                    }
-                }
-                return;
-            }
-        },
-        //Every time the function tick on the block executes it executes this
-        onTick(e) {
-            const { block } = e
-            if (getState(block, 'utilitycraft:isSlimed')) return;
-
-            let { x, y, z } = block.location
-            y += 0.172, x += 0.5, z += 0.5
-            const entity = block.dimension.getEntities({ tags: ["bonsai"], maxDistance: 0.1, location: { x, y, z } })[0]
-            const soil = soils.find(blockS => blockS.soil == getState(block, 'utilitycraft:soil'))
-
-
+        /* --- Sneak + empty hand → clear bonsai --- */
+        if (player.isSneaking && !equipmentItem) {
+            const entity = block.dimension.getEntities({ tags: ['bonsai'], maxDistance: 0.1, location: pos })[0]
             if (entity) {
-                let bonsaiEntity = bonsaiItems.find(enty => enty.entity == entity.typeId)
-                if (bonsaiEntity && soil) {
-                    let timeGrowth = timeGrowthBase
-                    let multi = 1
+                const bonsaiEntity = bonsaiItems.find(item => item.entity === entity.typeId)
+                entity.addTag('despawn')
+                block.dimension.spawnItem(new ItemStack(bonsaiEntity.sapling), pos)
+            }
+            if (block.getState('utilitycraft:soil') !== 'empty') {
+                block.dimension.spawnItem(new ItemStack(block.getState('utilitycraft:soil')), pos)
+                block.setState('utilitycraft:soil', 'empty')
+                block.setState('utilitycraft:isFarm', false)
+            }
+            block.setState('utilitycraft:hasBonsai', false)
+            block.setState('utilitycraft:isSlimed', false)
+            return
+        }
 
-                    if (soil.bonus) timeGrowth -= soil.bonus
-                    if (soil.multi) multi = soil.multi
+        if (!equipmentItem) return
+        const itemId = equipmentItem.typeId
 
+        /* --- Shears → remove sapling --- */
+        if (itemId === 'minecraft:shears') {
+            const entity = block.dimension.getEntities({ tags: ['bonsai'], maxDistance: 0.1, location: pos })[0]
+            if (entity) {
+                const bonsaiEntity = bonsaiItems.find(item => item.entity === entity.typeId)
+                entity.addTag('despawn')
+                block.dimension.spawnItem(new ItemStack(bonsaiEntity.sapling), pos)
+                block.setState('utilitycraft:hasBonsai', false)
+                block.setState('utilitycraft:isSlimed', false)
+                player.playSound('mob.sheep.shear')
+            }
+            return
+        }
 
+        /* --- Slime ball → toggle slimed state --- */
+        if (itemId === 'minecraft:slime_ball') {
+            const entity = block.dimension.getEntities({ tags: ['bonsai'], maxDistance: 0.1, location: pos })[0]
+            if (!entity) return
+            const slimed = !block.getState('utilitycraft:isSlimed')
+            block.setState('utilitycraft:isSlimed', slimed)
+            entity.triggerEvent(slimed ? 'normal' : 'small')
+            return
+        }
 
-                    if (!specialSoils.includes(soil.soil)) timeGrowth -= getState(block, 'utilitycraft:isFarm') * 10
-                    entity.playAnimation(`${'animation.grow_tree_' + timeGrowth}`)
+        /* --- Hoe → farm bonsai (durability check with unbreaking) --- */
+        if (itemId.includes('hoe')) {
+            const enchantable = equipmentItem.getComponent('minecraft:enchantable')
+            const unbreakingLvl = enchantable.hasEnchantment('unbreaking')
+                ? enchantable.getEnchantment('unbreaking').level
+                : 0
 
+            if (!block.getState('utilitycraft:isFarm') && block.getState('utilitycraft:soil') !== 'empty') {
+                block.setState('utilitycraft:isFarm', true)
 
-                    y -= 1.172 + 0.25
-                    const blockInv = block.below(1).getComponent('minecraft:inventory')?.container;
-                    const entityNext = block.dimension.getEntities({
-                        families: ["dorios:container"],
-                        maxDistance: 0.5,
-                        location: { x, y, z }
-                    })[0];
+                const durability = equipmentItem.getComponent('minecraft:durability')
+                const shouldDamage = Math.random() <= 1 / (unbreakingLvl + 1)
 
-                    const entityInv = entityNext?.getComponent('minecraft:inventory')?.container;
-
-                    const drops = bonsaiDrops[bonsaiEntity.loot]
-
-                    const inv = (blockInv) ? blockInv : entityInv
-
-                    drops.forEach(drop => {
-                        const randomChance = Math.random() * 100;
-                        if (randomChance <= drop.prob) {
-                            try {
-                                const amount = DoriosAPI.math.randomInterval(drop.min, drop.max)
-                                inv.addItem(new ItemStack(drop.item, amount * multi))
-                            } catch { }
-                        }
-                    });
+                if (shouldDamage && durability.damage < durability.maxDurability) {
+                    durability.damage++
+                    equipment.setEquipment('Mainhand', equipmentItem)
+                    block.dimension.playSound('step.gravel', pos)
+                } else if (durability.damage === durability.maxDurability) {
+                    equipment.setEquipment('Mainhand')
+                    player.playSound('random.break')
                 }
             }
-        },
-        //Checks when the player destroys the bonsai to make it drop the items used
-        onPlayerDestroy(e) {
-            const { destroyedBlockPermutation, block } = e
-            let { x, y, z } = block.location
-            y += 0.172, x += 0.5, z += 0.5
-            let soil = destroyedBlockPermutation.getState('utilitycraft:soil')
-            if (soil != 'empty') {
-                block.dimension.spawnItem(new ItemStack(soil), { x, y, z })
-            }
-            let hasBonsai = destroyedBlockPermutation.getState('utilitycraft:hasBonsai')
-            if (hasBonsai) {
-                const entity = block.dimension.getEntities({ tags: ["bonsai"], maxDistance: 0.1, location: { x, y, z } })[0]
-                if (entity) {
-                    let bonsaiEntity = bonsaiItems.find(enty => enty.entity == entity.typeId)
-                    block.dimension.spawnItem(new ItemStack(bonsaiEntity.sapling), { x, y, z })
+            return
+        }
+
+        /* --- Sapling → spawn bonsai entity --- */
+        const bonsai = bonsaiItems.find(item => item.sapling === itemId)
+        if (bonsai) {
+            const soilId = block.getState('utilitycraft:soil')
+            if (
+                (specialSoils.includes(soilId) || bonsai.allowed.includes(soilId.split(':')[1])) &&
+                !block.getState('utilitycraft:hasBonsai')
+            ) {
+                block.setState('utilitycraft:hasBonsai', true)
+                const bonsaiEntity = block.dimension.spawnEntity(bonsai.entity, pos)
+                bonsaiEntity.addTag('bonsai')
+
+                if (player.getGameMode() !== 'creative') {
+                    player.runCommand(`clear @s ${bonsai.sapling} 0 1`)
                 }
+            }
+            return
+        }
+
+        /* --- Soil → set soil state --- */
+        if (soils[itemId] && block.getState('utilitycraft:soil') === 'empty') {
+            block.setState('utilitycraft:soil', itemId)
+            if (player.getGameMode() !== 'creative') {
+                player.runCommand(`clear @s ${itemId} 0 1`)
             }
         }
-    })
+    },
+
+    /**
+     * Runs every tick to handle bonsai growth and item drops.
+     */
+    onTick({ block }) {
+        if (block.getState('utilitycraft:isSlimed')) return
+
+        const { x, y, z } = block.location
+        const pos = { x: x + 0.5, y: y + 0.172, z: z + 0.5 }
+
+        const entity = block.dimension.getEntities({ tags: ['bonsai'], maxDistance: 0.1, location: pos })[0]
+        const soilId = block.getState('utilitycraft:soil')
+        const soil = soils[soilId]
+
+        if (entity && soil) {
+            const bonsaiEntity = bonsaiItems.find(enty => enty.entity === entity.typeId)
+            if (!bonsaiEntity) return
+
+            let timeGrowth = BASETIMEGROWTH - (soil.bonus ?? 0)
+            let multi = soil.multi ?? 1
+
+            if (!specialSoils.includes(soilId)) {
+                timeGrowth -= block.getState('utilitycraft:isFarm') ? 10 : 0
+            }
+
+            entity.playAnimation(`animation.grow_tree_${timeGrowth}`)
+
+            const loc = { x: x + 0.5, y: y - 1, z: z + 0.5 }
+            bonsaiDrops[bonsaiEntity.loot].forEach(drop => {
+                if (Math.random() * 100 <= drop.prob) {
+                    const amount = DoriosAPI.math.randomInterval(drop.min, drop.max)
+                    try {
+                        DoriosAPI.containers.addItemAt(loc, block.dimension, drop.item, amount * multi)
+                    } catch { }
+                }
+            })
+        }
+    },
+
+    /**
+     * Handles block destruction → drop soil and sapling if present.
+     */
+    onPlayerDestroy({ destroyedBlockPermutation, block }) {
+        const { x, y, z } = block.location
+        const pos = { x: x + 0.5, y: y + 0.172, z: z + 0.5 }
+
+        const soil = destroyedBlockPermutation.getState('utilitycraft:soil')
+        if (soil !== 'empty') {
+            block.dimension.spawnItem(new ItemStack(soil), pos)
+        }
+
+        if (destroyedBlockPermutation.getState('utilitycraft:hasBonsai')) {
+            const entity = block.dimension.getEntities({ tags: ['bonsai'], maxDistance: 0.1, location: pos })[0]
+            if (entity) {
+                const bonsaiEntity = bonsaiItems.find(enty => enty.entity === entity.typeId)
+                block.dimension.spawnItem(new ItemStack(bonsaiEntity.sapling), pos)
+            }
+        }
+    }
 })
