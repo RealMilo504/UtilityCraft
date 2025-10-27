@@ -505,7 +505,20 @@ export class Generator {
      * @param {Function} [callback] A function to execute after the entity is spawned (optional).
      */
     static spawnGeneratorEntity(e, settings, callback) {
-        const { block, player } = e
+        const { block, player, permutationToPlace: perm } = e
+        system.runTimeout(() => {
+            if (perm.hasTag('dorios:energy')) {
+                updatePipes(block, 'energy');
+            }
+
+            if (perm.hasTag('dorios:item')) {
+                updatePipes(block, 'item');
+            }
+
+            if (perm.hasTag('dorios:fluid')) {
+                updatePipes(block, 'fluid');
+            }
+        }, 2)
 
         const itemInfo = player.getComponent('equippable').getEquipment('Mainhand').getLore();
         let energy = 0;
@@ -2315,7 +2328,9 @@ export class FluidManager {
         if (this.entity?.typeId?.startsWith("utilitycraft:fluid_tank")) {
             const amountCurrent = this.get()
             if (amountCurrent > 0) {
-                this.entity.setHealth(amountCurrent);
+                system.run(() => {
+                    this.entity.setHealth(amountCurrent);
+                })
             } else { this.entity.remove() }
         }
 
@@ -2431,7 +2446,6 @@ export class FluidManager {
 
         // Select order based on mode
         let orderedTargets = [...nodes];
-        if (mode === "farthest") orderedTargets.reverse();
 
         // ──────────────────────────────────────────────
         // Process transfers
@@ -2482,7 +2496,6 @@ export class FluidManager {
             for (const loc of orderedTargets) {
                 if (available <= 0 || speed <= 0) break;
                 const added = processTarget(loc);
-                if (mode === "nearest" && added > 0) break;
             }
         }
 

@@ -160,7 +160,6 @@ export function updatePipes(block, tag) {
     const rescanFunction = types[tag]
     tag = 'dorios:' + tag
     const { x, y, z } = block.location;
-
     // Collect center + 6 direct neighbors
     const neighbors = [
         block,
@@ -552,8 +551,8 @@ DoriosAPI.register.blockComponent('exporter', {
         // const hasFilter = block.permutation.getState('utilitycraft:filter')
         // if (!hasFilter) return
 
-        const mainHand = player.getComponent('equippable')?.getEquipment('Mainhand')
-        if (mainHand?.typeId?.includes('wrench')) return
+        // const mainHand = player.getComponent('equippable')?.getEquipment('Mainhand')
+        // if (!mainHand?.typeId?.includes('wrench')) return
 
         openExporterMenu(block, player) // tu menú existente si lo deseas reutilizar
     },
@@ -918,7 +917,7 @@ DoriosAPI.register.blockComponent('fluid_extractor', {
         // if (!hasFilter) return
 
         const mainHand = player.getComponent('equippable')?.getEquipment('Mainhand')
-        if (mainHand?.typeId?.includes('wrench')) return
+        if (!mainHand?.typeId?.includes('wrench')) return
 
         openFluidExtractorMenu(block, player) // tu menú existente si lo deseas reutilizar
     },
@@ -947,7 +946,10 @@ DoriosAPI.register.blockComponent('fluid_extractor', {
         const sourceBlock = dimension.getBlock(sourceLoc);
         if (!sourceBlock) return;
 
-        let sourceEntity = dimension.getEntitiesAtBlockLocation(sourceLoc)[0];
+        let sourceEntity = dimension
+            .getEntitiesAtBlockLocation(sourceLoc)
+            .find(e => e.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:fluid_container"));
+
         let fluidSource = null;
         let liquidType = null;
         let amount = 0;
@@ -1023,6 +1025,7 @@ DoriosAPI.register.blockComponent('fluid_extractor', {
         // 5. Select mode
         // ─────────────────────────────
         const mode = extractor.getDynamicProperty('transferMode') || 'nearest';
+
         let orderedTargets = [...nodes];
         if (mode === 'farthest') {
             orderedTargets.reverse();

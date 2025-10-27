@@ -296,10 +296,14 @@ const entityExtensions = {
      * @returns {boolean} Whether the operation was successful.
      */
     setHealth(value) {
-        const health = this.getComponent('health');
-        if (!health) return false;
-        health.setCurrentValue(value);
-        return true;
+        try {
+            const health = this.getComponent('health');
+            if (!health) return false;
+            health.setCurrentValue(value);
+            return true;
+        } catch {
+            return false;
+        }
     },
 
     /**
