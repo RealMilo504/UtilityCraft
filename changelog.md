@@ -43,7 +43,6 @@
   - Sieve Drops now scale by tier (e.g., Diamond requires at least Iron Mesh).
   - Netherite Mesh no longer drops Flint.
   - Updated mesh multipliers for balance purposes.
-  - Added the `utilitycraft:mesh` component to items to create custom meshes
 > Note: Custom meshes won't work with the basic sieve
 - Added Copper Cobblestone Generator
   - Produces 1 cobblestone every 4 seconds (0.25/s)
@@ -144,3 +143,47 @@
 - Changed AIOTs Item textures.
 - Changed the texture of the Mob Grinder from a flat gray to a vibrant Gray with Red; Also added blades to it.
 - Changed Copper tools textures. 
+
+---
+## THIRD-PARTY COMPATIBILITY
+
+### General
+- Added full **ScriptEvent integration** for all recipe systems, allowing external addons or datapacks to dynamically register, modify, or replace recipes during runtime.  
+- Each machine or system now listens to a dedicated ScriptEvent ID, including:  
+  - `utilitycraft:register_crusher_recipe`  
+  - `utilitycraft:register_furnace_recipe`  
+  - `utilitycraft:register_press_recipe`  
+  - `utilitycraft:register_infuser_recipe`  
+  - `utilitycraft:register_melter_recipe`  
+  - `utilitycraft:register_crafter_recipe`  
+  - `utilitycraft:register_fuel`  
+  - `utilitycraft:register_sieve_drop`
+- ScriptEvents can be triggered both through **Minecraft commands** (`/scriptevent`) and through the **scripting API** (`system.sendScriptEvent`).
+
+### Integration Improvements
+- All recipe files now feature **consistent JSON formats**, **type definitions**, and **JSDoc annotations**, simplifying integration for developers.
+- Recipe validation was added to prevent broken or malformed entries from being registered.
+- Existing recipes can be **replaced dynamically**, enabling developers to rebalance UtilityCraft machines without editing core files.
+- A console summary is printed after each event, listing how many recipes were added or replaced.
+- Optional fields such as `tier`, `cost`, `amount`, and `required` are now standardized across all systems and automatically defaulted when omitted.
+- All major systems — **Crusher**, **Furnace**, **Electro Press**, **Infuser**, **Melter**, **Crafter**, and **Sieve** — now support dynamic recipe registration via scripts for seamless addon compatibility.
+
+### Sieve & Mesh System
+- Added the `utilitycraft:mesh` component, allowing other addons to define custom sieve meshes with their own loot tables.
+- Added a dedicated event `utilitycraft:register_sieve_drop` to register or modify sieve drops dynamically.
+- Custom meshes are supported by advanced sieves only (not the Basic Sieve).
+
+### Melter & Fluid System
+- Introduced event-based liquid recipe registration through `utilitycraft:register_melter_recipe`.
+- Allows external addons to define new meltable blocks or items that produce custom fluids.
+
+### Crafter Integration
+- Introduced dynamic recipe support for the **Crafter machine** via `utilitycraft:register_crafter_recipe`.
+- Recipes use a 3×3 grid format separated by commas, with `"air"` representing empty slots.
+- Added support for **leftover items**, allowing containers like buckets or molds to remain after crafting.
+- Enables external addons to register shaped recipes directly from scripts for full automation compatibility.
+
+### Fuel System
+- Furnator fuels are now scriptable through `utilitycraft:register_fuel`.
+- Supports both full item IDs and partial identifiers (e.g., `"log"`, `"plank"`) for flexible matching.
+- Custom fuels can be added or existing ones modified to change burn values and compatibility behavior.
