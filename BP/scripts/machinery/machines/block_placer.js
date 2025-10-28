@@ -55,7 +55,6 @@ DoriosAPI.register.blockComponent('block_placer', {
                 machine.showWarning('No Block', false);
                 return;
             }
-
             try {
                 // Intentar colocar el bloque
                 facing.setType(`${stack.typeId}`)

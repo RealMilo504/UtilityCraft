@@ -49,8 +49,12 @@ const BlockHandler = {
             west: [-1, 0, 0],
             east: [1, 0, 0]
         };
-
-        const facing = this.permutation.getState('minecraft:facing_direction');
+        const opposite = {
+            up: "down", down: "up",
+            north: "south", south: "north",
+            east: "west", west: "east"
+        };
+        const facing = this.permutation.getState('minecraft:facing_direction') ?? opposite[this.permutation.getState('utilitycraft:axis')];
         const offset = facingOffsets[facing];
 
         if (!offset) return null;
