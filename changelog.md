@@ -194,7 +194,7 @@
 ### Sieve & Mesh System
 - Added the `utilitycraft:mesh` component, allowing other addons to define custom sieve meshes with their own loot tables.
 - Added a dedicated event `utilitycraft:register_sieve_drop` to register or modify sieve drops dynamically.
-- Custom meshes are supported by advanced sieves only (not the Basic Sieve).
+- Custom meshes are supported by the autosieve only (not the Basic Sieve).
 
 ### Melter & Fluid System
 - Introduced event-based liquid recipe registration through `utilitycraft:register_melter_recipe`.

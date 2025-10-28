@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "utilitycraft:arrow_indicator_90",
 			"menu_category": {
-				"category": "nature"
+				"category": "none"
 			}
 		},
 		"components": {
