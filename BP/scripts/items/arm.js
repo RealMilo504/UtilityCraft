@@ -14,7 +14,7 @@ const FACE_OFFSETS = {
 }
 
 const MIN_RANGE = 5
-const MAX_RANGE = 16
+const MAX_RANGE = 32
 
 world.afterEvents.itemUse.subscribe(event => {
 	const { source, itemStack } = event

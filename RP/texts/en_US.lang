@@ -497,7 +497,7 @@ item.utilitycraft:wither_skeleton_essence=Wither Skeleton Essence
 - Machines Upgrades = ## Machines Upgrades
 ## +
 item.utilitycraft:energy_upgrade=§bEnergy Upgrade§r\n§7- Increases energy efficiency in Machines
-item.utilitycraft:speed_upgrade=§aSpeed Upgrade§r\n§7- Increases speed in Machines but it consumes more energy
+item.utilitycraft:speed_upgrade=§aSpeed Upgrade§r\n§7- Increases speed in Machines\n Increases energy consume
 item.utilitycraft:range_upgrade=§9Range Upgrade§r\n§7- Increases range for Machines
 item.utilitycraft:quantity_upgrade=§3Quantity Upgrade§r\n§7- Increases mob cap spawn for Mechanical Spawner
 item.utilitycraft:ultimate_upgrade=§8Ultimate Upgrade
