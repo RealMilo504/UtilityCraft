@@ -50,6 +50,16 @@
   - The Assembler now reserves 1 of each required material in its inventory, ensuring recipes always need 1 extra item to keep a leftover
 - Autosieve
   - Increased autosieve process cost from 3.2 kDE to 6.4 kDE
+- Crusher
+  - Rebalanced energy costs for compressed materials:
+    - **Compressed Cobblestone**, **Gravel**, **Dirt**, **Deepslate**, and **Netherrack** now scale energy cost exponentially with compression level.
+      - Compressed Tier 1 → 7.2 kDE  
+      - Compressed Tier 2 → 64.8 kDE  
+      - Compressed Tier 3 → 583.2 kDE  
+      - Compressed Tier 4 → 5.24 MDE
+  - Added support for ore block crushing:
+    - **Ore Blocks** (e.g., Iron Block, Diamond Block, Gold Block, etc.) can now be crushed into their respective dusts.
+    - Crushing ore blocks yields dust at a reduced efficiency (around 75–80%) compared to gems or ingots, introducing material loss to balance automation setups.
 - Digitizer
   - Increased energy cap to 32 kDE
    - Increased energy cost to 400 DE
@@ -61,16 +71,6 @@
   - Increased base rate speed from 20 DE/t to 40 DE/t
 - Seed Synthesizer
   - Better soil no longer increases speed. It now multiplies the yield instead
-- Crusher
-  - Rebalanced energy costs for compressed materials:
-    - **Compressed Cobblestone**, **Gravel**, **Dirt**, **Deepslate**, and **Netherrack** now scale energy cost exponentially with compression level.
-      - Compressed Tier 1 → 7.2 kDE  
-      - Compressed Tier 2 → 64.8 kDE  
-      - Compressed Tier 3 → 583.2 kDE  
-      - Compressed Tier 4 → 5.24 MDE
-  - Added support for ore block crushing:
-    - **Ore Blocks** (e.g., Iron Block, Diamond Block, Gold Block, etc.) can now be crushed into their respective dusts.
-    - Crushing ore blocks yields dust at a reduced efficiency (around 75–80%) compared to gems or ingots, introducing material loss to balance automation setups.
 ### Transportation
 - Mechanical Hopper, Upper & Dropper
   - Now increases transfer speed instead of items per transfer.
