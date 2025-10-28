@@ -552,7 +552,7 @@ item.utilitycraft:wither_skeleton_essence=Essência de Esqueleto Wither
 - Machines Upgrades = ## Módulos de Melhorias
 item.utilitycraft:steel_ingot=Barra de Aço
 ## +
-item.utilitycraft:energy_upgrade=Módulo de Melhoria de §bEficiência Energética§7\n§7- Aumenta a eficiência de máquinas\n- Reduz o consumo de energia
+item.utilitycraft:energy_upgrade=Módulo de Melhoria de §bEficiência Energética§7\n§7- Reduz o consumo de energia
 item.utilitycraft:speed_upgrade=Módulo de Melhoria de §aVelocidade§7\n§7- Aumenta a velocidade de uma máquina\n- Aumenta o consumo de energia
 item.utilitycraft:range_upgrade=Módulo de Melhoria de §9Alcance§7\n§7- Aumenta o alcance de uma máquina
 item.utilitycraft:quantity_upgrade=Módulo de Melhoria de §3Quantidade§r\n§7- Aumenta a saída de uma máquina\n- Aumenta a quantidade de mobs invocados 
