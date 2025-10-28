@@ -42,7 +42,7 @@ export const crusherRecipes = {
     "minecraft:endstone": { output: "utilitycraft:crushed_netherrack", amount: 1, tier: 0 },
     "utilitycraft:compressed_endstone": { output: "utilitycraft:compressed_crushed_endstone", amount: 1, cost: 7200, tier: 1 },
     "utilitycraft:compressed_endstone_2": { output: "utilitycraft:compressed_crushed_endstone_2", amount: 1, cost: 64800, tier: 2 },
-    "utilitycraft:compressed_endstone_3": { output: "utilitycraft:compressed_crushed_endstone_3", amount: 1, cost: 583200, tier; 3 },
+    "utilitycraft:compressed_endstone_3": { output: "utilitycraft:compressed_crushed_endstone_3", amount: 1, cost: 583200, tier: 3 },
     "utilitycraft:compressed_endstone_4": { output: "utilitycraft:compressed_crushed_endstone_4", amount: 1, cost: 5248800, tier: 4 },
 
     // ========== COBBLED DEEPSLATE ==========
