@@ -161,7 +161,7 @@ export const sieveRecipes = {
     'utilitycraft:compressed_sand': [
         { item: 'minecraft:prismarine_shard', amount: 9, chance: 0.10, tier: 2 },
         { item: 'minecraft:prismarine_crystals', amount: 9, chance: 0.10, tier: 2 },
-        { item: 'utilitycraft:copper_chunk', amount: 9, chance: 0.25, tier: 2 },
+        { item: 'utilitycraft:copper_chunk', amount: 9, chance: 0.25, tier: 1 },
         { item: 'utilitycraft:redstone_chunk', amount: 9, chance: 0.20, tier: 2 },
         { item: 'minecraft:bone_meal', amount: 9, chance: 0.25 },
         { item: 'minecraft:gunpowder', amount: 9, chance: 0.12 },

@@ -946,6 +946,65 @@ export class Machine {
     }
 
     /**
+     * Pulls items from the vanilla container block above the machine
+     * into a specific slot in its internal inventory.
+     *
+     * - Only works if the block above is a vanilla container (checked via DoriosAPI.constants.vanillaContainers).
+     * - If the target slot is empty, moves the first available item.
+     * - If it already contains an item, merges stacks until full.
+     *
+     * @param {number} targetSlot The slot index where items should be inserted.
+     * @returns {boolean} True if at least one item was transferred.
+     */
+    pullItemsFromAbove(targetSlot) {
+        const inv = this.inv
+        const block = this.block
+
+        const aboveBlock = block.above(1);
+        if (!aboveBlock) return false;
+
+        // Solo contenedores vanilla
+        if (!DoriosAPI.constants.vanillaContainers.includes(aboveBlock.typeId)) return false;
+
+        const inputContainer = aboveBlock.getComponent("minecraft:inventory")?.container;
+        if (!inputContainer) return false;
+
+        const targetItem = inv.getItem(targetSlot);
+        let transferred = false;
+        for (let i = 0; i < inputContainer.size; i++) {
+            const inputItem = inputContainer.getItem(i);
+            if (!inputItem) continue;
+
+            // Si hay item distinto en el slot → saltar
+            if (targetItem && inputItem.typeId !== targetItem.typeId) continue;
+
+            // Si el slot está vacío → mover toda la pila al slot específico
+            if (!targetItem) {
+                inv.setItem(targetSlot, inputItem)
+                inputContainer.setItem(i,);
+                return true
+            }
+
+            const space = targetItem.maxAmount - targetItem.amount;
+            const amount = Math.min(space, inputItem.amount)
+
+            // Intentar combinar stacks
+            if (amount <= 0) continue;
+
+            targetItem.amount += amount;
+            inv.setItem(targetSlot, targetItem);
+            if (inputItem.amount - amount <= 0) {
+                inputContainer.setItem(i,);
+            } else {
+                inputItem.amount -= amount
+                inputContainer.setItem(i, inputItem);
+            }
+
+            return transferred;
+        }
+    }
+
+    /**
      * Sets a label in the machine inventory using a fixed item as placeholder.
      *
      * The label is displayed by overriding the item's `nameTag` with custom text.

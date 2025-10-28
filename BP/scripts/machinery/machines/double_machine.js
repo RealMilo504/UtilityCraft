@@ -34,6 +34,7 @@ DoriosAPI.register.blockComponent('double_machine', {
         if (!machine.valid) return
 
         machine.transferItems()
+        machine.pullItemsFromAbove(CATALYSTSLOT)
 
         const inv = machine.inv;
         const OUTPUTSLOT = inv.size - 1

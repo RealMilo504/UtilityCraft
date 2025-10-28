@@ -31,7 +31,7 @@ tile.utilitycraft:sieve.name=Sieve\n§7- Max multi-use: 5x5
 tile.utilitycraft:crucible.name=Crucible
 ## +
 tile.utilitycraft:fan.name=Fan\n§7- Accepted upgrades:\n   §9§7
-tile.utilitycraft:mob_grinder.name=Mob Grinder\n§7- Accepted upgrades:\n   §7 §c§7
+tile.utilitycraft:mob_grinder.name=Mob Grinder\n§7- Accepted upgrades:\n   §9§7 §c§7
 tile.utilitycraft:mob_trap.name=Mob Trap
 tile.utilitycraft:xp_magnet.name=XP Magnet\n§7- Accepted upgrades:\n   §9§7
 tile.utilitycraft:xp_drain.name=XP Drain
