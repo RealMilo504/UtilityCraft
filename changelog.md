@@ -106,7 +106,6 @@
 - Accelerator Clock speed was drastically increased
 - Wrench
   - Now rotates machines around its current facing instead of switching it (from 6 to 24 orientations)
-- Minecarts with blocks (TNT, Chest, Hopper) can now be uncrafted
 
 ---
 ## BUG FIXES
