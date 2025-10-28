@@ -525,10 +525,10 @@ export class Generator {
 
         // Drop item and cleanup
         system.run(() => {
-            if (player.getGameMode() == "survival") {
-                dim.getEntities({ type: 'item', maxDistance: 3, location: block.center() }).find(item => {
-                    item.getComponent('minecraft:item')?.itemStack?.typeId == blockItemId
-                }).remove()
+            if (player.isInSurvival()) {
+                const oldItemEntity = dim.getEntities({ type: 'item', maxDistance: 3, location: block.center() })
+                    .find(item => item.getComponent('minecraft:item')?.itemStack?.typeId === blockItemId);
+                oldItemEntity?.remove()
             };
             Machine.dropAllItems(entity);
             entity.remove();
@@ -824,10 +824,10 @@ export class Machine {
 
         // Drop item and cleanup
         system.run(() => {
-            if (player.getGameMode() == "survival") {
-                dim.getEntities({ type: 'item', maxDistance: 3, location: block.center() }).find(item => {
-                    item.getComponent('minecraft:item')?.itemStack?.typeId == blockItemId
-                }).remove()
+            if (player.isInSurvival()) {
+                const oldItemEntity = dim.getEntities({ type: 'item', maxDistance: 3, location: block.center() })
+                    .find(item => item.getComponent('minecraft:item')?.itemStack?.typeId === blockItemId);
+                oldItemEntity?.remove()
             };
             Machine.dropAllItems(entity);
             entity.remove();
@@ -843,15 +843,19 @@ export class Machine {
      * @param {Function} [callback] A function to execute after the entity is spawned (optional).
      */
     static spawnMachineEntity(e, settings, callback) {
-
         const { block, player, permutationToPlace } = e
+        const maindHand = player.getComponent('equippable').getEquipment('Mainhand')
+
         if (settings.rotation) {
+            if (player.isInSurvival()) system.run(() => {
+                player.runCommand(`clear @s ${permutationToPlace.type.id} 0 1`)
+            })
             e.cancel = true
             Rotation.facing(player, block, permutationToPlace)
 
         }
 
-        const itemInfo = player.getComponent('equippable').getEquipment('Mainhand').getLore();
+        const itemInfo = maindHand.getLore();
         let energy = 0;
         if (itemInfo[0] && itemInfo[0].includes('Energy')) {
             energy = Energy.getEnergyFromText(itemInfo[0]);
