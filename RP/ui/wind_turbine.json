@@ -35,11 +35,11 @@
             {
                 "screen": {
                     "type": "image",
-                    "texture": "textures/ui/screen_vertical_bg",
+                    "texture": "textures/ui/screen_thermo_bg",
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
                     "size": [
-                        52,
+                        104,
                         52
                     ],
                     "offset": [
