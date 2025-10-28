@@ -62,7 +62,9 @@ DoriosAPI.register.blockComponent("harvester", {
             let adjustedSide = (side === 11) ? 9 : side;
 
             // Facing direction handling
-            switch (block.permutation.getState("minecraft:facing_direction")) {
+
+            const axis = block.getState('utilitycraft:axis')
+            switch (axis) {
                 case "up":
                     y--;
                     ytp++;
@@ -115,11 +117,13 @@ DoriosAPI.register.blockComponent("harvester", {
             }
 
             // Collect items back to machine center after delay
-            system.runTimeout(() => {
-                dimension.runCommand(
-                    `tp @e[x=${x},y=${y - 1},z=${z},dx=${adjustedSide},dz=${adjustedSide},dy=${y - 1},type=item] ${xtp} ${ytp} ${ztp}`
-                );
-            }, 30);
+            if (machine.upgrades.range == 4) {
+                system.runTimeout(() => {
+                    dimension.runCommand(
+                        `tp @e[x=${x},y=${y - 1},z=${z},dx=${adjustedSide},dz=${adjustedSide},dy=${y - 1},type=item] ${xtp} ${ytp} ${ztp}`
+                    );
+                }, 30);
+            }
 
             // Reset progress after operation
             machine.setProgress(0, undefined, undefined, false);

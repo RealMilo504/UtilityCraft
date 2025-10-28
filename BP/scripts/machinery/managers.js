@@ -722,8 +722,8 @@ export class Machine {
         this.energy = new Energy(this.entity)
         this.upgrades = this.getUpgradeLevels(settings.machine.upgrades)
         this.boosts = this.calculateBoosts(this.upgrades)
-        this.baseRate = settings.machine.rate_speed_base
-        this.rate = this.baseRate * this.boosts.speed * this.boosts.consumption * tickSpeed
+        this.baseRate = settings.machine.rate_speed_base * this.boosts.speed * this.boosts.consumption
+        this.rate = this.baseRate * tickSpeed
     }
 
     /**
