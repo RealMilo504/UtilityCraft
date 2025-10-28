@@ -1,9 +1,9 @@
 import { Generator, Energy } from '../managers.js'
 
-const BASE_ALTITUDE = 60
-const ALTITUDE_BONUS_STEP = 20
+const BASE_ALTITUDE = 63
+const ALTITUDE_BONUS_STEP = 16
 const ALTITUDE_PENALTY_STEP = 8
-const ALTITUDE_STEP_RATIO = 0.2
+const ALTITUDE_STEP_RATIO = 0.125
 const MIN_ALTITUDE = 20
 const MAX_ALTITUDE_MULTIPLIER = 4
 const WEATHER_MULTIPLIERS = {
@@ -44,7 +44,7 @@ DoriosAPI.register.blockComponent('wind_turbine', {
         const baseRate = generator.rate
         const altitudeRate = computeAltitudeRate(baseRate, altitude)
         const effectiveRate = applyWeather(altitudeRate, weather)
-        const efficiency = baseRate > 0 ? Math.max(0, Math.floor((effectiveRate / baseRate) * 100)) : 0
+        const efficiency = baseRate > 0 ? Math.max(0, Math.round((effectiveRate / baseRate) * 1000) / 10) : 0
         const belowMinAltitude = altitude < MIN_ALTITUDE
 
         if (belowMinAltitude) {
@@ -96,7 +96,7 @@ function computeAltitudeRate(baseRate, altitude) {
     if (baseRate <= 0 || altitude < MIN_ALTITUDE) return 0
 
     const bonusSteps = altitude > BASE_ALTITUDE
-        ? Math.floor((altitude - BASE_ALTITUDE) / ALTITUDE_BONUS_STEP)
+        ? Math.max(0, Math.floor((altitude - BASE_ALTITUDE + ALTITUDE_BONUS_STEP) / ALTITUDE_BONUS_STEP) - 1)
         : 0
 
     const penaltySteps = altitude < BASE_ALTITUDE
@@ -133,7 +133,8 @@ function applyWeather(rate, weather) {
  * @returns {string}
  */
 function buildStatusLabel(status, color, efficiency, percent, altitude, transferRate = 0) {
-    const clampedEfficiency = Math.max(0, Math.min(360, efficiency))
+    const clampedEfficiency = Math.max(0, Math.min(300, efficiency))
+    const formattedEfficiency = clampedEfficiency.toFixed(1).replace('.', ',')
     const transferText = transferRate > 0 ? Energy.formatEnergyToText(transferRate) : '0 DE'
 
     return `
@@ -141,7 +142,7 @@ function buildStatusLabel(status, color, efficiency, percent, altitude, transfer
 
 §r§eInformation
  §r§eAltitude §f${altitude}
- §r§aEfficiency §f${clampedEfficiency}%%
+ §r§aEfficiency §f${formattedEfficiency}%%
  
 §r§bEnergy at ${Math.floor(percent)}%%
 §r§cRate ${transferText}/t

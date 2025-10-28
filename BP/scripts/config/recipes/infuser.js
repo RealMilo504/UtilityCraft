@@ -159,8 +159,17 @@ export const infuserRecipes = {
     "ae2be:silicon|ae2be:charged_certus_quartz_crystal": {
         output: "ae2be:calculation_processor_press",
         required: 4
+    },
+    // New Recipes for 3.2
+    "utilitycraft:bag_of_blaze_powder|utilitycraft:compressed_cobblestone": {
+        output: "utilitycraft:compressed_netherrack",
+        required: 1
+    },
+    "minecraft:redstone|minecraft:raw_iron": {
+        output: "utilitycraft:raw_energized_iron",
+        required: 4
     }
-    // Future recipes can be added here
+    // Cost multiplier needed
 };
 
 /**

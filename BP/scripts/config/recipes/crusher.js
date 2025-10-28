@@ -61,13 +61,23 @@ export const crusherRecipes = {
 
     // ========== ORE BLOCKS (Partial Dust Yield) ==========
     // Crushing full metal blocks yields dusts with partial recovery (~80% efficiency)
-
-    "minecraft:iron_block": { output: "utilitycraft:iron_dust", amount: 6 },
-    "minecraft:gold_block": { output: "utilitycraft:gold_dust", amount: 6 },
+    "minecraft:coal_block": { output: "utilitycraft:coal_dust", amount: 6 },
     "minecraft:copper_block": { output: "utilitycraft:copper_dust", amount: 6 },
+    "minecraft:iron_block": { output: "utilitycraft:iron_dust", amount: 6 },
     "utilitycraft:energized_iron_block": { output: "utilitycraft:energized_iron_dust", amount: 6 },
+    "minecraft:gold_block": { output: "utilitycraft:gold_dust", amount: 6 },
     "utilitycraft:steel_block": { output: "utilitycraft:steel_dust", amount: 6 },
+    "minecraft:diamond_block": { output: "utilitycraft:diamond_dust", amount: 6 },
+    "minecraft:emerald_block": { output: "utilitycraft:emerald_dust", amount: 6 },
     "minecraft:netherite_block": { output: "utilitycraft:netherite_dust", amount: 6 },
+
+    // ========== RAW ORE BLOCKS (Bonus Dust Yield) ==========
+    // Crushing raw ore blocks yields dusts with bonus recovery (~120% efficiency)
+    "minecraft:raw_copper_block": { output: "utilitycraft:copper_dust", amount: 12, cost: 1600  },
+    "minecraft:raw_iron_block": { output: "utilitycraft:iron_dust", amount: 12, cost: 1600  },
+    "utilitycraft:raw_energized_iron_block": { output: "utilitycraft:energized_iron_dust", amount: 12, cost: 1600  },
+    "minecraft:raw_gold_block": { output: "utilitycraft:gold_dust", amount: 12, cost: 1600  },
+    "utilitycraft:raw_steel_block": { output: "utilitycraft:steel_dust", amount: 12, cost: 1600  },
 
     // Normal Chunks
     "utilitycraft:copper_chunk": { output: "minecraft:raw_copper", amount: 1 },

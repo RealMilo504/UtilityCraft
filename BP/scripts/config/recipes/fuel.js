@@ -42,6 +42,7 @@ export const solidFuels = [
     { id: "sapling", de: 500 },
     { id: "dried_kelp_block", de: 20000 },
     { id: "lava_ball", de: 100000 },
+    { id: "bundle_of_blaze_rods", de: 108000 },
     { id: "blaze_rod", de: 12000 },
     { id: "boat", de: 6000 },
     { id: "button", de: 500 },
