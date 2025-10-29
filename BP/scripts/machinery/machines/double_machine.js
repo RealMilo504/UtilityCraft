@@ -84,7 +84,8 @@ DoriosAPI.register.blockComponent('double_machine', {
 
         // Check how many items can still fit in the output slot
         const spaceLeft = (outputSlot?.maxAmount ?? 64) - (outputSlot?.amount ?? 0);
-        if ((recipe.amount ?? 1) > spaceLeft) {
+        const recipeAmount = recipe.amount ?? 1
+        if (recipeAmount > spaceLeft) {
             machine.showWarning('Output Full');
             return;
         }
@@ -92,13 +93,14 @@ DoriosAPI.register.blockComponent('double_machine', {
         // Check if there are enough items in the input slot
         const required = recipe.required ?? 1;
         if (catalystSlot.amount < required) {
-            machine.showWarning(`Needs ${recipe.required ?? 1} Items`);
+            machine.showWarning(`Needs ${required} Items`);
             return;
         }
         //#endregion
 
         const progress = machine.getProgress();
-        const energyCost = settings.machine.energy_cost;
+        const energyCost = recipe.cost ?? settings.machine.energy_cost;
+        machine.setEnergyCost(energyCost)
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
@@ -106,19 +108,19 @@ DoriosAPI.register.blockComponent('double_machine', {
             return;
         }
 
+        const maxAmountToCraft = Math.floor(Math.min(spaceLeft / recipeAmount, inputSlot.amount / required))
         // If there is enough progress accumulated to process
         if (progress >= energyCost) {
             const processCount = Math.min(
                 Math.floor(progress / energyCost),
-                Math.floor(catalystSlot.amount / required),
-                Math.floor(spaceLeft / (recipe.amount ?? 1))
+                maxAmountToCraft
             );
             if (processCount > 0) {
                 // Add the processed items to the output
                 if (!outputSlot) {
-                    machine.entity.setItem(OUTPUTSLOT, recipe.output, processCount * (recipe.amount ?? 1));
+                    machine.entity.setItem(OUTPUTSLOT, recipe.output, processCount * recipeAmount);
                 } else {
-                    machine.entity.changeItemAmount(OUTPUTSLOT, processCount * (recipe.amount ?? 1));
+                    machine.entity.changeItemAmount(OUTPUTSLOT, processCount * recipeAmount);
                 }
 
                 // Deduct progress and input items
@@ -128,9 +130,10 @@ DoriosAPI.register.blockComponent('double_machine', {
             }
         } else {
             // If not enough progress, continue charging with energy
-            const energyToConsume = Math.min(machine.energy.get(), machine.rate);
+            const consumption = machine.boosts.consumption
+            const energyToConsume = Math.min(machine.energy.get(), machine.rate, maxAmountToCraft * energyCost * consumption);
             machine.energy.consume(energyToConsume);
-            machine.addProgress(energyToConsume);
+            machine.addProgress(energyToConsume / consumption);
         }
 
         // Update machine visuals and state

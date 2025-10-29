@@ -10,7 +10,8 @@
 				"tags": [
 					"utilitycraft:is_upgrade"
 				]
-			}
+			},
+			"minecraft:max_stack_size": 8
 		}
 	}
 }

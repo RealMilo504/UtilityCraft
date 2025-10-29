@@ -69,9 +69,6 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
             liquid.display()
             return;
         }
-        const energyCost = settings.machine.energy_cost;
-        // machine.setEnergyCost(energyCost)
-
 
         // Liquid type must either match the recipe result or be empty
         if (liquid.type != 'empty' && recipe.liquid != liquid.type) {
@@ -80,7 +77,9 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
             return;
         }
 
-        if (liquid.getFreeSpace() < recipe.amount) {
+        const recipeAmount = recipe.amount ?? 1000
+        const spaceLeft = liquid.getFreeSpace()
+        if (spaceLeft < recipeAmount) {
             machine.showWarning('Container Full');
             liquid.display()
             return;
@@ -89,6 +88,8 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
         //#endregion
 
         const progress = machine.getProgress();
+        const energyCost = recipe.cost ?? settings.machine.energy_cost;
+        machine.setEnergyCost(energyCost)
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
@@ -97,15 +98,16 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
             return;
         }
 
+        const maxAmountToCraft = Math.floor(Math.min(spaceLeft / recipeAmount, inputSlot.amount))
         // If there is enough progress accumulated to process
         if (progress >= energyCost) {
             const processCount = Math.min(
                 Math.floor(progress / energyCost),
-                Math.floor(liquid.getFreeSpace() / (recipe.amount ?? 1000))
+                maxAmountToCraft
             );
             if (processCount > 0) {
                 // Add the processed items to the output
-                liquid.add(recipe.amount)
+                liquid.add(recipeAmount * processCount)
                 if (liquid.type == 'empty') liquid.setType(recipe.liquid)
                 // Deduct progress and input items
                 machine.addProgress(-processCount * energyCost);
@@ -113,9 +115,10 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
             }
         } else {
             // If not enough progress, continue charging with energy
-            const energyToConsume = Math.min(machine.energy.get(), machine.rate);
+            const consumption = machine.boosts.consumption
+            const energyToConsume = Math.min(machine.energy.get(), machine.rate, maxAmountToCraft * energyCost * consumption);
             machine.energy.consume(energyToConsume);
-            machine.addProgress(energyToConsume / machine.boosts.consumption);
+            machine.addProgress(energyToConsume / consumption);
         }
 
         // Update machine visuals and state

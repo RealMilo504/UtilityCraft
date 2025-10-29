@@ -77,20 +77,21 @@ DoriosAPI.register.blockComponent('autosieve', {
             return;
         }
 
-        const progress = machine.getProgress();
-        const energyCost = settings.machine.energy_cost;
-
         // Check energy availability
         if (machine.energy.get() <= 0) {
             machine.showWarning('No Energy')
             return;
         }
 
+        const progress = machine.getProgress();
+        const energyCost = recipe.cost ?? settings.machine.energy_cost;
+        machine.setEnergyCost(energyCost)
+
         // If there is enough progress accumulated to process
         if (progress >= energyCost) {
             const processCount = Math.min(
                 Math.floor(progress / energyCost),
-                Math.floor(inputSlot.amount)
+                inputSlot.amount
             );
 
             const multi = meshData.multiplier
@@ -126,9 +127,10 @@ DoriosAPI.register.blockComponent('autosieve', {
             machine.entity.changeItemAmount(INTPUTSLOT, -processCount);
         } else {
             // If not enough progress, continue charging with energy
-            const energyToConsume = Math.min(machine.energy.get(), machine.rate)
+            const consumption = machine.boosts.consumption
+            const energyToConsume = Math.min(machine.energy.get(), machine.rate, inputSlot.amount * energyCost * consumption);
             machine.energy.consume(energyToConsume);
-            machine.addProgress(energyToConsume / machine.boosts.consumption);
+            machine.addProgress(energyToConsume / consumption);
         }
 
         // Update machine visuals and state

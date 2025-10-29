@@ -97,7 +97,6 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
 
         const progress = machine.getProgress();
         const energyCost = recipe.cost * soil.cost
-        // Update Energy Cost
         machine.setEnergyCost(energyCost)
 
         // Check energy availability
@@ -110,7 +109,7 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
         if (progress >= energyCost) {
             const processCount = Math.min(
                 Math.floor(progress / energyCost),
-                Math.floor(inputSlot.amount)
+                inputSlot.amount
             );
             machine.blockSlots(settings.machine.upgrades)
 
@@ -138,7 +137,8 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
             machine.addProgress(-processCount * energyCost);
         } else {
             // If not enough progress, continue charging with energy
-            const energyToConsume = Math.min(machine.energy.get(), machine.rate)
+            const consumption = machine.boosts.consumption
+            const energyToConsume = Math.min(machine.energy.get(), machine.rate, inputSlot.amount * energyCost * consumption);
             machine.energy.consume(energyToConsume);
             machine.addProgress(energyToConsume / machine.boosts.consumption);
         }
