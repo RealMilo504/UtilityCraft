@@ -1694,9 +1694,6 @@
 		"utilitycraft_mortar": {
 			"textures": "textures/items/tools/morter"
 		},
-		"utilitycraft_utility_book": {
-			"textures": "textures/items/utility_book/dorios_book"
-		},
 		"utilitycraft_blueprint_paper": {
 			"textures": "textures/items/machinery/blueprint_paper"
 		},
