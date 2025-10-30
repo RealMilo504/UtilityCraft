@@ -83,6 +83,9 @@
 		"utilitycraft_iron_hammer": {
 			"textures": "textures/items/tools/iron_hammer"
 		},
+		"utilitycraft_golden_hammer": {
+			"textures": "textures/items/tools/golden_hammer"
+		},
 		"utilitycraft_wooden_hammer": {
 			"textures": "textures/items/tools/wooden_hammer"
 		},
