@@ -1,24 +1,24 @@
-	{
-	"format_version": "1.21.100",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:compressed_stone_3",
-			"menu_category": {
-				"category": "construction"
-			}
-		},
-		"components": {
-			"minecraft:geometry": "geometry.utilitycraft_block",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_compressed_stone_3",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1.4
-			},
-            "tag:minecraft:is_pickaxe_item_destructible": {}
-		}
-	}
+{
+  "format_version": "1.21.100",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:compressed_stone_3",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:geometry": "geometry.utilitycraft_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_compressed_stone_3",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 3.8
+      },
+      "tag:minecraft:is_pickaxe_item_destructible": {}
+    }
+  }
 }

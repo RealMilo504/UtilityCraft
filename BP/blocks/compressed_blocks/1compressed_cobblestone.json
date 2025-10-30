@@ -19,7 +19,7 @@
         "seconds_to_destroy": 2.5
       },
       "tag:minecraft:is_pickaxe_item_destructible": {},
-      "tag:stone":{}
+      "tag:stone": {}
     }
   }
 }
