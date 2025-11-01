@@ -540,8 +540,8 @@ DoriosAPI.register.blockComponent('exporter', {
         })
     },
 
-    onPlayerDestroy(e) {
-        const ent = e.block.dimension.getEntitiesAtBlockLocation(e.block.location)[0]
+    onPlayerBreak(e) {
+        const ent = e.block.dimension.getEntitiesAtBlockLocation(e.block.center())[0]
         if (ent) ent.remove()
     },
 
@@ -905,7 +905,7 @@ DoriosAPI.register.blockComponent('fluid_extractor', {
         });
     },
 
-    onPlayerDestroy(e) {
+    onPlayerBreak(e) {
         const ent = e.block.dimension.getEntitiesAtBlockLocation(e.block.location)[0];
         if (ent) ent.remove();
     },
