@@ -144,15 +144,15 @@ export const infuserRecipes = {
         output: "ae2be:fluix_crystal",
         required: 4
     },
-    "ae2be:silicon|utilitycraft:iron_plate": {
+    "ae2be:silicon|utilitycraft:chip": {
         output: "ae2:silicon_press",
         required: 4
     },
-    "ae2be:silicon|utilitycraft:gold_plate": {
+    "ae2be:silicon|utilitycraft:basic_chip": {
         output: "ae2be:logic_processor_press",
         required: 4
     },
-    "ae2be:silicon|utilitycraft:diamond_plate": {
+    "ae2be:silicon|utilitycraft:expert_chip": {
         output: "ae2be:engineering_processor_press",
         required: 4
     },
