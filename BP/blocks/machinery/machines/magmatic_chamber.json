@@ -3,6 +3,9 @@
 	"minecraft:block": {
 		"description": {
 			"identifier": "utilitycraft:magmatic_chamber",
+			"menu_category": {
+				"category": "construction"
+			},
 			"states": {
 				"utilitycraft:on": [
 					false,

@@ -3,6 +3,9 @@
 	"minecraft:block": {
 		"description": {
 			"identifier": "utilitycraft:energy_cable",
+			"menu_category": {
+				"category": "construction"
+			},
 			"states": {
 				"utilitycraft:up": [
 					false,

@@ -400,8 +400,10 @@ world.afterEvents.worldLoad.subscribe(() => {
 // --- Al primer spawn del jugador ---
 world.afterEvents.playerSpawn.subscribe(({ initialSpawn }) => {
     if (!initialSpawn) return;
-    world.setDynamicProperty("loaded", true);
-    worldLoaded = true;
+    system.runTimeout(() => {
+        world.setDynamicProperty("loaded", true);
+        worldLoaded = true;
+    }, 50)
 });
 
 // --- Al apagar el mundo ---

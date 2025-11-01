@@ -58,6 +58,19 @@
                     },
                     {
                         "group_identifier": {
+                            "icon": "utilitycraft:utility_table",
+                            "name": "dorios:itemGroup.name.removed"
+                        },
+                        "items": [
+                            "utilitycraft:utility_table",
+                            "utilitycraft:fluid_pump",
+                            "utilitycraft:conveyor_declined",
+                            "utilitycraft:conveyor_horizontal",
+                            "utilitycraft:conveyor_inclined"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
                             "icon": "utilitycraft:ultimate_battery",
                             "name": "dorios:itemGroup.name.batteries"
                         },
@@ -90,10 +103,7 @@
                             "utilitycraft:mechanic_hopper",
                             "utilitycraft:mechanic_upper",
                             "utilitycraft:mechanic_dropper",
-                            "utilitycraft:ender_hopper",
-                            "utilitycraft:conveyor_declined",
-                            "utilitycraft:conveyor_horizontal",
-                            "utilitycraft:conveyor_inclined"
+                            "utilitycraft:ender_hopper"
                         ]
                     },
                     {
@@ -137,7 +147,6 @@
                             "utilitycraft:advanced_fluid_tank",
                             "utilitycraft:expert_fluid_tank",
                             "utilitycraft:ultimate_fluid_tank",
-                            "utilitycraft:fluid_pump",
                             "utilitycraft:xp_drain",
                             "utilitycraft:xp_spout"
                         ]

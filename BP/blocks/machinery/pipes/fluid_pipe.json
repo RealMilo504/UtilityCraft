@@ -3,6 +3,9 @@
 	"minecraft:block": {
 		"description": {
 			"identifier": "utilitycraft:fluid_pipe",
+			"menu_category": {
+				"category": "construction"
+			},
 			"states": {
 				"utilitycraft:up": [
 					false,

@@ -24,7 +24,7 @@
 				"repair_items": [
 					{
 						"items": [
-							"minecraft:golden_ingot"
+							"minecraft:gold_ingot"
 						],
 						"repair_amount": 26
 					},

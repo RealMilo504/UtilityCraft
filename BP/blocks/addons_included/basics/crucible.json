@@ -3,6 +3,9 @@
 	"minecraft:block": {
 		"description": {
 			"identifier": "utilitycraft:crucible",
+			"menu_category": {
+				"category": "construction"
+			},
 			"states": {
 				"utilitycraft:lava": [
 					0,

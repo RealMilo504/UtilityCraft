@@ -2,7 +2,10 @@
     "format_version": "1.21.110",
     "minecraft:item": {
         "description": {
-            "identifier": "utilitycraft:compressed_charcoal_block_2"
+            "identifier": "utilitycraft:compressed_charcoal_block_2",
+            "menu_category": {
+                "category": "construction"
+            }
         },
         "components": {
             "minecraft:block_placer": {

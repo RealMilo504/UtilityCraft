@@ -3,6 +3,9 @@
 	"minecraft:block": {
 		"description": {
 			"identifier": "utilitycraft:fluid_extractor",
+			"menu_category": {
+				"category": "construction"
+			},
 			"states": {
 				"utilitycraft:up": [
 					false,

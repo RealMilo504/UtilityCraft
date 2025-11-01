@@ -3,6 +3,9 @@
 	"minecraft:block": {
 		"description": {
 			"identifier": "utilitycraft:item_conduit",
+			"menu_category": {
+				"category": "construction"
+			},
 			"states": {
 				"utilitycraft:up": [
 					false,

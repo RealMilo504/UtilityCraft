@@ -2,7 +2,10 @@
     "format_version": "1.21.110",
     "minecraft:item": {
         "description": {
-            "identifier": "utilitycraft:blaze_block"
+            "identifier": "utilitycraft:blaze_block",
+            "menu_category": {
+                "category": "construction"
+            }
         },
         "components": {
             "minecraft:block_placer": {

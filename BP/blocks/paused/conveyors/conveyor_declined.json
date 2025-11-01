@@ -4,7 +4,7 @@
         "description": {
             "identifier": "utilitycraft:conveyor_declined",
             "menu_category": {
-                "category": "none"
+                "category": "construction"
             },
             "traits": {
                 "minecraft:placement_direction": {

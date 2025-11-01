@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "utilitycraft:utility_table",
 			"menu_category": {
-				"category": "none"
+                "category": "construction"
 			}
 		},
 		"components": {
