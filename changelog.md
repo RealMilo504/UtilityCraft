@@ -166,6 +166,7 @@
   - Slow → 20 ticks
   - Super Slow → 40 ticks
   - Default → 20 ticks
+- Reduced max stack size of upgrades to 8
 
 ---
 ## THIRD-PARTY COMPATIBILITY
