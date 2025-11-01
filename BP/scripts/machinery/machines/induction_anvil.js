@@ -56,7 +56,6 @@ DoriosAPI.register.blockComponent('induction_anvil', {
 
             try {
                 const repairAmount = Math.min(remaining, energyCost / 10)
-                machine.dim.runCommand('say hola')
                 stack.durability.repair(repairAmount);
                 inv.setItem(INPUTSLOT, stack);
                 machine.addProgress(-repairAmount * 10)

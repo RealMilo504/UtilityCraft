@@ -40,6 +40,18 @@
 			"minecraft:inventory": {
 				"inventory_size": 4,
 				"container_type": "inventory"
+			},
+			"minecraft:inside_block_notifier": {
+				"block_list": [
+					{
+						"block": {
+							"name": "air"
+						},
+						"entered_block_event": {
+							"event": "despawn"
+						}
+					}
+				]
 			}
 		},
 		"events": {

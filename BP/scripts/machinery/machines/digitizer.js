@@ -112,7 +112,6 @@ DoriosAPI.register.blockComponent('digitizer', {
                     // Misma fórmula de índice que el código antiguo: i - 5
                     // (INPUT_START = size-10 → slot.container = (size-10)-5 = size-15 ... hasta (size-2)-5 = size-7)
                     dimension.runCommand(`replaceitem block ${x} -64 ${z} slot.container ${i - 6} ${id}`);
-                    dimension.runCommand(`say ${i - 5}`)
                     recipeArray.push(id.split(':')[1]);
                 } else {
                     recipeArray.push('air');
@@ -195,7 +194,6 @@ DoriosAPI.register.blockComponent('digitizer', {
             // Cargar energía y avanzar progreso como el autosieve
             const energyToConsume = Math.min(machine.energy.get(), machine.rate);
             const consumed = machine.energy.consume(energyToConsume);
-            machine.dim.runCommand(`say ${machine.energy.get()}`)
             machine.addProgress(energyToConsume / machine.boosts.consumption);
         }
 

@@ -518,8 +518,8 @@ globalThis.DoriosAPI = {
                 if (DoriosAPI.constants.vanillaContainers.includes(target?.typeId) || isDoriosContainer) {
                     const targetInv = target.getComponent("minecraft:inventory")?.container;
                     if (targetInv) {
-                        sourceInv.transferItem(slot, targetInv);
-                        transferred = true;
+                        const added = sourceInv.transferItem(slot, targetInv);
+                        transferred = item.amount - (added?.amount ?? 0);
                         continue;
                     }
                 }
@@ -528,11 +528,15 @@ globalThis.DoriosAPI = {
                 const added = this.addItem(target, item);
                 if (added === true) {
                     sourceInv.setItem(slot, undefined);
-                    transferred = true;
+                    transferred = item.maxAmount;
                 } else if (typeof added === "number" && added > 0) {
-                    item.amount = added;
-                    sourceInv.setItem(slot, item);
-                    transferred = true;
+                    if (item.amount - added <= 0) {
+                        sourceInv.setItem(slot,);
+                    } else {
+                        item.amount -= added
+                        sourceInv.setItem(slot, item);
+                    }
+                    transferred = added;
                 }
             }
 

@@ -41,7 +41,7 @@
 					"energy_cost": 8000,
 					"fluid_cap": 32000,
 					"fluid_types": 1,
-					"rate_speed_base": 200,
+					"rate_speed_base": 40,
 					"upgrades": [
 						5,
 						6

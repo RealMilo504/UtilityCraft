@@ -108,7 +108,6 @@ DoriosAPI.register.blockComponent('assembler', {
                 machine.showWarning('Missing Materials', false);
                 return;
             }
-            machine.dim.runCommand(`say ${resultAmount} ${maxCraftAmount} ${craftCount} `)
             // Add crafted items to output
             if (!outputSlot) {
                 machine.entity.setItem(OUTPUT_SLOT, resultItem, craftCount * resultAmount);

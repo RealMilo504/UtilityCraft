@@ -173,9 +173,9 @@ function openMenu(block, player) {
     menu.title('Filter')
 
     if (state) {
-        menu.button(`Whitelist Mode \n(Click to Change)`, 'textures/items/whitelist.png')
+        menu.button(`Whitelist Mode \n(Click to Change)`, 'textures/items/misc/whitelist.png')
     } else {
-        menu.button(`Blacklist Mode \n(Click to Change)`, 'textures/items/blacklist.png')
+        menu.button(`Blacklist Mode \n(Click to Change)`, 'textures/items/misc/blacklist.png')
 
     }
 

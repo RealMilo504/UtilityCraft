@@ -52,6 +52,18 @@
 					},
 					"event": "despawn"
 				}
+			},
+			"minecraft:inside_block_notifier": {
+				"block_list": [
+					{
+						"block": {
+							"name": "air"
+						},
+						"entered_block_event": {
+							"event": "despawn"
+						}
+					}
+				]
 			}
 		},
 		"events": {
