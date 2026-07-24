@@ -45,6 +45,13 @@ export class Machine extends BasicMachine {
         process_batch: 1,
       },
     );
+    this.boosts.overclock = Number(
+      this.entity.getProperty("utilitycraft:overclock") ?? 0,
+    );
+    if (machineSettings.overclock !== false) {
+      this.boosts.speed *= 1 + 0.35 * this.boosts.overclock;
+      this.boosts.energy_cost *= 1 + 0.25 * this.boosts.overclock;
+    }
     this.boosts.energy_cost = Math.max(0.01, this.boosts.energy_cost);
     this.boosts.energy_efficiency = Math.max(0.01, this.boosts.energy_efficiency);
     this.boosts.consumption = Math.max(
