@@ -5,6 +5,7 @@ import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
 import { DIRECTIONS } from "../../DoriosLib/containers/constants.js";
 import { formatIdentifier } from "../../DoriosLib/text/index.js";
+import { isLinkedEntity } from "../../DoriosLib/linkNodes/index.js";
 import { getPersistentUpgradeLevel } from "../upgradeable.js";
 import {
   NETWORK_OFFSETS,
@@ -462,7 +463,10 @@ function isResolvedUsable(resolved, dimension, expectedLocation) {
     if (resolved.kind === "entity") {
       if (!resolved.entity?.isValid) return false;
       if (resolved.entity.dimension.id !== dimension.id) return false;
-      if (!isSameBlockLocation(resolved.entity.location, expectedLocation)) return false;
+      if (resolved.via === "link_node") {
+        if (!resolved.block || !isSameBlockLocation(resolved.block.location, expectedLocation)) return false;
+        if (!isLinkedEntity(resolved.block, resolved.entity)) return false;
+      } else if (!isSameBlockLocation(resolved.entity.location, expectedLocation)) return false;
     } else if (resolved.kind === "block") {
       if (!resolved.block || resolved.block.dimension.id !== dimension.id) return false;
       if (!isSameBlockLocation(resolved.block.location, expectedLocation)) return false;

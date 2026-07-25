@@ -25,6 +25,7 @@ export * as container from "./containers/index.js";
 export * as dependencies from "./dependencies/index.js";
 export * as entity from "./entity/index.js";
 export * as item from "./item/index.js";
+export * as linkNode from "./linkNodes/index.js";
 export * as math from "./math/index.js";
 export * as messages from "./messages/index.js";
 export * as player from "./player/index.js";

@@ -1,6 +1,13 @@
 // @ts-check
 
 import { GasStorage } from "./gasStorage.js";
+import {
+  getLinkNodeIOOverride,
+  getLinkNodeIORevision,
+  isLinkedEntity,
+  isLinkNode,
+  resolveLinkNode,
+} from "../../DoriosLib/linkNodes/index.js";
 import * as Constants from "./constants.js";
 import {
   GAS_CONTAINER_FAMILY,
@@ -20,6 +27,7 @@ import {
  * @property {"entity"|"tank"} kind
  * @property {Block|undefined} block
  * @property {Entity|undefined} entity
+ * @property {"link_node"} [via]
  */
 
 /** @typedef {Block|Entity|ResolvedGasContainer} GasContainerTarget */
@@ -63,8 +71,8 @@ export function resolveGasContainer(target) {
 }
 
 /**
- * Resolves a gas container accessible through one block position. Multiblock
- * ports return their controller entity while preserving the real access block.
+ * Resolves a gas container accessible through one block position. Link nodes
+ * return their owner entity while preserving the physical access block.
  *
  * @param {Dimension} dimension
  * @param {Vector3} location
@@ -76,11 +84,11 @@ export function resolveGasContainerAt(dimension, location) {
     const block = dimension.getBlock(location);
     if (!block) return undefined;
 
-    if (block.hasTag("dorios:multiblock.port") && block.hasTag("dorios:gas")) {
-      const entity = dimension.getEntities({
-        tags: [`input:[${location.x},${location.y},${location.z}]`],
-      }).find(isCompatibleGasEntity);
-      return entity ? { kind: "entity", block, entity } : undefined;
+    if (block.hasTag("dorios:gas") && isLinkNode(block)) {
+      const linked = resolveLinkNode(block, isCompatibleGasEntity);
+      return linked
+        ? { kind: "entity", block, entity: linked.entity, via: "link_node" }
+        : undefined;
     }
 
     const entity = dimension.getEntitiesAtBlockLocation(location).find(isCompatibleGasEntity);
@@ -103,6 +111,16 @@ export function getGasInputIndices(target, options = {}) {
   const resolved = resolveGasContainer(target);
   if (!resolved) return EMPTY_INDICES;
   if (!resolved.entity) return resolved.kind === "tank" ? [0] : EMPTY_INDICES;
+  if (resolved.via === "link_node" && resolved.block) {
+    const override = getLinkNodeIOOverride(
+      resolved.entity,
+      resolved.block.location,
+      "gases",
+      "input",
+    );
+    if (override !== undefined) return validateIndices(override, GasStorage.getMaxGases(resolved.entity));
+    return getInputGasIndices(resolved.entity);
+  }
   return getInputGasIndices(resolved.entity, options);
 }
 
@@ -115,13 +133,27 @@ export function getGasInputIndices(target, options = {}) {
 export function getGasOutputIndices(target, options = {}) {
   const resolved = resolveGasContainer(target);
   if (!resolved?.entity) return EMPTY_INDICES;
+  if (resolved.via === "link_node" && resolved.block) {
+    const override = getLinkNodeIOOverride(
+      resolved.entity,
+      resolved.block.location,
+      "gases",
+      "output",
+    );
+    if (override !== undefined) return validateIndices(override, GasStorage.getMaxGases(resolved.entity));
+    return getOutputGasIndices(resolved.entity);
+  }
   return getOutputGasIndices(resolved.entity, options);
 }
 
 /** @param {GasContainerTarget} target */
 export function getGasContainerRevision(target) {
   const resolved = resolveGasContainer(target);
-  return resolved?.entity ? getGasConfigRevision(resolved.entity) : 0;
+  if (!resolved?.entity) return 0;
+  const revision = getGasConfigRevision(resolved.entity);
+  return resolved.via === "link_node"
+    ? `${revision}:${getLinkNodeIORevision(resolved.entity)}`
+    : revision;
 }
 
 /**
@@ -230,6 +262,12 @@ export function getGasStorage(target, gasIndex) {
 
 /** @param {ResolvedGasContainer} resolved */
 function refreshResolved(resolved) {
+  if (resolved.via === "link_node") {
+    if (isLinkedEntity(resolved.block, resolved.entity)) return resolved;
+    return resolved.block
+      ? resolveGasContainerAt(resolved.block.dimension, resolved.block.location)
+      : undefined;
+  }
   if (resolved.entity?.isValid) return resolved;
   if (resolved.block) return resolveGasContainerAt(resolved.block.dimension, resolved.block.location);
   return undefined;
@@ -313,4 +351,11 @@ function isBlockReference(value) {
 function isLocation(value) {
   return Boolean(value && typeof value === "object"
     && Number.isFinite(value.x) && Number.isFinite(value.y) && Number.isFinite(value.z));
+}
+
+/** @param {ReadonlyArray<number>} indices @param {number} count */
+function validateIndices(indices, count) {
+  return indices.every((index) => Number.isInteger(index) && index >= 0 && index < count)
+    ? indices
+    : EMPTY_INDICES;
 }

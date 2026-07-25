@@ -8,6 +8,11 @@ import {
   SCRIPT_EVENT_NAMESPACE,
   SET_CONFIG_EVENT_ID,
 } from "../../DoriosLib/containers/constants.js";
+import {
+  LINK_NODE_IO_EVENT_NAMESPACE,
+  SET_LINK_NODE_IO_EVENT_ID,
+  parseLinkNodeIOUpdate,
+} from "../../DoriosLib/linkNodes/index.js";
 import { scheduleEnergyNetworkRescan } from "./energy.js";
 import { reconcileMovedFluidNodes, scheduleFluidNetworkRescan } from "./fluids.js";
 import { reconcileMovedGasNodes, scheduleGasNetworkRescan } from "./gases.js";
@@ -115,6 +120,17 @@ system.afterEvents.scriptEventReceive.subscribe((event) => {
   }
 }, {
   namespaces: [SCRIPT_EVENT_NAMESPACE],
+});
+
+system.afterEvents.scriptEventReceive.subscribe((event) => {
+  if (event.id !== SET_LINK_NODE_IO_EVENT_ID
+    || !event.sourceEntity?.isValid) return;
+  const update = parseLinkNodeIOUpdate(event.message);
+  if (update?.resource === "items") {
+    invalidateItemContainerAt(event.sourceEntity.dimension, update.location);
+  }
+}, {
+  namespaces: [LINK_NODE_IO_EVENT_NAMESPACE],
 });
 
 world.afterEvents.playerBreakBlock.subscribe(({ block, brokenBlockPermutation }) => {

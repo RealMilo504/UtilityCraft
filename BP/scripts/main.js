@@ -39,4 +39,5 @@ import './stackRefill.js'
 
 DoriosLib.registry.install()
 DoriosLib.container.initialize()
+DoriosLib.linkNode.initializeLinkNodeIO()
 

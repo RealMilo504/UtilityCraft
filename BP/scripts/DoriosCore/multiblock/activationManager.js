@@ -1,6 +1,7 @@
 import { system } from "@minecraft/server";
 import { EnergyStorage } from "../machinery/energyStorage.js";
 import * as Constants from "./constants.js";
+import { isLinkNode, parseLinkNodeTag } from "../../DoriosLib/linkNodes/index.js";
 
 export class ActivationManager {
   /**
@@ -65,13 +66,16 @@ export class ActivationManager {
     for (const tag of inputBlocks) {
       entity.addTag(tag);
 
-      const [x, y, z] = tag.slice(Constants.INPUT_TAG_PREFIX.length, -1).split(",").map(Number);
+      const location = parseLinkNodeTag(tag);
+      if (!location) continue;
+      const { x, y, z } = location;
       const block = entity.dimension.getBlock({ x, y, z });
 
-      if (block?.hasTag(Constants.MULTIBLOCK_PORT_TAG)) {
+      if (isLinkNode(block)) {
         block.setPermutation(block.permutation.withState(Constants.ACTIVE_STATE_ID, 1));
         if (block.hasTag(Constants.ENERGY_BLOCK_TAG)) entity.runCommand(`scriptevent ${Constants.UPDATE_PIPES_EVENT_ID} energy|[${x},${y},${z}]`);
         if (block.hasTag(Constants.FLUID_BLOCK_TAG)) entity.runCommand(`scriptevent ${Constants.UPDATE_PIPES_EVENT_ID} fluid|[${x},${y},${z}]`);
+        if (block.hasTag(Constants.GAS_BLOCK_TAG)) entity.runCommand(`scriptevent ${Constants.UPDATE_PIPES_EVENT_ID} gas|[${x},${y},${z}]`);
         if (block.hasTag(Constants.ITEM_BLOCK_TAG)) entity.runCommand(`scriptevent ${Constants.UPDATE_PIPES_EVENT_ID} item|[${x},${y},${z}]`);
       }
     }

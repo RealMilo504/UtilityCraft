@@ -1,6 +1,7 @@
 import { system } from "@minecraft/server";
 import * as Constants from "./constants.js";
 import { EntityManager } from "./entityManager.js";
+import { isLinkNode, parseLinkNodeTag } from "../../DoriosLib/linkNodes/index.js";
 
 export class DeactivationManager {
   /**
@@ -60,15 +61,17 @@ export class DeactivationManager {
 
     entity.triggerEvent(Constants.HIDE_EVENT_ID);
     entity.getTags().forEach((tag) => {
-      if (!tag.startsWith(Constants.INPUT_TAG_PREFIX)) return;
-
-      const [x, y, z] = tag.slice(Constants.INPUT_TAG_PREFIX.length, -1).split(",").map(Number);
-      const inputBlock = entity.dimension.getBlock({ x, y, z });
-      if (!inputBlock?.hasTag(Constants.MULTIBLOCK_PORT_TAG)) return;
-
+      const location = parseLinkNodeTag(tag);
+      if (!location) return;
+      const { x, y, z } = location;
       entity.removeTag(tag);
+
+      const inputBlock = entity.dimension.getBlock({ x, y, z });
+      if (!isLinkNode(inputBlock)) return;
+
       if (inputBlock.hasTag(Constants.ENERGY_BLOCK_TAG)) entity.runCommand(`scriptevent ${Constants.UPDATE_PIPES_EVENT_ID} energy|[${x},${y},${z}]`);
       if (inputBlock.hasTag(Constants.FLUID_BLOCK_TAG)) entity.runCommand(`scriptevent ${Constants.UPDATE_PIPES_EVENT_ID} fluid|[${x},${y},${z}]`);
+      if (inputBlock.hasTag(Constants.GAS_BLOCK_TAG)) entity.runCommand(`scriptevent ${Constants.UPDATE_PIPES_EVENT_ID} gas|[${x},${y},${z}]`);
       if (inputBlock.hasTag(Constants.ITEM_BLOCK_TAG)) entity.runCommand(`scriptevent ${Constants.UPDATE_PIPES_EVENT_ID} item|[${x},${y},${z}]`);
       inputBlock.setPermutation(inputBlock.permutation.withState(Constants.ACTIVE_STATE_ID, 0));
     });

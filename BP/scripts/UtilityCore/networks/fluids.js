@@ -6,6 +6,7 @@ import { FluidStorage } from "../../DoriosCore/machinery/fluidStorage.js";
 import * as DoriosFluid from "../../DoriosCore/machinery/fluidContainers.js";
 import { DIRECTIONS } from "../../DoriosCore/utils/directions.js";
 import { formatIdentifier } from "../../DoriosLib/text/index.js";
+import { isLinkedEntity } from "../../DoriosLib/linkNodes/index.js";
 import { getPersistentUpgradeLevel } from "../upgradeable.js";
 import {
   NETWORK_OFFSETS,
@@ -64,7 +65,7 @@ const EXPORTER_STORAGE_FORMAT = "utilitycraft:fluid_exporter:v1";
  * @typedef {object} FluidContainerAccess
  * @property {ResolvedFluidContainer} resolved
  * @property {ReadonlyArray<number>} indices
- * @property {number} revision
+ * @property {number|string} revision
  */
 
 /**
@@ -349,6 +350,7 @@ function isResolvedUsable(resolved, dimension, location) {
   if (!resolved) return false;
   try {
     if (resolved.entity && (!resolved.entity.isValid || resolved.entity.dimension.id !== dimension.id)) return false;
+    if (resolved.via === "link_node" && !isLinkedEntity(resolved.block, resolved.entity)) return false;
     if (resolved.block) {
       if (resolved.block.dimension.id !== dimension.id) return false;
       if (!isSameBlockLocation(resolved.block.location, location)) return false;

@@ -42,11 +42,6 @@ export const HIDE_EVENT_ID = "utilitycraft:hide";
 export const ACTIVE_STATE_ID = "utilitycraft:active";
 
 /**
- * Block tag that identifies multiblock ports.
- */
-export const MULTIBLOCK_PORT_TAG = "dorios:multiblock.port";
-
-/**
  * Block tag prefix used by multiblock casing blocks.
  */
 export const MULTIBLOCK_CASE_TAG_PREFIX = "dorios:multiblock.case";
@@ -82,9 +77,9 @@ export const FLUID_BLOCK_TAG = "dorios:fluid";
 export const ITEM_BLOCK_TAG = "dorios:item";
 
 /**
- * Prefix used by serialized input port location tags.
+ * Block tag used by gas-capable multiblock link nodes.
  */
-export const INPUT_TAG_PREFIX = "input:[";
+export const GAS_BLOCK_TAG = "dorios:gas";
 
 /**
  * Dynamic property used to store detected multiblock bounds.

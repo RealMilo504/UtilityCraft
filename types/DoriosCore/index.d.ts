@@ -325,6 +325,57 @@ export interface IOInterfaceConfig {
   gases?: GasIOGroupConfig;
 }
 
+/** One named item-slot group selectable by a physical link node. */
+export interface LinkNodeItemGroupConfig {
+  id: string;
+  label?: string;
+  slots: number[];
+}
+
+/** One named storage-index group selectable by a liquid or gas link node. */
+export interface LinkNodeIndexedGroupConfig {
+  id: string;
+  label?: string;
+  indices: number[];
+}
+
+export interface LinkNodeItemIOConfig {
+  anyInputSlots: number[];
+  anyOutputSlots: number[];
+  inputs: LinkNodeItemGroupConfig[];
+  outputs: LinkNodeItemGroupConfig[];
+}
+
+export interface LinkNodeIndexedIOConfig {
+  anyInputIndices: number[];
+  anyOutputIndices: number[];
+  inputs: LinkNodeIndexedGroupConfig[];
+  outputs: LinkNodeIndexedGroupConfig[];
+}
+
+/** Static routing groups and no-face defaults exposed by one machine. */
+export interface LinkNodeIOConfig {
+  items?: LinkNodeItemIOConfig;
+  liquids?: LinkNodeIndexedIOConfig;
+  gases?: LinkNodeIndexedIOConfig;
+}
+
+/** Canonical group returned by the link-node registry. */
+export interface LinkNodeIOGroup {
+  id: string;
+  label: string;
+  values: number[];
+}
+
+export interface LinkNodeResourceDefinition {
+  anyInput: number[];
+  anyOutput: number[];
+  inputs: LinkNodeIOGroup[];
+  outputs: LinkNodeIOGroup[];
+}
+
+export type LinkNodeIODefinition = Partial<Record<"items" | "liquids" | "gases", LinkNodeResourceDefinition>>;
+
 /** Per-tick limits used by {@link BasicMachine.processIO}. */
 export interface ProcessIOLimits {
   maxInputSlotsScannedPerTick?: number;
@@ -352,6 +403,15 @@ export function ensureBlockIOInterface(block?: Block): boolean;
 
 /** Returns whether one exact block type already owns an IO registration. */
 export function hasRegisteredIOInterface(blockTypeId: string): boolean;
+
+/** Registers the logical IO groups exposed through a machine's link nodes. */
+export function registerLinkNodeIO(blockTypeId: string, config: LinkNodeIOConfig): boolean;
+
+/** Returns a defensive copy of one machine's registered link-node groups. */
+export function getLinkNodeIODefinition(blockTypeId: string): LinkNodeIODefinition | undefined;
+
+/** Opens and persists the per-node Input to / Output from routing form. */
+export function openLinkNodeIOForm(block: Block, player: Player): Promise<boolean>;
 
 /** Namespace-style IO interface export. */
 export const IOInterface: {
@@ -424,6 +484,7 @@ export interface ResolvedFluidContainer {
   kind: "entity" | "tank";
   block: Block | undefined;
   entity: Entity | undefined;
+  via?: "link_node";
 }
 
 export type FluidContainerTarget = Block | Entity | ResolvedFluidContainer;
@@ -448,7 +509,7 @@ export function resolveFluidContainer(target: FluidContainerTarget): ResolvedFlu
 export function resolveFluidContainerAt(dimension: Dimension, location: Vector3): ResolvedFluidContainer | undefined;
 export function getFluidInputIndices(target: FluidContainerTarget, options?: { face?: DirectionName }): ReadonlyArray<number>;
 export function getFluidOutputIndices(target: FluidContainerTarget, options?: { face?: DirectionName }): ReadonlyArray<number>;
-export function getFluidContainerRevision(target: FluidContainerTarget): number;
+export function getFluidContainerRevision(target: FluidContainerTarget): number | string;
 export function transferFluid(source: FluidContainerTarget, options: FluidTransferOptions): number;
 export function insertFluid(target: FluidContainerTarget, options: FluidInsertOptions): number;
 export function getFluidStorage(target: FluidContainerTarget, fluidIndex: number): FluidStorage | undefined;
@@ -512,6 +573,7 @@ export interface ResolvedGasContainer {
   kind: "entity" | "tank";
   block: Block | undefined;
   entity: Entity | undefined;
+  via?: "link_node";
 }
 
 export type GasContainerTarget = Block | Entity | ResolvedGasContainer;
@@ -536,7 +598,7 @@ export function resolveGasContainer(target: GasContainerTarget): ResolvedGasCont
 export function resolveGasContainerAt(dimension: Dimension, location: Vector3): ResolvedGasContainer | undefined;
 export function getGasInputIndices(target: GasContainerTarget, options?: { face?: DirectionName }): ReadonlyArray<number>;
 export function getGasOutputIndices(target: GasContainerTarget, options?: { face?: DirectionName }): ReadonlyArray<number>;
-export function getGasContainerRevision(target: GasContainerTarget): number;
+export function getGasContainerRevision(target: GasContainerTarget): number | string;
 export function transferGas(source: GasContainerTarget, options: GasTransferOptions): number;
 export function insertGas(target: GasContainerTarget, options: GasInsertOptions): number;
 export function getGasStorage(target: GasContainerTarget, gasIndex: number): GasStorage | undefined;

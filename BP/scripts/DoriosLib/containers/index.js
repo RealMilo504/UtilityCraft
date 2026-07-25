@@ -8,6 +8,12 @@ import {
   world,
 } from "@minecraft/server";
 import { isPlainObject } from "../utils/index.js";
+import {
+  getLinkNodeIOOverride,
+  isLinkedEntity,
+  isLinkNode,
+  resolveLinkNode,
+} from "../linkNodes/index.js";
 import { cloneItemConfig, normalizeItemConfig } from "./config.js";
 import {
   CONTAINER_FAMILY,
@@ -41,6 +47,7 @@ export {
  * @property {Container} container
  * @property {Block} [block]
  * @property {Entity} [entity]
+ * @property {"link_node"} [via]
  */
 
 /** @typedef {Block|Entity|Container|ResolvedContainer} ContainerTarget */
@@ -207,6 +214,11 @@ export function resolve(target) {
   if (isResolvedContainer(target)) {
     if (target.kind === "entity") {
       if (!target.entity) return undefined;
+      if (target.via === "link_node") {
+        if (target.block && isLinkedEntity(target.block, target.entity)
+          && isRawContainer(target.container)) return target;
+        return target.block ? resolveAt(target.block.dimension, target.block.location) : undefined;
+      }
       if (target.entity.isValid && isRawContainer(target.container)) return target;
       const refreshed = resolve(target.entity);
       return refreshed && target.block ? { ...refreshed, block: target.block } : refreshed;
@@ -231,6 +243,9 @@ export function resolve(target) {
   }
 
   if (isBlockReference(target)) {
+    if (isLinkNode(target) && target.hasTag("dorios:item")) {
+      return resolveAt(target.dimension, target.location);
+    }
     const container = getBlockInventory(target);
     return container
       ? { kind: "block", owner: target, block: target, container }
@@ -256,6 +271,22 @@ export function resolveAt(dimension, location) {
 
   try {
     const block = dimension.getBlock(location);
+    if (block?.hasTag("dorios:item") && isLinkNode(block)) {
+      const linked = resolveLinkNode(block, isCompatible);
+      if (!linked) return undefined;
+      const container = getInventory(linked.entity);
+      return container
+        ? {
+            kind: "entity",
+            owner: linked.entity,
+            entity: linked.entity,
+            block,
+            container,
+            via: "link_node",
+          }
+        : undefined;
+    }
+
     const blockContainer = getBlockInventory(block);
     if (block && blockContainer) {
       return {
@@ -540,6 +571,15 @@ function resolveTargetSlots(target, operation, face) {
   const resolved = resolve(target);
   if (!resolved) return EMPTY_SLOTS;
   if (resolved.kind === "entity" && resolved.entity) {
+    if (resolved.via === "link_node" && resolved.block) {
+      const override = getLinkNodeIOOverride(
+        resolved.entity,
+        resolved.block.location,
+        "items",
+        operation,
+      );
+      return override ?? resolveSlots(resolved.entity, operation, undefined);
+    }
     return resolveSlots(resolved.entity, operation, face);
   }
 

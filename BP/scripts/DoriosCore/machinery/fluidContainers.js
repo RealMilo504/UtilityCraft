@@ -1,6 +1,13 @@
 // @ts-check
 
 import { FluidStorage } from "./fluidStorage.js";
+import {
+  getLinkNodeIOOverride,
+  getLinkNodeIORevision,
+  isLinkedEntity,
+  isLinkNode,
+  resolveLinkNode,
+} from "../../DoriosLib/linkNodes/index.js";
 import * as Constants from "./constants.js";
 import {
   FLUID_CONTAINER_FAMILY,
@@ -20,6 +27,7 @@ import {
  * @property {"entity"|"tank"} kind
  * @property {Block|undefined} block
  * @property {Entity|undefined} entity
+ * @property {"link_node"} [via]
  */
 
 /** @typedef {Block|Entity|ResolvedFluidContainer} FluidContainerTarget */
@@ -63,8 +71,8 @@ export function resolveFluidContainer(target) {
 }
 
 /**
- * Resolves a fluid container accessible through one block position. Multiblock
- * ports return their controller entity while preserving the real access block.
+ * Resolves a fluid container accessible through one block position. Link nodes
+ * return their owner entity while preserving the physical access block.
  *
  * @param {Dimension} dimension
  * @param {Vector3} location
@@ -76,11 +84,11 @@ export function resolveFluidContainerAt(dimension, location) {
     const block = dimension.getBlock(location);
     if (!block) return undefined;
 
-    if (block.hasTag("dorios:multiblock.port") && block.hasTag("dorios:fluid")) {
-      const entity = dimension.getEntities({
-        tags: [`input:[${location.x},${location.y},${location.z}]`],
-      }).find(isCompatibleFluidEntity);
-      return entity ? { kind: "entity", block, entity } : undefined;
+    if (block.hasTag("dorios:fluid") && isLinkNode(block)) {
+      const linked = resolveLinkNode(block, isCompatibleFluidEntity);
+      return linked
+        ? { kind: "entity", block, entity: linked.entity, via: "link_node" }
+        : undefined;
     }
 
     const entity = dimension.getEntitiesAtBlockLocation(location).find(isCompatibleFluidEntity);
@@ -103,6 +111,16 @@ export function getFluidInputIndices(target, options = {}) {
   const resolved = resolveFluidContainer(target);
   if (!resolved) return EMPTY_INDICES;
   if (!resolved.entity) return resolved.kind === "tank" ? [0] : EMPTY_INDICES;
+  if (resolved.via === "link_node" && resolved.block) {
+    const override = getLinkNodeIOOverride(
+      resolved.entity,
+      resolved.block.location,
+      "liquids",
+      "input",
+    );
+    if (override !== undefined) return validateIndices(override, FluidStorage.getMaxLiquids(resolved.entity));
+    return getInputFluidIndices(resolved.entity);
+  }
   return getInputFluidIndices(resolved.entity, options);
 }
 
@@ -115,13 +133,27 @@ export function getFluidInputIndices(target, options = {}) {
 export function getFluidOutputIndices(target, options = {}) {
   const resolved = resolveFluidContainer(target);
   if (!resolved?.entity) return EMPTY_INDICES;
+  if (resolved.via === "link_node" && resolved.block) {
+    const override = getLinkNodeIOOverride(
+      resolved.entity,
+      resolved.block.location,
+      "liquids",
+      "output",
+    );
+    if (override !== undefined) return validateIndices(override, FluidStorage.getMaxLiquids(resolved.entity));
+    return getOutputFluidIndices(resolved.entity);
+  }
   return getOutputFluidIndices(resolved.entity, options);
 }
 
 /** @param {FluidContainerTarget} target */
 export function getFluidContainerRevision(target) {
   const resolved = resolveFluidContainer(target);
-  return resolved?.entity ? getFluidConfigRevision(resolved.entity) : 0;
+  if (!resolved?.entity) return 0;
+  const revision = getFluidConfigRevision(resolved.entity);
+  return resolved.via === "link_node"
+    ? `${revision}:${getLinkNodeIORevision(resolved.entity)}`
+    : revision;
 }
 
 /**
@@ -230,6 +262,12 @@ export function getFluidStorage(target, fluidIndex) {
 
 /** @param {ResolvedFluidContainer} resolved */
 function refreshResolved(resolved) {
+  if (resolved.via === "link_node") {
+    if (isLinkedEntity(resolved.block, resolved.entity)) return resolved;
+    return resolved.block
+      ? resolveFluidContainerAt(resolved.block.dimension, resolved.block.location)
+      : undefined;
+  }
   if (resolved.entity?.isValid) return resolved;
   if (resolved.block) return resolveFluidContainerAt(resolved.block.dimension, resolved.block.location);
   return undefined;
@@ -313,4 +351,11 @@ function isBlockReference(value) {
 function isLocation(value) {
   return Boolean(value && typeof value === "object"
     && Number.isFinite(value.x) && Number.isFinite(value.y) && Number.isFinite(value.z));
+}
+
+/** @param {ReadonlyArray<number>} indices @param {number} count */
+function validateIndices(indices, count) {
+  return indices.every((index) => Number.isInteger(index) && index >= 0 && index < count)
+    ? indices
+    : EMPTY_INDICES;
 }

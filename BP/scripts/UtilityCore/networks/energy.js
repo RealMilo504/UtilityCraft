@@ -1,6 +1,11 @@
 // @ts-check
 
 import { system } from "@minecraft/server";
+import {
+  getLinkNodeLocations,
+  isLinkNode,
+  resolveLinkNode,
+} from "../../DoriosLib/linkNodes/index.js";
 import { NETWORK_OFFSETS, offsetLocation, safeGetBlock } from "./shared.js";
 import {
   NETWORK_SCAN_BATCH_SIZE,
@@ -50,20 +55,11 @@ export async function rescanEnergyNetwork(startPosition, dimension) {
     let entity = dimension
       .getEntitiesAtBlockLocation(position)
       .find((candidate) => candidate.typeId !== "utilitycraft:machine_area_outline");
-    if (block.hasTag("dorios:multiblock.port")) {
-      entity = dimension.getEntities({
-        tags: [`input:[${position.x},${position.y},${position.z}]`],
-      })[0];
-      if (!entity) continue;
-
-      const inputs = [];
-      for (const tag of entity.getTags()) {
-        if (!tag.startsWith("input:[")) continue;
-        const [x, y, z] = tag.slice(7, -1).split(",").map(Number);
-        const inputBlock = safeGetBlock(dimension, { x, y, z });
-        if (inputBlock) inputs.push(inputBlock.location);
-      }
-      await searchEnergyStorages(inputs, entity);
+    if (isLinkNode(block)) {
+      const linked = resolveLinkNode(block);
+      if (!linked) continue;
+      entity = linked.entity;
+      await searchEnergyStorages(getLinkNodeLocations(entity), entity);
       continue;
     }
 
@@ -118,10 +114,8 @@ async function searchEnergyStorages(startPositions, generator) {
     let entity = dimension
       .getEntitiesAtBlockLocation(position)
       .find((candidate) => candidate.typeId !== "utilitycraft:machine_area_outline");
-    if (block.hasTag("dorios:multiblock.port")) {
-      entity = dimension.getEntities({
-        tags: [`input:[${position.x},${position.y},${position.z}]`],
-      })[0];
+    if (isLinkNode(block)) {
+      entity = resolveLinkNode(block)?.entity;
       if (entity) machines.push(entity.location);
       continue;
     }

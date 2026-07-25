@@ -1,6 +1,7 @@
 import { system } from "@minecraft/server";
 import * as Constants from "./constants.js";
 import { EntityManager } from "./entityManager.js";
+import { createLinkNodeTag, isLinkNode } from "../../DoriosLib/linkNodes/index.js";
 
 export class StructureDetector {
   /**
@@ -230,8 +231,8 @@ export class StructureDetector {
           if (isEdge) {
             if (block.x === controller.x && block.y === controller.y && block.z === controller.z) continue;
             if (block?.hasTag(caseTag)) {
-              if (block?.hasTag(Constants.MULTIBLOCK_PORT_TAG)) {
-                inputBlocks.push(`${Constants.INPUT_TAG_PREFIX}${x},${y},${z}]`);
+              if (isLinkNode(block)) {
+                inputBlocks.push(createLinkNodeTag({ x, y, z }));
               }
               if (block?.hasTag(Constants.VENT_BLOCK_TAG) && y === max.y) {
                 components.vent = (components.vent ?? 0) + 1;
