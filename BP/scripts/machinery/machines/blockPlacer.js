@@ -1,5 +1,5 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { EnergyStorage, Machine, registerIOInterface } from "DoriosCore/index.js"
+import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { getOppositeFacingBlock } from "./oppositeFacing.js";
 import {
     handleMachineOutlineInteract,
@@ -56,7 +56,7 @@ DoriosLib.registry.blockComponent('utilitycraft:block_placer', {
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
-            showWarning(machine, 'No Energy', { resetProgress: false });
+            machine.showWarning('No Energy', { resetProgress: false });
             return;
         }
 
@@ -73,14 +73,14 @@ DoriosLib.registry.blockComponent('utilitycraft:block_placer', {
 
             // Si no es aire => warning
             if (!facing.isAir) {
-                showWarning(machine, 'Block in Front', { resetProgress: false });
+                machine.showWarning('Block in Front', { resetProgress: false });
                 return;
             }
 
             // Revisar ítem en el slot
             const stack = inv.getItem(INPUTSLOT);
             if (!stack) {
-                showWarning(machine, 'No Block', { resetProgress: false });
+                machine.showWarning('No Block', { resetProgress: false });
                 return;
             }
             try {
@@ -94,14 +94,14 @@ DoriosLib.registry.blockComponent('utilitycraft:block_placer', {
                 machine.setProgress(0, { display: false });
             } catch {
                 // Si no se pudo colocar => no era un bloque válido
-                showWarning(machine, 'Invalid Item', { displayProgress: false, resetProgress: false });
+                machine.showWarning('Invalid Item', { displayProgress: false, resetProgress: false });
                 return
             }
         }
 
         // Update visuals
         machine.on();
-        showStatus(machine, 'Running');
+        machine.showStatus('Running');
     },
 
     onPlayerInteract(e) {
@@ -113,35 +113,3 @@ DoriosLib.registry.blockComponent('utilitycraft:block_placer', {
         Machine.onDestroy(e);
     }
 });
-
-function showWarning(machine, message, options) {
-    options ??= {};
-    if (options.resetProgress !== false) {
-        machine.setProgress(0, { ...options, display: options.displayProgress !== false });
-    }
-
-    machine.displayEnergy();
-    machine.off();
-    machine.setLabel(`
-§r${DoriosLib.text.FORMAT.yellow}${message}!
-
-§r${DoriosLib.text.FORMAT.green}Speed x${machine.boosts.speed.toFixed(2)}
-§r${DoriosLib.text.FORMAT.green}Efficiency x${(1 / machine.boosts.consumption).toFixed(2)}
-§r${DoriosLib.text.FORMAT.green}Cost ---
-
-§r${DoriosLib.text.FORMAT.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
-`);
-}
-
-function showStatus(machine, message) {
-    machine.displayEnergy();
-    machine.setLabel(`
-§r${DoriosLib.text.FORMAT.darkGreen}${message}!
-
-§r${DoriosLib.text.FORMAT.green}Speed x${machine.boosts.speed.toFixed(2)}
-§r${DoriosLib.text.FORMAT.green}Efficiency x${(1 / machine.boosts.consumption).toFixed(2)}
-§r${DoriosLib.text.FORMAT.green}Cost ${EnergyStorage.formatEnergyToText(machine.getEnergyCost() * machine.boosts.consumption)}
-
-§r${DoriosLib.text.FORMAT.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
-    `);
-}

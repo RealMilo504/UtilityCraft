@@ -1,6 +1,5 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { Machine, EnergyStorage, registerIOInterface } from "DoriosCore/index.js"
-const COLORS = DoriosLib.text.FORMAT
+import { Machine, registerIOInterface } from "DoriosCore/index.js"
 /**
  * Auto Assembler Machine Component
  * - Uses blueprints created by the Digitizer.
@@ -71,13 +70,13 @@ DoriosLib.registry.blockComponent('utilitycraft:assembler', {
         // --- 1) Validate blueprint ---
         const blueprint = inv.getItem(BLUEPRINT_SLOT);
         if (!blueprint || blueprint?.typeId !== 'utilitycraft:blueprint') {
-            showWarning(machine, speedFactor, 'No Blueprint');
+            machine.showWarning('No Blueprint');
             return; // label: No Blueprint
         }
 
         // --- 2) Validate energy ---
         if (machine.energy.get() <= 0) {
-            showWarning(machine, speedFactor, 'No Energy', false);
+            machine.showWarning('No Energy', { resetProgress: false });
             return; // label: No Energy
         }
 
@@ -90,7 +89,7 @@ DoriosLib.registry.blockComponent('utilitycraft:assembler', {
             }
         }
         if (!hasMaterials) {
-            showWarning(machine, speedFactor, 'No Materials');
+            machine.showWarning('No Materials');
             return; // label: No Materials
         }
 
@@ -100,7 +99,7 @@ DoriosLib.registry.blockComponent('utilitycraft:assembler', {
         const leftover = blueprint.getDynamicProperty('leftover') || false;
 
         if (!resultItem || !resultAmount) {
-            showWarning(machine, speedFactor, 'Invalid Blueprint');
+            machine.showWarning('Invalid Blueprint');
             return;
         }
 
@@ -111,7 +110,7 @@ DoriosLib.registry.blockComponent('utilitycraft:assembler', {
             : 64;
 
         if (available < resultAmount) {
-            showWarning(machine, speedFactor, 'Output Full');
+            machine.showWarning('Output Full');
             return; // label: Output Full
         }
 
@@ -139,7 +138,7 @@ DoriosLib.registry.blockComponent('utilitycraft:assembler', {
 
             const craftCount = amountToCraft(blueprint, inv, maxCraftAmount, INPUT_START, INPUT_END);
             if (craftCount <= 0) {
-                showWarning(machine, speedFactor, 'Missing Materials', false);
+                machine.showWarning('Missing Materials', { resetProgress: false });
                 return;
             }
             // Add crafted items to output
@@ -162,7 +161,7 @@ DoriosLib.registry.blockComponent('utilitycraft:assembler', {
         // --- 6) Visuals and status ---
         machine.on();
         machine.displayProgress({ maxValue: settings.machine.energy_cost });
-        showStatus(machine, speedFactor, 'Running');
+        machine.showStatus('Running');
     },
 
     onPlayerBreak(e) {
@@ -227,50 +226,4 @@ function amountToCraft(blueprint, inventory, maxCraftAmount, inputStart = INPUT_
     }
 
     return craftsToDo;
-}
-
-/**
- * Displays a warning label in the machine.
- *
- * Optionally resets the machine progress to 0 and turns off the machine.
- *
- * @param {string} message The warning text to display.
- * @param {boolean} [resetProgress=true] Whether to reset the machine progress to 0.
- */
-function showWarning(machine, speed, message, resetProgress = true) {
-    if (resetProgress) {
-        machine.setProgress(0);
-    }
-
-    machine.displayEnergy();
-    machine.off()
-    machine.setLabel(`
-§r${COLORS.yellow}${message}!
-
-§r${COLORS.green}Speed x${speed}
-§r${COLORS.green}Efficiency ${((1 / machine.boosts.consumption) * 100).toFixed(0)}%%
-§r${COLORS.green}Cost ---
-
-§r${COLORS.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
-    `);
-}
-
-/**
- * Displays a normal status label in the machine (green).
- *
- * Does not reset the machine progress.
- *
- * @param {string} message The status text to display.
- */
-function showStatus(machine, speed, message) {
-    machine.displayEnergy();
-    machine.setLabel(`
-§r${COLORS.darkGreen}${message}!
-
-§r${COLORS.green}Speed x${speed}
-§r${COLORS.green}Efficiency ${((1 / machine.boosts.consumption) * 100).toFixed(0)}%%
-§r${COLORS.green}Cost ${EnergyStorage.formatEnergyToText(machine.settings.machine.energy_cost * machine.boosts.consumption)}
-
-§r${COLORS.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
-    `);
 }

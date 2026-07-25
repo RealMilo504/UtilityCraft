@@ -1,5 +1,5 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { EnergyStorage, Machine, registerIOInterface } from "DoriosCore/index.js"
+import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { sieveRecipes } from "../../config/recipes/sieve.js";
 
 const INPUT_SLOT = 3
@@ -53,13 +53,13 @@ DoriosLib.registry.blockComponent('utilitycraft:autosieve', {
         // Get the input slot (slot 3 in this case)
         const inputSlot = inv.getItem(INPUT_SLOT);
         if (!inputSlot) {
-            showWarning(machine, 'No Input Item')
+            machine.showWarning('No Input Item')
             return;
         }
 
         const meshSlot = inv.getItem(MESH_SLOT)
         if (!meshSlot || !meshSlot?.hasComponent("utilitycraft:mesh")) {
-            showWarning(machine, 'No Mesh Item')
+            machine.showWarning('No Mesh Item')
             return;
         }
 
@@ -69,7 +69,7 @@ DoriosLib.registry.blockComponent('utilitycraft:autosieve', {
         // Validate recipe based on the input item
         const recipe = sieveRecipes[inputSlot?.typeId]
         if (!recipe) {
-            showWarning(machine, 'Invalid Block')
+            machine.showWarning('Invalid Block')
             return;
         }
 
@@ -83,13 +83,13 @@ DoriosLib.registry.blockComponent('utilitycraft:autosieve', {
 
         // Check how many items can still fit in the output slot
         if (filledSlots == 0) {
-            showWarning(machine, 'Output Full')
+            machine.showWarning('Output Full')
             return;
         }
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
-            showWarning(machine, 'No Energy')
+            machine.showWarning('No Energy')
             return;
         }
 
@@ -151,42 +151,10 @@ DoriosLib.registry.blockComponent('utilitycraft:autosieve', {
         // Update machine visuals and state
         machine.on();
         machine.displayProgress();
-        showStatus(machine, 'Running')
+        machine.showStatus('Running')
 
     },
     onPlayerBreak(e) {
         Machine.onDestroy(e);
     }
 });
-
-function showWarning(machine, message, options) {
-    options ??= {};
-    if (options.resetProgress !== false) {
-        machine.setProgress(0, { ...options, display: options.displayProgress !== false });
-    }
-
-    machine.displayEnergy();
-    machine.off();
-    machine.setLabel(`
-§r${DoriosLib.text.FORMAT.yellow}${message}!
-
-§r${DoriosLib.text.FORMAT.green}Speed x${machine.boosts.speed.toFixed(2)}
-§r${DoriosLib.text.FORMAT.green}Efficiency x${(1 / machine.boosts.consumption).toFixed(2)}
-§r${DoriosLib.text.FORMAT.green}Cost ---
-
-§r${DoriosLib.text.FORMAT.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
-`);
-}
-
-function showStatus(machine, message) {
-    machine.displayEnergy();
-    machine.setLabel(`
-§r${DoriosLib.text.FORMAT.darkGreen}${message}!
-
-§r${DoriosLib.text.FORMAT.green}Speed x${machine.boosts.speed.toFixed(2)}
-§r${DoriosLib.text.FORMAT.green}Efficiency x${(1 / machine.boosts.consumption).toFixed(2)}
-§r${DoriosLib.text.FORMAT.green}Cost ${EnergyStorage.formatEnergyToText(machine.getEnergyCost() * machine.boosts.consumption)}
-
-§r${DoriosLib.text.FORMAT.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
-    `);
-}

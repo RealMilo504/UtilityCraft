@@ -40,7 +40,7 @@ const RESOURCE_METADATA = {
 };
 
 /** @typedef {"items"|"liquids"|"gases"} LinkNodeResource */
-/** @typedef {{id:string,label:string,values:number[]}} LinkNodeIOGroup */
+/** @typedef {{id:string,label:string,color:string,values:number[]}} LinkNodeIOGroup */
 /** @typedef {{anyInput:number[],anyOutput:number[],inputs:LinkNodeIOGroup[],outputs:LinkNodeIOGroup[]}} LinkNodeResourceDefinition */
 /** @typedef {Partial<Record<LinkNodeResource,LinkNodeResourceDefinition>>} LinkNodeIODefinition */
 
@@ -122,13 +122,19 @@ export async function openLinkNodeIOForm(block, player) {
     const prefix = sections.length > 1 ? `${section.metadata.title} - ` : "";
     form.dropdown(
       `${prefix}Input to`,
-      ["Disabled", ...section.definition.inputs.map((group) => group.label)],
-      { defaultValueIndex: getSelectedIndex(linked.entity, block.location, section, "input") },
+      ["§8Disabled§r", ...section.definition.inputs.map((group) => `${group.color}${group.label}§r`)],
+      {
+        defaultValueIndex: getSelectedIndex(linked.entity, block.location, section, "input"),
+        tooltip: `${section.metadata.title} entering through this node will be routed to the selected input group.`,
+      },
     );
     form.dropdown(
       `${prefix}Output from`,
-      ["Disabled", ...section.definition.outputs.map((group) => group.label)],
-      { defaultValueIndex: getSelectedIndex(linked.entity, block.location, section, "output") },
+      ["§8Disabled§r", ...section.definition.outputs.map((group) => `${group.color}${group.label}§r`)],
+      {
+        defaultValueIndex: getSelectedIndex(linked.entity, block.location, section, "output"),
+        tooltip: `${section.metadata.title} leaving through this node will be taken from the selected output group.`,
+      },
     );
   }
   form.submitButton("Save");
@@ -172,8 +178,8 @@ export async function openLinkNodeIOForm(block, player) {
 function normalizeResourceDefinition(value, resource) {
   if (!isPlainObject(value)) throw new TypeError(`${resource} definition must be an object`);
   const metadata = RESOURCE_METADATA[resource];
-  const inputs = normalizeGroups(value.inputs, `${resource}.inputs`);
-  const outputs = normalizeGroups(value.outputs, `${resource}.outputs`);
+  const inputs = normalizeGroups(value.inputs, `${resource}.inputs`, "§9");
+  const outputs = normalizeGroups(value.outputs, `${resource}.outputs`, "§c");
   const anyInput = normalizeValues(value[metadata.anyInput], `${resource}.${metadata.anyInput}`);
   const anyOutput = normalizeValues(value[metadata.anyOutput], `${resource}.${metadata.anyOutput}`);
 
@@ -182,8 +188,8 @@ function normalizeResourceDefinition(value, resource) {
   return { anyInput, anyOutput, inputs, outputs };
 }
 
-/** @param {unknown} value @param {string} path @returns {LinkNodeIOGroup[]} */
-function normalizeGroups(value, path) {
+/** @param {unknown} value @param {string} path @param {string} defaultColor @returns {LinkNodeIOGroup[]} */
+function normalizeGroups(value, path, defaultColor) {
   if (!Array.isArray(value)) throw new TypeError(`${path} must be an array`);
   const groups = [];
   const ids = new Set();
@@ -194,6 +200,9 @@ function normalizeGroups(value, path) {
       throw new TypeError(`${path}[${index}].id must be a valid non-empty ID`);
     }
     if (ids.has(entry.id)) throw new RangeError(`${path} contains duplicate ID ${entry.id}`);
+    if (entry.color !== undefined && (typeof entry.color !== "string" || !/^§[0-9a-v]$/.test(entry.color))) {
+      throw new TypeError(`${path}[${index}].color must be one Minecraft color code`);
+    }
     const values = normalizeValues(entry.slots ?? entry.indices, `${path}[${index}]`);
     if (values.length === 0) throw new RangeError(`${path}[${index}] cannot be empty`);
     const signature = values.join(",");
@@ -203,6 +212,7 @@ function normalizeGroups(value, path) {
     groups.push({
       id: entry.id,
       label: typeof entry.label === "string" && entry.label.length > 0 ? entry.label : entry.id,
+      color: entry.color ?? defaultColor,
       values,
     });
   }
@@ -310,7 +320,7 @@ function cloneDefinition(definition) {
 
 /** @param {LinkNodeIOGroup} group */
 function cloneGroup(group) {
-  return { id: group.id, label: group.label, values: [...group.values] };
+  return { id: group.id, label: group.label, color: group.color, values: [...group.values] };
 }
 
 /** @param {import("@minecraft/server").Player} player @param {string} message */
