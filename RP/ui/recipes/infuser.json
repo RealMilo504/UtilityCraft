@@ -1891,14 +1891,18 @@
                     "input@uc.infuser_recipe_input": {
                       "$slot_item_texture": "textures/blocks/obsidian",
                       "$slot_hover_text": "tile.obsidian.name",
-                      "$has_slot_hover": true
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "8",
+                      "$has_slot_count": true
                     }
                   },
                   {
                     "output@uc.infuser_recipe_output": {
                       "$slot_item_texture": "textures/blocks/crying_obsidian",
                       "$slot_hover_text": "tile.crying_obsidian.name",
-                      "$has_slot_hover": true
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "8",
+                      "$has_slot_count": true
                     }
                   }
                 ]

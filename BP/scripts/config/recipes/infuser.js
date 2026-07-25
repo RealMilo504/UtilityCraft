@@ -156,6 +156,8 @@ const infuserRecipesRegister = {
   "minecraft:ghast_tear|minecraft:obsidian": { // Crying Obsidian
     output: "minecraft:crying_obsidian",
     required: 1,
+    input_required: 8,
+    amount: 8,
   },
   "minecraft:coal_block|minecraft:iron_block": { // Steel Block
     output: "utilitycraft:steel_block",
