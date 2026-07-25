@@ -1,8 +1,13 @@
-import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, system, world } from "@minecraft/server";
 import * as Constants from "./constants.js";
-import * as MachineryConstants from "./machinery/constants.js";
-import { FluidStorage, GasStorage, Generator, Machine, MachineUpgradeRegistry } from "DoriosCore/index.js";
+import {
+    createResourceLore,
+    FluidStorage,
+    GasStorage,
+    Generator,
+    Machine,
+    MachineUpgradeRegistry,
+} from "DoriosCore/index.js";
 import { TickScheduler } from "./machinery/tickScheduler.js";
 
 export const scriptEventHandler = {
@@ -89,18 +94,13 @@ export const scriptEventHandler = {
                 return;
             }
 
-            const fluid = new FluidStorage(entity);
             const blockItemId = block.typeId;
             const blockItem = new ItemStack(blockItemId);
-            const lore = [];
-
-            // Fluid lore
-            if (fluid.type !== MachineryConstants.EMPTY_FLUID_TYPE && fluid.get() > 0) {
-                const liquidName = DoriosLib.text.capitalizeFirst(fluid.type);
-                lore.push(
-                    `§r§7  ${liquidName}: ${FluidStorage.formatFluid(fluid.get())}/${FluidStorage.formatFluid(fluid.cap)}`,
-                );
-            }
+            const lore = createResourceLore(entity, {
+                energy: false,
+                fluids: true,
+                gases: false,
+            });
             if (lore.length > 0) blockItem.setLore(lore);
 
             const dropPos = block.center();

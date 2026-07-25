@@ -963,6 +963,45 @@ export class GasStorage {
   static getTankCapacity(typeId: string): number;
 }
 
+/** One indexed fluid or gas entry persisted on a block item. */
+export interface StoredResourceEntry {
+  index: number;
+  type: string;
+  amount: number;
+}
+
+/** Stack-safe resource state decoded from machine or tank lore. */
+export interface StoredResourceSnapshot {
+  energy: number;
+  fluids: StoredResourceEntry[];
+  gases: StoredResourceEntry[];
+}
+
+/** Invisible formatting-code prefixes used to identify resource lore. */
+export const RESOURCE_LORE_MARKERS: Readonly<{
+  energy: "§e§r";
+  fluid: "§l§r";
+  gas: "§g§r";
+}>;
+
+export function buildEnergyLoreLine(amount: number, cap: number): string;
+export function buildFluidLoreLine(index: number, type: string, amount: number, cap: number): string;
+export function buildGasLoreLine(index: number, type: string, amount: number, cap: number): string;
+export function createResourceLore(
+  entity: Entity,
+  options?: { energy?: boolean; fluids?: boolean; gases?: boolean },
+): string[];
+export function parseResourceLore(lore: readonly string[]): StoredResourceSnapshot;
+export function getResourcesFromItem(item: ItemStack | undefined): StoredResourceSnapshot;
+export function restoreResourceSnapshot(
+  snapshot: StoredResourceSnapshot,
+  managers?: {
+    energy?: EnergyStorage;
+    fluids?: FluidStorage[];
+    gases?: GasStorage[];
+  },
+): void;
+
 /** Config for a machinery scheduler refresh profile. */
 export interface SchedulerProfileConfig {
   /** Human-readable profile label. */

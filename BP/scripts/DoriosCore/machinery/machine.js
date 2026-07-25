@@ -4,6 +4,11 @@ import * as Constants from "./constants.js";
 import { EnergyStorage } from "./energyStorage";
 import { FluidStorage } from "./fluidStorage";
 import { GasStorage } from "./gasStorage.js";
+import {
+  createResourceLore,
+  getResourcesFromItem,
+  restoreResourceSnapshot,
+} from "./resourceLore.js";
 import { BasicMachine } from "./basicMachine";
 import { OutputTracker } from "./outputTracker.js";
 import { resolveItemContainerAt } from "./itemContainers.js";
@@ -83,31 +88,9 @@ export class Machine extends BasicMachine {
     const entity = dim.getEntitiesAtBlockLocation(block.location)[0];
     if (!entity) return false;
 
-    const energy = new EnergyStorage(entity);
-    const fluid = new FluidStorage(entity);
-    const supportsGas = entity.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:gas_container") === true;
-    const gas = supportsGas ? new GasStorage(entity) : undefined;
     const blockItemId = brokenBlockPermutation.type.id;
     const blockItem = new ItemStack(blockItemId);
-    const lore = [];
-
-    // Energy lore
-    if (energy.get() > 0) {
-      lore.push(`§r§7  Energy: ${EnergyStorage.formatEnergyToText(energy.get())}/${EnergyStorage.formatEnergyToText(energy.cap)}`);
-    }
-
-    if (fluid.type != Constants.EMPTY_FLUID_TYPE && fluid.get() > 0) {
-      const liquidName = DoriosLib.text.capitalizeFirst(fluid.type);
-      const storedFluid = fluid.type === "xp"
-        ? `${Math.floor(fluid.get())} mB`
-        : FluidStorage.formatFluid(fluid.get());
-      lore.push(`§r§7  ${liquidName}: ${storedFluid}/${FluidStorage.formatFluid(fluid.cap)}`);
-    }
-
-    if (gas && gas.type !== Constants.EMPTY_GAS_TYPE && gas.get() > 0) {
-      const gasName = DoriosLib.text.capitalizeFirst(gas.type);
-      lore.push(`§r§7  Gas (${gasName}): ${GasStorage.formatGas(gas.get())}/${GasStorage.formatGas(gas.cap)}`);
-    }
+    const lore = createResourceLore(entity);
 
     if (lore.length > 0) {
       blockItem.setLore(lore);
@@ -157,9 +140,7 @@ export class Machine extends BasicMachine {
   static spawnEntity(e, config, callback) {
     const { block, player, permutationToPlace } = e;
     const mainHand = player.getComponent("equippable").getEquipment("Mainhand");
-    const { energy, fluid } = Utils.getEnergyAndFluidFromItem(mainHand);
-    const gasLine = mainHand?.getLore()?.find((line) => line.replace(/§./g, "").trim().startsWith("Gas ("));
-    const gas = gasLine ? GasStorage.getGasFromText(gasLine) : undefined;
+    const storedResources = getResourcesFromItem(mainHand);
 
     // Machine specific: rotation handling
     if (config.rotation) {
@@ -178,30 +159,26 @@ export class Machine extends BasicMachine {
       const entity = Utils.spawnEntity(block, config);
       const energyManager = new EnergyStorage(entity);
       energyManager.setCap(config.machine.energy_cap);
-      energyManager.set(energy);
-      energyManager.display();
+      let fluidManagers = [];
+      let gasManagers = [];
 
       if (config.machine.fluid_cap) {
         const fluidCount = Math.max(1, Math.floor(config.machine.fluid_types ?? 1));
-        const fluidManagers = FluidStorage.initializeMultiple(entity, fluidCount);
+        fluidManagers = FluidStorage.initializeMultiple(entity, fluidCount);
         for (const manager of fluidManagers) manager.setCap(config.machine.fluid_cap);
-        const fluidManager = fluidManagers[0];
-        fluidManager.display();
-
-        if (fluid && fluid.amount > 0) {
-          fluidManager.setType(fluid.type);
-          fluidManager.set(fluid.amount);
-        }
       }
       if (config.machine.gas_cap) {
         const gasCount = Math.max(1, Math.floor(config.machine.gas_types ?? 1));
-        const gasManagers = GasStorage.initializeMultiple(entity, gasCount);
+        gasManagers = GasStorage.initializeMultiple(entity, gasCount);
         for (const manager of gasManagers) manager.setCap(config.machine.gas_cap);
-        if (gas && gas.amount > 0) {
-          gasManagers[0].setType(gas.type);
-          gasManagers[0].set(gas.amount);
-        }
       }
+      restoreResourceSnapshot(storedResources, {
+        energy: energyManager,
+        fluids: fluidManagers,
+        gases: gasManagers,
+      });
+      energyManager.display();
+      fluidManagers[0]?.display();
       if (config.machine.gas_cap && config.machine.fluid_cap) {
         entity.triggerEvent("utilitycraft:fluid_gas_machine");
       } else if (config.machine.gas_cap) {

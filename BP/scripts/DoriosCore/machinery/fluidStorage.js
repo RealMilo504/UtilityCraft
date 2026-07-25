@@ -310,7 +310,7 @@ export class FluidStorage {
   static getFluidFromText(input) {
     const cleaned = input.replace(/§./g, "").trim();
 
-    const match = cleaned.match(/([^:]+):\s*([\d.]+)\s*(mB|B|kB|MB|GB|TB|PB|EB)/i);
+    const match = cleaned.match(/([^:]+):\s*([\d.]+(?:e[+-]?\d+)?)\s*(mB|B|kB|MB|GB|TB|PB|EB)/i);
     if (!match) return { type: "empty", amount: 0 };
 
     const [, rawType, rawValue, unit] = match;

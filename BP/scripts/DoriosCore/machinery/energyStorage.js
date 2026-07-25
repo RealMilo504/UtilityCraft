@@ -176,7 +176,7 @@ export class EnergyStorage {
     // Remove Minecraft formatting codes
     const cleanedInput = input.replace(/§[0-9a-frklmnor]/gi, "");
 
-    const matches = [...cleanedInput.matchAll(/([\d.]+)\s*(PDE|TDE|GDE|MDE|KDE|DE)/gi)];
+    const matches = [...cleanedInput.matchAll(/([\d.]+(?:e[+-]?\d+)?)\s*(PDE|TDE|GDE|MDE|KDE|DE)/gi)];
 
     if (!matches.length || index < 0 || index >= matches.length) {
       return

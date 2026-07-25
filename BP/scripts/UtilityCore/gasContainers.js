@@ -1,6 +1,12 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { GasStorage, Generator, Rotation } from "DoriosCore/index.js"
-import { system, ItemStack, world } from '@minecraft/server'
+import {
+    buildGasLoreLine,
+    GasStorage,
+    Generator,
+    getResourcesFromItem,
+    Rotation,
+} from "DoriosCore/index.js"
+import { system, ItemStack } from '@minecraft/server'
 
 DoriosLib.registry.blockComponent("utilitycraft:gas_container", {
     onPlayerInteract({ block, player, face }) {
@@ -111,12 +117,20 @@ DoriosLib.registry.blockComponent("utilitycraft:gas_container", {
         const mainHand = DoriosLib.entity.getEquipment(player, 'Mainhand')
 
         if (params.type == 'tank') {
-            const itemInfo = mainHand.getLore()
-            const gasLine = (itemInfo.includes('Energy')) ? itemInfo[1] : itemInfo[0]
-            if (gasLine) {
-                const { type, amount } = GasStorage.getGasFromText(gasLine)
+            const resources = getResourcesFromItem(mainHand)
+            let gas = resources.gases.find(({ index }) => index === 0)
+            if (!gas) {
+                // Legacy gas-tank lore did not include the "Gas (...)" wrapper,
+                // so the generic legacy reader cannot distinguish it from fluid.
+                const legacyLine = mainHand?.getLore?.().find((line) => line.replace(/§./g, "").includes("/"))
+                const legacyGas = legacyLine ? GasStorage.getGasFromText(legacyLine) : undefined
+                if (legacyGas?.type !== "empty" && legacyGas?.amount > 0) {
+                    gas = { index: 0, ...legacyGas }
+                }
+            }
+            if (gas) {
                 system.run(() => {
-                    GasStorage.addGasToTank(block, type, amount)
+                    GasStorage.addGasToTank(block, gas.type, gas.amount)
                 })
             }
         }
@@ -136,10 +150,7 @@ DoriosLib.registry.blockComponent("utilitycraft:gas_container", {
 
         // Gas lore
         if (gas.type !== 'empty' && gas.get() > 0) {
-            const gasName = DoriosLib.text.formatIdentifier(gas.type);
-            lore.push(
-                `§r§7  ${gasName}: ${GasStorage.formatGas(gas.get())}/${GasStorage.formatGas(gas.cap)}`
-            );
+            lore.push(buildGasLoreLine(0, gas.type, gas.get(), gas.getCap()));
         }
 
         if (lore.length > 0) {

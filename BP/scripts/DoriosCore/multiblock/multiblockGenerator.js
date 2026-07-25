@@ -1,9 +1,13 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { ItemStack, system } from "@minecraft/server";
+import { system } from "@minecraft/server";
 import { Generator } from "../machinery/generator.js";
 import { EnergyStorage } from "../machinery/energyStorage.js";
 import { FluidStorage } from "../machinery/fluidStorage.js";
 import { GasStorage } from "../machinery/gasStorage.js";
+import {
+  getResourcesFromItem,
+  restoreResourceSnapshot,
+} from "../machinery/resourceLore.js";
 import { ActivationManager } from "./activationManager.js";
 import { DeactivationManager } from "./deactivationManager.js";
 import { StructureDetector } from "./structureDetection.js";
@@ -59,34 +63,30 @@ export class MultiblockGenerator extends Generator {
     const { block, player } = e;
 
     const mainHand = player.getComponent("equippable").getEquipment("Mainhand")
-    const { energy, fluid } = Utils.getEnergyAndFluidFromItem(mainHand);
-    const gasLine = mainHand?.getLore()?.find((line) => line.replace(/§./g, "").trim().startsWith("Gas ("));
-    const gas = gasLine ? GasStorage.getGasFromText(gasLine) : undefined;
+    const storedResources = getResourcesFromItem(mainHand);
 
     system.run(() => {
       const entity = Utils.spawnEntity(block, { ...config, spawn_offset: { x: 0, y: -0.5, z: 0 } });
       const energyManager = new EnergyStorage(entity)
       energyManager.setCap(config?.generator?.energy_cap);
-      energyManager.set(energy);
-      energyManager.display();
+      let fluidManagers = [];
+      let gasManagers = [];
       if (config.generator.fluid_cap) {
-        const fluidManager = new FluidStorage(entity);
-        fluidManager.setCap(config.generator.fluid_cap);
-        fluidManager.display();
-
-        if (fluid && fluid.amount > 0) {
-          fluidManager.setType(fluid.type);
-          fluidManager.set(fluid.amount);
-        }
+        const fluidCount = Math.max(1, Math.floor(config.generator.fluid_types ?? 1));
+        fluidManagers = FluidStorage.initializeMultiple(entity, fluidCount);
+        for (const manager of fluidManagers) manager.setCap(config.generator.fluid_cap);
       }
       if (config.generator.gas_cap) {
-        const gasManagers = GasStorage.initializeMultiple(entity, Math.max(1, Math.floor(config.generator.gas_types ?? 1)));
+        gasManagers = GasStorage.initializeMultiple(entity, Math.max(1, Math.floor(config.generator.gas_types ?? 1)));
         for (const manager of gasManagers) manager.setCap(config.generator.gas_cap);
-        if (gas && gas.amount > 0) {
-          gasManagers[0].setType(gas.type);
-          gasManagers[0].set(gas.amount);
-        }
       }
+      restoreResourceSnapshot(storedResources, {
+        energy: energyManager,
+        fluids: fluidManagers,
+        gases: gasManagers,
+      });
+      energyManager.display();
+      fluidManagers[0]?.display();
       if (config.generator.gas_cap && config.generator.fluid_cap) {
         entity.triggerEvent("utilitycraft:fluid_gas_generator");
       } else if (config.generator.gas_cap) {

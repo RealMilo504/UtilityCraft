@@ -1,6 +1,12 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { FluidStorage, Generator, Rotation } from "DoriosCore/index.js"
-import { system, ItemStack, world } from '@minecraft/server'
+import {
+    buildFluidLoreLine,
+    FluidStorage,
+    Generator,
+    getResourcesFromItem,
+    Rotation,
+} from "DoriosCore/index.js"
+import { system, ItemStack } from '@minecraft/server'
 
 DoriosLib.registry.blockComponent("utilitycraft:fluid_container", {
     onPlayerInteract({ block, player, face }) {
@@ -111,12 +117,10 @@ DoriosLib.registry.blockComponent("utilitycraft:fluid_container", {
         const mainHand = DoriosLib.entity.getEquipment(player, 'Mainhand')
 
         if (params.type == 'tank') {
-            const itemInfo = mainHand.getLore()
-            const fluidLine = (itemInfo.includes('Energy')) ? itemInfo[1] : itemInfo[0]
-            if (fluidLine) {
-                const { type, amount } = FluidStorage.getFluidFromText(fluidLine)
+            const fluid = getResourcesFromItem(mainHand).fluids.find(({ index }) => index === 0)
+            if (fluid) {
                 system.run(() => {
-                    FluidStorage.addfluidToTank(block, type, amount)
+                    FluidStorage.addfluidToTank(block, fluid.type, fluid.amount)
                 })
             }
         }
@@ -136,10 +140,7 @@ DoriosLib.registry.blockComponent("utilitycraft:fluid_container", {
 
         // Fluid lore
         if (fluid.type !== 'empty' && fluid.get() > 0) {
-            const liquidName = DoriosLib.text.formatIdentifier(fluid.type);
-            lore.push(
-                `§r§7  ${liquidName}: ${FluidStorage.formatFluid(fluid.get())}/${FluidStorage.formatFluid(fluid.cap)}`
-            );
+            lore.push(buildFluidLoreLine(0, fluid.type, fluid.get(), fluid.getCap()));
         }
 
         if (lore.length > 0) {
