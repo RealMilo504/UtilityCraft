@@ -57,7 +57,7 @@ const pressRecipesRegister = {
   "minecraft:string": { output: "minecraft:wool", required: 4 },
   "minecraft:nether_wart": { output: "minecraft:nether_wart_block", required: 4 },
   "minecraft:magma_cream": { output: "minecraft:magma", required: 4 },
-  "minecraft:slime_ball": { output: "minecraft:slime", required: 4 },
+  "minecraft:slime_ball": { output: "minecraft:slime", required: 9 },
   "minecraft:stone": { output: "minecraft:deepslate", required: 4 },
   "utilitycraft:compressed_stone": { output: "utilitycraft:compressed_deepslate", required: 4, cost: 7200 },
   "utilitycraft:compressed_stone_2": { output: "utilitycraft:compressed_deepslate_2", required: 4, cost: 64800 },

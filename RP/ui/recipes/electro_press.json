@@ -1766,7 +1766,7 @@
                     "input@uc.electro_press_recipe_input": {
                       "$slot_hover_text": "item.slime_ball.name",
                       "$has_slot_hover": true,
-                      "$slot_count_text": "4",
+                      "$slot_count_text": "9",
                       "$has_slot_count": true,
                       "$slot_item_texture": "textures/items/slimeball"
                     }
