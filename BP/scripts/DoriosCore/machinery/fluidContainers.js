@@ -50,6 +50,7 @@ import {
  * @property {boolean} [exact] When true, nothing is inserted unless the full amount fits.
  */
 
+/** @type {number[]} */
 const EMPTY_INDICES = [];
 
 /**

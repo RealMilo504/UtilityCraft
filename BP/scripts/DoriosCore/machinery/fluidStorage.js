@@ -829,7 +829,7 @@ export class FluidStorage {
    *
    * @param {number} speed Total transfer speed limit (mB/tick).
    * @param {"nearest"|"farthest"|"round"} [mode="nearest"] Transfer mode.
-   * @param {Array<{x:number, y:number, z:number}>} nodes Precomputed network node positions.
+   * @param {Array<{x:number, y:number, z:number}>} [nodes] Precomputed network node positions.
    * @returns {number} Total amount of fluid transferred (in mB).
    */
   transferToNetwork(speed, mode = "nearest", nodes) {
@@ -1041,7 +1041,7 @@ export class FluidStorage {
    * @param {Block} block The block representing the tank.
    * @param {string} type The type of fluid to insert.
    * @param {number} amount Amount of fluid to insert in mB.
-   * @returns {Entity | undefined} The tank entity if insertion was successful.
+   * @returns {Entity | undefined | false} The tank entity if insertion was successful.
   */
   static addfluidToTank(block, type, amount) {
     const dim = block.dimension;

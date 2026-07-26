@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "audit:dorioscore": "node tools/audit-dorioscore-api.mjs",
     "generate:crops": "node tools/generate_bountiful_crops.mjs"
   },
   "dependencies": {

@@ -69,6 +69,7 @@ const validatedEntities = new Map();
 /** @type {Map<string,{blockTypeId:string,definitionRevision:number,signature:string}>} */
 const publishedEntities = new Map();
 
+/** @type {number[]} */
 const EMPTY_INDICES = [];
 let nextConfigRevision = 1;
 

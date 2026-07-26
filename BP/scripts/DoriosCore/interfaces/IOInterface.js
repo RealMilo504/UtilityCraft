@@ -89,11 +89,19 @@ const warnedTagConflicts = new Set();
  */
 
 /**
+ * @typedef {object} GasIOGroupConfig
+ * @property {number[]|[number, number]} [buttonSlots] Six face-button slots, explicit or inclusive range.
+ * @property {number[]} anyInputIndices Explicit fallback inputs when no face is available.
+ * @property {number[]} anyOutputIndices Explicit fallback outputs when no face is available.
+ * @property {Array<{id:string,inputIndices?:number[],outputIndices?:number[]}>} modes Ordered modes cycled by each face button.
+ */
+
+/**
  * @typedef {object} IOInterfaceConfig
  * @property {boolean} [invertFaces] Whether every visual face resolves to its opposite physical direction.
  * @property {ItemIOGroupConfig} [items] Item policy and optional face buttons.
  * @property {LiquidIOGroupConfig} [liquids] Fluid-index policy and optional face buttons.
- * @property {LiquidIOGroupConfig} [gases] Gas-index policy and optional face buttons.
+ * @property {GasIOGroupConfig} [gases] Gas-index policy and optional face buttons.
  */
 
 /**
@@ -220,7 +228,7 @@ function addLiquidButtons(buttons, blockTypeId, definition, registeredDefinition
  *
  * @param {Record<string, any>} buttons
  * @param {string} blockTypeId
- * @param {LiquidIOGroupConfig} definition
+ * @param {GasIOGroupConfig} definition
  * @param {import("./gasIO.js").GasIODefinition} registeredDefinition
  * @param {boolean} [invertFaces=false]
  */
@@ -258,10 +266,10 @@ function addGasButtons(buttons, blockTypeId, definition, registeredDefinition, i
  * not expose face controls.
  *
  * @param {string} blockTypeId Block identifier, e.g. `utilitycraft:infuser`.
- * @param {IOInterfaceConfig} [config={}] Item/liquid declaration.
+ * @param {IOInterfaceConfig} [config={}] Item, liquid, and gas declaration.
  * @returns {boolean} True when a backend group or visual interface was registered.
  */
-function registerIOInterfaceDefinition(blockTypeId, config = {}, sourceTag) {
+function registerIOInterfaceDefinition(blockTypeId, config = {}, sourceTag = undefined) {
   if (typeof blockTypeId !== "string" || blockTypeId.length === 0) return false;
 
   /** @type {Record<string, any>} */

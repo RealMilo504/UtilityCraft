@@ -44,7 +44,7 @@ export class BasicMachine {
    *
    * @param {import("@minecraft/server").Block} block The block representing the machine.
    * @param {Object} options Constructor options.
-   * @param {number} [options.rate=16] Base rate designed for 20 TPS logic.
+   * @param {number} options.rate Base rate designed for 20 TPS logic.
    * @param {boolean} [options.ignoreTick=false] Whether to bypass scheduler throttling.
    */
   constructor(block, options) {

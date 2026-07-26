@@ -56,6 +56,11 @@ function makeLine(prefix, label, stored, capacity) {
   throw new RangeError(`Resource lore line exceeds ${MAX_LORE_LINE_LENGTH} characters: ${stripFormatting(storedOnly)}`);
 }
 
+/**
+ * @param {number} amount Stored energy.
+ * @param {number} cap Maximum energy capacity.
+ * @returns {string} Encoded energy lore line.
+ */
 export function buildEnergyLoreLine(amount, cap) {
   return makeLine(
     RESOURCE_LORE_MARKERS.energy,
@@ -65,6 +70,13 @@ export function buildEnergyLoreLine(amount, cap) {
   );
 }
 
+/**
+ * @param {number} index Indexed fluid tank.
+ * @param {string} type Registered fluid type.
+ * @param {number} amount Stored fluid amount.
+ * @param {number} cap Maximum fluid capacity.
+ * @returns {string} Encoded fluid lore line.
+ */
 export function buildFluidLoreLine(index, type, amount, cap) {
   const stored = type === "xp"
     ? `${Math.floor(amount)} mB`
@@ -77,6 +89,13 @@ export function buildFluidLoreLine(index, type, amount, cap) {
   );
 }
 
+/**
+ * @param {number} index Indexed gas tank.
+ * @param {string} type Registered gas type.
+ * @param {number} amount Stored gas amount.
+ * @param {number} cap Maximum gas capacity.
+ * @returns {string} Encoded gas lore line.
+ */
 export function buildGasLoreLine(index, type, amount, cap) {
   return makeLine(
     `${RESOURCE_LORE_MARKERS.gas}${encodeIndex(index)}`,
@@ -100,6 +119,10 @@ function hasIndexedTypeTag(entity, resource) {
 /**
  * Serializes every non-empty resource storage on an entity into stack-safe lore.
  * Resource kind and storage index are encoded with invisible formatting codes.
+ *
+ * @param {import("@minecraft/server").Entity} entity Resource-owning helper entity.
+ * @param {{energy?:boolean,fluids?:boolean,gases?:boolean}} [options] Resource sections to include.
+ * @returns {string[]} Encoded ItemStack lore lines.
  */
 export function createResourceLore(entity, options = {}) {
   const includeEnergy = options.energy !== false;
@@ -152,6 +175,9 @@ function setIndexedResource(target, entry) {
 
 /**
  * Reads current marked lore and the former single-resource lore format.
+ *
+ * @param {readonly string[]} lore ItemStack lore lines.
+ * @returns {{energy:number,fluids:Array<{index:number,type:string,amount:number}>,gases:Array<{index:number,type:string,amount:number}>}}
  */
 export function parseResourceLore(lore) {
   const fluids = new Map();
@@ -205,6 +231,10 @@ export function parseResourceLore(lore) {
   };
 }
 
+/**
+ * @param {import("@minecraft/server").ItemStack|undefined} item Item whose resource lore should be decoded.
+ * @returns {{energy:number,fluids:Array<{index:number,type:string,amount:number}>,gases:Array<{index:number,type:string,amount:number}>}}
+ */
 export function getResourcesFromItem(item) {
   return parseResourceLore(item?.getLore?.() ?? []);
 }
@@ -221,7 +251,13 @@ function restoreIndexed(entries, managers) {
   }
 }
 
-/** Restores a parsed resource snapshot into already initialized managers. */
+/**
+ * Restores a parsed resource snapshot into already initialized managers.
+ *
+ * @param {{energy:number,fluids:Array<{index:number,type:string,amount:number}>,gases:Array<{index:number,type:string,amount:number}>}} snapshot
+ * @param {{energy?:EnergyStorage,fluids?:FluidStorage[],gases?:GasStorage[]}} [managers]
+ * @returns {void}
+ */
 export function restoreResourceSnapshot(snapshot, managers = {}) {
   const energyManager = managers.energy;
   if (energyManager) {

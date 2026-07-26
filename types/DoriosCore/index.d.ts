@@ -793,7 +793,7 @@ export class BasicMachine {
   displayProgress(maxValue?: number, options?: ProgressOptions): void;
   /** Draws the current energy bar using the attached {@link EnergyStorage}. */
   displayEnergy(slot?: number): void;
-  /** Processes configured item slots and fluid indices for every enabled face. */
+  /** Processes configured item slots plus fluid and gas indices for every enabled face. */
   processIO(limits?: ProcessIOLimits): ProcessIOSummary;
   /** Fills empty slots with blocker items so players cannot use them. */
   blockSlots(slots: number[]): void;
