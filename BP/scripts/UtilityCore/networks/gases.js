@@ -332,6 +332,65 @@ function persistExporterRuntime(runtime) {
   return runtime.persistenceReady;
 }
 
+/**
+ * Returns portable gas-extractor settings without copying network routes.
+ *
+ * @param {Block} block
+ * @param {{includeFilters?:boolean}} [options]
+ * @returns {{version:number,enabled:boolean,mode:"nearest"|"farthest"|"round",filter?:{mode:"whitelist"|"blacklist",gases:string[]}}|undefined}
+ */
+export function getGasExtractorCopyConfig(block, options = {}) {
+  if (!block?.hasTag("dorios:isExporter") || !block.hasTag("dorios:gas")) return undefined;
+
+  const runtime = getExporterRuntime(block);
+  const includeFilters = options.includeFilters !== false && hasFilterUpgrade(block);
+  return {
+    version: NETWORK_VERSION,
+    enabled: runtime.document.enabled,
+    mode: runtime.document.mode,
+    ...(includeFilters ? {
+      filter: {
+        mode: runtime.document.filter.mode,
+        gases: [...runtime.filterGases],
+      },
+    } : {}),
+  };
+}
+
+/**
+ * Applies portable settings to a gas extractor while preserving topology.
+ *
+ * @param {Block} block
+ * @param {unknown} value
+ * @param {{includeFilters?:boolean}} [options]
+ * @returns {boolean}
+ */
+export function applyGasExtractorCopyConfig(block, value, options = {}) {
+  if (!block?.hasTag("dorios:isExporter") || !block.hasTag("dorios:gas")) return false;
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+
+  const runtime = getExporterRuntime(block);
+  const raw = /** @type {Record<string,unknown>} */ (value);
+  const includeFilters = options.includeFilters !== false && raw.filter !== undefined;
+  if (includeFilters && !hasFilterUpgrade(block)) return false;
+  const normalized = normalizeExporterDocument({
+    ...runtime.document,
+    enabled: raw.enabled,
+    mode: raw.mode,
+    filter: includeFilters ? raw.filter : runtime.document.filter,
+    source: runtime.document.source,
+    targets: runtime.document.targets,
+  });
+
+  runtime.document.enabled = normalized.enabled;
+  runtime.document.mode = normalized.mode;
+  if (includeFilters) {
+    runtime.document.filter = normalized.filter;
+    runtime.filterGases = new Set(normalized.filter.gases);
+  }
+  return persistExporterRuntime(runtime);
+}
+
 /** @param {Dimension} dimension @param {Vector3} location */
 function deleteExporterState(dimension, location) {
   const key = exporterPropertyKey(dimension, location);
@@ -671,7 +730,7 @@ const gasExporterComponent = {
   onPlayerInteract({ block, player }) {
     if (player.isSneaking) return;
     const item = player.getComponent("equippable")?.getEquipment("Mainhand");
-    if (item?.typeId === "utilitycraft:wrench") return;
+    if (item?.typeId === "utilitycraft:wrench" || item?.typeId === "utilitycraft:copy_paste_tool") return;
     if (item?.typeId?.includes("upgrade")) return;
     openGasExporterMenu(block, player);
   },

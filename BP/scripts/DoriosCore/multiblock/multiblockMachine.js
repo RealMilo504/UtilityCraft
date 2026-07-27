@@ -163,6 +163,7 @@ export class MultiblockMachine extends BasicMachine {
     const { block, player } = e;
     const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0];
     const mainHandTypeId = DoriosLib.entity.getEquipment(player, "Mainhand")?.typeId ?? "";
+    if (mainHandTypeId === "utilitycraft:copy_paste_tool") return;
     const isUsingWrench = mainHandTypeId.includes("wrench");
 
     if (!isUsingWrench) {

@@ -83,6 +83,11 @@ This update introduces a complete overhaul of machine interfaces, configurable s
 
 ## ITEMS
 ### General
+- Added the **Copy/Paste Tool**.
+  - Copies and pastes compatible settings from Item Exporters, Liquid and Gas Extractors, Mechanical Hoppers, Droppers, Uppers, machines, generators, and pipes.
+  - Sneak + Interact opens a localized menu to choose which Item, Liquid, Gas, filter, and direction settings are copied, switch between Copy and Paste modes, or clear the saved configuration.
+  - When direction copying is disabled, machine I/O is rotated relative to the target block so each configured face is preserved correctly.
+  - Pasting copied filters requires the target block to have a Filter Upgrade; otherwise, the operation is canceled with a **Missing Filter Upgrade** message.
 - Removed unused/paused items and blocks from creative menu.
 - Reworked how Accelerator Clocks works:
   - There are now three types of Accelerator Clocks: **Gold**, **Diamond** and **Nether Star**.

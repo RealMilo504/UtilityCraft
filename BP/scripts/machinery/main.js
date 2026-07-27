@@ -29,3 +29,4 @@ import "./generators/receiver.js";
 import "../UtilityCore/index.js";
 
 import "./wrench.js";
+import "./copyPasteTool.js";

@@ -149,6 +149,22 @@ export function isPipeFaceDisabled(block, direction) {
   return readDisabledFacesAt(block.dimension, block.location).has(direction);
 }
 
+/**
+ * Returns a portable snapshot of the pipe's manually disabled physical faces.
+ *
+ * @param {Block} block
+ * @returns {{version:number,disabled:PipeDirection[]}|undefined}
+ */
+export function getPipeFaceCopyConfig(block) {
+  if (!block?.hasTag("dorios:isTube")) return undefined;
+  const protectedDirection = getProtectedEndpointDirection(block);
+  return {
+    version: PIPE_FACE_DOCUMENT_VERSION,
+    disabled: [...readDisabledFacesAt(block.dimension, block.location)]
+      .filter((direction) => direction !== protectedDirection),
+  };
+}
+
 /** @param {Block} block */
 export function getProtectedEndpointDirection(block) {
   if (!block?.hasTag("dorios:isExporter") && !block?.hasTag("dorios:isImporter")) return undefined;
@@ -218,6 +234,29 @@ function setPipeFaceDisabled(block, direction, disabled) {
   if (disabled) faces.add(direction);
   else faces.delete(direction);
   return writeDisabledFacesAt(block.dimension, block.location, faces);
+}
+
+/**
+ * Replaces the pipe's disabled physical faces. Endpoint attachment faces are
+ * always protected, matching the wrench behavior.
+ *
+ * @param {Block} block
+ * @param {unknown} value
+ * @returns {boolean}
+ */
+export function applyPipeFaceCopyConfig(block, value) {
+  if (!block?.hasTag("dorios:isTube")) return false;
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+
+  const raw = /** @type {{disabled?:unknown}} */ (value);
+  const protectedDirection = getProtectedEndpointDirection(block);
+  /** @type {Set<PipeDirection>} */
+  const disabled = new Set();
+  for (const entry of Array.isArray(raw.disabled) ? raw.disabled : []) {
+    const direction = normalizePipeDirection(entry);
+    if (direction && direction !== protectedDirection) disabled.add(direction);
+  }
+  return writeDisabledFacesAt(block.dimension, block.location, disabled);
 }
 
 /**

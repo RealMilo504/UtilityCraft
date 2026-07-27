@@ -229,6 +229,105 @@ function dropFromHopper(source, dimension, dir, blockLocation, entity, hasFilter
   return moved;
 }
 
+const MECHANICAL_HOPPER_IDS = new Set([
+  "utilitycraft:mechanic_hopper",
+  "utilitycraft:mechanic_upper",
+  "utilitycraft:mechanic_dropper",
+  "utilitycraft:ender_hopper",
+]);
+
+/** @param {import("@minecraft/server").Block} block */
+function isMechanicalHopperBlock(block) {
+  return MECHANICAL_HOPPER_IDS.has(block?.typeId);
+}
+
+/**
+ * Returns portable mechanical-hopper settings. Upgrade block states are not
+ * copied; they remain owned by the target hopper.
+ *
+ * @param {import("@minecraft/server").Block} block
+ * @param {{includeFilters?:boolean}} [options]
+ * @returns {object|undefined}
+ */
+export function getMechanicalHopperCopyConfig(block, options = {}) {
+  if (!isMechanicalHopperBlock(block)) return undefined;
+  const entity = DoriosLib.block.getEntity(block);
+  if (!entity) return undefined;
+
+  const supportsMinecartPull = block.typeId === "utilitycraft:mechanic_hopper"
+    || block.typeId === "utilitycraft:mechanic_upper";
+  const isEnder = block.typeId === "utilitycraft:ender_hopper";
+  const includeFilters = options.includeFilters !== false
+    && block.permutation.getState("utilitycraft:filter") === 1;
+  const config = {
+    version: 1,
+    ...(includeFilters ? {
+      whitelist: entity.getDynamicProperty("utilitycraft:whitelistOn") === true,
+      items: [...entity.getTags()],
+    } : {}),
+    ...(supportsMinecartPull ? { minecartPullEnabled: isMinecartPullEnabled(entity) } : {}),
+    ...(isEnder ? {
+      enabled: entity.getDynamicProperty("isOff") !== true,
+      range: Number(entity.getDynamicProperty("range_selected") ?? 0),
+    } : {}),
+  };
+  return Object.keys(config).length > 1 ? config : undefined;
+}
+
+/**
+ * Applies compatible mechanical-hopper settings to the target entity.
+ *
+ * @param {import("@minecraft/server").Block} block
+ * @param {unknown} value
+ * @param {{includeFilters?:boolean}} [options]
+ * @returns {boolean}
+ */
+export function applyMechanicalHopperCopyConfig(block, value, options = {}) {
+  if (!isMechanicalHopperBlock(block)) return false;
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const entity = DoriosLib.block.getEntity(block);
+  if (!entity) return false;
+
+  const raw = /** @type {Record<string,unknown>} */ (value);
+  const includesFilters = options.includeFilters !== false
+    && (Array.isArray(raw.items) || Object.hasOwn(raw, "whitelist"));
+  if (includesFilters && block.permutation.getState("utilitycraft:filter") !== 1) return false;
+  let changed = false;
+  if (typeof raw.whitelist === "boolean") {
+    entity.setDynamicProperty("utilitycraft:whitelistOn", raw.whitelist);
+    changed = true;
+  }
+
+  const supportsMinecartPull = block.typeId === "utilitycraft:mechanic_hopper"
+    || block.typeId === "utilitycraft:mechanic_upper";
+  if (supportsMinecartPull && typeof raw.minecartPullEnabled === "boolean") {
+    entity.setDynamicProperty(MINECART_PULL_PROPERTY, raw.minecartPullEnabled);
+    changed = true;
+  }
+
+  if (block.typeId === "utilitycraft:ender_hopper") {
+    if (typeof raw.enabled === "boolean") {
+      entity.setDynamicProperty("isOff", !raw.enabled);
+      changed = true;
+    }
+    if (Number.isFinite(raw.range)) {
+      const rangeUpgrade = Number(DoriosLib.block.getState(block, "utilitycraft:range") ?? 0);
+      const maxRange = 3 + 2 * Math.max(0, Math.min(4, Math.floor(rangeUpgrade)));
+      entity.setDynamicProperty("range_selected", Math.max(0, Math.min(maxRange, Number(raw.range))));
+      changed = true;
+    }
+  }
+
+  if (options.includeFilters !== false && Array.isArray(raw.items)) {
+    for (const tag of entity.getTags()) entity.removeTag(tag);
+    for (const itemId of raw.items) {
+      if (typeof itemId === "string" && itemId.length > 0) entity.addTag(itemId);
+    }
+    changed = true;
+  }
+  return changed;
+}
+
 DoriosLib.registry.blockComponent("utilitycraft:mechanic_hopper", {
   onTick({ block, dimension }, { params }) {
     if (!worldLoaded) return;
@@ -370,7 +469,7 @@ DoriosLib.registry.blockComponent("utilitycraft:mechanic_hopper", {
     const hasFilter = block.permutation.getState("utilitycraft:filter");
 
     const mainHand = player.getComponent("equippable").getEquipment("Mainhand");
-    if (mainHand?.typeId.includes("wrench")) return;
+    if (mainHand?.typeId.includes("wrench") || mainHand?.typeId === "utilitycraft:copy_paste_tool") return;
     if (player.isSneaking && params.type === "ender") {
       openEnderHopperMenu(block, player);
       return;

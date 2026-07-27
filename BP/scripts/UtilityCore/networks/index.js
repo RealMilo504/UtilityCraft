@@ -3,16 +3,22 @@
 export { updateNetworksAt } from "./listener.js";
 export { rescanEnergyNetwork, scheduleEnergyNetworkRescan } from "./energy.js";
 export {
+  applyFluidExtractorCopyConfig,
+  getFluidExtractorCopyConfig,
   reconcileMovedFluidNodes,
   rescanFluidNetwork,
   scheduleFluidNetworkRescan,
 } from "./fluids.js";
 export {
+  applyGasExtractorCopyConfig,
+  getGasExtractorCopyConfig,
   reconcileMovedGasNodes,
   rescanGasNetwork,
   scheduleGasNetworkRescan,
 } from "./gases.js";
 export {
+  applyItemExporterCopyConfig,
+  getItemExporterCopyConfig,
   invalidateItemContainerAt,
   invalidateItemContainerConfig,
   reconcileMovedItemNodes,

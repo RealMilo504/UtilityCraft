@@ -239,6 +239,9 @@
 		"utilitycraft_wrench": {
 			"textures": "textures/items/tools/wrench"
 		},
+		"utilitycraft_copy_paste_tool": {
+			"textures": "textures/items/tools/copy_paste_tool"
+		},
 		"utilitycraft_nether_star_seeds": {
 			"textures": "textures/items/seeds/nether_star_seeds"
 		},

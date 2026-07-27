@@ -15,6 +15,7 @@ DoriosLib.registry.blockComponent("utilitycraft:fluid_container", {
 
         const dim = block.dimension;
         const entity = dim.getEntitiesAtBlockLocation(block.location)[0];
+        if (mainHand?.typeId === 'utilitycraft:copy_paste_tool') return;
         if (mainHand?.typeId?.includes('wrench')) {
             if (!player.isSneaking) {
                 if (entity && block.hasTag('dorios:generator')) Generator.openGeneratorTransferModeMenu(entity, player)

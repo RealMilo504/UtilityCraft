@@ -84,7 +84,8 @@ export function getDirectionBetween(source, target) {
  */
 export function getBlockFacingDirection(block) {
   const vanillaFacing = block?.permutation?.getState?.("minecraft:facing_direction")
-    ?? block?.permutation?.getState?.("minecraft:cardinal_direction");
+    ?? block?.permutation?.getState?.("minecraft:cardinal_direction")
+    ?? block?.permutation?.getState?.("minecraft:block_face");
   if (DIRECTIONS.includes(vanillaFacing)) return vanillaFacing;
 
   const legacyOutputAxis = block?.permutation?.getState?.("utilitycraft:axis");

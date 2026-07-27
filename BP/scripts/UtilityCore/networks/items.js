@@ -404,6 +404,67 @@ function persistExporterRuntime(runtime) {
   return runtime.persistenceReady;
 }
 
+/**
+ * Returns the portable settings owned by an item exporter. Network endpoints
+ * are deliberately excluded because they belong to the exporter's location.
+ *
+ * @param {Block} block
+ * @param {{includeFilters?:boolean}} [options]
+ * @returns {{version:number,enabled:boolean,mode:"nearest"|"farthest"|"round",filter?:{mode:"whitelist"|"blacklist",items:string[]}}|undefined}
+ */
+export function getItemExporterCopyConfig(block, options = {}) {
+  if (!block?.hasTag("dorios:isExporter") || !block.hasTag("dorios:item")) return undefined;
+
+  const runtime = getExporterRuntime(block);
+  const includeFilters = options.includeFilters !== false && hasFilterUpgrade(block);
+  return {
+    version: NETWORK_VERSION,
+    enabled: runtime.document.enabled,
+    mode: runtime.document.mode,
+    ...(includeFilters ? {
+      filter: {
+        mode: runtime.document.filter.mode,
+        items: [...runtime.filterItems],
+      },
+    } : {}),
+  };
+}
+
+/**
+ * Applies portable settings to an item exporter while retaining its source
+ * and target topology.
+ *
+ * @param {Block} block
+ * @param {unknown} value
+ * @param {{includeFilters?:boolean}} [options]
+ * @returns {boolean}
+ */
+export function applyItemExporterCopyConfig(block, value, options = {}) {
+  if (!block?.hasTag("dorios:isExporter") || !block.hasTag("dorios:item")) return false;
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+
+  const runtime = getExporterRuntime(block);
+  const raw = /** @type {Record<string,unknown>} */ (value);
+  const includeFilters = options.includeFilters !== false && raw.filter !== undefined;
+  if (includeFilters && !hasFilterUpgrade(block)) return false;
+  const normalized = normalizeExporterDocument({
+    ...runtime.document,
+    enabled: raw.enabled,
+    mode: raw.mode,
+    filter: includeFilters ? raw.filter : runtime.document.filter,
+    source: runtime.document.source,
+    targets: runtime.document.targets,
+  });
+
+  runtime.document.enabled = normalized.enabled;
+  runtime.document.mode = normalized.mode;
+  if (includeFilters) {
+    runtime.document.filter = normalized.filter;
+    runtime.filterItems = new Set(normalized.filter.items);
+  }
+  return persistExporterRuntime(runtime);
+}
+
 /** @param {Dimension} dimension @param {Vector3} location */
 function getImporterRuntime(dimension, location) {
   const key = importerPropertyKey(dimension, location);
@@ -828,7 +889,7 @@ const exporterComponent = {
   onPlayerInteract({ block, player }) {
     if (player.isSneaking) return;
     const item = player.getComponent("equippable")?.getEquipment("Mainhand");
-    if (item?.typeId === "utilitycraft:wrench") return;
+    if (item?.typeId === "utilitycraft:wrench" || item?.typeId === "utilitycraft:copy_paste_tool") return;
     if (item?.typeId?.includes("upgrade")) return;
     openExporterMenu(block, player);
   },
@@ -865,7 +926,7 @@ const importerComponent = {
   onPlayerInteract({ block, player }) {
     if (player.isSneaking) return;
     const item = player.getComponent("equippable")?.getEquipment("Mainhand");
-    if (item?.typeId === "utilitycraft:wrench") return;
+    if (item?.typeId === "utilitycraft:wrench" || item?.typeId === "utilitycraft:copy_paste_tool") return;
     if (item?.typeId?.includes("upgrade")) return;
     openImporterMenu(block, player);
   },
