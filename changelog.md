@@ -1,278 +1,234 @@
-# UtilityCraft v3.5.0
+# UtilityCraft v3.5.0.03
 
-This is the complete changelog for the changes introduced after v3.4.5.
+This update introduces a complete overhaul of machine interfaces, configurable side-based I/O, Recipe Books, major automation improvements, performance improvements, MANY reworks and many QoL changes.
 
-## SUMMARY
+## HIGHLIGHTS
+- Completely redesigned machine interfaces.
+  - Added a configurable per-side Item, Liquid and Gas (I/O) Input/Output.
+  - Added **Recipe Books** to multiple machines.
+- Improved automation and cable-network performance.
+- Reworked Item and Liquid Pipe systems.
+- Reworked Bonsais with better visuals and safer item handling.
+- Reworked Way Center and its components wtih safer handling and use.
+- Reworked XP Condenser with a new interface and functionality.
 
-- Completely redesigned machine and generator interfaces with clearer layouts, colored slots, resource displays, and expandable side panels.
-- Added an in-machine Recipe Book for the Infuser, Crusher, Electro Press, Autosieve, Autofisher, Magmatic Chamber, and Seed Synthesizer.
-- Added dedicated Information, Upgrades, and Input/Output panels to supported machine screens.
-- Added configurable per-face item, liquid, and gas I/O, including machines with multiple input and output modes.
-- Reworked item, liquid, energy, and gas transport networks with persistent configuration menus, filtering, routing modes, and better performance.
-- Reworked Bonsais with dynamic growth times, optimized models, safer output handling, and more reliable soil and yield modifiers.
-- Reworked Bountiful Crops, crop harvesting, Accelerator Clocks, machine working-area previews, and Pedestal previews.
-- Reworked the XP Condenser into a proper liquid machine with internal XP storage and exact level-transfer controls.
-- Reworked the Way Center, Way Carpets, and Way Chips with safer teleportation, persistent destinations, localized menus, range limits, and level costs.
-- Reworked sieving, ore chunks, shards, pebbles, machine processing recipes, and early-game resource progression.
-- Added gas storage and transport, Creative resource sources, machine upgrade registries, overclock support, and generic linked-storage support.
-- Migrated the pack to DoriosLib and expanded creator APIs, registries, typings, and addon integration support.
+---
 
-## USER INTERFACE
+## BLOCKS
+### General
+- Added Crushed Blackstone
+- Added four levels of Compressed Crushed Blackstone
+- Area-based blocks, such as Pedestal with Clock, now show an outline briefly after being placed, indicating the area that will be affected by the block.
+  - Using a Wrench, it is possible to show the outline again, for an undefined amount of time.
+  - Harvester, Block Breaker and Block Placer are also affected by that.
+- Bountiful Crops
+  - Crops now support Fortune enchantment.
+- Reworked Bonsais:
+  - Improved performance by optimizing its model and scripts.
+  - Growth time now scales properly based on the used soil.
+  - No longer ejects its loot if the container below it is full.
 
-### Machine UI Overhaul
+### Generators
+- Wind Turbine
+  - Basic, Advanced, Expert
+    - Decreased maximum altitude multiplier from 3x (300%) to 2x (200%).
+  - Ultimate
+    - Decreased maximum altitude multiplier from 4x (400%) to 2.5x (250%).
 
-- Redesigned the interfaces for machines, generators, batteries, receivers, and transmitters.
-- Added a shared top bar and expandable right-side panels for Recipes, Upgrades, Input/Output configuration, and machine information.
-- Added clear open and close states for every side panel.
-- Added colored slot backgrounds so input, secondary input, output, fuel, blueprint, mesh, soil, seed, and upgrade slots are easier to identify.
-- Added clearer energy, liquid, gas, steam, temperature, and progress displays.
-- Added improved toggle buttons, hover states, panel backgrounds, tabs, connectors, icons, overlays, and separators.
-- Added localized hover text and clearer labels throughout machine screens.
-- Added information pages that explain what each supported machine does, which slots it uses, and which upgrades it accepts.
-- Renamed player-facing references to `Fluids` as `Liquids` for consistency.
-- Updated machine and generator interfaces to work with the new I/O system.
-- Updated machine blocks to use vanilla full-block geometry and per-face textures where possible.
-- Normalized and reorganized machine textures and other Resource Pack assets.
+### Machines
+- Completely redesigned every machine and generator interface.
+  - Added dedicated tabs for:
+    - **Information**: A small panel containing useful info about the machine
+    - **I/O Configuration**: A dedicated panel for controlling the input and output of items and fluids, replacing the function of the Smart Filter.
+    - **Upgrades**: A dedicated panel for upgrade slots.
+    - **Recipes**: A new panel including recipes, drops and other possible uses for a machine.
+- Machines are now compatible with custom upgrades, such as [Ascendant Technology](https://github.com/DoriosStudios/Ascendant-Technology)'s Hyper Processing Upgrade.
+- Machines can now be fully upgraded by interacting with them.
+  - While holding a supported upgrade, the player can interact with the machine to apply one upgrade. Interacting while sneaking will apply all upgrades of the same type.
+- Autosieve
+  - Changed most of its drops and progression line, including resources that weren't used anywhere in the addon.
+- Mechanical Hopper
+  - Improved its settings form and quick-settings flow.
+- Way Center
+  - Reworked its funcionality and interface.
+    - Balanced teleport cost and added max distance limits.
+    - Improved destination handling with a more precise and safer teleportation system.
+- XP Condenser
+  - Completely Reworked its interface and funcionality.
+    - No longer work with forms. Instead, it has a dedicated UI just like any other machine.
+    - No longer resets your XP.
+    - Now uses a fixed 256.0B tank instead of having four tank slots.
 
-### Recipe Book and Drop Tables
+### Transportation
+- Added Creative Blocks
+  - Creative blocks are used to provide infinite resources for testing and creative purposes.
+  - There are three types of creative blocks: **Creative Battery**, **Creative Liquid Tank** and **Creative Gas Tank**.
+- Added Gas Pipes
+  - Gas pipes are used to transport and extract gases from their containers, such as Gas Tanks.
+  - There are five colored gas pipes: **Purple** *(Default)*, **Blue**, **Yellow**, **Red** and **Green**.
+    - Just like items and liquids, different colored pipes cannot interfere with each other.
+- Added Gas Tanks
+  - Gas tanks are used to store gases, such as Steam, used by Heavy Machinery extension to store and control gas flow.
+  - There are four levels: Basic, Advanced, Expert and Ultimate.
+  - Their capacity are the same as their liquid counterparts, but they are not interchangeable.
+- Improved Exporter, Importer and Liquid Extractor interfaces.
+- Improved transfer caching and endpoint handling.
+- Reworked Item Conduits and Fluid Pipes around the new machine I/O system.
+  - Exporters and importers respect configured machine faces, preventing items from entering faces that are not input faces.
+  - Added native Item Ducts Redux compatibility through DoriosCore.
+  - Pipes can now be configured using a Wrench.
 
-- Added an embedded Recipe Book tab to the Infuser.
-- Added an embedded Recipe Book tab to the Crusher.
-- Added an embedded Recipe Book tab to the Electro Press.
-- Added an Autosieve drop-table tab.
-- Added an Autofisher loot-table tab.
-- Added a Magmatic Chamber recipe tab.
-- Added a Seed Synthesizer drop-table tab.
-- Added recipe separators, animated ingredient displays, output amounts, localized hover text, and recipe compatibility hooks.
-- Added support for displaying registered recipes from compatible addons.
-- Updated Recipe Book assets after the sieving and ore-processing rework.
-- Removed the visible recipe-batch label while keeping batch-processing support.
+## FLUIDS
+- Renamed Fluid terminology to Liquid.
 
-### Localization
+## ITEMS
+### General
+- Removed unused/paused items and blocks from creative menu.
+- Reworked how Accelerator Clocks works:
+  - There are now three types of Accelerator Clocks: **Gold**, **Diamond** and **Nether Star**.
+  - Gold Accelerator Clock:
+    - Replaced the old Accelerator Clock
+    - Has a 18% chance to jump forward a crop growth stage.
+  - Diamond Accelerator Clock:
+    - Has a 50% chance to jump forward a crop growth stage.
+  - Nether Star Clock:
+    - Will always jump forward a crop growth stage.
 
-- Localized machine UI labels instead of relying on hardcoded text.
-- Localized modal forms and action forms.
-- Localized the new Way Center and Way Chip menus.
-- Added localized messages for machine upgrades, item transport, liquid transport, gas transport, I/O configuration, and machine-area outlines.
-- Expanded new menu translations in English, Spanish (Spain and Mexico), and Portuguese (Brazil and Portugal).
+### Upgrades
+- Removed the Smart Filter Upgrade.
 
-## MACHINE INPUT/OUTPUT
+## RECIPES
+### General
+- Completed and registered the Crafter's built-in recipes, including generators, energy transfer blocks, machines, tanks, utilities, networks, elevators, fishing nets, chips, and upgrades.
+- Updated the machine crafting recipe set after removing obsolete features.
+- Updated the solid-fuel list and fixed all Compressed Wood tiers so they provide the intended DE values.
+- Lowered the Autofisher Heart of the Sea requirement from net tier 6 to tier 5.
+- Added Redstone as a Sieve drop from Sand before the larger sieving rework.
+- Fixed the Electro Press recipe so Slime now requires 9 Slime Balls instead of 4.
+- Changed the Ream of Paper recipe to use 6 Paper.
 
-- Added a new per-face I/O system for items, liquids, and gases.
-- Added visual I/O controls directly inside supported machine screens.
-- Added separate item, liquid, and gas I/O tabs where required.
-- Added machine-specific I/O modes so a face can target the correct input, secondary input, output, fuel, mesh, blueprint, soil, seed, or resource storage.
-- Added support for multiple valid I/O configurations on the same machine.
-- Applied the new item I/O system to all compatible machines.
-- Applied liquid I/O to the Magmatic Chamber, Magmator, Thermo Generator, and XP Condenser.
-- Added gas I/O support for compatible machines and addons.
-- Added direction-aware I/O that correctly follows machine rotation and visible front faces.
-- Added tag-based interface registration so compatible blocks can expose I/O without relying on fragile identifier checks.
-- Improved item, liquid, gas, and energy container resolution.
-- Added support for resource items whose lore contains multiple liquid or gas storages.
-- Added generic link nodes that can route items, liquids, gases, and energy to linked storage endpoints, including multiblock integrations.
-
-## PIPES AND NETWORKS
-
-### Network Rework
-
-- Rebuilt item conduit networks around the new I/O and container systems.
-- Rebuilt liquid pipe networks with the same routing and persistence model.
-- Improved energy cable network discovery and transfer scheduling.
-- Added complete gas pipe network support.
-- Added Basic, Advanced, Expert, and Ultimate Gas Tanks.
-- Added Gas Pipes and Gas Extractors in the default, blue, green, red, orange, and yellow network colors.
-- Kept colored networks isolated from one another.
-- Added persistent exporter and importer settings.
-- Added debounced, scheduled network rescans to reduce large scripting spikes.
-- Added network reconciliation when pipes or exporters are moved by pistons.
-- Improved network endpoint caching and invalid-target cleanup.
-- Improved transfer fairness and reduced repeated container scans.
-
-### Exporter and Importer Menus
-
-- Added configuration menus for Item Exporters and Item Importers.
-- Added configuration menus for Liquid Extractors.
-- Added configuration menus for Gas Extractors.
-- Added enable and disable controls.
-- Added whitelist and blacklist filtering.
-- Added Nearest, Farthest, and Round Robin destination modes.
-- Added item filters using the held item.
-- Added liquid and gas filters using either the held container or the connected source.
-- Added menus for adding and removing filtered resources.
-- Replaced the old Smart Filter Upgrade path with the shared Filter Upgrade system.
-
-## MACHINES AND GENERATORS
-
-### XP Condenser
-
-- Completely reworked the XP Condenser as a liquid-storage machine.
-- Added a fixed internal capacity of 256,000 mB of XP.
-- Added exact Deposit 1, Deposit 5, Deposit Max, Withdraw 1, Withdraw 5, and Withdraw Max controls.
-- Preserved exact XP totals and level progress during transfers.
-- Added transaction safeguards so failed transfers do not delete stored or player XP.
-- Added live stored-XP, capacity, and operation-status displays.
-- Added configurable XP liquid input and output on every face.
-- Added per-face machine textures and an updated XP Condenser UI.
-
-### Way Center
-
-- Completely reworked the Way Center, Way Carpet, and Way Chip systems.
-- Way Chips now store destination data in persistent item properties instead of depending on lore parsing.
-- Added a localized Way Chip binding form with destination names.
-- Added persistent Way Center destination lists with duplicate protection.
-- Added destination sorting, dimension icons, distance displays, teleport costs, range displays, and upgrade discounts.
-- Added range levels of 1,000, 2,500, 5,000, 10,000, 25,000, and unlimited blocks.
-- Added discounts of 0%, 5%, 15%, 25%, 50%, and 100% based on range level.
-- Added safer cross-dimensional teleportation and collision checks.
-- Added validation for missing or blocked Way Carpets and Way Centers.
-- Invalid destinations are now removed safely instead of leaving broken entries.
-- Breaking a Way Center now returns its registered destination chips in Survival.
-- Breaking a Way Carpet now unregisters it from connected centers.
-
-### Machine Upgrades and Processing
-
-- Added a shared machine-upgrade registry.
-- Speed, Energy, and Range Upgrades now use registered level definitions.
-- Machine blocks now declare the exact upgrade types, slots, and maximum levels they accept.
-- Upgrades can be installed by using the upgrade item directly on a compatible machine.
-- Sneaking while installing an upgrade inserts as many valid upgrades as possible.
-- Added localized messages for unsupported upgrades, maximum levels, successful installation, and failed installation.
-- Fixed machines accepting upgrades beyond their real limits.
-- Added recipe-batch processing support for compatible machines and custom upgrade definitions.
-- Added overclock support. Each overclock level increases speed by 35% and energy cost by 25% unless disabled by the machine.
-- Improved upgrade registry validation and creator extension support.
-
-### Machine Behavior
-
-- Fixed the Block Breaker, Block Placer, and Harvester working in the wrong direction.
-- Fixed their front, back, side, top, and bottom textures so their visuals match the working direction.
-- Fixed the Block Placer I/O face orientation.
-- Fixed and centered the Harvester and Block Breaker UI descriptions.
-- Added working-area outlines for the Harvester, Block Breaker, and Block Placer.
-- Working-area outlines can be toggled with a Wrench and update after rotation or Range Upgrade changes.
-- Limited Harvester area expansion to 9x9; the fourth Range Upgrade now pulls drops back toward the machine.
-- Improved automated harvesting for Bountiful Crops.
-- Completed Crafter machine recipes and migrated their registration to the shared registry system.
-- Improved Assembler batch crafting based on installed Speed Upgrades.
-- Added machine output and progress safeguards for full inventories and insufficient inputs.
-
-### Generators and Creative Sources
-
-- Added the Creative Battery, which supplies infinite energy at up to 10 kDE/t.
-- Added Creative Water, Lava, Milk, XP, and Steam Tanks.
-- Infinite tanks can fill compatible held containers and connect to the new transport networks.
-- Added Steam Bar UI elements for gas-based machines and integrations.
-- Reduced Wind Turbine maximum altitude multipliers:
-  - Basic, Advanced, and Expert: 300% to 200%.
-  - Ultimate: 400% to 250%.
-- Corrected Wind Turbine UI rate reporting to display actual DE/t.
-- Fixed Gas Tank material instances and visuals.
-- Simplified Battery textures while preserving charge-level displays.
-
-## BONSAIS, CROPS, AND FARMING
-
-### Bonsais
-
-- Rebuilt Bonsai growth around persistent progress steps and dynamic cycle lengths.
-- Bonsai growth times now support precise 10% timing increments.
-- Soil speed and yield modifiers are recalculated without resetting completed progress.
-- Tilling a supported soil now resynchronizes the current cycle safely.
-- Slime Ball pausing and decorative Bonsais now preserve their growth state.
-- Improved recovery and cleanup of orphaned or invalid Bonsai entities.
-- Added an admin command for recalculating loaded Bonsais.
-- Optimized Bonsai models to use far fewer cubes and reduce rendering cost.
-- Bonsais now insert output only into the container below and no longer spill items into the world when that container is full.
-- Bonsais safely return their plant and soil when removed.
-
-### Bountiful Crops
-
-- Reworked crop definitions, growth ticks, harvesting, seeds, loot, and Fortune handling.
-- Updated crop growth intervals by tier.
-- Mature crops now always preserve or return the seed needed to replant them.
-- Added a consistent additional-seed chance.
-- Added controlled Fortune scaling up to Fortune III.
-- Right-click, area, machine, and block-break harvesting now share the same crop data and drop rules.
-- Automated harvests use base yield and no Fortune bonus.
-- Improved Area Harvest behavior for supported hoes and AIOTs.
-- Updated Seed Synthesizer data from the same generated crop registry to keep drops consistent.
-
-### Accelerator Clocks and Outlines
-
-- Renamed the original Accelerator Clock to the Gold Accelerator Clock.
-- Added the Diamond Accelerator Clock with a 50% growth-attempt chance.
-- Added the Nether Star Accelerator Clock with guaranteed growth attempts and a chance to advance an extra growth stage.
-- Rebalanced the Gold Accelerator Clock to an 18.75% growth-attempt chance.
-- Applied tier-aware growth scaling to Bountiful Crops.
-- Added a temporary 9x9 Pedestal area preview when placing or changing an Accelerator Clock.
-- Added recipes, items, entities, names, and models for the new clocks.
-
-## SIEVING AND RESOURCE PROGRESSION
-
-- Reworked Sieve and Autosieve drop tables.
-- Added Crushed Blackstone.
-- Added single, double, triple, and quadruple Compressed Crushed Blackstone.
-- Added Blackstone, Basalt, Calcite, Dripstone, Gilded Blackstone, and Tuff Pebbles to the updated resource loop.
-- Added Geodes, Diamond Shards, Emerald Shards, Shulker Shell Shards, Nether Star Fragments, Totem Shards, and Wither Skull Shards to relevant processing paths.
-- Replaced redundant Diamond, Emerald, Lapis, and Redstone chunks with direct resources or shard-based progression where appropriate.
-- Removed obsolete crushed-block handfuls and dimension-specific pebbles that were no longer part of progression.
-- Gravel can now produce Lapis directly plus Diamond and Emerald Shards.
-- Sand can now produce up to four Redstone per successful roll.
-- Crushed Netherrack can now produce Ender Pearls at a 0.5% chance and no longer produces Gold Nuggets.
-- Crushed Blackstone now has its own progression table, including Basalt, Sulfur, Gold, Magma Cream, and Ancient Debris resources.
-- Crushed End Stone now requires higher-tier meshes for Ender Pearls and can produce Shulker Shell Shards.
-- Crushed Cobbled Deepslate now produces Geodes, Calcite and Tuff Pebbles, gem shards, and direct Lapis instead of the removed chunk types.
-- Compressed sieve inputs continue to produce scaled nine-times output.
-- Added Sand Handfuls to the Dirt and Grass hammer-interaction pool.
+### Autosieve
+- Added Sand Handfuls to Dirt and Grass hammer interactions.
 - Added Mud Balls from Mud.
 - Added Red Sand Handfuls from Red Sand and Terracotta.
-- Fixed the Basic Sieve so all supported inputs fit within Bedrock's block-state limits.
-- Updated the in-game guide and Recipe Book to describe the new resource progression.
-
-## RECIPES AND BALANCE
+- Completely reworked the sieve and Autosieve resource progression.
+  - Added Crushed Blackstone and its compressed variants (Double, Triple and Quadruple).
+  - Expanded the progression with Blackstone, Basalt, Calcite, Dripstone, Gilded Blackstone and Tuff Pebbles.
+  - Added Geodes, Diamond Shards, Emerald Shards, Shulker Shell Shards, Nether Star Fragments, Totem Shards and Wither Skeleton Skull Shards to the progression.
+  - Removed obsolete chunks, handfuls and pebbles, replacing them with a more consistent shard-based progression.
+- Updated multiple drop tables.
+  - Gravel and Crushed Cobbled Deepslate now produce up to 4 Lapis Lazuli directly; Gravel can also produce Diamond and Emerald Shards.
+  - Sand can now produce up to four Redstone per successful roll.
+  - Crushed Netherrack now has a 0.5% chance to produce Ender Pearls and no longer drops Gold Nuggets.
+  - Crushed Blackstone now has its own exclusive progression, including Blackstone, Basalt and Gilded Blackstone Pebbles; Sulfur Spikes; Gold Nuggets; Magma Cream; and Ancient Debris Chunks.
+  - Crushed End Stone now provides Ender Pearls and Shulker Shell Shards at Diamond Mesh tier.
+  - Crushed Cobbled Deepslate now produces Geodes, Calcite and Tuff Pebbles, gem shards and direct Lapis Lazuli.
+  - Added Ender Pearls to Crushed Cobbled Deepslate at Diamond Mesh tier.
+  - Replaced direct Amethyst Shard drops with Geodes.
+- Added Crushed Blackstone block definitions, textures, compression and decompression recipes, Crusher recipes by machine tier, Wooden Sieve states, accepted-block support, and normal and compressed Sieve loot tables.
+- Removed unused Crushed Deepslate, Crushed Endstone, Crushed Netherrack and Souls Handfuls; Netherrack, Deepslate and Endstone Pebbles; obsolete Diamond, Emerald, Lapis and Redstone Chunks; their Deepslate variants; and all related recipes, definitions, textures, catalog entries and translations.
 
 ### Crusher
-
-- Added Crusher recipes for Blackstone and all four compressed Blackstone tiers.
-- Metal ores now produce two matching dusts.
-- Coal Ore produces four Coal.
-- Quartz Ore produces six Quartz.
-- Lapis and Redstone Ore produce eight resources.
-- Diamond and Emerald Ore produce two gems.
-- Nether Gold Ore and Gilded Blackstone produce two Gold Dust.
-- Ancient Debris produces two Netherite Scrap Dust.
-- Added Crusher recipes for Clay, Glowstone, Quartz Blocks, Amethyst Blocks, Geodes, Sandstone, Red Sandstone, Bricks, Nether Bricks, Hay Bales, Melons, Snow, leaves, and other reversible materials.
+- Added tons of new recipes for different blocks and items
+  - Ores blocks can now be crushed, resulting in their item version.
+  - Ores:
+    - Iron, Gold, Copper > 2x Raw Dust
+    - Diamond, Emerald > 2x Gems
+    - Ancient Debris > 2x Netherite Scrap Dust
+    - Gold Ore, Gilded Blackstone > 2x Gold Dust
+    - Coal Ore > 4x Coal Dust
+    - Nether Quartz Ore > 6x Quartz
+    - Lapis, Redstone > 8x Base Drop
+  - Blocks:
+    - Nether Gold, Gilded Blackstone > 2x Gold Dust
+    - Clay, Glowstone, Quartz Blocks, Amethyst Blocks, Geodes, Sandstone, Red Sandstone, Bricks, Nether Bricks, Hay Bales, Melons, Snow, leaves, and other reversible materials.
+  - Geode > 4x Amethyst Shards
+  - Tree Leaves > 2x String
 
 ### Electro Press
-
+- Changed normal ore crafting recipes to use 4 Chunks per ore.
 - Added ore reconstruction from four Copper, Gold, Iron, Coal, Deepslate, Nether Quartz, Nether Gold, or Ancient Debris chunks.
 - Added reconstruction recipes for pebbles, handfuls, fragments, and shards.
 - Added compression recipes for Wheat, Clay Balls, Bricks, Nether Bricks, Glowstone Dust, Quartz, Amethyst, Snowballs, and Sulfur.
 - Added reconstruction recipes for Nether Stars, Shulker Shells, Totems of Undying, and Wither Skeleton Skulls.
+- Changed Diamond and Emerald reconstruction recipes from 9 to 4 Shards.
+- Added 4 Sulfur Spikes > 1 Sulfur Block.
 
 ### Infuser
-
 - Added separate Coal Dust and Charcoal Dust routes for Steel Ingots and Steel Dust.
 - Added Brute Steel recipes using Raw Iron with Coal, Coal Dust, Charcoal, or Charcoal Dust.
 - Added recipes for Eyes of Ender, Magma Cream, Golden Carrots, Golden Apples, and Glistering Melon Slices.
 - Added recipes for Red Sand, Cinnabar, Warped Nylium, Crimson Nylium, Sculk, Gilded Blackstone, Podzol, Mycelium, Rooted Dirt, and Compressed Netherrack.
+  - Carrot + Gold Dust > Golden Carrot
+  - Apple + 4 Gold Dust > Golden Apple
+  - Melon Slice + Gold Dust > Glistering Melon Slice
+  - Grass Block + Spruce Sapling > Podzol
+  - Grass Block + Red or Brown Mushroom > Mycelium
 - Changed the Crying Obsidian recipe to consume eight Obsidian and produce eight Crying Obsidian.
 - Removed outdated or duplicate Infuser routes, including the old Raw Energized Iron Dust route.
 
-### Other Recipe Changes
+### Recipe Books
+- Added additional Infuser recipes.
+- Added additional Electro Press recipes.
+- Improved recipe navigation.
+- Removed the Grass Block recipe from Infuser.
 
-- Completed and registered the Crafter's built-in recipes, including generators, energy transfer blocks, machines, tanks, utilities, networks, elevators, fishing nets, chips, and upgrades.
-- Updated the machine crafting recipe set after removing obsolete features.
-- Updated the solid-fuel list and fixed all Compressed Wood tiers so they provide the intended DE values.
-- Updated the smeltable-item list.
-- Empty Fluid Capsules can now be filled from a Sink.
-- Lowered the Autofisher Heart of the Sea requirement from net tier 6 to tier 5.
-- Added Redstone as a Sieve drop from Sand before the larger sieving rework.
+## UI/UX
+- Completely redesigned machine and generators interfaces.
+  - Machine/Generator slots now have **outlines**, indicating the slot's function based on the following criteria:
+    - Blue: Input and Fuel
+    - Cyan: Complementary Input, such as Soil, Mesh, Blueprint, Coolant and/or Catalyst.
+    - Red: Output.
+  - Machines and Generators now have a built-in info panel, which usually includes information about its function, capacity and upgrades supported.- Reworked the XP Condenser interface.
+  - Some machines now include a **Recipe Book**, which displays recipes, drops, and other useful information. Supported machines:
+    - Autosieve: Siftable blocks, required mesh, drop chances, and drop amounts.
+    - Autofisher: Required net, drop chances, and drop amounts.
+    - Crusher: Recipes, output chances, and output amounts.
+    - Electro Press: Recipes and output amounts.
+    - Infuser: Recipes, prerequisites, success chances, and output amounts.
+    - Magmatic Chamber: Smeltable blocks and their output amounts.
+    - Seed Synthesizer: Plantable items, tiers, required tier, and output amounts.
+    > Extensions can also add their own Recipe Book pages for seamless integration.
+- Simplified transfer menus.
+- Improved Quick Settings for Exporters and Importers.
+- Updated Copper, Gold and Iron Dust to use the preferred textures and removed duplicate Raw Copper, Raw Gold and Raw Iron Dust textures.
+- Reorganized Crusher, Electro Press and Infuser recipe interfaces.
+  - Items are displayed before blocks.
+  - Recipes are grouped by type and output.
+  - Recipes with the same output and quantity share flipbook inputs.
+  - Removed empty spaces from recipe grids.
+- Corrected vanilla texture paths used by recipe interfaces.
+- Added/Updated translations for:
+  - English
+  - Portuguese (Brazil)
+  - Portuguese (Portugal)
+  - Spanish (Spain)
+  - Spanish (Mexico)
 
-## CREATOR CHANGES
+## DOCUMENTATION AND VALIDATION
+- Updated How to Play progression text, Sieve drop tables and mesh tiers, the Crushed Blackstone drop table, contextual Hammer drop information, Crusher and Electro Press descriptions, and UtilityCraft guide renders.
+- Updated item catalogs, texture atlases, translations and block registrations.
+- Validated all modified JavaScript and JSON files, Recipe UI grids and panel references, and that no references to removed items remain.
 
+## BUG FIXES
+- Fixed Bonsais dropping items when connected storage was full.
+- Fixed Asphalt textures.
+- Fixed Asphalt mining behavior.
+- Fixed the Basic Sieve failing after the expanded input list exceeded a single block-state enum.
+- Fixed compressed wood fuel behavior.
+- Fixed upgrade messages displaying internal identifiers.
+- Fixed Wind Turbine rate text showing interval output instead of actual per-tick output.
+- Fixed Way Center destination duplication, missing destinations, unsafe teleports, blocked destinations, and broken legacy data handling.
+- Fixed XP Condenser level math, partial XP progress, storage overflow, and failed-transfer rollback.
+- Fixed every Compressed Wood tier being detected incorrectly as Furnator fuel.
+- Fixed recipe UI output slots, separators, layers, toggles, hover states, and panel alignment.
+- Fixed several malformed JSON files and pack dependency declarations.
+- Fixed the Harvester, Block Breaker, and Block Placer working on the wrong face.
+
+## TECHNICAL CHANGES
+> [!NOTE]
+> If you're a player, there's no need to go further.
 ### DoriosLib
-
 - Added DoriosLib 2.0.0 as UtilityCraft's new shared creator library.
 - Removed the deprecated DoriosAPI runtime and migrated the entire pack to explicit DoriosLib module imports.
 - DoriosLib no longer mutates Minecraft prototypes or exposes a global API; creators can import only the modules they need from `DoriosLib/index.js`.
@@ -286,7 +242,6 @@ This is the complete changelog for the changes introduced after v3.4.5.
 - Added dependency discovery, semantic-version comparison, validation, and formatted dependency reports.
 
 ### DoriosLib Containers and Link Nodes
-
 - Added the unified `DoriosLib.container` API for vanilla containers, custom entity containers, and linked containers.
 - Added `container.resolve()` and `container.resolveAt()` for resolving a container from an entity, block, or world location.
 - Added `container.getInputSlots()` and `container.getOutputSlots()` for direction-aware slot access.
@@ -296,7 +251,6 @@ This is the complete changelog for the changes introduced after v3.4.5.
 - Added persistent link-node I/O overrides with initialization, invalidation, revision tracking, and per-resource input/output selection.
 
 ### DoriosLib Registries
-
 - Added queued world-load registration so addons can register content safely before UtilityCraft's machine systems initialize.
 - Added `registerCrusherRecipe()`, `registerPressRecipe()`, `registerInfuserRecipe()`, `registerMelterRecipe()`, `registerFurnaceRecipe()`, and `registerCrafterRecipe()`.
 - Added `registerSieveDrop()`, `registerAutoFisherDrop()`, `registerPlant()`, and `registerBonsai()`.
@@ -307,7 +261,6 @@ This is the complete changelog for the changes introduced after v3.4.5.
 - Migrated UtilityCraft's recipes, drops, fuels, coolants, fluid and gas items, machine upgrades, block components, item components, and commands to the new registries.
 
 ### DoriosCore
-
 - Added `ContainerSessionManager` for safely tracking and closing active container UI sessions.
 - Added the shared `registerIOInterface()` API for declaring item, liquid, and gas I/O in one machine definition.
 - Added `registerIOInterfaceForBlockTag()` so creators can assign an interface to every block with a matching tag.
@@ -328,42 +281,9 @@ This is the complete changelog for the changes introduced after v3.4.5.
 - Added shared direction helpers for offsets, opposite faces, block-facing resolution, and relative I/O face conversion.
 - Expanded multiblock activation, deactivation, structure detection, and storage integration for items, liquids, gases, energy, and link nodes.
 - Added and updated DoriosCore typings for machine settings, boosts, I/O definitions, storage classes, containers, upgrades, resource lore, link nodes, multiblocks, and the new helper methods.
-
-## PERFORMANCE AND TECHNICAL CHANGES
-
 - Reduced unused block permutations in machines, networks, Bonsais, Cobblestone Generators, Mechanical Spawners, Creative Tanks, and Asphalt.
 - Optimized cable rescans, transfers, caching, and scheduled work.
 - Optimized Bonsai models and runtime processing.
 - Normalized script filenames, imports, texture names, models, entity definitions, UI assets, and folder structure.
 - Added documentation for the normalized Resource Pack texture structure.
 - Removed duplicated and unused assets.
-
-## BUG FIXES
-
-- Fixed machine I/O directions not following block rotation correctly.
-- Fixed an I/O configuration bug and incorrect output-slot behavior.
-- Fixed the Harvester and Block Breaker information text alignment.
-- Fixed the Harvester, Block Breaker, and Block Placer working on the wrong face.
-- Fixed machine textures displaying on the wrong faces after the geometry migration.
-- Fixed additional machine texture references after asset normalization.
-- Fixed the Basic Sieve failing after the expanded input list exceeded a single block-state enum.
-- Fixed Asphalt texture switching.
-- Fixed Asphalt mining properties so it can be mined with Pickaxes, Shovels, and AIOTs.
-- Fixed every Compressed Wood tier being detected incorrectly as Furnator fuel.
-- Fixed Gas Tank material instances.
-- Fixed Bonsais dropping overflow items into the world when the output container was full.
-- Fixed recipe UI output slots, separators, layers, toggles, hover states, and panel alignment.
-- Fixed several malformed JSON files and pack dependency declarations.
-- Fixed upgrade registration and maximum-level handling.
-- Fixed Wind Turbine rate text showing interval output instead of actual per-tick output.
-- Fixed Way Center destination duplication, missing destinations, unsafe teleports, blocked destinations, and broken legacy data handling.
-- Fixed XP Condenser level math, partial XP progress, storage overflow, and failed-transfer rollback.
-
-## REMOVED AND CLEANED UP
-
-- Removed the obsolete Smart Filter Upgrade and its recipe; the shared Filter Upgrade now handles network filtering.
-- Removed unused paused Conveyor, Fluid Pump, and Utility Table definitions and assets.
-- Removed unused Drill and Tractor placer blocks and recipes.
-- Removed legacy vehicle assets.
-- Removed obsolete ore-chunk, handful, pebble, and conversion recipes replaced by the new resource progression.
-- Removed duplicated UI, machine, texture, model, and legacy script assets.
