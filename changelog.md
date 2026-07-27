@@ -1,4 +1,4 @@
-# UtilityCraft v3.5.0.03
+# UtilityCraft v3.5.0
 
 This update introduces a complete overhaul of machine interfaces, configurable side-based I/O, Recipe Books, major automation improvements, performance improvements, MANY reworks and many QoL changes.
 
