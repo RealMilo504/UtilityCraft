@@ -21,6 +21,7 @@ import {
   NETWORK_SCAN_BATCH_SIZE,
   createNetworkRescanScheduler,
 } from "./scheduler.js";
+import { PIPE_DIRECTIONS, isNetworkConnectionOpen } from "./pipeFaces.js";
 
 /** @typedef {import("@minecraft/server").Block} Block */
 /** @typedef {import("@minecraft/server").Dimension} Dimension */
@@ -827,6 +828,7 @@ const exporterComponent = {
   onPlayerInteract({ block, player }) {
     if (player.isSneaking) return;
     const item = player.getComponent("equippable")?.getEquipment("Mainhand");
+    if (item?.typeId === "utilitycraft:wrench") return;
     if (item?.typeId?.includes("upgrade")) return;
     openExporterMenu(block, player);
   },
@@ -863,6 +865,7 @@ const importerComponent = {
   onPlayerInteract({ block, player }) {
     if (player.isSneaking) return;
     const item = player.getComponent("equippable")?.getEquipment("Mainhand");
+    if (item?.typeId === "utilitycraft:wrench") return;
     if (item?.typeId?.includes("upgrade")) return;
     openImporterMenu(block, player);
   },
@@ -1122,7 +1125,7 @@ async function rebuildItemNetworkComponent(rootLocation, dimension) {
       routes.set(routeKey(route), route);
     }
 
-    for (const offset of NETWORK_OFFSETS) {
+    for (const { direction, offset } of PIPE_DIRECTIONS) {
       if (attachedOffset
         && offset.x === attachedOffset.x
         && offset.y === attachedOffset.y
@@ -1134,6 +1137,7 @@ async function rebuildItemNetworkComponent(rootLocation, dimension) {
       const neighborLocation = offsetLocation(position, offset);
       const neighbor = safeGetBlock(dimension, neighborLocation);
       if (!neighbor) continue;
+      if (!isNetworkConnectionOpen(block, direction, neighbor)) continue;
 
       if (isItemNetworkBlock(neighbor)) {
         if (neighbor.hasTag(networkColor)) queue.push(normalizeLocation(neighborLocation));

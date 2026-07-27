@@ -10,14 +10,10 @@
 		"key": {
 			"P": {
 				"item": "minecraft:paper"
-			},
-			"S": {
-				"item": "minecraft:string"
 			}
 		},
 		"pattern": [
 			"PPP",
-			"PSP",
 			"PPP"
 		],
 		"result": {

@@ -187,6 +187,20 @@ event: `registerAutoFisherDrop`, `registerBonsai` (legacy),
 `registerMachineUpgrade`, `registerMelterRecipe`, `registerPlant`, `registerPressRecipe`,
 `registerSieveDrop`, and `registerSpecialContainerSlots`.
 
+Item Ducts compatibility uses the same world-load queue and its public runtime
+ScriptEvent protocol:
+
+```js
+DoriosLib.registry.registerItemDuctCompatibility({
+  typeId: "example:machine",
+  insertSlots: [0, 1],
+  extractSlots: [4],
+});
+
+DoriosLib.registry.registerItemDuctChest("example:storage");
+DoriosLib.registry.unregisterItemDuctCompatibility("example:old_machine");
+```
+
 Dependency discovery starts automatically when the main DoriosLib entry point
 is imported. It uses:
 

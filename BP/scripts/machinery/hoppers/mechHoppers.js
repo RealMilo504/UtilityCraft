@@ -376,61 +376,147 @@ DoriosLib.registry.blockComponent("utilitycraft:mechanic_hopper", {
       return;
     }
     if (hasFilter) {
-      openMenu(block, player);
+      openMenu(block, player, params.type);
     }
   },
 });
 
-function openMenu(block, player) {
-  let menu = new ActionFormData();
+function translate(key, values) {
+  return values ? { translate: key, with: values } : { translate: key };
+}
+
+function translatedButton(labelKey, descriptionKey) {
+  return {
+    rawtext: [
+      translate(labelKey),
+      { text: "\n§8" },
+      translate(descriptionKey),
+    ],
+  };
+}
+
+function getFilteredItemsLabel(items) {
+  if (items.length === 0) {
+    return translate("ui.utilitycraft:mechanical_hopper.filtered_items_empty");
+  }
+
+  return {
+    rawtext: items.map((item, index) => ({
+      text: `${index === 0 ? "" : "\n"}§7- §f${DoriosLib.text.formatIdentifier(item)}`,
+    })),
+  };
+}
+
+function getHeldItemType(player) {
+  const item = player.getComponent("equippable")?.getEquipment("Mainhand");
+  if (!item) {
+    player.onScreenDisplay.setActionBar(translate("message.utilitycraft.mechanical_hopper.hold_item"));
+    return undefined;
+  }
+  return item.typeId;
+}
+
+function openMenu(block, player, hopperType) {
   const hopper = block.dimension.getEntitiesAtBlockLocation(block.location)[0];
   if (!hopper) return;
 
-  let state = hopper.getDynamicProperty("utilitycraft:whitelistOn");
-  const minecartPullEnabled = isMinecartPullEnabled(hopper);
-  menu.title("Filter");
-
-  if (state) {
-    menu.button(`Whitelist Mode \n(Click to Change)`, "textures/items/misc/whitelist.png");
-  } else {
-    menu.button(`Blacklist Mode \n(Click to Change)`, "textures/items/misc/blacklist.png");
-  }
-
-  menu.button(`Minecart Pull: ${minecartPullEnabled ? "Enabled" : "Disabled"}\n(Click to Change)`);
-
-  menu.button(`Add item \n(Adds the item in your Mainhand)`);
-
-  const acceptedItems = hopper.getTags();
-
-  if (acceptedItems) {
-    for (let item of acceptedItems) {
-      menu.button(`${DoriosLib.text.formatIdentifier(item)}`);
-    }
-  }
+  const menu = new ActionFormData()
+    .title(translate("ui.utilitycraft:mechanical_hopper.title"))
+    .body(translate("ui.utilitycraft:mechanical_hopper.description"))
+    .button(translatedButton(
+      "ui.utilitycraft:mechanical_hopper.quick_settings",
+      "ui.utilitycraft:mechanical_hopper.quick_settings_description",
+    ), "textures/ui/settings_glyph_color_2x.png")
+    .button(translatedButton(
+      "ui.utilitycraft:mechanical_hopper.add_item",
+      "ui.utilitycraft:mechanical_hopper.add_item_description",
+    ), "textures/ui/icon_import.png")
+    .button(translatedButton(
+      "ui.utilitycraft:mechanical_hopper.remove_item",
+      "ui.utilitycraft:mechanical_hopper.remove_item_description",
+    ), "textures/ui/trash_default.png");
 
   menu.show(player).then((result) => {
-    let selection = result.selection;
-    if (selection == undefined) return;
-
-    if (selection == 0) {
-      hopper.setDynamicProperty("utilitycraft:whitelistOn", !state);
-      return;
-    }
-
-    if (selection == 1) {
-      hopper.setDynamicProperty(MINECART_PULL_PROPERTY, !minecartPullEnabled);
-      return;
-    }
-
-    if (selection == 2) {
-      const mainHand = player.getComponent("equippable").getEquipment("Mainhand");
-      if (mainHand) {
-        hopper.addTag(`${mainHand.typeId}`);
+    switch (result.selection) {
+      case 0:
+        openQuickSettings(hopper, player, hopperType);
+        break;
+      case 1: {
+        const typeId = getHeldItemType(player);
+        if (!typeId) break;
+        hopper.addTag(typeId);
+        player.onScreenDisplay.setActionBar(translate(
+          "message.utilitycraft.mechanical_hopper.item_added",
+          [DoriosLib.text.formatIdentifier(typeId)],
+        ));
+        break;
       }
-      return;
+      case 2:
+        openRemoveItemMenu(block, hopper, player, hopperType);
+        break;
     }
-    hopper.removeTag(`${acceptedItems[selection - 3]}`);
-    openMenu(block, player);
+  });
+}
+
+function openQuickSettings(hopper, player, hopperType) {
+  const supportsMinecartPull = hopperType === "hopper" || hopperType === "upper";
+  const modal = new ModalFormData()
+    .title(translate("ui.utilitycraft:mechanical_hopper.quick_settings_title"))
+    .toggle(translate("ui.utilitycraft:mechanical_hopper.whitelist"), {
+      defaultValue: hopper.getDynamicProperty("utilitycraft:whitelistOn") === true,
+      tooltip: translate("ui.utilitycraft:mechanical_hopper.whitelist_tooltip"),
+    });
+
+  if (supportsMinecartPull) {
+    modal.toggle(translate("ui.utilitycraft:mechanical_hopper.minecart_pull"), {
+      defaultValue: isMinecartPullEnabled(hopper),
+      tooltip: translate("ui.utilitycraft:mechanical_hopper.minecart_pull_tooltip"),
+    });
+  }
+
+  modal
+    .divider()
+    .label(translate("ui.utilitycraft:mechanical_hopper.filtered_items"))
+    .label(getFilteredItemsLabel(hopper.getTags()))
+    .submitButton(translate("ui.utilitycraft:mechanical_hopper.save"))
+    .show(player)
+    .then((result) => {
+      if (result.canceled) return;
+      const values = Array.isArray(result.formValues) ? result.formValues : [];
+      const toggles = values.filter((value) => typeof value === "boolean");
+      hopper.setDynamicProperty(
+        "utilitycraft:whitelistOn",
+        toggles[0] ?? hopper.getDynamicProperty("utilitycraft:whitelistOn") === true,
+      );
+      if (supportsMinecartPull) {
+        hopper.setDynamicProperty(MINECART_PULL_PROPERTY, toggles[1] ?? isMinecartPullEnabled(hopper));
+      }
+      player.onScreenDisplay.setActionBar(translate("message.utilitycraft.mechanical_hopper.settings_saved"));
+    });
+}
+
+function openRemoveItemMenu(block, hopper, player, hopperType) {
+  const items = hopper.getTags();
+  if (items.length === 0) {
+    player.onScreenDisplay.setActionBar(translate("message.utilitycraft.mechanical_hopper.no_items"));
+    return;
+  }
+
+  const menu = new ActionFormData()
+    .title(translate("ui.utilitycraft:mechanical_hopper.remove_item"))
+    .body(translate("ui.utilitycraft:mechanical_hopper.remove_item_prompt"));
+  for (const item of items) menu.button(DoriosLib.text.formatIdentifier(item));
+  menu.button(translate("ui.utilitycraft:mechanical_hopper.cancel"), "textures/ui/redX1.png");
+  menu.show(player).then((result) => {
+    if (result.selection === undefined || result.selection === items.length) return;
+    const selected = items[result.selection];
+    if (!selected) return;
+    hopper.removeTag(selected);
+    player.onScreenDisplay.setActionBar(translate(
+      "message.utilitycraft.mechanical_hopper.item_removed",
+      [DoriosLib.text.formatIdentifier(selected)],
+    ));
+    openMenu(block, player, hopperType);
   });
 }
 

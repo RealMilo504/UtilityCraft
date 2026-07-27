@@ -31,6 +31,8 @@ export const REGISTRATION_EVENT_IDS = Object.freeze({
   GAS_HOLDER: "utilitycraft:register_gas_holder",
   GAS_ITEM: "utilitycraft:register_gas_item",
   INFUSER_RECIPE: "utilitycraft:register_infuser_recipe",
+  ITEM_DUCT_REGISTER: "item_ducts:register",
+  ITEM_DUCT_UNREGISTER: "item_ducts:unregister",
   MELTER_RECIPE: "utilitycraft:register_melter_recipe",
   MACHINE_UPGRADE: "utilitycraft:register_machine_upgrade",
   PLANT: "utilitycraft:register_plant",
@@ -40,6 +42,15 @@ export const REGISTRATION_EVENT_IDS = Object.freeze({
 });
 
 /** @typedef {Record<string, unknown>} RegistrationPayload */
+
+/**
+ * @typedef {object} ItemDuctCompatibilityRegistration
+ * @property {string} typeId Compatible block identifier.
+ * @property {number[]} [insertSlots] Slots exposed for insertion.
+ * @property {number[]} [extractSlots] Slots exposed for extraction.
+ * @property {("north"|"south"|"east"|"west"|"up"|"down")[]} [insertFaces] Faces allowed for insertion.
+ * @property {("north"|"south"|"east"|"west"|"up"|"down")[]} [extractFaces] Faces allowed for extraction.
+ */
 
 /**
  * @typedef {object} CoolantRegistration
@@ -115,6 +126,38 @@ export function registerInfuserRecipe(payload) {
   enqueueRegistration(REGISTRATION_EVENT_IDS.INFUSER_RECIPE, payload);
 }
 
+/**
+ * Registers one block type with Item Ducts through its runtime ScriptEvent API.
+ *
+ * @param {ItemDuctCompatibilityRegistration} payload
+ */
+export function registerItemDuctCompatibility(payload) {
+  enqueueRegistration(REGISTRATION_EVENT_IDS.ITEM_DUCT_REGISTER, payload);
+}
+
+/**
+ * Exposes every inventory slot of one block type to Item Ducts.
+ *
+ * @param {string} typeId
+ */
+export function registerItemDuctChest(typeId) {
+  assertTypeId(typeId);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.ITEM_DUCT_REGISTER, {
+    typeId,
+    mode: "chest",
+  });
+}
+
+/**
+ * Removes one persisted Item Ducts runtime registration.
+ *
+ * @param {string} typeId
+ */
+export function unregisterItemDuctCompatibility(typeId) {
+  assertTypeId(typeId);
+  enqueueRegistrationMessage(REGISTRATION_EVENT_IDS.ITEM_DUCT_UNREGISTER, typeId);
+}
+
 /** @param {RegistrationPayload} payload */
 export function registerMelterRecipe(payload) {
   enqueueRegistration(REGISTRATION_EVENT_IDS.MELTER_RECIPE, payload);
@@ -173,8 +216,25 @@ function enqueueRegistration(eventId, payload) {
     throw new TypeError(`Registration payload for ${eventId} must be JSON serializable`);
   }
 
+  enqueueRegistrationMessage(eventId, message);
+}
+
+/**
+ * Queues an already serialized ScriptEvent message.
+ *
+ * @param {string} eventId
+ * @param {string} message
+ */
+function enqueueRegistrationMessage(eventId, message) {
   registrationQueue.push({ eventId, message });
   scheduleNextRegistration();
+}
+
+/** @param {string} typeId */
+function assertTypeId(typeId) {
+  if (typeof typeId !== "string" || typeId.length === 0 || !typeId.includes(":")) {
+    throw new TypeError(`A fully qualified block typeId is required: ${typeId}`);
+  }
 }
 
 /** Schedules exactly one queued registration for the next tick. */

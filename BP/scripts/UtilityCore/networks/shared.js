@@ -2,6 +2,14 @@
 
 import { createRegistrar } from "../../DoriosLib/registry/index.js";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
+import {
+  OPPOSITE_DIRECTIONS,
+  PIPE_DIRECTION_OFFSETS,
+  getConnectionStateDirection,
+  isPipeFaceDisabled,
+} from "./pipeFaces.js";
+
+export { OPPOSITE_DIRECTIONS } from "./pipeFaces.js";
 
 /** @typedef {import("@minecraft/server").Block} Block */
 /** @typedef {import("@minecraft/server").Vector3} Vector3 */
@@ -37,26 +45,6 @@ export const DIRECTION_OFFSETS = {
   west: { x: -1, y: 0, z: 0 },
   up: { x: 0, y: 1, z: 0 },
   down: { x: 0, y: -1, z: 0 },
-};
-
-// Block model connection states follow Minecraft's visual north/south axes,
-// which are intentionally different from DoriosCore's established IO naming.
-const GEOMETRY_OFFSETS = {
-  north: { x: 0, y: 0, z: -1 },
-  south: { x: 0, y: 0, z: 1 },
-  east: { x: 1, y: 0, z: 0 },
-  west: { x: -1, y: 0, z: 0 },
-  up: { x: 0, y: 1, z: 0 },
-  down: { x: 0, y: -1, z: 0 },
-};
-
-export const OPPOSITE_DIRECTIONS = {
-  north: "south",
-  south: "north",
-  east: "west",
-  west: "east",
-  up: "down",
-  down: "up",
 };
 
 /** Shared UtilityCraft component registrar installed by the network listener. */
@@ -162,7 +150,8 @@ export function updateGeometry(block, tag) {
   let permutation = block.permutation;
   const isItemConduit = block.hasTag("dorios:item");
 
-  for (const [direction, offset] of Object.entries(GEOMETRY_OFFSETS)) {
+  for (const [rawDirection, offset] of Object.entries(PIPE_DIRECTION_OFFSETS)) {
+    const direction = /** @type {keyof typeof PIPE_DIRECTION_OFFSETS} */ (rawDirection);
     const neighbor = safeGetBlock(block.dimension, offsetLocation(block.location, offset));
     let shouldConnect = false;
 
@@ -184,6 +173,11 @@ export function updateGeometry(block, tag) {
       );
     }
 
+    if (shouldConnect && neighbor && (
+      isPipeFaceDisabled(block, direction)
+      || isPipeFaceDisabled(neighbor, OPPOSITE_DIRECTIONS[direction])
+    )) shouldConnect = false;
+
     const stateId = `utilitycraft:${direction}`;
     if (permutation.getState(stateId) !== shouldConnect) {
       try {
@@ -204,23 +198,12 @@ export function updateGeometry(block, tag) {
  */
 export function updateEndpointGeometry(block, tag) {
   if (!block?.permutation || !block?.dimension) return;
-
-  const directionMap = {
-    north: { north: "south", south: "north", east: "west", west: "east", up: "up", down: "down" },
-    south: { north: "north", south: "south", east: "east", west: "west", up: "up", down: "down" },
-    east: { north: "east", south: "west", east: "south", west: "north", up: "up", down: "down" },
-    west: { north: "west", south: "east", east: "north", west: "south", up: "up", down: "down" },
-    up: { north: "up", south: "down", east: "east", west: "west", up: "south", down: "north" },
-    down: { north: "down", south: "up", east: "east", west: "west", up: "north", down: "south" },
-  };
-
-  const facing = block.permutation.getState("minecraft:block_face");
-  const map = directionMap[facing] ?? directionMap.north;
   const isItemEndpoint = block.hasTag("dorios:item");
   let permutation = block.permutation;
 
-  for (const [direction, visualDirection] of Object.entries(map)) {
-    const offset = GEOMETRY_OFFSETS[direction];
+  for (const [rawDirection, offset] of Object.entries(PIPE_DIRECTION_OFFSETS)) {
+    const direction = /** @type {keyof typeof PIPE_DIRECTION_OFFSETS} */ (rawDirection);
+    const visualDirection = getConnectionStateDirection(block, direction);
     const neighbor = safeGetBlock(block.dimension, offsetLocation(block.location, offset));
     let shouldConnect = false;
 
@@ -241,6 +224,10 @@ export function updateEndpointGeometry(block, tag) {
         ?? DoriosContainer.resolveAt(neighbor.dimension, neighbor.location)
       );
     }
+    if (shouldConnect && neighbor && (
+      isPipeFaceDisabled(block, direction)
+      || isPipeFaceDisabled(neighbor, OPPOSITE_DIRECTIONS[direction])
+    )) shouldConnect = false;
 
     try {
       permutation = permutation.withState(`utilitycraft:${visualDirection}`, shouldConnect);

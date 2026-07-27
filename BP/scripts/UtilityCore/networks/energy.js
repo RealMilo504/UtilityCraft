@@ -7,6 +7,7 @@ import {
   resolveLinkNode,
 } from "../../DoriosLib/linkNodes/index.js";
 import { NETWORK_OFFSETS, offsetLocation, safeGetBlock } from "./shared.js";
+import { PIPE_DIRECTIONS, isNetworkConnectionOpen } from "./pipeFaces.js";
 import {
   NETWORK_SCAN_BATCH_SIZE,
   createNetworkRescanScheduler,
@@ -48,7 +49,13 @@ export async function rescanEnergyNetwork(startPosition, dimension) {
 
     if (block.hasTag("dorios:isTube")) {
       networkNodes.add(key);
-      for (const offset of NETWORK_OFFSETS) queue.push(offsetLocation(position, offset));
+      for (const { direction, offset } of PIPE_DIRECTIONS) {
+        const neighborLocation = offsetLocation(position, offset);
+        const neighbor = safeGetBlock(dimension, neighborLocation);
+        if (neighbor && isNetworkConnectionOpen(block, direction, neighbor)) {
+          queue.push(neighborLocation);
+        }
+      }
       continue;
     }
 
@@ -87,7 +94,15 @@ async function searchEnergyStorages(startPositions, generator) {
   for (const startPosition of startPositions) {
     const key = `${startPosition.x},${startPosition.y},${startPosition.z}`;
     visited.add(key);
-    for (const offset of NETWORK_OFFSETS) queue.push(offsetLocation(startPosition, offset));
+    const startBlock = safeGetBlock(dimension, startPosition);
+    if (!startBlock) continue;
+    for (const { direction, offset } of PIPE_DIRECTIONS) {
+      const neighborLocation = offsetLocation(startPosition, offset);
+      const neighbor = safeGetBlock(dimension, neighborLocation);
+      if (neighbor && isNetworkConnectionOpen(startBlock, direction, neighbor)) {
+        queue.push(neighborLocation);
+      }
+    }
   }
 
   const machines = [];
@@ -107,7 +122,13 @@ async function searchEnergyStorages(startPositions, generator) {
     if (!block?.hasTag("dorios:energy")) continue;
 
     if (block.typeId === "utilitycraft:energy_cable") {
-      for (const offset of NETWORK_OFFSETS) queue.push(offsetLocation(position, offset));
+      for (const { direction, offset } of PIPE_DIRECTIONS) {
+        const neighborLocation = offsetLocation(position, offset);
+        const neighbor = safeGetBlock(dimension, neighborLocation);
+        if (neighbor && isNetworkConnectionOpen(block, direction, neighbor)) {
+          queue.push(neighborLocation);
+        }
+      }
       continue;
     }
 

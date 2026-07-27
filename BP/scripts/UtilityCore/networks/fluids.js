@@ -21,6 +21,7 @@ import {
   NETWORK_SCAN_BATCH_SIZE,
   createNetworkRescanScheduler,
 } from "./scheduler.js";
+import { PIPE_DIRECTIONS, isNetworkConnectionOpen } from "./pipeFaces.js";
 
 /** @typedef {import("@minecraft/server").Block} Block */
 /** @typedef {import("@minecraft/server").Dimension} Dimension */
@@ -670,6 +671,7 @@ const fluidExporterComponent = {
   onPlayerInteract({ block, player }) {
     if (player.isSneaking) return;
     const item = player.getComponent("equippable")?.getEquipment("Mainhand");
+    if (item?.typeId === "utilitycraft:wrench") return;
     if (item?.typeId?.includes("upgrade")) return;
     openFluidExporterMenu(block, player);
   },
@@ -914,7 +916,7 @@ export async function rescanFluidNetwork(rootLocation, dimension) {
       : undefined;
     if (isExporter) exporters.push({ location: normalizeLocation(block.location), source });
 
-    for (const offset of NETWORK_OFFSETS) {
+    for (const { direction, offset } of PIPE_DIRECTIONS) {
       if (sourceOffset
         && offset.x === sourceOffset.x
         && offset.y === sourceOffset.y
@@ -923,6 +925,7 @@ export async function rescanFluidNetwork(rootLocation, dimension) {
       const neighborLocation = offsetLocation(position, offset);
       const neighbor = safeGetBlock(dimension, neighborLocation);
       if (!neighbor) continue;
+      if (!isNetworkConnectionOpen(block, direction, neighbor)) continue;
       if (isFluidNetworkBlock(neighbor)) {
         if (neighbor.hasTag(networkColor)) queue.push(normalizeLocation(neighborLocation));
         continue;

@@ -1,5 +1,6 @@
 // @ts-check
 
+import * as DoriosLib from "DoriosLib/index.js";
 import { InterfaceManager } from "./index.js";
 import {
   OPPOSITE_DIRECTIONS,
@@ -279,6 +280,11 @@ function registerIOInterfaceDefinition(blockTypeId, config = {}, sourceTag = und
 
   if (config.items !== undefined) {
     const definition = registerItemIODefinition(blockTypeId, config.items);
+    DoriosLib.registry.registerItemDuctCompatibility({
+      typeId: blockTypeId,
+      insertSlots: definition.anyInputSlots,
+      extractSlots: definition.anyOutputSlots,
+    });
     addItemButtons(buttons, blockTypeId, config.items, definition, invertFaces);
     registered = true;
   }

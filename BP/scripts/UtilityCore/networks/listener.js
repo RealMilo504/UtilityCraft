@@ -30,6 +30,7 @@ import {
   updateEndpointGeometry,
   updateGeometry,
 } from "./shared.js";
+import { clearPipeFacesAt, reconcileMovedPipeFaces } from "./pipeFaces.js";
 
 /** @typedef {import("@minecraft/server").Block} Block */
 /** @typedef {import("@minecraft/server").Dimension} Dimension */
@@ -136,6 +137,9 @@ system.afterEvents.scriptEventReceive.subscribe((event) => {
 world.afterEvents.playerBreakBlock.subscribe(({ block, brokenBlockPermutation }) => {
   const dimension = block.dimension;
   const location = { ...block.location };
+  if (brokenBlockPermutation.hasTag("dorios:isTube")) {
+    clearPipeFacesAt(dimension, location);
+  }
 
   system.run(() => {
     if (brokenBlockPermutation.hasTag("dorios:energy")) updateNetworksAt(block, "energy");
@@ -151,6 +155,7 @@ world.afterEvents.playerBreakBlock.subscribe(({ block, brokenBlockPermutation })
 world.afterEvents.playerPlaceBlock.subscribe(({ block }) => {
   const dimension = block.dimension;
   const location = { ...block.location };
+  clearPipeFacesAt(dimension, location);
 
   // Custom machine/container entities are spawned through deferred component
   // callbacks. Rechecking next tick lets the first topology scan see them.
@@ -194,6 +199,7 @@ world.afterEvents.pistonActivate.subscribe(({ piston, isExpanding, dimension }) 
     reconcileMovedFluidNodes(dimension, movements);
     reconcileMovedGasNodes(dimension, movements);
     reconcileMovedPersistentUpgrades(dimension, movements);
+    reconcileMovedPipeFaces(dimension, movements);
 
     for (const { target: location, source: pairedLocation } of movements) {
       const block = safeGetBlock(dimension, location);

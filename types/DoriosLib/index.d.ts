@@ -36,6 +36,20 @@ export type LinkNodeIOOperation = "input" | "output";
 /** A JSON-compatible object dispatched to a UtilityCraft runtime registry. */
 export type RegistrationPayload = Record<string, unknown>;
 
+/** Runtime block compatibility accepted by Item Ducts. */
+export interface ItemDuctCompatibilityRegistration {
+  /** Fully qualified compatible block identifier. */
+  typeId: string;
+  /** Slots exposed to ducts for insertion. */
+  insertSlots?: number[];
+  /** Slots exposed to ducts for extraction. */
+  extractSlots?: number[];
+  /** Absolute block faces allowed for insertion. */
+  insertFaces?: ContainerFace[];
+  /** Absolute block faces allowed for extraction. */
+  extractFaces?: ContainerFace[];
+}
+
 /** Result returned by safe JSON helpers. */
 export type JsonResult<T> =
   | { ok: true; value: T }
@@ -745,7 +759,7 @@ export namespace registry {
   const PERMISSION_LEVELS: typeof constants.PERMISSION_LEVELS;
   const PARAMETER_TYPES: typeof constants.COMMAND_PARAMETER_TYPES;
 
-  /** UtilityCraft script-event ids targeted by payload registration helpers. */
+  /** Script-event ids targeted by payload registration helpers. */
   const REGISTRATION_EVENT_IDS: Readonly<{
     AUTO_FISHER_DROP: "utilitycraft:register_autofisher_drop";
     BONSAI: "utilitycraft:register_bonsai";
@@ -759,6 +773,8 @@ export namespace registry {
     GAS_HOLDER: "utilitycraft:register_gas_holder";
     GAS_ITEM: "utilitycraft:register_gas_item";
     INFUSER_RECIPE: "utilitycraft:register_infuser_recipe";
+    ITEM_DUCT_REGISTER: "item_ducts:register";
+    ITEM_DUCT_UNREGISTER: "item_ducts:unregister";
     MELTER_RECIPE: "utilitycraft:register_melter_recipe";
     MACHINE_UPGRADE: "utilitycraft:register_machine_upgrade";
     PLANT: "utilitycraft:register_plant";
@@ -780,6 +796,9 @@ export namespace registry {
   function registerGasHolder(payload: RegistrationPayload): void;
   function registerGasItem(payload: RegistrationPayload): void;
   function registerInfuserRecipe(payload: RegistrationPayload): void;
+  function registerItemDuctCompatibility(payload: ItemDuctCompatibilityRegistration): void;
+  function registerItemDuctChest(typeId: string): void;
+  function unregisterItemDuctCompatibility(typeId: string): void;
   function registerMelterRecipe(payload: RegistrationPayload): void;
   function registerMachineUpgrade(payload: RegistrationPayload): void;
   function registerPlant(payload: RegistrationPayload): void;

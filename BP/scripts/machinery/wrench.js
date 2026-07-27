@@ -1,6 +1,8 @@
 import * as DoriosLib from "DoriosLib/index.js";
 import { ModalFormData } from "@minecraft/server-ui";
 import { Rotation, Generator } from "DoriosCore/index.js"
+import { updateNetworksAt } from "../UtilityCore/networks/index.js";
+import { togglePipeFace } from "../UtilityCore/networks/pipeFaces.js";
 
 function translate(key) {
     return { translate: key };
@@ -14,6 +16,28 @@ DoriosLib.registry.itemComponent("utilitycraft:wrench", {
      */
     onUseOn(e) {
         const { source, block, blockFace } = e;
+        if (block.hasTag("dorios:isTube")) {
+            const result = togglePipeFace(block, blockFace);
+            if (result.protected) {
+                source.onScreenDisplay.setActionBar(translate("message.utilitycraft.pipe.face_protected"));
+                source.playSound("random.break");
+                return;
+            }
+            if (!result.changed) return;
+
+            if (block.hasTag("dorios:energy")) updateNetworksAt(block, "energy");
+            if (block.hasTag("dorios:item")) updateNetworksAt(block, "item");
+            if (block.hasTag("dorios:fluid")) updateNetworksAt(block, "fluid");
+            if (block.hasTag("dorios:gas")) updateNetworksAt(block, "gas");
+
+            source.onScreenDisplay.setActionBar(
+                translate(result.disabled
+                    ? "message.utilitycraft.pipe.face_disabled"
+                    : "message.utilitycraft.pipe.face_enabled"),
+            );
+            source.playSound("place.iron");
+            return;
+        }
         if (!source.isSneaking) {
             if (block.typeId.includes("receiver")) {
                 openEnergyNodeMenu(block, source)
