@@ -73,6 +73,7 @@ This update introduces a complete overhaul of machine interfaces, configurable s
   - Their capacity are the same as their liquid counterparts, but they are not interchangeable.
 - Improved Exporter, Importer and Liquid Extractor interfaces.
 - Improved transfer caching and endpoint handling.
+- Fixed Item Importer filters repeatedly checking only the first three eligible source slots, preventing matching items in later slots from being transferred.
 - Reworked Item Conduits and Fluid Pipes around the new machine I/O system.
   - Exporters and importers respect configured machine faces, preventing items from entering faces that are not input faces.
   - Added native Item Ducts Redux compatibility through DoriosCore.

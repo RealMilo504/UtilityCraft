@@ -86,6 +86,7 @@ const EXPORTER_STORAGE_FORMAT = "utilitycraft:item_exporter:v1";
  * @property {ExporterDocument} document
  * @property {Set<string>} filterItems
  * @property {number} roundIndex
+ * @property {number} sourceSlotCursor
  * @property {boolean} persistenceReady
  * @property {ContainerAccess|undefined} sourceAccess
  * @property {Map<string,ContainerAccess>} targetAccesses
@@ -388,6 +389,7 @@ function getExporterRuntime(block) {
     document,
     filterItems: new Set(document.filter.items),
     roundIndex: 0,
+    sourceSlotCursor: 0,
     persistenceReady: storedDocument !== undefined,
     sourceAccess: undefined,
     targetAccesses: new Map(),
@@ -985,9 +987,16 @@ function processExporterTick(block, dimension) {
  * @param {boolean} filterEnabled
  */
 function tryTransferItemOperation(runtime, dimension, sourceAccess, filterEnabled) {
+  const slots = sourceAccess.slots;
+  if (slots.length === 0) return false;
+
+  let scanned = 0;
   let attempts = 0;
-  for (const sourceSlot of sourceAccess.slots) {
-    if (attempts >= MAX_SOURCE_SLOT_ATTEMPTS) break;
+  while (scanned < slots.length && attempts < MAX_SOURCE_SLOT_ATTEMPTS) {
+    const index = runtime.sourceSlotCursor % slots.length;
+    const sourceSlot = slots[index];
+    runtime.sourceSlotCursor = (index + 1) % slots.length;
+    scanned++;
 
     let item;
     try {
@@ -1240,6 +1249,7 @@ async function rebuildItemNetworkComponent(rootLocation, dimension) {
     runtime.sourceAccess = undefined;
     runtime.targetAccesses.clear();
     runtime.roundIndex = 0;
+    runtime.sourceSlotCursor = 0;
     persistExporterRuntime(runtime);
   }
 
