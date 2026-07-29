@@ -263,6 +263,44 @@
                 }
             },
             {
+                "upgrade_disabled_overlay_1": {
+                    "type": "image",
+                    "texture": "textures/ui/icons/disabled",
+                    "size": [
+                        18,
+                        18
+                    ],
+                    "offset": [
+                        -9,
+                        6
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 1,
+                    "alpha": 0.5,
+                    "visible": "(not ($has_first))"
+                }
+            },
+            {
+                "upgrade_disabled_overlay_2": {
+                    "type": "image",
+                    "texture": "textures/ui/icons/disabled",
+                    "size": [
+                        18,
+                        18
+                    ],
+                    "offset": [
+                        9,
+                        6
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 1,
+                    "alpha": 0.5,
+                    "visible": "(not ($has_second))"
+                }
+            },
+            {
                 "upgrade_disabled_overlay_3": {
                     "type": "image",
                     "texture": "textures/ui/icons/disabled",

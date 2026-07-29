@@ -177,7 +177,9 @@ export class Machine extends BasicMachine {
         fluids: fluidManagers,
         gases: gasManagers,
       });
-      energyManager.display();
+      if (energyManager.getCap() > 0) {
+        energyManager.display();
+      }
       fluidManagers[0]?.display();
       if (config.machine.gas_cap && config.machine.fluid_cap) {
         entity.triggerEvent("utilitycraft:fluid_gas_machine");
