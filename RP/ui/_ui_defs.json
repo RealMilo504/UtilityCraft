@@ -14,6 +14,7 @@
                     "ui/generators/solar_panel.json",
                     "ui/generators/wind_turbine.json",
                     "ui/machines/battery.json",
+                    "ui/machines/creative_battery.json",
                     "ui/machines/transmitter.json",
                     "ui/machines/receiver.json",
                     "ui/machines/infuser.json",
