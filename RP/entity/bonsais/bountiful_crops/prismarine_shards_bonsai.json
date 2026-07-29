@@ -1,0 +1,29 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "utilitycraft:prismarine_shards_bonsai",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/blocks/crops/prismarine_shards_1"
+			},
+			"geometry": {
+				"default": "geometry.utilitycraft_crop_bonsai"
+			},
+			"render_controllers": [
+				"controller.render.default"
+			],
+			"animations": {
+				"controller": "controller.animation.utilitycraft_bonsai_dynamic",
+				"grow_dynamic": "animation.utilitycraft_bonsai.grow_dynamic"
+			},
+			"scripts": {
+				"animate": [
+					"controller"
+				]
+			}
+		}
+	}
+}

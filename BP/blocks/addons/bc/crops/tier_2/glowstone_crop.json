@@ -190,13 +190,15 @@
 			"minecraft:collision_box": false,
 			"minecraft:loot": "loot_tables/bc/seeds/glowstone.json",
 			"minecraft:light_dampening": 0,
-			"utilitycraft:crop": {},
 			"minecraft:tick": {
 				"interval_range": [
-					1400,
-					1960
+					100,
+					100
 				],
 				"looping": true
+			},
+			"utilitycraft:retrocompatibility": {
+				"target": "utilitycraft:glowstone_seeds"
 			}
 		}
 	}

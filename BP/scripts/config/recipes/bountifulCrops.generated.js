@@ -24,7 +24,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       800,
       1120
     ],
-    "seedChance": 0.12
+    "seedChance": 0.12,
+    "bonsaiEntityId": "utilitycraft:coal_bonsai",
+    "bonsaiDurationSeconds": 120
   },
   {
     "key": "copper",
@@ -48,7 +50,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       800,
       1120
     ],
-    "seedChance": 0.12
+    "seedChance": 0.12,
+    "bonsaiEntityId": "utilitycraft:copper_bonsai",
+    "bonsaiDurationSeconds": 120
   },
   {
     "key": "dyes",
@@ -192,7 +196,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       800,
       1120
     ],
-    "seedChance": 0.12
+    "seedChance": 0.12,
+    "bonsaiEntityId": "utilitycraft:dyes_bonsai",
+    "bonsaiDurationSeconds": 120
   },
   {
     "key": "glass",
@@ -216,7 +222,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       800,
       1120
     ],
-    "seedChance": 0.12
+    "seedChance": 0.12,
+    "bonsaiEntityId": "utilitycraft:glass_bonsai",
+    "bonsaiDurationSeconds": 120
   },
   {
     "key": "gunpowder",
@@ -240,7 +248,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       800,
       1120
     ],
-    "seedChance": 0.12
+    "seedChance": 0.12,
+    "bonsaiEntityId": "utilitycraft:gunpowder_bonsai",
+    "bonsaiDurationSeconds": 120
   },
   {
     "key": "iron",
@@ -264,7 +274,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       800,
       1120
     ],
-    "seedChance": 0.12
+    "seedChance": 0.12,
+    "bonsaiEntityId": "utilitycraft:iron_bonsai",
+    "bonsaiDurationSeconds": 120
   },
   {
     "key": "leather",
@@ -288,7 +300,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       800,
       1120
     ],
-    "seedChance": 0.12
+    "seedChance": 0.12,
+    "bonsaiEntityId": "utilitycraft:leather_bonsai",
+    "bonsaiDurationSeconds": 120
   },
   {
     "key": "prismarine_crystals",
@@ -312,7 +326,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       800,
       1120
     ],
-    "seedChance": 0.12
+    "seedChance": 0.12,
+    "bonsaiEntityId": "utilitycraft:prismarine_crystals_bonsai",
+    "bonsaiDurationSeconds": 120
   },
   {
     "key": "prismarine_shards",
@@ -336,7 +352,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       800,
       1120
     ],
-    "seedChance": 0.12
+    "seedChance": 0.12,
+    "bonsaiEntityId": "utilitycraft:prismarine_shards_bonsai",
+    "bonsaiDurationSeconds": 120
   },
   {
     "key": "water",
@@ -360,7 +378,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       800,
       1120
     ],
-    "seedChance": 0.12
+    "seedChance": 0.12,
+    "bonsaiEntityId": "utilitycraft:water_bonsai",
+    "bonsaiDurationSeconds": 120
   },
   {
     "key": "wool",
@@ -384,7 +404,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       800,
       1120
     ],
-    "seedChance": 0.12
+    "seedChance": 0.12,
+    "bonsaiEntityId": "utilitycraft:wool_bonsai",
+    "bonsaiDurationSeconds": 120
   },
   {
     "key": "ghast",
@@ -408,7 +430,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       1400,
       1960
     ],
-    "seedChance": 0.1
+    "seedChance": 0.1,
+    "bonsaiEntityId": "utilitycraft:ghast_bonsai",
+    "bonsaiDurationSeconds": 180
   },
   {
     "key": "glowstone",
@@ -432,7 +456,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       1400,
       1960
     ],
-    "seedChance": 0.1
+    "seedChance": 0.1,
+    "bonsaiEntityId": "utilitycraft:glowstone_bonsai",
+    "bonsaiDurationSeconds": 180
   },
   {
     "key": "gold",
@@ -456,7 +482,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       1400,
       1960
     ],
-    "seedChance": 0.1
+    "seedChance": 0.1,
+    "bonsaiEntityId": "utilitycraft:gold_bonsai",
+    "bonsaiDurationSeconds": 180
   },
   {
     "key": "honey",
@@ -480,7 +508,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       1400,
       1960
     ],
-    "seedChance": 0.1
+    "seedChance": 0.1,
+    "bonsaiEntityId": "utilitycraft:honey_bonsai",
+    "bonsaiDurationSeconds": 180
   },
   {
     "key": "lapis",
@@ -504,7 +534,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       1400,
       1960
     ],
-    "seedChance": 0.1
+    "seedChance": 0.1,
+    "bonsaiEntityId": "utilitycraft:lapis_bonsai",
+    "bonsaiDurationSeconds": 180
   },
   {
     "key": "lava",
@@ -528,7 +560,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       1400,
       1960
     ],
-    "seedChance": 0.1
+    "seedChance": 0.1,
+    "bonsaiEntityId": "utilitycraft:lava_bonsai",
+    "bonsaiDurationSeconds": 180
   },
   {
     "key": "quartz",
@@ -552,7 +586,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       1400,
       1960
     ],
-    "seedChance": 0.1
+    "seedChance": 0.1,
+    "bonsaiEntityId": "utilitycraft:quartz_bonsai",
+    "bonsaiDurationSeconds": 180
   },
   {
     "key": "redstone",
@@ -576,7 +612,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       1400,
       1960
     ],
-    "seedChance": 0.1
+    "seedChance": 0.1,
+    "bonsaiEntityId": "utilitycraft:redstone_bonsai",
+    "bonsaiDurationSeconds": 180
   },
   {
     "key": "resin",
@@ -600,7 +638,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       1400,
       1960
     ],
-    "seedChance": 0.1
+    "seedChance": 0.1,
+    "bonsaiEntityId": "utilitycraft:resin_bonsai",
+    "bonsaiDurationSeconds": 180
   },
   {
     "key": "slime",
@@ -624,7 +664,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       1400,
       1960
     ],
-    "seedChance": 0.1
+    "seedChance": 0.1,
+    "bonsaiEntityId": "utilitycraft:slime_bonsai",
+    "bonsaiDurationSeconds": 180
   },
   {
     "key": "amethyst",
@@ -648,7 +690,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       2200,
       3080
     ],
-    "seedChance": 0.08
+    "seedChance": 0.08,
+    "bonsaiEntityId": "utilitycraft:amethyst_bonsai",
+    "bonsaiDurationSeconds": 300
   },
   {
     "key": "blaze",
@@ -672,7 +716,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       2200,
       3080
     ],
-    "seedChance": 0.08
+    "seedChance": 0.08,
+    "bonsaiEntityId": "utilitycraft:blaze_bonsai",
+    "bonsaiDurationSeconds": 300
   },
   {
     "key": "diamond",
@@ -696,7 +742,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       2200,
       3080
     ],
-    "seedChance": 0.08
+    "seedChance": 0.08,
+    "bonsaiEntityId": "utilitycraft:diamond_bonsai",
+    "bonsaiDurationSeconds": 300
   },
   {
     "key": "emerald",
@@ -720,7 +768,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       2200,
       3080
     ],
-    "seedChance": 0.08
+    "seedChance": 0.08,
+    "bonsaiEntityId": "utilitycraft:emerald_bonsai",
+    "bonsaiDurationSeconds": 300
   },
   {
     "key": "ender_pearl",
@@ -744,7 +794,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       2200,
       3080
     ],
-    "seedChance": 0.08
+    "seedChance": 0.08,
+    "bonsaiEntityId": "utilitycraft:ender_pearl_bonsai",
+    "bonsaiDurationSeconds": 300
   },
   {
     "key": "obsidian",
@@ -768,7 +820,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       2200,
       3080
     ],
-    "seedChance": 0.08
+    "seedChance": 0.08,
+    "bonsaiEntityId": "utilitycraft:obsidian_bonsai",
+    "bonsaiDurationSeconds": 300
   },
   {
     "key": "netherite",
@@ -792,7 +846,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       3200,
       4480
     ],
-    "seedChance": 0.06
+    "seedChance": 0.06,
+    "bonsaiEntityId": "utilitycraft:netherite_bonsai",
+    "bonsaiDurationSeconds": 600
   },
   {
     "key": "nether_star",
@@ -816,7 +872,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       3200,
       4480
     ],
-    "seedChance": 0.06
+    "seedChance": 0.06,
+    "bonsaiEntityId": "utilitycraft:nether_star_bonsai",
+    "bonsaiDurationSeconds": 600
   },
   {
     "key": "shulker",
@@ -840,7 +898,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       3200,
       4480
     ],
-    "seedChance": 0.06
+    "seedChance": 0.06,
+    "bonsaiEntityId": "utilitycraft:shulker_bonsai",
+    "bonsaiDurationSeconds": 600
   },
   {
     "key": "totem",
@@ -864,7 +924,9 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       3200,
       4480
     ],
-    "seedChance": 0.06
+    "seedChance": 0.06,
+    "bonsaiEntityId": "utilitycraft:totem_bonsai",
+    "bonsaiDurationSeconds": 600
   },
   {
     "key": "wither",
@@ -888,12 +950,17 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
       3200,
       4480
     ],
-    "seedChance": 0.06
+    "seedChance": 0.06,
+    "bonsaiEntityId": "utilitycraft:wither_bonsai",
+    "bonsaiDurationSeconds": 600
   }
 ]);
 
 export const BOUNTIFUL_CROPS_BY_BLOCK = Object.freeze(Object.fromEntries(
-  BOUNTIFUL_CROP_DEFINITIONS.map(definition => [definition.cropId, definition])
+  BOUNTIFUL_CROP_DEFINITIONS.flatMap(definition => [
+    [definition.cropId, definition],
+    [definition.seedId, definition]
+  ])
 ));
 
 export const BOUNTIFUL_CROPS_BY_SEED = Object.freeze(Object.fromEntries(
@@ -913,6 +980,10 @@ export const cropData = Object.freeze(Object.fromEntries(
 export const bountifulPlantsData = Object.freeze(Object.fromEntries(
   BOUNTIFUL_CROP_DEFINITIONS.map(definition => [definition.seedId, {
     cost: definition.cost,
+    bonsai: {
+      entityTypeId: definition.bonsaiEntityId,
+      durationSeconds: definition.bonsaiDurationSeconds
+    },
     drops: [
       ...definition.drops.map(drop => ({
         item: drop.item,

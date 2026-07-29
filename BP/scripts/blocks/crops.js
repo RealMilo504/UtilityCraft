@@ -1,5 +1,5 @@
 import * as DoriosLib from "DoriosLib/index.js"
-import { ItemStack, system } from "@minecraft/server"
+import { BlockPermutation, ItemStack, system } from "@minecraft/server"
 import {
     getCropDefinition,
     harvestCrop,
@@ -51,5 +51,25 @@ DoriosLib.registry.blockComponent("utilitycraft:crop", {
         // A mature plant always returns the seed required to replant it.
         block.dimension.spawnItem(new ItemStack(definition.seedId, 1), location)
         spawnBrokenCropFortuneBonus(definition, block.dimension, location, mainHand)
+    }
+})
+
+DoriosLib.registry.blockComponent("utilitycraft:retrocompatibility", {
+    onTick({ block }, { params } = {}) {
+        const targetTypeId = params?.target
+        if (typeof targetTypeId !== "string") return
+
+        try {
+            const states = block.permutation.getAllStates()
+            let targetPermutation = BlockPermutation.resolve(targetTypeId)
+
+            for (const [state, value] of Object.entries(states)) {
+                try {
+                    targetPermutation = targetPermutation.withState(state, value)
+                } catch {}
+            }
+
+            block.setPermutation(targetPermutation)
+        } catch {}
     }
 })

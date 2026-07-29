@@ -1,17 +1,18 @@
 {
-	"format_version": "1.20.80",
+	"format_version": "1.21.90",
 	"minecraft:item": {
 		"description": {
 			"identifier": "utilitycraft:water_seeds",
 			"menu_category": {
 				"category": "nature",
-				"group": "itemGroup.name.seed"
+				"group": "minecraft:itemGroup.name.seed"
 			}
 		},
 		"components": {
 			"minecraft:icon": "utilitycraft_water_seeds",
 			"minecraft:block_placer": {
-				"block": "utilitycraft:water_crop"
+				"block": "utilitycraft:water_seeds",
+				"replace_block_item": true
 			}
 		}
 	}

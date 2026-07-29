@@ -834,4 +834,103 @@
 	"utilitycraft:basic_energy_transmitter": {
 		"sound": "stone"
 	}
+,
+// BEGIN GENERATED BOUNTIFUL CROP SEED BLOCKS
+	"utilitycraft:coal_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:copper_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:dyes_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:glass_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:gunpowder_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:iron_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:leather_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:prismarine_crystals_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:prismarine_shards_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:water_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:wool_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:ghast_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:glowstone_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:gold_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:honey_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:lapis_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:lava_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:quartz_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:redstone_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:resin_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:slime_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:amethyst_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:blaze_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:diamond_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:emerald_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:enderpearl_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:obsidian_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:netherite_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:nether_star_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:shulker_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:totem_seeds": {
+		"sound": "grass"
+	},
+	"utilitycraft:wither_seeds": {
+		"sound": "grass"
+	}
+// END GENERATED BOUNTIFUL CROP SEED BLOCKS
 }
