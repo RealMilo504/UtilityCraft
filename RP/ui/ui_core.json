@@ -3455,8 +3455,8 @@
             18
         ],
         "offset": "$io_button_offset",
-        "anchor_from": "top_middle",
-        "anchor_to": "top_middle",
+        "anchor_from": "bottom_right",
+        "anchor_to": "bottom_right",
         "collection_index": "$io_button_index",
         "layer": 3,
         "bindings": [
@@ -3474,6 +3474,12 @@
     },
     "io_face_outline": {
         "type": "collection_panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            "100%",
+            "100%"
+        ],
         "collection_name": "container_items",
         "$item_collection_name|default": "container_items",
         "$io_button_index|default": 0,
@@ -3776,6 +3782,12 @@
     },
     "io_face_button": {
         "type": "collection_panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            "100%",
+            "100%"
+        ],
         "collection_name": "container_items",
         "$item_collection_name|default": "container_items",
         "$io_button_index|default": 0,
@@ -3798,8 +3810,8 @@
             },
             {
                 "face_button@uc.machine_button": {
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
+                    "anchor_from": "bottom_right",
+                    "anchor_to": "bottom_right",
                     "offset": "$io_face_offset",
                     "size": [
                         16,
@@ -3821,6 +3833,12 @@
     },
     "io_face_slots": {
         "type": "panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            "100%",
+            "100%"
+        ],
         "$io_top_index|default": 8,
         "$io_left_index|default": 9,
         "$io_front_index|default": 10,
@@ -3839,12 +3857,12 @@
                     "$item_collection_name": "$item_collection_name",
                     "$io_button_index": "$io_top_index",
                     "$io_button_offset": [
-                        44,
-                        -14
+                        -31,
+                        -50
                     ],
                     "$io_face_offset": [
-                        44,
-                        -13
+                        -32,
+                        -51
                     ],
                     "$io_face_texture": "$io_top_texture"
                 }
@@ -3854,12 +3872,12 @@
                     "$item_collection_name": "$item_collection_name",
                     "$io_button_index": "$io_left_index",
                     "$io_button_offset": [
-                        24,
-                        6
+                        -51,
+                        -30
                     ],
                     "$io_face_offset": [
-                        24,
-                        7
+                        -52,
+                        -31
                     ],
                     "$io_face_texture": "$io_left_texture"
                 }
@@ -3869,12 +3887,12 @@
                     "$item_collection_name": "$item_collection_name",
                     "$io_button_index": "$io_front_index",
                     "$io_button_offset": [
-                        44,
-                        6
+                        -31,
+                        -30
                     ],
                     "$io_face_offset": [
-                        44,
-                        7
+                        -32,
+                        -31
                     ],
                     "$io_face_texture": "$io_front_texture"
                 }
@@ -3884,12 +3902,12 @@
                     "$item_collection_name": "$item_collection_name",
                     "$io_button_index": "$io_right_index",
                     "$io_button_offset": [
-                        64,
-                        6
+                        -11,
+                        -30
                     ],
                     "$io_face_offset": [
-                        64,
-                        7
+                        -12,
+                        -31
                     ],
                     "$io_face_texture": "$io_right_texture"
                 }
@@ -3899,12 +3917,12 @@
                     "$item_collection_name": "$item_collection_name",
                     "$io_button_index": "$io_bottom_index",
                     "$io_button_offset": [
-                        44,
-                        26
+                        -31,
+                        -10
                     ],
                     "$io_face_offset": [
-                        44,
-                        27
+                        -32,
+                        -11
                     ],
                     "$io_face_texture": "$io_bottom_texture"
                 }
@@ -3914,12 +3932,12 @@
                     "$item_collection_name": "$item_collection_name",
                     "$io_button_index": "$io_back_index",
                     "$io_button_offset": [
-                        64,
-                        26
+                        -11,
+                        -10
                     ],
                     "$io_face_offset": [
-                        64,
-                        27
+                        -12,
+                        -11
                     ],
                     "$io_face_texture": "$io_back_texture"
                 }
@@ -3951,6 +3969,14 @@
         "$io_items_toggle_control_name|default": "io_items_toggle_button",
         "$io_fluids_toggle_control_name|default": "io_fluids_toggle_button",
         "$io_gases_toggle_control_name|default": "io_gases_toggle_button",
+        "$io_panel_offset|default": [
+            16.5,
+            7
+        ],
+        "$io_panel_size|default": [
+            145,
+            126
+        ],
         "$io_items_modes_description|default": "IO Modes:\n§r- §9Inputs 1-9\n§r- §cOutputs 1-9",
         "$io_fluids_modes_description|default": "IO Modes:\n§r- §9Inputs 1-9\n§r- §cOutputs 1-9",
         "$io_gases_modes_description|default": "IO Modes:\n§r- §9Inputs 1-9\n§r- §cOutputs 1-9",
@@ -4068,35 +4094,39 @@
             },
             {
                 "io_panel": {
-                    "type": "collection_panel",
-                    "anchor_from": "center",
-                    "anchor_to": "center",
+                    "type": "panel",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
                     "size": [
-                        162,
-                        72
+                        0,
+                        0
                     ],
-                    "offset": [
-                        -8,
-                        43
-                    ],
+                    "offset": "$io_panel_offset",
                     "layer": 30,
-                    "collection_name": "container_items",
                     "$item_collection_name": "container_items",
                     "controls": [
+                        {
+                            "io_panel_content": {
+                                "type": "panel",
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "size": "$io_panel_size",
+                                "$item_collection_name": "container_items",
+                                "controls": [
                         {
                             "io_background": {
                                 "type": "image",
                                 "texture": "textures/ui/background/background_panel",
                                 "size": [
-                                    132,
-                                    114
+                                    "100%",
+                                    "100%"
                                 ],
                                 "offset": [
-                                    18,
-                                    -36
+                                    0,
+                                    0
                                 ],
-                                "anchor_from": "top_middle",
-                                "anchor_to": "top_middle",
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
                                 "layer": 0
                             }
                         },
@@ -4105,14 +4135,14 @@
                                 "type": "label",
                                 "text": "ui.utilitycraft:io_panel.name",
                                 "anchor_from": "top_left",
-                                "anchor_to": "top_middle",
+                                "anchor_to": "top_left",
                                 "size": [
                                     120,
                                     10
                                 ],
                                 "offset": [
-                                    98,
-                                    -30
+                                    5,
+                                    6
                                 ],
                                 "text_alignment": "left",
                                 "color": [
@@ -4129,14 +4159,14 @@
                                 "type": "label",
                                 "text": "$io_items_modes_description",
                                 "anchor_from": "top_left",
-                                "anchor_to": "top_middle",
+                                "anchor_to": "top_left",
                                 "size": [
                                     120,
                                     80
                                 ],
                                 "offset": [
-                                    103,
-                                    -14
+                                    10,
+                                    22
                                 ],
                                 "text_alignment": "left",
                                 "color": [
@@ -4162,14 +4192,14 @@
                                 "type": "label",
                                 "text": "$io_fluids_modes_description",
                                 "anchor_from": "top_left",
-                                "anchor_to": "top_middle",
+                                "anchor_to": "top_left",
                                 "size": [
                                     120,
                                     80
                                 ],
                                 "offset": [
-                                    103,
-                                    -14
+                                    10,
+                                    22
                                 ],
                                 "text_alignment": "left",
                                 "color": [
@@ -4195,14 +4225,14 @@
                                 "type": "label",
                                 "text": "$io_gases_modes_description",
                                 "anchor_from": "top_left",
-                                "anchor_to": "top_middle",
+                                "anchor_to": "top_left",
                                 "size": [
                                     120,
                                     80
                                 ],
                                 "offset": [
-                                    103,
-                                    -14
+                                    10,
+                                    22
                                 ],
                                 "text_alignment": "left",
                                 "color": [
@@ -4225,11 +4255,15 @@
                         },
                         {
                             "io_items_toggle@uc.toggle_button": {
-                                "anchor_from": "top_middle",
-                                "anchor_to": "top_middle",
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "size": [
+                                    24,
+                                    24
+                                ],
                                 "offset": [
-                                    -59,
-                                    -56
+                                    -23,
+                                    4
                                 ],
                                 "visible": "$has_item_io",
                                 "$toggle_name": "$io_config_tabs_name",
@@ -4265,11 +4299,15 @@
                         },
                         {
                             "io_fluids_toggle@uc.toggle_button": {
-                                "anchor_from": "top_middle",
-                                "anchor_to": "top_middle",
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "size": [
+                                    24,
+                                    24
+                                ],
                                 "offset": [
-                                    -59,
-                                    -30
+                                    -23,
+                                    30
                                 ],
                                 "visible": "$has_fluid_io",
                                 "$toggle_name": "$io_config_tabs_name",
@@ -4305,11 +4343,15 @@
                         },
                         {
                             "io_gases_toggle@uc.toggle_button": {
-                                "anchor_from": "top_middle",
-                                "anchor_to": "top_middle",
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "size": [
+                                    24,
+                                    24
+                                ],
                                 "offset": [
-                                    -59,
-                                    -4
+                                    -23,
+                                    56
                                 ],
                                 "visible": "$has_gas_io",
                                 "$toggle_name": "$io_config_tabs_name",
@@ -4346,6 +4388,12 @@
                         {
                             "io_items_panel": {
                                 "type": "panel",
+                                "anchor_from": "center",
+                                "anchor_to": "center",
+                                "size": [
+                                    "100%",
+                                    "100%"
+                                ],
                                 "layer": 1,
                                 "bindings": [
                                     {
@@ -4379,6 +4427,12 @@
                         {
                             "io_fluids_panel": {
                                 "type": "panel",
+                                "anchor_from": "center",
+                                "anchor_to": "center",
+                                "size": [
+                                    "100%",
+                                    "100%"
+                                ],
                                 "layer": 1,
                                 "bindings": [
                                     {
@@ -4412,6 +4466,12 @@
                         {
                             "io_gases_panel": {
                                 "type": "panel",
+                                "anchor_from": "center",
+                                "anchor_to": "center",
+                                "size": [
+                                    "100%",
+                                    "100%"
+                                ],
                                 "layer": 1,
                                 "bindings": [
                                     {
@@ -4444,11 +4504,15 @@
                         },
                         {
                             "io_panel_close@uc.toggle_button": {
-                                "anchor_from": "top_middle",
-                                "anchor_to": "top_middle",
+                                "anchor_from": "top_right",
+                                "anchor_to": "top_right",
+                                "size": [
+                                    15,
+                                    15
+                                ],
                                 "offset": [
-                                    72,
-                                    -60
+                                    -5,
+                                    5
                                 ],
                                 "$toggle_size": [
                                     15,
@@ -4468,6 +4532,9 @@
                                 "$toggle_checked": "textures/ui/close_button/checked",
                                 "$toggle_unchecked_hover": "textures/ui/close_button/unchecked_hover",
                                 "$toggle_checked_hover": "textures/ui/close_button/checked"
+                            }
+                        }
+                                ]
                             }
                         }
                     ],
