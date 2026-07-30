@@ -3970,12 +3970,12 @@
         "$io_fluids_toggle_control_name|default": "io_fluids_toggle_button",
         "$io_gases_toggle_control_name|default": "io_gases_toggle_button",
         "$io_panel_offset|default": [
-            16.5,
+            10,
             7
         ],
         "$io_panel_size|default": [
-            145,
-            126
+            144,
+            114
         ],
         "$io_items_modes_description|default": "IO Modes:\n§r- §9Inputs 1-9\n§r- §cOutputs 1-9",
         "$io_fluids_modes_description|default": "IO Modes:\n§r- §9Inputs 1-9\n§r- §cOutputs 1-9",
@@ -4161,8 +4161,8 @@
                                 "anchor_from": "top_left",
                                 "anchor_to": "top_left",
                                 "size": [
-                                    120,
-                                    80
+                                    160,
+                                    120
                                 ],
                                 "offset": [
                                     10,
@@ -4194,8 +4194,8 @@
                                 "anchor_from": "top_left",
                                 "anchor_to": "top_left",
                                 "size": [
-                                    120,
-                                    80
+                                    160,
+                                    120
                                 ],
                                 "offset": [
                                     10,
@@ -4227,8 +4227,8 @@
                                 "anchor_from": "top_left",
                                 "anchor_to": "top_left",
                                 "size": [
-                                    120,
-                                    80
+                                    160,
+                                    120
                                 ],
                                 "offset": [
                                     10,
