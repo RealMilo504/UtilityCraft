@@ -6,6 +6,7 @@ import {
   resolveLinkNode,
   setLinkNodeIO,
 } from "../../DoriosLib/linkNodes/index.js";
+import { blockComponent } from "../../DoriosLib/registry/index.js";
 import { isPlainObject } from "../../DoriosLib/utils/index.js";
 import { FluidStorage } from "../machinery/fluidStorage.js";
 import { GasStorage } from "../machinery/gasStorage.js";
@@ -329,3 +330,10 @@ function showMessage(player, message) {
     player?.onScreenDisplay?.setActionBar(message);
   } catch {}
 }
+
+blockComponent("utilitycraft:link_node_io", {
+  onPlayerInteract({ block, player }) {
+    if (!block || !player) return;
+    void openLinkNodeIOForm(block, player);
+  },
+});
