@@ -666,9 +666,9 @@ tile.utilitycraft:ultimate_wind_turbine.name=§8Ultimate Wind Turbine \n §7 Bas
 < Energy Generators =Geradores de Energy ##///////////////////////////////////////////////////////////
 
 - Stuff =## Coisas Não-Categorizadas
-tile.utilitycraft:waycenter.name=Zielzentrum\n§7- Registriert Zielchips und teleportiert dich zu ihren Zielteppichen. Reichweiten-Upgrades erhöhen die Reichweite und senken die Levelkosten.\n§o§9@UtilityCraft
-tile.utilitycraft:waycarpet.name=Zielteppich\n§7- Verknüpfe hier einen Zielchip. Interagiere ohne Chip, um zum Zielzentrum zurückzukehren.\n§o§9@UtilityCraft
-item.utilitycraft:way_chip=Zielchip\n§7- Verknüpfe ihn mit einem Zielteppich und registriere ihn dann in einem Zielzentrum.\n§o§9@UtilityCraft
+tile.utilitycraft:waycenter.name=Zielzentrum\n§7- Registriert Zielchips und teleportiert dich zu\n  ihren Zielteppichen. Reichweiten-Upgrades erhöhen\n  die Reichweite und senken die Levelkosten.\n§o§9@UtilityCraft
+tile.utilitycraft:waycarpet.name=Zielteppich\n§7- Verknüpfe hier einen Zielchip. Interagiere ohne\n  Chip, um zum Zielzentrum zurückzukehren.\n§o§9@UtilityCraft
+item.utilitycraft:way_chip=Zielchip\n§7- Verknüpfe ihn mit einem Zielteppich und\n  registriere ihn dann in einem Zielzentrum.\n§o§9@UtilityCraft
 ui.utilitycraft:way_center.title=Zielzentrum
 ui.utilitycraft:way_center.summary=§7Registriert: §f%1\n§7Reichweite: §f%2\n§7Rabatt: §f%3%%\n§7Deine Level: §f%4\n\n§8Wähle ein Ziel.
 ui.utilitycraft:way_center.empty=§7Keine Ziele registriert.\n\n§81. Benutze einen Zielchip auf einem Zielteppich.\n2. Benenne das Ziel.\n3. Registriere den verknüpften Chip in diesem Zielzentrum.
@@ -969,7 +969,7 @@ message.utilitycraft.copy_paste_tool.incompatible=§cKeine gespeicherten Einstel
 message.utilitycraft.copy_paste_tool.pasted=§a%s Konfigurationsabschnitt(e) angewendet.
 message.utilitycraft.copy_paste_tool.missing_filter_upgrade=§cFilter-Upgrade fehlt.
 
-# Bountiful Crops seed blocks
+## Bountiful Crops seed blocks
 tile.utilitycraft:coal_seeds.name=Kohlesamen \n§eStufe 1\n§o§9@UtilityCraft
 tile.utilitycraft:copper_seeds.name=Kupfersamen \n§eStufe 1\n§o§9@UtilityCraft
 tile.utilitycraft:dyes_seeds.name=Farbstoffe Samen \n§eStufe 1\n§o§9@UtilityCraft

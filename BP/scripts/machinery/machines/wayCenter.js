@@ -1,5 +1,5 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { ItemStack, world } from "@minecraft/server";
+import { ItemStack, system, world } from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 
 const WAY_CENTER_BLOCK_ID = "utilitycraft:waycenter";
@@ -11,6 +11,7 @@ const WAY_CHIP_DATA_PROPERTY_ID = "utilitycraft:way_chip_data";
 const WAY_CENTER_DATA_PROPERTY_ID = "utilitycraft:way_center_data";
 const DATA_VERSION = 1;
 const MAX_DESTINATION_NAME_LENGTH = 32;
+const WAYPOINT_VALIDATION_DELAY_TICKS = 40;
 
 const RANGE_BY_LEVEL = [1_000, 2_500, 5_000, 10_000, 25_000, Infinity];
 const DISCOUNT_BY_LEVEL = [0, 5, 15, 25, 50, 100];
@@ -490,30 +491,6 @@ function restorePlayer(player, origin) {
 }
 
 /**
- * Tries the collision-safe API first. If the destination chunk is unloaded,
- * regular teleport is used to load it while preserving the block check.
- *
- * @param {import("@minecraft/server").Player} player
- * @param {{x:number,y:number,z:number}} target
- * @param {import("@minecraft/server").Dimension} dimension
- * @returns {boolean}
- */
-function safeTeleport(player, target, dimension) {
-    try {
-        if (player.tryTeleport(target, { dimension, checkForBlocks: true })) return true;
-
-        player.teleport(target, { dimension, checkForBlocks: true });
-        const location = player.location;
-        return player.dimension.id === dimension.id
-            && Math.abs(location.x - target.x) < 0.1
-            && Math.abs(location.y - target.y) < 0.1
-            && Math.abs(location.z - target.z) < 0.1;
-    } catch {
-        return false;
-    }
-}
-
-/**
  * @param {import("@minecraft/server").Player} player
  * @param {import("@minecraft/server").Entity} centerEntity
  * @param {object} destination
@@ -543,31 +520,21 @@ function teleportToDestination(player, centerEntity, destination, price) {
     };
 
     try {
-        const teleported = safeTeleport(player, target, destinationDimension);
-        if (!teleported) {
-            let destinationExists = true;
-            try {
-                destinationExists = destinationDimension.getBlock(destination.location)?.typeId === WAY_CARPET_BLOCK_ID;
-            } catch {}
-
-            if (!destinationExists) {
-                removeDestinationFromCenter(centerEntity, destination);
-                showMessage(player, "message.utilitycraft.way_center.destination_missing");
-            } else {
-                showMessage(player, "message.utilitycraft.way_center.destination_blocked");
-            }
-            return;
-        }
-
-        const destinationBlock = destinationDimension.getBlock(destination.location);
-        if (destinationBlock?.typeId !== WAY_CARPET_BLOCK_ID) {
-            restorePlayer(player, origin);
-            removeDestinationFromCenter(centerEntity, destination);
-            showMessage(player, "message.utilitycraft.way_center.destination_missing");
-            return;
-        }
-
+        player.teleport(target, { dimension: destinationDimension });
         if (price > 0) player.addLevels(-price);
+
+        system.runTimeout(() => {
+            try {
+                const destinationBlock = destinationDimension.getBlock(destination.location);
+                if (!destinationBlock || destinationBlock.typeId === WAY_CARPET_BLOCK_ID) return;
+
+                if (removeDestinationFromCenter(centerEntity, destination)) {
+                    showMessage(player, "message.utilitycraft.way_center.destination_missing");
+                }
+            } catch (error) {
+                console.warn(`[Way Center] Destination validation failed: ${error?.message ?? error}`);
+            }
+        }, WAYPOINT_VALIDATION_DELAY_TICKS);
     } catch (error) {
         restorePlayer(player, origin);
         showMessage(player, "message.utilitycraft.way_center.teleport_failed");
@@ -608,28 +575,19 @@ function teleportToWayCenter(carpet, player) {
     };
 
     try {
-        const teleported = safeTeleport(player, target, centerDimension);
-        if (!teleported) {
-            let centerExists = true;
-            try {
-                centerExists = centerDimension.getBlock(registration.data.center.location)?.typeId === WAY_CENTER_BLOCK_ID;
-            } catch {}
+        player.teleport(target, { dimension: centerDimension });
 
-            if (!centerExists) {
+        system.runTimeout(() => {
+            try {
+                const centerBlock = centerDimension.getBlock(registration.data.center.location);
+                if (!centerBlock || centerBlock.typeId === WAY_CENTER_BLOCK_ID) return;
+
                 registration.entity.remove();
                 showMessage(player, "message.utilitycraft.way_center.center_missing");
-            } else {
-                showMessage(player, "message.utilitycraft.way_center.center_blocked");
+            } catch (error) {
+                console.warn(`[Way Center] Center validation failed: ${error?.message ?? error}`);
             }
-            return;
-        }
-
-        const centerBlock = centerDimension.getBlock(registration.data.center.location);
-        if (centerBlock?.typeId !== WAY_CENTER_BLOCK_ID) {
-            restorePlayer(player, origin);
-            registration.entity.remove();
-            showMessage(player, "message.utilitycraft.way_center.center_missing");
-        }
+        }, WAYPOINT_VALIDATION_DELAY_TICKS);
     } catch (error) {
         restorePlayer(player, origin);
         showMessage(player, "message.utilitycraft.way_center.teleport_failed");

@@ -478,7 +478,7 @@ async function updateBlockTranslations(crops) {
     }
 
     if (additions.length > 0) {
-      content = `${content.trimEnd()}\n\n# Bountiful Crops seed blocks\n${additions.join("\n")}\n`;
+      content = `${content.trimEnd()}\n\n## Bountiful Crops seed blocks\n${additions.join("\n")}\n`;
       await writeFile(filePath, content, "utf8");
     }
   }
@@ -501,7 +501,14 @@ async function generateBonsaiAssets(crops) {
 
   await generateBonsaiGeometryCopies();
 
-  const behaviorReference = JSON.parse(await readFile(behaviorBonsaiReferencePath, "utf8"));
+  const behaviorReference = await readFile(behaviorBonsaiReferencePath, "utf8");
+  const referenceIdentifier = '"identifier": "utilitycraft:oak_tree"';
+  if (!behaviorReference.includes(referenceIdentifier)) {
+    throw new Error("Crop bonsai behavior reference has an unexpected identifier");
+  }
+  if (!behaviorReference.includes('"default": 60.0')) {
+    throw new Error("Crop bonsai behavior reference must preserve a float growth default");
+  }
   const terrainAtlas = JSON.parse(await readFile(terrainAtlasPath, "utf8"));
   const cropBlockFiles = await collectJsonFiles(cropBlocksRoot);
   const matureVisualsByBlock = new Map();
@@ -535,10 +542,15 @@ async function generateBonsaiAssets(crops) {
     const geometry = BONSAI_GEOMETRIES[visuals.geometry];
     if (!geometry) throw new Error(`Unsupported mature geometry ${visuals.geometry}: ${crop.cropId}`);
 
-    const behavior = structuredClone(behaviorReference);
-    behavior["minecraft:entity"].description.identifier = crop.bonsaiEntityId;
     const fileName = `${crop.key}_bonsai.json`;
-    await writeJson(join(behaviorBonsaisRoot, fileName), behavior);
+    await writeFile(
+      join(behaviorBonsaisRoot, fileName),
+      behaviorReference.replace(
+        referenceIdentifier,
+        `"identifier": "${crop.bonsaiEntityId}"`
+      ),
+      "utf8"
+    );
     await writeJson(
       join(resourceBonsaisRoot, fileName),
       createBonsaiClientEntity(crop.bonsaiEntityId, geometry.identifier, visuals.texturePath)

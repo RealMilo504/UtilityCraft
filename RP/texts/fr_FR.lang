@@ -666,9 +666,9 @@ tile.utilitycraft:ultimate_wind_turbine.name=§8Éolienne ultime \n §7 Taux de 
 < Energy Generators =Geradores d'Énergie ##///////////////////////////////////////////////////////////
 
 - Stuff =## Coisas Non-Catégorisées
-tile.utilitycraft:waycenter.name=Centre de destinations\n§7- Enregistre les Puces de destination et vous téléporte vers leurs Tapis de destination. Les améliorations de portée augmentent la portée et réduisent le coût en niveaux.\n§o§9@UtilityCraft
-tile.utilitycraft:waycarpet.name=Tapis de destination\n§7- Liez une Puce de destination ici. Interagissez sans puce pour revenir au Centre de destinations.\n§o§9@UtilityCraft
-item.utilitycraft:way_chip=Puce de destination\n§7- Liez-la à un Tapis de destination, puis enregistrez-la dans un Centre de destinations.\n§o§9@UtilityCraft
+tile.utilitycraft:waycenter.name=Centre de destinations\n§7- Enregistre les Puces de destination et vous\n  téléporte vers leurs Tapis de destination. Les\n  améliorations de portée augmentent la portée et\n  réduisent le coût en niveaux.\n§o§9@UtilityCraft
+tile.utilitycraft:waycarpet.name=Tapis de destination\n§7- Liez une Puce de destination ici. Interagissez\n  sans puce pour revenir au Centre de destinations.\n§o§9@UtilityCraft
+item.utilitycraft:way_chip=Puce de destination\n§7- Liez-la à un Tapis de destination, puis\n  enregistrez-la dans un Centre de destinations.\n§o§9@UtilityCraft
 ui.utilitycraft:way_center.title=Centre de destinations
 ui.utilitycraft:way_center.summary=§7Enregistrées : §f%1\n§7Portée : §f%2\n§7Réduction : §f%3%%\n§7Vos niveaux : §f%4\n\n§8Sélectionnez une destination.
 ui.utilitycraft:way_center.empty=§7Aucune destination enregistrée.\n\n§81. Utilisez une Puce de destination sur un Tapis de destination.\n2. Nommez la destination.\n3. Enregistrez la puce liée dans ce Centre de destinations.
@@ -969,7 +969,7 @@ message.utilitycraft.copy_paste_tool.incompatible=§cAucun réglage enregistré 
 message.utilitycraft.copy_paste_tool.pasted=§a%s section(s) de configuration appliquée(s).
 message.utilitycraft.copy_paste_tool.missing_filter_upgrade=§cAmélioration de filtre manquante.
 
-# Bountiful Crops seed blocks
+## Bountiful Crops seed blocks
 tile.utilitycraft:coal_seeds.name=Graines de charbon \n§eTier 1\n§o§9@UtilityCraft
 tile.utilitycraft:copper_seeds.name=Graines de cuivre \n§eTier 1\n§o§9@UtilityCraft
 tile.utilitycraft:dyes_seeds.name=Graines de colorants \n§eTier 1\n§o§9@UtilityCraft

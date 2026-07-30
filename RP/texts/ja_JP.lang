@@ -666,9 +666,9 @@ tile.utilitycraft:ultimate_wind_turbine.name=§8究極の風車 \n §7 基本レ
 < Energy Generators =ジェラドレス デ エネルギー ##////////////////////////////////////////////////////////////
 
 - Stuff =## コワサス・ナオ・カテゴリサダス
-tile.utilitycraft:waycenter.name=ウェイセンター\n§7- リンク済みのウェイチップを登録し、対応するウェイカーペットへテレポートします。範囲アップグレードは範囲を広げ、レベルコストを減らします。\n§o§9@UtilityCraft
-tile.utilitycraft:waycarpet.name=ウェイカーペット\n§7- ここでウェイチップをリンクします。チップを持たずに操作するとウェイセンターへ戻ります。\n§o§9@UtilityCraft
-item.utilitycraft:way_chip=ウェイチップ\n§7- ウェイカーペットにリンクしてから、ウェイセンターに登録します。\n§o§9@UtilityCraft
+tile.utilitycraft:waycenter.name=ウェイセンター\n§7- リンク済みのウェイチップを登録し、対応する\n  ウェイカーペットへテレポートします。\n  範囲アップグレードは範囲を広げ、レベルコストを\n  減らします。\n§o§9@UtilityCraft
+tile.utilitycraft:waycarpet.name=ウェイカーペット\n§7- ここでウェイチップをリンクします。\n  チップを持たずに操作するとウェイセンターへ戻ります。\n§o§9@UtilityCraft
+item.utilitycraft:way_chip=ウェイチップ\n§7- ウェイカーペットにリンクしてから、\n  ウェイセンターに登録します。\n§o§9@UtilityCraft
 ui.utilitycraft:way_center.title=ウェイセンター
 ui.utilitycraft:way_center.summary=§7登録数: §f%1\n§7範囲: §f%2\n§7割引: §f%3%%\n§7現在のレベル: §f%4\n\n§8行き先を選択してください。
 ui.utilitycraft:way_center.empty=§7行き先が登録されていません。\n\n§81. ウェイカーペットでウェイチップを使用します。\n2. 行き先に名前を付けます。\n3. リンク済みチップをこのウェイセンターに登録します。
@@ -969,7 +969,7 @@ message.utilitycraft.copy_paste_tool.incompatible=§cこのブロックと互換
 message.utilitycraft.copy_paste_tool.pasted=§a%s個の設定セクションを適用しました。
 message.utilitycraft.copy_paste_tool.missing_filter_upgrade=§cフィルターアップグレードがありません。
 
-# Bountiful Crops seed blocks
+## Bountiful Crops seed blocks
 tile.utilitycraft:coal_seeds.name=石炭種子 \n§eTier 1\n§o§9@UtilityCraft
 tile.utilitycraft:copper_seeds.name=銅の種子 \n§eTier 1\n§o§9@UtilityCraft
 tile.utilitycraft:dyes_seeds.name=染料の種子 \n§eTier 1\n§o§9@UtilityCraft

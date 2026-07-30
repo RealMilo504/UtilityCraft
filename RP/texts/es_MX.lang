@@ -741,9 +741,9 @@ tile.utilitycraft:ultimate_wind_turbine.name=§8Turbina Eólica Definitiva\n §7
 < Energy Generators = Geradores de Energía ##///////////////////////////////////////////////////////////////
 
 - Stuff = ## Cosas No Categorizadas
-tile.utilitycraft:waycenter.name=Centro de Destinos\n§7- Registra Chips de Destino y te transporta a sus Alfombras de Destino. Las Mejoras de Rango aumentan el alcance y reducen el costo de niveles.\n§o§9@UtilityCraft
-tile.utilitycraft:waycarpet.name=Alfombra de Destino\n§7- Vincula aquí un Chip de Destino. Interactúa sin un chip para regresar a su Centro de Destinos.\n§o§9@UtilityCraft
-item.utilitycraft:way_chip=Chip de Destino\n§7- Vincúlalo a una Alfombra de Destino y después regístralo en un Centro de Destinos.\n§o§9@UtilityCraft
+tile.utilitycraft:waycenter.name=Centro de Destinos\n§7- Registra Chips de Destino y te transporta a sus\n  Alfombras de Destino. Las Mejoras de Rango aumentan\n  el alcance y reducen el costo de niveles.\n§o§9@UtilityCraft
+tile.utilitycraft:waycarpet.name=Alfombra de Destino\n§7- Vincula aquí un Chip de Destino. Interactúa sin\n  un chip para regresar a su Centro de Destinos.\n§o§9@UtilityCraft
+item.utilitycraft:way_chip=Chip de Destino\n§7- Vincúlalo a una Alfombra de Destino y después\n  regístralo en un Centro de Destinos.\n§o§9@UtilityCraft
 ui.utilitycraft:way_center.title=Centro de Destinos
 ui.utilitycraft:way_center.summary=§7Registrados: §f%1\n§7Rango: §f%2\n§7Descuento: §f%3%%\n§7Tus niveles: §f%4\n\n§8Selecciona un destino.
 ui.utilitycraft:way_center.empty=§7No hay destinos registrados.\n\n§81. Usa un Chip de Destino en una Alfombra de Destino.\n2. Nombra el destino.\n3. Registra el chip vinculado en este Centro de Destinos.
@@ -1309,7 +1309,7 @@ message.utilitycraft.copy_paste_tool.incompatible=§cNinguna configuración guar
 message.utilitycraft.copy_paste_tool.pasted=§aSe aplicaron %s secciones de configuración.
 message.utilitycraft.copy_paste_tool.missing_filter_upgrade=§cFalta una Mejora de Filtro.
 
-# Bountiful Crops seed blocks
+## Bountiful Crops seed blocks
 tile.utilitycraft:coal_seeds.name=Semillas de Carbón §eNivel I\n§o§9@UtilityCraft
 tile.utilitycraft:copper_seeds.name=Semillas de Cobre §eNivel I\n§o§9@UtilityCraft
 tile.utilitycraft:dyes_seeds.name=Semillas de Tintes §eNivel I\n§o§9@UtilityCraft

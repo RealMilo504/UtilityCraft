@@ -666,9 +666,9 @@ tile.utilitycraft:ultimate_wind_turbine.name=§8终极风力涡轮机 \n §7 基
 < Energy Generators =能源热拉多雷斯##////////////////////////////////////////////////////////////////
 
 - Stuff =## Coisas Não-Categorizadas
-tile.utilitycraft:waycenter.name=传送中心\n§7- 注册已绑定的传送芯片，并将你传送到对应的传送地毯。范围升级会扩大范围并降低等级消耗。\n§o§9@UtilityCraft
-tile.utilitycraft:waycarpet.name=传送地毯\n§7- 在这里绑定传送芯片。不拿芯片时交互可返回传送中心。\n§o§9@UtilityCraft
-item.utilitycraft:way_chip=传送芯片\n§7- 将它绑定到传送地毯，然后在传送中心注册。\n§o§9@UtilityCraft
+tile.utilitycraft:waycenter.name=传送中心\n§7- 注册已绑定的传送芯片，并将你传送到\n  对应的传送地毯。范围升级会扩大范围并\n  降低等级消耗。\n§o§9@UtilityCraft
+tile.utilitycraft:waycarpet.name=传送地毯\n§7- 在这里绑定传送芯片。\n  不拿芯片时交互可返回传送中心。\n§o§9@UtilityCraft
+item.utilitycraft:way_chip=传送芯片\n§7- 将它绑定到传送地毯，\n  然后在传送中心注册。\n§o§9@UtilityCraft
 ui.utilitycraft:way_center.title=传送中心
 ui.utilitycraft:way_center.summary=§7已注册: §f%1\n§7范围: §f%2\n§7折扣: §f%3%%\n§7你的等级: §f%4\n\n§8请选择目的地。
 ui.utilitycraft:way_center.empty=§7没有已注册的目的地。\n\n§81. 在传送地毯上使用传送芯片。\n2. 为目的地命名。\n3. 在此传送中心注册已绑定的芯片。
@@ -969,7 +969,7 @@ message.utilitycraft.copy_paste_tool.incompatible=§c没有与此方块兼容的
 message.utilitycraft.copy_paste_tool.pasted=§a已应用%s个配置部分。
 message.utilitycraft.copy_paste_tool.missing_filter_upgrade=§c缺少过滤器升级。
 
-# Bountiful Crops seed blocks
+## Bountiful Crops seed blocks
 tile.utilitycraft:coal_seeds.name=煤种子 \n§eTier 1\n§o§9@UtilityCraft
 tile.utilitycraft:copper_seeds.name=铜种子 \n§eTier 1\n§o§9@UtilityCraft
 tile.utilitycraft:dyes_seeds.name=染料种子 \n§eTier 1\n§o§9@UtilityCraft

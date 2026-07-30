@@ -666,9 +666,9 @@ tile.utilitycraft:ultimate_wind_turbine.name=§8Ultimate Wind Turbine \n §7 Б�
 < Energy Generators =Geradores de Energy ##////////////////////////////////////////////////////////////////
 
 - Stuff =## Койсас Não-Categorizadas
-tile.utilitycraft:waycenter.name=Центр назначений\n§7- Регистрирует чипы назначения и телепортирует к связанным коврам назначения. Улучшения дальности увеличивают радиус и снижают стоимость в уровнях.\n§o§9@UtilityCraft
-tile.utilitycraft:waycarpet.name=Ковер назначения\n§7- Привяжите здесь чип назначения. Взаимодействуйте без чипа, чтобы вернуться к Центру назначений.\n§o§9@UtilityCraft
-item.utilitycraft:way_chip=Чип назначения\n§7- Привяжите его к ковру назначения, затем зарегистрируйте в Центре назначений.\n§o§9@UtilityCraft
+tile.utilitycraft:waycenter.name=Центр назначений\n§7- Регистрирует чипы назначения и телепортирует к\n  связанным коврам назначения. Улучшения дальности\n  увеличивают радиус и снижают стоимость в уровнях.\n§o§9@UtilityCraft
+tile.utilitycraft:waycarpet.name=Ковер назначения\n§7- Привяжите здесь чип назначения. Взаимодействуйте\n  без чипа, чтобы вернуться к Центру назначений.\n§o§9@UtilityCraft
+item.utilitycraft:way_chip=Чип назначения\n§7- Привяжите его к ковру назначения, затем\n  зарегистрируйте в Центре назначений.\n§o§9@UtilityCraft
 ui.utilitycraft:way_center.title=Центр назначений
 ui.utilitycraft:way_center.summary=§7Зарегистрировано: §f%1\n§7Дальность: §f%2\n§7Скидка: §f%3%%\n§7Ваш уровень: §f%4\n\n§8Выберите назначение.
 ui.utilitycraft:way_center.empty=§7Нет зарегистрированных назначений.\n\n§81. Используйте чип назначения на ковре назначения.\n2. Назовите назначение.\n3. Зарегистрируйте связанный чип в этом Центре назначений.
@@ -969,7 +969,7 @@ message.utilitycraft.copy_paste_tool.incompatible=§cСохранённые на
 message.utilitycraft.copy_paste_tool.pasted=§aПрименено разделов конфигурации: %s.
 message.utilitycraft.copy_paste_tool.missing_filter_upgrade=§cОтсутствует улучшение фильтра.
 
-# Bountiful Crops seed blocks
+## Bountiful Crops seed blocks
 tile.utilitycraft:coal_seeds.name=Угольные семена \n§eУровень 1\n§o§9@UtilityCraft
 tile.utilitycraft:copper_seeds.name=Медные семена \n§eУровень 1\n§o§9@UtilityCraft
 tile.utilitycraft:dyes_seeds.name=Красители Семена \n§eTier 1\n§o§9@UtilityCraft

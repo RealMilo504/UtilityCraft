@@ -706,9 +706,9 @@ tile.utilitycraft:ultimate_wind_turbine.name=§8Ultimate Wind Turbine \n §7 Bas
 < Energy Generators = Geradores de Energy ##///////////////////////////////////////////////////////////////
 
 - Stuff = ## Coisas Não-Categorizadas
-tile.utilitycraft:waycenter.name=Way Center\n§7- Registers bound Way Chips and teleports you to their Way Carpets. Range Upgrades increase range and reduce level cost.\n§o§9@UtilityCraft
-tile.utilitycraft:waycarpet.name=Way Carpet\n§7- Bind a Way Chip here. Interact without a chip to return to its Way Center.\n§o§9@UtilityCraft
-item.utilitycraft:way_chip=Way Chip\n§7- Bind it to a Way Carpet, then register it in a Way Center.\n§o§9@UtilityCraft
+tile.utilitycraft:waycenter.name=Way Center\n§7- Registers bound Way Chips and teleports you to\n  their Way Carpets. Range Upgrades increase range\n  and reduce level cost.\n§o§9@UtilityCraft
+tile.utilitycraft:waycarpet.name=Way Carpet\n§7- Bind a Way Chip here. Interact without a chip\n  to return to its Way Center.\n§o§9@UtilityCraft
+item.utilitycraft:way_chip=Way Chip\n§7- Bind it to a Way Carpet, then register it in\n  a Way Center.\n§o§9@UtilityCraft
 ui.utilitycraft:way_center.title=Way Center
 ui.utilitycraft:way_center.summary=§7Registered: §f%1\n§7Range: §f%2\n§7Discount: §f%3%%\n§7Your Levels: §f%4\n\n§8Select a destination.
 ui.utilitycraft:way_center.empty=§7No destinations registered.\n\n§81. Use a Way Chip on a Way Carpet.\n2. Name the destination.\n3. Register the bound chip in this Way Center.
@@ -1426,7 +1426,7 @@ message.utilitycraft.copy_paste_tool.incompatible=§cNo saved settings are compa
 message.utilitycraft.copy_paste_tool.pasted=§aApplied %s configuration section(s).
 message.utilitycraft.copy_paste_tool.missing_filter_upgrade=§cMissing Filter Upgrade.
 
-# Bountiful Crops seed blocks
+## Bountiful Crops seed blocks
 tile.utilitycraft:coal_seeds.name=Coal Seeds \n§eTier 1\n§o§9@UtilityCraft
 tile.utilitycraft:copper_seeds.name=Copper Seeds \n§eTier 1\n§o§9@UtilityCraft
 tile.utilitycraft:dyes_seeds.name=Dyes Seeds \n§eTier 1\n§o§9@UtilityCraft

@@ -14,11 +14,11 @@
 				},
 				"utilitycraft:growth_duration": {
 					"type": "float",
-					"default": 60,
+					"default": 60.0,
 					"client_sync": true,
 					"range": [
-						10,
-						600
+						10.0,
+						600.0
 					]
 				},
 				"utilitycraft:animation_reset": {
