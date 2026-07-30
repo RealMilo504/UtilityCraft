@@ -965,6 +965,17 @@
                 "$recipe_icon": "textures/blocks/compressed/diamond",
                 "offset": [90, 0]
               }
+            },
+            {
+              "silicon_block_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 76,
+                "$toggle_hover_text": "tile.utilitycraft:silicon_block.name",
+                "$toggle_control_name": "silicon_block_recipe",
+                "$recipe_icon": "textures/blocks/materials/silicon_block",
+                "offset": [108, 0]
+              }
             }
           ]
         }
@@ -2880,6 +2891,29 @@
                       "$slot_hover_text": "tile.ancient_debris.name",
                       "$has_slot_hover": true,
                       "$slot_item_texture": "textures/blocks/ancient_debris_side"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "silicon_block_panel@uc.recipe_panel": {
+                "$recipe_control_name": "silicon_block_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_item_texture": "textures/items/misc/silicon",
+                      "$slot_hover_text": "item.utilitycraft:silicon",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/materials/silicon_block",
+                      "$slot_hover_text": "tile.utilitycraft:silicon_block.name",
+                      "$has_slot_hover": true
                     }
                   }
                 ]

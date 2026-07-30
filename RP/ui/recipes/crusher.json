@@ -850,6 +850,17 @@
           "size": [126, 18],
           "controls": [
             {
+              "silicon_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 105,
+                "$toggle_hover_text": "item.utilitycraft:silicon",
+                "$toggle_control_name": "silicon_recipe",
+                "$recipe_icon": "textures/items/misc/silicon",
+                "offset": [0, 0]
+              }
+            },
+            {
               "slime_ball_toggle@uc.crusher_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
@@ -857,7 +868,7 @@
                 "$toggle_hover_text": "item.slime_ball.name",
                 "$toggle_control_name": "slime_ball_recipe",
                 "$recipe_icon": "textures/items/slimeball",
-                "offset": [0, 0]
+                "offset": [18, 0]
               }
             },
             {
@@ -868,7 +879,7 @@
                 "$toggle_hover_text": "item.string.name",
                 "$toggle_control_name": "string_recipe",
                 "$recipe_icon": "textures/items/string",
-                "offset": [18, 0]
+                "offset": [36, 0]
               }
             },
             {
@@ -879,7 +890,7 @@
                 "$toggle_hover_text": "item.string.name",
                 "$toggle_control_name": "string_2_recipe",
                 "$recipe_icon": "textures/items/string",
-                "offset": [36, 0]
+                "offset": [54, 0]
               }
             },
             {
@@ -890,7 +901,7 @@
                 "$toggle_hover_text": "item.utilitycraft:calcite_pebble",
                 "$toggle_control_name": "calcite_pebble_recipe",
                 "$recipe_icon": "textures/items/pebbles/calcite_pebble",
-                "offset": [54, 0]
+                "offset": [72, 0]
               }
             },
             {
@@ -901,7 +912,7 @@
                 "$toggle_hover_text": "item.utilitycraft:crushed_kelp",
                 "$toggle_control_name": "crushed_kelp_recipe",
                 "$recipe_icon": "textures/items/misc/crushed_kelp",
-                "offset": [72, 0]
+                "offset": [90, 0]
               }
             },
             {
@@ -912,17 +923,6 @@
                 "$toggle_hover_text": "tile.gravel.name",
                 "$toggle_control_name": "gravel_recipe",
                 "$recipe_icon": "textures/blocks/gravel",
-                "offset": [90, 0]
-              }
-            },
-            {
-              "compressed_gravel_toggle@uc.crusher_recipe_toggle": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "$toggle_index": 62,
-                "$toggle_hover_text": "tile.utilitycraft:compressed_gravel.name",
-                "$toggle_control_name": "compressed_gravel_recipe",
-                "$recipe_icon": "textures/blocks/compressed/gravel",
                 "offset": [108, 0]
               }
             }
@@ -935,6 +935,17 @@
           "size": [126, 18],
           "controls": [
             {
+              "compressed_gravel_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 62,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_gravel.name",
+                "$toggle_control_name": "compressed_gravel_recipe",
+                "$recipe_icon": "textures/blocks/compressed/gravel",
+                "offset": [0, 0]
+              }
+            },
+            {
               "compressed_gravel_2_toggle@uc.crusher_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
@@ -942,7 +953,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_gravel_2.name",
                 "$toggle_control_name": "compressed_gravel_2_recipe",
                 "$recipe_icon": "textures/blocks/compressed/gravel_2",
-                "offset": [0, 0]
+                "offset": [18, 0]
               }
             },
             {
@@ -953,7 +964,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_gravel_3.name",
                 "$toggle_control_name": "compressed_gravel_3_recipe",
                 "$recipe_icon": "textures/blocks/compressed/gravel_3",
-                "offset": [18, 0]
+                "offset": [36, 0]
               }
             },
             {
@@ -964,7 +975,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_gravel_4.name",
                 "$toggle_control_name": "compressed_gravel_4_recipe",
                 "$recipe_icon": "textures/blocks/compressed/gravel_4",
-                "offset": [36, 0]
+                "offset": [54, 0]
               }
             },
             {
@@ -975,7 +986,7 @@
                 "$toggle_hover_text": "tile.dirt.name",
                 "$toggle_control_name": "dirt_recipe",
                 "$recipe_icon": "textures/blocks/dirt",
-                "offset": [54, 0]
+                "offset": [72, 0]
               }
             },
             {
@@ -986,7 +997,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_dirt.name",
                 "$toggle_control_name": "compressed_dirt_recipe",
                 "$recipe_icon": "textures/blocks/compressed/dirt",
-                "offset": [72, 0]
+                "offset": [90, 0]
               }
             },
             {
@@ -997,17 +1008,6 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_dirt_2.name",
                 "$toggle_control_name": "compressed_dirt_2_recipe",
                 "$recipe_icon": "textures/blocks/compressed/dirt_2",
-                "offset": [90, 0]
-              }
-            },
-            {
-              "compressed_dirt_3_toggle@uc.crusher_recipe_toggle": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "$toggle_index": 69,
-                "$toggle_hover_text": "tile.utilitycraft:compressed_dirt_3.name",
-                "$toggle_control_name": "compressed_dirt_3_recipe",
-                "$recipe_icon": "textures/blocks/compressed/dirt_3",
                 "offset": [108, 0]
               }
             }
@@ -1020,6 +1020,17 @@
           "size": [126, 18],
           "controls": [
             {
+              "compressed_dirt_3_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 69,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_dirt_3.name",
+                "$toggle_control_name": "compressed_dirt_3_recipe",
+                "$recipe_icon": "textures/blocks/compressed/dirt_3",
+                "offset": [0, 0]
+              }
+            },
+            {
               "compressed_dirt_4_toggle@uc.crusher_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
@@ -1027,7 +1038,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_dirt_4.name",
                 "$toggle_control_name": "compressed_dirt_4_recipe",
                 "$recipe_icon": "textures/blocks/compressed/dirt_4",
-                "offset": [0, 0]
+                "offset": [18, 0]
               }
             },
             {
@@ -1038,7 +1049,7 @@
                 "$toggle_hover_text": "tile.sand.name",
                 "$toggle_control_name": "sand_recipe",
                 "$recipe_icon": "textures/blocks/sand",
-                "offset": [18, 0]
+                "offset": [36, 0]
               }
             },
             {
@@ -1049,7 +1060,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_sand.name",
                 "$toggle_control_name": "compressed_sand_recipe",
                 "$recipe_icon": "textures/blocks/compressed/sand",
-                "offset": [36, 0]
+                "offset": [54, 0]
               }
             },
             {
@@ -1060,7 +1071,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_sand_2.name",
                 "$toggle_control_name": "compressed_sand_2_recipe",
                 "$recipe_icon": "textures/blocks/compressed/sand_2",
-                "offset": [54, 0]
+                "offset": [72, 0]
               }
             },
             {
@@ -1071,7 +1082,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_sand_3.name",
                 "$toggle_control_name": "compressed_sand_3_recipe",
                 "$recipe_icon": "textures/blocks/compressed/sand_3",
-                "offset": [72, 0]
+                "offset": [90, 0]
               }
             },
             {
@@ -1082,17 +1093,6 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_sand_4.name",
                 "$toggle_control_name": "compressed_sand_4_recipe",
                 "$recipe_icon": "textures/blocks/compressed/sand_4",
-                "offset": [90, 0]
-              }
-            },
-            {
-              "sand_4_toggle@uc.crusher_recipe_toggle": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "$toggle_index": 76,
-                "$toggle_hover_text": "tile.sand.name",
-                "$toggle_control_name": "sand_4_recipe",
-                "$recipe_icon": "textures/blocks/sand",
                 "offset": [108, 0]
               }
             }
@@ -1105,6 +1105,17 @@
           "size": [126, 18],
           "controls": [
             {
+              "sand_4_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 76,
+                "$toggle_hover_text": "tile.sand.name",
+                "$toggle_control_name": "sand_4_recipe",
+                "$recipe_icon": "textures/blocks/sand",
+                "offset": [0, 0]
+              }
+            },
+            {
               "red_sand_toggle@uc.crusher_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
@@ -1112,7 +1123,7 @@
                 "$toggle_hover_text": "tile.sand.red.name",
                 "$toggle_control_name": "red_sand_recipe",
                 "$recipe_icon": "textures/blocks/red_sand",
-                "offset": [0, 0]
+                "offset": [18, 0]
               }
             },
             {
@@ -1123,7 +1134,7 @@
                 "$toggle_hover_text": "tile.packed_ice.name",
                 "$toggle_control_name": "packed_ice_recipe",
                 "$recipe_icon": "textures/blocks/ice_packed",
-                "offset": [18, 0]
+                "offset": [36, 0]
               }
             },
             {
@@ -1134,7 +1145,7 @@
                 "$toggle_hover_text": "tile.ice.name",
                 "$toggle_control_name": "ice_recipe",
                 "$recipe_icon": "textures/blocks/ice",
-                "offset": [36, 0]
+                "offset": [54, 0]
               }
             },
             {
@@ -1145,7 +1156,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:crushed_netherrack.name",
                 "$toggle_control_name": "crushed_netherrack_recipe",
                 "$recipe_icon": "textures/blocks/materials/crushed_netherrack",
-                "offset": [54, 0]
+                "offset": [72, 0]
               }
             },
             {
@@ -1156,7 +1167,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_netherrack.name",
                 "$toggle_control_name": "compressed_crushed_netherrack_recipe",
                 "$recipe_icon": "textures/blocks/compressed/crushed_netherrack",
-                "offset": [72, 0]
+                "offset": [90, 0]
               }
             },
             {
@@ -1167,17 +1178,6 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_netherrack_2.name",
                 "$toggle_control_name": "compressed_crushed_netherrack_2_recipe",
                 "$recipe_icon": "textures/blocks/compressed/crushed_netherrack_2",
-                "offset": [90, 0]
-              }
-            },
-            {
-              "compressed_crushed_netherrack_3_toggle@uc.crusher_recipe_toggle": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "$toggle_index": 83,
-                "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_netherrack_3.name",
-                "$toggle_control_name": "compressed_crushed_netherrack_3_recipe",
-                "$recipe_icon": "textures/blocks/compressed/crushed_netherrack_3",
                 "offset": [108, 0]
               }
             }
@@ -1190,6 +1190,17 @@
           "size": [126, 18],
           "controls": [
             {
+              "compressed_crushed_netherrack_3_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 83,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_netherrack_3.name",
+                "$toggle_control_name": "compressed_crushed_netherrack_3_recipe",
+                "$recipe_icon": "textures/blocks/compressed/crushed_netherrack_3",
+                "offset": [0, 0]
+              }
+            },
+            {
               "compressed_crushed_netherrack_4_toggle@uc.crusher_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
@@ -1197,7 +1208,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_netherrack_4.name",
                 "$toggle_control_name": "compressed_crushed_netherrack_4_recipe",
                 "$recipe_icon": "textures/blocks/compressed/crushed_netherrack_4",
-                "offset": [0, 0]
+                "offset": [18, 0]
               }
             },
             {
@@ -1208,7 +1219,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:crushed_blackstone.name",
                 "$toggle_control_name": "crushed_blackstone_recipe",
                 "$recipe_icon": "textures/blocks/materials/crushed_blackstone",
-                "offset": [18, 0]
+                "offset": [36, 0]
               }
             },
             {
@@ -1219,7 +1230,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_blackstone.name",
                 "$toggle_control_name": "compressed_crushed_blackstone_recipe",
                 "$recipe_icon": "textures/blocks/compressed/crushed_blackstone",
-                "offset": [36, 0]
+                "offset": [54, 0]
               }
             },
             {
@@ -1230,7 +1241,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_blackstone_2.name",
                 "$toggle_control_name": "compressed_crushed_blackstone_2_recipe",
                 "$recipe_icon": "textures/blocks/compressed/crushed_blackstone_2",
-                "offset": [54, 0]
+                "offset": [72, 0]
               }
             },
             {
@@ -1241,7 +1252,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_blackstone_3.name",
                 "$toggle_control_name": "compressed_crushed_blackstone_3_recipe",
                 "$recipe_icon": "textures/blocks/compressed/crushed_blackstone_3",
-                "offset": [72, 0]
+                "offset": [90, 0]
               }
             },
             {
@@ -1252,17 +1263,6 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_blackstone_4.name",
                 "$toggle_control_name": "compressed_crushed_blackstone_4_recipe",
                 "$recipe_icon": "textures/blocks/compressed/crushed_blackstone_4",
-                "offset": [90, 0]
-              }
-            },
-            {
-              "crushed_endstone_toggle@uc.crusher_recipe_toggle": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "$toggle_index": 90,
-                "$toggle_hover_text": "tile.utilitycraft:crushed_endstone.name",
-                "$toggle_control_name": "crushed_endstone_recipe",
-                "$recipe_icon": "textures/blocks/materials/crushed_endstone",
                 "offset": [108, 0]
               }
             }
@@ -1275,6 +1275,17 @@
           "size": [126, 18],
           "controls": [
             {
+              "crushed_endstone_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 90,
+                "$toggle_hover_text": "tile.utilitycraft:crushed_endstone.name",
+                "$toggle_control_name": "crushed_endstone_recipe",
+                "$recipe_icon": "textures/blocks/materials/crushed_endstone",
+                "offset": [0, 0]
+              }
+            },
+            {
               "compressed_crushed_endstone_toggle@uc.crusher_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
@@ -1282,7 +1293,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_endstone.name",
                 "$toggle_control_name": "compressed_crushed_endstone_recipe",
                 "$recipe_icon": "textures/blocks/compressed/crushed_endstone",
-                "offset": [0, 0]
+                "offset": [18, 0]
               }
             },
             {
@@ -1293,7 +1304,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_endstone_2.name",
                 "$toggle_control_name": "compressed_crushed_endstone_2_recipe",
                 "$recipe_icon": "textures/blocks/compressed/crushed_endstone_2",
-                "offset": [18, 0]
+                "offset": [36, 0]
               }
             },
             {
@@ -1304,7 +1315,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_endstone_3.name",
                 "$toggle_control_name": "compressed_crushed_endstone_3_recipe",
                 "$recipe_icon": "textures/blocks/compressed/crushed_endstone_3",
-                "offset": [36, 0]
+                "offset": [54, 0]
               }
             },
             {
@@ -1315,7 +1326,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_endstone_4.name",
                 "$toggle_control_name": "compressed_crushed_endstone_4_recipe",
                 "$recipe_icon": "textures/blocks/compressed/crushed_endstone_4",
-                "offset": [54, 0]
+                "offset": [72, 0]
               }
             },
             {
@@ -1326,7 +1337,7 @@
                 "$toggle_hover_text": "tile.cobbled_deepslate.name",
                 "$toggle_control_name": "cobbled_deepslate_recipe",
                 "$recipe_icon": "textures/blocks/deepslate/cobbled_deepslate",
-                "offset": [72, 0]
+                "offset": [90, 0]
               }
             },
             {
@@ -1337,17 +1348,6 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_cobbled_deepslate.name",
                 "$toggle_control_name": "compressed_cobbled_deepslate_recipe",
                 "$recipe_icon": "textures/blocks/compressed/cobbled_deepslate",
-                "offset": [90, 0]
-              }
-            },
-            {
-              "compressed_cobbled_deepslate_2_toggle@uc.crusher_recipe_toggle": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "$toggle_index": 97,
-                "$toggle_hover_text": "tile.utilitycraft:compressed_cobbled_deepslate_2.name",
-                "$toggle_control_name": "compressed_cobbled_deepslate_2_recipe",
-                "$recipe_icon": "textures/blocks/compressed/cobbled_deepslate_2",
                 "offset": [108, 0]
               }
             }
@@ -1360,6 +1360,17 @@
           "size": [126, 18],
           "controls": [
             {
+              "compressed_cobbled_deepslate_2_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 97,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_cobbled_deepslate_2.name",
+                "$toggle_control_name": "compressed_cobbled_deepslate_2_recipe",
+                "$recipe_icon": "textures/blocks/compressed/cobbled_deepslate_2",
+                "offset": [0, 0]
+              }
+            },
+            {
               "compressed_cobbled_deepslate_3_toggle@uc.crusher_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
@@ -1367,7 +1378,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_cobbled_deepslate_3.name",
                 "$toggle_control_name": "compressed_cobbled_deepslate_3_recipe",
                 "$recipe_icon": "textures/blocks/compressed/cobbled_deepslate_3",
-                "offset": [0, 0]
+                "offset": [18, 0]
               }
             },
             {
@@ -1378,7 +1389,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_cobbled_deepslate_4.name",
                 "$toggle_control_name": "compressed_cobbled_deepslate_4_recipe",
                 "$recipe_icon": "textures/blocks/compressed/cobbled_deepslate_4",
-                "offset": [18, 0]
+                "offset": [36, 0]
               }
             },
             {
@@ -1389,7 +1400,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:crushed_cobbled_deepslate.name",
                 "$toggle_control_name": "crushed_cobbled_deepslate_recipe",
                 "$recipe_icon": "textures/blocks/materials/crushed_cobbled_deepslate",
-                "offset": [36, 0]
+                "offset": [54, 0]
               }
             },
             {
@@ -1400,7 +1411,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_cobbled_deepslate.name",
                 "$toggle_control_name": "compressed_crushed_cobbled_deepslate_recipe",
                 "$recipe_icon": "textures/blocks/compressed/crushed_cobbled_deepslate",
-                "offset": [54, 0]
+                "offset": [72, 0]
               }
             },
             {
@@ -1411,7 +1422,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_cobbled_deepslate_2.name",
                 "$toggle_control_name": "compressed_crushed_cobbled_deepslate_2_recipe",
                 "$recipe_icon": "textures/blocks/compressed/crushed_cobbled_deepslate_2",
-                "offset": [72, 0]
+                "offset": [90, 0]
               }
             },
             {
@@ -1422,9 +1433,17 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_cobbled_deepslate_3.name",
                 "$toggle_control_name": "compressed_crushed_cobbled_deepslate_3_recipe",
                 "$recipe_icon": "textures/blocks/compressed/crushed_cobbled_deepslate_3",
-                "offset": [90, 0]
+                "offset": [108, 0]
               }
-            },
+            }
+          ]
+        }
+      },
+      {
+        "recipe_row_15": {
+          "type": "panel",
+          "size": [126, 18],
+          "controls": [
             {
               "compressed_crushed_cobbled_deepslate_4_toggle@uc.crusher_recipe_toggle": {
                 "anchor_from": "top_left",
@@ -1433,7 +1452,7 @@
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_cobbled_deepslate_4.name",
                 "$toggle_control_name": "compressed_crushed_cobbled_deepslate_4_recipe",
                 "$recipe_icon": "textures/blocks/compressed/crushed_cobbled_deepslate_4",
-                "offset": [108, 0]
+                "offset": [0, 0]
               }
             }
           ]
@@ -3978,6 +3997,29 @@
                       "$slot_item_texture": "textures/blocks/compressed/crushed_cobbled_deepslate_4",
                       "$slot_hover_text": "tile.utilitycraft:compressed_crushed_cobbled_deepslate_4.name",
                       "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "silicon_panel@uc.recipe_panel": {
+                "$recipe_control_name": "silicon_recipe",
+                "controls": [
+                  {
+                    "input@uc.crusher_recipe_input": {
+                      "$slot_item_texture": "textures/blocks/materials/silicon_block",
+                      "$slot_hover_text": "tile.utilitycraft:silicon_block.name",
+                      "$has_slot_hover": true
+                    }
+                  },
+                  {
+                    "output@uc.crusher_recipe_output": {
+                      "$slot_item_texture": "textures/items/misc/silicon",
+                      "$slot_hover_text": "item.utilitycraft:silicon",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true
                     }
                   }
                 ]

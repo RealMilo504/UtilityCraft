@@ -793,6 +793,7 @@ item.utilitycraft:blueprint_paper=Esquema Vazio\n§o§9@UtilityCraft
 ### Steel Materials | Materiais de Aço
 item.utilitycraft:raw_steel=Aço Bruto\n§o§9@UtilityCraft
 tile.utilitycraft:steel_block.name=Bloco de Aço\n§o§9@UtilityCraft
+tile.utilitycraft:silicon_block.name=Bloco de Silício\n§7- Material de fabricação\n§o§9@UtilityCraft
 tile.utilitycraft:raw_steel_block.name=Bloco de Aço Bruto\n§o§9@UtilityCraft
 item.utilitycraft:steel_dust=Pó de Aço\n§o§9@UtilityCraft
 item.utilitycraft:steel_nugget=Pepita de Aço\n§o§9@UtilityCraft
@@ -821,6 +822,7 @@ item.utilitycraft:diamond_dust=Pó de Diamante\n§o§9@UtilityCraft
 item.utilitycraft:emerald_dust=Pó de Esmeralda\n§o§9@UtilityCraft
 item.utilitycraft:obsidian_dust=Pó de Obsidiana\n§o§9@UtilityCraft
 item.utilitycraft:quartz_dust=Pó de Quartzo\n§o§9@UtilityCraft
+item.utilitycraft:silicon=Silício\n§7- Obtido ao fundir Pó de Quartzo\n§o§9@UtilityCraft
 item.utilitycraft:copper_dust=Pó de Cobre\n§o§9@UtilityCraft
 item.utilitycraft:gold_dust=Pó de Ouro\n§o§9@UtilityCraft
 item.utilitycraft:iron_dust=Pó de Ferro\n§o§9@UtilityCraft

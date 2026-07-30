@@ -161,6 +161,7 @@ const crusherRecipesRegister = {
     'minecraft:quartz_block': { output: 'minecraft:quartz', amount: 4 },
     'minecraft:amethyst_block': { output: 'minecraft:amethyst_shard', amount: 4 },
     'utilitycraft:geode': { output: 'minecraft:amethyst_shard', amount: 4 },
+    'utilitycraft:silicon_block': { output: 'utilitycraft:silicon', amount: 9 },
     'minecraft:sandstone': { output: 'minecraft:sand', amount: 4 },
     'minecraft:red_sandstone': { output: 'minecraft:red_sand', amount: 4 },
     'minecraft:brick_block': { output: 'minecraft:brick', amount: 4 },

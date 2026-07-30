@@ -245,6 +245,10 @@
 		"sound": "metal",
 		"textures": "utilitycraft_steel_block"
 	},
+	"utilitycraft:silicon_block": {
+		"sound": "stone",
+		"textures": "utilitycraft_silicon_block"
+	},
 	"utilitycraft:waycenter": {
 		"sound": "stone"
 	},

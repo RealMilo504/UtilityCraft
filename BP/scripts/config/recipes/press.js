@@ -21,6 +21,9 @@ const pressRecipesRegister = {
   "utilitycraft:energized_iron_ingot": { output: "utilitycraft:energized_iron_plate", required: 1 },
   "utilitycraft:steel_ingot": { output: "utilitycraft:steel_plate", required: 1 },
 
+  // Material blocks
+  "utilitycraft:silicon": { output: "utilitycraft:silicon_block", required: 9 },
+
   // Reconstruct ores from resource chunks
   "utilitycraft:copper_chunk": { output: "minecraft:copper_ore", required: 4 },
   "utilitycraft:gold_chunk": { output: "minecraft:gold_ore", required: 4 },

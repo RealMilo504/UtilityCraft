@@ -1691,6 +1691,9 @@
 		"utilitycraft_quartz_dust": {
 			"textures": "textures/items/dusts/quartz_dust"
 		},
+		"utilitycraft_silicon": {
+			"textures": "textures/items/misc/silicon"
+		},
 		"utilitycraft_iron_dust": {
 			"textures": "textures/items/dusts/iron_dust"
 		},

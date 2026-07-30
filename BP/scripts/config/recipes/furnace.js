@@ -53,6 +53,9 @@ const furnaceRecipesRegister = {
     'utilitycraft:crushed_kelp': {
         output: "minecraft:slime_ball"
     },
+    "utilitycraft:quartz_dust": {
+        output: "utilitycraft:silicon"
+    },
     // Compressed    
     'utilitycraft:compressed_cobblestone': {
         output: "utilitycraft:compressed_stone",
@@ -188,9 +191,6 @@ const furnaceRecipesRegister = {
     },
     // Integrated Storage
     "ae2be:certus_quartz_dust": {
-        output: "ae2be:silicon"
-    },
-    "utilitycraft:quartz_dust": {
         output: "ae2be:silicon"
     },
     // Minecraft Vanilla

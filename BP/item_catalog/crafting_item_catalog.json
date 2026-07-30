@@ -230,6 +230,7 @@
                             "utilitycraft:raw_energized_iron_block",
                             "utilitycraft:steel_block",
                             "utilitycraft:raw_steel_block",
+                            "utilitycraft:silicon_block",
                             "utilitycraft:blaze_block",
                             "utilitycraft:flint_block"
                         ]
@@ -528,7 +529,8 @@
                             "utilitycraft:netherite_nugget",
                             "utilitycraft:raw_steel",
                             "utilitycraft:steel_ingot",
-                            "utilitycraft:steel_nugget"
+                            "utilitycraft:steel_nugget",
+                            "utilitycraft:silicon"
                         ]
                     },
                     {

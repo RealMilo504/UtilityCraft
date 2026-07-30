@@ -628,6 +628,9 @@
 		"utilitycraft_steel_block": {
 			"textures": "textures/blocks/materials/steel_block"
 		},
+		"utilitycraft_silicon_block": {
+			"textures": "textures/blocks/materials/silicon_block"
+		},
 		"utilitycraft_bonsai": {
 			"textures": "textures/blocks/bonsais/bonsai"
 		},
