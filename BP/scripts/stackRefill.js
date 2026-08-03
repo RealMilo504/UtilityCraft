@@ -1,5 +1,12 @@
 import { world } from '@minecraft/server'
 
+const STACK_REFILL_PROPERTY = "utilitycraft:stackRefillEnabled"
+
+function isStackRefillEnabled(player) {
+    const value = player?.getDynamicProperty?.(STACK_REFILL_PROPERTY)
+    return typeof value === "boolean" ? value : true
+}
+
 function findMatchingStack(container, typeId, selectedSlot) {
     for (let slot = 0; slot < container.size; slot++) {
         if (slot === selectedSlot) continue
@@ -12,6 +19,8 @@ function findMatchingStack(container, typeId, selectedSlot) {
 }
 
 function refillStack(player, typeId) {
+    if (!isStackRefillEnabled(player)) return
+
     const selectedSlot = player.selectedSlotIndex
     const container = player.getComponent('minecraft:inventory').container
     const mainhand = container.getItem(selectedSlot)
