@@ -1,0 +1,12 @@
+{
+  "defaults": {
+    "model": "../../BP/blocks/addons/basics/sieve.json",
+    "resource_pack": "../../RP",
+    "hide_bones": ["block1", "block2", "block3", "block4", "string_mesh", "flint_mesh", "iron_mesh", "golden_mesh", "emerald_mesh", "diamond_mesh", "netherite_mesh"]
+  },
+  "blocks": [
+    { "position": [-1, 0, -1] }, { "position": [0, 0, -1] }, { "position": [1, 0, -1] },
+    { "position": [-1, 0, 0] },  { "position": [0, 0, 0] },  { "position": [1, 0, 0] },
+    { "position": [-1, 0, 1] },  { "position": [0, 0, 1] },  { "position": [1, 0, 1] }
+  ]
+}

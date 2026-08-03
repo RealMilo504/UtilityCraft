@@ -1,0 +1,52 @@
+{
+  "path_rules": [
+    {
+      "contains": "machinery/pipes/",
+      "resolution": "160x160"
+    }
+  ],
+  "blocks": {
+    "utilitycraft:block_breaker": {
+      "model_rotation": "0,180,0"
+    },
+    "utilitycraft:block_placer": {
+      "model_rotation": "0,180,0"
+    },
+    "utilitycraft:fan": {
+      "bedrock_horizontal_uv_rotation": 90
+    },
+    "utilitycraft:sink": {
+      "lighting": "balanced",
+      "model": "Assets/render_scenes/models/sink_render.geo.json",
+      "textures": "RP/textures/blocks/utility/infinite_water_block.png"
+    },
+    "utilitycraft:basic_wind_turbine": {
+      "ortho_scale": 42
+    },
+    "utilitycraft:advanced_wind_turbine": {
+      "ortho_scale": 42
+    },
+    "utilitycraft:expert_wind_turbine": {
+      "ortho_scale": 42
+    },
+    "utilitycraft:ultimate_wind_turbine": {
+      "ortho_scale": 42
+    },
+    "utilitycraft:sieve": {
+      "hide_bones": [
+        "block1",
+        "block2",
+        "block3",
+        "block4",
+        "string_mesh",
+        "flint_mesh",
+        "copper_mesh",
+        "iron_mesh",
+        "golden_mesh",
+        "emerald_mesh",
+        "diamond_mesh",
+        "netherite_mesh"
+      ]
+    }
+  }
+}

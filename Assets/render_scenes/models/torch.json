@@ -1,0 +1,17 @@
+{
+  "textures": { "torch": "torch_on" },
+  "elements": [
+    {
+      "from": [7, 0, 7],
+      "to": [9, 10, 9],
+      "faces": {
+        "north": { "texture": "#torch", "uv": [7, 6, 9, 16] },
+        "south": { "texture": "#torch", "uv": [7, 6, 9, 16] },
+        "west": { "texture": "#torch", "uv": [7, 6, 9, 16] },
+        "east": { "texture": "#torch", "uv": [7, 6, 9, 16] },
+        "up": { "texture": "#torch", "uv": [7, 6, 9, 8] },
+        "down": { "texture": "#torch", "uv": [7, 14, 9, 16] }
+      }
+    }
+  ]
+}

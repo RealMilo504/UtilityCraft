@@ -1,0 +1,14 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:block": {
+    "description": { "identifier": "render:sieve_gravel" },
+    "components": {
+      "minecraft:geometry": "geometry.utilitycraft_wood_sieve",
+      "minecraft:material_instances": {
+        "*": { "texture": "utilitycraft_wood_sieve", "render_method": "alpha_test" },
+        "mesh": { "texture": "utilitycraft_wood_sieve_meshes", "render_method": "alpha_test" },
+        "block": { "texture": "gravel", "render_method": "opaque" }
+      }
+    }
+  }
+}

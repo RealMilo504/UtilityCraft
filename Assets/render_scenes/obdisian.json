@@ -1,0 +1,9 @@
+{
+  "blocks": [
+    {
+      "model": "models/obsidian.json",
+      "textures": "C:/XboxGames/Minecraft for Windows/Content/data/resource_packs/vanilla/textures/blocks/obsidian.png",
+      "position": [0, 0, 0]
+    }
+  ]
+}

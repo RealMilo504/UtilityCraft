@@ -1,0 +1,9 @@
+{
+  "blocks": [
+    {
+      "model": "models/cauldron_empty.json",
+      "textures": "C:/XboxGames/Minecraft for Windows/Content/data/resource_packs/vanilla/textures/blocks",
+      "position": [0, 0, 0]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "blocks": [
+    {
+      "model": "models/sieve_compressed_gravel.json",
+      "resource_pack": "../../RP",
+      "textures": [
+        "../../RP/textures/blocks/sieve/wood_sieve.png",
+        "../../RP/textures/blocks/sieve/sieve_meshes.png",
+        "../../RP/textures/blocks/compressed/gravel.png"
+      ],
+      "position": [0, 0, 0],
+      "hide_bones": ["block1", "block2", "block3", "string_mesh", "flint_mesh", "copper_mesh", "iron_mesh", "golden_mesh", "emerald_mesh", "diamond_mesh", "netherite_mesh"]
+    }
+  ]
+}

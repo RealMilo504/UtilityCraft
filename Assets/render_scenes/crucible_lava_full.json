@@ -1,0 +1,10 @@
+{
+  "blocks": [
+    {
+      "name": "crucible_lava_full",
+      "model": "../../RP/models/blocks/crucible.json",
+      "textures": "../../RP/textures/blocks/crucible/utilitycraft_crucible_lava_4.png",
+      "position": [0, 0, 0]
+    }
+  ]
+}

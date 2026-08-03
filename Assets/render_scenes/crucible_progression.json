@@ -1,0 +1,30 @@
+{
+  "blocks": [
+    {
+      "name": "crucible_cobblestone_full",
+      "model": "../../RP/models/blocks/crucible.json",
+      "textures": "../../RP/textures/blocks/crucible/utilitycraft_crucible_cobble_4.png",
+      "position": [0, 1, 0]
+    },
+    {
+      "name": "crucible_lava_full",
+      "model": "../../RP/models/blocks/crucible.json",
+      "textures": "../../RP/textures/blocks/crucible/utilitycraft_crucible_lava_4.png",
+      "position": [1, 1, 0]
+    },
+    {
+      "name": "torch_cobblestone",
+      "model": "models/torch.json",
+      "textures": "C:/XboxGames/Minecraft for Windows/Content/data/resource_packs/vanilla/textures/blocks/torch_on.png",
+      "position": [0.18, 0, -0.18],
+      "vertical_align": "bottom"
+    },
+    {
+      "name": "torch_lava",
+      "model": "models/torch.json",
+      "textures": "C:/XboxGames/Minecraft for Windows/Content/data/resource_packs/vanilla/textures/blocks/torch_on.png",
+      "position": [1.18, 0, -0.18],
+      "vertical_align": "bottom"
+    }
+  ]
+}
