@@ -170,7 +170,7 @@
                         0
                     ],
                     "size": [
-                        "120px",
+                        "150px",
                         "30px"
                     ]
                 }
@@ -294,7 +294,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/static/images/string_mesh_render",
+                    "texture": "textures/items/meshes/string_mesh",
                     "offset": [
                         0,
                         0
@@ -339,7 +339,7 @@
         "anchor_to": "top_middle",
         "size": [
             "90%",
-            "70px"
+            "60px"
         ],
         "controls": [
             {
@@ -353,7 +353,7 @@
                     ],
                     "size": [
                         "60px",
-                        "68px"
+                        "60px"
                     ]
                 }
             }
@@ -365,7 +365,7 @@
         "anchor_to": "top_middle",
         "size": [
             "90%",
-            "62px"
+            "80px"
         ],
         "controls": [
             {
@@ -378,8 +378,8 @@
                         0
                     ],
                     "size": [
-                        "270px",
-                        "62px"
+                        "280px",
+                        "80px"
                     ]
                 }
             }
@@ -417,7 +417,7 @@
         "anchor_to": "top_middle",
         "size": [
             "90%",
-            "70px"
+            "60px"
         ],
         "controls": [
             {
@@ -431,7 +431,7 @@
                     ],
                     "size": [
                         "60px",
-                        "68px"
+                        "60px"
                     ]
                 }
             }
@@ -522,7 +522,7 @@
                     "texture": "textures/static/images/crucible_eg_render",
                     "offset": [ 0, 0 ],
                     "size": [
-                        "85px",
+                        "72px",
                         "72px"
                     ]
                 }
@@ -535,7 +535,7 @@
         "anchor_to": "top_middle",
         "size": [
             "90%",
-            "46px"
+            "40px"
         ],
         "controls": [
             {
@@ -545,8 +545,8 @@
                     "texture": "textures/static/images/crucible_obsidian_process_render",
                     "offset": [ 0, 0 ],
                     "size": [
-                        "156px",
-                        "46px"
+                        "192px",
+                        "40px"
                     ]
                 }
             }
@@ -729,7 +729,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/static/images/meshes_render",
+                    "texture": "textures/static/images/meshes_flipbook",
                     "offset": [
                         0,
                         0
@@ -755,7 +755,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/static/images/fishing_nets_render",
+                    "texture": "textures/static/images/nets_flipbook",
                     "offset": [
                         0,
                         0
@@ -816,6 +816,32 @@
                     ],
                     "size": [
                         "240px",
+                        "60px"
+                    ]
+                }
+            }
+        ]
+    },
+    "battery_tiers_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "60px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/static/images/batteries_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "300px",
                         "60px"
                     ]
                 }
@@ -1045,7 +1071,7 @@
         "anchor_to": "top_middle",
         "size": [
             "90%",
-            "60px"
+            "90px"
         ],
         "controls": [
             {
@@ -1059,7 +1085,7 @@
                     ],
                     "size": [
                         "210px",
-                        "60px"
+                        "90px"
                     ]
                 }
             }
@@ -2602,9 +2628,7 @@
                 }
             },
             {
-                "batteries_render@how_to_play.generator_tiers_render": {
-                    "$generator_texture": "textures/static/images/batteries_render"
-                }
+                "batteries_render@how_to_play.battery_tiers_render": {}
             },
             {
                 "batteries_text@how_to_play.wide_paragraph": {
