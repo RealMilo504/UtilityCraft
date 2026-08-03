@@ -4,7 +4,8 @@ import { getOppositeFacingBlock } from "./oppositeFacing.js";
 import {
     handleMachineOutlineInteract,
     initializeMachineOutline,
-    removeMachineOutline
+    removeMachineOutline,
+    syncMachineOutlineIfNeeded
 } from "../machineOutline.js"
 
 const INPUTSLOT = 3
@@ -48,6 +49,7 @@ DoriosLib.registry.blockComponent('utilitycraft:block_placer', {
         const { block } = e;
         const machine = new Machine(block, settings);
         if (!machine.valid) return
+        syncMachineOutlineIfNeeded(machine)
 
         let progress = machine.getProgress();
         const energyCost = settings.machine.energy_cost;

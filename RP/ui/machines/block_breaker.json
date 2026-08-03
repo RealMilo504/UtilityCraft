@@ -16,25 +16,69 @@
         "energy_bar@uc.energy_bar": {}
       },
       {
-        "machine_screen@uc.machine_small_screen": {
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
-          "offset": [9, 14]
+        "machine_screen@uc.machine_small_screen": {}
+      },
+      {
+        "machine_description@uc.text_label": {
+          "collection_index": 1,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$text_scale": 0.55,
+          "offset": [14, 12]
         }
       },
       {
-        "machine_description@uc.centered_text_label": {
-          "collection_index": 1,
+        "item@uc.input_2_slot": {
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "$text_scale": 0.55,
-          "offset": [9, 12]
+          "offset": [10, 30],
+          "collection_index": 2
+        }
+      },
+      {
+        "pickaxe_overlay@uc.function_panel": {
+          "collection_index": 2,
+          "type": "panel",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": [16, 16],
+          "offset": [10, 31],
+          "controls": [
+            {
+              "pickaxe_image": {
+                "type": "image",
+                "texture": "textures/ui/overlay/pickaxe_overlay",
+                "layer": 4,
+                "alpha": 0.5,
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "size": [16, 16]
+              }
+            }
+          ]
         }
       },
       {
         "upgrades_tab@uc.upgrades_tab": {
-          "$upgrade_index_1": 2,
-          "$upgrade_index_2": 3
+          "$upgrade_index_1": 3,
+          "$upgrade_index_2": 4
+        }
+      },
+      {
+        "io_tab@uc.io_tab": {
+          "$io_items_modes_description": "ui.utilitycraft:io.block_breaker.items",
+          "$io_top_texture": "textures/blocks/machines/block_breaker_off_up",
+          "$io_left_texture": "textures/blocks/machines/block_breaker_off_west",
+          "$io_front_texture": "textures/blocks/machines/block_breaker_off_north",
+          "$io_right_texture": "textures/blocks/machines/block_breaker_off_east",
+          "$io_bottom_texture": "textures/blocks/machines/block_breaker_off_down",
+          "$io_back_texture": "textures/blocks/machines/block_breaker_off_south",
+          "$io_item_top_index": 5,
+          "$io_item_left_index": 6,
+          "$io_item_front_index": 7,
+          "$io_item_right_index": 8,
+          "$io_item_bottom_index": 9,
+          "$io_item_back_index": 10
         }
       },
       {

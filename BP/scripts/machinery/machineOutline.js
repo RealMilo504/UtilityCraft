@@ -6,10 +6,7 @@ import {
     getMachineUpgradeSlots
 } from "../UtilityCore/machineUpgrades.js"
 import { getOppositeFacingDirection } from "./machines/oppositeFacing.js"
-import {
-    getHarvesterOutlineTransform,
-    getHarvesterSide
-} from "./machines/harvesterArea.js"
+import { getHarvesterOutlineTransform } from "./machines/harvesterArea.js"
 
 export const MACHINE_OUTLINE_ENTITY_ID = "utilitycraft:machine_area_outline"
 
@@ -94,15 +91,16 @@ function getInstalledRangeLevel(block, machineEntity) {
 
 function getFixedMachineTransform(block) {
     const direction = getOppositeFacingDirection(block)
-    const worldOffset = DoriosLib.constants.DIRECTION_VECTORS[direction]
-        ?? { x: 0, y: 0, z: 0 }
-
-    // Entity model coordinates are inverted relative to block-world offsets.
+    // The outline model mirrors world X/Z. Vertical fixed machines point to
+    // the immediately adjacent block, unlike the Harvester's crop plane.
     const offset = {
-        x: -worldOffset.x,
-        y: -worldOffset.y,
-        z: -worldOffset.z
-    }
+        north: { x: 0, y: 0, z: 1 },
+        south: { x: 0, y: 0, z: -1 },
+        west: { x: 1, y: 0, z: 0 },
+        east: { x: -1, y: 0, z: 0 },
+        up: { x: 0, y: 1, z: 0 },
+        down: { x: 0, y: -1, z: 0 }
+    }[direction] ?? { x: 0, y: 0, z: 0 }
 
     return { size: 1, offset }
 }
@@ -166,17 +164,22 @@ export function initializeMachineOutline(block, _machineEntity, player) {
     )
 }
 
-export function syncHarvesterOutlineIfNeeded(machine) {
+export function syncMachineOutlineIfNeeded(machine) {
     const outline = findMachineOutlineEntity(machine?.block)
     if (!outline || !machine?.entity) return
 
-    const range = Math.max(0, Math.floor(machine.boosts.range ?? 0))
-    const expectedSide = getHarvesterSide(range)
+    const range = machine.block.typeId === "utilitycraft:harvester"
+        ? Math.max(0, Math.floor(machine.boosts.range ?? 0))
+        : undefined
+    const expected = getMachineTransform(machine.block, machine.entity, range)
     if (
-        outline.getProperty(OUTLINE_SIZE_PROPERTY) === expectedSide
-        && outline.getProperty(OUTLINE_DIMENSION_PROPERTIES.width) === expectedSide
+        outline.getProperty(OUTLINE_SIZE_PROPERTY) === expected.size
+        && outline.getProperty(OUTLINE_DIMENSION_PROPERTIES.width) === expected.size
         && outline.getProperty(OUTLINE_DIMENSION_PROPERTIES.height) === 1
-        && outline.getProperty(OUTLINE_DIMENSION_PROPERTIES.depth) === expectedSide
+        && outline.getProperty(OUTLINE_DIMENSION_PROPERTIES.depth) === expected.size
+        && outline.getProperty(OUTLINE_OFFSET_PROPERTIES.x) === expected.offset.x
+        && outline.getProperty(OUTLINE_OFFSET_PROPERTIES.y) === expected.offset.y
+        && outline.getProperty(OUTLINE_OFFSET_PROPERTIES.z) === expected.offset.z
     ) return
     syncMachineOutline(machine.block, outline, machine.entity, range)
 }
