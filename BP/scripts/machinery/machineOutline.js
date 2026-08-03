@@ -91,13 +91,13 @@ function getInstalledRangeLevel(block, machineEntity) {
 
 function getFixedMachineTransform(block) {
     const direction = getOppositeFacingDirection(block)
-    // The outline model mirrors world X/Z. Vertical fixed machines point to
-    // the immediately adjacent block, unlike the Harvester's crop plane.
+    // Fixed-machine offsets are expressed in the outline entity's model space.
+    // Vertical machines point to the adjacent block, unlike the Harvester crop plane.
     const offset = {
         north: { x: 0, y: 0, z: 1 },
         south: { x: 0, y: 0, z: -1 },
-        west: { x: 1, y: 0, z: 0 },
-        east: { x: -1, y: 0, z: 0 },
+        west: { x: -1, y: 0, z: 0 },
+        east: { x: 1, y: 0, z: 0 },
         up: { x: 0, y: 1, z: 0 },
         down: { x: 0, y: -1, z: 0 }
     }[direction] ?? { x: 0, y: 0, z: 0 }

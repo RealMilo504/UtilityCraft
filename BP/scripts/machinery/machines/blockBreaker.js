@@ -85,11 +85,8 @@ DoriosLib.registry.blockComponent('utilitycraft:block_breaker', {
         const energyCost = settings.machine.energy_cost;
         machine.processIO();
 
-        const tool = machine.container.getItem(PICKAXE_SLOT);
-        if (!isPickaxe(tool)) {
-            machine.showWarning('Missing Pickaxe', { resetProgress: false, displayProgress: false });
-            return;
-        }
+        const slottedTool = machine.container.getItem(PICKAXE_SLOT);
+        const tool = isPickaxe(slottedTool) ? slottedTool : undefined;
 
         // Check energy availability
         if (machine.energy.get() <= 0) {

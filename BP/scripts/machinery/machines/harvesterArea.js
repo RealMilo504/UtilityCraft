@@ -32,8 +32,8 @@ export function getHarvesterOutlineTransform(block, rangeUpgrades) {
     const offsets = {
         north: { x: 0, y: 0, z: forwardCenter },
         south: { x: 0, y: 0, z: -forwardCenter },
-        west: { x: forwardCenter, y: 0, z: 0 },
-        east: { x: -forwardCenter, y: 0, z: 0 },
+        west: { x: -forwardCenter, y: 0, z: 0 },
+        east: { x: forwardCenter, y: 0, z: 0 },
         up: { x: 0, y: 2, z: 0 },
         down: { x: 0, y: -1, z: 0 }
     }
