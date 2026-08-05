@@ -1,6 +1,6 @@
 // @ts-check
 
-import { EntityComponentTypes, EquipmentSlot, ItemStack } from "@minecraft/server";
+import { EntityComponentTypes, EquipmentSlot, ItemStack, system } from "@minecraft/server";
 import { create as createItem } from "../item/index.js";
 
 /** @typedef {import("@minecraft/server").Container} Container */
@@ -8,9 +8,155 @@ import { create as createItem } from "../item/index.js";
 /** @typedef {import("@minecraft/server").EntityEquippableComponent} EntityEquippableComponent */
 /** @typedef {import("@minecraft/server").EntityHealthComponent} EntityHealthComponent */
 /** @typedef {import("@minecraft/server").EntityInventoryComponent} EntityInventoryComponent */
+/** @typedef {import("@minecraft/server").Player} Player */
+/** @typedef {import("@minecraft/server").Vector3} Vector3 */
 
 /** @type {ReadonlySet<string>} */
 const EQUIPMENT_SLOTS = new Set(Object.values(EquipmentSlot));
+
+/**
+ * @typedef {object} PlayerTrackingOptions
+ * @property {"head"|"location"} [anchor="head"]
+ * @property {number} [viewOffset=0.5]
+ * @property {number} [velocityFactor=5]
+ * @property {Vector3} [offset]
+ * @property {boolean} [checkForBlocks=false]
+ * @property {boolean} [keepVelocity=false]
+ */
+
+/**
+ * @typedef {object} PlayerTrackingEntry
+ * @property {Entity} entity
+ * @property {Player} player
+ * @property {Required<Omit<PlayerTrackingOptions, "offset">> & {offset: Vector3}} options
+ */
+
+/** @type {Map<string, PlayerTrackingEntry>} */
+const PLAYER_TRACKING = new Map();
+
+/** @type {number|undefined} */
+let playerTrackingRunId;
+
+const ZERO_VECTOR = Object.freeze({ x: 0, y: 0, z: 0 });
+
+/**
+ * Starts or updates an entity attachment to a player.
+ *
+ * Every active attachment is moved by one shared one-tick interval. Calling
+ * this function again for the same entity replaces its player and options.
+ *
+ * @param {Entity} entity
+ * @param {Player} player
+ * @param {PlayerTrackingOptions} [options={}]
+ * @returns {boolean}
+ */
+export function startPlayerTracking(entity, player, options = {}) {
+  if (!entity?.isValid || !player?.isValid || player.typeId !== "minecraft:player") return false;
+
+  PLAYER_TRACKING.set(entity.id, {
+    entity,
+    player,
+    options: normalizePlayerTrackingOptions(options),
+  });
+  ensurePlayerTrackingInterval();
+  return true;
+}
+
+/**
+ * Stops an entity attachment to its player.
+ *
+ * This only removes the tracking relationship; it does not remove the entity.
+ *
+ * @param {Entity|string} entityOrId
+ * @returns {boolean}
+ */
+export function stopPlayerTracking(entityOrId) {
+  const entityId = typeof entityOrId === "string" ? entityOrId : entityOrId?.id;
+  if (!entityId) return false;
+
+  const removed = PLAYER_TRACKING.delete(entityId);
+  stopPlayerTrackingIntervalIfIdle();
+  return removed;
+}
+
+/**
+ * Checks whether an entity currently has an active player attachment.
+ *
+ * @param {Entity|string} entityOrId
+ * @returns {boolean}
+ */
+export function isPlayerTracking(entityOrId) {
+  const entityId = typeof entityOrId === "string" ? entityOrId : entityOrId?.id;
+  return Boolean(entityId && PLAYER_TRACKING.has(entityId));
+}
+
+/** @param {PlayerTrackingOptions} options */
+function normalizePlayerTrackingOptions(options) {
+  return {
+    anchor: options.anchor === "location" ? "location" : "head",
+    viewOffset: finiteOr(options.viewOffset, 0.5),
+    velocityFactor: finiteOr(options.velocityFactor, 5),
+    offset: normalizeVector(options.offset),
+    checkForBlocks: options.checkForBlocks === true,
+    keepVelocity: options.keepVelocity === true,
+  };
+}
+
+/** @param {number|undefined} value @param {number} fallback */
+function finiteOr(value, fallback) {
+  return Number.isFinite(value) ? Number(value) : fallback;
+}
+
+/** @param {Vector3|undefined} vector @returns {Vector3} */
+function normalizeVector(vector) {
+  if (!vector) return ZERO_VECTOR;
+  return {
+    x: finiteOr(vector.x, 0),
+    y: finiteOr(vector.y, 0),
+    z: finiteOr(vector.z, 0),
+  };
+}
+
+function ensurePlayerTrackingInterval() {
+  if (playerTrackingRunId !== undefined) return;
+  playerTrackingRunId = system.runInterval(updatePlayerTracking, 1);
+}
+
+function stopPlayerTrackingIntervalIfIdle() {
+  if (PLAYER_TRACKING.size !== 0 || playerTrackingRunId === undefined) return;
+  system.clearRun(playerTrackingRunId);
+  playerTrackingRunId = undefined;
+}
+
+function updatePlayerTracking() {
+  for (const [entityId, tracking] of PLAYER_TRACKING) {
+    const { entity, player, options } = tracking;
+    if (!entity.isValid || !player.isValid) {
+      PLAYER_TRACKING.delete(entityId);
+      continue;
+    }
+
+    try {
+      const anchor = options.anchor === "location" ? player.location : player.getHeadLocation();
+      const view = options.viewOffset === 0 ? ZERO_VECTOR : player.getViewDirection();
+      const velocity = options.velocityFactor === 0 ? ZERO_VECTOR : player.getVelocity();
+      entity.teleport({
+        x: anchor.x + view.x * options.viewOffset + velocity.x * options.velocityFactor + options.offset.x,
+        y: anchor.y + view.y * options.viewOffset + velocity.y * options.velocityFactor + options.offset.y,
+        z: anchor.z + view.z * options.viewOffset + velocity.z * options.velocityFactor + options.offset.z,
+      }, {
+        dimension: player.dimension,
+        checkForBlocks: options.checkForBlocks,
+        keepVelocity: options.keepVelocity,
+      });
+    } catch {
+      // A valid attachment can fail transiently while dimensions or chunks load.
+      // Keep it registered so the next tick can retry.
+    }
+  }
+
+  stopPlayerTrackingIntervalIfIdle();
+}
 
 /**
  * @typedef {object} InventoryEntry

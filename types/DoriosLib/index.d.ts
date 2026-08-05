@@ -260,6 +260,22 @@ export interface SetEquipmentOptions {
   item: ItemStack | undefined;
 }
 
+/** Options for attaching an entity to a player through the shared tick manager. */
+export interface PlayerTrackingOptions {
+  /** Position used as the base of the attachment. @defaultValue "head" */
+  anchor?: "head" | "location";
+  /** Distance along the player's view direction. @defaultValue 0.5 */
+  viewOffset?: number;
+  /** Multiplier applied to the player's current velocity. @defaultValue 5 */
+  velocityFactor?: number;
+  /** Absolute world-space offset added after view and velocity prediction. */
+  offset?: Vector3;
+  /** Whether solid blocks may reject the teleport. @defaultValue false */
+  checkForBlocks?: boolean;
+  /** Whether the tracked entity keeps its own velocity. @defaultValue false */
+  keepVelocity?: boolean;
+}
+
 /** Options used by {@link item.create}. */
 export interface CreateItemOptions {
   typeId: string;
@@ -570,6 +586,21 @@ export namespace dependencies {
 
 /** Entity inventory, health, and equipment helpers. */
 export namespace entity {
+  /**
+   * Starts or updates an attachment managed by DoriosLib's shared one-tick interval.
+   */
+  function startPlayerTracking(
+    entity: Entity,
+    player: Player,
+    options?: PlayerTrackingOptions,
+  ): boolean;
+
+  /** Stops tracking without removing the entity. */
+  function stopPlayerTracking(entityOrId: Entity | string): boolean;
+
+  /** Checks whether an entity currently has an active player attachment. */
+  function isPlayerTracking(entityOrId: Entity | string): boolean;
+
   function getInventory(entity: Entity): Container | undefined;
   function getInventoryEntries(entity: Entity): InventoryEntry[];
   function getItems(entity: Entity): ItemStack[];
