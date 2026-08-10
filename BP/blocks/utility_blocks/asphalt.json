@@ -26,6 +26,9 @@
 					"render_method": "alpha_test"
 				}
 			},
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": true
+			},
 			"utilitycraft:asphalt": {},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 1.5
