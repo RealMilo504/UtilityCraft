@@ -364,7 +364,7 @@ const furnaceRecipesRegister = {
         output: "minecraft:smooth_stone"
     },
     "minecraft:quartz_block": {
-        output: "minecraft:quartz_block"
+        output: "minecraft:smooth_quartz"
     },
     "minecraft:clay_ball": {
         output: "minecraft:brick"
