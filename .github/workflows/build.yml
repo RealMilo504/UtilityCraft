@@ -70,3 +70,49 @@ jobs:
             "artifacts/${FILE_NAME}_dev.mcaddon" \
             "artifacts/${FILE_NAME}.mcaddon" \
             --clobber
+
+      - name: Upload minified addon to CurseForge
+        env:
+          CURSEFORGE_API_TOKEN: ${{ secrets.CURSEFORGE_API_TOKEN }}
+          CURSEFORGE_CHANGELOG: ${{ github.event.release.body }}
+          CURSEFORGE_DISPLAY_NAME: ${{ github.event.release.name }}
+          CURSEFORGE_PRERELEASE: ${{ github.event.release.prerelease }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "$CURSEFORGE_API_TOKEN" ]; then
+            echo "::error::The CURSEFORGE_API_TOKEN organization secret is not available to this repository."
+            exit 1
+          fi
+
+          if [ "$CURSEFORGE_PRERELEASE" = "true" ]; then
+            RELEASE_TYPE="beta"
+          else
+            RELEASE_TYPE="release"
+          fi
+
+          METADATA="$(jq -nc \
+            --arg changelog "${CURSEFORGE_CHANGELOG:-No changelog provided.}" \
+            --arg displayName "${CURSEFORGE_DISPLAY_NAME:-$REL_TITLE}" \
+            --arg releaseType "$RELEASE_TYPE" \
+            --arg gameVersion "26.30" \
+            '{
+              changelog: $changelog,
+              changelogType: "markdown",
+              displayName: $displayName,
+              gameVersionNames: [$gameVersion],
+              releaseType: $releaseType,
+              isMarkedForManualRelease: false
+            }')"
+
+          RESPONSE="$(curl --fail-with-body --silent --show-error \
+            --request POST \
+            --header "X-Api-Token: $CURSEFORGE_API_TOKEN" \
+            --form-string "metadata=$METADATA" \
+            --form "file=@artifacts/${FILE_NAME}.mcaddon" \
+            "https://minecraft-bedrock.curseforge.com/api/projects/1095313/upload-file")"
+
+          FILE_ID="$(printf '%s' "$RESPONSE" | jq -er '.id')"
+          echo "CurseForge file uploaded successfully: $FILE_ID"
+          echo "### CurseForge" >> "$GITHUB_STEP_SUMMARY"
+          echo "Uploaded file ID: $FILE_ID" >> "$GITHUB_STEP_SUMMARY"
