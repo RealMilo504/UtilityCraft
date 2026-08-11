@@ -1,0 +1,780 @@
+{
+  "schema_version": 1,
+  "presets": {
+    "stone": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_pickaxe_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "stone"
+    },
+    "wood": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2,
+        3,
+        3.2,
+        4.5
+      ],
+      "tags": [
+        "tag:minecraft:is_axe_item_destructible",
+        "tag:wood"
+      ],
+      "redstone_conductor": true,
+      "sound": "wood"
+    },
+    "glass": {
+      "render_method": "blend",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [],
+      "redstone_conductor": false,
+      "sound": "glass",
+      "geometry": {
+        "identifier": "geometry.utilitycraft_glass",
+        "culling": "utilitycraft:glass"
+      }
+    },
+    "metal": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_pickaxe_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "metal"
+    },
+    "copper": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_pickaxe_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "copper"
+    },
+    "deepslate": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_pickaxe_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "deepslate"
+    },
+    "netherrack": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_pickaxe_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "netherrack"
+    },
+    "soil": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_shovel_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "gravel"
+    },
+    "sand": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_shovel_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "sand"
+    },
+    "gravel": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_shovel_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "gravel"
+    },
+    "obsidian": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        55,
+        60,
+        67.5,
+        80
+      ],
+      "tags": [
+        "tag:minecraft:is_pickaxe_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "stone"
+    },
+    "amethyst": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_pickaxe_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "amethyst_block"
+    },
+    "netherite": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_pickaxe_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "netherite"
+    },
+    "tuff": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_pickaxe_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "tuff"
+    },
+    "calcite": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_pickaxe_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "calcite"
+    },
+    "dripstone": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_pickaxe_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "dripstone_block"
+    },
+    "basalt": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_pickaxe_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "basalt"
+    },
+    "mud": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_shovel_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "mud"
+    },
+    "soul_sand": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_shovel_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "soul_sand"
+    },
+    "soul_soil": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_shovel_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "soul_soil"
+    },
+    "bamboo": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_axe_item_destructible",
+        "tag:wood"
+      ],
+      "redstone_conductor": true,
+      "sound": "bamboo_wood"
+    },
+    "moss": {
+      "render_method": "opaque",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [
+        "tag:minecraft:is_hoe_item_destructible"
+      ],
+      "redstone_conductor": true,
+      "sound": "moss_block"
+    },
+    "slime": {
+      "render_method": "blend",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [],
+      "redstone_conductor": false,
+      "sound": "slime"
+    },
+    "honey": {
+      "render_method": "blend",
+      "mining_speeds": [
+        2.5,
+        3.1,
+        3.8,
+        4.6
+      ],
+      "tags": [],
+      "redstone_conductor": false,
+      "sound": "honey_block"
+    }
+  },
+  "audit": {
+    "allow_unobtainable": [
+      "utilitycraft:compressed_block"
+    ]
+  },
+  "blocks": [
+    {
+      "key": "tuff",
+      "source_item": "minecraft:tuff",
+      "base_texture": "tools/input_textures/tuff.png",
+      "texture_stem": "tuff",
+      "type": "tuff",
+      "names": {
+        "en_US": [
+          "Compressed Tuff",
+          "Double Compressed Tuff",
+          "Triple Compressed Tuff",
+          "Quadruple Compressed Tuff"
+        ],
+        "es_ES": [
+          "Toba comprimida",
+          "Toba doblemente comprimida",
+          "Toba triplemente comprimida",
+          "Toba cu?druplemente comprimida"
+        ],
+        "es_MX": [
+          "Toba comprimida",
+          "Toba doblemente comprimida",
+          "Toba triplemente comprimida",
+          "Toba cu?druplemente comprimida"
+        ]
+      }
+    },
+    {
+      "key": "calcite",
+      "source_item": "minecraft:calcite",
+      "base_texture": "tools/input_textures/calcite.png",
+      "texture_stem": "calcite",
+      "type": "calcite",
+      "names": {
+        "en_US": [
+          "Compressed Calcite",
+          "Double Compressed Calcite",
+          "Triple Compressed Calcite",
+          "Quadruple Compressed Calcite"
+        ],
+        "es_ES": [
+          "Calcita comprimida",
+          "Calcita doblemente comprimida",
+          "Calcita triplemente comprimida",
+          "Calcita cu?druplemente comprimida"
+        ],
+        "es_MX": [
+          "Calcita comprimida",
+          "Calcita doblemente comprimida",
+          "Calcita triplemente comprimida",
+          "Calcita cu?druplemente comprimida"
+        ]
+      }
+    },
+    {
+      "key": "dripstone_block",
+      "source_item": "minecraft:dripstone_block",
+      "base_texture": "tools/input_textures/dripstone_block.png",
+      "texture_stem": "dripstone",
+      "type": "dripstone",
+      "names": {
+        "en_US": [
+          "Compressed Dripstone Block",
+          "Double Compressed Dripstone Block",
+          "Triple Compressed Dripstone Block",
+          "Quadruple Compressed Dripstone Block"
+        ],
+        "es_ES": [
+          "Bloque de espeleotema comprimido",
+          "Bloque de espeleotema doblemente comprimido",
+          "Bloque de espeleotema triplemente comprimido",
+          "Bloque de espeleotema cu?druplemente comprimido"
+        ],
+        "es_MX": [
+          "Bloque de espeleotema comprimido",
+          "Bloque de espeleotema doblemente comprimido",
+          "Bloque de espeleotema triplemente comprimido",
+          "Bloque de espeleotema cu?druplemente comprimido"
+        ]
+      }
+    },
+    {
+      "key": "basalt",
+      "source_item": "minecraft:basalt",
+      "base_texture": "tools/input_textures/basalt.png",
+      "texture_stem": "basalt",
+      "type": "basalt",
+      "names": {
+        "en_US": [
+          "Compressed Basalt",
+          "Double Compressed Basalt",
+          "Triple Compressed Basalt",
+          "Quadruple Compressed Basalt"
+        ],
+        "es_ES": [
+          "Basalto comprimido",
+          "Basalto doblemente comprimido",
+          "Basalto triplemente comprimido",
+          "Basalto cu?druplemente comprimido"
+        ],
+        "es_MX": [
+          "Basalto comprimido",
+          "Basalto doblemente comprimido",
+          "Basalto triplemente comprimido",
+          "Basalto cu?druplemente comprimido"
+        ]
+      }
+    },
+    {
+      "key": "red_sand",
+      "source_item": "minecraft:red_sand",
+      "base_texture": "tools/input_textures/red_sand.png",
+      "texture_stem": "red_sand",
+      "type": "sand",
+      "names": {
+        "en_US": [
+          "Compressed Red Sand",
+          "Double Compressed Red Sand",
+          "Triple Compressed Red Sand",
+          "Quadruple Compressed Red Sand"
+        ],
+        "es_ES": [
+          "Arena roja comprimida",
+          "Arena roja doblemente comprimida",
+          "Arena roja triplemente comprimida",
+          "Arena roja cu?druplemente comprimida"
+        ],
+        "es_MX": [
+          "Arena roja comprimida",
+          "Arena roja doblemente comprimida",
+          "Arena roja triplemente comprimida",
+          "Arena roja cu?druplemente comprimida"
+        ]
+      }
+    },
+    {
+      "key": "mud",
+      "source_item": "minecraft:mud",
+      "base_texture": "tools/input_textures/mud.png",
+      "texture_stem": "mud",
+      "type": "mud",
+      "names": {
+        "en_US": [
+          "Compressed Mud",
+          "Double Compressed Mud",
+          "Triple Compressed Mud",
+          "Quadruple Compressed Mud"
+        ],
+        "es_ES": [
+          "Barro comprimido",
+          "Barro doblemente comprimido",
+          "Barro triplemente comprimido",
+          "Barro cu?druplemente comprimido"
+        ],
+        "es_MX": [
+          "Barro comprimido",
+          "Barro doblemente comprimido",
+          "Barro triplemente comprimido",
+          "Barro cu?druplemente comprimido"
+        ]
+      }
+    },
+    {
+      "key": "soul_sand",
+      "source_item": "minecraft:soul_sand",
+      "base_texture": "tools/input_textures/soul_sand.png",
+      "texture_stem": "soul_sand",
+      "type": "soul_sand",
+      "names": {
+        "en_US": [
+          "Compressed Soul Sand",
+          "Double Compressed Soul Sand",
+          "Triple Compressed Soul Sand",
+          "Quadruple Compressed Soul Sand"
+        ],
+        "es_ES": [
+          "Arena de almas comprimida",
+          "Arena de almas doblemente comprimida",
+          "Arena de almas triplemente comprimida",
+          "Arena de almas cu?druplemente comprimida"
+        ],
+        "es_MX": [
+          "Arena de almas comprimida",
+          "Arena de almas doblemente comprimida",
+          "Arena de almas triplemente comprimida",
+          "Arena de almas cu?druplemente comprimida"
+        ]
+      }
+    },
+    {
+      "key": "soul_soil",
+      "source_item": "minecraft:soul_soil",
+      "base_texture": "tools/input_textures/soul_soil.png",
+      "texture_stem": "soul_soil",
+      "type": "soul_soil",
+      "names": {
+        "en_US": [
+          "Compressed Soul Soil",
+          "Double Compressed Soul Soil",
+          "Triple Compressed Soul Soil",
+          "Quadruple Compressed Soul Soil"
+        ],
+        "es_ES": [
+          "Tierra de almas comprimida",
+          "Tierra de almas doblemente comprimida",
+          "Tierra de almas triplemente comprimida",
+          "Tierra de almas cu?druplemente comprimida"
+        ],
+        "es_MX": [
+          "Tierra de almas comprimida",
+          "Tierra de almas doblemente comprimida",
+          "Tierra de almas triplemente comprimida",
+          "Tierra de almas cu?druplemente comprimida"
+        ]
+      }
+    },
+    {
+      "key": "clay",
+      "source_item": "minecraft:clay",
+      "base_texture": "tools/input_textures/clay.png",
+      "texture_stem": "clay",
+      "type": "gravel",
+      "names": {
+        "en_US": [
+          "Compressed Clay",
+          "Double Compressed Clay",
+          "Triple Compressed Clay",
+          "Quadruple Compressed Clay"
+        ],
+        "es_ES": [
+          "Arcilla comprimida",
+          "Arcilla doblemente comprimida",
+          "Arcilla triplemente comprimida",
+          "Arcilla cu?druplemente comprimida"
+        ],
+        "es_MX": [
+          "Arcilla comprimida",
+          "Arcilla doblemente comprimida",
+          "Arcilla triplemente comprimida",
+          "Arcilla cu?druplemente comprimida"
+        ]
+      }
+    },
+    {
+      "key": "bamboo_block",
+      "source_item": "minecraft:bamboo_block",
+      "base_texture": "tools/input_textures/bamboo_block.png",
+      "texture_stem": "bamboo",
+      "type": "bamboo",
+      "names": {
+        "en_US": [
+          "Compressed Bamboo Block",
+          "Double Compressed Bamboo Block",
+          "Triple Compressed Bamboo Block",
+          "Quadruple Compressed Bamboo Block"
+        ],
+        "es_ES": [
+          "Bloque de bamb? comprimido",
+          "Bloque de bamb? doblemente comprimido",
+          "Bloque de bamb? triplemente comprimido",
+          "Bloque de bamb? cu?druplemente comprimido"
+        ],
+        "es_MX": [
+          "Bloque de bamb? comprimido",
+          "Bloque de bamb? doblemente comprimido",
+          "Bloque de bamb? triplemente comprimido",
+          "Bloque de bamb? cu?druplemente comprimido"
+        ]
+      }
+    },
+    {
+      "key": "moss_block",
+      "source_item": "minecraft:moss_block",
+      "base_texture": "tools/input_textures/moss_block.png",
+      "texture_stem": "moss",
+      "type": "moss",
+      "names": {
+        "en_US": [
+          "Compressed Moss Block",
+          "Double Compressed Moss Block",
+          "Triple Compressed Moss Block",
+          "Quadruple Compressed Moss Block"
+        ],
+        "es_ES": [
+          "Bloque de musgo comprimido",
+          "Bloque de musgo doblemente comprimido",
+          "Bloque de musgo triplemente comprimido",
+          "Bloque de musgo cu?druplemente comprimido"
+        ],
+        "es_MX": [
+          "Bloque de musgo comprimido",
+          "Bloque de musgo doblemente comprimido",
+          "Bloque de musgo triplemente comprimido",
+          "Bloque de musgo cu?druplemente comprimido"
+        ]
+      }
+    },
+    {
+      "key": "slime_block",
+      "source_item": "minecraft:slime",
+      "base_texture": "tools/input_textures/slime_block.png",
+      "texture_stem": "slime",
+      "type": "slime",
+      "names": {
+        "en_US": [
+          "Compressed Slime Block",
+          "Double Compressed Slime Block",
+          "Triple Compressed Slime Block",
+          "Quadruple Compressed Slime Block"
+        ],
+        "es_ES": [
+          "Bloque de slime comprimido",
+          "Bloque de slime doblemente comprimido",
+          "Bloque de slime triplemente comprimido",
+          "Bloque de slime cu?druplemente comprimido"
+        ],
+        "es_MX": [
+          "Bloque de slime comprimido",
+          "Bloque de slime doblemente comprimido",
+          "Bloque de slime triplemente comprimido",
+          "Bloque de slime cu?druplemente comprimido"
+        ]
+      }
+    },
+    {
+      "key": "honey_block",
+      "source_item": "minecraft:honey_block",
+      "base_texture": "tools/input_textures/honey_block.png",
+      "texture_stem": "honey",
+      "type": "honey",
+      "names": {
+        "en_US": [
+          "Compressed Honey Block",
+          "Double Compressed Honey Block",
+          "Triple Compressed Honey Block",
+          "Quadruple Compressed Honey Block"
+        ],
+        "es_ES": [
+          "Bloque de miel comprimido",
+          "Bloque de miel doblemente comprimido",
+          "Bloque de miel triplemente comprimido",
+          "Bloque de miel cu?druplemente comprimido"
+        ],
+        "es_MX": [
+          "Bloque de miel comprimido",
+          "Bloque de miel doblemente comprimido",
+          "Bloque de miel triplemente comprimido",
+          "Bloque de miel cu?druplemente comprimido"
+        ]
+      }
+    },
+    {
+      "key": "silicon_block",
+      "source_item": "utilitycraft:silicon_block",
+      "base_texture": "tools/input_textures/silicon_block.png",
+      "texture_stem": "silicon",
+      "type": "stone",
+      "names": {
+        "en_US": [
+          "Compressed Silicon Block",
+          "Double Compressed Silicon Block",
+          "Triple Compressed Silicon Block",
+          "Quadruple Compressed Silicon Block"
+        ],
+        "es_ES": [
+          "Bloque de silicio comprimido",
+          "Bloque de silicio doblemente comprimido",
+          "Bloque de silicio triplemente comprimido",
+          "Bloque de silicio cu?druplemente comprimido"
+        ],
+        "es_MX": [
+          "Bloque de silicio comprimido",
+          "Bloque de silicio doblemente comprimido",
+          "Bloque de silicio triplemente comprimido",
+          "Bloque de silicio cu?druplemente comprimido"
+        ]
+      }
+    },
+    {
+      "key": "brute_energized_iron_block",
+      "source_item": "utilitycraft:raw_energized_iron_block",
+      "base_texture": "tools/input_textures/brute_energized_iron_block.png",
+      "texture_stem": "brute_energized_iron",
+      "type": "metal",
+      "names": {
+        "en_US": [
+          "Compressed Brute Energized Iron Block",
+          "Double Compressed Brute Energized Iron Block",
+          "Triple Compressed Brute Energized Iron Block",
+          "Quadruple Compressed Brute Energized Iron Block"
+        ],
+        "es_ES": [
+          "Bloque de hierro bruto energizado comprimido",
+          "Bloque de hierro bruto energizado doblemente comprimido",
+          "Bloque de hierro bruto energizado triplemente comprimido",
+          "Bloque de hierro bruto energizado cu?druplemente comprimido"
+        ],
+        "es_MX": [
+          "Bloque de hierro bruto energizado comprimido",
+          "Bloque de hierro bruto energizado doblemente comprimido",
+          "Bloque de hierro bruto energizado triplemente comprimido",
+          "Bloque de hierro bruto energizado cu?druplemente comprimido"
+        ]
+      }
+    },
+    {
+      "key": "blaze_block",
+      "source_item": "utilitycraft:blaze_block",
+      "base_texture": "tools/input_textures/blaze_block_side.png",
+      "texture_stem": "blaze",
+      "type": "metal",
+      "names": {
+        "en_US": [
+          "Compressed Blaze Block",
+          "Double Compressed Blaze Block",
+          "Triple Compressed Blaze Block",
+          "Quadruple Compressed Blaze Block"
+        ],
+        "es_ES": [
+          "Bloque de blaze comprimido",
+          "Bloque de blaze doblemente comprimido",
+          "Bloque de blaze triplemente comprimido",
+          "Bloque de blaze cu?druplemente comprimido"
+        ],
+        "es_MX": [
+          "Bloque de blaze comprimido",
+          "Bloque de blaze doblemente comprimido",
+          "Bloque de blaze triplemente comprimido",
+          "Bloque de blaze cu?druplemente comprimido"
+        ]
+      }
+    }
+  ]
+}

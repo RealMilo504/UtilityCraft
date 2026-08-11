@@ -764,6 +764,434 @@
 		"sound": "wood"
 	},
 
+// BEGIN GENERATED COMPRESSED BLOCK SOUNDS
+	"utilitycraft:compressed_andesite": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_andesite_2": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_andesite_3": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_andesite_4": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_blackstone": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_blackstone_2": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_blackstone_3": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_blackstone_4": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_block": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_brute_steel_block": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_brute_steel_block_2": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_brute_steel_block_3": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_brute_steel_block_4": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_charcoal_block": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_charcoal_block_2": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_charcoal_block_3": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_charcoal_block_4": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_cobblestone": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_cry_obsidian": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_cry_obsidian_2": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_cry_obsidian_3": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_cry_obsidian_4": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_diorite": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_diorite_2": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_diorite_3": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_diorite_4": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_flint_block": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_flint_block_2": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_flint_block_3": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_flint_block_4": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_granite": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_granite_2": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_granite_3": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_granite_4": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_lapislazuli_block": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_lapislazuli_block_2": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_lapislazuli_block_3": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_lapislazuli_block_4": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_obsidian": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_obsidian_2": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_obsidian_3": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_obsidian_4": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_quartz_block": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_quartz_block_2": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_quartz_block_3": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_quartz_block_4": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_raw_copper_block": {
+		"sound": "copper"
+	},
+	"utilitycraft:compressed_raw_copper_block_2": {
+		"sound": "copper"
+	},
+	"utilitycraft:compressed_raw_copper_block_3": {
+		"sound": "copper"
+	},
+	"utilitycraft:compressed_raw_copper_block_4": {
+		"sound": "copper"
+	},
+	"utilitycraft:compressed_raw_gold_block": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_raw_gold_block_2": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_raw_gold_block_3": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_raw_gold_block_4": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_raw_iron_block": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_raw_iron_block_2": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_raw_iron_block_3": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_raw_iron_block_4": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_redstone_block": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_redstone_block_2": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_redstone_block_3": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_redstone_block_4": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_steel_block": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_steel_block_2": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_steel_block_3": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_steel_block_4": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_stone": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_stone_2": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_stone_3": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_stone_4": {
+		"sound": "stone"
+	},
+	"utilitycraft:double_compressed_cobblestone": {
+		"sound": "stone"
+	},
+	"utilitycraft:nonuple_compressed_cobblestone": {
+		"sound": "stone"
+	},
+	"utilitycraft:octuple_compressed_cobblestone": {
+		"sound": "stone"
+	},
+	"utilitycraft:quadruple_compressed_cobblestone": {
+		"sound": "stone"
+	},
+	"utilitycraft:quintuple_compressed_cobblestone": {
+		"sound": "stone"
+	},
+	"utilitycraft:septuple_compressed_cobblestone": {
+		"sound": "stone"
+	},
+	"utilitycraft:sextuple_compressed_cobblestone": {
+		"sound": "stone"
+	},
+	"utilitycraft:triple_compressed_cobblestone": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_tuff": {
+		"sound": "tuff"
+	},
+	"utilitycraft:compressed_tuff_2": {
+		"sound": "tuff"
+	},
+	"utilitycraft:compressed_tuff_3": {
+		"sound": "tuff"
+	},
+	"utilitycraft:compressed_tuff_4": {
+		"sound": "tuff"
+	},
+	"utilitycraft:compressed_calcite": {
+		"sound": "calcite"
+	},
+	"utilitycraft:compressed_calcite_2": {
+		"sound": "calcite"
+	},
+	"utilitycraft:compressed_calcite_3": {
+		"sound": "calcite"
+	},
+	"utilitycraft:compressed_calcite_4": {
+		"sound": "calcite"
+	},
+	"utilitycraft:compressed_dripstone_block": {
+		"sound": "dripstone_block"
+	},
+	"utilitycraft:compressed_dripstone_block_2": {
+		"sound": "dripstone_block"
+	},
+	"utilitycraft:compressed_dripstone_block_3": {
+		"sound": "dripstone_block"
+	},
+	"utilitycraft:compressed_dripstone_block_4": {
+		"sound": "dripstone_block"
+	},
+	"utilitycraft:compressed_basalt": {
+		"sound": "basalt"
+	},
+	"utilitycraft:compressed_basalt_2": {
+		"sound": "basalt"
+	},
+	"utilitycraft:compressed_basalt_3": {
+		"sound": "basalt"
+	},
+	"utilitycraft:compressed_basalt_4": {
+		"sound": "basalt"
+	},
+	"utilitycraft:compressed_red_sand": {
+		"sound": "sand"
+	},
+	"utilitycraft:compressed_red_sand_2": {
+		"sound": "sand"
+	},
+	"utilitycraft:compressed_red_sand_3": {
+		"sound": "sand"
+	},
+	"utilitycraft:compressed_red_sand_4": {
+		"sound": "sand"
+	},
+	"utilitycraft:compressed_mud": {
+		"sound": "mud"
+	},
+	"utilitycraft:compressed_mud_2": {
+		"sound": "mud"
+	},
+	"utilitycraft:compressed_mud_3": {
+		"sound": "mud"
+	},
+	"utilitycraft:compressed_mud_4": {
+		"sound": "mud"
+	},
+	"utilitycraft:compressed_soul_sand": {
+		"sound": "soul_sand"
+	},
+	"utilitycraft:compressed_soul_sand_2": {
+		"sound": "soul_sand"
+	},
+	"utilitycraft:compressed_soul_sand_3": {
+		"sound": "soul_sand"
+	},
+	"utilitycraft:compressed_soul_sand_4": {
+		"sound": "soul_sand"
+	},
+	"utilitycraft:compressed_soul_soil": {
+		"sound": "soul_soil"
+	},
+	"utilitycraft:compressed_soul_soil_2": {
+		"sound": "soul_soil"
+	},
+	"utilitycraft:compressed_soul_soil_3": {
+		"sound": "soul_soil"
+	},
+	"utilitycraft:compressed_soul_soil_4": {
+		"sound": "soul_soil"
+	},
+	"utilitycraft:compressed_clay": {
+		"sound": "gravel"
+	},
+	"utilitycraft:compressed_clay_2": {
+		"sound": "gravel"
+	},
+	"utilitycraft:compressed_clay_3": {
+		"sound": "gravel"
+	},
+	"utilitycraft:compressed_clay_4": {
+		"sound": "gravel"
+	},
+	"utilitycraft:compressed_bamboo_block": {
+		"sound": "bamboo_wood"
+	},
+	"utilitycraft:compressed_bamboo_block_2": {
+		"sound": "bamboo_wood"
+	},
+	"utilitycraft:compressed_bamboo_block_3": {
+		"sound": "bamboo_wood"
+	},
+	"utilitycraft:compressed_bamboo_block_4": {
+		"sound": "bamboo_wood"
+	},
+	"utilitycraft:compressed_moss_block": {
+		"sound": "moss_block"
+	},
+	"utilitycraft:compressed_moss_block_2": {
+		"sound": "moss_block"
+	},
+	"utilitycraft:compressed_moss_block_3": {
+		"sound": "moss_block"
+	},
+	"utilitycraft:compressed_moss_block_4": {
+		"sound": "moss_block"
+	},
+	"utilitycraft:compressed_slime_block": {
+		"sound": "slime"
+	},
+	"utilitycraft:compressed_slime_block_2": {
+		"sound": "slime"
+	},
+	"utilitycraft:compressed_slime_block_3": {
+		"sound": "slime"
+	},
+	"utilitycraft:compressed_slime_block_4": {
+		"sound": "slime"
+	},
+	"utilitycraft:compressed_honey_block": {
+		"sound": "honey_block"
+	},
+	"utilitycraft:compressed_honey_block_2": {
+		"sound": "honey_block"
+	},
+	"utilitycraft:compressed_honey_block_3": {
+		"sound": "honey_block"
+	},
+	"utilitycraft:compressed_honey_block_4": {
+		"sound": "honey_block"
+	},
+	"utilitycraft:compressed_silicon_block": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_silicon_block_2": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_silicon_block_3": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_silicon_block_4": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_brute_energized_iron_block": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_brute_energized_iron_block_2": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_brute_energized_iron_block_3": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_brute_energized_iron_block_4": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_blaze_block": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_blaze_block_2": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_blaze_block_3": {
+		"sound": "metal"
+	},
+	"utilitycraft:compressed_blaze_block_4": {
+		"sound": "metal"
+	},
+// END GENERATED COMPRESSED BLOCK SOUNDS
 // Elevators
 	"utilitycraft:elevator": {
 		"sound": "cloth",

@@ -10,7 +10,7 @@
     "components": {
       "minecraft:geometry": {
         "identifier": "geometry.utilitycraft_glass",
-        "culling": "utilitycraft:compressed_glass"
+        "culling": "utilitycraft:glass"
       },
       "minecraft:material_instances": {
         "*": {

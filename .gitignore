@@ -17,6 +17,7 @@ packs/
 node_modules/.bin/
 node_modules/@esbuild/
 node_modules/esbuild/
+node_modules/pngjs/
 
 # Bridge | Excepciones específicas | Exceções específicas
 !.bridge/compiler/

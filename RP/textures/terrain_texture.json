@@ -1081,18 +1081,6 @@
 		"utilitycraft_compressed_crushed_blackstone_4": {
 			"textures": "textures/blocks/compressed/crushed_blackstone_4"
 		},
-		"utilitycraft_compressed_brute_energized_iron_block": {
-			"textures": "textures/blocks/compressed/brute_energized_iron"
-		},
-		"utilitycraft_compressed_brute_energized_iron_block_2": {
-			"textures": "textures/blocks/compressed/brute_energized_iron_2"
-		},
-		"utilitycraft_compressed_brute_energized_iron_block_3": {
-			"textures": "textures/blocks/compressed/brute_energized_iron_3"
-		},
-		"utilitycraft_compressed_brute_energized_iron_block_4": {
-			"textures": "textures/blocks/compressed/brute_energized_iron_4"
-		},
 		"utilitycraft_compressed_brute_steel_block": {
 			"textures": "textures/blocks/compressed/brute_steel"
 		},
@@ -1689,9 +1677,6 @@
 		},
 		"utilitycraft_digitizer_off": {
 			"textures": "textures/blocks/machines/digitizer_off"
-		},
-		"utilitycraft_blaze_block": {
-			"textures": "textures/blocks/materials/blaze_block"
 		},
 		"utilitycraft_basic_trash_can": {
 			"textures": "textures/blocks/utility/trash_can_utility"
@@ -2904,6 +2889,207 @@
 		},
 		"utilitycraft_battery_creative_side": {
 			"textures": "textures/blocks/generators/battery/creative_side"
+		},
+		"utilitycraft_blaze_block_side": {
+			"textures": "textures/blocks/materials/blaze_block_side"
+		},
+		"utilitycraft_blaze_block_top": {
+			"textures": "textures/blocks/materials/blaze_block_top"
+		},
+		"utilitycraft_blaze_block_bottom": {
+			"textures": "textures/blocks/materials/blaze_block_bottom"
+		},
+		"utilitycraft_compressed_tuff": {
+			"textures": "textures/blocks/compressed/tuff"
+		},
+		"utilitycraft_compressed_tuff_2": {
+			"textures": "textures/blocks/compressed/tuff_2"
+		},
+		"utilitycraft_compressed_tuff_3": {
+			"textures": "textures/blocks/compressed/tuff_3"
+		},
+		"utilitycraft_compressed_tuff_4": {
+			"textures": "textures/blocks/compressed/tuff_4"
+		},
+		"utilitycraft_compressed_calcite": {
+			"textures": "textures/blocks/compressed/calcite"
+		},
+		"utilitycraft_compressed_calcite_2": {
+			"textures": "textures/blocks/compressed/calcite_2"
+		},
+		"utilitycraft_compressed_calcite_3": {
+			"textures": "textures/blocks/compressed/calcite_3"
+		},
+		"utilitycraft_compressed_calcite_4": {
+			"textures": "textures/blocks/compressed/calcite_4"
+		},
+		"utilitycraft_compressed_dripstone_block": {
+			"textures": "textures/blocks/compressed/dripstone"
+		},
+		"utilitycraft_compressed_dripstone_block_2": {
+			"textures": "textures/blocks/compressed/dripstone_2"
+		},
+		"utilitycraft_compressed_dripstone_block_3": {
+			"textures": "textures/blocks/compressed/dripstone_3"
+		},
+		"utilitycraft_compressed_dripstone_block_4": {
+			"textures": "textures/blocks/compressed/dripstone_4"
+		},
+		"utilitycraft_compressed_basalt": {
+			"textures": "textures/blocks/compressed/basalt"
+		},
+		"utilitycraft_compressed_basalt_2": {
+			"textures": "textures/blocks/compressed/basalt_2"
+		},
+		"utilitycraft_compressed_basalt_3": {
+			"textures": "textures/blocks/compressed/basalt_3"
+		},
+		"utilitycraft_compressed_basalt_4": {
+			"textures": "textures/blocks/compressed/basalt_4"
+		},
+		"utilitycraft_compressed_red_sand": {
+			"textures": "textures/blocks/compressed/red_sand"
+		},
+		"utilitycraft_compressed_red_sand_2": {
+			"textures": "textures/blocks/compressed/red_sand_2"
+		},
+		"utilitycraft_compressed_red_sand_3": {
+			"textures": "textures/blocks/compressed/red_sand_3"
+		},
+		"utilitycraft_compressed_red_sand_4": {
+			"textures": "textures/blocks/compressed/red_sand_4"
+		},
+		"utilitycraft_compressed_mud": {
+			"textures": "textures/blocks/compressed/mud"
+		},
+		"utilitycraft_compressed_mud_2": {
+			"textures": "textures/blocks/compressed/mud_2"
+		},
+		"utilitycraft_compressed_mud_3": {
+			"textures": "textures/blocks/compressed/mud_3"
+		},
+		"utilitycraft_compressed_mud_4": {
+			"textures": "textures/blocks/compressed/mud_4"
+		},
+		"utilitycraft_compressed_soul_sand": {
+			"textures": "textures/blocks/compressed/soul_sand"
+		},
+		"utilitycraft_compressed_soul_sand_2": {
+			"textures": "textures/blocks/compressed/soul_sand_2"
+		},
+		"utilitycraft_compressed_soul_sand_3": {
+			"textures": "textures/blocks/compressed/soul_sand_3"
+		},
+		"utilitycraft_compressed_soul_sand_4": {
+			"textures": "textures/blocks/compressed/soul_sand_4"
+		},
+		"utilitycraft_compressed_soul_soil": {
+			"textures": "textures/blocks/compressed/soul_soil"
+		},
+		"utilitycraft_compressed_soul_soil_2": {
+			"textures": "textures/blocks/compressed/soul_soil_2"
+		},
+		"utilitycraft_compressed_soul_soil_3": {
+			"textures": "textures/blocks/compressed/soul_soil_3"
+		},
+		"utilitycraft_compressed_soul_soil_4": {
+			"textures": "textures/blocks/compressed/soul_soil_4"
+		},
+		"utilitycraft_compressed_clay": {
+			"textures": "textures/blocks/compressed/clay"
+		},
+		"utilitycraft_compressed_clay_2": {
+			"textures": "textures/blocks/compressed/clay_2"
+		},
+		"utilitycraft_compressed_clay_3": {
+			"textures": "textures/blocks/compressed/clay_3"
+		},
+		"utilitycraft_compressed_clay_4": {
+			"textures": "textures/blocks/compressed/clay_4"
+		},
+		"utilitycraft_compressed_bamboo_block": {
+			"textures": "textures/blocks/compressed/bamboo"
+		},
+		"utilitycraft_compressed_bamboo_block_2": {
+			"textures": "textures/blocks/compressed/bamboo_2"
+		},
+		"utilitycraft_compressed_bamboo_block_3": {
+			"textures": "textures/blocks/compressed/bamboo_3"
+		},
+		"utilitycraft_compressed_bamboo_block_4": {
+			"textures": "textures/blocks/compressed/bamboo_4"
+		},
+		"utilitycraft_compressed_moss_block": {
+			"textures": "textures/blocks/compressed/moss"
+		},
+		"utilitycraft_compressed_moss_block_2": {
+			"textures": "textures/blocks/compressed/moss_2"
+		},
+		"utilitycraft_compressed_moss_block_3": {
+			"textures": "textures/blocks/compressed/moss_3"
+		},
+		"utilitycraft_compressed_moss_block_4": {
+			"textures": "textures/blocks/compressed/moss_4"
+		},
+		"utilitycraft_compressed_slime_block": {
+			"textures": "textures/blocks/compressed/slime"
+		},
+		"utilitycraft_compressed_slime_block_2": {
+			"textures": "textures/blocks/compressed/slime_2"
+		},
+		"utilitycraft_compressed_slime_block_3": {
+			"textures": "textures/blocks/compressed/slime_3"
+		},
+		"utilitycraft_compressed_slime_block_4": {
+			"textures": "textures/blocks/compressed/slime_4"
+		},
+		"utilitycraft_compressed_honey_block": {
+			"textures": "textures/blocks/compressed/honey"
+		},
+		"utilitycraft_compressed_honey_block_2": {
+			"textures": "textures/blocks/compressed/honey_2"
+		},
+		"utilitycraft_compressed_honey_block_3": {
+			"textures": "textures/blocks/compressed/honey_3"
+		},
+		"utilitycraft_compressed_honey_block_4": {
+			"textures": "textures/blocks/compressed/honey_4"
+		},
+		"utilitycraft_compressed_silicon_block": {
+			"textures": "textures/blocks/compressed/silicon"
+		},
+		"utilitycraft_compressed_silicon_block_2": {
+			"textures": "textures/blocks/compressed/silicon_2"
+		},
+		"utilitycraft_compressed_silicon_block_3": {
+			"textures": "textures/blocks/compressed/silicon_3"
+		},
+		"utilitycraft_compressed_silicon_block_4": {
+			"textures": "textures/blocks/compressed/silicon_4"
+		},
+		"utilitycraft_compressed_brute_energized_iron_block": {
+			"textures": "textures/blocks/compressed/brute_energized_iron"
+		},
+		"utilitycraft_compressed_brute_energized_iron_block_2": {
+			"textures": "textures/blocks/compressed/brute_energized_iron_2"
+		},
+		"utilitycraft_compressed_brute_energized_iron_block_3": {
+			"textures": "textures/blocks/compressed/brute_energized_iron_3"
+		},
+		"utilitycraft_compressed_brute_energized_iron_block_4": {
+			"textures": "textures/blocks/compressed/brute_energized_iron_4"
+		},
+		"utilitycraft_compressed_blaze_block": {
+			"textures": "textures/blocks/compressed/blaze"
+		},
+		"utilitycraft_compressed_blaze_block_2": {
+			"textures": "textures/blocks/compressed/blaze_2"
+		},
+		"utilitycraft_compressed_blaze_block_3": {
+			"textures": "textures/blocks/compressed/blaze_3"
+		},
+		"utilitycraft_compressed_blaze_block_4": {
+			"textures": "textures/blocks/compressed/blaze_4"
 		}
 	}
 }

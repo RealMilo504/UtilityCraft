@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:compressed_tuff"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:tuff",
+        "count": 9
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:compressed_tuff"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:tuff"
+      }
+    ]
+  }
+}
