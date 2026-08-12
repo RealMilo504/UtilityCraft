@@ -3,6 +3,8 @@
 ## ADDED
 - Added Glow Berry and Sea Pickle Bonsais with dedicated entities, textures and models.
 - Added distinct normal and flowering visuals for Azalea Bonsais.
+- Added concise localized tooltips to pebbles, chunks, shards and related loose materials, explaining how each is obtained and used.
+- Added concise localized tooltips to plates and dusts, explaining their production methods and primary uses.
 
 ## CHANGED
 - Chorus Bonsais are now planted with Chorus Flowers and produce Chorus Fruit with a small chance of another flower.
