@@ -37,6 +37,9 @@ This update expands compressed storage, improves automated harvesting and block 
 - Added reusable compression-level overlays and render assets for the compressed-block catalog.
 
 ## MACHINES
+### Furnace
+- Fixed the Quartz Block recipe so the Furnace now produces Smooth Quartz.
+
 ### Harvester
 - Reworked harvesting to generate loot directly and reset mature crops without breaking the plant.
 - Added support for mature vanilla crops, registered UtilityCraft crops and the upper growth of tall crops.
