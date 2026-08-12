@@ -1,0 +1,18 @@
+{
+	"blocks": [
+		{
+			"name": "bonsai_bonsai_sand",
+			"model": "../../RP/models/blocks/bonsai.geo.json",
+			"textures": "../../RP/textures/blocks/bonsais/bonsai_sand.png",
+			"position": [0, 0, 0]
+		},
+		{
+			"name": "sea_pickle",
+			"model": "../../RP/models/entity/bonsais/sea_pickle.geo.json",
+			"geometry": "geometry.utilitycraft_sea_pickle",
+			"textures": "../../RP/textures/entity/sea_pickle_bonsai.png",
+			"position": [0, 0.172, 0],
+			"bone_scales": ["tree=1.875,1.875,1.875"]
+		}
+	]
+}

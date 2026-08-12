@@ -1,0 +1,18 @@
+{
+	"blocks": [
+		{
+			"name": "bonsai_bonsai_grass",
+			"model": "../../RP/models/blocks/bonsai.geo.json",
+			"textures": "../../RP/textures/blocks/bonsais/bonsai_grass.png",
+			"position": [0, 0, 0]
+		},
+		{
+			"name": "azalea_tree_normal",
+			"model": "../../RP/models/entity/bonsais/azalea_tree.geo.json",
+			"geometry": "geometry.utilitycraft_azalea_tree",
+			"textures": "../../RP/textures/entity/azalea_tree_normal.png",
+			"position": [0, 0.172, 0],
+			"bone_scales": ["Tree=1.875,1.875,1.875"]
+		}
+	]
+}

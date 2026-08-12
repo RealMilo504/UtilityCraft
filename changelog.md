@@ -1,3 +1,16 @@
+# UtilityCraft v3.5.3
+
+## ADDED
+- Added Glow Berry and Sea Pickle Bonsais with dedicated entities, textures and models.
+- Added distinct normal and flowering visuals for Azalea Bonsais.
+
+## CHANGED
+- Chorus Bonsais are now planted with Chorus Flowers and produce Chorus Fruit with a small chance of another flower.
+- Reduced the Golden Apple chance from Apple Bonsais from 10% to 1%.
+- Golden and Enchanted Golden Apple drops from Bonsais are no longer multiplied by soil yield bonuses.
+
+---
+
 # UtilityCraft v3.5.2
 
 This update expands compressed storage, improves automated harvesting and block breaking, refreshes in-game documentation and strengthens addon tooling and compatibility.

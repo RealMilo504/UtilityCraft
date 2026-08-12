@@ -2,16 +2,11 @@
 	"format_version": "1.19.20",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "utilitycraft:azalea_tree",
+			"identifier": "utilitycraft:glow_berries",
 			"is_spawnable": false,
 			"is_summonable": true,
 			"is_experimental": false,
 			"properties": {
-				"utilitycraft:azalea_flowering": {
-					"type": "bool",
-					"default": false,
-					"client_sync": true
-				},
 				"dorios:is_slimed": {
 					"type": "bool",
 					"default": false,
@@ -21,10 +16,7 @@
 					"type": "float",
 					"default": 60.0,
 					"client_sync": true,
-					"range": [
-						10.0,
-						600.0
-					]
+					"range": [10.0, 600.0]
 				},
 				"utilitycraft:animation_reset": {
 					"type": "bool",
@@ -53,10 +45,7 @@
 		"components": {
 			"minecraft:timer": {
 				"looping": true,
-				"time": [
-					10,
-					10
-				],
+				"time": [10, 10],
 				"time_down_event": {
 					"event": "utilitycraft:bonsai_heartbeat"
 				}
@@ -109,41 +98,29 @@
 				"value": 0.25
 			},
 			"minecraft:type_family": {
-				"family": [
-					"inanimate"
-				]
+				"family": ["inanimate"]
 			}
 		},
 		"events": {
 			"despawn": {
 				"add": {
-					"component_groups": [
-						"despawn"
-					]
+					"component_groups": ["despawn"]
 				}
 			},
 			"normal": {
 				"remove": {
-					"component_groups": [
-						"small"
-					]
+					"component_groups": ["small"]
 				},
 				"add": {
-					"component_groups": [
-						"normal"
-					]
+					"component_groups": ["normal"]
 				}
 			},
 			"small": {
 				"remove": {
-					"component_groups": [
-						"normal"
-					]
+					"component_groups": ["normal"]
 				},
 				"add": {
-					"component_groups": [
-						"small"
-					]
+					"component_groups": ["small"]
 				}
 			},
 			"utilitycraft:bonsai_heartbeat": {}

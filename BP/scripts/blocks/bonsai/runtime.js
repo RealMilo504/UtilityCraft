@@ -18,6 +18,7 @@ const TARGET_DYNAMIC_PROPERTY = "utilitycraft:bonsai_target_steps"
 const GROWTH_DURATION_PROPERTY = "utilitycraft:growth_duration"
 const ANIMATION_RESET_PROPERTY = "utilitycraft:animation_reset"
 const DECORATIVE_PAUSED_PROPERTY = "dorios:is_slimed"
+const AZALEA_FLOWERING_PROPERTY = "utilitycraft:azalea_flowering"
 const BONSAI_ENTITY_TAG = "bonsai"
 const BONSAI_ENTITY_OFFSET_Y = 0.172
 const BONSAI_SEARCH_DISTANCE = 0.25
@@ -61,6 +62,16 @@ function resetAnimation(entity) {
         const current = entity.getProperty(ANIMATION_RESET_PROPERTY) === true
         entity.setProperty(ANIMATION_RESET_PROPERTY, !current)
     } catch { }
+}
+
+function syncPlantVisualProperties(entity, inputTypeId) {
+    if (entity?.typeId !== "utilitycraft:azalea_tree") return
+
+    setEntityProperty(
+        entity,
+        AZALEA_FLOWERING_PROPERTY,
+        inputTypeId === "minecraft:flowering_azalea"
+    )
 }
 
 function setAnimationForRemainingSteps(entity, remainingSteps) {
@@ -142,6 +153,7 @@ export function initializeBonsaiEntity(entity, block, inputTypeId) {
 
     entity.addTag(BONSAI_ENTITY_TAG)
     entity.setDynamicProperty(INPUT_DYNAMIC_PROPERTY, inputTypeId)
+    syncPlantVisualProperties(entity, inputTypeId)
     setDynamicNumber(entity, PROGRESS_DYNAMIC_PROPERTY, 0)
     setDynamicNumber(entity, TARGET_DYNAMIC_PROPERTY, stats.durationSteps)
     setEntityProperty(entity, DECORATIVE_PAUSED_PROPERTY, false)
@@ -156,6 +168,8 @@ export function resyncBonsaiCycle(entity, block, preserveRatio = true) {
     const definition = getBonsaiDefinitionByInput(inputTypeId)
     const stats = getEffectiveBonsaiStats(definition, block)
     if (!definition || !stats) return false
+
+    syncPlantVisualProperties(entity, inputTypeId)
 
     const oldTarget = Math.max(1, getDynamicNumber(entity, TARGET_DYNAMIC_PROPERTY, stats.durationSteps))
     const oldProgress = Math.max(0, getDynamicNumber(entity, PROGRESS_DYNAMIC_PROPERTY, 0))
@@ -247,6 +261,7 @@ export function processBonsaiHeartbeat(entity) {
     }
 
     const inputTypeId = getBonsaiInputTypeId(entity)
+    syncPlantVisualProperties(entity, inputTypeId)
     const definition = getBonsaiDefinitionByInput(inputTypeId)
     const stats = getEffectiveBonsaiStats(definition, block)
     if (!definition || !stats) return

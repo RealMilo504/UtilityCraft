@@ -96,8 +96,8 @@ export const plantsData = {
             { item: 'minecraft:stick', amount: [6, 10], chance: 1 },
             { item: 'utilitycraft:apple_sapling', amount: 1, chance: 0.05 },
             { item: 'minecraft:apple', amount: [1, 4], chance: 1 },
-            { item: 'minecraft:enchanted_golden_apple', amount: 1, chance: 0.0001 },
-            { item: 'minecraft:golden_apple', amount: 1, chance: 0.1 }
+            { item: 'minecraft:enchanted_golden_apple', amount: 1, chance: 0.0001, scaleWithYield: false },
+            { item: 'minecraft:golden_apple', amount: 1, chance: 0.01, scaleWithYield: false }
         ]
     },
     'minecraft:bamboo': {
@@ -187,12 +187,6 @@ export const plantsData = {
         ]
     },
     'minecraft:chorus_fruit': {
-        bonsai: {
-            entityTypeId: 'utilitycraft:chorus_fruit',
-            allowedSoils: ["minecraft:end_stone"],
-            durationTicks: 1200,
-            yieldMultiplier: 1
-        },
         cost: 8000,
         drops: [
             { item: 'minecraft:chorus_fruit', amount: [1, 2], chance: 1 },
@@ -200,6 +194,12 @@ export const plantsData = {
         ]
     },
     'minecraft:chorus_flower': {
+        bonsai: {
+            entityTypeId: 'utilitycraft:chorus_fruit',
+            allowedSoils: ["minecraft:end_stone"],
+            durationTicks: 1200,
+            yieldMultiplier: 1
+        },
         cost: 8000,
         drops: [
             { item: 'minecraft:chorus_fruit', amount: [1, 2], chance: 1 },
@@ -499,9 +499,30 @@ export const plantsData = {
         ]
     },
     "minecraft:glow_berries": {
+        bonsai: {
+            entityTypeId: 'utilitycraft:glow_berries',
+            allowedSoils: ["minecraft:dirt","minecraft:grass_block"],
+            durationTicks: 1200,
+            yieldMultiplier: 1,
+            drops: [
+                { item: 'minecraft:glow_berries', amount: [2, 4], chance: 1 }
+            ]
+        },
         cost: 8000,
         drops: [
             { item: 'minecraft:glow_berries', amount: [1, 16], chance: 1 }
+        ]
+    },
+    'minecraft:sea_pickle': {
+        bonsai: {
+            entityTypeId: 'utilitycraft:sea_pickle',
+            allowedSoils: ["minecraft:sand","minecraft:red_sand"],
+            durationTicks: 1200,
+            yieldMultiplier: 1
+        },
+        cost: 8000,
+        drops: [
+            { item: 'minecraft:sea_pickle', amount: [1, 4], chance: 1 }
         ]
     }
 }

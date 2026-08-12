@@ -696,6 +696,8 @@ entity.utilitycraft:cactus.name=Cacto
 entity.utilitycraft:kelp.name=Alga
 entity.utilitycraft:mushroom.name=Cogumelo\n§7§o*Italiano que salva princesas intensifies*§r
 entity.utilitycraft:sugarcane.name=Cana-de-Açúcar
+entity.utilitycraft:glow_berries.name=Bonsai de Bagas Brilhantes
+entity.utilitycraft:sea_pickle.name=Bonsai de Pepino-do-Mar
 ## -------- Close Group <<<<<<<< ##
 
 #########################################################

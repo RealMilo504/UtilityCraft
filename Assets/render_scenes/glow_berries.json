@@ -1,0 +1,18 @@
+{
+	"blocks": [
+		{
+			"name": "bonsai_bonsai_grass",
+			"model": "../../RP/models/blocks/bonsai.geo.json",
+			"textures": "../../RP/textures/blocks/bonsais/bonsai_grass.png",
+			"position": [0, 0, 0]
+		},
+		{
+			"name": "glow_berries",
+			"model": "../../RP/models/entity/bonsais/sugarcane.geo.json",
+			"geometry": "geometry.utilitycraft_sugarcane",
+			"textures": "../../RP/textures/entity/glow_berries_bonsai.png",
+			"position": [0, 0.172, 0],
+			"bone_scales": ["tree=1.875,1.875,1.875"]
+		}
+	]
+}

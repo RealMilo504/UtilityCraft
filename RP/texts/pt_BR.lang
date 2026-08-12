@@ -732,6 +732,8 @@ entity.utilitycraft:cactus.name=Cacto
 entity.utilitycraft:kelp.name=Alga
 entity.utilitycraft:mushroom.name=Cogumelo
 entity.utilitycraft:sugarcane.name=Cana-de-Açúcar
+entity.utilitycraft:glow_berries.name=Bonsai de Bagas Brilhantes
+entity.utilitycraft:sea_pickle.name=Bonsai de Pepino-do-Mar
 
 ### Utility Entities | Entidades Utilitárias
 entity.utilitycraft:bomb.name=Bomba

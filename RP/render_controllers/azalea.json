@@ -1,0 +1,24 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.utilitycraft_azalea": {
+			"arrays": {
+				"textures": {
+					"Array.skins": [
+						"Texture.normal",
+						"Texture.flowering"
+					]
+				}
+			},
+			"geometry": "Geometry.default",
+			"materials": [
+				{
+					"*": "Material.default"
+				}
+			],
+			"textures": [
+				"Array.skins[q.property('utilitycraft:azalea_flowering') ? 1 : 0]"
+			]
+		}
+	}
+}

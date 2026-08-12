@@ -2,28 +2,25 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "utilitycraft:azalea_tree",
+			"identifier": "utilitycraft:glow_berries",
 			"materials": {
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"normal": "textures/entity/azalea_tree_normal",
-				"flowering": "textures/entity/azalea_tree"
+				"default": "textures/entity/glow_berries_bonsai"
 			},
 			"geometry": {
-				"default": "geometry.utilitycraft_azalea_tree"
+				"default": "geometry.utilitycraft_sugarcane"
 			},
 			"render_controllers": [
-				"controller.render.utilitycraft_azalea"
+				"controller.render.default"
 			],
 			"animations": {
 				"controller": "controller.animation.utilitycraft_bonsai_dynamic",
 				"grow_dynamic": "animation.utilitycraft_bonsai.grow_dynamic"
 			},
 			"scripts": {
-				"animate": [
-					"controller"
-				]
+				"animate": ["controller"]
 			}
 		}
 	}
