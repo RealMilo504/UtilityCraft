@@ -51,6 +51,9 @@ This update expands compressed storage, improves automated harvesting and block 
 - Fixed east/west orientation for Harvester, Block Breaker and Block Placer area outlines.
 
 ## ITEMS
+### Hammers
+- Added the missing survival crafting recipe for the Golden Hammer.
+
 ### Stack Refill
 - Fixed the Stack Refill player setting so disabling it now prevents automatic hotbar refills.
 
