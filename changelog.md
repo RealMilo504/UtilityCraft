@@ -9,6 +9,9 @@
 - Reduced the Golden Apple chance from Apple Bonsais from 10% to 1%.
 - Golden and Enchanted Golden Apple drops from Bonsais are no longer multiplied by soil yield bonuses.
 
+## FIXED
+- Synchronized the visible version metadata in both pack headers with the add-on version.
+
 ---
 
 # UtilityCraft v3.5.2
