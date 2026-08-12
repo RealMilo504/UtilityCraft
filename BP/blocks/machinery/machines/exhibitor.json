@@ -50,6 +50,8 @@
 					"render_method": "alpha_test"
 				}
 			},
+			"utilitycraft:special_container":{},
+			"utilitycraft:link_node_io":{},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 1
 			},

@@ -42,13 +42,6 @@
 				{ "type": "speed", "slot": 3 },
 				{ "type": "energy", "slot": 4 }
 			],
-			"utilitycraft:special_container": {
-				"Pickaxe Input": 2,
-				"#upgrade_slots": [
-					3,
-					4
-				]
-			},
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {
 				"*": {
