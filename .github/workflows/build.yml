@@ -5,6 +5,50 @@ on:
     types: [published]
 
 jobs:
+  announce-discord:
+    name: Announce release on Discord after one hour
+    needs: build-addon
+    if: ${{ vars.DISCORD_ANNOUNCEMENT_MODE == 'automatic' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    permissions:
+      contents: read
+      statuses: write
+    concurrency:
+      group: discord-release-${{ github.repository }}-${{ github.event.release.tag_name }}
+      cancel-in-progress: false
+
+    steps:
+      - name: Wait one hour for CurseForge processing
+        run: sleep 3600
+
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Publish Discord announcement
+        env:
+          DISCORD_RELEASE_WEBHOOK_URL: ${{ secrets.DISCORD_UPDATES_WEBHOOK }}
+          DISCORD_UPDATES_ROLE_ID: ${{ vars.DISCORD_UPDATES_ROLE_ID }}
+          SEND_TO_DISCORD: true
+          PING_UPDATES: ${{ vars.DISCORD_PING_UPDATES }}
+          CURSEFORGE_PROCESSING_WARNING: true
+          RELEASE_EVENT_PATH: ${{ github.event_path }}
+          PROJECT_NAME: UtilityCraft
+          PROJECT_PAGE_URL: https://doriosstudios.com/projects/utilitycraft/
+          CURSEFORGE_URL: https://www.curseforge.com/minecraft-bedrock/addons/utilitycraft
+          MCPEDL_URL: https://mcpedl.com/utilitycraft/
+          ANNOUNCEMENT_IMAGE_URL: https://doriosstudios.com/img/addons/utilitycraft/MCPEDL.png
+          ANNOUNCEMENT_COLOR: 769050
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANNOUNCEMENT_SHA: ${{ github.sha }}
+          ANNOUNCEMENT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node tools/discord-release-announcement.mjs
+
   build-addon:
     runs-on: ubuntu-latest
     permissions:

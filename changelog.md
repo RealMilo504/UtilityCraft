@@ -1,13 +1,13 @@
 # UtilityCraft v3.5.3
 
 ## ADDED
+- Added delayed automatic Discord release announcements, a manual first-release mode and duplicate-send protection.
 - Added Glow Berry and Sea Pickle Bonsais with dedicated entities, textures and models.
 - Added distinct normal and flowering visuals for Azalea Bonsais.
 - Added concise localized tooltips to pebbles, chunks, shards and related loose materials, explaining how each is obtained and used.
 - Added concise localized tooltips to plates and dusts, explaining their production methods and primary uses.
 
 ## CHANGED
-- Added tooling to verify when an uploaded CurseForge file becomes publicly available.
 - Renamed the Discord release announcement project-page link from Dorios Studios to Website for clarity.
 - Chorus Bonsais are now planted with Chorus Flowers and produce Chorus Fruit with a small chance of another flower.
 - Reduced the Golden Apple chance from Apple Bonsais from 10% to 1%.
