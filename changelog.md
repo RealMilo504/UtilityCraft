@@ -7,6 +7,7 @@
 - Added concise localized tooltips to plates and dusts, explaining their production methods and primary uses.
 
 ## CHANGED
+- Reused the organization-wide CurseForge credential for both release uploads and publication-status checks.
 - Renamed the Discord release announcement project-page link from Dorios Studios to Website for clarity.
 - Chorus Bonsais are now planted with Chorus Flowers and produce Chorus Fruit with a small chance of another flower.
 - Reduced the Golden Apple chance from Apple Bonsais from 10% to 1%.

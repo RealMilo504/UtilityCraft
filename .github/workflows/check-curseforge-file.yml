@@ -26,7 +26,7 @@ jobs:
 
       - name: Check CurseForge file
         env:
-          CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
+          CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_TOKEN }}
           CURSEFORGE_PROJECT_ID: 1095313
           CURSEFORGE_FILE_ID: ${{ inputs.file_id }}
         run: node tools/check-curseforge-file.mjs
