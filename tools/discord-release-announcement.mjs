@@ -78,7 +78,7 @@ async function main() {
   const roleId = shouldPing ? required(process.env.DISCORD_UPDATES_ROLE_ID, 'DISCORD_UPDATES_ROLE_ID') : '';
 
   const links = [
-    `[Dorios Studios](${projectPageUrl})`,
+    `[Website](${projectPageUrl})`,
     `[Full Changelog](${releaseUrl})`,
     `[CurseForge](${curseForgeUrl})`,
     `[MCPEDL](${mcpedlUrl})`,
