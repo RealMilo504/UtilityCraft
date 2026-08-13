@@ -1,0 +1,32 @@
+name: Check CurseForge File Status
+
+on:
+  workflow_dispatch:
+    inputs:
+      file_id:
+        description: CurseForge file ID to inspect
+        required: true
+        type: string
+        default: 8628575
+
+permissions:
+  contents: read
+
+jobs:
+  check-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check CurseForge file
+        env:
+          CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
+          CURSEFORGE_PROJECT_ID: 1095313
+          CURSEFORGE_FILE_ID: ${{ inputs.file_id }}
+        run: node tools/check-curseforge-file.mjs
