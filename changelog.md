@@ -6,6 +6,7 @@
 - Added distinct normal and flowering visuals for Azalea Bonsais.
 - Added concise localized tooltips to pebbles, chunks, shards and related loose materials, explaining how each is obtained and used.
 - Added concise localized tooltips to plates and dusts, explaining their production methods and primary uses.
+- Added a Magmatic Chamber recipe that converts one Lava Ball into 1000 mB of Lava for 100 DE, including its independent Recipe Book entry.
 
 ## CHANGED
 - Renamed the Discord release announcement project-page link from Dorios Studios to Website for clarity.

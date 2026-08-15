@@ -5,6 +5,7 @@ import { system } from "@minecraft/server";
  * @typedef {Object} LiquidRecipe
  * @property {string} liquid  The resulting liquid type (e.g. "lava", "water").
  * @property {number} amount  The produced liquid amount in millibuckets (mB).
+ * @property {number} [cost]  Optional energy cost in DE for this recipe.
  */
 
 /**
@@ -26,7 +27,8 @@ const melterRecipesRegister = {
     "minecraft:blackstone": { liquid: "lava", amount: 250 },
     "minecraft:netherrack": { liquid: "lava", amount: 1000 },
     "minecraft:magma": { liquid: "lava", amount: 1000 },
-    "minecraft:magma_cream": { liquid: "lava", amount: 250 }
+    "minecraft:magma_cream": { liquid: "lava", amount: 250 },
+    "utilitycraft:lava_ball": { liquid: "lava", amount: 1000, cost: 100 }
 };
 
 DoriosLib.registry.registerMelterRecipe(melterRecipesRegister);

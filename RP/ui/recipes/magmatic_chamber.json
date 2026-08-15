@@ -94,6 +94,13 @@
         }
       },
       {
+        "lava_ball_8_strip@uc.magmatic_recipe_strip": {
+          "$input_item_texture": "textures/items/misc/lavaball",
+          "$input_item_name": "Lava Ball",
+          "$liquid_amount_text": "1000 mB"
+        }
+      },
+      {
         "addon_recipe_rows": {
           "type": "stack_panel",
           "size": [
