@@ -1,162 +1,67 @@
-name: Build Addon
+name: Release Addon
 
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: Release and announcement mode
+        required: true
+        type: choice
+        default: release_announce_ping
+        options:
+          - release_announce_ping
+          - release_announce
+          - release_only
+          - announce_only
+      release_tag:
+        description: Optional existing/explicit tag; blank uses the active changelog version
+        required: false
+        type: string
+        default: ""
+      release_channel:
+        description: Release channel
+        required: true
+        type: choice
+        default: project_default
+        options:
+          - project_default
+          - stable
+          - beta
+          - alpha
+      announcement_ping:
+        description: Mention Updates for announce_only
+        required: true
+        type: boolean
+        default: false
+      execution:
+        description: Preview is read-only; production publishes
+        required: true
+        type: choice
+        default: preview
+        options:
+          - preview
+          - production
+      production_confirmation:
+        description: Type PUBLISH when execution is production
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+  statuses: write
 
 jobs:
-  announce-discord:
-    name: Announce release on Discord after one hour
-    needs: build-addon
-    if: ${{ vars.DISCORD_ANNOUNCEMENT_MODE == 'automatic' }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 75
-    permissions:
-      contents: read
-      statuses: write
-    concurrency:
-      group: discord-release-${{ github.repository }}-${{ github.event.release.tag_name }}
-      cancel-in-progress: false
-
-    steps:
-      - name: Wait one hour for CurseForge processing
-        run: sleep 3600
-
-      - name: Checkout repository
-        uses: actions/checkout@v7
-
-      - name: Setup Node.js 24
-        uses: actions/setup-node@v7
-        with:
-          node-version: 24
-
-      - name: Publish Discord announcement
-        env:
-          DISCORD_RELEASE_WEBHOOK_URL: ${{ secrets.DISCORD_UPDATES_WEBHOOK }}
-          DISCORD_UPDATES_ROLE_ID: ${{ vars.DISCORD_UPDATES_ROLE_ID }}
-          SEND_TO_DISCORD: true
-          PING_UPDATES: ${{ vars.DISCORD_PING_UPDATES }}
-          CURSEFORGE_PROCESSING_WARNING: true
-          RELEASE_EVENT_PATH: ${{ github.event_path }}
-          PROJECT_NAME: UtilityCraft
-          PROJECT_PAGE_URL: https://doriosstudios.com/projects/utilitycraft/
-          CURSEFORGE_URL: https://www.curseforge.com/minecraft-bedrock/addons/utilitycraft
-          MCPEDL_URL: https://mcpedl.com/utilitycraft/
-          ANNOUNCEMENT_IMAGE_URL: https://doriosstudios.com/img/addons/utilitycraft/MCPEDL.png
-          ANNOUNCEMENT_COLOR: 769050
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ANNOUNCEMENT_SHA: ${{ github.sha }}
-          ANNOUNCEMENT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: node tools/discord-release-announcement.mjs
-
-  build-addon:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-
-      - name: Prepare release variables
-        env:
-          RELEASE_TITLE: ${{ github.event.release.name }}
-          RELEASE_TAG: ${{ github.event.release.tag_name }}
-        run: |
-          TAG_NAME="${RELEASE_TAG:-$GITHUB_REF_NAME}"
-
-          if [ -z "$TAG_NAME" ]; then
-            echo "::error::Release tag could not be resolved."
-            exit 1
-          fi
-
-          REL_TITLE="${RELEASE_TITLE:-$TAG_NAME}"
-          FILE_NAME="$(printf '%s' "$REL_TITLE" | tr ' ' '_' | tr -cd '[:alnum:]_.-')"
-
-          if [ -z "$FILE_NAME" ]; then
-            FILE_NAME="$(printf '%s' "$TAG_NAME" | tr ' ' '_' | tr -cd '[:alnum:]_.-')"
-          fi
-
-          echo "TAG_NAME=$TAG_NAME" >> "$GITHUB_ENV"
-          echo "REL_TITLE=$REL_TITLE" >> "$GITHUB_ENV"
-          echo "FILE_NAME=$FILE_NAME" >> "$GITHUB_ENV"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Install Regolith
-        run: |
-          curl -L https://github.com/Bedrock-OSS/regolith/releases/download/1.8.0/regolith_1.8.0_linux_amd64.tar.gz -o regolith.tar.gz
-          tar -xzf regolith.tar.gz
-          sudo mv regolith /usr/local/bin/regolith
-          regolith --version
-
-      - name: Build dev addon
-        run: |
-          rm -rf build artifacts
-          regolith run buildDev
-          mkdir -p artifacts
-          cd build
-          zip -r "../artifacts/${FILE_NAME}_dev.mcaddon" "UtilityCraft BP" "UtilityCraft RP"
-
-      - name: Build minified addon
-        run: |
-          rm -rf build
-          regolith run buildMinify
-          cd build
-          zip -r "../artifacts/${FILE_NAME}.mcaddon" "UtilityCraft BP" "UtilityCraft RP"
-
-      - name: Upload release assets
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh release upload "$TAG_NAME" \
-            "artifacts/${FILE_NAME}_dev.mcaddon" \
-            "artifacts/${FILE_NAME}.mcaddon" \
-            --clobber
-
-      - name: Upload minified addon to CurseForge
-        env:
-          CURSEFORGE_API_TOKEN: ${{ secrets.CURSEFORGE_API_TOKEN }}
-          CURSEFORGE_CHANGELOG: ${{ github.event.release.body }}
-          CURSEFORGE_DISPLAY_NAME: ${{ github.event.release.name }}
-          CURSEFORGE_PRERELEASE: ${{ github.event.release.prerelease }}
-        run: |
-          set -euo pipefail
-
-          if [ -z "$CURSEFORGE_API_TOKEN" ]; then
-            echo "::error::The CURSEFORGE_API_TOKEN organization secret is not available to this repository."
-            exit 1
-          fi
-
-          if [ "$CURSEFORGE_PRERELEASE" = "true" ]; then
-            RELEASE_TYPE="beta"
-          else
-            RELEASE_TYPE="release"
-          fi
-
-          METADATA="$(jq -nc \
-            --arg changelog "${CURSEFORGE_CHANGELOG:-No changelog provided.}" \
-            --arg displayName "${CURSEFORGE_DISPLAY_NAME:-$REL_TITLE}" \
-            --arg releaseType "$RELEASE_TYPE" \
-            --arg gameVersion "26.30" \
-            '{
-              changelog: $changelog,
-              changelogType: "markdown",
-              displayName: $displayName,
-              gameVersionNames: [$gameVersion],
-              releaseType: $releaseType,
-              isMarkedForManualRelease: false
-            }')"
-
-          RESPONSE="$(curl --fail-with-body --silent --show-error \
-            --request POST \
-            --header "X-Api-Token: $CURSEFORGE_API_TOKEN" \
-            --form-string "metadata=$METADATA" \
-            --form "file=@artifacts/${FILE_NAME}.mcaddon" \
-            "https://minecraft-bedrock.curseforge.com/api/projects/1095313/upload-file")"
-
-          FILE_ID="$(printf '%s' "$RESPONSE" | jq -er '.id')"
-          echo "CurseForge file uploaded successfully: $FILE_ID"
-          echo "### CurseForge" >> "$GITHUB_STEP_SUMMARY"
-          echo "Uploaded file ID: $FILE_ID" >> "$GITHUB_STEP_SUMMARY"
+  release:
+    uses: DoriosStudios/Dorios-Workflows/.github/workflows/release-addon.yml@v1.0.2
+    with:
+      operation: ${{ inputs.operation }}
+      release_tag: ${{ inputs.release_tag }}
+      release_channel: ${{ inputs.release_channel }}
+      announcement_ping: ${{ inputs.announcement_ping }}
+      workflow_ref: v1.0.2
+      preview_only: ${{ inputs.execution == 'preview' }}
+      production_confirmation: ${{ inputs.production_confirmation }}
+    secrets:
+      discord_webhook: ${{ secrets.DISCORD_UPDATES_WEBHOOK }}
+      curseforge_token: ${{ secrets.CURSEFORGE_API_TOKEN }}

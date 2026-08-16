@@ -1,0 +1,46 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DoriosStudios/Dorios-Workflows/v1.0.2/releases/schemas/project.schema.json",
+  "schemaVersion": 1,
+  "project": {
+    "name": "UtilityCraft",
+    "slug": "utilitycraft"
+  },
+  "release": {
+    "changelogPath": "changelog.md",
+    "defaultChannel": "stable",
+    "bedrockManifestPaths": [
+      "BP/manifest.json",
+      "RP/manifest.json"
+    ]
+  },
+  "build": {
+    "enabled": true,
+    "type": "regolith",
+    "developmentProfile": "buildDev",
+    "releaseProfile": "buildMinify",
+    "outputDirectory": "build",
+    "packDirectories": [
+      "UtilityCraft BP",
+      "UtilityCraft RP"
+    ]
+  },
+  "distribution": {
+    "github": true,
+    "curseforge": {
+      "enabled": true,
+      "projectId": 1095313,
+      "gameVersion": "26.30"
+    }
+  },
+  "links": {
+    "website": "https://doriosstudios.com/projects/utilitycraft/",
+    "curseforge": "https://www.curseforge.com/minecraft-bedrock/addons/utilitycraft",
+    "mcpedl": "https://mcpedl.com/utilitycraft/"
+  },
+  "announcement": {
+    "enabled": true,
+    "color": "305030",
+    "imageUrl": "https://doriosstudios.com/img/addons/utilitycraft/MCPEDL.png",
+    "automaticDelayMinutes": 60
+  }
+}

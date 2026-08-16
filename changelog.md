@@ -1,5 +1,14 @@
 # UtilityCraft v3.5.3
 
+This update expands Bonsai farming and machine recipes, improves item documentation, and strengthens release tooling and stability.
+
+## HIGHLIGHTS
+- Added Glow Berry and Sea Pickle Bonsais with dedicated visuals.
+- Added localized guidance to loose materials, plates and dusts.
+- Added a Magmatic Chamber recipe for converting Lava Balls into Lava.
+- Added delayed Discord release announcements with manual first-release support and duplicate protection.
+- Synchronized the visible pack version metadata.
+
 ## ADDED
 - Added delayed automatic Discord release announcements, a manual first-release mode and duplicate-send protection.
 - Added Glow Berry and Sea Pickle Bonsais with dedicated entities, textures and models.
