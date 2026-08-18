@@ -13,7 +13,7 @@ export const ADDON_METADATA = {
   name: "UtilityCraft",
   author: "Dorios Studios",
   identifier: "utilitycraft",
-  version: "3.5.1",
+  version: "3.5.3",
   dependencies: {},
 };
 
