@@ -1,4 +1,3 @@
-import * as DoriosLib from "DoriosLib/index.js";
 // @ts-check
 
 import {
@@ -33,6 +32,7 @@ export const REGISTRATION_EVENT_IDS = Object.freeze({
   INFUSER_RECIPE: "utilitycraft:register_infuser_recipe",
   ITEM_DUCT_REGISTER: "item_ducts:register",
   ITEM_DUCT_UNREGISTER: "item_ducts:unregister",
+  LINK_NODE_IO: "dorios_link_node:register_io",
   MELTER_RECIPE: "utilitycraft:register_melter_recipe",
   MACHINE_UPGRADE: "utilitycraft:register_machine_upgrade",
   PLANT: "utilitycraft:register_plant",
@@ -156,6 +156,16 @@ export function registerItemDuctChest(typeId) {
 export function unregisterItemDuctCompatibility(typeId) {
   assertTypeId(typeId);
   enqueueRegistrationMessage(REGISTRATION_EVENT_IDS.ITEM_DUCT_UNREGISTER, typeId);
+}
+
+/**
+ * Publishes one controller's link-node IO definition to every loaded addon.
+ * Each DoriosCore runtime receives and installs the definition independently.
+ *
+ * @param {{blockTypeId:string,config:RegistrationPayload}} payload
+ */
+export function registerLinkNodeIO(payload) {
+  enqueueRegistration(REGISTRATION_EVENT_IDS.LINK_NODE_IO, payload);
 }
 
 /** @param {RegistrationPayload} payload */

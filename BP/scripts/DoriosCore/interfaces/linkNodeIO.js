@@ -1,5 +1,6 @@
 // @ts-check
 
+import { system } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 import {
   getLinkNodeIOOverride,
@@ -7,6 +8,10 @@ import {
   setLinkNodeIO,
 } from "../../DoriosLib/linkNodes/index.js";
 import { isPlainObject } from "../../DoriosLib/utils/index.js";
+import {
+  REGISTRATION_EVENT_IDS,
+  registerLinkNodeIO as publishLinkNodeIO,
+} from "../../DoriosLib/registry/index.js";
 import { FluidStorage } from "../machinery/fluidStorage.js";
 import { GasStorage } from "../machinery/gasStorage.js";
 import { tryGetBlockFromEntity } from "../utils/entity.js";
@@ -47,15 +52,38 @@ const RESOURCE_METADATA = {
 /** @type {Map<string, LinkNodeIODefinition>} */
 const definitions = new Map();
 
+system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
+  if (id !== REGISTRATION_EVENT_IDS.LINK_NODE_IO) return;
+
+  try {
+    const payload = JSON.parse(message);
+    if (!isPlainObject(payload)) throw new TypeError("Link-node IO registration must be an object");
+    applyLinkNodeIORegistration(payload.blockTypeId, payload.config);
+  } catch (error) {
+    console.warn("[DoriosCore:linkNodeIO] Ignored invalid IO registration", error);
+  }
+});
+
 /**
- * Registers the logical groups exposed by link nodes for one machine block.
- * The same declaration also installs the machine's face-independent defaults
- * in the ordinary item/liquid/gas IO backend.
+ * Publishes the logical groups exposed by one controller's link nodes.
+ * Every loaded DoriosCore runtime, including the sender, installs the
+ * definition after receiving the shared registration event.
  *
  * @param {string} blockTypeId
  * @param {unknown} value
  */
 export function registerLinkNodeIO(blockTypeId, value) {
+  publishLinkNodeIO({ blockTypeId, config: value });
+  return true;
+}
+
+/**
+ * Validates and installs one definition received through the shared registry.
+ *
+ * @param {string} blockTypeId
+ * @param {unknown} value
+ */
+function applyLinkNodeIORegistration(blockTypeId, value) {
   if (typeof blockTypeId !== "string" || blockTypeId.length === 0) {
     throw new TypeError("blockTypeId must be a non-empty string");
   }

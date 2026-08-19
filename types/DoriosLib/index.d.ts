@@ -50,6 +50,14 @@ export interface ItemDuctCompatibilityRegistration {
   extractFaces?: ContainerFace[];
 }
 
+/** Link-node IO definition published by the addon that owns a controller. */
+export interface LinkNodeIORegistration {
+  /** Fully qualified controller block identifier. */
+  blockTypeId: string;
+  /** Controller-specific item, liquid, and gas routing groups. */
+  config: RegistrationPayload;
+}
+
 /** Result returned by safe JSON helpers. */
 export type JsonResult<T> =
   | { ok: true; value: T }
@@ -806,6 +814,7 @@ export namespace registry {
     INFUSER_RECIPE: "utilitycraft:register_infuser_recipe";
     ITEM_DUCT_REGISTER: "item_ducts:register";
     ITEM_DUCT_UNREGISTER: "item_ducts:unregister";
+    LINK_NODE_IO: "dorios_link_node:register_io";
     MELTER_RECIPE: "utilitycraft:register_melter_recipe";
     MACHINE_UPGRADE: "utilitycraft:register_machine_upgrade";
     PLANT: "utilitycraft:register_plant";
@@ -830,6 +839,7 @@ export namespace registry {
   function registerItemDuctCompatibility(payload: ItemDuctCompatibilityRegistration): void;
   function registerItemDuctChest(typeId: string): void;
   function unregisterItemDuctCompatibility(typeId: string): void;
+  function registerLinkNodeIO(payload: LinkNodeIORegistration): void;
   function registerMelterRecipe(payload: RegistrationPayload): void;
   function registerMachineUpgrade(payload: RegistrationPayload): void;
   function registerPlant(payload: RegistrationPayload): void;
