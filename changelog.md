@@ -25,6 +25,7 @@ This update expands Bonsai farming and machine recipes, improves item documentat
 
 ## FIXED
 - Synchronized the visible version metadata in both pack headers with the add-on version.
+- Fixed fluid and gas items without an output container not being consumed after a successful storage interaction.
 
 ---
 

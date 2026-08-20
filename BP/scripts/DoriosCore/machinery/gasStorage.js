@@ -397,11 +397,13 @@ export class GasStorage {
     const current = inventory.getItem(slot);
     if (!current || current.typeId !== expectedTypeId) return false;
 
+    if (nextTypeId === undefined) {
+      return DoriosLib.entity.changeItemAmount(player, { slot, amount: -1 });
+    }
+
     if (current.amount > 1) {
       current.amount -= 1;
       inventory.setItem(slot, current);
-
-      if (!nextTypeId) return true;
 
       const overflow = inventory.addItem(new ItemStack(nextTypeId, 1));
       if (overflow) {
@@ -584,7 +586,7 @@ export class GasStorage {
    * - Producing filled items based on stored gas type
    *
    * @param {string} typeId The item identifier being used (e.g., "minecraft:water_bucket", "minecraft:bucket", "gascells:empty_cell").
-   * @returns {string|false} Returns the output item ID if successful, or false if the action failed.
+   * @returns {string|undefined|false} Returns the output item ID, undefined when the input is consumed, or false if the action failed.
    */
   gasItem(typeId) {
     // 1. INSERTION: item adds gas into tank
@@ -606,7 +608,7 @@ export class GasStorage {
 
       if (!this.tryInsert(type, amount)) return false;
 
-      return output ?? false;
+      return output ?? undefined;
     }
 
     // 2. EXTRACTION: item converts stored gas into an output container

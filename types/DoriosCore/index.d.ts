@@ -1054,8 +1054,8 @@ export class FluidStorage {
   static handleFluidItemInteraction(player: Player, entity: Entity, mainHand?: ItemStack): void;
   /** Attempts to insert a fluid type and amount into this tank. */
   tryInsert(type: string, amount: number): boolean;
-  /** Handles a fluid item interaction and returns the output item id or false. */
-  fluidItem(typeId: string): string | false;
+  /** Handles a fluid item interaction and returns an output id, undefined for consumption, or false on failure. */
+  fluidItem(typeId: string): string | undefined | false;
   /** Sets this tank's maximum fluid capacity. */
   setCap(amount: number): void;
   /** Reads and caches this tank's maximum fluid capacity. */
@@ -1145,7 +1145,7 @@ export class GasStorage {
   static findType(entity: Entity, type: string): GasStorage | null;
   static handleGasItemInteraction(player: Player, entity: Entity, mainHand?: ItemStack): void;
   tryInsert(type: string, amount: number): boolean;
-  gasItem(typeId: string): string | false;
+  gasItem(typeId: string): string | undefined | false;
   setCap(amount: number): void;
   getCap(): number;
   set(amount: number): void;
