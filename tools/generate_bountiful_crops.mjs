@@ -88,7 +88,6 @@ function normalizeDefinitions(rawSource) {
   if (!Array.isArray(rawSource.crops)) throw new TypeError("crops must be an array");
 
   const uniqueKeys = new Set();
-  const uniqueCropIds = new Set();
   const uniqueSeedIds = new Set();
   const uniqueLootFiles = new Set();
 
@@ -107,7 +106,6 @@ function normalizeDefinitions(rawSource) {
     }
 
     assertUnique(uniqueKeys, rawCrop.key, "key");
-    assertUnique(uniqueCropIds, rawCrop.cropId, "cropId");
     assertUnique(uniqueSeedIds, rawCrop.seedId, "seedId");
     assertUnique(uniqueLootFiles, rawCrop.lootFile, "lootFile");
 
@@ -171,22 +169,7 @@ async function generateRuntimeModule(crops) {
 `// Edit tools/data/bountiful_crops.json, then run the generator.\n\n` +
 `export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze(${serialized});\n\n` +
 `export const BOUNTIFUL_CROPS_BY_BLOCK = Object.freeze(Object.fromEntries(\n` +
-`  BOUNTIFUL_CROP_DEFINITIONS.flatMap(definition => [\n` +
-`    [definition.cropId, definition],\n` +
-`    [definition.seedId, definition]\n` +
-`  ])\n` +
-`));\n\n` +
-`export const BOUNTIFUL_CROPS_BY_SEED = Object.freeze(Object.fromEntries(\n` +
 `  BOUNTIFUL_CROP_DEFINITIONS.map(definition => [definition.seedId, definition])\n` +
-`));\n\n` +
-`export const cropData = Object.freeze(Object.fromEntries(\n` +
-`  BOUNTIFUL_CROP_DEFINITIONS.map(definition => [definition.cropId, {\n` +
-`    seed: definition.seedId,\n` +
-`    loot: \`bc/crops/\${definition.lootFile}\`,\n` +
-`    tier: definition.tier,\n` +
-`    drops: definition.drops,\n` +
-`    seedChance: definition.seedChance\n` +
-`  }])\n` +
 `));\n\n` +
 `export const bountifulPlantsData = Object.freeze(Object.fromEntries(\n` +
 `  BOUNTIFUL_CROP_DEFINITIONS.map(definition => [definition.seedId, {\n` +
@@ -246,54 +229,39 @@ function createDropPool(drop) {
 }
 
 async function updateCropBlocks(crops) {
-  const definitionsByLegacyBlock = new Map(crops.map(crop => [crop.cropId, crop]));
   const definitionsByCanonicalBlock = new Map(crops.map(crop => [crop.seedId, crop]));
   const files = await collectJsonFiles(cropBlocksRoot);
-  const legacyFiles = new Map();
+  const canonicalFiles = new Map();
 
   for (const filePath of files) {
     const document = JSON.parse(await readFile(filePath, "utf8"));
     const block = document["minecraft:block"];
     const identifier = block?.description?.identifier;
-    if (definitionsByLegacyBlock.has(identifier)) {
-      legacyFiles.set(identifier, filePath);
+    if (definitionsByCanonicalBlock.has(identifier)) {
+      canonicalFiles.set(identifier, filePath);
       continue;
     }
-    if (definitionsByCanonicalBlock.has(identifier)) continue;
     throw new Error(`Unregistered crop block: ${identifier ?? relative(projectRoot, filePath)}`);
   }
 
   for (const definition of crops) {
-    const legacyPath = legacyFiles.get(definition.cropId);
-    if (!legacyPath) throw new Error(`Missing legacy crop block: ${definition.cropId}`);
+    const canonicalPath = canonicalFiles.get(definition.seedId);
+    if (!canonicalPath) throw new Error(`Missing crop block: ${definition.seedId}`);
 
-    const legacyDocument = JSON.parse(await readFile(legacyPath, "utf8"));
-    const canonicalDocument = structuredClone(legacyDocument);
-    const legacyBlock = legacyDocument["minecraft:block"];
+    const canonicalDocument = JSON.parse(await readFile(canonicalPath, "utf8"));
     const canonicalBlock = canonicalDocument["minecraft:block"];
 
-    configureCropBlock(legacyBlock, definition);
-    delete legacyBlock.components["utilitycraft:crop"];
-    legacyBlock.components["utilitycraft:retrocompatibility"] = {
-      target: definition.seedId
-    };
-    legacyBlock.components["minecraft:tick"] = {
-      interval_range: [100, 100],
-      looping: true
-    };
-
     configureCropBlock(canonicalBlock, definition);
-    canonicalBlock.description.identifier = definition.seedId;
-    delete canonicalBlock.components["utilitycraft:retrocompatibility"];
+    if (Object.hasOwn(canonicalBlock.components, "utilitycraft:retrocompatibility")) {
+      throw new Error(`Obsolete retrocompatibility component: ${definition.seedId}`);
+    }
     canonicalBlock.components["utilitycraft:crop"] = {};
     canonicalBlock.components["minecraft:tick"] = {
       interval_range: [...definition.growthInterval],
       looping: true
     };
 
-    const canonicalFileName = `${definition.seedId.split(":")[1]}.json`;
-    await writeJson(legacyPath, legacyDocument);
-    await writeJson(join(dirname(legacyPath), canonicalFileName), canonicalDocument);
+    await writeJson(canonicalPath, canonicalDocument);
   }
 }
 
@@ -439,6 +407,10 @@ async function updateResourceBlocks(crops) {
   const endMarker = "// END GENERATED BOUNTIFUL CROP SEED BLOCKS";
   let content = await readFile(resourceBlocksPath, "utf8");
   content = content.replace(
+    /^\t"utilitycraft:[^"]+_crop": \{\r?\n\t\t"sound": "[^"]+"\r?\n\t\},?\r?\n/gm,
+    ""
+  );
+  content = content.replace(
     new RegExp(`\\n,\\n${startMarker}[\\s\\S]*?${endMarker}\\n(?=\\})`),
     ""
   );
@@ -459,7 +431,11 @@ async function updateBlockTranslations(crops) {
 
   for (const entry of languageFiles) {
     const filePath = join(textsRoot, entry.name);
-    let content = await readFile(filePath, "utf8");
+    const originalContent = await readFile(filePath, "utf8");
+    let content = originalContent.replace(
+      /^tile\.utilitycraft:[^=]*_crop\.name=.*(?:\r?\n|$)/gm,
+      ""
+    );
     const lines = content.replace(/\r\n/g, "\n").split("\n");
     const values = new Map();
     for (const line of lines) {
@@ -479,8 +455,8 @@ async function updateBlockTranslations(crops) {
 
     if (additions.length > 0) {
       content = `${content.trimEnd()}\n\n## Bountiful Crops seed blocks\n${additions.join("\n")}\n`;
-      await writeFile(filePath, content, "utf8");
     }
+    if (content !== originalContent) await writeFile(filePath, content, "utf8");
   }
 }
 
@@ -537,10 +513,10 @@ async function generateBonsaiAssets(crops) {
   }
 
   for (const crop of crops) {
-    const visuals = matureVisualsByBlock.get(crop.seedId) ?? matureVisualsByBlock.get(crop.cropId);
-    if (!visuals) throw new Error(`Missing mature visuals: ${crop.cropId}`);
+    const visuals = matureVisualsByBlock.get(crop.seedId);
+    if (!visuals) throw new Error(`Missing mature visuals: ${crop.seedId}`);
     const geometry = BONSAI_GEOMETRIES[visuals.geometry];
-    if (!geometry) throw new Error(`Unsupported mature geometry ${visuals.geometry}: ${crop.cropId}`);
+    if (!geometry) throw new Error(`Unsupported mature geometry ${visuals.geometry}: ${crop.seedId}`);
 
     const fileName = `${crop.key}_bonsai.json`;
     await writeFile(

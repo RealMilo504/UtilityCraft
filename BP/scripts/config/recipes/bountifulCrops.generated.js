@@ -4,7 +4,6 @@
 export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   {
     "key": "coal",
-    "cropId": "utilitycraft:coal_crop",
     "seedId": "utilitycraft:coal_seeds",
     "lootFile": "coal",
     "tier": 1,
@@ -30,7 +29,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "copper",
-    "cropId": "utilitycraft:copper_crop",
     "seedId": "utilitycraft:copper_seeds",
     "lootFile": "copper",
     "tier": 1,
@@ -56,7 +54,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "dyes",
-    "cropId": "utilitycraft:dyes_crop",
     "seedId": "utilitycraft:dyes_seeds",
     "lootFile": "dyes",
     "tier": 1,
@@ -202,7 +199,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "glass",
-    "cropId": "utilitycraft:glass_crop",
     "seedId": "utilitycraft:glass_seeds",
     "lootFile": "glass",
     "tier": 1,
@@ -228,7 +224,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "gunpowder",
-    "cropId": "utilitycraft:gunpowder_crop",
     "seedId": "utilitycraft:gunpowder_seeds",
     "lootFile": "gunpowder",
     "tier": 1,
@@ -254,7 +249,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "iron",
-    "cropId": "utilitycraft:iron_crop",
     "seedId": "utilitycraft:iron_seeds",
     "lootFile": "iron",
     "tier": 1,
@@ -280,7 +274,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "leather",
-    "cropId": "utilitycraft:leather_crop",
     "seedId": "utilitycraft:leather_seeds",
     "lootFile": "leather",
     "tier": 1,
@@ -306,7 +299,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "prismarine_crystals",
-    "cropId": "utilitycraft:prismarine_crystal_crop",
     "seedId": "utilitycraft:prismarine_crystals_seeds",
     "lootFile": "prismarine_crystals",
     "tier": 1,
@@ -332,7 +324,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "prismarine_shards",
-    "cropId": "utilitycraft:prismarine_shards_crop",
     "seedId": "utilitycraft:prismarine_shards_seeds",
     "lootFile": "prismarine_shards",
     "tier": 1,
@@ -358,7 +349,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "water",
-    "cropId": "utilitycraft:water_crop",
     "seedId": "utilitycraft:water_seeds",
     "lootFile": "water",
     "tier": 1,
@@ -384,7 +374,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "wool",
-    "cropId": "utilitycraft:wool_crop",
     "seedId": "utilitycraft:wool_seeds",
     "lootFile": "wool",
     "tier": 1,
@@ -410,7 +399,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "ghast",
-    "cropId": "utilitycraft:ghast_crop",
     "seedId": "utilitycraft:ghast_seeds",
     "lootFile": "ghast_tear",
     "tier": 2,
@@ -436,7 +424,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "glowstone",
-    "cropId": "utilitycraft:glowstone_crop",
     "seedId": "utilitycraft:glowstone_seeds",
     "lootFile": "glowstone",
     "tier": 2,
@@ -462,7 +449,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "gold",
-    "cropId": "utilitycraft:gold_crop",
     "seedId": "utilitycraft:gold_seeds",
     "lootFile": "gold",
     "tier": 2,
@@ -488,7 +474,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "honey",
-    "cropId": "utilitycraft:honey_crop",
     "seedId": "utilitycraft:honey_seeds",
     "lootFile": "honey",
     "tier": 2,
@@ -514,7 +499,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "lapis",
-    "cropId": "utilitycraft:lapis_crop",
     "seedId": "utilitycraft:lapis_seeds",
     "lootFile": "lapis",
     "tier": 2,
@@ -540,7 +524,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "lava",
-    "cropId": "utilitycraft:lava_crop",
     "seedId": "utilitycraft:lava_seeds",
     "lootFile": "lava",
     "tier": 2,
@@ -566,7 +549,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "quartz",
-    "cropId": "utilitycraft:quartz_crop",
     "seedId": "utilitycraft:quartz_seeds",
     "lootFile": "quartz",
     "tier": 2,
@@ -592,7 +574,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "redstone",
-    "cropId": "utilitycraft:redstone_crop",
     "seedId": "utilitycraft:redstone_seeds",
     "lootFile": "redstone",
     "tier": 2,
@@ -618,7 +599,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "resin",
-    "cropId": "utilitycraft:resin_crop",
     "seedId": "utilitycraft:resin_seeds",
     "lootFile": "resin",
     "tier": 2,
@@ -644,7 +624,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "slime",
-    "cropId": "utilitycraft:slime_crop",
     "seedId": "utilitycraft:slime_seeds",
     "lootFile": "slime",
     "tier": 2,
@@ -670,7 +649,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "amethyst",
-    "cropId": "utilitycraft:amethyst_crop",
     "seedId": "utilitycraft:amethyst_seeds",
     "lootFile": "amethyst",
     "tier": 3,
@@ -696,7 +674,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "blaze",
-    "cropId": "utilitycraft:blaze_crop",
     "seedId": "utilitycraft:blaze_seeds",
     "lootFile": "blaze",
     "tier": 3,
@@ -722,7 +699,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "diamond",
-    "cropId": "utilitycraft:diamond_crop",
     "seedId": "utilitycraft:diamond_seeds",
     "lootFile": "diamond",
     "tier": 3,
@@ -748,7 +724,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "emerald",
-    "cropId": "utilitycraft:emerald_crop",
     "seedId": "utilitycraft:emerald_seeds",
     "lootFile": "emerald",
     "tier": 3,
@@ -774,7 +749,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "ender_pearl",
-    "cropId": "utilitycraft:enderpearl_crop",
     "seedId": "utilitycraft:enderpearl_seeds",
     "lootFile": "ender_pearl",
     "tier": 3,
@@ -800,7 +774,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "obsidian",
-    "cropId": "utilitycraft:obsidian_crop",
     "seedId": "utilitycraft:obsidian_seeds",
     "lootFile": "obsidian",
     "tier": 3,
@@ -826,7 +799,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "netherite",
-    "cropId": "utilitycraft:netherite_crop",
     "seedId": "utilitycraft:netherite_seeds",
     "lootFile": "netherite",
     "tier": 4,
@@ -852,7 +824,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "nether_star",
-    "cropId": "utilitycraft:netherstar_crop",
     "seedId": "utilitycraft:nether_star_seeds",
     "lootFile": "nether_star",
     "tier": 4,
@@ -878,7 +849,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "shulker",
-    "cropId": "utilitycraft:shulker_crop",
     "seedId": "utilitycraft:shulker_seeds",
     "lootFile": "shulker",
     "tier": 4,
@@ -904,7 +874,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "totem",
-    "cropId": "utilitycraft:totem_crop",
     "seedId": "utilitycraft:totem_seeds",
     "lootFile": "totem",
     "tier": 4,
@@ -930,7 +899,6 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
   },
   {
     "key": "wither",
-    "cropId": "utilitycraft:wither_crop",
     "seedId": "utilitycraft:wither_seeds",
     "lootFile": "wither",
     "tier": 4,
@@ -957,24 +925,7 @@ export const BOUNTIFUL_CROP_DEFINITIONS = Object.freeze([
 ]);
 
 export const BOUNTIFUL_CROPS_BY_BLOCK = Object.freeze(Object.fromEntries(
-  BOUNTIFUL_CROP_DEFINITIONS.flatMap(definition => [
-    [definition.cropId, definition],
-    [definition.seedId, definition]
-  ])
-));
-
-export const BOUNTIFUL_CROPS_BY_SEED = Object.freeze(Object.fromEntries(
   BOUNTIFUL_CROP_DEFINITIONS.map(definition => [definition.seedId, definition])
-));
-
-export const cropData = Object.freeze(Object.fromEntries(
-  BOUNTIFUL_CROP_DEFINITIONS.map(definition => [definition.cropId, {
-    seed: definition.seedId,
-    loot: `bc/crops/${definition.lootFile}`,
-    tier: definition.tier,
-    drops: definition.drops,
-    seedChance: definition.seedChance
-  }])
 ));
 
 export const bountifulPlantsData = Object.freeze(Object.fromEntries(

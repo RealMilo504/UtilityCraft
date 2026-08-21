@@ -57,43 +57,12 @@ tile.utilitycraft:bonsai.name=Bonsai\n§o§9@UtilityCraft
 ## >>>>>>>> Grupo Abierto -------- ##
 
 -- Tier 1 = ## Nivel (Cultivo) 1
-tile.utilitycraft:coal_crop.name=Cultivo de Carbón\n§o§9@UtilityCraft
-tile.utilitycraft:copper_crop.name=Cultivo de Cobre\n§o§9@UtilityCraft
-tile.utilitycraft:dyes_crop.name=Cultivo de Tintes\n§o§9@UtilityCraft
-tile.utilitycraft:glass_crop.name=Cultivo de Cristal\n§o§9@UtilityCraft
-tile.utilitycraft:gunpowder_crop.name=Cultivo de Polvora\n§o§9@UtilityCraft
-tile.utilitycraft:iron_crop.name=Cultivo de Hierro\n§o§9@UtilityCraft
-tile.utilitycraft:leather_crop.name=Cultivo de Cuero\n§o§9@UtilityCraft
-tile.utilitycraft:prismarine_crystal_crop.name=Cultivo de Cristales de Prismarina\n§o§9@UtilityCraft
-tile.utilitycraft:prismarine_shards_crop.name=Cultivo de Fragmentos de Prismarina\n§o§9@UtilityCraft
-tile.utilitycraft:water_crop.name=Cultivo de Agua\n§o§9@UtilityCraft
-tile.utilitycraft:wool_crop.name=Cultivo de Lana\n§o§9@UtilityCraft
 
 -- Tier 2 = ## Nivel (Cultivo) 2
-tile.utilitycraft:ghast_crop.name=Cultivo de Lagrima de Ghast\n§o§9@UtilityCraft
-tile.utilitycraft:glowstone_crop.name=Cultivo de Piedra Luminosa\n§o§9@UtilityCraft
-tile.utilitycraft:gold_crop.name=Cultivo de Oro\n§o§9@UtilityCraft
-tile.utilitycraft:honey_crop.name=Cultivo de Miel\n§o§9@UtilityCraft
-tile.utilitycraft:lapis_crop.name=Cultivo de Lapislázuli\n§o§9@UtilityCraft
-tile.utilitycraft:lava_crop.name=Cultivo de Lava\n§o§9@UtilityCraft
-tile.utilitycraft:quartz_crop.name=Cultivo de Cuarzo\n§o§9@UtilityCraft
-tile.utilitycraft:redstone_crop.name=Cultivo de Redstone\n§o§9@UtilityCraft
-tile.utilitycraft:slime_crop.name=Cultivo de Slime\n§o§9@UtilityCraft
 
 -- Tier 3 = ## Nivel (Cultivo) 3
-tile.utilitycraft:amethyst_crop.name=Cultivo de Amatista\n§o§9@UtilityCraft
-tile.utilitycraft:blaze_crop.name=Cultivo de Blaze\n§o§9@UtilityCraft
-tile.utilitycraft:diamond_crop.name=Cultivo de Diamante\n§o§9@UtilityCraft
-tile.utilitycraft:emerald_crop.name=Cultivo de Esmeralda\n§o§9@UtilityCraft
-tile.utilitycraft:enderpearl_crop.name=Cultivo de Perla de Ender\n§o§9@UtilityCraft
-tile.utilitycraft:obsidian_crop.name=Cultivo de Obsidiana\n§o§9@UtilityCraft
 
 -- Tier 4 = ## Nivel (Cultivo) 4
-tile.utilitycraft:netherite_crop.name=Cultivo de Netherita\n§o§9@UtilityCraft
-tile.utilitycraft:netherstar_crop.name=Cultivo de Estrella del Nether\n§o§9@UtilityCraft
-tile.utilitycraft:shulker_crop.name=Cultivo de Shulker\n§o§9@UtilityCraft
-tile.utilitycraft:totem_crop.name=Cultivo de Tótem\n§o§9@UtilityCraft
-tile.utilitycraft:wither_crop.name=Cultivo de Calaveras de Wither\n§o§9@UtilityCraft
 ## -------- Grupo Cerrado <<<<<<<< ##
 
 - Soils = ## Suelos

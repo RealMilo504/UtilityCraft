@@ -1,20 +1,5 @@
 {
 	"format_version": "1.1.0",
-	"utilitycraft:diamond_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:iron_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:gold_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:redstone_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:lapis_crop": {
-		"sound": "grass"
-	},
 	"utilitycraft:yellow_soil": {
 		"textures": {
 			"up": "utilitycraft_yellow_soil",
@@ -59,54 +44,6 @@
 		},
 		"sound": "grass"
 	},
-	"utilitycraft:wither_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:emerald_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:coal_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:netherite_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:blaze_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:enderpearl_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:obsidian_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:netherstar_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:shulker_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:totem_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:quartz_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:amethyst_crop": {
-		"sound": "amethyst_cluster"
-	},
-	"utilitycraft:glowstone_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:slime_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:resin_crop": {
-		"sound": "resin"
-	},
-	"utilitycraft:honey_crop": {
-		"sound": "honey_block"
-	},
 	"utilitycraft:cobble_gen_1": {
 		"sound": "stone"
 	},
@@ -134,21 +71,6 @@
 	"utilitycraft:harvester": {
 		"sound": "metal"
 	},
-	"utilitycraft:glass_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:water_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:lava_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:prismarine_shards_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:prismarine_crystal_crop": {
-		"sound": "grass"
-	},
 	"utilitycraft:block_breaker": {
 		"sound": "stone"
 	},
@@ -160,21 +82,6 @@
 	},
 	"utilitycraft:sieve": {
 		"sound": "stone"
-	},
-	"utilitycraft:copper_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:ghast_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:gunpowder_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:leather_crop": {
-		"sound": "grass"
-	},
-	"utilitycraft:wool_crop": {
-		"sound": "grass"
 	},
 	"utilitycraft:machine_case": {
 		"sound": "stone",
@@ -1256,9 +1163,6 @@
 	"utilitycraft:black_elevator": {
 		"sound": "cloth",
 		"textures": "utilitycraft_black_elevator"
-	},
-	"utilitycraft:dyes_crop": {
-		"sound": "grass"
 	},
 	"utilitycraft:basic_trash_can": {
 		"sound": "stone"

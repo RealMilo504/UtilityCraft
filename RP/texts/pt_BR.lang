@@ -193,43 +193,12 @@ tile.utilitycraft:bonsai.name=Bonsai\n§o§9@UtilityCraft
 ### Crops | Colheitas
 
 #### Tier 1 | Escalão 1
-tile.utilitycraft:coal_crop.name=Plantação de Carvão\n§o§9@UtilityCraft
-tile.utilitycraft:copper_crop.name=Plantação de Cobre\n§o§9@UtilityCraft
-tile.utilitycraft:dyes_crop.name=Plantação de Corantes\n§o§9@UtilityCraft
-tile.utilitycraft:glass_crop.name=Plantação de Vidro\n§o§9@UtilityCraft
-tile.utilitycraft:gunpowder_crop.name=Plantação de Pólvora\n§o§9@UtilityCraft
-tile.utilitycraft:iron_crop.name=Plantação de Ferro\n§o§9@UtilityCraft
-tile.utilitycraft:leather_crop.name=Plantação de Couro\n§o§9@UtilityCraft
-tile.utilitycraft:prismarine_crystal_crop.name=Plantação de Cristal de Prismarinho\n§o§9@UtilityCraft
-tile.utilitycraft:prismarine_shards_crop.name=Plantação de Fragmentos de Prismarinho\n§o§9@UtilityCraft
-tile.utilitycraft:water_crop.name=Plantação de Água\n§o§9@UtilityCraft
-tile.utilitycraft:wool_crop.name=Plantação de Lã\n§o§9@UtilityCraft
 
 #### Tier 2 | Escalão 2
-tile.utilitycraft:ghast_crop.name=Plantação de Lágrima Ghast\n§o§9@UtilityCraft
-tile.utilitycraft:glowstone_crop.name=Plantação de Pedra Luminosa\n§o§9@UtilityCraft
-tile.utilitycraft:gold_crop.name=Plantação de Ouro\n§o§9@UtilityCraft
-tile.utilitycraft:honey_crop.name=Plantação de Mel\n§o§9@UtilityCraft
-tile.utilitycraft:lapis_crop.name=Plantação de Lápis-lazúli\n§o§9@UtilityCraft
-tile.utilitycraft:lava_crop.name=Plantação de Lava\n§o§9@UtilityCraft
-tile.utilitycraft:quartz_crop.name=Plantação de Quartzo\n§o§9@UtilityCraft
-tile.utilitycraft:redstone_crop.name=Plantação de Redstone\n§o§9@UtilityCraft
-tile.utilitycraft:slime_crop.name=Plantação de Slime\n§o§9@UtilityCraft
 
 #### Tier 3 | Escalão 3
-tile.utilitycraft:amethyst_crop.name=Plantação de Ametista\n§o§9@UtilityCraft
-tile.utilitycraft:blaze_crop.name=Plantação de Blaze\n§o§9@UtilityCraft
-tile.utilitycraft:diamond_crop.name=Plantação de Diamante\n§o§9@UtilityCraft
-tile.utilitycraft:emerald_crop.name=Plantação de Esmeralda\n§o§9@UtilityCraft
-tile.utilitycraft:enderpearl_crop.name=Plantação de Pérola do End\n§o§9@UtilityCraft
-tile.utilitycraft:obsidian_crop.name=Plantação de Obsidiana\n§o§9@UtilityCraft
 
 #### Tier 4 | Escalão 4
-tile.utilitycraft:netherite_crop.name=Plantação de Netherite\n§o§9@UtilityCraft
-tile.utilitycraft:netherstar_crop.name=Plantação de Netherstar\n§o§9@UtilityCraft
-tile.utilitycraft:shulker_crop.name=Plantação de Casca de Shulker\n§o§9@UtilityCraft
-tile.utilitycraft:totem_crop.name=Plantação de Totem\n§o§9@UtilityCraft
-tile.utilitycraft:wither_crop.name=Plantação de Crânio de Wither\n§o§9@UtilityCraft
 
 ### Soils | Terras Aradas/Solos
 tile.utilitycraft:blue_soil.name=§9Terra Arada Azul\n§o§9@UtilityCraft

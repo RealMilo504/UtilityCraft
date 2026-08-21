@@ -60,43 +60,12 @@ tile.utilitycraft:bonsai.name=Bonsai\n§o§9@UtilityCraft
 ## >>>>>>>> Open Group -------- ##
 
 -- Tier 1 =## Stufe (Ernte) 1
-tile.utilitycraft:coal_crop.name=Kohleernte\n§o§9@UtilityCraft
-tile.utilitycraft:copper_crop.name=Kupferernte\n§o§9@UtilityCraft
-tile.utilitycraft:dyes_crop.name=Farbstoffe Ernte\n§o§9@UtilityCraft
-tile.utilitycraft:glass_crop.name=Glasernte\n§o§9@UtilityCraft
-tile.utilitycraft:gunpowder_crop.name=Schießpulver-Ernte\n§o§9@UtilityCraft
-tile.utilitycraft:iron_crop.name=Eisenernte\n§o§9@UtilityCraft
-tile.utilitycraft:leather_crop.name=Lederernte\n§o§9@UtilityCraft
-tile.utilitycraft:prismarine_crystal_crop.name=Prismatische Kristallernte\n§o§9@UtilityCraft
-tile.utilitycraft:prismarine_shards_crop.name=Prismarinscherben-Ernte\n§o§9@UtilityCraft
-tile.utilitycraft:water_crop.name=Wasserernte\n§o§9@UtilityCraft
-tile.utilitycraft:wool_crop.name=Wollernte\n§o§9@UtilityCraft
 
 -- Tier 2 =## Stufe (Ernte) 2
-tile.utilitycraft:ghast_crop.name=Ghast Crop\n§o§9@UtilityCraft
-tile.utilitycraft:glowstone_crop.name=Glowstone-Ernte\n§o§9@UtilityCraft
-tile.utilitycraft:gold_crop.name=Goldernte\n§o§9@UtilityCraft
-tile.utilitycraft:honey_crop.name=Honigernte\n§o§9@UtilityCraft
-tile.utilitycraft:lapis_crop.name=Lapis-Ernte\n§o§9@UtilityCraft
-tile.utilitycraft:lava_crop.name=Lava-Ernte\n§o§9@UtilityCraft
-tile.utilitycraft:quartz_crop.name=Quarzernte\n§o§9@UtilityCraft
-tile.utilitycraft:redstone_crop.name=Redstone-Ernte\n§o§9@UtilityCraft
-tile.utilitycraft:slime_crop.name=Schleimernte\n§o§9@UtilityCraft
 
 -- Tier 3 =## Stufe (Ernte) 3
-tile.utilitycraft:amethyst_crop.name=Amethyst-Ernte\n§o§9@UtilityCraft
-tile.utilitycraft:blaze_crop.name=Blaze Crop\n§o§9@UtilityCraft
-tile.utilitycraft:diamond_crop.name=Diamanternte\n§o§9@UtilityCraft
-tile.utilitycraft:emerald_crop.name=Smaragdernte\n§o§9@UtilityCraft
-tile.utilitycraft:enderpearl_crop.name=Ender Pearl Crop\n§o§9@UtilityCraft
-tile.utilitycraft:obsidian_crop.name=Obsidian-Ernte\n§o§9@UtilityCraft
 
 -- Tier 4 =## Stufe (Ernte) 4
-tile.utilitycraft:netherite_crop.name=Netherit-Ernte\n§o§9@UtilityCraft
-tile.utilitycraft:netherstar_crop.name=Netherstern-Ernte\n§o§9@UtilityCraft
-tile.utilitycraft:shulker_crop.name=Shulker-Ernte\n§o§9@UtilityCraft
-tile.utilitycraft:totem_crop.name=Totem-Ernte\n§o§9@UtilityCraft
-tile.utilitycraft:wither_crop.name=Wither Crop\n§o§9@UtilityCraft
 ## -------- Close Group <<<<<<<< ##
 
 - Soils =## Böden

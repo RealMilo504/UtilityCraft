@@ -65,43 +65,12 @@ tile.utilitycraft:bonsai.name=Бонсай\n§o§9@UtilityCraft
 ## >>>>>>>> Open Group -------- ##
 
 -- Tier 1 =## Уровень (Урожай) 1
-tile.utilitycraft:coal_crop.name=Урожай угля\n§o§9@UtilityCraft
-tile.utilitycraft:copper_crop.name=Медный урожай\n§o§9@UtilityCraft
-tile.utilitycraft:dyes_crop.name=Красители Кроп\n§o§9@UtilityCraft
-tile.utilitycraft:glass_crop.name=Стеклянный урожай\n§o§9@UtilityCraft
-tile.utilitycraft:gunpowder_crop.name=Пороховой урожай\n§o§9@UtilityCraft
-tile.utilitycraft:iron_crop.name=Железный урожай\n§o§9@UtilityCraft
-tile.utilitycraft:leather_crop.name=Кожаный кроп\n§o§9@UtilityCraft
-tile.utilitycraft:prismarine_crystal_crop.name=Призмариновый кристалл\n§o§9@UtilityCraft
-tile.utilitycraft:prismarine_shards_crop.name=Призмариновые осколки\n§o§9@UtilityCraft
-tile.utilitycraft:water_crop.name=Водный урожай\n§o§9@UtilityCraft
-tile.utilitycraft:wool_crop.name=Шерсть\n§o§9@UtilityCraft
 
 -- Tier 2 =## Уровень (Урожай) 2
-tile.utilitycraft:ghast_crop.name=Ужасный урожай\n§o§9@UtilityCraft
-tile.utilitycraft:glowstone_crop.name=Урожай светящегося камня\n§o§9@UtilityCraft
-tile.utilitycraft:gold_crop.name=Золотой урожай\n§o§9@UtilityCraft
-tile.utilitycraft:honey_crop.name=Медовый урожай\n§o§9@UtilityCraft
-tile.utilitycraft:lapis_crop.name=Ляпис-урожай\n§o§9@UtilityCraft
-tile.utilitycraft:lava_crop.name=Урожай лавы\n§o§9@UtilityCraft
-tile.utilitycraft:quartz_crop.name=Кварцевый урожай\n§o§9@UtilityCraft
-tile.utilitycraft:redstone_crop.name=Редстоун Урожай\n§o§9@UtilityCraft
-tile.utilitycraft:slime_crop.name=Урожай слизи\n§o§9@UtilityCraft
 
 -- Tier 3 =## Уровень (Урожай) 3
-tile.utilitycraft:amethyst_crop.name=Аметист Урожай\n§o§9@UtilityCraft
-tile.utilitycraft:blaze_crop.name=Пылающий урожай\n§o§9@UtilityCraft
-tile.utilitycraft:diamond_crop.name=Алмазный урожай\n§o§9@UtilityCraft
-tile.utilitycraft:emerald_crop.name=Изумрудный урожай\n§o§9@UtilityCraft
-tile.utilitycraft:enderpearl_crop.name=Урожай жемчуга Эндера\n§o§9@UtilityCraft
-tile.utilitycraft:obsidian_crop.name=Обсидиановый урожай\n§o§9@UtilityCraft
 
 -- Tier 4 =## Уровень (Урожай) 4
-tile.utilitycraft:netherite_crop.name=Незеритовый урожай\n§o§9@UtilityCraft
-tile.utilitycraft:netherstar_crop.name=Урожай Звезды Пустоты\n§o§9@UtilityCraft
-tile.utilitycraft:shulker_crop.name=Шалкеровый урожай\n§o§9@UtilityCraft
-tile.utilitycraft:totem_crop.name=Тотемный урожай\n§o§9@UtilityCraft
-tile.utilitycraft:wither_crop.name=Увядший урожай\n§o§9@UtilityCraft
 ## -------- Close Group <<<<<<<< ##
 
 - Soils =## Почвы

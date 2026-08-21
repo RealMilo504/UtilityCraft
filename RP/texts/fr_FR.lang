@@ -60,43 +60,12 @@ tile.utilitycraft:bonsai.name=Bonsaï\n§o§9@UtilityCraft
 ## >>>>>>>> Open Group -------- ##
 
 -- Tier 1 =## Niveau (Recadrage) 1
-tile.utilitycraft:coal_crop.name=Récolte de charbon\n§o§9@UtilityCraft
-tile.utilitycraft:copper_crop.name=Récolte de cuivre\n§o§9@UtilityCraft
-tile.utilitycraft:dyes_crop.name=Culture de colorants\n§o§9@UtilityCraft
-tile.utilitycraft:glass_crop.name=Récolte de verre\n§o§9@UtilityCraft
-tile.utilitycraft:gunpowder_crop.name=Récolte de poudre à canon\n§o§9@UtilityCraft
-tile.utilitycraft:iron_crop.name=Récolte de fer\n§o§9@UtilityCraft
-tile.utilitycraft:leather_crop.name=Récolte en cuir\n§o§9@UtilityCraft
-tile.utilitycraft:prismarine_crystal_crop.name=Récolte de cristal prismarine\n§o§9@UtilityCraft
-tile.utilitycraft:prismarine_shards_crop.name=Récolte d'éclats de prismarine\n§o§9@UtilityCraft
-tile.utilitycraft:water_crop.name=Culture d'eau\n§o§9@UtilityCraft
-tile.utilitycraft:wool_crop.name=Récolte de laine\n§o§9@UtilityCraft
 
 -- Tier 2 =## Niveau (Recadrage) 2
-tile.utilitycraft:ghast_crop.name=Récolte épouvantable\n§o§9@UtilityCraft
-tile.utilitycraft:glowstone_crop.name=Récolte de pierre lumineuse\n§o§9@UtilityCraft
-tile.utilitycraft:gold_crop.name=Récolte d'or\n§o§9@UtilityCraft
-tile.utilitycraft:honey_crop.name=Récolte de miel\n§o§9@UtilityCraft
-tile.utilitycraft:lapis_crop.name=Récolte de lapis\n§o§9@UtilityCraft
-tile.utilitycraft:lava_crop.name=Récolte de lave\n§o§9@UtilityCraft
-tile.utilitycraft:quartz_crop.name=Récolte de quartz\n§o§9@UtilityCraft
-tile.utilitycraft:redstone_crop.name=Récolte de pierre rouge\n§o§9@UtilityCraft
-tile.utilitycraft:slime_crop.name=Récolte visqueuse\n§o§9@UtilityCraft
 
 -- Tier 3 =## Niveau (Recadrage) 3
-tile.utilitycraft:amethyst_crop.name=Récolte d'améthyste\n§o§9@UtilityCraft
-tile.utilitycraft:blaze_crop.name=Récolte flamboyante\n§o§9@UtilityCraft
-tile.utilitycraft:diamond_crop.name=Récolte de diamants\n§o§9@UtilityCraft
-tile.utilitycraft:emerald_crop.name=Récolte d'émeraude\n§o§9@UtilityCraft
-tile.utilitycraft:enderpearl_crop.name=Récolte de perles Ender\n§o§9@UtilityCraft
-tile.utilitycraft:obsidian_crop.name=Récolte d'obsidienne\n§o§9@UtilityCraft
 
 -- Tier 4 =## Niveau (Recadrage) 4
-tile.utilitycraft:netherite_crop.name=Récolte de Netherite\n§o§9@UtilityCraft
-tile.utilitycraft:netherstar_crop.name=Récolte Étoile du Néant\n§o§9@UtilityCraft
-tile.utilitycraft:shulker_crop.name=Récolte Shulker\n§o§9@UtilityCraft
-tile.utilitycraft:totem_crop.name=Culture totémique\n§o§9@UtilityCraft
-tile.utilitycraft:wither_crop.name=Flétrissement des cultures\n§o§9@UtilityCraft
 ## -------- Close Group <<<<<<<< ##
 
 - Soils =## Sols

@@ -72,44 +72,12 @@ tile.utilitycraft:bonsai.name=Bonsai\n§o§9@UtilityCraft
 ## >>>>>>>> Open Group -------- ##
 
 -- Tier 1 = ## Tier (Crop) 1
-tile.utilitycraft:coal_crop.name=Coal Crop\n§o§9@UtilityCraft
-tile.utilitycraft:copper_crop.name=Copper Crop\n§o§9@UtilityCraft
-tile.utilitycraft:dyes_crop.name=Dyes Crop\n§o§9@UtilityCraft
-tile.utilitycraft:glass_crop.name=Glass Crop\n§o§9@UtilityCraft
-tile.utilitycraft:gunpowder_crop.name=Gunpowder Crop\n§o§9@UtilityCraft
-tile.utilitycraft:iron_crop.name=Iron Crop\n§o§9@UtilityCraft
-tile.utilitycraft:leather_crop.name=Leather Crop\n§o§9@UtilityCraft
-tile.utilitycraft:prismarine_crystal_crop.name=Prismarine Crystal Crop\n§o§9@UtilityCraft
-tile.utilitycraft:prismarine_shards_crop.name=Prismarine Shards Crop\n§o§9@UtilityCraft
-tile.utilitycraft:water_crop.name=Water Crop\n§o§9@UtilityCraft
-tile.utilitycraft:wool_crop.name=Wool Crop\n§o§9@UtilityCraft
 
 -- Tier 2 =  ## Tier (Crop) 2
-tile.utilitycraft:ghast_crop.name=Ghast Crop\n§o§9@UtilityCraft
-tile.utilitycraft:glowstone_crop.name=Glowstone Crop\n§o§9@UtilityCraft
-tile.utilitycraft:gold_crop.name=Gold Crop\n§o§9@UtilityCraft
-tile.utilitycraft:honey_crop.name=Honey Crop\n§o§9@UtilityCraft
-tile.utilitycraft:lapis_crop.name=Lapis Crop\n§o§9@UtilityCraft
-tile.utilitycraft:lava_crop.name=Lava Crop\n§o§9@UtilityCraft
-tile.utilitycraft:quartz_crop.name=Quartz Crop\n§o§9@UtilityCraft
-tile.utilitycraft:redstone_crop.name=Redstone Crop\n§o§9@UtilityCraft
-tile.utilitycraft:slime_crop.name=Slime Crop\n§o§9@UtilityCraft
-tile.utilitycraft:resin_crop.name=Resin Crop\n§o§9@UtilityCraft
 
 -- Tier 3 =  ## Tier (Crop) 3
-tile.utilitycraft:amethyst_crop.name=Amethyst Crop\n§o§9@UtilityCraft
-tile.utilitycraft:blaze_crop.name=Blaze Crop\n§o§9@UtilityCraft
-tile.utilitycraft:diamond_crop.name=Diamond Crop\n§o§9@UtilityCraft
-tile.utilitycraft:emerald_crop.name=Emerald Crop\n§o§9@UtilityCraft
-tile.utilitycraft:enderpearl_crop.name=Ender Pearl Crop\n§o§9@UtilityCraft
-tile.utilitycraft:obsidian_crop.name=Obsidian Crop\n§o§9@UtilityCraft
 
 -- Tier 4 =  ## Tier (Crop) 4
-tile.utilitycraft:netherite_crop.name=Netherite Crop\n§o§9@UtilityCraft
-tile.utilitycraft:netherstar_crop.name=Netherstar Crop\n§o§9@UtilityCraft
-tile.utilitycraft:shulker_crop.name=Shulker Crop\n§o§9@UtilityCraft
-tile.utilitycraft:totem_crop.name=Totem Crop\n§o§9@UtilityCraft
-tile.utilitycraft:wither_crop.name=Wither Crop\n§o§9@UtilityCraft
 ## -------- Close Group <<<<<<<< ##
 
 - Soils = ## Soils

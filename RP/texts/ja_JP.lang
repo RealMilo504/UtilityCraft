@@ -60,43 +60,12 @@ tile.utilitycraft:bonsai.name=盆栽\n§o§9@UtilityCraft
 ## >>>>>>>> Open Group -------- ##
 
 -- Tier 1 =## ティア (作物) 1
-tile.utilitycraft:coal_crop.name=石炭作物\n§o§9@UtilityCraft
-tile.utilitycraft:copper_crop.name=銅の作物\n§o§9@UtilityCraft
-tile.utilitycraft:dyes_crop.name=染料作物\n§o§9@UtilityCraft
-tile.utilitycraft:glass_crop.name=ガラスの作物\n§o§9@UtilityCraft
-tile.utilitycraft:gunpowder_crop.name=火薬作物\n§o§9@UtilityCraft
-tile.utilitycraft:iron_crop.name=鉄作物\n§o§9@UtilityCraft
-tile.utilitycraft:leather_crop.name=レザークロップ\n§o§9@UtilityCraft
-tile.utilitycraft:prismarine_crystal_crop.name=プリズマリンクリスタルクロップ\n§o§9@UtilityCraft
-tile.utilitycraft:prismarine_shards_crop.name=プリズマリンの破片の作物\n§o§9@UtilityCraft
-tile.utilitycraft:water_crop.name=水作物\n§o§9@UtilityCraft
-tile.utilitycraft:wool_crop.name=羊毛作物\n§o§9@UtilityCraft
 
 -- Tier 2 =## ティア (作物) 2
-tile.utilitycraft:ghast_crop.name=ガストクロップ\n§o§9@UtilityCraft
-tile.utilitycraft:glowstone_crop.name=グロウストーン作物\n§o§9@UtilityCraft
-tile.utilitycraft:gold_crop.name=ゴールドクロップ\n§o§9@UtilityCraft
-tile.utilitycraft:honey_crop.name=ハニークロップ\n§o§9@UtilityCraft
-tile.utilitycraft:lapis_crop.name=ラピスクロップ\n§o§9@UtilityCraft
-tile.utilitycraft:lava_crop.name=溶岩作物\n§o§9@UtilityCraft
-tile.utilitycraft:quartz_crop.name=水晶作物\n§o§9@UtilityCraft
-tile.utilitycraft:redstone_crop.name=レッドストーン作物\n§o§9@UtilityCraft
-tile.utilitycraft:slime_crop.name=スライムクロップ\n§o§9@UtilityCraft
 
 -- Tier 3 =## ティア (作物) 3
-tile.utilitycraft:amethyst_crop.name=アメジストクロップ\n§o§9@UtilityCraft
-tile.utilitycraft:blaze_crop.name=ブレイズクロップ\n§o§9@UtilityCraft
-tile.utilitycraft:diamond_crop.name=ダイヤモンドクロップ\n§o§9@UtilityCraft
-tile.utilitycraft:emerald_crop.name=エメラルドクロップ\n§o§9@UtilityCraft
-tile.utilitycraft:enderpearl_crop.name=エンダーパールクロップ\n§o§9@UtilityCraft
-tile.utilitycraft:obsidian_crop.name=黒曜石作物\n§o§9@UtilityCraft
 
 -- Tier 4 =## ティア (作物) 4
-tile.utilitycraft:netherite_crop.name=ネザライト作物\n§o§9@UtilityCraft
-tile.utilitycraft:netherstar_crop.name=ネザースター作物\n§o§9@UtilityCraft
-tile.utilitycraft:shulker_crop.name=シュルカークロップ\n§o§9@UtilityCraft
-tile.utilitycraft:totem_crop.name=トーテム作物\n§o§9@UtilityCraft
-tile.utilitycraft:wither_crop.name=ウィザークロップ\n§o§9@UtilityCraft
 ## -------- Close Group <<<<<<<< ##
 
 - Soils =## 土壌

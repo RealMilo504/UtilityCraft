@@ -1,7 +1,4 @@
-import { bountifulPlantsData, cropData } from "./bountifulCrops.generated.js"
-
-/** Crop metadata derived from the canonical Bountiful Crops catalog. */
-export const data = cropData
+import { bountifulPlantsData } from "./bountifulCrops.generated.js"
 
 /**
  * Plant registry for UtilityCraft and Bountiful Crops.

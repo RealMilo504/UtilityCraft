@@ -1,3 +1,10 @@
+# UtilityCraft v3.5.4
+
+## COMPATIBILITY
+- Removed the 32 obsolete `*_crop` compatibility blocks and their runtime migration component, leaving only the functional `*_seeds` crop blocks.
+
+---
+
 # UtilityCraft v3.5.3
 
 This update expands Bonsai farming and machine recipes, improves item documentation, and strengthens release tooling and stability.
