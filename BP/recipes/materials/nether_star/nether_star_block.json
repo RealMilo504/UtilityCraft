@@ -1,0 +1,23 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:nether_star_block"
+    },
+    "tags": ["crafting_table"],
+    "ingredients": [
+      {
+        "item": "minecraft:nether_star",
+        "count": 9
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:nether_star_block"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:nether_star"
+      }
+    ]
+  }
+}

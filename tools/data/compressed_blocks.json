@@ -775,6 +775,75 @@
           "Bloque de blaze cu?druplemente comprimido"
         ]
       }
+    },
+    {
+      "key": "nether_star_block",
+      "source_item": "utilitycraft:nether_star_block",
+      "base_texture": "tools/input_textures/nether_star_block.png",
+      "texture_stem": "nether_star",
+      "type": "amethyst",
+      "names": {
+        "en_US": [
+          "Compressed Nether Star Block",
+          "Double Compressed Nether Star Block",
+          "Triple Compressed Nether Star Block",
+          "Quadruple Compressed Nether Star Block"
+        ],
+        "de_DE": [
+          "Komprimierter Nethersternblock",
+          "Doppelt komprimierter Nethersternblock",
+          "Dreifach komprimierter Nethersternblock",
+          "Vierfach komprimierter Nethersternblock"
+        ],
+        "es_ES": [
+          "Bloque de estrella del Nether comprimido",
+          "Bloque de estrella del Nether doblemente comprimido",
+          "Bloque de estrella del Nether triplemente comprimido",
+          "Bloque de estrella del Nether cuádruplemente comprimido"
+        ],
+        "es_MX": [
+          "Bloque de estrella del Nether comprimido",
+          "Bloque de estrella del Nether doblemente comprimido",
+          "Bloque de estrella del Nether triplemente comprimido",
+          "Bloque de estrella del Nether cuádruplemente comprimido"
+        ],
+        "fr_FR": [
+          "Bloc d'étoiles du Nether compressé",
+          "Bloc d'étoiles du Nether double compressé",
+          "Bloc d'étoiles du Nether triple compressé",
+          "Bloc d'étoiles du Nether quadruple compressé"
+        ],
+        "ja_JP": [
+          "圧縮ネザースターブロック",
+          "二重圧縮ネザースターブロック",
+          "三重圧縮ネザースターブロック",
+          "4重圧縮ネザースターブロック"
+        ],
+        "pt_BR": [
+          "Bloco de Estrela do Nether Comprimido",
+          "Bloco de Estrela do Nether Duplamente Comprimido",
+          "Bloco de Estrela do Nether Triplamente Comprimido",
+          "Bloco de Estrela do Nether Quadruplamente Comprimido"
+        ],
+        "pt_PT": [
+          "Bloco de Estrela do Nether Comprimido",
+          "Bloco de Estrela do Nether Duplamente Comprimido",
+          "Bloco de Estrela do Nether Triplamente Comprimido",
+          "Bloco de Estrela do Nether Quadruplicadamente Comprimido"
+        ],
+        "ru_RU": [
+          "Сжатый блок звёзд Незера",
+          "Блок звёзд Незера с двойным сжатием",
+          "Тройной сжатый блок звёзд Незера",
+          "Четырехкратный сжатый блок звёзд Незера"
+        ],
+        "zh_CN": [
+          "压缩下界之星块",
+          "双重压缩下界之星块",
+          "三重压缩下界之星块",
+          "四重压缩下界之星块"
+        ]
+      }
     }
   ]
 }

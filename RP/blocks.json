@@ -156,6 +156,10 @@
 		"sound": "stone",
 		"textures": "utilitycraft_silicon_block"
 	},
+	"utilitycraft:nether_star_block": {
+		"sound": "amethyst_block",
+		"textures": "utilitycraft_nether_star_block"
+	},
 	"utilitycraft:waycenter": {
 		"sound": "stone"
 	},
@@ -1097,6 +1101,18 @@
 	},
 	"utilitycraft:compressed_blaze_block_4": {
 		"sound": "metal"
+	},
+	"utilitycraft:compressed_nether_star_block": {
+		"sound": "amethyst_block"
+	},
+	"utilitycraft:compressed_nether_star_block_2": {
+		"sound": "amethyst_block"
+	},
+	"utilitycraft:compressed_nether_star_block_3": {
+		"sound": "amethyst_block"
+	},
+	"utilitycraft:compressed_nether_star_block_4": {
+		"sound": "amethyst_block"
 	},
 // END GENERATED COMPRESSED BLOCK SOUNDS
 // Elevators

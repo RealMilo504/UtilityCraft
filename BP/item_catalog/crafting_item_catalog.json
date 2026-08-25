@@ -231,6 +231,7 @@
                             "utilitycraft:steel_block",
                             "utilitycraft:raw_steel_block",
                             "utilitycraft:silicon_block",
+                            "utilitycraft:nether_star_block",
                             "utilitycraft:blaze_block",
                             "utilitycraft:flint_block"
                         ]
@@ -523,7 +524,11 @@
                             "utilitycraft:compressed_blaze_block",
                             "utilitycraft:compressed_blaze_block_2",
                             "utilitycraft:compressed_blaze_block_3",
-                            "utilitycraft:compressed_blaze_block_4"
+                            "utilitycraft:compressed_blaze_block_4",
+                            "utilitycraft:compressed_nether_star_block",
+                            "utilitycraft:compressed_nether_star_block_2",
+                            "utilitycraft:compressed_nether_star_block_3",
+                            "utilitycraft:compressed_nether_star_block_4"
                         ]
                     },
                     {

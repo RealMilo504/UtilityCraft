@@ -631,6 +631,9 @@
 		"utilitycraft_silicon_block": {
 			"textures": "textures/blocks/materials/silicon_block"
 		},
+		"utilitycraft_nether_star_block": {
+			"textures": "textures/blocks/materials/nether_star_block"
+		},
 		"utilitycraft_bonsai": {
 			"textures": "textures/blocks/bonsais/bonsai"
 		},
@@ -3090,6 +3093,18 @@
 		},
 		"utilitycraft_compressed_blaze_block_4": {
 			"textures": "textures/blocks/compressed/blaze_4"
+		},
+		"utilitycraft_compressed_nether_star_block": {
+			"textures": "textures/blocks/compressed/nether_star"
+		},
+		"utilitycraft_compressed_nether_star_block_2": {
+			"textures": "textures/blocks/compressed/nether_star_2"
+		},
+		"utilitycraft_compressed_nether_star_block_3": {
+			"textures": "textures/blocks/compressed/nether_star_3"
+		},
+		"utilitycraft_compressed_nether_star_block_4": {
+			"textures": "textures/blocks/compressed/nether_star_4"
 		}
 	}
 }

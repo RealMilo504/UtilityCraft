@@ -1,3 +1,13 @@
+# UtilityCraft v3.5.5
+
+This update adds reversible Nether Star storage and four increasingly compact tiers.
+
+## ADDED
+- Added the Nether Star Block, crafted from nine Nether Stars and reversible back into them.
+- Added Compressed, Double Compressed, Triple Compressed and Quadruple Compressed Nether Star Blocks.
+
+---
+
 # UtilityCraft v3.5.4
 
 This update improves cross-addon machine-port compatibility, refreshes Simplified Chinese localization and removes obsolete Bountiful Crops compatibility blocks.
