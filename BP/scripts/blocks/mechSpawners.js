@@ -364,6 +364,18 @@ DoriosLib.registry.blockComponent('utilitycraft:mech_spawner', {
         const storedEssence = getStoredOrLegacyEssence(block)
         const typeIndex = syncTypeStatesFromEssence(block, storedEssence)
 
+        // Bottling a stored essence is the primary interaction and should not
+        // require sneaking. Sneaking remains reserved for swapping/removing it.
+        if (storedEssence && hand?.typeId === 'minecraft:glass_bottle') {
+            if (!consumeMainHandItem(player, hand.typeId, 1)) return
+
+            giveItemToPlayerOrDrop(player, new ItemStack(storedEssence, 1), block)
+            clearSpawnerEssence(block)
+
+            player.sendMessage('§aRecovered essence from Mechanical Spawner.')
+            return
+        }
+
         if (player.isSneaking) {
             if (!storedEssence) {
                 if (!hand) return
@@ -380,16 +392,6 @@ DoriosLib.registry.blockComponent('utilitycraft:mech_spawner', {
 
             if (!hand) {
                 sendLocalizedMessage(player, MESSAGE_USE_BOTTLE_KEY)
-                return
-            }
-
-            if (hand.typeId === 'minecraft:glass_bottle') {
-                if (!consumeMainHandItem(player, hand.typeId, 1)) return
-
-                giveItemToPlayerOrDrop(player, new ItemStack(storedEssence, 1), block)
-                clearSpawnerEssence(block)
-
-                player.sendMessage('§aRecovered essence from Mechanical Spawner.')
                 return
             }
 

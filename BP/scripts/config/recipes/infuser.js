@@ -192,7 +192,7 @@ const infuserRecipesRegister = {
     output: "minecraft:calcite",
     required: 2,
   },
-  "minecraft:vine|minecraft:rooted_dirt": { // Moss Block
+  "minecraft:vine|minecraft:dirt_with_roots": { // Moss Block
     output: "minecraft:moss_block",
     required: 4,
   },
@@ -254,7 +254,7 @@ const infuserRecipesRegister = {
     required: 1,
   },
   "minecraft:mangrove_roots|minecraft:dirt": { // Rooted Dirt
-    output: "minecraft:rooted_dirt",
+    output: "minecraft:dirt_with_roots",
     required: 1,
   },
   // ---------- Integrated Storage ----------
