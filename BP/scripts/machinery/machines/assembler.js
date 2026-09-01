@@ -1,5 +1,6 @@
 import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, registerIOInterface } from "DoriosCore/index.js"
+import { ItemStack } from "@minecraft/server";
 /**
  * Auto Assembler Machine Component
  * - Uses blueprints created by the Digitizer.
@@ -103,11 +104,12 @@ DoriosLib.registry.blockComponent('utilitycraft:assembler', {
             return;
         }
 
+        const resultStack = new ItemStack(resultItem);
         const available = outputSlot
             ? (outputSlot.typeId === resultItem
-                ? Math.max(0, 64 - outputSlot.amount)
+                ? Math.max(0, outputSlot.maxAmount - outputSlot.amount)
                 : 0)
-            : 64;
+            : resultStack.maxAmount;
 
         if (available < resultAmount) {
             machine.showWarning('Output Full');
