@@ -8,8 +8,9 @@ registerIOInterfaceForBlockTag("utilitycraft:io.furnator", {
         anyInputSlots: [3],
         anyOutputSlots: [],
         modes: [
-            { id: "disabled" },
-            { id: "fuel", inputSlots: [3] }
+            { id: "default" },
+            { id: "fuel", inputSlots: [3] },
+            { id: "disabled" }
         ]
     }
 });

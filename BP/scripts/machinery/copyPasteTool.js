@@ -6,21 +6,23 @@ import * as DoriosContainer from "../DoriosLib/containers/index.js";
 import {
   ensureItemIOConfig,
   getItemIODefinition,
+  getItemIODirectionMode,
 } from "../DoriosCore/interfaces/itemIO.js";
 import {
   FLUID_CONFIG_VERSION,
   ensureFluidIOConfig,
-  getFluidConfig,
   getFluidIODefinition,
+  getFluidIODirectionMode,
   setFluidConfig,
 } from "../DoriosCore/interfaces/fluidIO.js";
 import {
   GAS_CONFIG_VERSION,
   ensureGasIOConfig,
-  getGasConfig,
   getGasIODefinition,
+  getGasIODirectionMode,
   setGasConfig,
 } from "../DoriosCore/interfaces/gasIO.js";
+import { setDisabledIOFaces } from "../DoriosLib/containers/ioFaceState.js";
 import { OutputTracker } from "../DoriosCore/machinery/outputTracker.js";
 import {
   DIRECTIONS,
@@ -187,32 +189,19 @@ function hasTypeFamily(entity, family) {
   }
 }
 
-/** @param {ReadonlyArray<number>} left @param {ReadonlyArray<number>} right */
-function arraysEqual(left, right) {
-  return left.length === right.length && left.every((value, index) => value === right[index]);
-}
-
 /**
- * Converts a persisted Complex IO document to semantic mode ids. Slot/tank
- * indices stay owned by the registered definition rather than the tool.
+ * Captures semantic mode ids, including the distinct default and disabled
+ * states. Slot/tank indices stay owned by the registered definition.
  *
- * @param {object} config
- * @param {object} definition
- * @param {string} inputModeKey
- * @param {string} outputModeKey
+ * @param {import("@minecraft/server").Entity} entity
+ * @param {string} blockTypeId
+ * @param {(entity:import("@minecraft/server").Entity,blockTypeId:string,direction:string)=>string} getDirectionMode
  */
-function captureIOModes(config, definition, inputModeKey, outputModeKey) {
-  if (config?.type !== "complex" || !Array.isArray(definition?.modes)) return undefined;
+function captureIOModes(entity, blockTypeId, getDirectionMode) {
   const modes = {};
 
   for (const direction of DIRECTIONS) {
-    const input = config.inputConfig?.[direction] ?? [];
-    const output = config.outputConfig?.[direction] ?? [];
-    const mode = definition.modes.find((entry) => (
-      arraysEqual(entry?.[inputModeKey] ?? [], input)
-      && arraysEqual(entry?.[outputModeKey] ?? [], output)
-    ));
-    modes[direction] = mode?.id ?? DISABLED_MODE;
+    modes[direction] = getDirectionMode(entity, blockTypeId, direction);
   }
   return { version: 1, modes };
 }
@@ -317,12 +306,14 @@ function buildIOConfig(
 
   const inputConfig = {};
   const outputConfig = {};
+  const disabled = [];
   for (const sourceDirection of DIRECTIONS) {
     const modeId = copied.modes[sourceDirection];
     const mode = definition.modes.find((entry) => entry?.id === modeId);
     if (!mode) continue;
 
     const targetDirection = rotateDirection(sourceRelative, targetBlock, sourceDirection);
+    if (modeId === DISABLED_MODE) disabled.push(targetDirection);
     const inputs = mode[inputModeKey] ?? [];
     const outputs = mode[outputModeKey] ?? [];
     if (inputs.length > 0) inputConfig[targetDirection] = [...inputs];
@@ -330,12 +321,15 @@ function buildIOConfig(
   }
 
   return {
-    version,
-    type: "complex",
-    [anyInputKey]: [...(definition[anyInputKey] ?? [])],
-    [anyOutputKey]: [...(definition[anyOutputKey] ?? [])],
-    inputConfig,
-    outputConfig,
+    config: {
+      version,
+      type: "complex",
+      [anyInputKey]: [...(definition[anyInputKey] ?? [])],
+      [anyOutputKey]: [...(definition[anyOutputKey] ?? [])],
+      inputConfig,
+      outputConfig,
+    },
+    disabled,
   };
 }
 
@@ -352,12 +346,7 @@ function captureBlockSnapshot(block, settings) {
     const definition = getItemIODefinition(block.typeId);
     if (definition) {
       ensureItemIOConfig(entity, block.typeId);
-      const copied = captureIOModes(
-        DoriosContainer.getConfig(entity),
-        definition,
-        "inputSlots",
-        "outputSlots",
-      );
+      const copied = captureIOModes(entity, block.typeId, getItemIODirectionMode);
       if (copied) sections.itemIO = copied;
     }
   }
@@ -366,7 +355,7 @@ function captureBlockSnapshot(block, settings) {
     const definition = getFluidIODefinition(block.typeId);
     if (definition) {
       ensureFluidIOConfig(entity, block.typeId);
-      const copied = captureIOModes(getFluidConfig(entity), definition, "inputIndices", "outputIndices");
+      const copied = captureIOModes(entity, block.typeId, getFluidIODirectionMode);
       if (copied) sections.fluidIO = copied;
     }
   }
@@ -375,7 +364,7 @@ function captureBlockSnapshot(block, settings) {
     const definition = getGasIODefinition(block.typeId);
     if (definition) {
       ensureGasIOConfig(entity, block.typeId);
-      const copied = captureIOModes(getGasConfig(entity), definition, "inputIndices", "outputIndices");
+      const copied = captureIOModes(entity, block.typeId, getGasIODirectionMode);
       if (copied) sections.gasIO = copied;
     }
   }
@@ -461,7 +450,7 @@ function pasteBlockSnapshot(block, snapshot, settings) {
     attempt("item IO", () => {
       const definition = getItemIODefinition(block.typeId);
       if (!definition) return false;
-      const config = buildIOConfig(
+      const built = buildIOConfig(
         sections.itemIO,
         definition,
         sourceRelative,
@@ -472,7 +461,9 @@ function pasteBlockSnapshot(block, snapshot, settings) {
         "anyOutputSlots",
         DoriosContainer.ITEM_CONFIG_VERSION,
       );
-      return config ? DoriosContainer.setConfig(entity, config) : false;
+      if (!built || !DoriosContainer.setConfig(entity, built.config)) return false;
+      setDisabledIOFaces(entity, "items", built.disabled);
+      return true;
     });
   }
 
@@ -480,7 +471,7 @@ function pasteBlockSnapshot(block, snapshot, settings) {
     attempt("fluid IO", () => {
       const definition = getFluidIODefinition(block.typeId);
       if (!definition) return false;
-      const config = buildIOConfig(
+      const built = buildIOConfig(
         sections.fluidIO,
         definition,
         sourceRelative,
@@ -491,7 +482,9 @@ function pasteBlockSnapshot(block, snapshot, settings) {
         "anyOutputIndices",
         FLUID_CONFIG_VERSION,
       );
-      return config ? setFluidConfig(entity, config) : false;
+      if (!built || !setFluidConfig(entity, built.config)) return false;
+      setDisabledIOFaces(entity, "liquids", built.disabled);
+      return true;
     });
   }
 
@@ -499,7 +492,7 @@ function pasteBlockSnapshot(block, snapshot, settings) {
     attempt("gas IO", () => {
       const definition = getGasIODefinition(block.typeId);
       if (!definition) return false;
-      const config = buildIOConfig(
+      const built = buildIOConfig(
         sections.gasIO,
         definition,
         sourceRelative,
@@ -510,7 +503,9 @@ function pasteBlockSnapshot(block, snapshot, settings) {
         "anyOutputIndices",
         GAS_CONFIG_VERSION,
       );
-      return config ? setGasConfig(entity, config) : false;
+      if (!built || !setGasConfig(entity, built.config)) return false;
+      setDisabledIOFaces(entity, "gases", built.disabled);
+      return true;
     });
   }
 

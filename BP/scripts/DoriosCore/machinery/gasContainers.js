@@ -106,7 +106,7 @@ export function resolveGasContainerAt(dimension, location) {
  * their real indices; Complex containers use the requested face or fallback.
  *
  * @param {GasContainerTarget} target
- * @param {{face?:GasFace}} [options]
+ * @param {{face?:GasFace,automatic?:boolean}} [options]
  */
 export function getGasInputIndices(target, options = {}) {
   const resolved = resolveGasContainer(target);
@@ -129,7 +129,7 @@ export function getGasInputIndices(target, options = {}) {
  * Returns gas indices that allow extraction.
  *
  * @param {GasContainerTarget} target
- * @param {{face?:GasFace}} [options]
+ * @param {{face?:GasFace,automatic?:boolean}} [options]
  */
 export function getGasOutputIndices(target, options = {}) {
   const resolved = resolveGasContainer(target);

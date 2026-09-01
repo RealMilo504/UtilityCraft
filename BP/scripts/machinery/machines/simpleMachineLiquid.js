@@ -10,8 +10,9 @@ registerIOInterface("utilitycraft:magmatic_chamber", {
         anyInputSlots: [INPUTSLOT],
         anyOutputSlots: [],
         modes: [
-            { id: "disabled" },
-            { id: "input_1", inputSlots: [INPUTSLOT] }
+            { id: "default" },
+            { id: "input_1", inputSlots: [INPUTSLOT] },
+            { id: "disabled" }
         ]
     },
     liquids: {
@@ -19,8 +20,9 @@ registerIOInterface("utilitycraft:magmatic_chamber", {
         anyInputIndices: [],
         anyOutputIndices: [0],
         modes: [
-            { id: "disabled" },
-            { id: "output_1", outputIndices: [0] }
+            { id: "default" },
+            { id: "output_1", outputIndices: [0] },
+            { id: "disabled" }
         ]
     }
 });

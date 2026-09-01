@@ -8,8 +8,9 @@ registerIOInterface("utilitycraft:induction_anvil", {
         anyInputSlots: [INPUTSLOT],
         anyOutputSlots: [],
         modes: [
-            { id: "disabled" },
-            { id: "input_1", inputSlots: [INPUTSLOT] }
+            { id: "default" },
+            { id: "input_1", inputSlots: [INPUTSLOT] },
+            { id: "disabled" }
         ]
     }
 })

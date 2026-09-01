@@ -21,10 +21,11 @@ registerIOInterface("utilitycraft:assembler", {
         anyInputSlots: INPUT_SLOTS,
         anyOutputSlots: [OUTPUT_SLOT],
         modes: [
-            { id: "disabled" },
+            { id: "default" },
             { id: "input_1", inputSlots: INPUT_SLOTS },
             { id: "output_1", outputSlots: [OUTPUT_SLOT] },
             { id: "input_2", inputSlots: [BLUEPRINT_SLOT] },
+            { id: "disabled" },
         ],
     }
 });

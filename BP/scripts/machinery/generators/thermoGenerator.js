@@ -22,8 +22,9 @@ registerIOInterfaceForBlockTag("utilitycraft:io.thermo_generator", {
         anyInputIndices: [0],
         anyOutputIndices: [],
         modes: [
-            { id: "disabled" },
-            { id: "input_2", inputIndices: [0] }
+            { id: "default" },
+            { id: "input_2", inputIndices: [0] },
+            { id: "disabled" }
         ]
     }
 });

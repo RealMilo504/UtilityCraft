@@ -342,9 +342,10 @@ registerIOInterface(BLOCK_ID, {
         anyInputIndices: [0],
         anyOutputIndices: [0],
         modes: [
-            { id: "disabled" },
+            { id: "default" },
             { id: "input_1", inputIndices: [0] },
             { id: "output_1", outputIndices: [0] },
+            { id: "disabled" },
         ],
     },
 });

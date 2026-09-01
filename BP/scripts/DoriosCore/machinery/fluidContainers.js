@@ -106,7 +106,7 @@ export function resolveFluidContainerAt(dimension, location) {
  * their real indices; Complex containers use the requested face or fallback.
  *
  * @param {FluidContainerTarget} target
- * @param {{face?:FluidFace}} [options]
+ * @param {{face?:FluidFace,automatic?:boolean}} [options]
  */
 export function getFluidInputIndices(target, options = {}) {
   const resolved = resolveFluidContainer(target);
@@ -129,7 +129,7 @@ export function getFluidInputIndices(target, options = {}) {
  * Returns fluid indices that allow extraction.
  *
  * @param {FluidContainerTarget} target
- * @param {{face?:FluidFace}} [options]
+ * @param {{face?:FluidFace,automatic?:boolean}} [options]
  */
 export function getFluidOutputIndices(target, options = {}) {
   const resolved = resolveFluidContainer(target);

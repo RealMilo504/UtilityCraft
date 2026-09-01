@@ -10,6 +10,7 @@ registerIOInterfaceForBlockTag("utilitycraft:io.magmator", {
         anyInputSlots: [],
         anyOutputSlots: [],
         modes: [
+            { id: "default" },
             { id: "disabled" }
         ]
     },
@@ -18,8 +19,9 @@ registerIOInterfaceForBlockTag("utilitycraft:io.magmator", {
         anyInputIndices: [0],
         anyOutputIndices: [],
         modes: [
-            { id: "disabled" },
-            { id: "fuel", inputIndices: [0] }
+            { id: "default" },
+            { id: "fuel", inputIndices: [0] },
+            { id: "disabled" }
         ]
     }
 });

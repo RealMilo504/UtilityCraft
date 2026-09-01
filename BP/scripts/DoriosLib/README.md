@@ -282,13 +282,18 @@ They belong to the interface registry that translates a visual choice such as
 `input_1` into the input/output slot arrays persisted for that face.
 
 Fallback lists are explicit security boundaries declared by the interface
-registration. A call without `face` uses `anyInputSlots` or `anyOutputSlots`;
-DoriosLib never derives them from the currently configured faces.
+registration. A call without `face`, or through a face in passive `default`
+mode, uses `anyInputSlots` or `anyOutputSlots`. A `disabled` face exposes no
+slots. DoriosLib never derives fallback lists from configured faces.
 
 ```js
-const automaticInputs = DoriosLib.container.getInputSlots(entity);
-const northInputs = DoriosLib.container.getInputSlots(entity, {
+const fallbackInputs = DoriosLib.container.getInputSlots(entity);
+const passiveNorthInputs = DoriosLib.container.getInputSlots(entity, {
   face: "north",
+});
+const activeNorthInputs = DoriosLib.container.getInputSlots(entity, {
+  face: "north",
+  automatic: true,
 });
 ```
 

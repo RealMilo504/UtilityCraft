@@ -18,8 +18,9 @@ registerIOInterface("utilitycraft:block_breaker", {
         anyInputSlots: [PICKAXE_SLOT],
         anyOutputSlots: [],
         modes: [
-            { id: "disabled" },
-            { id: "input_2", inputSlots: [PICKAXE_SLOT] }
+            { id: "default" },
+            { id: "input_2", inputSlots: [PICKAXE_SLOT] },
+            { id: "disabled" }
         ]
     }
 });
