@@ -41,5 +41,6 @@ The outline shading follows the same pattern for every slot:
 | Fuel | `fuel_slot.png` | `#EB7114` | `§v` |
 | Input + Output | `both_slot.png` | `#5555FF` + `#FF5555` | `§9` + `§c` |
 
-`disabled_slot.png` is a 6x6 hazard outline with a 2px nineslice cut so
-the black-yellow-black-black-yellow-black pattern keeps its proportions.
+`disabled_slot.png` is a static 16x16 outline. Its one-pixel border alternates
+dark and hazard-yellow pixels continuously around a transparent center; it must
+not have nineslice metadata or be stretched.
