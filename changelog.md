@@ -14,7 +14,7 @@ This update adds reversible Nether Star storage and four increasingly compact ti
 ## FIXED
 - Fixed the Assembler assuming every crafted output could stack to 64, so items with smaller maximum stack sizes now craft correctly.
 - Fixed the passive default IO state rendering without a visible slot outline in machine configuration screens.
-- Added Default and Disabled to every machine IO mode label and replaced the stretched disabled outline with an aligned static 16x16 hazard border.
+- Added Default and Disabled to every machine IO mode label and replaced the stretched disabled outline with an aligned static 18x18 hazard border.
 
 ---
 
