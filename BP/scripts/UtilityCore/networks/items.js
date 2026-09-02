@@ -558,7 +558,7 @@ function getSourceAccess(runtime, dimension) {
     runtime.sourceAccess = undefined;
     return undefined;
   }
-  const slots = DoriosContainer.getOutputSlots(resolved, { face: source.face });
+  const slots = DoriosContainer.getOutputSlots(resolved, { face: source.face, automatic: true });
   runtime.sourceAccess = { resolved, slots, revision };
   return runtime.sourceAccess;
 }
@@ -585,7 +585,7 @@ function getTargetAccess(runtime, dimension, endpoint) {
     runtime.targetAccesses.delete(key);
     return undefined;
   }
-  const slots = DoriosContainer.getInputSlots(resolved, { face: endpoint.face });
+  const slots = DoriosContainer.getInputSlots(resolved, { face: endpoint.face, automatic: true });
   const access = { resolved, slots, revision };
   runtime.targetAccesses.set(key, access);
   return access;

@@ -2,11 +2,14 @@ import * as DoriosLib from "DoriosLib/index.js";
 import { ModalFormData } from "@minecraft/server-ui";
 import { Rotation, Generator } from "DoriosCore/index.js"
 import { updateNetworksAtMany } from "../UtilityCore/networks/index.js";
+import { openMultiEndpointMenu } from "../UtilityCore/networks/multiEndpoints.js";
 import {
     getMultiTubeFaceDisabledResources,
     getPipeResourceTranslationKey,
     getProtectedEndpointDirection,
     getSupportedPipeResources,
+    isImporterEndpoint,
+    isMultiEndpoint,
     isMultiTube,
     normalizePipeDirection,
     setMultiTubeFaceDisabledResources,
@@ -26,6 +29,10 @@ DoriosLib.registry.itemComponent("utilitycraft:wrench", {
     onUseOn(e) {
         const { source, block, blockFace } = e;
         if (block.hasTag("dorios:isTube")) {
+            if (isMultiEndpoint(block)) {
+                openMultiEndpointMenu(block, source, isImporterEndpoint(block));
+                return;
+            }
             if (isMultiTube(block)) {
                 openMultiTubeFaceMenu(block, blockFace, source);
                 return;

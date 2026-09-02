@@ -446,7 +446,7 @@ function getSourceAccess(runtime, dimension) {
     runtime.sourceAccess = undefined;
     return undefined;
   }
-  const indices = DoriosGas.getGasOutputIndices(resolved, { face: source.face });
+  const indices = DoriosGas.getGasOutputIndices(resolved, { face: source.face, automatic: true });
   const revision = DoriosGas.getGasContainerRevision(resolved);
   runtime.sourceAccess = { resolved, indices, revision };
   return runtime.sourceAccess;
@@ -474,7 +474,7 @@ function getTargetAccess(runtime, dimension, endpoint) {
     runtime.targetAccesses.delete(key);
     return undefined;
   }
-  const indices = DoriosGas.getGasInputIndices(resolved, { face: endpoint.face });
+  const indices = DoriosGas.getGasInputIndices(resolved, { face: endpoint.face, automatic: true });
   const access = {
     resolved,
     indices,

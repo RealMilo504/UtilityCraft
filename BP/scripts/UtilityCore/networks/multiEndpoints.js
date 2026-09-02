@@ -53,7 +53,7 @@ const CONFIGURABLE_RESOURCES = Object.freeze([
 ]);
 
 /** @param {Block} block @param {Player} player @param {boolean} importer */
-function openMultiEndpointMenu(block, player, importer) {
+export function openMultiEndpointMenu(block, player, importer) {
   const resources = CONFIGURABLE_RESOURCES.filter(({ tag }) => block.hasTag(tag));
   if (resources.length === 0) return;
   if (resources.length === 1) {
