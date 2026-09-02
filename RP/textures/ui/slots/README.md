@@ -31,8 +31,8 @@ The outline shading follows the same pattern for every slot:
 
 | Type | Texture | Hex | Minecraft Code |
 |---|---|---:|---:|
-| Default / Transparent | `default_slot.png` | transparent | none |
-| None / Neutral | `none_slot.png`, `normal_slot.png` | `#555555` | `§8` |
+| Transparent grid fallback | `transparent_slot.png` | transparent | none |
+| Default / Neutral | `default_slot.png`, `none_slot.png`, `normal_slot.png` | `#555555` | `§8` |
 | Disabled | `disabled_slot.png` | black + hazard yellow | none |
 | Input | `input_slot.png` | `#5555FF` | `§9` |
 | Input Extra | `input_extra_slot.png` | `#55FFFF` | `§b` |

@@ -9,9 +9,11 @@ This update adds reversible Nether Star storage and four increasingly compact ti
 ## CHANGED
 - Reworked item, liquid and gas machine IO so the default face is passive: it does not pull or push automatically, but accepts insertion through `anyInput` and allows extraction through `anyOutput`.
 - Moved the fully blocking `disabled` mode to the end of every machine IO cycle and gave it a distinct black-and-yellow hazard outline.
+- Fluid and gas extractor whitelists now act as explicit recovery overrides, allowing selected types to be drained from registered input tanks while still respecting disabled faces.
 
 ## FIXED
 - Fixed the Assembler assuming every crafted output could stack to 64, so items with smaller maximum stack sizes now craft correctly.
+- Fixed the passive default IO state rendering without a visible slot outline in machine configuration screens.
 
 ---
 
