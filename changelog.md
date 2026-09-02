@@ -11,6 +11,7 @@ This update adds reversible Nether Star storage and four increasingly compact ti
 - Reworked Fluid and Gas Tank recipes to use one glass block and their corresponding transport pipes, with upgrades now requiring only one tank from the previous tier.
 - Reworked item, liquid and gas machine IO so the default face is passive: it does not pull or push automatically, but accepts insertion through `anyInput` and allows extraction through `anyOutput`.
 - Moved the fully blocking `disabled` mode to the end of every machine IO cycle and gave it a distinct black-and-yellow hazard outline.
+- Added explicit `Default` and `Disabled` choices to Link Node IO, with new and unconfigured nodes using the machine's independent `anyInput` and `anyOutput` declarations.
 - Fluid and gas extractor whitelists now act as explicit recovery overrides, allowing selected types to be drained from registered input tanks while still respecting disabled faces.
 
 ## FIXED
