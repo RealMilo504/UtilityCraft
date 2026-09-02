@@ -8,22 +8,25 @@
 			"utilitycraft_workbench"
 		],
 		"key": {
-			"S": {
-				"item": "utilitycraft:ultimate_chip"
-			},
 			"R": {
 				"item": "utilitycraft:netherite_dust"
 			},
-			"G": {
-				"item": "minecraft:glass"
+			"P": {
+				"item": "utilitycraft:fluid_pipe"
+			},
+			"C": {
+				"item": "utilitycraft:ultimate_chip"
 			},
 			"T": {
 				"item": "utilitycraft:expert_fluid_tank"
+			},
+			"G": {
+				"item": "minecraft:glass"
 			}
 		},
 		"pattern": [
-			"RTR",
-			"TST",
+			"RCR",
+			"PTP",
 			"RGR"
 		],
 		"result": {
@@ -32,6 +35,12 @@
 		"unlock": [
 			{
 				"item": "utilitycraft:netherite_dust"
+			},
+			{
+				"item": "utilitycraft:fluid_pipe"
+			},
+			{
+				"item": "minecraft:glass"
 			},
 			{
 				"item": "utilitycraft:ultimate_chip"

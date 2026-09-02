@@ -5,16 +5,16 @@ This update adds reversible Nether Star storage and four increasingly compact ti
 ## ADDED
 - Added the Nether Star Block, crafted from nine Nether Stars and reversible back into them.
 - Added Compressed, Double Compressed, Triple Compressed and Quadruple Compressed Nether Star Blocks.
+- Added UtilityCraft Workbench recipes for Gas Pipes, Gas Extractors and all four Gas Tank tiers, plus crafting-table color conversions for gas transport blocks.
 
 ## CHANGED
+- Reworked Fluid and Gas Tank recipes to use one glass block and their corresponding transport pipes, with upgrades now requiring only one tank from the previous tier.
 - Reworked item, liquid and gas machine IO so the default face is passive: it does not pull or push automatically, but accepts insertion through `anyInput` and allows extraction through `anyOutput`.
 - Moved the fully blocking `disabled` mode to the end of every machine IO cycle and gave it a distinct black-and-yellow hazard outline.
 - Fluid and gas extractor whitelists now act as explicit recovery overrides, allowing selected types to be drained from registered input tanks while still respecting disabled faces.
 
 ## FIXED
 - Fixed the Assembler assuming every crafted output could stack to 64, so items with smaller maximum stack sizes now craft correctly.
-- Fixed the passive default IO state rendering without a visible slot outline in machine configuration screens.
-- Added Default and Disabled to every machine IO mode label and replaced the stretched disabled outline with an aligned static 18x18 hazard border.
 
 ---
 

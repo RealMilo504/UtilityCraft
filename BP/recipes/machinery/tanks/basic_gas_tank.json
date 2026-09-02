@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "utilitycraft:basic_fluid_tank"
+			"identifier": "utilitycraft:basic_gas_tank"
 		},
 		"tags": [
 			"utilitycraft_workbench"
@@ -12,7 +12,7 @@
 				"item": "utilitycraft:gold_plate"
 			},
 			"P": {
-				"item": "utilitycraft:fluid_pipe"
+				"item": "utilitycraft:gas_pipe"
 			},
 			"C": {
 				"item": "utilitycraft:basic_chip"
@@ -27,14 +27,14 @@
 			"RGR"
 		],
 		"result": {
-			"item": "utilitycraft:basic_fluid_tank"
+			"item": "utilitycraft:basic_gas_tank"
 		},
 		"unlock": [
 			{
 				"item": "utilitycraft:gold_plate"
 			},
 			{
-				"item": "utilitycraft:fluid_pipe"
+				"item": "utilitycraft:gas_pipe"
 			},
 			{
 				"item": "minecraft:glass"
