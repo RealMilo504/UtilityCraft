@@ -20,9 +20,10 @@ for (const blockTypeId of ["utilitycraft:crusher", "utilitycraft:electro_press",
             anyInputSlots: [INPUTSLOT],
             anyOutputSlots: [OUTPUTSLOT],
             modes: [
-                { id: "disabled" },
+                { id: "default" },
                 { id: "input_1", inputSlots: [INPUTSLOT] },
-                { id: "output_1", outputSlots: [OUTPUTSLOT] }
+                { id: "output_1", outputSlots: [OUTPUTSLOT] },
+                { id: "disabled" }
             ]
         }
     });

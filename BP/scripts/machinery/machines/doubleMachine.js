@@ -12,10 +12,11 @@ registerIOInterface("utilitycraft:infuser", {
         anyInputSlots: [INPUT_SLOT],
         anyOutputSlots: [OUTPUT_SLOT],
         modes: [
-            { id: "disabled" },
+            { id: "default" },
             { id: "input_1", inputSlots: [INPUT_SLOT] },
             { id: "output_1", outputSlots: [OUTPUT_SLOT] },
             { id: "input_2", inputSlots: [CATALYST_SLOT] },
+            { id: "disabled" },
         ],
     }
 });

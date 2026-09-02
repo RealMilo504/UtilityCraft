@@ -2,9 +2,14 @@
 
 import { system, world } from "@minecraft/server";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
+import {
+  isIOFaceDisabled,
+  setIOFaceDisabled,
+} from "../../DoriosLib/containers/ioFaceState.js";
 import { DIRECTIONS } from "../utils/directions.js";
 
-export const DEFAULT_ITEM_IO_MODE = "disabled";
+export const DEFAULT_ITEM_IO_MODE = "default";
+export const DISABLED_ITEM_IO_MODE = "disabled";
 
 /** @typedef {import("../../DoriosLib/containers/config.js").ComplexItemConfig} ComplexItemConfig */
 /** @typedef {import("../../DoriosLib/containers/config.js").ContainerFace} ContainerFace */
@@ -65,7 +70,10 @@ const publishedEntities = new Map();
 const EMPTY_DEFINITION = {
   anyInputSlots: [],
   anyOutputSlots: [],
-  modes: [{ id: DEFAULT_ITEM_IO_MODE, inputSlots: [], outputSlots: [] }],
+  modes: [
+    { id: DEFAULT_ITEM_IO_MODE, inputSlots: [], outputSlots: [] },
+    { id: DISABLED_ITEM_IO_MODE, inputSlots: [], outputSlots: [] },
+  ],
 };
 
 world.afterEvents.entityRemove.subscribe(({ removedEntityId }) => {
@@ -168,7 +176,7 @@ export function ensureItemIOConfig(entity, blockTypeId, options = {}) {
     current ??= DoriosContainer.getConfig(entity);
     if (current?.type !== "complex") return false;
 
-    const reconciled = reconcileConfig(current, definition);
+    const reconciled = reconcileConfig(current, definition, entity);
     if (!reconciled.changed) {
       const signature = getConfigSignature(reconciled.config);
       const published = publishedEntities.get(entity.id);
@@ -238,28 +246,27 @@ function getEntityContainerSize(entity) {
 /**
  * Resolves the visual mode represented by one absolute face.
  *
- * A custom or stale slot combination is displayed as disabled. Pressing that
+ * A custom or stale slot combination is displayed as default. Pressing that
  * button then clears both branches before applying the next registered mode.
  *
  * @param {import("@minecraft/server").Entity} entity Machine entity.
  * @param {string} blockTypeId Machine block identifier.
  * @param {string} direction Absolute direction.
- * @returns {string} Registered mode ID, or `disabled`.
+ * @returns {string} Registered mode ID, or `default`.
  */
 export function getItemIODirectionMode(entity, blockTypeId, direction) {
   if (!DIRECTIONS.includes(direction)) return DEFAULT_ITEM_IO_MODE;
 
   const definition = definitions.get(blockTypeId) ?? EMPTY_DEFINITION;
   const pending = pendingEntities.get(entity.id);
-  if (pending) return findModeForFace(pending.config, definition, direction)?.id ?? DEFAULT_ITEM_IO_MODE;
+  if (pending) return findModeForFace(entity, pending.config, definition, direction)?.id ?? DEFAULT_ITEM_IO_MODE;
 
   if (!ensureItemIOConfig(entity, blockTypeId)) return DEFAULT_ITEM_IO_MODE;
 
-  const mode = findModeForSlots(
-    definition,
-    DoriosContainer.getInputSlots(entity, { face: /** @type {ContainerFace} */ (direction) }),
-    DoriosContainer.getOutputSlots(entity, { face: /** @type {ContainerFace} */ (direction) }),
-  );
+  const config = DoriosContainer.getConfig(entity);
+  const mode = config?.type === "complex"
+    ? findModeForFace(entity, config, definition, direction)
+    : undefined;
   return mode?.id ?? DEFAULT_ITEM_IO_MODE;
 }
 
@@ -269,7 +276,7 @@ export function getItemIODirectionMode(entity, blockTypeId, direction) {
  * @param {import("@minecraft/server").Entity} entity Machine entity.
  * @param {string} blockTypeId Machine block identifier.
  * @param {string} direction Absolute direction.
- * @returns {string} Mode ID that will be applied, or `disabled` while pending.
+ * @returns {string} Mode ID that will be applied, or `default` while pending.
  */
 export function cycleItemIODirectionMode(entity, blockTypeId, direction) {
   if (!DIRECTIONS.includes(direction)) return DEFAULT_ITEM_IO_MODE;
@@ -283,20 +290,25 @@ export function cycleItemIODirectionMode(entity, blockTypeId, direction) {
     : DoriosContainer.getConfig(entity);
   if (config?.type !== "complex") return DEFAULT_ITEM_IO_MODE;
 
-  const currentMode = findModeForFace(config, definition, direction);
-  const disabledIndex = definition.modes.findIndex((mode) => mode.id === DEFAULT_ITEM_IO_MODE);
-  const currentIndex = currentMode ? definition.modes.indexOf(currentMode) : disabledIndex;
+  const currentMode = findModeForFace(entity, config, definition, direction);
+  const defaultIndex = definition.modes.findIndex((mode) => mode.id === DEFAULT_ITEM_IO_MODE);
+  const currentIndex = currentMode ? definition.modes.indexOf(currentMode) : defaultIndex;
   const nextMode = definition.modes[(currentIndex + 1) % definition.modes.length]
     ?? definition.modes[0]
     ?? EMPTY_DEFINITION.modes[0];
 
   delete config.inputConfig[/** @type {ContainerFace} */ (direction)];
   delete config.outputConfig[/** @type {ContainerFace} */ (direction)];
+  setIOFaceDisabled(entity, "items", direction, nextMode.id === DISABLED_ITEM_IO_MODE);
 
-  if (nextMode.inputSlots.length > 0) {
+  if (nextMode.id !== DEFAULT_ITEM_IO_MODE
+    && nextMode.id !== DISABLED_ITEM_IO_MODE
+    && nextMode.inputSlots.length > 0) {
     config.inputConfig[/** @type {ContainerFace} */ (direction)] = [...nextMode.inputSlots];
   }
-  if (nextMode.outputSlots.length > 0) {
+  if (nextMode.id !== DEFAULT_ITEM_IO_MODE
+    && nextMode.id !== DISABLED_ITEM_IO_MODE
+    && nextMode.outputSlots.length > 0) {
     config.outputConfig[/** @type {ContainerFace} */ (direction)] = [...nextMode.outputSlots];
   }
 
@@ -364,28 +376,39 @@ function normalizeModes(value) {
       ? []
       : normalizeSlots(raw.outputSlots, `items.modes[${index}].outputSlots`);
 
-    if (raw.id === DEFAULT_ITEM_IO_MODE && (inputSlots.length > 0 || outputSlots.length > 0)) {
-      throw new RangeError(`${DEFAULT_ITEM_IO_MODE} cannot expose input or output slots`);
+    const isPassiveMode = raw.id === DEFAULT_ITEM_IO_MODE || raw.id === DISABLED_ITEM_IO_MODE;
+    if (isPassiveMode && (inputSlots.length > 0 || outputSlots.length > 0)) {
+      throw new RangeError(`${raw.id} cannot expose input or output slots`);
     }
-    if (raw.id !== DEFAULT_ITEM_IO_MODE && inputSlots.length === 0 && outputSlots.length === 0) {
+    if (!isPassiveMode && inputSlots.length === 0 && outputSlots.length === 0) {
       throw new RangeError(`Item IO mode ${raw.id} must expose at least one slot`);
     }
 
     const signature = getModeSignature(inputSlots, outputSlots);
-    if (signatures.has(signature)) {
+    if (!isPassiveMode && signatures.has(signature)) {
       throw new RangeError(`Item IO mode ${raw.id} duplicates another mode's slot configuration`);
     }
 
     ids.add(raw.id);
-    signatures.add(signature);
+    if (!isPassiveMode) signatures.add(signature);
     modes.push({ id: raw.id, inputSlots, outputSlots });
   }
 
   if (!ids.has(DEFAULT_ITEM_IO_MODE)) {
-    modes.unshift({ id: DEFAULT_ITEM_IO_MODE, inputSlots: [], outputSlots: [] });
+    modes.push({ id: DEFAULT_ITEM_IO_MODE, inputSlots: [], outputSlots: [] });
+  }
+  if (!ids.has(DISABLED_ITEM_IO_MODE)) {
+    modes.push({ id: DISABLED_ITEM_IO_MODE, inputSlots: [], outputSlots: [] });
   }
 
-  return modes;
+  const operationalModes = modes.filter((mode) => (
+    mode.id !== DEFAULT_ITEM_IO_MODE && mode.id !== DISABLED_ITEM_IO_MODE
+  ));
+  return [
+    { id: DEFAULT_ITEM_IO_MODE, inputSlots: [], outputSlots: [] },
+    ...operationalModes,
+    { id: DISABLED_ITEM_IO_MODE, inputSlots: [], outputSlots: [] },
+  ];
 }
 
 /**
@@ -443,9 +466,10 @@ function createEmptyConfig(definition) {
 /**
  * @param {ComplexItemConfig} current
  * @param {ItemIODefinition} definition
+ * @param {import("@minecraft/server").Entity} entity
  * @returns {{changed:boolean, config:ComplexItemConfig}}
  */
-function reconcileConfig(current, definition) {
+function reconcileConfig(current, definition, entity) {
   const config = /** @type {ComplexItemConfig} */ ({
     version: DoriosContainer.ITEM_CONFIG_VERSION,
     type: "complex",
@@ -459,8 +483,8 @@ function reconcileConfig(current, definition) {
     || !arraysEqual(current.anyOutputSlots, definition.anyOutputSlots);
 
   for (const direction of DIRECTIONS) {
-    const mode = findModeForFace(current, definition, direction);
-    if (!mode || mode.id === DEFAULT_ITEM_IO_MODE) {
+    const mode = findModeForFace(entity, current, definition, direction);
+    if (!mode || mode.id === DEFAULT_ITEM_IO_MODE || mode.id === DISABLED_ITEM_IO_MODE) {
       if (current.inputConfig[/** @type {ContainerFace} */ (direction)]?.length
         || current.outputConfig[/** @type {ContainerFace} */ (direction)]?.length) {
         changed = true;
@@ -488,14 +512,23 @@ function reconcileConfig(current, definition) {
 }
 
 /**
+ * @param {import("@minecraft/server").Entity} entity
  * @param {ComplexItemConfig} config
  * @param {ItemIODefinition} definition
  * @param {string} direction
  * @returns {ItemIOMode|undefined}
  */
-function findModeForFace(config, definition, direction) {
+function findModeForFace(entity, config, definition, direction) {
+  if (isIOFaceDisabled(entity, "items", direction)) {
+    return definition.modes.find((mode) => mode.id === DISABLED_ITEM_IO_MODE);
+  }
+
   const inputSlots = config.inputConfig[/** @type {ContainerFace} */ (direction)] ?? [];
   const outputSlots = config.outputConfig[/** @type {ContainerFace} */ (direction)] ?? [];
+
+  if (inputSlots.length === 0 && outputSlots.length === 0) {
+    return definition.modes.find((mode) => mode.id === DEFAULT_ITEM_IO_MODE);
+  }
 
   return findModeForSlots(definition, inputSlots, outputSlots);
 }
@@ -508,7 +541,9 @@ function findModeForFace(config, definition, direction) {
  */
 function findModeForSlots(definition, inputSlots, outputSlots) {
   return definition.modes.find((mode) => (
-    arraysEqual(inputSlots, mode.inputSlots)
+    mode.id !== DEFAULT_ITEM_IO_MODE
+    && mode.id !== DISABLED_ITEM_IO_MODE
+    && arraysEqual(inputSlots, mode.inputSlots)
     && arraysEqual(outputSlots, mode.outputSlots)
   ));
 }

@@ -23,9 +23,10 @@ registerIOInterface("utilitycraft:autofisher", {
         anyInputSlots: [],
         anyOutputSlots: OUTPUT_SLOTS,
         modes: [
-            { id: "disabled" },
+            { id: "default" },
             { id: "output_1", outputSlots: OUTPUT_SLOTS },
-            { id: "input_2", inputSlots: [NET_SLOT] }
+            { id: "input_2", inputSlots: [NET_SLOT] },
+            { id: "disabled" }
         ]
     }
 });

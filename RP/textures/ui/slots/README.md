@@ -1,6 +1,6 @@
 # UtilityCraft Slot Color Registry
 
-Slot textures are 3x3 nineslice outlines with a transparent center.
+Most slot textures are 3x3 nineslice outlines with a transparent center.
 
 All slot JSON files use:
 
@@ -32,10 +32,14 @@ The outline shading follows the same pattern for every slot:
 | Type | Texture | Hex | Minecraft Code |
 |---|---|---:|---:|
 | Default / Transparent | `default_slot.png` | transparent | none |
-| None / Disabled | `none_slot.png`, `normal_slot.png` | `#555555` | `§8` |
+| None / Neutral | `none_slot.png`, `normal_slot.png` | `#555555` | `§8` |
+| Disabled | `disabled_slot.png` | black + hazard yellow | none |
 | Input | `input_slot.png` | `#5555FF` | `§9` |
 | Input Extra | `input_extra_slot.png` | `#55FFFF` | `§b` |
 | Output | `output_slot.png` | `#FF5555` | `§c` |
 | Upgrades | `upgrade_slot.png` | `#FF55FF` | `§d` |
 | Fuel | `fuel_slot.png` | `#EB7114` | `§v` |
 | Input + Output | `both_slot.png` | `#5555FF` + `#FF5555` | `§9` + `§c` |
+
+`disabled_slot.png` is a 6x6 hazard outline with a 2px nineslice cut so
+the black-yellow-black-black-yellow-black pattern keeps its proportions.

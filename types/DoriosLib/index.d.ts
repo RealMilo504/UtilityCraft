@@ -144,8 +144,10 @@ export interface TransferOptions {
 
 /** Options used to query the accessible slots of a container. */
 export interface SlotQueryOptions {
-  /** Absolute face. Omit it to use the explicit no-face fallback. */
+  /** Absolute face. Omit it to use the face-independent fallback. */
   face?: ContainerFace;
+  /** Ignore passive default faces and return only explicitly configured IO. */
+  automatic?: boolean;
 }
 
 /** Public classification of an entity's item IO state. */
@@ -537,10 +539,10 @@ export namespace container {
   /** Classifies the entity's item IO capability and current document. */
   function getStatus(entity: Entity): ContainerStatus;
 
-  /** Returns the ordered slots into which automation may insert. */
+  /** Returns configured input slots, or anyInputSlots for a passive default face. */
   function getInputSlots(target: ContainerTarget, options?: SlotQueryOptions): ReadonlyArray<number>;
 
-  /** Returns the ordered slots from which automation may extract. */
+  /** Returns configured output slots, or anyOutputSlots for a passive default face. */
   function getOutputSlots(target: ContainerTarget, options?: SlotQueryOptions): ReadonlyArray<number>;
 
   /** Inserts as much as possible and returns the inserted item count. */

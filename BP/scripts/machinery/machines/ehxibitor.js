@@ -8,8 +8,9 @@ registerIOInterface("utilitycraft:ehxibitor", {
         anyInputSlots: [DISPLAY_SLOT],
         anyOutputSlots: [],
         modes: [
-            { id: "disabled" },
-            { id: "input_1", inputSlots: [DISPLAY_SLOT] }
+            { id: "default" },
+            { id: "input_1", inputSlots: [DISPLAY_SLOT] },
+            { id: "disabled" }
         ]
     }
 })

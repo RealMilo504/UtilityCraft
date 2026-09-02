@@ -44,8 +44,9 @@ registerIOInterface("utilitycraft:harvester", {
         anyInputSlots: [],
         anyOutputSlots: OUTPUT_SLOTS,
         modes: [
-            { id: "disabled" },
-            { id: "output_1", outputSlots: OUTPUT_SLOTS }
+            { id: "default" },
+            { id: "output_1", outputSlots: OUTPUT_SLOTS },
+            { id: "disabled" }
         ]
     }
 });

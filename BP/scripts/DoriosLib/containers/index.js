@@ -15,6 +15,7 @@ import {
   resolveLinkNode,
 } from "../linkNodes/index.js";
 import { cloneItemConfig, normalizeItemConfig } from "./config.js";
+import { isIOFaceDisabled } from "./ioFaceState.js";
 import {
   CONTAINER_FAMILY,
   DIRECTIONS,
@@ -72,6 +73,7 @@ export {
 /**
  * @typedef {object} SlotQueryOptions
  * @property {ContainerFace} [face] Absolute face. Omit it to use the explicit `any*Slots` fallback.
+ * @property {boolean} [automatic=false] Require an explicitly configured face mode instead of passive default access.
  */
 
 /**
@@ -359,8 +361,8 @@ export function getStatus(entity) {
 /**
  * Returns the slots that accept automated insertion.
  *
- * For Complex configs, omitting `face` uses `anyInputSlots`. Supplying an
- * invalid or unavailable face fails closed and returns no slots.
+ * For Complex configs, omitting `face` uses `anyInputSlots`. A passive default
+ * face also uses that fallback; an explicitly disabled face returns no slots.
  *
  * The returned array is cache-owned and must not be modified.
  *
@@ -369,14 +371,14 @@ export function getStatus(entity) {
  * @returns {ReadonlyArray<number>}
  */
 export function getInputSlots(target, options = {}) {
-  return resolveTargetSlots(target, "input", options.face);
+  return resolveTargetSlots(target, "input", options.face, options.automatic === true);
 }
 
 /**
  * Returns the slots that allow automated extraction.
  *
- * For Complex configs, omitting `face` uses `anyOutputSlots`. Supplying an
- * invalid or unavailable face fails closed and returns no slots.
+ * For Complex configs, omitting `face` uses `anyOutputSlots`. A passive default
+ * face also uses that fallback; an explicitly disabled face returns no slots.
  *
  * The returned array is cache-owned and must not be modified.
  *
@@ -385,7 +387,7 @@ export function getInputSlots(target, options = {}) {
  * @returns {ReadonlyArray<number>}
  */
 export function getOutputSlots(target, options = {}) {
-  return resolveTargetSlots(target, "output", options.face);
+  return resolveTargetSlots(target, "output", options.face, options.automatic === true);
 }
 
 /**
@@ -563,10 +565,11 @@ function applyConfig(entity, value) {
  * @param {ContainerTarget} target
  * @param {"input"|"output"} operation
  * @param {ContainerFace|undefined} face
+ * @param {boolean} automatic
  * @returns {ReadonlyArray<number>}
  */
-function resolveTargetSlots(target, operation, face) {
-  if (isEntityReference(target)) return resolveSlots(target, operation, face);
+function resolveTargetSlots(target, operation, face, automatic) {
+  if (isEntityReference(target)) return resolveSlots(target, operation, face, automatic);
 
   const resolved = resolve(target);
   if (!resolved) return EMPTY_SLOTS;
@@ -578,9 +581,9 @@ function resolveTargetSlots(target, operation, face) {
         "items",
         operation,
       );
-      return override ?? resolveSlots(resolved.entity, operation, undefined);
+      return override ?? resolveSlots(resolved.entity, operation, undefined, automatic);
     }
-    return resolveSlots(resolved.entity, operation, face);
+    return resolveSlots(resolved.entity, operation, face, automatic);
   }
 
   return getAllSlots(resolved.container);
@@ -828,9 +831,10 @@ function isLocation(value) {
  * @param {Entity} entity
  * @param {"input"|"output"} operation
  * @param {ContainerFace|undefined} face
+ * @param {boolean} [automatic=false]
  * @returns {ReadonlyArray<number>}
  */
-function resolveSlots(entity, operation, face) {
+function resolveSlots(entity, operation, face, automatic = false) {
   const entry = resolveCacheEntry(entity);
   if (entry.status === "basic") return entry.slots;
   if (entry.status !== "configured") return EMPTY_SLOTS;
@@ -844,9 +848,16 @@ function resolveSlots(entity, operation, face) {
     return operation === "input" ? config.anyInputSlots : config.anyOutputSlots;
   }
   if (!DIRECTIONS.includes(face)) return EMPTY_SLOTS;
+  if (isIOFaceDisabled(entity, "items", face)) return EMPTY_SLOTS;
 
   const faceConfig = operation === "input" ? config.inputConfig : config.outputConfig;
-  return faceConfig[face] ?? EMPTY_SLOTS;
+  const configured = faceConfig[face];
+  if (configured) return configured;
+  if (automatic) return EMPTY_SLOTS;
+
+  const oppositeConfig = operation === "input" ? config.outputConfig : config.inputConfig;
+  if (oppositeConfig[face]) return EMPTY_SLOTS;
+  return operation === "input" ? config.anyInputSlots : config.anyOutputSlots;
 }
 
 /**

@@ -230,7 +230,10 @@ export class Machine extends BasicMachine {
     }
 
     let moved = 0;
-    const slots = DoriosContainer.getOutputSlots(this.entity, { face: direction });
+    const slots = DoriosContainer.getOutputSlots(this.entity, {
+      face: direction,
+      automatic: true,
+    });
     for (const sourceSlot of slots) {
       moved += DoriosContainer.transfer(this.entity, {
         sourceSlot,

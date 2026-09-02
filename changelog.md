@@ -6,6 +6,13 @@ This update adds reversible Nether Star storage and four increasingly compact ti
 - Added the Nether Star Block, crafted from nine Nether Stars and reversible back into them.
 - Added Compressed, Double Compressed, Triple Compressed and Quadruple Compressed Nether Star Blocks.
 
+## CHANGED
+- Reworked item, liquid and gas machine IO so the default face is passive: it does not pull or push automatically, but accepts insertion through `anyInput` and allows extraction through `anyOutput`.
+- Moved the fully blocking `disabled` mode to the end of every machine IO cycle and gave it a distinct black-and-yellow hazard outline.
+
+## FIXED
+- Fixed the Assembler assuming every crafted output could stack to 64, so items with smaller maximum stack sizes now craft correctly.
+
 ---
 
 # UtilityCraft v3.5.4

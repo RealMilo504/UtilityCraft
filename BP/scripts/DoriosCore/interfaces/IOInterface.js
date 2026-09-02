@@ -76,24 +76,24 @@ const warnedTagConflicts = new Set();
 /**
  * @typedef {object} ItemIOGroupConfig
  * @property {number[]|[number, number]} [buttonSlots] Six face-button slots, explicit or inclusive range.
- * @property {number[]} anyInputSlots Explicit fallback inputs when no face is available.
- * @property {number[]} anyOutputSlots Explicit fallback outputs when no face is available.
+ * @property {number[]} anyInputSlots Inputs exposed without a face or through passive default faces.
+ * @property {number[]} anyOutputSlots Outputs exposed without a face or through passive default faces.
  * @property {ItemModeConfig[]} modes Ordered modes cycled by each face button.
  */
 
 /**
  * @typedef {object} LiquidIOGroupConfig
  * @property {number[]|[number, number]} [buttonSlots] Six face-button slots, explicit or inclusive range.
- * @property {number[]} anyInputIndices Explicit fallback inputs when no face is available.
- * @property {number[]} anyOutputIndices Explicit fallback outputs when no face is available.
+ * @property {number[]} anyInputIndices Inputs exposed without a face or through passive default faces.
+ * @property {number[]} anyOutputIndices Outputs exposed without a face or through passive default faces.
  * @property {Array<{id:string,inputIndices?:number[],outputIndices?:number[]}>} modes Ordered modes cycled by each face button.
  */
 
 /**
  * @typedef {object} GasIOGroupConfig
  * @property {number[]|[number, number]} [buttonSlots] Six face-button slots, explicit or inclusive range.
- * @property {number[]} anyInputIndices Explicit fallback inputs when no face is available.
- * @property {number[]} anyOutputIndices Explicit fallback outputs when no face is available.
+ * @property {number[]} anyInputIndices Inputs exposed without a face or through passive default faces.
+ * @property {number[]} anyOutputIndices Outputs exposed without a face or through passive default faces.
  * @property {Array<{id:string,inputIndices?:number[],outputIndices?:number[]}>} modes Ordered modes cycled by each face button.
  */
 

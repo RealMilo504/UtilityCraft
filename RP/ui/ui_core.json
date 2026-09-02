@@ -3488,7 +3488,7 @@
             0
         ],
         "$io_default_texture|default": "textures/ui/slots/default_slot",
-        "$io_disabled_texture|default": "textures/ui/slots/none_slot",
+        "$io_disabled_texture|default": "textures/ui/slots/disabled_slot",
         "$io_none_texture|default": "textures/ui/slots/none_slot",
         "$io_normal_texture|default": "textures/ui/slots/normal_slot",
         "$io_input_1_texture|default": "textures/ui/slots/input_1_slot",

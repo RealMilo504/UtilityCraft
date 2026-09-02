@@ -12,10 +12,11 @@ registerIOInterface("utilitycraft:autosieve", {
         anyInputSlots: [INPUT_SLOT],
         anyOutputSlots: OUTPUT_SLOTS,
         modes: [
-            { id: "disabled" },
+            { id: "default" },
             { id: "input_1", inputSlots: [INPUT_SLOT] },
             { id: "output_1", outputSlots: OUTPUT_SLOTS },
-            { id: "input_2", inputSlots: [MESH_SLOT] }
+            { id: "input_2", inputSlots: [MESH_SLOT] },
+            { id: "disabled" }
         ]
     }
 });
