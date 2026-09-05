@@ -663,7 +663,7 @@ tile.utilitycraft:ultimate_furnator.name=§8终极燃料发电机\n §7 速率�
 tile.utilitycraft:ultimate_magmator.name=§8终极岩浆发电机\n §7 速率：5 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_thermo_generator.name=§8终极温差发电机\n §7 速率：2 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_battery.name=§8终极电池\n §7 速率：10 kDE/t\n§o§9@UtilityCraft
-tile.utilitycraft:creative_battery.name=§d创造模式电池\n §7 无限能源\n §7 速率：10 kDE/t\n§o§9@UtilityCraft
+tile.utilitycraft:creative_battery.name=§d创造模式电池\n §7 无限能源\n §7 速率：1 GDE/t\n§o§9@UtilityCraft
 entity.utilitycraft:infinite_energy_source.name=创造模式电池
 tile.utilitycraft:ultimate_solar_panel.name=§8终极太阳能板\n §7 速率：1200 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_wind_turbine.name=§8终极风力发电机\n §7 基础速率：800 DE/t\n §7 最大高度加成：250%\n §7 Y=16以下无法工作\n§o§9@UtilityCraft
