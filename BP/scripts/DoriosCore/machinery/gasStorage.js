@@ -1017,7 +1017,7 @@ export class GasStorage {
 
     if (type === Constants.EMPTY_GAS_TYPE) {
       let emptyBar = new ItemStack(Constants.EMPTY_GAS_BAR_ITEM_ID);
-      emptyBar.nameTag = "§rEmpty";
+      emptyBar.nameTag = "§rEmpty §7(Gas)";
       inv.setItem(slot, emptyBar);
       return;
     }
@@ -1026,7 +1026,7 @@ export class GasStorage {
     const frameName = frame.toString().padStart(2, "0");
 
     const item = new ItemStack(`utilitycraft:${type}_${frameName}`, 1);
-    item.nameTag = `§r${DoriosLib.text.formatIdentifier(type)}
+    item.nameTag = `§r${DoriosLib.text.formatIdentifier(type.replace(/_gas$/, ""))} §7(Gas)
 §r§7  Stored: ${GasStorage.formatGas(gas)} / ${GasStorage.formatGas(cap)}
 §r§7  Percentage: ${((gas / cap) * 100).toFixed(2)}%`;
 

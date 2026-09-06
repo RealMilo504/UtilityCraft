@@ -1015,7 +1015,7 @@ export class FluidStorage {
 
     if (type === Constants.EMPTY_FLUID_TYPE) {
       let emptyBar = new ItemStack(Constants.EMPTY_FLUID_BAR_ITEM_ID);
-      emptyBar.nameTag = "§rEmpty";
+      emptyBar.nameTag = "§rEmpty §7(Liquid)";
       inv.setItem(slot, emptyBar);
       return;
     }
@@ -1024,7 +1024,7 @@ export class FluidStorage {
     const frameName = frame.toString().padStart(2, "0");
 
     const item = new ItemStack(`utilitycraft:${type}_${frameName}`, 1);
-    item.nameTag = `§r${DoriosLib.text.formatIdentifier(type)}
+    item.nameTag = `§r${DoriosLib.text.formatIdentifier(type)} §7(Liquid)
 §r§7  Stored: ${FluidStorage.formatFluid(fluid)} / ${FluidStorage.formatFluid(cap)}
 §r§7  Percentage: ${((fluid / cap) * 100).toFixed(2)}%`;
 

@@ -8,6 +8,8 @@ This update adds reversible Nether Star storage and four increasingly compact ti
 - Added UtilityCraft Workbench recipes for Gas Pipes, Gas Extractors and all four Gas Tank tiers, plus crafting-table color conversions for gas transport blocks.
 
 ## CHANGED
+- Synchronized DoriosCore with Heavy Machinery, including safe multiblock controller resolution, deactivation cleanup and component waterlogging.
+- Liquid and gas bar tooltips now identify their resource category, including empty tanks.
 - Reworked Fluid and Gas Tank recipes to use one glass block and their corresponding transport pipes, with upgrades now requiring only one tank from the previous tier.
 - Increased the Creative Battery's sustained network transfer rate from 10 kDE/t to 1 GDE/t.
 - Reworked item, liquid and gas machine IO so the default face is passive: it does not pull or push automatically, but accepts insertion through `anyInput` and allows extraction through `anyOutput`.
