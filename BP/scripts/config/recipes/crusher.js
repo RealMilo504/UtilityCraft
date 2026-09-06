@@ -14,6 +14,14 @@ import * as DoriosLib from "DoriosLib/index.js";
 export const crusherRecipes = {}
 
 const crusherRecipesRegister = {
+  // Lead
+    "utilitycraft:lead_ore": { output: "utilitycraft:lead_dust", amount: 2 },
+    "utilitycraft:deepslate_lead_ore": { output: "utilitycraft:lead_dust", amount: 2 },
+    "utilitycraft:raw_lead": { output: "utilitycraft:lead_dust", amount: 2 },
+    "utilitycraft:lead_ingot": { output: "utilitycraft:lead_dust", amount: 1 },
+    "utilitycraft:lead_plate": { output: "utilitycraft:lead_dust", amount: 1 },
+    "utilitycraft:raw_lead_block": { output: "utilitycraft:lead_dust", amount: 12 },
+    "utilitycraft:lead_block": { output: "utilitycraft:lead_dust", amount: 6 },
     // ========== COBBLESTONE ==========
     "minecraft:cobblestone": { output: "minecraft:gravel", amount: 1, tier: 0 },
     "utilitycraft:compressed_cobblestone": { output: "utilitycraft:compressed_gravel", amount: 1, cost: 7200, tier: 1 },

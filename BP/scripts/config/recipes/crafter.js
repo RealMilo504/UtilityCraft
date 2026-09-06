@@ -25,6 +25,14 @@ export const crafterRecipes = {};
 
 const crafterRecipeBatches = [
   {
+    "lead_plate,fluid_pipe,lead_plate,advanced_chip,machine_case,advanced_chip,gas_pipe,redstone_block,gas_pipe": {"output":"utilitycraft:electrolyzer","amount":1},
+    "lead_plate,gas_pipe,lead_plate,expert_chip,machine_case,expert_chip,lead_plate,redstone_block,lead_plate": {"output":"utilitycraft:chemical_converter","amount":1},
+    "gold_plate,basic_gas_tank,gold_plate,basic_chip,furnace,basic_chip,lead_plate,basic_chip,lead_plate": {"output":"utilitycraft:basic_gas_generator","amount":1},
+    "energized_iron_plate,advanced_gas_tank,energized_iron_plate,advanced_chip,basic_gas_generator,advanced_chip,lead_plate,advanced_chip,lead_plate": {"output":"utilitycraft:advanced_gas_generator","amount":1},
+    "diamond_dust,expert_gas_tank,diamond_dust,expert_chip,advanced_gas_generator,expert_chip,lead_plate,expert_chip,lead_plate": {"output":"utilitycraft:expert_gas_generator","amount":1},
+    "netherite_plate,ultimate_gas_tank,netherite_plate,ultimate_chip,expert_gas_generator,ultimate_chip,netherite_plate,ultimate_chip,netherite_plate": {"output":"utilitycraft:ultimate_gas_generator","amount":1},
+  },
+  {
     "advanced_chip,basic_battery,advanced_chip,basic_battery,redstone_block,basic_battery,advanced_chip,energized_iron_dust,advanced_chip": {
       "output": "utilitycraft:advanced_battery",
       "amount": 1

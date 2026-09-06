@@ -1,4 +1,23 @@
 {
+	"utilitycraft:electrolyzer": {
+		"sound": "metal"
+	},
+	"utilitycraft:lead_ore": {
+		"sound": "stone",
+		"textures": "utilitycraft_lead_ore"
+	},
+	"utilitycraft:deepslate_lead_ore": {
+		"sound": "stone",
+		"textures": "utilitycraft_deepslate_lead_ore"
+	},
+	"utilitycraft:raw_lead_block": {
+		"sound": "metal",
+		"textures": "utilitycraft_raw_lead_block"
+	},
+	"utilitycraft:lead_block": {
+		"sound": "metal",
+		"textures": "utilitycraft_lead_block"
+	},
 	"format_version": "1.1.0",
 	"utilitycraft:yellow_soil": {
 		"textures": {

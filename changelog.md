@@ -3,11 +3,14 @@
 This update adds reversible Nether Star storage and four increasingly compact tiers.
 
 ## ADDED
+- Added four Gas Generator tiers with Magmator-based temporary textures/UI, one gas tank, Hydrogen/Methane fuel values and tier-dependent output. Moved the Electrolyzer and Chemical Converter into UC, added their native crafts and profitable Methane production, and exposed recipe registries for addons.
 - Added the Nether Star Block, crafted from nine Nether Stars and reversible back into them.
 - Added Compressed, Double Compressed, Triple Compressed and Quadruple Compressed Nether Star Blocks.
 - Added UtilityCraft Workbench recipes for Gas Pipes, Gas Extractors and all four Gas Tank tiers, plus crafting-table color conversions for gas transport blocks.
 
 ## CHANGED
+- Gas Pipes now use Lead Nuggets instead of Steel Nuggets; Gas Pipe and Gas Extractor unlocks now use Lead Ingots. Patterns and output counts are unchanged.
+- Added the complete Lead material family, ore drops, sieve/press/crusher/furnace recipes and Creative/localized entries migrated from Heavy Machinery. Added shared Oxygen, Hydrogen, Sulfuric Acid and Heavy Water UI bars and tank entities/textures with unchanged identifiers.
 - Synchronized DoriosCore with Heavy Machinery, including safe multiblock controller resolution, deactivation cleanup and component waterlogging.
 - Liquid and gas bar tooltips now identify their resource category, including empty tanks.
 - Reworked Fluid and Gas Tank recipes to use one glass block and their corresponding transport pipes, with upgrades now requiring only one tank from the previous tier.

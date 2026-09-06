@@ -32,3 +32,6 @@ import './recipes/sieve.js';
 import './recipes/fisher.js';
 import './recipes/plants.js';
 import './recipes/plantRegistry.js';
+
+import './recipes/electrolyzer.js';
+import './recipes/chemical_converter.js';

@@ -13,6 +13,12 @@ import { system } from "@minecraft/server";
 export const furnaceRecipes = {}
 
 const furnaceRecipesRegister = {
+  // Lead
+    "utilitycraft:lead_ore": { output: "utilitycraft:lead_ingot" },
+    "utilitycraft:deepslate_lead_ore": { output: "utilitycraft:lead_ingot" },
+    "utilitycraft:lead_dust": { output: "utilitycraft:lead_ingot" },
+    "utilitycraft:raw_lead": { output: "utilitycraft:lead_ingot" },
+    "utilitycraft:raw_lead_block": { output: "utilitycraft:lead_block" },
     // UtilityCraft
     "utilitycraft:raw_steel": {
         output: "utilitycraft:steel_ingot"

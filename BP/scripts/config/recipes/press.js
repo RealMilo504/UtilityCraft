@@ -14,6 +14,10 @@ import * as DoriosLib from "DoriosLib/index.js";
 export const pressRecipes = {};
 
 const pressRecipesRegister = {
+  // Lead
+    "utilitycraft:lead_chunk": { output: "utilitycraft:lead_ore", required: 4 },
+    "utilitycraft:deepslate_lead_chunk": { output: "utilitycraft:deepslate_lead_ore", required: 4 },
+    "utilitycraft:lead_ingot": { output: "utilitycraft:lead_plate", required: 1 },
   "minecraft:netherite_ingot": { output: "utilitycraft:netherite_plate", required: 1 },
   "minecraft:iron_ingot": { output: "utilitycraft:iron_plate", required: 1 },
   "minecraft:gold_ingot": { output: "utilitycraft:gold_plate", required: 1 },
