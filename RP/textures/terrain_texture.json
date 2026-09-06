@@ -3357,6 +3357,33 @@
 		},
 		"utilitycraft_ultimate_gas_generator_on_west": {
 			"textures": "textures/blocks/generators/gas_generator/ultimate_on_west"
+		},
+		"utilitycraft_liquid_trash_can": {
+			"textures": "textures/blocks/utility/liquid_trash_can"
+		},
+		"utilitycraft_gas_trash_can": {
+			"textures": "textures/blocks/utility/gas_trash_can"
+		},
+		"utilitycraft_energy_trash_can": {
+			"textures": "textures/blocks/utility/energy_trash_can"
+		},
+		"utilitycraft_ultimate_trash_can": {
+			"textures": "textures/blocks/utility/ultimate_trash_can"
+		},
+		"utilitycraft_sulfuric_acid_fluid": {
+			"textures": "textures/entity/sulfuric_acid_fluid"
+		},
+		"utilitycraft_heavy_water_fluid": {
+			"textures": "textures/entity/heavy_water_fluid"
+		},
+		"utilitycraft_hydrogen_gas": {
+			"textures": "textures/entity/hydrogen_gas"
+		},
+		"utilitycraft_oxygen_gas": {
+			"textures": "textures/entity/oxygen_gas"
+		},
+		"utilitycraft_methane_gas": {
+			"textures": "textures/entity/methane_gas"
 		}
 	}
 }

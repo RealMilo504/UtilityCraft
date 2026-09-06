@@ -1302,6 +1302,21 @@
 	},
 	"utilitycraft:wither_seeds": {
 		"sound": "grass"
-	}
+	},
 // END GENERATED BOUNTIFUL CROP SEED BLOCKS
+	"utilitycraft:creative_sulfuric_acid_tank": {
+		"sound": "metal"
+	},
+	"utilitycraft:creative_heavy_water_tank": {
+		"sound": "metal"
+	},
+	"utilitycraft:creative_hydrogen_tank": {
+		"sound": "metal"
+	},
+	"utilitycraft:creative_oxygen_tank": {
+		"sound": "metal"
+	},
+	"utilitycraft:creative_methane_tank": {
+		"sound": "metal"
+	}
 }

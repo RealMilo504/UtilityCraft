@@ -49,10 +49,10 @@ tile.utilitycraft:cobble_gen_5.name=丸石ジェネレーター (§jTier 6§r) \
 tile.utilitycraft:mechanic_hopper.name=メカニック ホッパー\n§7- 受け入れられたアップグレード:\n §7、§fFilter§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_upper.name=メカニックアッパー\n§7- 受け入れられたアップグレード:\n §7、§fFilter§7\n§o§9@UtilityCraft
 ##+
-tile.utilitycraft:basic_fluid_tank.name=§eベーシック液体タンク\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_fluid_tank.name=§c高度な液体タンク\n§o§9@UtilityCraft
-tile.utilitycraft:expert_fluid_tank.name=§bエキスパート液体タンク\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_fluid_tank.name=§8究極の液体タンク\n§o§9@UtilityCraft
+tile.utilitycraft:basic_fluid_tank.name=§eベーシック液体タンク\n§7- 最大容量: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_fluid_tank.name=§c高度な液体タンク\n§7- 最大容量: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_fluid_tank.name=§bエキスパート液体タンク\n§7- 最大容量: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_fluid_tank.name=§8究極の液体タンク\n§7- 最大容量: 512000 mB\n§o§9@UtilityCraft
 - Bountiful Bonsais =## 盆栽が豊富
 tile.utilitycraft:bonsai.name=盆栽\n§o§9@UtilityCraft
 
@@ -554,7 +554,7 @@ item.utilitycraft:infinite_enderpearl=インフィニットエンダーパール
 item.utilitycraft:raw_leather=原皮\n§o§9@UtilityCraft
 item.utilitycraft:antidote_potion=解毒ポーション\n§o§9@UtilityCraft
 item.utilitycraft:antidote_potion_splash=解毒ポーション スプラッシュ\n§o§9@UtilityCraft
-item.utilitycraft:wrench=レンチ §r\n§7- スニーク時にマシンを回転させます §r\n§7- 車両を取り外します\n§o§9@UtilityCraft
+item.utilitycraft:wrench=レンチ §r\n§7- スニーク時にマシンを回転させます §r\n§7- マルチブロック機械の構造を起動します\n§o§9@UtilityCraft
 
 - Saplings =## ムダス
 item.utilitycraft:apple_sapling=リンゴの苗木\n§o§9@UtilityCraft
@@ -860,7 +860,7 @@ tile.utilitycraft:blaze_block.name=ブレイズコア\n§o§9@UtilityCraft
 item.utilitycraft:crushed_kelp=クラッシュ昆布\n§o§9@UtilityCraft
 
 
-tile.utilitycraft:basic_trash_can.name=基本的なゴミ箱\n§o§9@UtilityCraft
+tile.utilitycraft:basic_trash_can.name=アイテム用ゴミ箱\n§o§9@UtilityCraft
 
 tile.utilitycraft:basic_energy_transmitter.name=§e基本エネルギー送信機 \n §7 レート: 1 kDE/t\n §7 容量: 64 kDE\n §7 範囲: 32 ブロック\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_energy_transmitter.name=§c高度なエネルギー送信機 \n §7 レート: 4 kDE/t\n §7 容量: 256 kDE\n §7 範囲: 64 ブロック\n§o§9@UtilityCraft
@@ -1038,3 +1038,24 @@ tile.utilitycraft:compressed_nether_star_block.name=圧縮ネザースターブ�
 tile.utilitycraft:compressed_nether_star_block_2.name=二重圧縮ネザースターブロック\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_3.name=三重圧縮ネザースターブロック\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_4.name=4重圧縮ネザースターブロック\n§o§9@UtilityCraft
+tile.utilitycraft:basic_gas_tank.name=§eガスタンク (ベーシック)\n§7- 最大容量: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_gas_tank.name=§cガスタンク (アドバンス)\n§7- 最大容量: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_gas_tank.name=§bガスタンク (エキスパート)\n§7- 最大容量: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_gas_tank.name=§8ガスタンク (アルティメット)\n§7- 最大容量: 512000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe.name=ガスパイプ\n§7- 気体を輸送します\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_blue.name=ガスパイプ (青)\n§7- 気体を輸送します\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_green.name=ガスパイプ (緑)\n§7- 気体を輸送します\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_red.name=ガスパイプ (赤)\n§7- 気体を輸送します\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_orange.name=ガスパイプ (オレンジ)\n§7- 気体を輸送します\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_yellow.name=ガスパイプ (黄)\n§7- 気体を輸送します\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor.name=ガス抽出器\n§7- 対応アップグレード:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_blue.name=ガス抽出器 (青)\n§7- 対応アップグレード:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_green.name=ガス抽出器 (緑)\n§7- 対応アップグレード:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_red.name=ガス抽出器 (赤)\n§7- 対応アップグレード:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_orange.name=ガス抽出器 (オレンジ)\n§7- 対応アップグレード:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_yellow.name=ガス抽出器 (黄)\n§7- 対応アップグレード:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:creative_sulfuric_acid_tank.name=クリエイティブタンク（硫酸）\n§7- 硫酸を無限に供給\n§o§9@UtilityCraft
+tile.utilitycraft:creative_heavy_water_tank.name=クリエイティブタンク（重水）\n§7- 重水を無限に供給\n§o§9@UtilityCraft
+tile.utilitycraft:creative_hydrogen_tank.name=クリエイティブタンク（水素）\n§7- 水素を無限に供給\n§o§9@UtilityCraft
+tile.utilitycraft:creative_oxygen_tank.name=クリエイティブタンク（酸素）\n§7- 酸素を無限に供給\n§o§9@UtilityCraft
+tile.utilitycraft:creative_methane_tank.name=クリエイティブタンク（メタン）\n§7- メタンを無限に供給\n§o§9@UtilityCraft

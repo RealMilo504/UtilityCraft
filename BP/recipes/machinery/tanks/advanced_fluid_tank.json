@@ -9,10 +9,10 @@
 		],
 		"key": {
 			"R": {
-				"item": "utilitycraft:energized_iron_ingot"
+				"item": "utilitycraft:steel_plate"
 			},
-			"P": {
-				"item": "utilitycraft:fluid_pipe"
+			"G": {
+				"item": "minecraft:glass"
 			},
 			"C": {
 				"item": "utilitycraft:advanced_chip"
@@ -20,24 +20,21 @@
 			"T": {
 				"item": "utilitycraft:basic_fluid_tank"
 			},
-			"G": {
-				"item": "minecraft:glass"
+			"P": {
+				"item": "utilitycraft:fluid_pipe"
 			}
 		},
 		"pattern": [
-			"RCR",
-			"PTP",
-			"RGR"
+			"RGR",
+			"CTC",
+			"RPR"
 		],
 		"result": {
 			"item": "utilitycraft:advanced_fluid_tank"
 		},
 		"unlock": [
 			{
-				"item": "utilitycraft:energized_iron_ingot"
-			},
-			{
-				"item": "utilitycraft:fluid_pipe"
+				"item": "utilitycraft:steel_plate"
 			},
 			{
 				"item": "minecraft:glass"
@@ -47,6 +44,9 @@
 			},
 			{
 				"item": "utilitycraft:basic_fluid_tank"
+			},
+			{
+				"item": "utilitycraft:fluid_pipe"
 			}
 		]
 	}

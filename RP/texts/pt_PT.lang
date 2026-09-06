@@ -14,10 +14,10 @@ tile.utilitycraft:workbench.name=Bancada de Engenharia\n§7- Usa-a para fabricar
 
 - Fluid Stuff = ## Sistemas de Líquidos
 
-tile.utilitycraft:basic_fluid_tank.name=Tanque de Líquidos §eBásico§7\n Capacidade: 8000 mB\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_fluid_tank.name=Tanque de Líquidos §cAvançado§7\n Capacidade: 32000 mB\n§o§9@UtilityCraft
-tile.utilitycraft:expert_fluid_tank.name=Tanque de Líquidos §3Especialista§7\n Capacidade: 128000 mB\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_fluid_tank.name=Tanque de Líquidos §8Supremo§7\n Capacidade: 512000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:basic_fluid_tank.name=Tanque de Líquidos §eBásico§7\n§7- Capacidade máxima: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_fluid_tank.name=Tanque de Líquidos §cAvançado§7\n§7- Capacidade máxima: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_fluid_tank.name=Tanque de Líquidos §3Especialista§7\n§7- Capacidade máxima: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_fluid_tank.name=Tanque de Líquidos §8Supremo§7\n§7- Capacidade máxima: 512000 mB\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_pipe.name=Tubo de Líquidos\n§7- Transporta líquidos\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_pipe_blue.name=Tubo de Líquidos (Azul)\n§7- Transporta líquidos\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_pipe_green.name=Tubo de Líquidos (Verde)\n§7- Transporta líquidos\n§o§9@UtilityCraft
@@ -436,7 +436,7 @@ tile.utilitycraft:flint_block.name=Bloco de Sílex\n§o§9@UtilityCraft
 tile.utilitycraft:lantern.name=Lanterna Grande\n§o§9@UtilityCraft
 tile.utilitycraft:sink.name=Lavatório Sem-Fim\n§o§9@UtilityCraft
 tile.utilitycraft:blaze_block.name=Núcleo de Chama\n§o§9@UtilityCraft
-tile.utilitycraft:basic_trash_can.name=Caixote do Lixo Básico\n§o§9@UtilityCraft
+tile.utilitycraft:basic_trash_can.name=Caixote do lixo de itens\n§o§9@UtilityCraft
 ## +
 
 - Actions = ## Ações/Interações
@@ -634,7 +634,7 @@ item.utilitycraft:infinite_enderpearl=Pérola do Fim Infinita\n§o§9@UtilityCra
 item.utilitycraft:ore_igniter=Combustor de Minérios\n§o§9@UtilityCraft
 item.utilitycraft:raw_leather=Couro Fresco\n§o§9@UtilityCraft
 item.utilitycraft:smeltflare=Chama de Fusão\n§o§9@UtilityCraft
-item.utilitycraft:wrench=Chave Inglesa\n§o§9@UtilityCraft
+item.utilitycraft:wrench=Chave Inglesa\n§7- Ativa estruturas de máquinas multiblocos\n§o§9@UtilityCraft
 
 - Saplings = ## Mudas
 item.utilitycraft:apple_sapling=Muda de Macieira\n§o§9@UtilityCraft
@@ -1344,3 +1344,24 @@ tile.utilitycraft:compressed_nether_star_block.name=Bloco de Estrela do Nether C
 tile.utilitycraft:compressed_nether_star_block_2.name=Bloco de Estrela do Nether Duplamente Comprimido\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_3.name=Bloco de Estrela do Nether Triplamente Comprimido\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_4.name=Bloco de Estrela do Nether Quadruplicadamente Comprimido\n§o§9@UtilityCraft
+tile.utilitycraft:basic_gas_tank.name=§eTanque de Gás (Básico)\n§7- Capacidade máxima: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_gas_tank.name=§cTanque de Gás (Avançado)\n§7- Capacidade máxima: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_gas_tank.name=§bTanque de Gás (Especialista)\n§7- Capacidade máxima: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_gas_tank.name=§8Tanque de Gás (Supremo)\n§7- Capacidade máxima: 512000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe.name=Tubo de Gás\n§7- Transporta gases\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_blue.name=Tubo de Gás (Azul)\n§7- Transporta gases\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_green.name=Tubo de Gás (Verde)\n§7- Transporta gases\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_red.name=Tubo de Gás (Vermelho)\n§7- Transporta gases\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_orange.name=Tubo de Gás (Laranja)\n§7- Transporta gases\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_yellow.name=Tubo de Gás (Amarelo)\n§7- Transporta gases\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor.name=Extrator de Gás\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_blue.name=Extrator de Gás (Azul)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_green.name=Extrator de Gás (Verde)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_red.name=Extrator de Gás (Vermelho)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_orange.name=Extrator de Gás (Laranja)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_yellow.name=Extrator de Gás (Amarelo)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:creative_sulfuric_acid_tank.name=Tanque Criativo de Ácido Sulfúrico\n§7- Fornecimento infinito de Ácido Sulfúrico\n§o§9@UtilityCraft
+tile.utilitycraft:creative_heavy_water_tank.name=Tanque Criativo de Água Pesada\n§7- Fornecimento infinito de Água Pesada\n§o§9@UtilityCraft
+tile.utilitycraft:creative_hydrogen_tank.name=Tanque Criativo de Hidrogênio\n§7- Fornecimento infinito de Hidrogênio\n§o§9@UtilityCraft
+tile.utilitycraft:creative_oxygen_tank.name=Tanque Criativo de Oxigênio\n§7- Fornecimento infinito de Oxigênio\n§o§9@UtilityCraft
+tile.utilitycraft:creative_methane_tank.name=Tanque Criativo de Metano\n§7- Fornecimento infinito de Metano\n§o§9@UtilityCraft

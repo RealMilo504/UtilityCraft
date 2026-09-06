@@ -54,10 +54,10 @@ tile.utilitycraft:cobble_gen_5.name=Генератор булыжника (§jTi
 tile.utilitycraft:mechanic_hopper.name=Механический бункер\n§7- Принимаемые обновления:\n §7, §fFilter§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_upper.name=Механический верхний\n§7- Принимаемые обновления:\n §7, §fFilter§7\n§o§9@UtilityCraft
 ##+
-tile.utilitycraft:basic_fluid_tank.name=§eБазовый бак для жидкости\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_fluid_tank.name=§cУсовершенствованный бак для жидкости\n§o§9@UtilityCraft
-tile.utilitycraft:expert_fluid_tank.name=§bБачок для экспертной жидкости\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_fluid_tank.name=§8Идеальный бак для жидкости\n§o§9@UtilityCraft
+tile.utilitycraft:basic_fluid_tank.name=§eБазовый бак для жидкости\n§7- Максимальная вместимость: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_fluid_tank.name=§cУсовершенствованный бак для жидкости\n§7- Максимальная вместимость: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_fluid_tank.name=§bБачок для экспертной жидкости\n§7- Максимальная вместимость: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_fluid_tank.name=§8Идеальный бак для жидкости\n§7- Максимальная вместимость: 512000 mB\n§o§9@UtilityCraft
 - Bountiful Bonsais =## Бонсаис Обильные
 tile.utilitycraft:bonsai.name=Бонсай\n§o§9@UtilityCraft
 
@@ -554,7 +554,7 @@ item.utilitycraft:infinite_enderpearl=Бесконечная жемчужина 
 item.utilitycraft:raw_leather=Необработанная кожа\n§o§9@UtilityCraft
 item.utilitycraft:antidote_potion=Зелье-противоядие\n§o§9@UtilityCraft
 item.utilitycraft:antidote_potion_splash=Всплеск зелья противоядия\n§o§9@UtilityCraft
-item.utilitycraft:wrench=Гаечный ключ §r\n§7- Вращает машину при подкрадывании §r\n§7- Убирает транспортные средства\n§o§9@UtilityCraft
+item.utilitycraft:wrench=Гаечный ключ §r\n§7- Вращает машину при подкрадывании §r\n§7- Активирует многоблочные структуры машин\n§o§9@UtilityCraft
 
 - Saplings =## Мудас
 item.utilitycraft:apple_sapling=Саженец яблони\n§o§9@UtilityCraft
@@ -860,7 +860,7 @@ tile.utilitycraft:blaze_block.name=Пылающее ядро\n§o§9@UtilityCraf
 item.utilitycraft:crushed_kelp=Измельченная водоросль\n§o§9@UtilityCraft
 
 
-tile.utilitycraft:basic_trash_can.name=Базовый мусорный бак\n§o§9@UtilityCraft
+tile.utilitycraft:basic_trash_can.name=Мусорный бак для предметов\n§o§9@UtilityCraft
 
 tile.utilitycraft:basic_energy_transmitter.name=§eБазовый передатчик энергии \n §7 Скорость: 1 kDE/t\n §7 Емкость: 64 kDE\n §7 Диапазон: 32 блока\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_energy_transmitter.name=§cУсовершенствованный передатчик энергии \n §7 Скорость: 4 kDE/t\n §7 Емкость: 256 kDE\n §7 Диапазон: 64 блока\n§o§9@UtilityCraft
@@ -1038,3 +1038,24 @@ tile.utilitycraft:compressed_nether_star_block.name=Сжатый блок звё
 tile.utilitycraft:compressed_nether_star_block_2.name=Блок звёзд Незера с двойным сжатием\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_3.name=Тройной сжатый блок звёзд Незера\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_4.name=Четырехкратный сжатый блок звёзд Незера\n§o§9@UtilityCraft
+tile.utilitycraft:basic_gas_tank.name=§eГазовый бак (Базовый)\n§7- Максимальная вместимость: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_gas_tank.name=§cГазовый бак (Продвинутый)\n§7- Максимальная вместимость: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_gas_tank.name=§bГазовый бак (Экспертный)\n§7- Максимальная вместимость: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_gas_tank.name=§8Газовый бак (Предельный)\n§7- Максимальная вместимость: 512000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe.name=Газовая труба\n§7- Транспортирует газы\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_blue.name=Газовая труба (Синий)\n§7- Транспортирует газы\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_green.name=Газовая труба (Зелёный)\n§7- Транспортирует газы\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_red.name=Газовая труба (Красный)\n§7- Транспортирует газы\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_orange.name=Газовая труба (Оранжевый)\n§7- Транспортирует газы\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_yellow.name=Газовая труба (Жёлтый)\n§7- Транспортирует газы\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor.name=Газовый экстрактор\n§7- Допустимые улучшения:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_blue.name=Газовый экстрактор (Синий)\n§7- Допустимые улучшения:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_green.name=Газовый экстрактор (Зелёный)\n§7- Допустимые улучшения:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_red.name=Газовый экстрактор (Красный)\n§7- Допустимые улучшения:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_orange.name=Газовый экстрактор (Оранжевый)\n§7- Допустимые улучшения:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_yellow.name=Газовый экстрактор (Жёлтый)\n§7- Допустимые улучшения:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:creative_sulfuric_acid_tank.name=Творческий бак: Серная кислота\n§7- Бесконечный запас: Серная кислота\n§o§9@UtilityCraft
+tile.utilitycraft:creative_heavy_water_tank.name=Творческий бак: Тяжёлая вода\n§7- Бесконечный запас: Тяжёлая вода\n§o§9@UtilityCraft
+tile.utilitycraft:creative_hydrogen_tank.name=Творческий бак: Водород\n§7- Бесконечный запас: Водород\n§o§9@UtilityCraft
+tile.utilitycraft:creative_oxygen_tank.name=Творческий бак: Кислород\n§7- Бесконечный запас: Кислород\n§o§9@UtilityCraft
+tile.utilitycraft:creative_methane_tank.name=Творческий бак: Метан\n§7- Бесконечный запас: Метан\n§o§9@UtilityCraft

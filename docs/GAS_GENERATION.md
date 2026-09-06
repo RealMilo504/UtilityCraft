@@ -1,6 +1,6 @@
 # Gas generation
 
-UtilityCraft owns the Electrolyzer, Chemical Converter and Basic/Advanced/Expert/Ultimate Gas Generators. Heavy Machinery extends the two processing recipe registries with HF electrolysis and the HF/Natural UF6 conversion recipes. Machine IDs, slots, I/O and Speed/Energy upgrades are preserved during migration. Their native crafts use Redstone Blocks instead of the HM-only Energy Cell.
+UtilityCraft owns the Electrolyzer, Chemical Converter and Basic/Advanced/Expert/Ultimate Gas Generators. Heavy Machinery extends the two processing recipe registries with HF electrolysis and the HF/Natural UF6 conversion recipes. Machine IDs, slots, I/O and Speed/Energy upgrades are preserved during migration. Their native crafts use Stabilized Obsidian Dust instead of the HM-only Energy Cell. This adds an Infuser processing step to the setup cost using existing UtilityCraft materials.
 
 ## Production routes
 
@@ -8,7 +8,7 @@ UtilityCraft owns the Electrolyzer, Chemical Converter and Basic/Advanced/Expert
 - Crusher: Charcoal → Charcoal Dust, using the existing recipe.
 - Chemical Converter: 1 Charcoal Dust + 1,000 mB Hydrogen → 1,000 mB Methane; 256,000 DE. Liquid input must be empty.
 - Feed Hydrogen directly to a Gas Generator, or convert it to Methane for higher output and fuel value.
-- Route BOTH Electrolyzer outputs to separate gas tanks/networks. A full Oxygen output pauses electrolysis; this change does not add an automatic vent or discard gas silently.
+- Route BOTH Electrolyzer outputs to separate gas networks. Store Oxygen or pipe it into a Gas Trash Can for continuous Hydrogen production. The Gas Trash Can accepts two gas types in separate tanks and empties every 10 ticks; a blocked Oxygen output still pauses electrolysis.
 
 ## Initial balance
 
@@ -30,3 +30,9 @@ All six blocks have Workbench and Crafter recipes. Generator recipes follow the 
 ## Recipe extensions
 
 The shared DoriosLib registry provides registerElectrolyzerRecipe and registerChemicalConverterRecipe. UC receives their script events into ID-keyed hashmaps using the existing registration queue; HM registers its nuclear recipes at world load. No HF, Fluorine, UF6 or HM-only ingredient is required for UC's standalone gas-generation chain.
+
+## Resource disposal
+
+Liquid Trash Can (yellow): two liquid tanks. Gas Trash Can (purple): two gas tanks. Energy Trash Can (cyan): one energy store. Ultimate Trash Can (red): 27 inventory slots, two liquid tanks, two gas tanks and one energy store. All variants reuse the Basic Trash Can geometry and texture with only green accents recolored.
+
+The new variants have no interface or display items. Resources enter passively through connected transport; all supported stores clear every 10 ticks (0.5 seconds at 20 TPS), with liquid/gas types reset to empty. Each tank/store buffers up to 1,000,000,000 mB/DE between clears. Ultimate accepts items through normal item transport. There is no active pulling or exporting from these sinks. Breaking one removes its own entity without dropping stored contents. The original Basic Trash Can retains its existing behavior.

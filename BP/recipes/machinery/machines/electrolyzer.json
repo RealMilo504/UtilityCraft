@@ -18,13 +18,13 @@
                 "item": "utilitycraft:gas_pipe"
             },
             "C": {
-                "item": "utilitycraft:advanced_chip"
+                "item": "utilitycraft:expert_chip"
             },
             "M": {
                 "item": "utilitycraft:machine_case"
             },
             "E": {
-                "item": "minecraft:redstone_block"
+                "item": "utilitycraft:stabilized_obsidian_dust"
             }
         },
         "pattern": [
@@ -38,7 +38,7 @@
         },
         "unlock": [
             {
-                "item": "utilitycraft:advanced_chip"
+                "item": "utilitycraft:expert_chip"
             }
         ]
     }

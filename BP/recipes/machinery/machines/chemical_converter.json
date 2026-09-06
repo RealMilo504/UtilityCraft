@@ -15,13 +15,13 @@
                 "item": "utilitycraft:gas_pipe"
             },
             "A": {
-                "item": "utilitycraft:expert_chip"
+                "item": "utilitycraft:ultimate_chip"
             },
             "C": {
                 "item": "utilitycraft:machine_case"
             },
             "E": {
-                "item": "minecraft:redstone_block"
+                "item": "utilitycraft:stabilized_obsidian_dust"
             }
         },
         "pattern": [

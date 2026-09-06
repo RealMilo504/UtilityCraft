@@ -11,10 +11,10 @@ tile.utilitycraft:compressed_crushed_blackstone_4.name=Pedra-Negra Triturada Qua
 tile.utilitycraft:workbench.name=Bancada de Engenharia\n§7- Use para criar tudo sobre máquinas\n§o§9@UtilityCraft
 
 ### Tanks and Pumps | Tanques e Bombas
-tile.utilitycraft:basic_fluid_tank.name=Tanque de Líquidos §eBásico§7\n Capacidade: 8000mB\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_fluid_tank.name=Tanque de Líquidos §cAvançado§7\n Capacidade: 32000mB\n§o§9@UtilityCraft
-tile.utilitycraft:expert_fluid_tank.name=Tanque de Líquidos §3Expert§7\n Capacidade: 128000mB\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_fluid_tank.name=Tanque de Líquidos §8Supremo§7\n Capacidade: 512000mB\n§o§9@UtilityCraft
+tile.utilitycraft:basic_fluid_tank.name=Tanque de Líquidos §eBásico§7\n§7- Capacidade máxima: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_fluid_tank.name=Tanque de Líquidos §cAvançado§7\n§7- Capacidade máxima: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_fluid_tank.name=Tanque de Líquidos §3Expert§7\n§7- Capacidade máxima: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_fluid_tank.name=Tanque de Líquidos §8Supremo§7\n§7- Capacidade máxima: 512000 mB\n§o§9@UtilityCraft
 
 ### Machines and Similiar | Máquinas e Similares
 tile.utilitycraft:machine_case.name=Chassi de Máquinas\n§o§9@UtilityCraft
@@ -170,7 +170,7 @@ tile.utilitycraft:flint_block.name=Bloco de Sílex\n§o§9@UtilityCraft
 tile.utilitycraft:lantern.name=Lanterna Grande\n§o§9@UtilityCraft
 tile.utilitycraft:sieve.name=Peneira\n§7- Multi-uso máximo: 5x5\n§o§9@UtilityCraft
 tile.utilitycraft:sink.name=Pia Sem-Fim\n§7- Fornece água infinita\n§o§9@UtilityCraft
-tile.utilitycraft:basic_trash_can.name=Lixeira Básica\n§o§9@UtilityCraft
+tile.utilitycraft:basic_trash_can.name=Lixeira de itens\n§o§9@UtilityCraft
 tile.utilitycraft:mob_trap.name=Armadilha de Mobs\n§o§9@UtilityCraft
 
 ## Machines Upgrades | Módulos de Melhorias
@@ -677,7 +677,7 @@ item.utilitycraft:infinite_enderpearl=Pérola do Fim Infinita\n§o§9@UtilityCra
 item.utilitycraft:ore_igniter=Combustor de Minérios\n§o§9@UtilityCraft
 item.utilitycraft:raw_leather=Couro Fresco\n§o§9@UtilityCraft
 item.utilitycraft:smeltflare=Chama de Fusão\n§o§9@UtilityCraft
-item.utilitycraft:wrench=Chave Inglesa\n§o§9@UtilityCraft
+item.utilitycraft:wrench=Chave Inglesa\n§7- Ativa estruturas de máquinas multiblocos\n§o§9@UtilityCraft
 
 ## Saplings | Mudas
 item.utilitycraft:apple_sapling=Muda de Macieira\n§o§9@UtilityCraft
@@ -1332,17 +1332,17 @@ tile.utilitycraft:compressed_nether_star_block_2.name=Bloco de Estrela do Nether
 tile.utilitycraft:compressed_nether_star_block_3.name=Bloco de Estrela do Nether Triplamente Comprimido\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_4.name=Bloco de Estrela do Nether Quadruplamente Comprimido\n§o§9@UtilityCraft
 
-tile.utilitycraft:lead_ore.name=Minério de Chumbo\n§o§9@UC: heavy Machinery
-tile.utilitycraft:deepslate_lead_ore.name=Minério de Chumbo de Ardósia Profunda\n§o§9@UC: heavy Machinery
-item.utilitycraft:raw_lead=Chumbo Bruto\n§o§9@UC: heavy Machinery
-item.utilitycraft:lead_dust=Pó de Chumbo\n§7- Obtido triturando materiais de chumbo\n§7- Fundido para obter lingotes de chumbo\n§o§9@UC: heavy Machinery
-item.utilitycraft:lead_ingot=Lingote de Chumbo\n§o§9@UC: heavy Machinery
-item.utilitycraft:lead_plate=Placa de Chumbo\n§7- Obtida prensando lingotes de chumbo\n§7- Usada para fabricar peças e carcaças de máquinas\n§o§9@UC: heavy Machinery
-item.utilitycraft:lead_nugget=Pepita de Chumbo\n§o§9@UC: heavy Machinery
-item.utilitycraft:lead_chunk=Fragmento de Chumbo\n§7- Peneirado de cascalho com malha de ouro ou superior\n§7- Quatro fragmentos prensados formam minério de chumbo\n§o§9@UC: heavy Machinery
-item.utilitycraft:deepslate_lead_chunk=Fragmento de Chumbo de Ardósia Profunda\n§7- Peneirado de ardósia triturada com malha de ouro ou superior\n§7- Quatro fragmentos prensados formam minério de chumbo de ardósia\n§o§9@UC: heavy Machinery
-tile.utilitycraft:lead_block.name=Bloco de Chumbo\n§o§9@UC: heavy Machinery
-tile.utilitycraft:raw_lead_block.name=Bloco de Chumbo Bruto\n§o§9@UC: heavy Machinery
+tile.utilitycraft:lead_ore.name=Minério de Chumbo\n§o§9@UtilityCraft
+tile.utilitycraft:deepslate_lead_ore.name=Minério de Chumbo de Ardósia Profunda\n§o§9@UtilityCraft
+item.utilitycraft:raw_lead=Chumbo Bruto\n§o§9@UtilityCraft
+item.utilitycraft:lead_dust=Pó de Chumbo\n§7- Obtido ao triturar Minério de Chumbo ou Chumbo Bruto\n§7- Funda para obter um Lingote de Chumbo\n§o§9@UtilityCraft
+item.utilitycraft:lead_ingot=Lingote de Chumbo\n§o§9@UtilityCraft
+item.utilitycraft:lead_plate=Placa de Chumbo\n§7- Feita ao prensar um Lingote de Chumbo\n§7- Usada para fabricar peças e carcaças de máquinas\n§o§9@UtilityCraft
+item.utilitycraft:lead_nugget=Pepita de Chumbo\n§o§9@UtilityCraft
+item.utilitycraft:lead_chunk=Fragmento de Chumbo\n§7- Obtido ao peneirar Cascalho\n§7- Combine 4 para obter Minério de Chumbo\n§o§9@UtilityCraft
+item.utilitycraft:deepslate_lead_chunk=Fragmento de Chumbo de Ardósia Profunda\n§7- Obtido ao peneirar Bloco de Ardosiabissal Triturada\n§7- Combine 4 para obter Minério de Chumbo de Ardosiabissal\n§o§9@UtilityCraft
+tile.utilitycraft:lead_block.name=Bloco de Chumbo\n§o§9@UtilityCraft
+tile.utilitycraft:raw_lead_block.name=Bloco de Chumbo Bruto\n§o§9@UtilityCraft
 entity.utilitycraft:fluid_tank_heavy_water.name=Tanque de Água pesada
 entity.utilitycraft:fluid_tank_sulfuric_acid.name=Tanque de Ácido sulfúrico
 entity.utilitycraft:gas_tank_hydrogen_gas.name=Tanque de Hidrogênio
@@ -1366,3 +1366,29 @@ tile.utilitycraft:basic_gas_generator.name=Gerador de gás básico\n §7 Velocid
 tile.utilitycraft:advanced_gas_generator.name=Gerador de gás avançado\n §7 Velocidade: 200 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_gas_generator.name=Gerador de gás especialista\n §7 Velocidade: 800 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_gas_generator.name=Gerador de gás supremo\n §7 Velocidade: 5 kDE/t\n§o§9@UtilityCraft
+tile.utilitycraft:liquid_trash_can.name=Lixeira de líquidos\n§7- Descarta líquidos de dois tanques a cada 10 ticks\n§7- Conecte tubos ou cabos; sem interface\n§o§9@UtilityCraft
+tile.utilitycraft:gas_trash_can.name=Lixeira de gases\n§7- Descarta gases de dois tanques a cada 10 ticks\n§7- Conecte tubos ou cabos; sem interface\n§o§9@UtilityCraft
+tile.utilitycraft:energy_trash_can.name=Lixeira de energia\n§7- Descarta a energia armazenada a cada 10 ticks\n§7- Conecte tubos ou cabos; sem interface\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_trash_can.name=Lixeira suprema\n§7- Descarta itens, líquidos, gases e energia a cada 10 ticks\n§7- Conecte tubos ou cabos; sem interface\n§o§9@UtilityCraft
+entity.utilitycraft:resource_trash_can.name=Lixeira suprema
+tile.utilitycraft:basic_gas_tank.name=§eTanque de Gás (Básico)\n§7- Capacidade máxima: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_gas_tank.name=§cTanque de Gás (Avançado)\n§7- Capacidade máxima: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_gas_tank.name=§bTanque de Gás (Expert)\n§7- Capacidade máxima: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_gas_tank.name=§8Tanque de Gás (Supremo)\n§7- Capacidade máxima: 512000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe.name=Cano de Gás\n§7- Transporta gases\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_blue.name=Cano de Gás (Azul)\n§7- Transporta gases\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_green.name=Cano de Gás (Verde)\n§7- Transporta gases\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_red.name=Cano de Gás (Vermelho)\n§7- Transporta gases\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_orange.name=Cano de Gás (Laranja)\n§7- Transporta gases\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_yellow.name=Cano de Gás (Amarelo)\n§7- Transporta gases\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor.name=Extrator de Gás\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_blue.name=Extrator de Gás (Azul)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_green.name=Extrator de Gás (Verde)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_red.name=Extrator de Gás (Vermelho)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_orange.name=Extrator de Gás (Laranja)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_yellow.name=Extrator de Gás (Amarelo)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:creative_sulfuric_acid_tank.name=Tanque Criativo de Ácido Sulfúrico\n§7- Fornecimento infinito de Ácido Sulfúrico\n§o§9@UtilityCraft
+tile.utilitycraft:creative_heavy_water_tank.name=Tanque Criativo de Água Pesada\n§7- Fornecimento infinito de Água Pesada\n§o§9@UtilityCraft
+tile.utilitycraft:creative_hydrogen_tank.name=Tanque Criativo de Hidrogênio\n§7- Fornecimento infinito de Hidrogênio\n§o§9@UtilityCraft
+tile.utilitycraft:creative_oxygen_tank.name=Tanque Criativo de Oxigênio\n§7- Fornecimento infinito de Oxigênio\n§o§9@UtilityCraft
+tile.utilitycraft:creative_methane_tank.name=Tanque Criativo de Metano\n§7- Fornecimento infinito de Metano\n§o§9@UtilityCraft

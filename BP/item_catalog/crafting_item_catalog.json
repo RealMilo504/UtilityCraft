@@ -141,7 +141,11 @@
                             "utilitycraft:mechanic_upper",
                             "utilitycraft:mechanic_dropper",
                             "utilitycraft:ender_hopper",
-                            "utilitycraft:basic_trash_can"
+                            "utilitycraft:basic_trash_can",
+                            "utilitycraft:liquid_trash_can",
+                            "utilitycraft:gas_trash_can",
+                            "utilitycraft:energy_trash_can",
+                            "utilitycraft:ultimate_trash_can"
                         ]
                     },
                     {
@@ -209,6 +213,11 @@
                             "utilitycraft:creative_milk_tank",
                             "utilitycraft:creative_xp_tank",
                             "utilitycraft:creative_steam_tank",
+                            "utilitycraft:creative_sulfuric_acid_tank",
+                            "utilitycraft:creative_heavy_water_tank",
+                            "utilitycraft:creative_hydrogen_tank",
+                            "utilitycraft:creative_oxygen_tank",
+                            "utilitycraft:creative_methane_tank",
                             "utilitycraft:xp_drain",
                             "utilitycraft:xp_spout"
                         ]

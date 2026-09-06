@@ -49,10 +49,10 @@ tile.utilitycraft:cobble_gen_5.name=Kopfsteinpflaster-Generator (§jTier 6§r) \
 tile.utilitycraft:mechanic_hopper.name=Mechanischer Hopper\n§7- Akzeptierte Upgrades:\n §7, §fFilter§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_upper.name=Mechanic Upper\n§7- Akzeptierte Upgrades:\n §7, §fFilter§7\n§o§9@UtilityCraft
 ##+
-tile.utilitycraft:basic_fluid_tank.name=§eBasis-Flüssigkeitstank\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_fluid_tank.name=§cErweiterter Flüssigkeitstank\n§o§9@UtilityCraft
-tile.utilitycraft:expert_fluid_tank.name=§bExpert-Flüssigkeitstank\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_fluid_tank.name=§8Ultimate-Flüssigkeitstank\n§o§9@UtilityCraft
+tile.utilitycraft:basic_fluid_tank.name=§eBasis-Flüssigkeitstank\n§7- Maximale Kapazität: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_fluid_tank.name=§cErweiterter Flüssigkeitstank\n§7- Maximale Kapazität: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_fluid_tank.name=§bExpert-Flüssigkeitstank\n§7- Maximale Kapazität: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_fluid_tank.name=§8Ultimate-Flüssigkeitstank\n§7- Maximale Kapazität: 512000 mB\n§o§9@UtilityCraft
 - Bountiful Bonsais =## Bonsais Abundantes
 tile.utilitycraft:bonsai.name=Bonsai\n§o§9@UtilityCraft
 
@@ -554,7 +554,7 @@ item.utilitycraft:infinite_enderpearl=Unendliche Enderperle\n§o§9@UtilityCraft
 item.utilitycraft:raw_leather=Rohes Leder\n§o§9@UtilityCraft
 item.utilitycraft:antidote_potion=Gegenmitteltrank\n§o§9@UtilityCraft
 item.utilitycraft:antidote_potion_splash=Gegengift-Trankspritzer\n§o§9@UtilityCraft
-item.utilitycraft:wrench=Schraubenschlüssel §r\n§7- Dreht die Maschine beim Schleichen §r\n§7- Entfernt Fahrzeuge\n§o§9@UtilityCraft
+item.utilitycraft:wrench=Schraubenschlüssel §r\n§7- Dreht die Maschine beim Schleichen §r\n§7- Aktiviert Multiblock-Maschinenstrukturen\n§o§9@UtilityCraft
 
 - Saplings =## Mudas
 item.utilitycraft:apple_sapling=Apfelsetzling\n§o§9@UtilityCraft
@@ -860,7 +860,7 @@ tile.utilitycraft:blaze_block.name=Blaze Core\n§o§9@UtilityCraft
 item.utilitycraft:crushed_kelp=Zerkleinerter Seetang\n§o§9@UtilityCraft
 
 
-tile.utilitycraft:basic_trash_can.name=Einfacher Mülleimer\n§o§9@UtilityCraft
+tile.utilitycraft:basic_trash_can.name=Gegenstand-Mülleimer\n§o§9@UtilityCraft
 
 tile.utilitycraft:basic_energy_transmitter.name=§eGrundenergiesender \n §7 Rate: 1 kDE/t\n §7 Kapazität: 64 kDE\n §7 Reichweite: 32 Blöcke\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_energy_transmitter.name=§cAdvanced Energy Transmitter \n §7 Rate: 4 kDE/t\n §7 Kapazität: 256 kDE\n §7 Reichweite: 64 Blöcke\n§o§9@UtilityCraft
@@ -1038,3 +1038,24 @@ tile.utilitycraft:compressed_nether_star_block.name=Komprimierter Nethersternblo
 tile.utilitycraft:compressed_nether_star_block_2.name=Doppelt komprimierter Nethersternblock\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_3.name=Dreifach komprimierter Nethersternblock\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_4.name=Vierfach komprimierter Nethersternblock\n§o§9@UtilityCraft
+tile.utilitycraft:basic_gas_tank.name=§eGastank (Basis)\n§7- Maximale Kapazität: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_gas_tank.name=§cGastank (Fortgeschritten)\n§7- Maximale Kapazität: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_gas_tank.name=§bGastank (Experte)\n§7- Maximale Kapazität: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_gas_tank.name=§8Gastank (Ultimativ)\n§7- Maximale Kapazität: 512000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe.name=Gasrohr\n§7- Transportiert Gase\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_blue.name=Gasrohr (Blau)\n§7- Transportiert Gase\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_green.name=Gasrohr (Grün)\n§7- Transportiert Gase\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_red.name=Gasrohr (Rot)\n§7- Transportiert Gase\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_orange.name=Gasrohr (Orange)\n§7- Transportiert Gase\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_yellow.name=Gasrohr (Gelb)\n§7- Transportiert Gase\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor.name=Gasextraktor\n§7- Akzeptierte Upgrades:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_blue.name=Gasextraktor (Blau)\n§7- Akzeptierte Upgrades:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_green.name=Gasextraktor (Grün)\n§7- Akzeptierte Upgrades:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_red.name=Gasextraktor (Rot)\n§7- Akzeptierte Upgrades:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_orange.name=Gasextraktor (Orange)\n§7- Akzeptierte Upgrades:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_yellow.name=Gasextraktor (Gelb)\n§7- Akzeptierte Upgrades:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:creative_sulfuric_acid_tank.name=Kreativtank: Schwefelsäure\n§7- Unbegrenzter Vorrat: Schwefelsäure\n§o§9@UtilityCraft
+tile.utilitycraft:creative_heavy_water_tank.name=Kreativtank: Schweres Wasser\n§7- Unbegrenzter Vorrat: Schweres Wasser\n§o§9@UtilityCraft
+tile.utilitycraft:creative_hydrogen_tank.name=Kreativtank: Wasserstoff\n§7- Unbegrenzter Vorrat: Wasserstoff\n§o§9@UtilityCraft
+tile.utilitycraft:creative_oxygen_tank.name=Kreativtank: Sauerstoff\n§7- Unbegrenzter Vorrat: Sauerstoff\n§o§9@UtilityCraft
+tile.utilitycraft:creative_methane_tank.name=Kreativtank: Methan\n§7- Unbegrenzter Vorrat: Methan\n§o§9@UtilityCraft

@@ -49,10 +49,10 @@ tile.utilitycraft:cobble_gen_5.name=Générateur de pavés (§jTier 6§r) \n§7-
 tile.utilitycraft:mechanic_hopper.name=Trémie mécanique\n§7- Mises à niveau acceptées :\n §7, §fFilter§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_upper.name=Mécanicien supérieur\n§7- Mises à niveau acceptées :\n §7, §fFilter§7\n§o§9@UtilityCraft
 ##+
-tile.utilitycraft:basic_fluid_tank.name=§eRéservoir de liquide de base\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_fluid_tank.name=§cRéservoir de liquide avancé\n§o§9@UtilityCraft
-tile.utilitycraft:expert_fluid_tank.name=§bRéservoir de liquide expert\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_fluid_tank.name=§8Réservoir de liquide ultime\n§o§9@UtilityCraft
+tile.utilitycraft:basic_fluid_tank.name=§eRéservoir de liquide de base\n§7- Capacité maximale: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_fluid_tank.name=§cRéservoir de liquide avancé\n§7- Capacité maximale: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_fluid_tank.name=§bRéservoir de liquide expert\n§7- Capacité maximale: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_fluid_tank.name=§8Réservoir de liquide ultime\n§7- Capacité maximale: 512000 mB\n§o§9@UtilityCraft
 - Bountiful Bonsais =## Bonsaïs abondants
 tile.utilitycraft:bonsai.name=Bonsaï\n§o§9@UtilityCraft
 
@@ -554,7 +554,7 @@ item.utilitycraft:infinite_enderpearl=Perle Ender infinie\n§o§9@UtilityCraft
 item.utilitycraft:raw_leather=Cuir brut\n§o§9@UtilityCraft
 item.utilitycraft:antidote_potion=Potion antidote\n§o§9@UtilityCraft
 item.utilitycraft:antidote_potion_splash=Éclaboussure de potion antidote\n§o§9@UtilityCraft
-item.utilitycraft:wrench=Clé §r\n§7- Fait tourner la machine en se faufilant §r\n§7- Supprime les véhicules\n§o§9@UtilityCraft
+item.utilitycraft:wrench=Clé §r\n§7- Fait tourner la machine en se faufilant §r\n§7- Active les structures de machines multiblocs\n§o§9@UtilityCraft
 
 - Saplings =## Mudas
 item.utilitycraft:apple_sapling=Jeune arbre de pomme\n§o§9@UtilityCraft
@@ -860,7 +860,7 @@ tile.utilitycraft:blaze_block.name=Noyau de Blaze\n§o§9@UtilityCraft
 item.utilitycraft:crushed_kelp=Varech écrasé\n§o§9@UtilityCraft
 
 
-tile.utilitycraft:basic_trash_can.name=Poubelle de base\n§o§9@UtilityCraft
+tile.utilitycraft:basic_trash_can.name=Poubelle à objets\n§o§9@UtilityCraft
 
 tile.utilitycraft:basic_energy_transmitter.name=§eTransmetteur d'énergie de base \n §7 Débit : 1 kDE/t\n §7 Capacité : 64 kDE\n §7 Portée : 32 blocs\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_energy_transmitter.name=§cÉmetteur d'énergie avancée \n §7 Débit : 4 kDE/t\n §7 Capacité : 256 kDE\n §7 Portée : 64 blocs\n§o§9@UtilityCraft
@@ -1038,3 +1038,24 @@ tile.utilitycraft:compressed_nether_star_block.name=Bloc d'étoiles du Nether co
 tile.utilitycraft:compressed_nether_star_block_2.name=Bloc d'étoiles du Nether double compressé\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_3.name=Bloc d'étoiles du Nether triple compressé\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_4.name=Bloc d'étoiles du Nether quadruple compressé\n§o§9@UtilityCraft
+tile.utilitycraft:basic_gas_tank.name=§eRéservoir de gaz (de base)\n§7- Capacité maximale: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_gas_tank.name=§cRéservoir de gaz (avancé)\n§7- Capacité maximale: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_gas_tank.name=§bRéservoir de gaz (expert)\n§7- Capacité maximale: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_gas_tank.name=§8Réservoir de gaz (ultime)\n§7- Capacité maximale: 512000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe.name=Tuyau de gaz\n§7- Transporte les gaz\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_blue.name=Tuyau de gaz (Bleu)\n§7- Transporte les gaz\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_green.name=Tuyau de gaz (Vert)\n§7- Transporte les gaz\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_red.name=Tuyau de gaz (Rouge)\n§7- Transporte les gaz\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_orange.name=Tuyau de gaz (Orange)\n§7- Transporte les gaz\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_yellow.name=Tuyau de gaz (Jaune)\n§7- Transporte les gaz\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor.name=Extracteur de gaz\n§7- Mises à niveau acceptées :\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_blue.name=Extracteur de gaz (Bleu)\n§7- Mises à niveau acceptées :\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_green.name=Extracteur de gaz (Vert)\n§7- Mises à niveau acceptées :\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_red.name=Extracteur de gaz (Rouge)\n§7- Mises à niveau acceptées :\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_orange.name=Extracteur de gaz (Orange)\n§7- Mises à niveau acceptées :\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_yellow.name=Extracteur de gaz (Jaune)\n§7- Mises à niveau acceptées :\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:creative_sulfuric_acid_tank.name=Réservoir créatif : Acide sulfurique\n§7- Réserve infinie : Acide sulfurique\n§o§9@UtilityCraft
+tile.utilitycraft:creative_heavy_water_tank.name=Réservoir créatif : Eau lourde\n§7- Réserve infinie : Eau lourde\n§o§9@UtilityCraft
+tile.utilitycraft:creative_hydrogen_tank.name=Réservoir créatif : Hydrogène\n§7- Réserve infinie : Hydrogène\n§o§9@UtilityCraft
+tile.utilitycraft:creative_oxygen_tank.name=Réservoir créatif : Oxygène\n§7- Réserve infinie : Oxygène\n§o§9@UtilityCraft
+tile.utilitycraft:creative_methane_tank.name=Réservoir créatif : Méthane\n§7- Réserve infinie : Méthane\n§o§9@UtilityCraft

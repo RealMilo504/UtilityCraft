@@ -3,6 +3,7 @@
 This update adds reversible Nether Star storage and four increasingly compact tiers.
 
 ## ADDED
+- Added Liquid, Gas, Energy and Ultimate Trash Cans with the existing trash-can model and yellow, purple, cyan and red accents. Passive inputs clear every 10 ticks without UI: two tanks per supported fluid/gas type, one energy store, and 27 item slots on Ultimate. Includes Workbench/Crafter recipes and localized descriptions.
 - Added four Gas Generator tiers with Magmator-based temporary textures/UI, one gas tank, Hydrogen/Methane fuel values and tier-dependent output. Moved the Electrolyzer and Chemical Converter into UC, added their native crafts and profitable Methane production, and exposed recipe registries for addons.
 - Added the Nether Star Block, crafted from nine Nether Stars and reversible back into them.
 - Added Compressed, Double Compressed, Triple Compressed and Quadruple Compressed Nether Star Blocks.
@@ -21,6 +22,7 @@ This update adds reversible Nether Star storage and four increasingly compact ti
 - Fluid and gas extractor whitelists now act as explicit recovery overrides, allowing selected types to be drained from registered input tanks while still respecting disabled faces.
 
 ## FIXED
+- Fixed resource Trash Can placement by initializing the entity scoreboard identity before liquid/gas storage; already placed sinks with missing identities recover on their next tick.
 - Anchored machine I/O resource tabs at the upper-left corner in a fixed-height container, without leaving empty rows for unavailable resource types.
 - Fixed repeated machine watcher registration restoring pressed interface buttons before their actions could be detected.
 - Fixed the Assembler assuming every crafted output could stack to 64, so items with smaller maximum stack sizes now craft correctly.

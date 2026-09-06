@@ -9,38 +9,44 @@
 		],
 		"key": {
 			"R": {
-				"item": "utilitycraft:gold_plate"
+				"item": "utilitycraft:steel_plate"
 			},
-			"P": {
-				"item": "utilitycraft:fluid_pipe"
+			"G": {
+				"item": "minecraft:glass"
 			},
 			"C": {
 				"item": "utilitycraft:basic_chip"
 			},
-			"G": {
-				"item": "minecraft:glass"
+			"T": {
+				"item": "minecraft:bucket"
+			},
+			"P": {
+				"item": "utilitycraft:fluid_pipe"
 			}
 		},
 		"pattern": [
-			"RPR",
-			"PCP",
-			"RGR"
+			"RGR",
+			"CTC",
+			"RPR"
 		],
 		"result": {
 			"item": "utilitycraft:basic_fluid_tank"
 		},
 		"unlock": [
 			{
-				"item": "utilitycraft:gold_plate"
-			},
-			{
-				"item": "utilitycraft:fluid_pipe"
+				"item": "utilitycraft:steel_plate"
 			},
 			{
 				"item": "minecraft:glass"
 			},
 			{
 				"item": "utilitycraft:basic_chip"
+			},
+			{
+				"item": "minecraft:bucket"
+			},
+			{
+				"item": "utilitycraft:fluid_pipe"
 			}
 		]
 	}
