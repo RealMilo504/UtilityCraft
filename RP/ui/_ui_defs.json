@@ -1,5 +1,6 @@
 {
   "ui_defs": [
+    "ui/machines/primitive_forge.json",
     "ui/ui_core.json",
     "ui/panels.json",
     "ui/legacy/common_machinery.json",

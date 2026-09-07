@@ -4650,6 +4650,7 @@
         ]
     },
     "info_tab": {
+        "$info_content|default": "uc.info_description_scroll_content",
         "type": "collection_panel",
         "anchor_from": "center",
         "anchor_to": "center",
@@ -4822,7 +4823,7 @@
                                 "$scroll_bar_contained_touch": false,
                                 "$scroll_box_visible_touch": true,
                                 "$use_touch_mode": false,
-                                "$scrolling_content": "uc.info_description_scroll_content"
+                                "$scrolling_content": "$info_content"
                             }
                         },
                         {

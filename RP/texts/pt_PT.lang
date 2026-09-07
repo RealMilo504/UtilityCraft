@@ -45,7 +45,6 @@ tile.utilitycraft:incinerator.name=Incinerador\n§7- Aceita melhorias:\n §a�
 tile.utilitycraft:infuser.name=Infusor\n§7- Aceita melhorias:\n §a§7, §b§7\n§o§9@UtilityCraft
 tile.utilitycraft:induction_anvil.name=Bigorna de Indução\n§7- Repara itens usando energia\n§o§9@UtilityCraft
 tile.utilitycraft:magmatic_chamber.name=Câmara Magmática\n§7- Aceita melhorias:\n §a§7, §b§7\n§o§9@UtilityCraft
-item.utilitycraft:mortar=Pilão\n§o§9@UtilityCraft
 tile.utilitycraft:seed_synthesizer.name=Sintetizador de Sementes\n§7- Aceita melhorias:\n §a§7, §b§7\n§o§9@UtilityCraft
 tile.utilitycraft:xp_condenser.name=Condensador de XP\n§7- Armazena experiência\n§o§9@UtilityCraft
 ## COBBLE GEN
@@ -470,14 +469,14 @@ item.utilitycraft:stone_paxel=Paxel de Pedra\n§o§9@UtilityCraft
 item.utilitycraft:wooden_paxel=Paxel de Madeira\n§o§9@UtilityCraft
 
 -- Hammers = ## Martelos
-item.utilitycraft:golden_hammer=Martelo de Ouro\n§o§9@UtilityCraft
-item.utilitycraft:netherite_hammer=Martelo de Netherita\n§o§9@UtilityCraft
-item.utilitycraft:diamond_hammer=Martelo de Diamante\n§o§9@UtilityCraft
-item.utilitycraft:steel_hammer=Martelo de Aço\n§o§9@UtilityCraft
-item.utilitycraft:iron_hammer=Martelo de Ferro\n§o§9@UtilityCraft
-item.utilitycraft:copper_hammer=Martelo de Cobre\n§o§9@UtilityCraft
-item.utilitycraft:stone_hammer=Martelo de Pedra\n§o§9@UtilityCraft
-item.utilitycraft:wooden_hammer=Martelo de Madeira\n§o§9@UtilityCraft
+item.utilitycraft:golden_hammer=Martelo de Ouro\n§7- Tritura blocos para os transformar noutros blocos\n§7- Tritura blocos de minério para obter pó\n§o§9@UtilityCraft
+item.utilitycraft:netherite_hammer=Martelo de Netherita\n§7- Tritura blocos para os transformar noutros blocos\n§7- Tritura blocos de minério para obter pó\n§o§9@UtilityCraft
+item.utilitycraft:diamond_hammer=Martelo de Diamante\n§7- Tritura blocos para os transformar noutros blocos\n§7- Tritura blocos de minério para obter pó\n§o§9@UtilityCraft
+item.utilitycraft:steel_hammer=Martelo de Aço\n§7- Tritura blocos para os transformar noutros blocos\n§7- Tritura blocos de minério para obter pó\n§o§9@UtilityCraft
+item.utilitycraft:iron_hammer=Martelo de Ferro\n§7- Tritura blocos para os transformar noutros blocos\n§7- Tritura blocos de minério para obter pó\n§o§9@UtilityCraft
+item.utilitycraft:copper_hammer=Martelo de Cobre\n§7- Tritura blocos para os transformar noutros blocos\n§7- Tritura blocos de minério para obter pó\n§o§9@UtilityCraft
+item.utilitycraft:stone_hammer=Martelo de Pedra\n§7- Tritura blocos para os transformar noutros blocos\n§7- Tritura blocos de minério para obter pó\n§o§9@UtilityCraft
+item.utilitycraft:wooden_hammer=Martelo de Madeira\n§7- Tritura blocos para os transformar noutros blocos\n§7- Tritura blocos de minério para obter pó\n§o§9@UtilityCraft
 
 -- Steel = ## Aço
 item.utilitycraft:steel_sword=Espada de Aço\n§o§9@UtilityCraft
@@ -490,7 +489,6 @@ item.utilitycraft:steel_hoe=Enxada de Aço\n§o§9@UtilityCraft
 item.utilitycraft:lucky_pickaxe=§aPicareta da Sorte\n§o§9@UtilityCraft
 item.utilitycraft:lucky_sword=§aEspada da Sorte\n§o§9@UtilityCraft
 item.utilitycraft:smelting_pickaxe=§6Picareta de Fusão\n§7- Derrete os minérios ao quebrá-los\n§o§9@UtilityCraft
-item.utilitycraft:bionic_arm=Braço Biónico (Teste)\n§o§9@UtilityCraft
 item.utilitycraft:lucky_fishing_rod=§aVara de Pesca da Sorte\n§o§9@UtilityCraft
 item.utilitycraft:flint_knife=Faca de Sílex\n§7- Corta folhas para obter fibras\n§o§9@UtilityCraft
 
@@ -1365,3 +1363,31 @@ tile.utilitycraft:creative_heavy_water_tank.name=Tanque Criativo de Água Pesada
 tile.utilitycraft:creative_hydrogen_tank.name=Tanque Criativo de Hidrogênio\n§7- Fornecimento infinito de Hidrogênio\n§o§9@UtilityCraft
 tile.utilitycraft:creative_oxygen_tank.name=Tanque Criativo de Oxigênio\n§7- Fornecimento infinito de Oxigênio\n§o§9@UtilityCraft
 tile.utilitycraft:creative_methane_tank.name=Tanque Criativo de Metano\n§7- Fornecimento infinito de Metano\n§o§9@UtilityCraft
+
+## Primitive Forge
+tile.utilitycraft:primitive_forge.name=Forja primitiva\n§7- Constrói uma estrutura de 2x2x2 para ativar\n§7- Usada para forjar aço bruto\n§o§9@UtilityCraft
+entity.utilitycraft:primitive_forge.name=Forja primitiva
+
+tile.utilitycraft:mortar.name=Pilão\n§7- Tritura folhas para obter água\n§o§9@UtilityCraft
+ui.utilitycraft:forge_info.recipe=A Primitive Forge serve para criar §9aço bruto§8:
+ui.utilitycraft:forge_info.steel_time=§98 segundos por lote
+ui.utilitycraft:forge_info.normal_time=Receitas normais: até 4 unidades em 2 segundos.
+ui.utilitycraft:forge_info.footer=Também funciona como uma fornalha mais rápida
+howtoplay.uc:first_steps_steel=Primeiros passos para o aço
+howtoplay.uc:first_steps_steel.title=UtilityCraft - Primeiros passos para o aço
+howtoplay.utilitycraft.first_steps_steel.h1=Construir a Primitive Forge
+howtoplay.utilitycraft.first_steps_steel.h2=Produzir aço bruto
+howtoplay.utilitycraft.first_steps_steel.h3=Fabricar o Workbench
+howtoplay.utilitycraft.first_steps_steel.h4=Era das máquinas
+howtoplay.utilitycraft.first_steps_steel.p1=Já sabes obter recursos, água, lava e pedregulho.
+howtoplay.utilitycraft.first_steps_steel.p2=Agora podes produzir aço e começar a era das máquinas.
+howtoplay.utilitycraft.first_steps_steel.p3=Coloca 4 tijolos nos cantos, 3 bolas de argila no centro superior e nas duas laterais, e 1 laje de tijolos de barro no centro inferior. Deixa o centro vazio. A receita produz 4 blocos de Primitive Forge. Faz a receita duas vezes e monta os 8 blocos num cubo sólido de 2x2x2. A forja forma-se automaticamente; o último bloco determina a frente.
+howtoplay.utilitycraft.first_steps_steel.p4=Abre o recipiente no centro da frente. Os dois espaços superiores recebem ingredientes e o inferior recebe combustível. A seta indica o progresso e a chama mostra o combustível restante. Um carvão como combustível processa 8 unidades.
+howtoplay.utilitycraft.first_steps_steel.p5=Combina pó de ferro com carvão, carvão vegetal ou as suas versões em pó. Cada receita consome um de cada ingrediente e produz 1 aço bruto. Com combustível, a forja processa até 4 receitas em 8 segundos.
+howtoplay.utilitycraft.first_steps_steel.p6=Funde o aço bruto para obter lingotes de aço. Usa uma fornalha, SmeltFlare ou a forja com um espaço de ingrediente vazio. As receitas normais processam até 4 unidades em 2 segundos. Desmontar a forja devolve o seu conteúdo.
+howtoplay.utilitycraft.first_steps_steel.p7=Fabrica um Workbench antes de construir sistemas avançados. As máquinas, os geradores e as melhorias são fabricados nele.
+howtoplay.utilitycraft.first_steps_steel.p8=Esta é a receita do Workbench.
+howtoplay.utilitycraft.first_steps_steel.p9=Chegaste à era das máquinas: produção com energia, armazenamento e automatização.
+howtoplay.utilitycraft.first_steps_steel.p10=Guarda aço, ferro, cobre, redstone e carvão para as tuas primeiras máquinas e melhorias.
+howtoplay.utilitycraft.first_steps_steel.p11=Agora fabrica as tuas primeiras máquinas, liga-as a uma fonte de energia e começa a automatizar.
+howtoplay.utilitycraft.first_steps_steel.forge_render=Primitive Forge montada: estrutura de 2x2x2.

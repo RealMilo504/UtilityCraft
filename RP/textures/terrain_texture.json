@@ -4,6 +4,21 @@
 	"resource_pack_name": "UtilityCraft 3.0",
 	"texture_name": "atlas.terrain",
 	"texture_data": {
+"utilitycraft_primitive_forge_side_top_left": {"textures": "textures/blocks/primitive_forge/side_top_left"},
+"utilitycraft_primitive_forge_side_top_right": {"textures": "textures/blocks/primitive_forge/side_top_right"},
+"utilitycraft_primitive_forge_side_bottom_left": {"textures": "textures/blocks/primitive_forge/side_bottom_left"},
+"utilitycraft_primitive_forge_side_bottom_right": {"textures": "textures/blocks/primitive_forge/side_bottom_right"},
+"utilitycraft_primitive_forge_top": {"textures": "textures/blocks/primitive_forge/top"},
+
+		"utilitycraft_mortar_leaves": {
+			"textures": "textures/blocks/leaves_oak_carried"
+		},
+        "utilitycraft_mortar_block": { "textures": "textures/blocks/cobblestone" },
+        "utilitycraft_primitive_forge": { "textures": "textures/blocks/primitive_forge/bricks" },
+        "utilitycraft_primitive_forge_top_left": { "textures": "textures/blocks/primitive_forge/front_top_left" },
+"utilitycraft_primitive_forge_top_right": { "textures": "textures/blocks/primitive_forge/front_top_right" },
+"utilitycraft_primitive_forge_bottom_left": { "textures": "textures/blocks/primitive_forge/front_bottom_left" },
+"utilitycraft_primitive_forge_bottom_right": { "textures": "textures/blocks/primitive_forge/front_bottom_right" },
 		"utilitycraft_chemical_converter_off_north": {
 			"textures": "textures/blocks/machines/chemical_converter_off_north"
 		},

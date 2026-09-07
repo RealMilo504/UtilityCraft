@@ -1,4 +1,6 @@
 {
+    "utilitycraft:mortar": { "sound": "stone" },
+    "utilitycraft:primitive_forge": { "sound": "stone" },
 	"utilitycraft:electrolyzer": {
 		"sound": "metal"
 	},

@@ -806,9 +806,6 @@
 		"utilitycraft_drill": {
 			"textures": "textures/items/tools/drill"
 		},
-		"utilitycraft_bionic_arm": {
-			"textures": "textures/items/tools/drill"
-		},
 		"utilitycraft_base_seeds": {
 			"textures": "textures/items/seeds/base_seeds"
 		},
@@ -2497,9 +2494,6 @@
 		},
 		"utilitycraft_fiber": {
 			"textures": "textures/items/misc/fiber"
-		},
-		"utilitycraft_mortar": {
-			"textures": "textures/items/tools/mortar"
 		},
 		"utilitycraft_blueprint_paper": {
 			"textures": "textures/items/machinery/blueprint_paper"

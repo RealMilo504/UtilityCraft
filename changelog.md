@@ -3,6 +3,7 @@
 This update adds reversible Nether Star storage and four increasingly compact tiers.
 
 ## ADDED
+- Added the Primitive Forge: eight inexpensive casing blocks automatically form a 2x2x2 structure facing the last placed block. Its front container processes Iron Dust with Coal or Charcoal into Brute Steel in eight-second batches of up to four without an energy network, with the existing machine progress bar, persistent processing and safe dismantling. Uses temporary block textures and a behavior-only controller entity; the UI shows its title, side-by-side inputs, a large output, vertically centered animated recipe progress and a large vanilla output without a machine outline. A separate fuel slot and flame use the existing solid-fuel registry (1,000 DE per recipe); single-input smelting and two-input combinations use furnaceRecipes. The separate primitiveForgeRecipes file imports furnaceRecipes and directly inserts its own recipes during script initialization, without queued events; the existing utilitycraft:register_furnace_recipe scriptevent can add or replace both normal recipes and combinations. Normal smelting takes two seconds per batch, with up to four recipes per batch and 1,000 DE worth of fuel per recipe. Processing runs every four ticks on one front owner block; other blocks use a 1,000,000-tick interval.
 - Added Liquid, Gas, Energy and Ultimate Trash Cans with the existing trash-can model and yellow, purple, cyan and red accents. Passive inputs clear every 10 ticks without UI: two tanks per supported fluid/gas type, one energy store, and 27 item slots on Ultimate. Includes Workbench/Crafter recipes and localized descriptions.
 - Added four Gas Generator tiers with Magmator-based temporary textures/UI, one gas tank, Hydrogen/Methane fuel values and tier-dependent output. Moved the Electrolyzer and Chemical Converter into UC, added their native crafts and profitable Methane production, and exposed recipe registries for addons.
 - Added the Nether Star Block, crafted from nine Nether Stars and reversible back into them.
@@ -10,6 +11,23 @@ This update adds reversible Nether Star storage and four increasingly compact ti
 - Added UtilityCraft Workbench recipes for Gas Pipes, Gas Extractors and all four Gas Tank tiers, plus crafting-table color conversions for gas transport blocks.
 
 ## CHANGED
+- Completed Primitive Forge, Mortar and Hammer tooltips and the current Forge info panel in all ten locales; removed superseded Forge panel text keys.
+- Grouped Mortar and Primitive Forge under Basics in the Construction creative category.
+- Added "Used to forge Brute Steel" to the Primitive Forge block tooltip.
+- Changed Primitive Forge crafting to four Bricks, three Clay Balls and one Mud Brick Slab, yielding four casings. Added a deterministic render of the assembled 2x2x2 forge to the Steel guide and completed that section in all ten supported locales.
+- Reworked the visual Primitive Forge panel with left-aligned text and a horizontal recipe: decorative input slots, the existing animated steel catalyst texture, a progress arrow and a larger Brute Steel output slot without a quantity label. Faster-furnace details appear below.
+- Replaced Primitive Forge info text with a custom visual recipe panel, showing Iron Dust and Coal producing Brute Steel, alternative coal icons, refining instructions and processing times. Keeps the shared 80x160 frame and ends with the faster-furnace note.
+- Added a Primitive Forge information tab at the top, matching Storage Drive placement and 80x160 panel size. Three short paragraphs with blue highlights explain Steel ingredients, faster furnace use and normal recipes processing up to four items per two-second batch in English, Spanish, Brazilian Portuguese and European Portuguese.
+- Added a Primitive Forge block description: "Build a 2x2x2 structure to activate".
+- Removed the obsolete Mortar item icon and sapling/water-bottle recipe. Updated the English and Simplified Chinese water guide to explain placed Mortar leaf crushing, full turns, four water levels and bucket collection, with the 3D block render replacing the old item and recipe images.
+- Added the supplied Primitive Forge facade, preserved pixel-for-pixel as four 16x16 front textures that form a shared 32x32 face after assembly. Side faces reconstruct uninterrupted red bricks and brown borders; the roof repeats the brown border pattern. All four orientations are supported. Unassembled casings use a 16x16 texture reconstructed from the same central red bricks.
+- Added English descriptions to all eight Hammers explaining block conversion and ore crushing into dust.
+- Added the Mortar tooltip: "Breaks down leaves into water".
+- Added vanilla Mortar sounds: dig.grass when inserting leaves, use.grass while grinding leaves, and bucket.fill_water when collecting a full bucket.
+- Converted Mortar into a placeable block with a square hollow bowl, thick walls and an inclined pestle. Uses vanilla Cobblestone texture at native pixel scale, preserves existing crafting recipes and has eight pestle poses controlled by bone visibility. It starts in a corner; each empty-hand interaction advances one frame through the four corners and four sides. Accepts any block item ending in leaves, with four shared units of leaves/water capacity. Each complete eight-step turn crushes one leaf into 250 mB of water; a full mortar fills one bucket. Top-only content surfaces show four levels with Oak Leaves or water textures.
+- Updated the English and Simplified Chinese steel guide for Primitive Forge assembly, separate fuel, all eight ingredient variants and batch timings; removed the obsolete Smeltflare and Brute Steel crafting images from that section.
+- Removed the old crafting-table recipe that combined Raw Iron, Coal and Smeltflare into Brute Steel. Primitive Forge recipes and existing Brute Steel refining recipes remain available.
+- Removed the Bionic Arm test item, its unused texture registration and all localized names.
 - Gas Pipes now use Lead Nuggets instead of Steel Nuggets; Gas Pipe and Gas Extractor unlocks now use Lead Ingots. Patterns and output counts are unchanged.
 - Added the complete Lead material family, ore drops, sieve/press/crusher/furnace recipes and Creative/localized entries migrated from Heavy Machinery. Added shared Oxygen, Hydrogen, Sulfuric Acid and Heavy Water UI bars and tank entities/textures with unchanged identifiers.
 - Synchronized DoriosCore with Heavy Machinery, including safe multiblock controller resolution, deactivation cleanup and component waterlogging.
@@ -22,6 +40,9 @@ This update adds reversible Nether Star storage and four increasingly compact ti
 - Fluid and gas extractor whitelists now act as explicit recovery overrides, allowing selected types to be drained from registered input tanks while still respecting disabled faces.
 
 ## FIXED
+- Disabled interaction and focus on Primitive Forge decorative recipe slots, centered the recipe row and inset its descriptive labels by two pixels.
+- Fixed Primitive Forge info recipe slots reporting unknown collection_index properties by placing them inside a container_items collection panel.
+- Tightened Mortar selection to its 14x7x14 bowl and repositioned its pestle to rest on the interior floor and rim.
 - Fixed resource Trash Can placement by initializing the entity scoreboard identity before liquid/gas storage; already placed sinks with missing identities recover on their next tick.
 - Anchored machine I/O resource tabs at the upper-left corner in a fixed-height container, without leaving empty rows for unavailable resource types.
 - Fixed repeated machine watcher registration restoring pressed interface buttons before their actions could be detected.

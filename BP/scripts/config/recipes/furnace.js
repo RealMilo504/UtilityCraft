@@ -4,7 +4,8 @@ import { system } from "@minecraft/server";
 /**
  * Recipes for the Incinerator machine.
  *
- * Each key represents an input item identifier, and its value specifies
+ * Keys are a single input ID, or first_input|second_input for forge combinations.
+ * Each value specifies
  * the resulting output item, required input quantity, and output amount.
  *
  * @constant
@@ -530,6 +531,7 @@ DoriosLib.registry.registerFurnaceRecipe(furnaceRecipesRegister);
  * ```json
  * {
  *   "minecraft:stone": { "output": "minecraft:smooth_stone" },
+ *   "utilitycraft:iron_dust|minecraft:coal": { "output": "utilitycraft:raw_steel", "required": 1, "secondary_required": 1, "amount": 1 },
  *   "minecraft:rotten_flesh": { "output": "strat:coagulated_blood" }
  * }
  * ```
