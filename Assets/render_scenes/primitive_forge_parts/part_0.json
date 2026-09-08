@@ -12,11 +12,11 @@
           "render_method": "opaque"
         },
         "up": {
-          "texture": "utilitycraft_primitive_forge_top",
+          "texture": "utilitycraft_primitive_forge_side_bricks",
           "render_method": "opaque"
         },
         "down": {
-          "texture": "utilitycraft_primitive_forge_top",
+          "texture": "utilitycraft_primitive_forge_bottom",
           "render_method": "opaque"
         },
         "north": {
@@ -24,15 +24,15 @@
           "render_method": "opaque"
         },
         "south": {
-          "texture": "utilitycraft_primitive_forge_side_bottom_left",
+          "texture": "utilitycraft_primitive_forge_bottom_side",
           "render_method": "opaque"
         },
         "east": {
-          "texture": "utilitycraft_primitive_forge_side_bottom_right",
+          "texture": "utilitycraft_primitive_forge_bottom_side",
           "render_method": "opaque"
         },
         "west": {
-          "texture": "utilitycraft_primitive_forge_side_bottom_left",
+          "texture": "utilitycraft_primitive_forge_bottom_side",
           "render_method": "opaque"
         }
       }

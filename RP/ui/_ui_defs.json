@@ -44,6 +44,9 @@
     "ui/recipes/magmatic_chamber.json",
     "ui/electrolyzer.json",
     "ui/chemical_converter.json",
-    "ui/generators/gas_generator.json"
+    "ui/generators/gas_generator.json",
+    "ui/recipes/fluid_core.json",
+    "ui/recipes/electrolyzer.json",
+    "ui/recipes/chemical_converter.json"
   ]
 }

@@ -115,6 +115,23 @@ function dismantle(entity, structure) {
     entity.remove();
 }
 
+// Match Better Smelters' closed-furnace cadence: 10% chance every 20 ticks.
+function furnaceParticles(entity, structure, working) {
+    const elapsed = working ? (Number(entity.getDynamicProperty('utilitycraft:forge_particle_ticks')) || 0) + STEP_TICKS : 0;
+    entity.setDynamicProperty('utilitycraft:forge_particle_ticks', elapsed >= 20 ? 0 : elapsed);
+    if (elapsed < 20 || Math.random() <= 0.9) return;
+    const { origin, facing } = structure;
+    const offset = { north: [0, -1.001], south: [0, 1.001], east: [1.001, 0], west: [-1.001, 0] }[facing];
+    const spread = (Math.random() - 0.5) * 0.2;
+    const position = {
+        x: origin.x + 1 + offset[0] + (offset[0] === 0 ? spread : 0),
+        y: origin.y + 0.2 + Math.random() * 0.1,
+        z: origin.z + 1 + offset[1] + (offset[1] === 0 ? spread : 0),
+    };
+    entity.dimension.spawnParticle('minecraft:basic_flame_particle', position);
+    entity.dimension.spawnParticle('minecraft:basic_smoke_particle', { ...position, y: position.y + 0.1 });
+}
+
 function consume(inventory, slot, amount = 1) {
     const item = inventory.getItem(slot);
     if (item.amount === amount) inventory.setItem(slot, undefined);
@@ -188,6 +205,7 @@ function tick(entity, owner) {
             batch = 0;
         }
     }
+    furnaceParticles(entity, structure, working);
     entity.setDynamicProperty('utilitycraft:forge_batch', batch);
     for (const part of parts) if (part.permutation.getState('utilitycraft:on') !== working) {
         part.setPermutation(part.permutation.withState('utilitycraft:on', working));

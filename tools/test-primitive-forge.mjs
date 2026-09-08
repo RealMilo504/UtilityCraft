@@ -23,8 +23,8 @@ const key = p => `${p.x},${p.y},${p.z}`;
 function permutation(states = {}) {
     return { getState: name => states[name], withState: (name, value) => permutation({ ...states, [name]: value }) };
 }
-function fixture(flushRegistrations = true) {
-    const blocks = new Map(), entities = [], drops = [], unloaded = new Set();
+function fixture(flushRegistrations = true, random = Math.random) {
+    const blocks = new Map(), entities = [], drops = [], particles = [], unloaded = new Set();
     let hooks, interval, removeListener;
     let recipeListeners = [], recipeQueue = [];
     const dimension = {
@@ -34,6 +34,7 @@ function fixture(flushRegistrations = true) {
         },
         getEntities: () => entities.filter(entity => !entity.removed),
         spawnItem(item) { drops.push(clone(item)); }, playSound() {},
+        spawnParticle(typeId, position) { particles.push({ typeId, position }); },
         spawnEntity(typeId, location) {
             const items = [], properties = new Map();
             const inventory = { getItem: index => clone(items[index]), setItem: (index, value) => { items[index] = clone(value); } };
@@ -61,7 +62,7 @@ function fixture(flushRegistrations = true) {
     }));
     const reload = () => {
         recipeListeners = []; recipeQueue = [];
-        vm.runInNewContext(source.outputFiles[0].text, { runtime, console });
+        vm.runInNewContext(source.outputFiles[0].text, { runtime, console, Math: Object.assign(Object.create(Math), { random }) });
         // Simulate the shared queue dispatch after module evaluation/world load.
         assert.ok(recipeQueue.every(payload => Object.keys(payload).every(key => !key.includes('|'))), 'forge defaults must not use the registration queue');
         if (flushRegistrations) recipeQueue.forEach(registerRecipes);
@@ -74,7 +75,7 @@ function fixture(flushRegistrations = true) {
         };
         blocks.set(key(position), block); hooks.onPlace({ block }); return block;
     }
-    return { blocks, entities, drops, unloaded, dimension, place, reload, registerRecipes,
+    return { blocks, entities, drops, particles, unloaded, dimension, place, reload, registerRecipes,
         tick: (count = 1) => { for (let i = 0; i < count; i++) for (const block of blocks.values()) if (block.permutation.getState('utilitycraft:forge_owner')) hooks.onTick({ block }); },
         break(position) { const block = blocks.get(key(position)); blocks.delete(key(position)); hooks.onPlayerBreak({ block }); },
     };
@@ -255,3 +256,28 @@ console.log('Real furnace scriptevent handler: startup registrations, custom com
     assert.equal(entity.inventory.getItem(2).amount, 3);
 }
 console.log('Forge defaults work immediately without queue dispatch or scriptevents.');
+
+// Particle cadence is independent of the processing tick and emits once per structure.
+for (const facing of ['north', 'south', 'east', 'west']) {
+    const f = fixture(true, () => 0.95);
+    positions.forEach(position => f.place(position, facing));
+    const entity = f.entities[0];
+    load(entity);
+    f.tick(4);
+    assert.equal(f.particles.length, 0);
+    f.tick();
+    assert.deepEqual(f.particles.map(p => p.typeId), ['minecraft:basic_flame_particle', 'minecraft:basic_smoke_particle']);
+    const p = f.particles[0].position;
+    assert.ok(p.y >= 0.2 && p.y <= 0.3);
+    const axis = ['north', 'south'].includes(facing) ? 'z' : 'x';
+    assert.ok(['north', 'west'].includes(facing) ? p[axis] < 0 : p[axis] > 2);
+    entity.inventory.setItem(0, undefined);
+    entity.inventory.setItem(1, undefined);
+    f.tick(10);
+    assert.equal(f.particles.length, 2, 'idle forge must not emit particles');
+}
+const quietForge = fixture(true, () => 0.9);
+load(form(quietForge));
+quietForge.tick(5);
+assert.equal(quietForge.particles.length, 0, 'same 10% threshold as Better Smelters');
+console.log('Particle cadence, active-only emission, chance threshold and all four front positions passed.');

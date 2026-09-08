@@ -3945,6 +3945,9 @@
         ]
     },
     "io_tab": {
+        "$io_toggle_offset|default": [109, 1],
+        "$io_fluid_input_1_texture|default": "textures/ui/slots/input_1_slot",
+        "$io_gas_input_1_texture|default": "textures/ui/slots/input_1_slot",
         "type": "collection_panel",
         "anchor_from": "center",
         "anchor_to": "center",
@@ -4009,10 +4012,7 @@
                 "io_toggle@uc.toggle_button": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "offset": [
-                        109,
-                        1
-                    ],
+                    "offset": "$io_toggle_offset",
                     "visible": "$has_io_config",
                     "$toggle_name": "$right_machine_tabs_name",
                     "$toggle_layer": -5,
@@ -4048,10 +4048,7 @@
                 "io_toggle_close@uc.toggle_button": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "offset": [
-                        109,
-                        1
-                    ],
+                    "offset": "$io_toggle_offset",
                     "visible": "$has_io_config",
                     "$toggle_name": "$right_machine_tabs_name",
                     "$toggle_layer": -4,
@@ -4486,6 +4483,7 @@
                                 "controls": [
                                     {
                                         "fluid_faces@uc.io_face_slots": {
+                                        "$io_input_1_texture": "$io_fluid_input_1_texture",
                                             "$io_top_index": "$io_fluid_top_index",
                                             "$io_left_index": "$io_fluid_left_index",
                                             "$io_front_index": "$io_fluid_front_index",
@@ -4525,6 +4523,7 @@
                                 "controls": [
                                     {
                                         "gas_faces@uc.io_face_slots": {
+                                        "$io_input_1_texture": "$io_gas_input_1_texture",
                                             "$io_top_index": "$io_gas_top_index",
                                             "$io_left_index": "$io_gas_left_index",
                                             "$io_front_index": "$io_gas_front_index",

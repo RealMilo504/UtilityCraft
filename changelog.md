@@ -4,6 +4,7 @@ This update adds reversible Nether Star storage and four increasingly compact ti
 
 ## ADDED
 - Added Crude Oil, Petroleum and Diesel liquid UI bars, each with 49 fill levels (00-48), hidden UI items and registered textures compatible with FluidStorage. Recolors the exact Heavy Water pixel pattern: brown-black Crude Oil, charcoal-black Petroleum and pale golden-yellow Diesel, preserving the original ripple placement and shared empty-bar background.
+- Added Electrolyzer and Chemical Converter recipe books that shift the complete live machine UI and overlay recipe ingredients. Items use Crusher-style red backgrounds and counts only above one; fluid sprites and quantities sit at the bottom of existing bars. The native Electrolyzer selector displays both output icons with a plus sign and lists only output names in its tooltip. Recipe UI generation reads the default runtime recipes.
 - Added the Primitive Forge: eight inexpensive casing blocks automatically form a 2x2x2 structure facing the last placed block. Its front container processes Iron Dust with Coal or Charcoal into Brute Steel in eight-second batches of up to four without an energy network, with the existing machine progress bar, persistent processing and safe dismantling. Uses temporary block textures and a behavior-only controller entity; the UI shows its title, side-by-side inputs, a large output, vertically centered animated recipe progress and a large vanilla output without a machine outline. A separate fuel slot and flame use the existing solid-fuel registry (1,000 DE per recipe); single-input smelting and two-input combinations use furnaceRecipes. The separate primitiveForgeRecipes file imports furnaceRecipes and directly inserts its own recipes during script initialization, without queued events; the existing utilitycraft:register_furnace_recipe scriptevent can add or replace both normal recipes and combinations. Normal smelting takes two seconds per batch, with up to four recipes per batch and 1,000 DE worth of fuel per recipe. Processing runs every four ticks on one front owner block; other blocks use a 1,000,000-tick interval.
 - Added Liquid, Gas, Energy and Ultimate Trash Cans with the existing trash-can model and yellow, purple, cyan and red accents. Passive inputs clear every 10 ticks without UI: two tanks per supported fluid/gas type, one energy store, and 27 item slots on Ultimate. Includes Workbench/Crafter recipes and localized descriptions.
 - Added four Gas Generator tiers with Magmator-based temporary textures/UI, one gas tank, Hydrogen/Methane fuel values and tier-dependent output. Moved the Electrolyzer and Chemical Converter into UC, added their native crafts and profitable Methane production, and exposed recipe registries for addons.
@@ -13,6 +14,13 @@ This update adds reversible Nether Star storage and four increasingly compact ti
 
 ## CHANGED
 - Recolored all Methane gas bar fill levels muted sage green with soft mint highlights to distinguish them from pink Hydrogen and blue Oxygen, preserving the original gas pixel pattern, empty background and item identifiers.
+- Differentiated Electrolyzer liquid/gas input outlines (1/2) and Chemical Converter item/liquid/gas inputs (1/2/3), with matching resource-specific IO outlines and localized legend colors. Existing saved IO modes are preserved.
+- Moved Electrolyzer and Chemical Converter status screens into the main UI at the Crusher position, removed the side extension, moved energy bars to the left, and compacted recipe slots on the right while retaining the original progress-arrow size. Shifted outputs eight pixels and progress arrows four pixels right to use the available space. Moved status screens and text one pixel left for extra input spacing.
+- Compacted machine and generator side tabs when Upgrades or IO is absent. Toggles move up by 26 pixels per missing tab. Information moves together with its toggle; IO and upgrade panels keep their original positions. Information grows to 80x134 with two tabs or 80x160 with one; IO and upgrade panel sizes remain unchanged.
+- Active Primitive Forges emit vanilla flame and smoke at the lower front opening, matching Better Smelters closed-furnace frequency (10% chance every 20 ticks).
+- Primitive Forge top faces now use the same red side_bricks texture as the upper sides.
+- Raised the Solar Panel and Wind Turbine information tabs and enlarged their panels to 80x160, matching Digital Storage's Storage Drive.
+- Replaced Primitive Forge textures with the supplied 16x16 set and added lit lower-front textures while processing. Upper front, sides, roof and base remain unchanged between power states. Updated assembled forge renders.
 - Completed Primitive Forge, Mortar and Hammer tooltips and the current Forge info panel in all ten locales; removed superseded Forge panel text keys.
 - Grouped Mortar and Primitive Forge under Basics in the Construction creative category.
 - Added "Used to forge Brute Steel" to the Primitive Forge block tooltip.
@@ -42,6 +50,7 @@ This update adds reversible Nether Star storage and four increasingly compact ti
 - Fluid and gas extractor whitelists now act as explicit recovery overrides, allowing selected types to be drained from registered input tanks while still respecting disabled faces.
 
 ## FIXED
+- Aligned fluid recipe item overlays with their slots, placed fluid sprites and quantities below the bar frames, moved energy to the right in expanded recipe views, and removed the recipe list's extra top pixel.
 - Disabled interaction and focus on Primitive Forge decorative recipe slots, centered the recipe row and inset its descriptive labels by two pixels.
 - Fixed Primitive Forge info recipe slots reporting unknown collection_index properties by placing them inside a container_items collection panel.
 - Tightened Mortar selection to its 14x7x14 bowl and repositioned its pestle to rest on the interior floor and rim.

@@ -64,6 +64,7 @@
       },
       {
         "io_tab@uc.io_tab": {
+          "$io_toggle_offset": [109, -25],
           "$io_gases_modes_description": "ui.utilitycraft:io.gas_generator.gases",
           "$has_item_io": false,
           "$has_gas_io": true,
@@ -88,6 +89,8 @@
       },
       {
         "info_tab@uc.info_tab": {
+          "offset": [0, -26],
+          "$info_panel_size": [80,134],
           "$info_description": "ui.utilitycraft:info.gas_generator"
         }
       }
