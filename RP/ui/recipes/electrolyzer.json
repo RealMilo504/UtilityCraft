@@ -54,31 +54,6 @@
               }
             },
             {
-              "quantity_0": {
-                "type": "label",
-                "text": "1000mB",
-                "size": [
-                  16,
-                  7
-                ],
-                "offset": [
-                  65,
-                  57
-                ],
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "text_alignment": "center",
-                "font_scale_factor": 0.35,
-                "color": [
-                  1,
-                  1,
-                  1
-                ],
-                "shadow": true,
-                "layer": 8
-              }
-            },
-            {
               "fluid_1@uc.fluid_recipe_ingredient": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
@@ -93,31 +68,6 @@
               }
             },
             {
-              "quantity_1": {
-                "type": "label",
-                "text": "1000mB",
-                "size": [
-                  16,
-                  7
-                ],
-                "offset": [
-                  133,
-                  57
-                ],
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "text_alignment": "center",
-                "font_scale_factor": 0.35,
-                "color": [
-                  1,
-                  1,
-                  1
-                ],
-                "shadow": true,
-                "layer": 8
-              }
-            },
-            {
               "fluid_2@uc.fluid_recipe_ingredient": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
@@ -129,31 +79,6 @@
                 "$toggle_control_name": "electrolyzer_0_ingredient_2",
                 "$toggle_name": "electrolyzer_0_ingredient_2",
                 "$toggle_hover_text": "ui.utilitycraft:recipe.electrolyzer_0.ingredient_2"
-              }
-            },
-            {
-              "quantity_2": {
-                "type": "label",
-                "text": "500mB",
-                "size": [
-                  16,
-                  7
-                ],
-                "offset": [
-                  153,
-                  57
-                ],
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "text_alignment": "center",
-                "font_scale_factor": 0.35,
-                "color": [
-                  1,
-                  1,
-                  1
-                ],
-                "shadow": true,
-                "layer": 8
               }
             }
           ]
@@ -189,15 +114,15 @@
                 "$toggle_index": 0,
                 "$toggle_control_name": "electrolyzer_0_recipe",
                 "$toggle_hover_text": "ui.utilitycraft:recipe.electrolyzer_0.summary",
-                "$toggle_default_state": true,
                 "$recipe_icon": "textures/static/images/hydrogen_gas",
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
+                "anchor_from": "center",
+                "anchor_to": "left_middle",
                 "offset": [
-                  0,
+                  -9,
                   0
                 ],
-                "$recipe_icon_2": "textures/static/images/oxygen_gas"
+                "$recipe_icon_2": "textures/static/images/oxygen_gas",
+                "$pair_default_state": true
               }
             }
           ]

@@ -6,7 +6,6 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const write=(p,o)=>fs.writeFileSync(p,JSON.stringify(o,null,2)+'\n');
 const crusher=read('RP/ui/machines/crusher.json');
 const book=read('RP/ui/recipes/crusher.json');
-const core=read('RP/ui/ui_core.json');
 const resources={
  water:{texture:'textures/static/images/water',names:['Water','Agua','\u00c1gua']},
  hydrogen_gas:{texture:'textures/static/images/hydrogen_gas',names:['Hydrogen','Hidr\u00f3geno','Hidrog\u00eanio']},
@@ -21,18 +20,16 @@ const visible=(control)=>[{binding_type:'view',source_control_name:control,sourc
 function image(texture,size,offset,layer=2){return {type:'image',texture,size,offset,anchor_from:'top_left',anchor_to:'top_left',layer};}
 function label(text,size,offset,scale=0.55){return {type:'label',text,size,offset,anchor_from:'top_left',anchor_to:'top_left',text_alignment:'left',font_scale_factor:scale,color:[1,1,1],shadow:true,layer:8};}
 const common={namespace:'uc'};
-// Copy the native toggle states; new controls must not use modifications.
-const pairControls=structuredClone(core.toggle_button.controls);
-const nativeToggle=pairControls.find(c=>c['$toggle_control_name@common.toggle'])['$toggle_control_name@common.toggle'];
-for(const entry of nativeToggle.controls){
- const state=Object.values(entry)[0];
- state.controls=state.controls.filter(c=>!c.icon);
- state.controls.push({first_icon:image('$recipe_icon',[16,16],[2,1],1)},
+// Keep the working standard selector; draw both output icons above it.
+// recipe_pair_hover copies Mojang slot_enabled_hover pixels with 1px nine-slice metadata,
+// matching the scalable normal/selected recipe textures at rectangular sizes.
+common.fluid_pair_recipe_toggle={type:'panel',size:[42,18],
+ '$recipe_icon|default':'','$recipe_icon_2|default':'','$pair_default_state|default':false,controls:[
+  {'button@uc.recipe_toggle':{size:[42,18],$toggle_size:[42,18],$has_toggle_icon:false,$toggle_default_state:'$pair_default_state',$toggle_unchecked_hover:'textures/ui/recipe_pair_hover',$toggle_checked_hover:'textures/ui/recipe_pair_hover'}},
+  {first_icon:image('$recipe_icon',[16,16],[2,1],1)},
   {plus:{...label('+',[6,10],[18,4],0.8),layer:1}},
-  {second_icon:image('$recipe_icon_2',[16,16],[24,1],1)});
-}
-common['fluid_pair_recipe_toggle@uc.recipe_toggle']={size:[42,18],$toggle_size:[42,18],$has_toggle_icon:false,
- '$recipe_icon_2|default':'',controls:pairControls};
+  {second_icon:image('$recipe_icon_2',[16,16],[24,1],1)}
+ ]};
 common['fluid_recipe_ingredient@uc.recipe_toggle']={size:[16,16],$toggle_size:[16,16],$toggle_icon_size:[16,16],$toggle_group:false,$toggle_layer:7,
  $toggle_unchecked:'textures/ui/slots/transparent_slot',$toggle_checked:'textures/ui/slots/transparent_slot',
  $toggle_unchecked_hover:'textures/ui/slots/transparent_slot',$toggle_checked_hover:'textures/ui/slots/transparent_slot'};
@@ -73,7 +70,15 @@ for(const machine of ['electrolyzer','chemical_converter']){
   const outputs=parts.filter(p=>p.role===1);
   const tooltip=translate(prefix+'.summary',localeNames.map((_,lang)=>outputs.map(p=>resources[p.type].names[lang]).join('\\n')));
   const toggle={$toggle_name:machine+'_recipes',$toggle_index:index,$toggle_control_name:select,$toggle_hover_text:tooltip,$toggle_default_state:index===0,$recipe_icon:resources[outputs[0].type].texture,anchor_from:'top_left',anchor_to:'top_left',offset:[0,0]};
-  if(outputs.length===2)toggle.$recipe_icon_2=resources[outputs[1].type].texture;
+  if(outputs.length===2){
+   toggle.$recipe_icon_2=resources[outputs[1].type].texture;
+   // Standard recipe toggles fill the row and center their 18px native button.
+   // Match that left edge; anchoring the 42px wrapper at row origin clips it.
+   toggle.anchor_from='center';toggle.anchor_to='left_middle';toggle.offset=[-9,0];
+   // The child recipe_toggle sets its own default state; forward it explicitly.
+   toggle.$pair_default_state=toggle.$toggle_default_state;
+   delete toggle.$toggle_default_state;
+  }
   buttons.controls.push({['row_'+index]:{type:'panel',size:[126,20],controls:[{[id+'_toggle@uc.'+(outputs.length===2?'fluid_pair_recipe_toggle':'recipe_toggle')]:toggle}]}});
   const controls=[];
   for(let n=0;n<parts.length;n++){
@@ -87,7 +92,6 @@ for(const machine of ['electrolyzer','chemical_converter']){
    const detail=translate(prefix+'.ingredient_'+n,localeNames.map((_,lang)=>resource.names[lang]+'\\n'+(p.role?['Produces','Produce','Produz'][lang]:['Requires','Requiere','Requer'][lang])+': '+p.amount+' mB'));
    // Overlay the bottom 16px of the live bar; preserve its frame and real contents.
    controls.push({['fluid_'+n+'@uc.fluid_recipe_ingredient']:{anchor_from:'top_left',anchor_to:'top_left',offset:[p.x-8,p.bottom-16],$recipe_icon:resource.texture,$toggle_control_name:id+'_ingredient_'+n,$toggle_name:id+'_ingredient_'+n,$toggle_hover_text:detail}});
-   controls.push({['quantity_'+n]:{...label(p.amount+'mB',[16,7],[p.x-8,p.bottom-8],0.35),text_alignment:'center',layer:8}});
   }
   recipeControls.push({[id+'_preview']:{type:'collection_panel',size:[162,72],collection_name:'container_items',$item_collection_name:'container_items',bindings:visible(select),controls}});
   index++;

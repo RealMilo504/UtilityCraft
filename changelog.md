@@ -3,8 +3,11 @@
 This update adds reversible Nether Star storage and four increasingly compact tiers.
 
 ## ADDED
+- Added shared Saline Coolant, Fluorine, Hydrogen Fluoride, Natural/Enriched/Depleted Uranium Hexafluoride and Nuclear Waste resources migrated from Heavy Machinery: 343 hidden bar items/frames, tank entities/textures and localized names. Existing type IDs and mB units remain unchanged; production recipes and machine behavior stay in Heavy Machinery.
+- Migrated basic Uranium materials from Heavy Machinery: ingot, dust, raw uranium, deepslate ore/chunk, raw/storage blocks and normal pellet, including textures, localized UtilityCraft names, Creative entries, ore drops, crafting and crusher/furnace/press recipes. Existing identifiers and recipe values are preserved. Uranium sieve drops are registered only by Heavy Machinery and are unavailable with UtilityCraft alone.
+- Completed the static 16x16 liquid/gas sprite set with Heavy Water, Sulfuric Acid, Crude Oil, Petroleum and Diesel icons, extracted from their existing entity textures or full bars. All 13 built-in liquid/gas bar types now have icons in textures/static/images.
 - Added Crude Oil, Petroleum and Diesel liquid UI bars, each with 49 fill levels (00-48), hidden UI items and registered textures compatible with FluidStorage. Recolors the exact Heavy Water pixel pattern: brown-black Crude Oil, charcoal-black Petroleum and pale golden-yellow Diesel, preserving the original ripple placement and shared empty-bar background.
-- Added Electrolyzer and Chemical Converter recipe books that shift the complete live machine UI and overlay recipe ingredients. Items use Crusher-style red backgrounds and counts only above one; fluid sprites and quantities sit at the bottom of existing bars. The native Electrolyzer selector displays both output icons with a plus sign and lists only output names in its tooltip. Recipe UI generation reads the default runtime recipes.
+- Added Electrolyzer and Chemical Converter recipe books that shift the complete live machine UI and overlay recipe ingredients. Items use Crusher-style red backgrounds and counts only above one; fluid sprites sit at the bottom of existing bars, with quantities shown only in tooltips. The native Electrolyzer selector displays both output icons with a plus sign and lists only output names in its tooltip. Recipe UI generation reads the default runtime recipes.
 - Added the Primitive Forge: eight inexpensive casing blocks automatically form a 2x2x2 structure facing the last placed block. Its front container processes Iron Dust with Coal or Charcoal into Brute Steel in eight-second batches of up to four without an energy network, with the existing machine progress bar, persistent processing and safe dismantling. Uses temporary block textures and a behavior-only controller entity; the UI shows its title, side-by-side inputs, a large output, vertically centered animated recipe progress and a large vanilla output without a machine outline. A separate fuel slot and flame use the existing solid-fuel registry (1,000 DE per recipe); single-input smelting and two-input combinations use furnaceRecipes. The separate primitiveForgeRecipes file imports furnaceRecipes and directly inserts its own recipes during script initialization, without queued events; the existing utilitycraft:register_furnace_recipe scriptevent can add or replace both normal recipes and combinations. Normal smelting takes two seconds per batch, with up to four recipes per batch and 1,000 DE worth of fuel per recipe. Processing runs every four ticks on one front owner block; other blocks use a 1,000,000-tick interval.
 - Added Liquid, Gas, Energy and Ultimate Trash Cans with the existing trash-can model and yellow, purple, cyan and red accents. Passive inputs clear every 10 ticks without UI: two tanks per supported fluid/gas type, one energy store, and 27 item slots on Ultimate. Includes Workbench/Crafter recipes and localized descriptions.
 - Added four Gas Generator tiers with Magmator-based temporary textures/UI, one gas tank, Hydrogen/Methane fuel values and tier-dependent output. Moved the Electrolyzer and Chemical Converter into UC, added their native crafts and profitable Methane production, and exposed recipe registries for addons.
@@ -50,7 +53,9 @@ This update adds reversible Nether Star storage and four increasingly compact ti
 - Fluid and gas extractor whitelists now act as explicit recovery overrides, allowing selected types to be drained from registered input tanks while still respecting disabled faces.
 
 ## FIXED
-- Aligned fluid recipe item overlays with their slots, placed fluid sprites and quantities below the bar frames, moved energy to the right in expanded recipe views, and removed the recipe list's extra top pixel.
+- Kept the Electrolyzer paired recipe hover background at the full 42x18 button size with a dedicated nine-slice copy of the vanilla hover texture, preserving its border and both output icons.
+- Aligned the Electrolyzer two-output recipe selector with the standard recipe button inside the scrolling viewport, preventing it from being clipped off-screen. Explicitly forwards the initial selection to its native toggle, retaining both output icons and their shared tooltip.
+- Aligned fluid recipe item overlays with their slots, placed fluid sprites below the bar frames, moved energy to the right in expanded recipe views, and removed the recipe list's extra top pixel.
 - Disabled interaction and focus on Primitive Forge decorative recipe slots, centered the recipe row and inset its descriptive labels by two pixels.
 - Fixed Primitive Forge info recipe slots reporting unknown collection_index properties by placing them inside a container_items collection panel.
 - Tightened Mortar selection to its 14x7x14 bowl and repositioned its pestle to rest on the interior floor and rim.
@@ -74,6 +79,7 @@ This update improves cross-addon machine-port compatibility, refreshes Simplifie
 - Improved Simplified Chinese translations across machines, items, guides, recipes and Bountiful content.
 
 ## FIXED
+- Removed the trailing _liquid suffix from liquid bar display names.
 - Fixed fluid and gas input items without an output container not being consumed after successful insertion.
 
 ## COMPATIBILITY

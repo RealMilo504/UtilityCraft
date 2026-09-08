@@ -14,6 +14,9 @@ import * as DoriosLib from "DoriosLib/index.js";
 export const pressRecipes = {};
 
 const pressRecipesRegister = {
+  // Uranium
+  "utilitycraft:deepslate_uranium_chunk": { output: "utilitycraft:deepslate_uranium_ore", required: 4 },
+  "utilitycraft:uranium_ingot": { output: "utilitycraft:uranium_pellet", required: 1 },
   // Lead
     "utilitycraft:lead_chunk": { output: "utilitycraft:lead_ore", required: 4 },
     "utilitycraft:deepslate_lead_chunk": { output: "utilitycraft:deepslate_lead_ore", required: 4 },

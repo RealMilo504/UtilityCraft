@@ -14,6 +14,12 @@ import * as DoriosLib from "DoriosLib/index.js";
 export const crusherRecipes = {}
 
 const crusherRecipesRegister = {
+  // Uranium
+  "utilitycraft:deepslate_uranium_ore": { output: "utilitycraft:uranium_dust", amount: 2 },
+  "utilitycraft:raw_uranium": { output: "utilitycraft:uranium_dust", amount: 2 },
+  "utilitycraft:uranium_ingot": { output: "utilitycraft:uranium_dust", amount: 1 },
+  "utilitycraft:raw_uranium_block": { output: "utilitycraft:uranium_dust", amount: 12 },
+  "utilitycraft:uranium_block": { output: "utilitycraft:uranium_dust", amount: 6 },
   // Lead
     "utilitycraft:lead_ore": { output: "utilitycraft:lead_dust", amount: 2 },
     "utilitycraft:deepslate_lead_ore": { output: "utilitycraft:lead_dust", amount: 2 },

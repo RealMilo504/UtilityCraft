@@ -14,6 +14,11 @@ import { system } from "@minecraft/server";
 export const furnaceRecipes = {}
 
 const furnaceRecipesRegister = {
+  // Uranium
+  "utilitycraft:deepslate_uranium_ore": { output: "utilitycraft:uranium_ingot" },
+  "utilitycraft:uranium_dust": { output: "utilitycraft:uranium_ingot" },
+  "utilitycraft:raw_uranium": { output: "utilitycraft:uranium_ingot" },
+  "utilitycraft:raw_uranium_block": { output: "utilitycraft:uranium_block" },
   // Lead
     "utilitycraft:lead_ore": { output: "utilitycraft:lead_ingot" },
     "utilitycraft:deepslate_lead_ore": { output: "utilitycraft:lead_ingot" },

@@ -70,31 +70,6 @@
               }
             },
             {
-              "quantity_1": {
-                "type": "label",
-                "text": "1000mB",
-                "size": [
-                  16,
-                  7
-                ],
-                "offset": [
-                  105,
-                  57
-                ],
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "text_alignment": "center",
-                "font_scale_factor": 0.35,
-                "color": [
-                  1,
-                  1,
-                  1
-                ],
-                "shadow": true,
-                "layer": 8
-              }
-            },
-            {
               "fluid_2@uc.fluid_recipe_ingredient": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
@@ -106,31 +81,6 @@
                 "$toggle_control_name": "chemical_converter_0_ingredient_2",
                 "$toggle_name": "chemical_converter_0_ingredient_2",
                 "$toggle_hover_text": "ui.utilitycraft:recipe.chemical_converter_0.ingredient_2"
-              }
-            },
-            {
-              "quantity_2": {
-                "type": "label",
-                "text": "1000mB",
-                "size": [
-                  16,
-                  7
-                ],
-                "offset": [
-                  153,
-                  57
-                ],
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "text_alignment": "center",
-                "font_scale_factor": 0.35,
-                "color": [
-                  1,
-                  1,
-                  1
-                ],
-                "shadow": true,
-                "layer": 8
               }
             }
           ]

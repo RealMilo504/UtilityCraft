@@ -36,3 +36,21 @@ The shared DoriosLib registry provides registerElectrolyzerRecipe and registerCh
 Liquid Trash Can (yellow): two liquid tanks. Gas Trash Can (purple): two gas tanks. Energy Trash Can (cyan): one energy store. Ultimate Trash Can (red): 27 inventory slots, two liquid tanks, two gas tanks and one energy store. All variants reuse the Basic Trash Can geometry and texture with only green accents recolored.
 
 The new variants have no interface or display items. Resources enter passively through connected transport; all supported stores clear every 10 ticks (0.5 seconds at 20 TPS), with liquid/gas types reset to empty. Each tank/store buffers up to 1,000,000,000 mB/DE between clears. Ultimate accepts items through normal item transport. There is no active pulling or exporting from these sinks. Breaking one removes its own entity without dropping stored contents. The original Basic Trash Can retains its existing behavior.
+
+## Shared resource ownership
+
+UtilityCraft owns the hidden bar items, textures and tank entities for the following resources migrated from Heavy Machinery. These definitions can be used without Heavy Machinery; they do not add standalone production recipes or Creative inventory entries.
+
+| Storage API | Exact type string |
+|---|---|
+| FluidStorage | `saline_coolant` |
+| GasStorage | `fluorine_gas` |
+| GasStorage | `hydrogen_fluoride_gas` |
+| GasStorage | `natural_uranium_hexafluoride_gas` |
+| GasStorage | `enriched_uranium_hexafluoride_gas` |
+| GasStorage | `depleted_uranium_hexafluoride_gas` |
+| GasStorage | `nuclear_waste_gas` |
+
+Use these exact type strings and quantities in mB with the shared storage/recipe APIs. The type string has no namespace prefix. Storage displays resolve `utilitycraft:<type>_00` through `utilitycraft:<type>_48`; tank entities resolve `utilitycraft:fluid_tank_<type>` or `utilitycraft:gas_tank_<type>`. Addons consuming these resources should depend on UC and reuse its definitions rather than defining the same identifiers again.
+
+Heavy Machinery retains its production and processing recipes, coolant efficiencies/tiers, Saline Coolant Bucket and Creative Tanks. Other addons can provide their own producers and consumers using the same resource types. Transport still follows each machine's configured I/O and available capacity.

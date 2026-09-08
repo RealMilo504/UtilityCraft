@@ -1,4 +1,16 @@
 {
+	"utilitycraft:deepslate_uranium_ore": {
+		"sound": "stone",
+		"textures": "utilitycraft_deepslate_uranium_ore"
+	},
+	"utilitycraft:raw_uranium_block": {
+		"sound": "metal",
+		"textures": "utilitycraft_raw_uranium_block"
+	},
+	"utilitycraft:uranium_block": {
+		"sound": "metal",
+		"textures": "utilitycraft_uranium_block"
+	},
     "utilitycraft:mortar": { "sound": "stone" },
     "utilitycraft:primitive_forge": { "sound": "stone" },
 	"utilitycraft:electrolyzer": {

@@ -8,21 +8,25 @@ const uiDefs=read('RP/ui/_ui_defs.json').ui_defs;
 const core=read('RP/ui/ui_core.json');
 const inheritedTextures=new Set();walk(read('RP/ui/recipes/crusher.json'),(k,v)=>{if(typeof v==='string'&&v.startsWith('textures/'))inheritedTextures.add(v);});
 const shared=read('RP/ui/recipes/fluid_core.json');
-const pair=shared['fluid_pair_recipe_toggle@uc.recipe_toggle'];
-assert.deepEqual(pair.$toggle_size,[42,18]);
+const pair=shared.fluid_pair_recipe_toggle;
+assert.equal(pair.type,'panel');
+assert.deepEqual(pair.size,[42,18]);
 assert.equal(shared['fluid_recipe_ingredient@uc.recipe_toggle'].$toggle_layer,7);
 assert.equal(core.liquid_bar.controls.find(c=>c.liquid_border).liquid_border.layer,9);
-const button=pair.controls.find(c=>c['$toggle_control_name@common.toggle'])['$toggle_control_name@common.toggle'];
-const standard=core.toggle_button.controls.find(c=>c['$toggle_control_name@common.toggle'])['$toggle_control_name@common.toggle'];
-assert.deepEqual(button.bindings,standard.bindings);
-assert.deepEqual(button.button_mappings,standard.button_mappings);
-assert.equal(button.controls.length,8);
-for(const state of button.controls){
- const controls=Object.values(state)[0].controls;
- assert.equal(controls.find(c=>c.first_icon).first_icon.texture,'$recipe_icon');
- assert.equal(controls.find(c=>c.second_icon).second_icon.texture,'$recipe_icon_2');
- assert.equal(controls.find(c=>c.plus).plus.text,'+');
-}
+const button=pair.controls.find(c=>c['button@uc.recipe_toggle'])['button@uc.recipe_toggle'];
+assert.deepEqual(button.$toggle_size,[42,18]);
+assert.equal(button.$has_toggle_icon,false);
+assert.equal(button.$toggle_unchecked_hover,'textures/ui/recipe_pair_hover');
+assert.equal(button.$toggle_checked_hover,button.$toggle_unchecked_hover);
+const hoverMetadata=read('RP/'+button.$toggle_checked_hover+'.json');
+const hoverPng=fs.readFileSync('RP/'+button.$toggle_checked_hover+'.png');
+assert.deepEqual(hoverMetadata.base_size,[hoverPng.readUInt32BE(16),hoverPng.readUInt32BE(20)]);
+assert.equal(hoverMetadata.nineslice_size,1,'hover must scale to the rectangular button while preserving its border');
+assert.equal(button.$toggle_default_state,'$pair_default_state');
+assert.equal(button.controls,undefined,'inherit the standard selector states and interaction');
+assert.equal(pair.controls.find(c=>c.first_icon).first_icon.texture,'$recipe_icon');
+assert.equal(pair.controls.find(c=>c.second_icon).second_icon.texture,'$recipe_icon_2');
+assert.equal(pair.controls.find(c=>c.plus).plus.text,'+');
 for(const sprite of ['water','hydrogen_gas','oxygen_gas','methane_gas']){
  const png=fs.readFileSync('RP/textures/static/images/'+sprite+'.png');assert.equal(png.readUInt32BE(16),16);assert.equal(png.readUInt32BE(20),16);
 }
@@ -58,11 +62,22 @@ for(const machine of ['electrolyzer','chemical_converter']){
   const fluids=overlay.controls.filter(c=>Object.keys(c)[0].endsWith('@uc.fluid_recipe_ingredient'));
   const quantities=overlay.controls.filter(c=>Object.keys(c)[0].startsWith('quantity_')).map(c=>Object.values(c)[0]);
   const expected=machine==='electrolyzer'?[recipe.required_liquid,recipe.output1.amount,recipe.output2.amount]:[recipe.required_gas,recipe.output_gas.amount];
-  assert.deepEqual(quantities.map(q=>parseInt(q.text,10)),expected);
+  assert.equal(quantities.length,0,'fluid quantities belong only in tooltips');
   assert.equal(fluids.length,expected.length);
-  fluids.forEach((c,n)=>{const icon=Object.values(c)[0],quantity=quantities[n];assert.equal(icon.offset[1]+16,65);assert(quantity.offset[1]>=icon.offset[1]);assert(quantity.offset[1]+quantity.size[1]<=65);assert.equal(quantity.text,expected[n]+'mB');assert.equal(quantity.layer,8);});
+  fluids.forEach((c,n)=>{const icon=Object.values(c)[0];assert.equal(icon.offset[1]+16,65);for(const lang of locales)assert(lang[icon.$toggle_hover_text].endsWith(': '+expected[n]+' mB'),'keep quantity in each localized hover');});
   assert(!overlay.controls.some(c=>c.summary||c.arrow||Object.keys(c)[0].startsWith('details_')),'overlays must not replace live labels or arrow');
   const toggle=Object.values(book[machine+'_recipes_buttons'].controls[i]['row_'+i].controls[0])[0];
+  if(machine==='electrolyzer'){
+   const row=book[machine+'_recipes_buttons'].controls[i]['row_'+i];
+   const standardSize=read('RP/ui/recipes/core.json')['recipe_toggle@uc.toggle_button'].$toggle_size;
+   assert.equal(toggle.anchor_from,'center');assert.equal(toggle.anchor_to,'left_middle');
+   const standardLeft=(row.size[0]-standardSize[0])/2;
+   const pairLeft=row.size[0]/2+toggle.offset[0];
+   assert.equal(pairLeft,standardLeft,'pair must start at the visible standard selector edge, not the clipped row origin');
+   assert.equal(row.size[1]/2+toggle.offset[1]-pair.size[1]/2,(row.size[1]-standardSize[1])/2);
+   assert(pairLeft+pair.size[0]<=row.size[0],'both output icons must fit inside the recipe row');
+   assert.equal(toggle.$pair_default_state,i===0,'first recipe must select the native child toggle');
+  }
   const summary=locales[0][toggle.$toggle_hover_text];
   assert.equal(summary,machine==='electrolyzer'?'Hydrogen\\nOxygen':'Methane');
   if(machine==='chemical_converter'){
@@ -74,4 +89,4 @@ for(const machine of ['electrolyzer','chemical_converter']){
   }
  }
 }
-console.log('PASS: full live UI in both views, native pair-toggle states, output-only tooltips, Crusher item overlays and bottom-aligned fluid quantities.');
+console.log('PASS: full live UI in both views, standard paired selector, output-only tooltips, Crusher item overlays and bottom-aligned fluid icons with quantities only in tooltips.');

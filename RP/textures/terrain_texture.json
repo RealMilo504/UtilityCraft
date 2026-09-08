@@ -4,6 +4,33 @@
 	"resource_pack_name": "UtilityCraft 3.0",
 	"texture_name": "atlas.terrain",
 	"texture_data": {
+		"utilitycraft_saline_coolant_fluid": {
+			"textures": "textures/entity/saline_coolant_fluid"
+		},
+		"utilitycraft_fluorine_gas": {
+			"textures": "textures/entity/fluorine_gas"
+		},
+		"utilitycraft_hydrogen_fluoride_gas": {
+			"textures": "textures/entity/hydrogen_fluoride_gas"
+		},
+		"utilitycraft_natural_uranium_hexafluoride_gas": {
+			"textures": "textures/entity/natural_uranium_hexafluoride_gas"
+		},
+		"utilitycraft_enriched_uranium_hexafluoride_gas": {
+			"textures": "textures/entity/enriched_uranium_hexafluoride_gas"
+		},
+		"utilitycraft_depleted_uranium_hexafluoride_gas": {
+			"textures": "textures/entity/depleted_uranium_hexafluoride_gas"
+		},
+		"utilitycraft_deepslate_uranium_ore": {
+			"textures": "textures/blocks/ores/deepslate_uranium_ore"
+		},
+		"utilitycraft_raw_uranium_block": {
+			"textures": "textures/blocks/block_of_raw_uranium"
+		},
+		"utilitycraft_uranium_block": {
+			"textures": "textures/blocks/block_of_uranium"
+		},
         "utilitycraft_primitive_forge": {"textures": "textures/blocks/primitive_forge/side_bricks"},
         "utilitycraft_primitive_forge_bottom": {"textures": "textures/blocks/primitive_forge/bottom"},
         "utilitycraft_primitive_forge_bottom_left": {"textures": "textures/blocks/primitive_forge/bottom_left"},
